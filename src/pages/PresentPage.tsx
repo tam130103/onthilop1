@@ -219,7 +219,7 @@ export function PresentPage() {
     };
   }, [lessonId]);
 
-  // Keyboard navigation: Chặn F5 (clicker), giữ Escape
+  // Keyboard: Chặn F5 (clicker), giữ Escape, điều hướng mũi tên
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
       // 1. Chặn F5 (clicker hay ấn F5)
@@ -231,18 +231,16 @@ export function PresentPage() {
       if (e.key === 'Escape') {
         return;
       }
-      // 3. Mũi tên điều hướng: chuyển slide và gửi yêu cầu sang /presenter
+      // 3. Mũi tên điều hướng cục bộ (cho phép bấm clicker/bàn phím trực tiếp trên màn present)
       switch (e.key) {
         case 'ArrowRight':
         case 'PageDown':
           e.preventDefault();
-          channelRef.current?.send('REQ_NEXT_SLIDE', {});
           dispatch({ type: 'NEXT_SLIDE' });
           break;
         case 'ArrowLeft':
         case 'PageUp':
           e.preventDefault();
-          channelRef.current?.send('REQ_PREV_SLIDE', {});
           dispatch({ type: 'PREV_SLIDE' });
           break;
       }
@@ -254,24 +252,8 @@ export function PresentPage() {
   const currentSlide = getCurrentSlide(state);
 
   const handleToggleBlackout = useCallback(() => {
-    const next = !state.blackout;
-    dispatch({ type: 'SET_BLACKOUT', blackout: next });
-    channelRef.current?.send('BLACKOUT_TOGGLE', { blackout: next });
+    dispatch({ type: 'SET_BLACKOUT', blackout: !state.blackout });
   }, [state.blackout]);
-
-  // Học sinh tương tác chạm trên TV: gửi STUDENT_ANSWER sang /presenter để cập nhật state duy nhất
-  const handleAnswer = useCallback(
-    (answerId: string, isCorrect: boolean) => {
-      if (!currentSlide || currentSlide.type !== 'question-slide') return;
-      channelRef.current?.send('STUDENT_ANSWER', {
-        questionId: currentSlide.question.id,
-        isCorrect,
-        givenAnswer: answerId,
-        slideIndex: state.currentSlideIndex,
-      });
-    },
-    [currentSlide, state.currentSlideIndex]
-  );
 
   // Nút "Bắt đầu buổi học" trên TV: mở khóa AudioContext và gỡ màn chờ
   const handleStartSession = useCallback(() => {
@@ -396,7 +378,7 @@ export function PresentPage() {
                   correctOptionId={q.correctOptionId}
                   explanation={q.explanation}
                   showAnswer={state.showAnswer}
-                  onAnswer={handleAnswer}
+                  onAnswer={() => {}}
                 />
               </div>
             );
@@ -413,7 +395,7 @@ export function PresentPage() {
                   numberRange={q.numberRange}
                   explanation={q.explanation}
                   showAnswer={state.showAnswer}
-                  onAnswer={(count, isCorrect) => handleAnswer(String(count), isCorrect)}
+                  onAnswer={() => {}}
                 />
               </div>
             );
@@ -429,7 +411,7 @@ export function PresentPage() {
                   correctAnswer={q.correctAnswer}
                   explanation={q.explanation}
                   showAnswer={state.showAnswer}
-                  onAnswer={(num, isCorrect) => handleAnswer(String(num), isCorrect)}
+                  onAnswer={() => {}}
                 />
               </div>
             );
@@ -443,10 +425,7 @@ export function PresentPage() {
                 explanation={q.explanation}
                 showAnswer={state.showAnswer}
                 initialMapping={state.tapPlaceMapping}
-                onAnswer={(m, isCorrect) => {
-                  channelRef.current?.send('REQ_TAP_PLACE', { mapping: m });
-                  handleAnswer(JSON.stringify(m), isCorrect);
-                }}
+                onAnswer={() => {}}
               />
             );
           case 'matching':
@@ -459,10 +438,7 @@ export function PresentPage() {
                 explanation={q.explanation}
                 showAnswer={state.showAnswer}
                 initialPairs={state.matchingPairs}
-                onAnswer={(p, isCorrect) => {
-                  channelRef.current?.send('REQ_MATCHING', { pairs: p });
-                  handleAnswer(JSON.stringify(p), isCorrect);
-                }}
+                onAnswer={() => {}}
               />
             );
         }
@@ -474,7 +450,6 @@ export function PresentPage() {
     state.error,
     state.tapPlaceMapping,
     state.matchingPairs,
-    handleAnswer,
   ]);
 
   const slideInfo = state.lesson

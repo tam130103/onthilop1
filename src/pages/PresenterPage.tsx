@@ -188,7 +188,7 @@ export function PresenterPage() {
     [sendSnapshot]
   );
 
-  // Init sync channel and respond to HELLO from /present + handle student actions
+  // Init sync channel and respond to HELLO from /present
   useEffect(() => {
     const channel = new SyncChannel('presenter', lessonId || undefined);
     channelRef.current = channel;
@@ -196,45 +196,6 @@ export function PresenterPage() {
     const unsubs = [
       channel.on('HELLO', () => {
         sendSnapshot();
-      }),
-      channel.on('STUDENT_ANSWER', (msg) => {
-        const payload = msg.payload as {
-          questionId: string;
-          isCorrect: boolean;
-          givenAnswer: string;
-          slideIndex: number;
-        };
-        const cur = stateRef.current;
-        const slide = getCurrentSlide(cur);
-        if (slide?.type === 'question-slide') {
-          if (payload.isCorrect) {
-            dispatch({ type: 'ANSWER_CORRECT', questionId: payload.questionId });
-          } else {
-            dispatch({
-              type: 'ANSWER_INCORRECT',
-              slideIndex: payload.slideIndex ?? cur.currentSlideIndex,
-              question: slide.question,
-              givenAnswer: payload.givenAnswer,
-            });
-          }
-          setTimeout(sendSnapshot, 20);
-        }
-      }),
-      channel.on('REQ_NEXT_SLIDE', () => {
-        handleNext();
-      }),
-      channel.on('REQ_PREV_SLIDE', () => {
-        handlePrev();
-      }),
-      channel.on('REQ_TAP_PLACE', (msg) => {
-        const payload = msg.payload as { mapping: Record<string, string> };
-        dispatch({ type: 'SET_TAP_PLACE_MAPPING', mapping: payload.mapping });
-        setTimeout(sendSnapshot, 20);
-      }),
-      channel.on('REQ_MATCHING', (msg) => {
-        const payload = msg.payload as { pairs: Array<{ leftId: string; rightId: string }> };
-        dispatch({ type: 'SET_MATCHING_PAIRS', pairs: payload.pairs });
-        setTimeout(sendSnapshot, 20);
       }),
       channel.on('BLACKOUT_TOGGLE', () => {
         handleToggleBlackout();
@@ -246,7 +207,7 @@ export function PresenterPage() {
       channel.dispose();
       channelRef.current = null;
     };
-  }, [lessonId, sendSnapshot, handleNext, handlePrev, handleToggleBlackout]);
+  }, [lessonId, sendSnapshot, handleToggleBlackout]);
 
   // Classroom Tool handlers
   const handleRandomPick = useCallback(() => {

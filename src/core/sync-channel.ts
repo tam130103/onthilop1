@@ -14,12 +14,7 @@ export type SyncMessageType =
   | 'BLACKOUT_TOGGLE'
   | 'CLASSROOM_UPDATE'
   | 'PICKER_START'
-  | 'PICKER_CLOSE'
-  | 'STUDENT_ANSWER'
-  | 'REQ_NEXT_SLIDE'
-  | 'REQ_PREV_SLIDE'
-  | 'REQ_TAP_PLACE'
-  | 'REQ_MATCHING';
+  | 'PICKER_CLOSE';
 
 export interface PresentationSnapshot {
   currentSlideIndex: number;
