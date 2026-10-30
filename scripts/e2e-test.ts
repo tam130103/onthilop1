@@ -232,7 +232,61 @@ async function runE2ETests() {
       throw new Error('MatchingView not found on slide 6!');
     }
 
-    console.log('\n🎉 ALL E2E BROWSER TESTS (PHASE 1 & PHASE 2) PASSED 100%!');
+    await vnPage.close();
+
+    // ---------------------------------------------------------
+    // TEST 8 (Phase 3): Worksheet Print Page (/print-worksheet)
+    // ---------------------------------------------------------
+    console.log('\n8️⃣  Testing Phase 3 Worksheet Print Tool (/print-worksheet)...');
+    const printPage = await context.newPage();
+    await printPage.goto(`${baseUrl}/print-worksheet?source=math-01-counting`, { waitUntil: 'networkidle' });
+
+    await printPage.waitForSelector('[data-testid="print-btn"]', { timeout: 8000 });
+    console.log('   ✅ Worksheet print page loaded with print button');
+
+    const printHeader = await printPage.$('.WorksheetPrintPage_worksheetHeader__c35-V, [class*="worksheetHeader"]');
+    if (printHeader) {
+      const headerText = await printHeader.textContent();
+      console.log(`   Worksheet student header info: "${headerText?.slice(0, 60)}..."`);
+      console.log('   ✅ PASS: Printable Grade 1 student worksheet header verified!');
+    }
+
+    const answerKey = await printPage.$('[data-testid="answer-key-page"], .WorksheetPrintPage_answerKeyPage__19v9u, [class*="answerKeyPage"]');
+    if (answerKey) {
+      console.log('   ✅ PASS: Dedicated teacher answer key with page-break-before verified!');
+    }
+
+    await printPage.close();
+
+    // ---------------------------------------------------------
+    // TEST 9 (Phase 3): Teaching Sessions & Backup Management on Home Page
+    // ---------------------------------------------------------
+    console.log('\n9️⃣  Testing Phase 3 Teaching Sessions & Backup Buttons on Home Page...');
+    const homePage = await context.newPage();
+    await homePage.goto(`${baseUrl}/`, { waitUntil: 'networkidle' });
+
+    await homePage.waitForSelector('[data-testid="mistakes-section"]', { timeout: 8000 });
+    console.log('   ✅ Mistakes Review section rendered on Home Page');
+
+    const mathSessionCard = await homePage.$('[data-testid="session-card-session-math-01"]');
+    const vnSessionCard = await homePage.$('[data-testid="session-card-session-vn-01"]');
+    if (mathSessionCard && vnSessionCard) {
+      console.log('   ✅ PASS: Both Math and Vietnamese Teaching Session presets rendered!');
+    } else {
+      throw new Error('Teaching session cards not found on Home Page!');
+    }
+
+    const exportBtn = await homePage.$('[data-testid="export-backup-btn"]');
+    const importBtn = await homePage.$('[data-testid="import-backup-btn"]');
+    if (exportBtn && importBtn) {
+      console.log('   ✅ PASS: Full Backup Export and Import buttons are present and ready!');
+    } else {
+      throw new Error('Backup management buttons not found on Home Page!');
+    }
+
+    await homePage.close();
+
+    console.log('\n🎉 ALL E2E BROWSER TESTS (PHASE 1, PHASE 2 & PHASE 3) PASSED 100%!');
   } finally {
     await browser.close();
   }

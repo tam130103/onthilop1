@@ -1,0 +1,375 @@
+/* WorksheetPrintPage.module.css */
+
+.container {
+  min-height: 100vh;
+  background: #f1f5f9;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  color: #0f172a;
+}
+
+/* Control Toolbar (Hidden when printing) */
+.toolbar {
+  background: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+  padding: 12px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.toolbarLeft {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.toolbarRight {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s;
+}
+
+.btnPrimary {
+  background: #2563eb;
+  color: #ffffff;
+}
+
+.btnPrimary:hover {
+  background: #1d4ed8;
+}
+
+.btnSecondary {
+  background: #f8fafc;
+  color: #334155;
+  border: 1px solid #cbd5e1;
+}
+
+.btnSecondary:hover {
+  background: #f1f5f9;
+}
+
+.select {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  font-size: 14px;
+  background: #ffffff;
+  color: #0f172a;
+}
+
+/* Printable A4 Page */
+.pageWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px;
+  gap: 24px;
+}
+
+.sheet {
+  width: 210mm;
+  min-height: 297mm;
+  background: #ffffff;
+  padding: 18mm 16mm;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* Worksheet Header */
+.sheetHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 2px solid #000000;
+  padding-bottom: 12px;
+  margin-bottom: 16px;
+}
+
+.headerInfo {
+  flex: 1;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.dottedLine {
+  display: inline-block;
+  border-bottom: 1px dotted #475569;
+  min-width: 120px;
+  height: 14px;
+}
+
+.sheetTitleSection {
+  text-align: center;
+  flex: 1.5;
+}
+
+.sheetMainTitle {
+  font-size: 18px;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin: 0 0 4px 0;
+  letter-spacing: 0.5px;
+}
+
+.sheetSubtitle {
+  font-size: 13px;
+  font-weight: 600;
+  color: #475569;
+  margin: 0;
+}
+
+.scoreBox {
+  width: 110px;
+  height: 65px;
+  border: 2px solid #000000;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.scoreHeader {
+  background: #f1f5f9;
+  border-bottom: 1px solid #000000;
+  padding: 2px;
+}
+
+.scoreBody {
+  flex: 1;
+}
+
+/* Questions Section */
+.questionsList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex: 1;
+}
+
+.questionItem {
+  border: 1px dashed #cbd5e1;
+  border-radius: 6px;
+  padding: 10px 14px;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+.questionTitle {
+  font-size: 14px;
+  font-weight: 700;
+  margin: 0 0 8px 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Multiple choice layout */
+.mcGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.mcOption {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+}
+
+.bubble {
+  width: 16px;
+  height: 16px;
+  border: 1.5px solid #000000;
+  border-radius: 50%;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+/* Counting items */
+.countingRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 10px 0;
+  align-items: center;
+}
+
+.countingImg {
+  width: 38px;
+  height: 38px;
+  object-fit: contain;
+  filter: grayscale(100%) contrast(150%);
+}
+
+.answerBlankBox {
+  display: inline-block;
+  width: 60px;
+  height: 28px;
+  border: 2px solid #000000;
+  border-radius: 4px;
+  vertical-align: middle;
+  margin: 0 6px;
+}
+
+/* Number Select / Expression */
+.expressionBox {
+  font-size: 20px;
+  font-weight: 800;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.mathFillBox {
+  width: 64px;
+  height: 36px;
+  border: 2px double #000000;
+  border-radius: 4px;
+}
+
+/* Tap place / fill word */
+.fillWordArea {
+  margin: 8px 0;
+  font-size: 16px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.wordBank {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.wordCard {
+  border: 1.5px solid #000000;
+  border-radius: 4px;
+  padding: 2px 10px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+/* Matching columns */
+.matchingColumns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin-top: 10px;
+}
+
+.matchingColItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 10px;
+  border: 1px solid #94a3b8;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  background: #000000;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+/* Teacher Answer Key Page */
+.teacherPage {
+  page-break-before: always;
+  break-before: page;
+}
+
+.answerKeyHeader {
+  text-align: center;
+  border-bottom: 2px solid #000000;
+  padding-bottom: 10px;
+  margin-bottom: 16px;
+}
+
+.answerKeyTitle {
+  font-size: 17px;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.answerTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  margin-top: 12px;
+}
+
+.answerTable th,
+.answerTable td {
+  border: 1px solid #000000;
+  padding: 8px 10px;
+  text-align: left;
+}
+
+.answerTable th {
+  background: #f1f5f9;
+  font-weight: 700;
+}
+
+/* Print Rules */
+@media print {
+  body {
+    background: #ffffff !important;
+  }
+
+  .toolbar {
+    display: none !important;
+  }
+
+  .pageWrapper {
+    padding: 0 !important;
+    gap: 0 !important;
+  }
+
+  .sheet {
+    box-shadow: none !important;
+    padding: 12mm 12mm !important;
+    margin: 0 !important;
+    width: 100% !important;
+    min-height: auto !important;
+  }
+
+  .teacherPage {
+    page-break-before: always !important;
+    break-before: page !important;
+  }
+}

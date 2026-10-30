@@ -180,3 +180,61 @@ export async function deleteAudioBlob(refUri: string): Promise<void> {
     console.warn(`[AudioStorage] Failed to delete ${refUri}:`, err);
   }
 }
+
+/**
+ * Lấy toàn bộ danh sách các bản ghi âm để xuất sao lưu toàn diện
+ */
+export async function getAllAudioRecordings(): Promise<AudioRecordEntry[]> {
+  try {
+    const db = await getDb();
+    return await new Promise<AudioRecordEntry[]>((resolve, reject) => {
+      const transaction = db.transaction(STORE_NAME, 'readonly');
+      const store = transaction.objectStore(STORE_NAME);
+      const req = store.getAll();
+      req.onsuccess = () => {
+        const rawList = (req.result || []) as AudioRecordEntry[];
+        const normalized = rawList.map((entry) => {
+          let b = entry.blob;
+          if ((!b || typeof b.size !== 'number') && entry.buffer) {
+            b = new Blob([entry.buffer], { type: entry.mimeType || 'audio/webm' });
+          }
+          return {
+            ...entry,
+            blob: b,
+          };
+        });
+        resolve(normalized);
+      };
+      req.onerror = () => reject(new Error(`Lỗi lấy danh sách ghi âm: ${req.error?.message}`));
+    });
+  } catch (e) {
+    console.warn('[AudioStorage] getAllAudioRecordings error:', e);
+    return [];
+  }
+}
+
+/**
+ * Ghi đè hoặc thêm một bản ghi âm vào IndexedDB khi nhập từ file sao lưu
+ */
+export async function saveRawAudioEntry(entry: AudioRecordEntry): Promise<void> {
+  const db = await getDb();
+  let buffer = entry.buffer;
+  if (!buffer && entry.blob) {
+    try {
+      buffer = await entry.blob.arrayBuffer();
+    } catch {
+      // fallback
+    }
+  }
+
+  await new Promise<void>((resolve, reject) => {
+    const transaction = db.transaction(STORE_NAME, 'readwrite');
+    const store = transaction.objectStore(STORE_NAME);
+    const req = store.put({
+      ...entry,
+      buffer,
+    });
+    req.onsuccess = () => resolve();
+    req.onerror = () => reject(new Error(`Lỗi khôi phục ghi âm ${entry.id}: ${req.error?.message}`));
+  });
+}

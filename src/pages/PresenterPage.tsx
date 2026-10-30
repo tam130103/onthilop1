@@ -10,6 +10,11 @@ import { TeamScoreboard } from '@/components/classroom/TeamScoreboard';
 import { ClassroomTimer } from '@/components/classroom/ClassroomTimer';
 import { ClassroomManagerModal } from '@/components/classroom/ClassroomManagerModal';
 import { getLessonById } from '@/core/lesson-storage';
+import { getMistakeTracker } from '@/core/mistake-tracker';
+import {
+  getTeachingSessionById,
+  type TeachingSession,
+} from '@/core/session-storage';
 import { LessonSchema, type Slide } from '@/schemas/content.schema';
 import { APP_CACHE_NAME } from '@/core/cache-config';
 import styles from './PresenterPage.module.css';
@@ -76,6 +81,11 @@ export function PresenterPage() {
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
   const lessonId = searchParams.get('lesson');
+  const sessionId = searchParams.get('session');
+  const [teachingSession, setTeachingSession] = useState<TeachingSession | null>(null);
+  const [currentStepIndex, setCurrentStepIndex] = useState<number>(0);
+  const [mistakeToast, setMistakeToast] = useState<string | null>(null);
+
   const [state, dispatch] = useReducer(playerReducer, createInitialState());
   const channelRef = useRef<SyncChannel | null>(null);
   const stateRef = useRef(state);
@@ -94,20 +104,6 @@ export function PresenterPage() {
   useEffect(() => {
     stateRef.current = state;
   }, [state]);
-
-  // Load lesson
-  useEffect(() => {
-    if (!lessonId) return;
-    async function loadLesson() {
-      if (!lessonId) return;
-      const found = await getLessonById(lessonId);
-      if (found) {
-        dispatch({ type: 'LOAD_LESSON', lesson: found });
-        dispatch({ type: 'START_SESSION' });
-      }
-    }
-    loadLesson();
-  }, [lessonId]);
 
   // Gửi snapshot đồng bộ sang /present (TUYỆT ĐỐI KHÔNG chứa teacherNote)
   const sendSnapshot = useCallback(() => {
@@ -132,6 +128,38 @@ export function PresenterPage() {
 
     channelRef.current?.send('STATE_SNAPSHOT', snapshot as unknown as Record<string, unknown>);
   }, []);
+
+  // Tải một bài học cụ thể và đồng bộ sang /present
+  const loadSpecificLesson = useCallback(
+    async (id: string) => {
+      const found = await getLessonById(id);
+      if (found) {
+        dispatch({ type: 'LOAD_LESSON', lesson: found });
+        dispatch({ type: 'START_SESSION' });
+        channelRef.current?.send('LESSON_CHANGE', { lessonId: id });
+        setTimeout(sendSnapshot, 40);
+      }
+    },
+    [sendSnapshot]
+  );
+
+  // Load session or lesson
+  useEffect(() => {
+    if (sessionId) {
+      const s = getTeachingSessionById(sessionId);
+      if (s) {
+        setTeachingSession(s);
+        if (!lessonId && s.steps[0]?.lessonId) {
+          loadSpecificLesson(s.steps[0].lessonId);
+        }
+      }
+    }
+  }, [sessionId, lessonId, loadSpecificLesson]);
+
+  useEffect(() => {
+    if (!lessonId) return;
+    loadSpecificLesson(lessonId);
+  }, [lessonId, loadSpecificLesson]);
 
   // Broadcast classroom updates
   const broadcastClassroom = useCallback(() => {
@@ -200,6 +228,14 @@ export function PresenterPage() {
           question: slide.question,
           givenAnswer: 'wrong-answer-test',
         });
+        if (cur.lesson) {
+          getMistakeTracker().recordMistake(
+            cur.lesson.id,
+            cur.lesson.title,
+            cur.lesson.subject,
+            slide.question
+          );
+        }
       }
       setTimeout(sendSnapshot, 20);
     },
@@ -208,7 +244,8 @@ export function PresenterPage() {
 
   // Init sync channel and respond to HELLO from /present
   useEffect(() => {
-    const channel = new SyncChannel('presenter', lessonId || undefined);
+    const syncId = lessonId || sessionId || undefined;
+    const channel = new SyncChannel('presenter', syncId);
     channelRef.current = channel;
 
     const unsubs = [
@@ -225,7 +262,7 @@ export function PresenterPage() {
       channel.dispose();
       channelRef.current = null;
     };
-  }, [lessonId, sendSnapshot, handleToggleBlackout]);
+  }, [lessonId, sessionId, sendSnapshot, handleToggleBlackout]);
 
   // Classroom Tool handlers
   const handleRandomPick = useCallback(() => {
@@ -260,6 +297,23 @@ export function PresenterPage() {
     getClassroomStore().stopTimer();
     broadcastClassroom();
   }, [broadcastClassroom]);
+
+  const handleSelectStep = useCallback(
+    (index: number) => {
+      if (!teachingSession || index < 0 || index >= teachingSession.steps.length) return;
+      const step = teachingSession.steps[index];
+      if (!step) return;
+      setCurrentStepIndex(index);
+      if (step.lessonId) {
+        loadSpecificLesson(step.lessonId);
+      }
+      if (step.type === 'game' && step.config?.timerSeconds) {
+        getClassroomStore().startTimer(step.config.timerSeconds);
+        broadcastClassroom();
+      }
+    },
+    [teachingSession, loadSpecificLesson, broadcastClassroom]
+  );
 
   // Nút "Kiểm tra & tải offline"
   const handleCacheOffline = useCallback(async () => {
@@ -445,6 +499,92 @@ export function PresenterPage() {
           </div>
         )}
 
+        {mistakeToast && (
+          <div
+            style={{
+              padding: '6px 12px',
+              fontSize: '13px',
+              color: '#86efac',
+              background: '#064e3b',
+              borderBottom: '1px solid #059669',
+            }}
+          >
+            {mistakeToast}
+          </div>
+        )}
+
+        {/* Teaching Session Stepper Bar */}
+        {teachingSession && (
+          <div
+            style={{
+              background: '#0f172a',
+              borderBottom: '2px solid #334155',
+              padding: '10px 16px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              gap: '12px',
+              flexWrap: 'wrap',
+            }}
+            data-testid="session-stepper"
+          >
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <span style={{ fontSize: '13px', fontWeight: 800, color: '#38bdf8' }}>
+                ⏱️ {teachingSession.title}
+              </span>
+              <span style={{ fontSize: '12px', color: '#94a3b8' }}>
+                (Hoạt động {currentStepIndex + 1}/{teachingSession.steps.length})
+              </span>
+            </div>
+
+            <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
+              {teachingSession.steps.map((st, idx) => {
+                const isActive = idx === currentStepIndex;
+                return (
+                  <button
+                    key={st.id}
+                    onClick={() => handleSelectStep(idx)}
+                    style={{
+                      padding: '6px 12px',
+                      fontSize: '12px',
+                      fontWeight: isActive ? 700 : 500,
+                      background: isActive ? '#4f46e5' : '#1e293b',
+                      color: isActive ? '#ffffff' : '#94a3b8',
+                      border: isActive ? '1px solid #818cf8' : '1px solid #334155',
+                      borderRadius: '8px',
+                      cursor: 'pointer',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '4px',
+                    }}
+                  >
+                    <span>{st.title}</span>
+                    <span style={{ opacity: 0.7, fontSize: '11px' }}>({st.durationMinutes}p)</span>
+                  </button>
+                );
+              })}
+            </div>
+
+            {currentStepIndex < teachingSession.steps.length - 1 && (
+              <button
+                onClick={() => handleSelectStep(currentStepIndex + 1)}
+                style={{
+                  padding: '6px 12px',
+                  fontSize: '12px',
+                  fontWeight: 700,
+                  background: '#10b981',
+                  color: '#ffffff',
+                  border: 'none',
+                  borderRadius: '8px',
+                  cursor: 'pointer',
+                }}
+              >
+                Bước tiếp ➡️
+              </button>
+            )}
+          </div>
+        )}
+
         {/* Previews Grid: Current Slide & Next Slide Preview */}
         <div className={styles.previewsGrid}>
           {/* Current Slide */}
@@ -616,6 +756,22 @@ export function PresenterPage() {
               >
                 ❌ Sai
               </button>
+              {(getMistakeTracker().hasMistake(currentSlide.question.id) ||
+                state.lesson?.id === 'review-mistakes-session') && (
+                <button
+                  className={`${styles.controlBtn}`}
+                  style={{ background: '#059669', color: '#fff' }}
+                  onClick={() => {
+                    getMistakeTracker().removeMistake(currentSlide.question.id);
+                    setMistakeToast('✅ Lớp đã nắm vững! Đã xóa câu này khỏi danh sách sai.');
+                    setTimeout(() => setMistakeToast(null), 3000);
+                  }}
+                  data-testid="mark-mastered-btn"
+                  title="Đánh dấu lớp đã nắm vững, xóa câu này khỏi danh sách câu hay sai"
+                >
+                  🌟 Đã nắm vững (Xóa)
+                </button>
+              )}
             </>
           )}
           <button

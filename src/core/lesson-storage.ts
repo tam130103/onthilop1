@@ -1,4 +1,5 @@
 import { LessonSchema, type Lesson } from '@/schemas/content.schema';
+import { getMistakeTracker } from './mistake-tracker';
 
 export const BUILTIN_LESSON_URLS = [
   '/content/lessons/math-lesson-01.json',
@@ -57,6 +58,18 @@ export function saveCustomLesson(lesson: Lesson): { success: boolean; error?: st
   }
 }
 
+export function setCustomLessons(lessons: Lesson[]): void {
+  if (typeof localStorage === 'undefined') return;
+  const valid: Lesson[] = [];
+  for (const item of lessons) {
+    const res = LessonSchema.safeParse(item);
+    if (res.success) {
+      valid.push(res.data);
+    }
+  }
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(valid));
+}
+
 export function deleteCustomLesson(lessonId: string): boolean {
   try {
     const current = getCustomLessons();
@@ -73,6 +86,11 @@ export function deleteCustomLesson(lessonId: string): boolean {
 }
 
 export async function getLessonById(lessonId: string): Promise<Lesson | null> {
+  // 0. Check for review mistakes session
+  if (lessonId === 'review-mistakes-session') {
+    return getMistakeTracker().buildReviewLesson();
+  }
+
   // 1. Search in custom lessons first
   const customList = getCustomLessons();
   const customFound = customList.find((l) => l.id === lessonId);

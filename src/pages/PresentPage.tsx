@@ -28,6 +28,7 @@ import {
 } from '@/core/classroom-store';
 import { LessonSchema, type Lesson } from '@/schemas/content.schema';
 import { getLessonById } from '@/core/lesson-storage';
+import { getTeachingSessionById } from '@/core/session-storage';
 
 const LESSON_URLS = [
   '/content/lessons/math-lesson-01.json',
@@ -39,6 +40,7 @@ const LESSON_URLS = [
 export function PresentPage() {
   const [searchParams] = useSearchParams();
   const lessonId = searchParams.get('lesson');
+  const sessionId = searchParams.get('session');
   const [state, dispatch] = useReducer(playerReducer, createInitialState());
   const channelRef = useRef<SyncChannel | null>(null);
   const isLoadedRef = useRef(false);
@@ -81,7 +83,8 @@ export function PresentPage() {
 
   // Sync channel - /present chỉ hiển thị, nhận STATE_SNAPSHOT từ /presenter
   useEffect(() => {
-    const channel = new SyncChannel('present', lessonId || undefined);
+    const syncId = lessonId || sessionId || undefined;
+    const channel = new SyncChannel('present', syncId);
     channelRef.current = channel;
 
     const unsubs = [
@@ -121,6 +124,17 @@ export function PresentPage() {
         if (payload.pickedStudent !== undefined) getClassroomStore().getData().pickedStudent = payload.pickedStudent ?? null;
         setClassroomData({ ...getClassroomStore().getData() });
       }),
+      channel.on('LESSON_CHANGE', async (msg) => {
+        const newLessonId = msg.payload['lessonId'];
+        if (typeof newLessonId === 'string') {
+          const found = await getLessonById(newLessonId);
+          if (found) {
+            dispatch({ type: 'LOAD_LESSON', lesson: found });
+            dispatch({ type: 'START_SESSION' });
+            isLoadedRef.current = true;
+          }
+        }
+      }),
       channel.on('SLIDE_CHANGE', (msg) => {
         const index = msg.payload['index'];
         if (typeof index === 'number') {
@@ -156,17 +170,23 @@ export function PresentPage() {
       channel.dispose();
       channelRef.current = null;
     };
-  }, [lessonId]);
+  }, [lessonId, sessionId]);
 
   // Load lesson & Nạp audio chỉ của buổi đang dạy
   useEffect(() => {
-    if (!lessonId) return;
+    const targetLessonId =
+      lessonId ||
+      (sessionId
+        ? getTeachingSessionById(sessionId)?.steps.find((s) => s.lessonId)?.lessonId
+        : undefined);
+
+    if (!targetLessonId) return;
     let isCancelled = false;
 
     async function loadLesson() {
       try {
-        if (!lessonId) return;
-        const found = await getLessonById(lessonId);
+        if (!targetLessonId) return;
+        const found = await getLessonById(targetLessonId);
         if (found) {
           if (isCancelled) return;
           const lesson: Lesson = found;
@@ -210,7 +230,7 @@ export function PresentPage() {
           channelRef.current?.send('HELLO', {});
           return;
         }
-        dispatch({ type: 'SET_ERROR', error: `Bài học "${lessonId}" không tồn tại` });
+        dispatch({ type: 'SET_ERROR', error: `Bài học "${targetLessonId}" không tồn tại` });
       } catch (e) {
         dispatch({ type: 'SET_ERROR', error: String(e) });
       }
@@ -223,7 +243,7 @@ export function PresentPage() {
       isCancelled = true;
       getAudioManager().releaseSessionAudio();
     };
-  }, [lessonId]);
+  }, [lessonId, sessionId]);
 
   // Keyboard: Chặn F5 (clicker), giữ Escape, điều hướng mũi tên
   useEffect(() => {

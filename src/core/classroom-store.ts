@@ -138,6 +138,18 @@ export class ClassroomStore {
     return this.data;
   }
 
+  setData(data: ClassroomData): void {
+    if (!data) return;
+    this.data = {
+      ...this.data,
+      ...data,
+      students: Array.isArray(data.students) ? data.students : this.data.students,
+      teams: Array.isArray(data.teams) ? data.teams : this.data.teams,
+      timer: data.timer || this.data.timer,
+    };
+    this.persist();
+  }
+
   // ---- Student Roster Management ----
   importStudents(namesText: string): void {
     const lines = namesText
