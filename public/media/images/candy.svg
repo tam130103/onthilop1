@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <defs>
+    <radialGradient id="candyGrad" cx="35%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#f472b6" />
+      <stop offset="60%" stop-color="#ec4899" />
+      <stop offset="100%" stop-color="#be185d" />
+    </radialGradient>
+    <linearGradient id="wrapperLeft" x1="100%" y1="50%" x2="0%" y2="50%">
+      <stop offset="0%" stop-color="#fb7185" />
+      <stop offset="100%" stop-color="#f43f5e" />
+    </linearGradient>
+    <linearGradient id="wrapperRight" x1="0%" y1="50%" x2="100%" y2="50%">
+      <stop offset="0%" stop-color="#fb7185" />
+      <stop offset="100%" stop-color="#f43f5e" />
+    </linearGradient>
+  </defs>
+  <!-- Left twisted wrapper -->
+  <polygon points="30,50 8,30 12,70" fill="url(#wrapperLeft)" />
+  <!-- Right twisted wrapper -->
+  <polygon points="70,50 92,30 88,70" fill="url(#wrapperRight)" />
+  <!-- Candy body -->
+  <circle cx="50" cy="50" r="26" fill="url(#candyGrad)" filter="drop-shadow(0px 4px 6px rgba(0,0,0,0.2))" />
+  <!-- Candy swirl/stripes -->
+  <path d="M 38,32 Q 50,50 62,68" stroke="#ffffff" stroke-width="4" stroke-linecap="round" fill="none" opacity="0.8" />
+  <path d="M 48,26 Q 58,40 54,62" stroke="#ffffff" stroke-width="3" stroke-linecap="round" fill="none" opacity="0.6" />
+  <!-- Highlight shine -->
+  <ellipse cx="42" cy="38" rx="6" ry="3" fill="#ffffff" opacity="0.6" transform="rotate(-30 42 38)" />
+</svg>

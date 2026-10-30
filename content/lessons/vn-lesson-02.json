@@ -1,0 +1,54 @@
+{
+  "status": "draft",
+  "mode": "draft",
+  "id": "vn-02-blending",
+  "title": "Ghép vần: ba, ca, ba ba, cá cờ",
+  "subject": "vietnamese",
+  "grade": 1,
+  "description": "Bài học thực hành ghép vần nâng cao và đọc từ ứng dụng cho học sinh lớp 1.",
+  "totalDurationMinutes": 30,
+  "slides": [
+    {
+      "type": "title-slide",
+      "id": "vn-02-title",
+      "title": "Bài 2: Ghép vần & Từ ứng dụng",
+      "subtitle": "Tiếng Việt Lớp 1 - Tuần 2"
+    },
+    {
+      "type": "content-slide",
+      "id": "vn-02-intro",
+      "title": "Đọc từ ứng dụng",
+      "body": "Hôm nay chúng ta sẽ luyện đọc các từ mới:",
+      "bullets": [
+        "ba ba (con ba ba bơi dưới nước)",
+        "cá cờ (con cá cờ bơi tung tăng)"
+      ]
+    },
+    {
+      "type": "question-slide",
+      "id": "vn-02-q1",
+      "question": {
+        "type": "matching",
+        "id": "q-match-words",
+        "prompt": "Nối từ với hình minh họa:",
+        "promptAudio": "",
+        "illustration": "",
+        "leftColumn": [
+          { "id": "lw-1", "label": "con cá" },
+          { "id": "lw-2", "label": "quả bóng" }
+        ],
+        "rightColumn": [
+          { "id": "rw-1", "label": "Hình cá" },
+          { "id": "rw-2", "label": "Hình bóng" }
+        ],
+        "correctPairs": [
+          { "leftId": "lw-1", "rightId": "rw-1" },
+          { "leftId": "lw-2", "rightId": "rw-2" }
+        ]
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    }
+  ]
+}
+

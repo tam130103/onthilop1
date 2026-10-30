@@ -1,0 +1,80 @@
+.timerContainer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(15, 23, 42, 0.85);
+  border: 2px solid #334155;
+  border-radius: 18px;
+  padding: 8px 18px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+.timerRunning {
+  border-color: #38bdf8;
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
+}
+
+.timerUrgent {
+  border-color: #ef4444;
+  animation: urgentBlink 1s infinite alternate;
+}
+
+.clockDisplay {
+  font-family: monospace;
+  font-size: 28px;
+  font-weight: 800;
+  color: #f8fafc;
+  letter-spacing: 2px;
+}
+
+/* Presenter controls */
+.presenterCard {
+  background: #0f172a;
+  border: 2px solid #334155;
+  border-radius: 12px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.presetGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+.presetBtn {
+  padding: 8px 0;
+  background: #1e293b;
+  border: 2px solid #334155;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #cbd5e1;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.presetBtn:hover {
+  border-color: #38bdf8;
+  background: #0f2d4a;
+  color: #ffffff;
+}
+
+.stopBtn {
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: none;
+  background: #dc2626;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+@keyframes urgentBlink {
+  from { border-color: #ef4444; }
+  to { border-color: #facc15; }
+}
+

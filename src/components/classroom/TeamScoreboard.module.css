@@ -1,0 +1,86 @@
+.bannerContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(8px);
+  padding: 8px 24px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+.teamBadge {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 6px 16px;
+  border-radius: 14px;
+  background: #1e293b;
+  border: 2px solid transparent;
+  transition: transform 0.2s ease;
+}
+
+.teamName {
+  font-size: 18px;
+  font-weight: 700;
+  color: #f1f5f9;
+}
+
+.starScore {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 22px;
+  font-weight: 900;
+  color: #facc15;
+}
+
+/* Presenter controls row */
+.controlsRow {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.controlCard {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background: #0f172a;
+  border-radius: 12px;
+  border: 2px solid #334155;
+}
+
+.btnGroup {
+  display: flex;
+  gap: 8px;
+}
+
+.scoreBtn {
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  background: #334155;
+  color: #ffffff;
+  transition: all 0.15s ease;
+}
+
+.scoreBtn:hover {
+  background: #475569;
+}
+
+.scoreBtnPlus {
+  background: #059669;
+}
+
+.scoreBtnPlus:hover {
+  background: #047857;
+}
+

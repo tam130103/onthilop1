@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <defs>
+    <radialGradient id="ballShade" cx="35%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.4"/>
+      <stop offset="70%" stop-color="#000000" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0.45"/>
+    </radialGradient>
+    <filter id="ballShadow">
+      <feDropShadow dx="0" dy="8" stdDeviation="6" flood-color="#000000" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  <g filter="url(#ballShadow)">
+    <clipPath id="ballClip">
+      <circle cx="100" cy="100" r="75"/>
+    </clipPath>
+    <!-- Base ball -->
+    <circle cx="100" cy="100" r="75" fill="#f8fafc" stroke="#1e293b" stroke-width="4"/>
+    <!-- Stripes -->
+    <g clip-path="url(#ballClip)">
+      <path d="M100,25 C60,45 60,155 100,175 C90,155 90,45 100,25 Z" fill="#ef4444"/>
+      <path d="M60,35 C20,65 20,135 60,165 C45,135 45,65 60,35 Z" fill="#3b82f6"/>
+      <path d="M140,35 C180,65 180,135 140,165 C155,135 155,65 140,35 Z" fill="#eab308"/>
+      <path d="M100,25 C140,45 140,155 100,175 C110,155 110,45 100,25 Z" fill="#10b981"/>
+    </g>
+    <!-- Sphere Lighting Overlay -->
+    <circle cx="100" cy="100" r="75" fill="url(#ballShade)"/>
+    <ellipse cx="75" cy="65" rx="20" ry="12" transform="rotate(-30 75 65)" fill="#ffffff" opacity="0.6"/>
+  </g>
+</svg>

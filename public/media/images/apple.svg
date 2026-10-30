@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <defs>
+    <radialGradient id="appleGrad" cx="35%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#ff6b6b"/>
+      <stop offset="60%" stop-color="#e02424"/>
+      <stop offset="100%" stop-color="#991b1b"/>
+    </radialGradient>
+    <linearGradient id="leafGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#86efac"/>
+      <stop offset="100%" stop-color="#16a34a"/>
+    </linearGradient>
+    <filter id="appleShadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="8" stdDeviation="6" flood-color="#000" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+  <!-- Shadow / Body -->
+  <g filter="url(#appleShadow)">
+    <!-- Stem -->
+    <path d="M100,50 Q105,25 120,20 Q112,28 106,50 Z" fill="#78350f" stroke="#451a03" stroke-width="2"/>
+    <!-- Leaf -->
+    <path d="M106,38 Q130,22 145,35 Q130,55 106,38 Z" fill="url(#leafGrad)" stroke="#15803d" stroke-width="2"/>
+    <!-- Apple Body -->
+    <path d="M100,65 C70,60 40,75 35,110 C30,145 60,180 85,182 C95,183 98,175 100,175 C102,175 105,183 115,182 C140,180 170,145 165,110 C160,75 130,60 100,65 Z" fill="url(#appleGrad)"/>
+    <!-- Highlight shine -->
+    <ellipse cx="70" cy="95" rx="18" ry="28" transform="rotate(-25 70 95)" fill="#ffffff" opacity="0.35"/>
+    <ellipse cx="65" cy="85" rx="8" ry="12" transform="rotate(-25 65 85)" fill="#ffffff" opacity="0.6"/>
+  </g>
+</svg>

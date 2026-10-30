@@ -1,0 +1,130 @@
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 32px;
+  gap: 24px;
+  user-select: none;
+  position: relative;
+}
+
+.prompt {
+  font-size: 52px;
+  font-weight: 800;
+  color: #f8fafc;
+  text-align: center;
+  line-height: 1.3;
+}
+
+.columnsWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1400px;
+  flex: 1;
+  position: relative;
+  padding: 0 40px;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 420px;
+  z-index: 2;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 28px;
+  background: #1e293b;
+  border: 4px solid #334155;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  min-height: 96px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.card:hover {
+  border-color: #60a5fa;
+  background: #1e3a5f;
+  transform: scale(1.02);
+}
+
+.cardSelected {
+  border-color: #facc15 !important;
+  background: #713f12 !important;
+  transform: scale(1.04) !important;
+  box-shadow: 0 0 24px rgba(250, 204, 21, 0.5) !important;
+}
+
+.cardConnected {
+  border-style: solid;
+  border-color: #38bdf8;
+  background: #0f2d4a;
+}
+
+.cardCorrect {
+  border-color: #22c55e !important;
+  background: #14532d !important;
+}
+
+.cardIncorrect {
+  border-color: #ef4444 !important;
+  background: #450a0a !important;
+}
+
+.cardContent {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.cardLabel {
+  font-size: 44px;
+  font-weight: 700;
+  color: #f8fafc;
+}
+
+.cardImage {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+}
+
+.badge {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.svgOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.explanation {
+  font-size: 32px;
+  color: #94a3b8;
+  text-align: center;
+}
+

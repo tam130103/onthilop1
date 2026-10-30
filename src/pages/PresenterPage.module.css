@@ -1,0 +1,152 @@
+.container {
+  min-height: 100vh;
+  background: #0f172a;
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 0;
+}
+
+.main {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.sidebar {
+  background: #1e293b;
+  border-left: 2px solid #334155;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  overflow-y: auto;
+}
+
+.previewBox {
+  background: #000;
+  border-radius: 12px;
+  aspect-ratio: 16 / 9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #334155;
+  overflow: hidden;
+}
+
+.previewText {
+  font-size: 14px;
+  color: '#64748b';
+  text-align: center;
+  padding: 16px;
+}
+
+.controls {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.controlBtn {
+  padding: 16px 32px;
+  border-radius: 12px;
+  font-size: 18px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.controlBtn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.prevBtn { background: #334155; color: #e2e8f0; }
+.prevBtn:hover:not(:disabled) { background: #475569; }
+
+.nextBtn { background: #3b82f6; color: #fff; }
+.nextBtn:hover:not(:disabled) { background: #2563eb; }
+
+.revealBtn { background: #f59e0b; color: #000; }
+.revealBtn:hover:not(:disabled) { background: #d97706; }
+
+.slideList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.slideThumb {
+  padding: 12px;
+  background: #0f172a;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.slideThumb:hover {
+  border-color: #3b82f6;
+}
+
+.slideThumbActive {
+  border-color: #3b82f6;
+  background: #1e3a5f;
+}
+
+.slideThumbTitle {
+  font-size: 13px;
+  font-weight: 600;
+  color: #e2e8f0;
+}
+
+.slideThumbType {
+  font-size: 11px;
+  color: #64748b;
+  margin-top: 2px;
+}
+
+.stats {
+  background: #0f172a;
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.statRow {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  font-size: 14px;
+}
+
+.statLabel { color: #64748b; }
+.statValue { color: #f8fafc; font-weight: 600; }
+
+.sectionLabel {
+  font-size: 14px;
+  font-weight: 700;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.lessonTitle {
+  font-size: 20px;
+  font-weight: 700;
+  color: #f8fafc;
+}
+
+.slideCounter {
+  font-size: 16px;
+  color: #94a3b8;
+  font-weight: 600;
+}

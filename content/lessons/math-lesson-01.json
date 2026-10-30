@@ -1,0 +1,224 @@
+{
+  "status": "publish",
+  "mode": "publish",
+  "id": "math-01-counting",
+  "title": "Bé vui học đếm và tính toán phạm vi 10",
+  "subject": "math",
+  "grade": 1,
+  "description": "Bài học tương tác gồm 8 câu hỏi sinh động giúp học sinh lớp 1 nhận biết số lượng, rèn luyện kỹ năng đếm và làm quen phép cộng trừ trong phạm vi 10.",
+  "totalDurationMinutes": 20,
+  "slides": [
+    {
+      "type": "title-slide",
+      "id": "slide-title",
+      "title": "Bé vui học đếm và tính toán",
+      "subtitle": "Toán Lớp 1 — Bài tập khởi động",
+      "teacherNote": "Giới thiệu mục tiêu bài học: Đếm số đến 5 và làm quen phép cộng trừ cơ bản.",
+      "backgroundImage": "/media/images/star.svg",
+      "audio": "/media/tts/prompt-counting.wav"
+    },
+    {
+      "type": "content-slide",
+      "id": "slide-intro",
+      "title": "Cùng ôn lại các số từ 1 đến 5",
+      "body": "Các con hãy chú ý quan sát và cùng đếm to với cô nhé!",
+      "teacherNote": "Mời cả lớp đọc đồng thanh dãy số từ 1 đến 5 trước khi bước vào phần trò chơi.",
+      "illustration": "/media/images/pencil.svg",
+      "audio": "/media/tts/explanation-01.wav",
+      "bullets": [
+        "Số 1 — Một",
+        "Số 2 — Hai",
+        "Số 3 — Ba",
+        "Số 4 — Bốn",
+        "Số 5 — Năm"
+      ]
+    },
+    {
+      "type": "question-slide",
+      "id": "slide-q1",
+      "teacherNote": "Mời một bạn lên bảng chạm từng quả táo trên TV hoặc cả lớp đếm nhẩm.",
+      "question": {
+        "type": "counting",
+        "id": "math-q1-counting-apples",
+        "prompt": "Đếm xem có bao nhiêu quả táo đỏ?",
+        "promptAudio": "/media/tts/prompt-counting.wav",
+        "illustration": "/media/images/apple.svg",
+        "items": [
+          { "image": "/media/images/apple.svg", "alt": "Quả táo 1" },
+          { "image": "/media/images/apple.svg", "alt": "Quả táo 2" },
+          { "image": "/media/images/apple.svg", "alt": "Quả táo 3" }
+        ],
+        "correctCount": 3,
+        "numberRange": { "min": 1, "max": 5 },
+        "explanation": "Có 3 quả táo đỏ. Chúng mình cùng đếm: 1, 2, 3!",
+        "explanationAudio": "/media/tts/explanation-01.wav"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "slide-q2",
+      "teacherNote": "Khắc sâu cho học sinh: Số đứng sau trên tia số sẽ lớn hơn số đứng trước.",
+      "question": {
+        "type": "multiple_choice",
+        "id": "math-q2-mc-compare-4-2",
+        "prompt": "Số nào lớn hơn: 4 hay 2?",
+        "promptAudio": "/media/tts/prompt-mc.wav",
+        "illustration": "/media/images/star.svg",
+        "options": [
+          { "id": "opt-2", "label": "Số 2", "image": "/media/images/ball.svg", "audio": "/media/tts/prompt-mc.wav" },
+          { "id": "opt-4", "label": "Số 4", "image": "/media/images/star.svg", "audio": "/media/tts/prompt-mc.wav" },
+          { "id": "opt-equal", "label": "Hai số bằng nhau", "audio": "/media/tts/prompt-mc.wav" }
+        ],
+        "correctOptionId": "opt-4",
+        "explanation": "Số 4 lớn hơn số 2 vì 4 nhiều hơn 2 đơn vị.",
+        "explanationAudio": "/media/tts/explanation-01.wav"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "slide-q3",
+      "teacherNote": "Dùng thao tác xòe 2 ngón tay rồi thêm 1 ngón tay để học sinh trực quan.",
+      "question": {
+        "type": "number_select",
+        "id": "math-q3-ns-add-2-1",
+        "prompt": "Bé hãy tính phép cộng sau:",
+        "promptAudio": "/media/tts/prompt-addition.wav",
+        "illustration": "/media/images/apple.svg",
+        "expression": "2 + 1 = ?",
+        "choices": [1, 2, 3, 4],
+        "correctAnswer": 3,
+        "explanation": "2 cộng 1 bằng 3. Có 2 quả táo, thêm 1 quả là 3 quả táo.",
+        "explanationAudio": "/media/tts/explanation-01.wav"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "slide-q4",
+      "teacherNote": "Hướng dẫn học sinh chỉ tay vào từng chú cá để không đếm sót.",
+      "question": {
+        "type": "counting",
+        "id": "math-q4-counting-fishes",
+        "prompt": "Đếm xem có bao nhiêu chú cá đang bơi?",
+        "promptAudio": "/media/tts/prompt-counting.wav",
+        "illustration": "/media/images/fish.svg",
+        "items": [
+          { "image": "/media/images/fish.svg", "alt": "Chú cá 1" },
+          { "image": "/media/images/fish.svg", "alt": "Chú cá 2" },
+          { "image": "/media/images/fish.svg", "alt": "Chú cá 3" },
+          { "image": "/media/images/fish.svg", "alt": "Chú cá 4" },
+          { "image": "/media/images/fish.svg", "alt": "Chú cá 5" }
+        ],
+        "correctCount": 5,
+        "numberRange": { "min": 1, "max": 5 },
+        "explanation": "Có tất cả 5 chú cá xinh xắn đang bơi dưới nước!",
+        "explanationAudio": "/media/tts/explanation-01.wav"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "slide-q5",
+      "teacherNote": "Rèn luyện kỹ năng quan sát hình ảnh và kết hợp đếm nhanh.",
+      "question": {
+        "type": "multiple_choice",
+        "id": "math-q5-mc-select-object",
+        "prompt": "Đâu là đồ dùng học tập của bé?",
+        "promptAudio": "/media/tts/prompt-mc.wav",
+        "illustration": "/media/images/pencil.svg",
+        "options": [
+          { "id": "opt-pencil", "label": "Bút chì", "image": "/media/images/pencil.svg", "audio": "/media/tts/prompt-mc.wav" },
+          { "id": "opt-ball", "label": "Quả bóng", "image": "/media/images/ball.svg", "audio": "/media/tts/prompt-mc.wav" },
+          { "id": "opt-fish", "label": "Con cá", "image": "/media/images/fish.svg", "audio": "/media/tts/prompt-mc.wav" }
+        ],
+        "correctOptionId": "opt-pencil",
+        "explanation": "Chiếc bút chì giúp các con tập viết và vẽ tranh thật đẹp.",
+        "explanationAudio": "/media/tts/explanation-01.wav"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "slide-q6",
+      "teacherNote": "Nhắc lại ý nghĩa phép trừ: Bớt đi, lấy ra khỏi nhóm.",
+      "question": {
+        "type": "number_select",
+        "id": "math-q6-ns-sub-5-2",
+        "prompt": "Bé hãy tính phép trừ sau:",
+        "promptAudio": "/media/tts/prompt-addition.wav",
+        "illustration": "/media/images/ball.svg",
+        "expression": "5 - 2 = ?",
+        "choices": [2, 3, 4, 5],
+        "correctAnswer": 3,
+        "explanation": "5 bớt 2 còn 3. Phép tính: 5 - 2 = 3.",
+        "explanationAudio": "/media/tts/explanation-01.wav"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "slide-q7",
+      "teacherNote": "Khuyến khích học sinh đếm từ trái sang phải.",
+      "question": {
+        "type": "counting",
+        "id": "math-q7-counting-candies",
+        "prompt": "Có bao nhiêu viên kẹo ngọt trên màn hình?",
+        "promptAudio": "/media/tts/prompt-counting.wav",
+        "illustration": "/media/images/candy.svg",
+        "items": [
+          { "image": "/media/images/candy.svg", "alt": "Viên kẹo 1" },
+          { "image": "/media/images/candy.svg", "alt": "Viên kẹo 2" },
+          { "image": "/media/images/candy.svg", "alt": "Viên kẹo 3" },
+          { "image": "/media/images/candy.svg", "alt": "Viên kẹo 4" }
+        ],
+        "correctCount": 4,
+        "numberRange": { "min": 1, "max": 5 },
+        "explanation": "Có đúng 4 viên kẹo sắc màu thơm ngon!",
+        "explanationAudio": "/media/tts/explanation-01.wav"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "slide-q8",
+      "teacherNote": "Bài toán gộp hai nhóm: 3 thêm 2 là mấy?",
+      "question": {
+        "type": "number_select",
+        "id": "math-q8-ns-add-3-2",
+        "prompt": "Bé tính kết quả của phép tính:",
+        "promptAudio": "/media/tts/prompt-addition.wav",
+        "illustration": "/media/images/star.svg",
+        "expression": "3 + 2 = ?",
+        "choices": [3, 4, 5, 6],
+        "correctAnswer": 5,
+        "explanation": "3 + 2 = 5. Có 3 ngôi sao thêm 2 ngôi sao là 5 ngôi sao.",
+        "explanationAudio": "/media/tts/explanation-01.wav"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "content-slide",
+      "id": "slide-congrats",
+      "title": "Khen ngợi cả lớp!",
+      "body": "Hôm nay các con đã học rất chăm chỉ và đếm số rất giỏi!",
+      "teacherNote": "Tổng kết điểm thi đua giữa các tổ và tuyên dương học sinh.",
+      "illustration": "/media/images/star.svg",
+      "audio": "/media/tts/explanation-01.wav",
+      "bullets": [
+        "Đếm thành thạo các số từ 1 đến 5",
+        "Biết so sánh số nhiều hơn, ít hơn",
+        "Thực hiện đúng phép cộng và phép trừ đơn giản"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,185 @@
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 32px;
+  gap: 32px;
+  user-select: none;
+}
+
+.prompt {
+  font-size: 52px;
+  font-weight: 800;
+  color: #f8fafc;
+  text-align: center;
+  line-height: 1.3;
+}
+
+.slotsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 36px;
+  width: 100%;
+  max-width: 1500px;
+  padding: 24px;
+  background: rgba(15, 23, 42, 0.6);
+  border-radius: 24px;
+  border: 2px dashed #334155;
+  min-height: 200px;
+}
+
+.slotWrapper {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 56px;
+  font-weight: 700;
+  color: #f1f5f9;
+}
+
+.prefixText,
+.suffixText {
+  color: #f8fafc;
+  font-size: 56px;
+}
+
+.slotBox {
+  min-width: 160px;
+  height: 120px;
+  padding: 8px 24px;
+  background: #1e293b;
+  border: 4px dashed #64748b;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.slotBoxActive {
+  border-color: #38bdf8;
+  background: #0c4a6e;
+  box-shadow: 0 0 24px rgba(56, 189, 248, 0.5);
+  transform: scale(1.05);
+}
+
+.slotBoxFilled {
+  border-style: solid;
+  border-color: #3b82f6;
+  background: #1e3a5f;
+}
+
+.slotBoxCorrect {
+  border-style: solid;
+  border-color: #22c55e !important;
+  background: #14532d !important;
+  animation: pulseCorrect 0.5s ease;
+}
+
+.slotBoxIncorrect {
+  border-style: solid;
+  border-color: #ef4444 !important;
+  background: #450a0a !important;
+  animation: shake 0.4s ease;
+}
+
+.itemsPool {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  width: 100%;
+  max-width: 1400px;
+  padding: 20px;
+}
+
+.itemCard {
+  min-width: 140px;
+  height: 100px;
+  padding: 12px 28px;
+  background: #1e293b;
+  border: 4px solid #334155;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  cursor: grab;
+  transition: all 0.2s ease;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+.itemCard:hover {
+  transform: translateY(-4px) scale(1.04);
+  border-color: #60a5fa;
+  background: #1e3a5f;
+}
+
+.itemCardSelected {
+  border-color: #facc15 !important;
+  background: #713f12 !important;
+  transform: translateY(-8px) scale(1.08) !important;
+  box-shadow: 0 0 28px rgba(250, 204, 21, 0.6) !important;
+}
+
+.itemCardDisabled {
+  opacity: 0.25;
+  pointer-events: none;
+  filter: grayscale(1);
+}
+
+.itemLabel {
+  font-size: 52px;
+  font-weight: 800;
+  color: #f8fafc;
+}
+
+.itemImage {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+}
+
+.keyHint {
+  position: absolute;
+  top: -12px;
+  right: -12px;
+  background: #475569;
+  color: #f8fafc;
+  font-size: 16px;
+  font-weight: 700;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #0f172a;
+}
+
+.explanation {
+  font-size: 32px;
+  color: #94a3b8;
+  text-align: center;
+  margin-top: 8px;
+}
+
+@keyframes pulseCorrect {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-8px); }
+  75% { transform: translateX(8px); }
+}
+

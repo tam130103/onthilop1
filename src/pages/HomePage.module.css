@@ -1,0 +1,138 @@
+.container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.title {
+  font-size: 48px;
+  font-weight: 800;
+  color: #f8fafc;
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  font-size: 20px;
+  color: #94a3b8;
+}
+
+.lessonGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 24px;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.lessonCard {
+  background: #1e293b;
+  border-radius: 16px;
+  padding: 32px;
+  border: 2px solid #334155;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.lessonCard:hover {
+  border-color: #3b82f6;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(59, 130, 246, 0.2);
+}
+
+.lessonTitle {
+  font-size: 24px;
+  font-weight: 700;
+  color: #f8fafc;
+  margin-bottom: 8px;
+}
+
+.lessonMeta {
+  font-size: 14px;
+  color: #64748b;
+  margin-bottom: 16px;
+}
+
+.lessonDesc {
+  font-size: 16px;
+  color: #94a3b8;
+  line-height: 1.5;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btnPrimary {
+  background: #3b82f6;
+  color: #fff;
+}
+
+.btnPrimary:hover {
+  background: #2563eb;
+}
+
+.btnSecondary {
+  background: #334155;
+  color: #e2e8f0;
+}
+
+.btnSecondary:hover {
+  background: #475569;
+}
+
+.btnTest {
+  background: #059669;
+  color: #fff;
+}
+
+.btnTest:hover {
+  background: #047857;
+}
+
+.statusBar {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-top: 12px;
+}
+
+.statusDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.statusOnline { background: #22c55e; }
+.statusOffline { background: #ef4444; }
+
+.statusText {
+  font-size: 13px;
+  color: #64748b;
+}
+
+.footer {
+  margin-top: 48px;
+  display: flex;
+  gap: 16px;
+}

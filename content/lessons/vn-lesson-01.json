@@ -1,0 +1,206 @@
+{
+  "status": "publish",
+  "mode": "publish",
+  "id": "vn-01-phonics",
+  "title": "Học vần: Âm a, b, c và dấu thanh",
+  "subject": "vietnamese",
+  "grade": 1,
+  "description": "Bài học Tiếng Việt lớp 1: Nhận biết âm a, b, c, ghép tiếng ba, ca và dấu thanh.",
+  "totalDurationMinutes": 35,
+  "slides": [
+    {
+      "type": "title-slide",
+      "id": "vn-title",
+      "title": "Bài 1: Âm a, b, c",
+      "subtitle": "Tiếng Việt Lớp 1 - Tuần 2",
+      "backgroundImage": "/media/images/star.svg",
+      "audio": "/media/tts/prompt-mc.wav"
+    },
+    {
+      "type": "content-slide",
+      "id": "vn-intro",
+      "title": "Làm quen chữ cái mới",
+      "body": "Hôm nay các em sẽ học 3 chữ cái đầu tiên: A, B, C.",
+      "illustration": "/media/images/pencil.svg",
+      "audio": "/media/tts/explanation-01.wav",
+      "bullets": [
+        "Chữ a - quả na, con gà",
+        "Chữ b - quả bóng, ba ba",
+        "Chữ c - con cá, cờ đỏ"
+      ]
+    },
+    {
+      "type": "phonics-slide",
+      "id": "vn-board",
+      "title": "Bảng Ghép Vần Tương Tác",
+      "initials": ["b", "c"],
+      "rhymes": ["a", "o"],
+      "tones": ["ngang", "huyen", "sac", "hoi", "nga", "nang"],
+      "audioBaseUrl": "/media/phonemes/"
+    },
+    {
+      "type": "flashcard-slide",
+      "id": "vn-flashcards",
+      "title": "Thẻ Học Vần",
+      "cards": [
+        {
+          "id": "fc-a",
+          "frontText": "A a",
+          "backText": "Quả táo",
+          "phoneme": "a",
+          "image": "/media/images/apple.svg",
+          "audio": "/media/phonemes/a.wav"
+        },
+        {
+          "id": "fc-b",
+          "frontText": "B b",
+          "backText": "Quả bóng",
+          "phoneme": "bờ",
+          "image": "/media/images/ball.svg",
+          "audio": "/media/phonemes/b.wav"
+        },
+        {
+          "id": "fc-c",
+          "frontText": "C c",
+          "backText": "Con cá",
+          "phoneme": "cờ",
+          "image": "/media/images/fish.svg",
+          "audio": "/media/phonemes/c.wav"
+        }
+      ]
+    },
+    {
+      "type": "question-slide",
+      "id": "vn-q-tap",
+      "question": {
+        "type": "tap_place",
+        "id": "q-tap-1",
+        "prompt": "Chọn âm thích hợp đặt vào chỗ trống để tạo thành từ đúng:",
+        "promptAudio": "/media/tts/prompt-tapplace.wav",
+        "illustration": "/media/images/fish.svg",
+        "targets": [
+          {
+            "id": "target-ca",
+            "label": "...",
+            "prefixText": "Con",
+            "suffixText": "á"
+          },
+          {
+            "id": "target-ba",
+            "label": "...",
+            "prefixText": "Quả",
+            "suffixText": "óng"
+          }
+        ],
+        "items": [
+          {
+            "id": "item-c",
+            "label": "c",
+            "audio": "/media/phonemes/c.wav",
+            "isPhonemeOrWord": true
+          },
+          {
+            "id": "item-b",
+            "label": "b",
+            "audio": "/media/phonemes/b.wav",
+            "isPhonemeOrWord": true
+          }
+        ],
+        "correctMapping": {
+          "item-c": "target-ca",
+          "item-b": "target-ba"
+        },
+        "explanation": "Con cá bắt đầu bằng âm 'c', quả bóng bắt đầu bằng âm 'b'.",
+        "explanationAudio": "/media/tts/explanation-01.wav"
+      },
+      "timeLimitSeconds": 40,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn-q-match",
+      "question": {
+        "type": "matching",
+        "id": "q-match-1",
+        "prompt": "Nối chữ cái với hình tương ứng:",
+        "promptAudio": "/media/tts/prompt-matching.wav",
+        "illustration": "/media/images/pencil.svg",
+        "leftColumn": [
+          {
+            "id": "left-b",
+            "label": "Chữ B",
+            "audio": "/media/phonemes/b.wav",
+            "isPhonemeOrWord": true
+          },
+          {
+            "id": "left-c",
+            "label": "Chữ C",
+            "audio": "/media/phonemes/c.wav",
+            "isPhonemeOrWord": true
+          }
+        ],
+        "rightColumn": [
+          {
+            "id": "right-fish",
+            "label": "Con cá",
+            "image": "/media/images/fish.svg",
+            "audio": "/media/phonemes/ca.wav",
+            "isPhonemeOrWord": true
+          },
+          {
+            "id": "right-ball",
+            "label": "Quả bóng",
+            "image": "/media/images/ball.svg",
+            "audio": "/media/phonemes/bong.wav",
+            "isPhonemeOrWord": true
+          }
+        ],
+        "correctPairs": [
+          { "leftId": "left-b", "rightId": "right-ball" },
+          { "leftId": "left-c", "rightId": "right-fish" }
+        ],
+        "explanation": "Chữ B nối với Quả bóng; Chữ C nối với Con cá.",
+        "explanationAudio": "/media/tts/explanation-01.wav"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn-q-mc",
+      "question": {
+        "type": "multiple_choice",
+        "id": "q-mc-vn",
+        "prompt": "Âm 'b' ghép với âm 'a' và thanh sắc tạo thành tiếng gì?",
+        "promptAudio": "/media/tts/prompt-mc.wav",
+        "illustration": "/media/images/star.svg",
+        "options": [
+          {
+            "id": "opt-ba",
+            "label": "ba",
+            "audio": "/media/phonemes/ba.wav",
+            "isPhonemeOrWord": true
+          },
+          {
+            "id": "opt-ba-sac",
+            "label": "bá",
+            "audio": "/media/phonemes/ba.wav",
+            "isPhonemeOrWord": true
+          },
+          {
+            "id": "opt-ca",
+            "label": "ca",
+            "audio": "/media/phonemes/ca.wav",
+            "isPhonemeOrWord": true
+          }
+        ],
+        "correctOptionId": "opt-ba-sac",
+        "explanation": "bờ - a - ba - sắc - bá!",
+        "explanationAudio": "/media/tts/explanation-01.wav"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    }
+  ]
+}
+

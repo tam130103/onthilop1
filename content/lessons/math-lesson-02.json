@@ -1,0 +1,107 @@
+{
+  "status": "draft",
+  "mode": "draft",
+  "id": "math-02-addition",
+  "title": "Phép cộng trong phạm vi 10",
+  "subject": "math",
+  "grade": 1,
+  "description": "Bài học về phép cộng đơn giản trong phạm vi 10 cho học sinh lớp 1.",
+  "totalDurationMinutes": 20,
+  "slides": [
+    {
+      "type": "title-slide",
+      "id": "t1",
+      "title": "Phép cộng trong phạm vi 10",
+      "subtitle": "Toán Lớp 1 - Tuần 2"
+    },
+    {
+      "type": "content-slide",
+      "id": "c1",
+      "title": "Phép cộng là gì?",
+      "body": "Phép cộng là gộp hai nhóm lại với nhau để biết tổng cộng có bao nhiêu.",
+      "bullets": [
+        "Dấu cộng: +",
+        "Dấu bằng: =",
+        "Ví dụ: 2 + 3 = 5"
+      ]
+    },
+    {
+      "type": "question-slide",
+      "id": "q1",
+      "question": {
+        "type": "number_select",
+        "id": "q1-ns",
+        "prompt": "Tính kết quả:",
+        "promptAudio": "",
+        "illustration": "",
+        "expression": "4 + 3 = ?",
+        "choices": [5, 6, 7, 8],
+        "correctAnswer": 7,
+        "explanation": "4 + 3 = 7. Bắt đầu từ 4, đếm thêm 3: 5, 6, 7."
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "q2",
+      "question": {
+        "type": "multiple_choice",
+        "id": "q2-mc",
+        "prompt": "Phép tính nào có kết quả bằng 6?",
+        "promptAudio": "",
+        "illustration": "",
+        "options": [
+          { "id": "a", "label": "2 + 3" },
+          { "id": "b", "label": "4 + 2" },
+          { "id": "c", "label": "5 + 3" },
+          { "id": "d", "label": "1 + 3" }
+        ],
+        "correctOptionId": "b",
+        "explanation": "4 + 2 = 6. Các đáp án khác: 2+3=5, 5+3=8, 1+3=4."
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "q3",
+      "question": {
+        "type": "counting",
+        "id": "q3-count",
+        "prompt": "Đếm tổng số ngôi sao:",
+        "promptAudio": "",
+        "illustration": "",
+        "items": [
+          { "image": "", "alt": "Sao 1" },
+          { "image": "", "alt": "Sao 2" },
+          { "image": "", "alt": "Sao 3" },
+          { "image": "", "alt": "Sao 4" },
+          { "image": "", "alt": "Sao 5" }
+        ],
+        "correctCount": 5,
+        "numberRange": { "min": 1, "max": 10 },
+        "explanation": "Có 5 ngôi sao. Đếm: 1, 2, 3, 4, 5!"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "q4",
+      "question": {
+        "type": "number_select",
+        "id": "q4-ns",
+        "prompt": "Tính phép cộng:",
+        "promptAudio": "",
+        "illustration": "",
+        "expression": "5 + 5 = ?",
+        "choices": [8, 9, 10, 11],
+        "correctAnswer": 10,
+        "explanation": "5 + 5 = 10. Hai bàn tay, mỗi bàn tay 5 ngón!"
+      },
+      "timeLimitSeconds": 20,
+      "showRetryOnWrong": true
+    }
+  ]
+}
