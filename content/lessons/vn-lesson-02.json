@@ -1,54 +1,133 @@
 {
-  "status": "draft",
-  "mode": "draft",
+  "status": "publish",
+  "mode": "publish",
   "id": "vn-02-blending",
-  "title": "Ghép vần: ba, ca, ba ba, cá cờ",
+  "title": "Ghép vần: ba ba, con cá, cờ đỏ",
   "subject": "vietnamese",
   "grade": 1,
-  "description": "Bài học thực hành ghép vần nâng cao và đọc từ ứng dụng cho học sinh lớp 1.",
+  "description": "Bài học Tiếng Việt Lớp 1: Luyện đọc các từ ngữ ứng dụng thân quen và làm quen câu hỏi nối cột, điền âm vào chỗ trống.",
   "totalDurationMinutes": 30,
   "slides": [
     {
       "type": "title-slide",
       "id": "vn-02-title",
-      "title": "Bài 2: Ghép vần & Từ ứng dụng",
-      "subtitle": "Tiếng Việt Lớp 1 - Tuần 2"
+      "title": "Bài 2: Từ ngữ ứng dụng",
+      "subtitle": "Tiếng Việt Lớp 1 — Bài thực hành",
+      "teacherNote": "Hướng dẫn học sinh nhận biết các tiếng ghép có âm b, c, a, o.",
+      "backgroundImage": "/media/images/star.svg",
+      "audio": "/media/tts/vn2-title.mp3"
     },
     {
       "type": "content-slide",
       "id": "vn-02-intro",
-      "title": "Đọc từ ứng dụng",
-      "body": "Hôm nay chúng ta sẽ luyện đọc các từ mới:",
+      "title": "Luyện đọc từ mới",
+      "body": "Hôm nay các con sẽ cùng cô luyện đọc và nhận biết các từ ngữ thân thuộc:",
+      "teacherNote": "Mời từng nhóm đứng lên đọc to các từ ứng dụng.",
+      "illustration": "/media/images/pencil.svg",
+      "audio": "/media/tts/vn2-intro.mp3",
       "bullets": [
-        "ba ba (con ba ba bơi dưới nước)",
-        "cá cờ (con cá cờ bơi tung tăng)"
+        "ba ba — Con ba ba bơi dưới nước",
+        "con cá — Chú cá bơi tung tăng",
+        "cờ đỏ — Lá cờ đỏ sao vàng"
       ]
     },
     {
       "type": "question-slide",
-      "id": "vn-02-q1",
+      "id": "vn-02-q1-matching",
+      "teacherNote": "Mời học sinh lên bảng dùng que chỉ nối từ ở cột trái với hình tương ứng ở cột phải.",
       "question": {
         "type": "matching",
         "id": "q-match-words",
-        "prompt": "Nối từ với hình minh họa:",
-        "promptAudio": "",
-        "illustration": "",
+        "prompt": "Bé hãy nối từ ở cột bên trái với hình vẽ tương ứng ở cột bên phải:",
+        "promptAudio": "/media/tts/prompt-match-words.mp3",
+        "illustration": "/media/images/fish.svg",
         "leftColumn": [
-          { "id": "lw-1", "label": "con cá" },
-          { "id": "lw-2", "label": "quả bóng" }
+          { "id": "lw-ca", "label": "con cá", "audio": "/media/tts/word-con-ca.mp3" },
+          { "id": "lw-bong", "label": "quả bóng", "audio": "/media/tts/word-qua-bong.mp3" },
+          { "id": "lw-baba", "label": "ba ba", "audio": "/media/tts/word-ba-ba.mp3" }
         ],
         "rightColumn": [
-          { "id": "rw-1", "label": "Hình cá" },
-          { "id": "rw-2", "label": "Hình bóng" }
+          { "id": "rw-ca", "label": "Hình cá", "image": "/media/images/fish.svg", "audio": "/media/tts/desc-hinh-ca.mp3" },
+          { "id": "rw-bong", "label": "Hình bóng", "image": "/media/images/ball.svg", "audio": "/media/tts/desc-hinh-bong.mp3" },
+          { "id": "rw-baba", "label": "Hình ba ba", "image": "/media/images/turtle.svg", "audio": "/media/tts/desc-hinh-baba.mp3" }
         ],
         "correctPairs": [
-          { "leftId": "lw-1", "rightId": "rw-1" },
-          { "leftId": "lw-2", "rightId": "rw-2" }
-        ]
+          { "leftId": "lw-ca", "rightId": "rw-ca" },
+          { "leftId": "lw-bong", "rightId": "rw-bong" },
+          { "leftId": "lw-baba", "rightId": "rw-baba" }
+        ],
+        "explanation": "Rất chính xác! Con cá nối với hình cá, quả bóng nối với hình quả bóng, con ba ba nối với hình con ba ba.",
+        "explanationAudio": "/media/tts/exp-match-words.mp3"
       },
       "timeLimitSeconds": 30,
       "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn-02-q2-tapplace",
+      "teacherNote": "Hướng dẫn học sinh nhận biết âm đầu 'b' ghép với 'a' thành 'ba ba'.",
+      "question": {
+        "type": "tap_place",
+        "id": "q-tap-baba",
+        "prompt": "Bé hãy chọn âm thích hợp đặt vào chỗ trống để tạo thành từ ba ba:",
+        "promptAudio": "/media/tts/prompt-tap-baba.mp3",
+        "illustration": "/media/images/turtle.svg",
+        "targets": [
+          {
+            "id": "tgt-baba-1",
+            "label": "...",
+            "prefixText": "Con",
+            "suffixText": "a ba"
+          }
+        ],
+        "items": [
+          { "id": "item-b", "label": "b", "audio": "/media/phonemes/b.mp3", "isPhonemeOrWord": true },
+          { "id": "item-c", "label": "c", "audio": "/media/phonemes/c.mp3", "isPhonemeOrWord": true }
+        ],
+        "correctMapping": {
+          "item-b": "tgt-baba-1"
+        },
+        "explanation": "Chính xác! Âm bờ ghép với âm a tạo thành tiếng ba, trong từ ba ba.",
+        "explanationAudio": "/media/tts/exp-tap-baba.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn-02-q3-mc",
+      "teacherNote": "Giáo dục tình yêu quê hương đất nước qua hình ảnh lá cờ Tổ quốc.",
+      "question": {
+        "type": "multiple_choice",
+        "id": "q-mc-co-do",
+        "prompt": "Hình ảnh lá cờ đỏ sao vàng ứng với từ ngữ nào?",
+        "promptAudio": "/media/tts/prompt-mc-co-do.mp3",
+        "illustration": "/media/images/flag.svg",
+        "options": [
+          { "id": "opt-codo", "label": "cờ đỏ", "image": "/media/images/flag.svg", "audio": "/media/tts/opt-co-do.mp3" },
+          { "id": "opt-caco", "label": "cá cờ", "image": "/media/images/fish.svg", "audio": "/media/tts/opt-ca-co.mp3" },
+          { "id": "opt-baba", "label": "ba ba", "image": "/media/images/turtle.svg", "audio": "/media/tts/opt-ba-ba.mp3" }
+        ],
+        "correctOptionId": "opt-codo",
+        "explanation": "Lá cờ đỏ sao vàng là Quốc kỳ thiêng liêng của nước Việt Nam chúng mình.",
+        "explanationAudio": "/media/tts/exp-co-do.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "content-slide",
+      "id": "vn-02-summary",
+      "title": "Tổng kết bài học",
+      "body": "Chúc mừng cả lớp đã hoàn thành xuất sắc bài tập ghép vần và đọc từ ứng dụng!",
+      "teacherNote": "Tuyên dương các bạn đọc to, phát âm rõ ràng trong buổi học.",
+      "illustration": "/media/images/star.svg",
+      "audio": "/media/tts/math-congrats.mp3",
+      "bullets": [
+        "Đọc đúng các từ: ba ba, con cá, cờ đỏ",
+        "Biết phân biệt âm b và âm c",
+        "Hoàn thành các trò chơi nối cột và điền âm"
+      ]
     }
   ]
 }
-

@@ -47,6 +47,46 @@ AUDIO_ITEMS = [
     ("public/media/phonemes/ca.mp3", "con cá"),
     ("public/media/phonemes/ca-co.mp3", "cá cờ"),
     ("public/media/phonemes/o.mp3", "o"),
+
+    # Vietnamese lesson 2 - Blending & Words
+    ("public/media/tts/vn2-title.mp3", "Bài hai: Ghép vần và từ ứng dụng. Tiếng Việt Lớp một."),
+    ("public/media/tts/vn2-intro.mp3", "Hôm nay chúng ta cùng luyện đọc và ghép các từ ứng dụng: ba ba, con cá, cờ đỏ."),
+    ("public/media/tts/prompt-match-words.mp3", "Bé hãy nối từ ở cột bên trái với hình vẽ tương ứng ở cột bên phải:"),
+    ("public/media/tts/exp-match-words.mp3", "Rất chính xác! Con cá nối với hình cá, quả bóng nối với hình quả bóng, con ba ba nối với hình con ba ba."),
+    ("public/media/tts/word-con-ca.mp3", "con cá"),
+    ("public/media/tts/word-qua-bong.mp3", "quả bóng"),
+    ("public/media/tts/word-ba-ba.mp3", "ba ba"),
+    ("public/media/tts/desc-hinh-ca.mp3", "Hình cá"),
+    ("public/media/tts/desc-hinh-bong.mp3", "Hình bóng"),
+    ("public/media/tts/desc-hinh-baba.mp3", "Hình con ba ba"),
+    ("public/media/tts/prompt-tap-baba.mp3", "Bé hãy chọn âm thích hợp đặt vào chỗ trống để tạo thành từ ba ba:"),
+    ("public/media/tts/exp-tap-baba.mp3", "Chính xác! Âm bờ ghép với âm a tạo thành tiếng ba, trong từ ba ba."),
+    ("public/media/tts/prompt-mc-co-do.mp3", "Hình ảnh lá cờ đỏ sao vàng ứng với từ ngữ nào?"),
+    ("public/media/tts/opt-co-do.mp3", "cờ đỏ"),
+    ("public/media/tts/opt-ca-co.mp3", "cá cờ"),
+    ("public/media/tts/opt-ba-ba.mp3", "ba ba"),
+    ("public/media/tts/exp-co-do.mp3", "Lá cờ đỏ sao vàng là Quốc kỳ thiêng liêng của nước Việt Nam chúng mình."),
+
+    # Math lesson 2 - Addition & 2D Shapes
+    ("public/media/tts/math2-title.mp3", "Phép cộng trong phạm vi mười và Làm quen hình phẳng. Toán Lớp một."),
+    ("public/media/tts/math2-intro.mp3", "Phép cộng là gộp hai nhóm lại với nhau. Hôm nay chúng mình cùng học cộng và làm quen các hình học nhé!"),
+    ("public/media/tts/prompt-shape-square.mp3", "Hình nào dưới đây là hình vuông màu xanh?"),
+    ("public/media/tts/opt-shape-square.mp3", "Hình vuông"),
+    ("public/media/tts/opt-shape-circle.mp3", "Hình tròn"),
+    ("public/media/tts/opt-shape-triangle.mp3", "Hình tam giác"),
+    ("public/media/tts/exp-shape-square.mp3", "Hình vuông có bốn cạnh bằng nhau và bốn góc vuông vắn."),
+    ("public/media/tts/prompt-add-4-3.mp3", "Bé hãy tính kết quả phép tính: bốn cộng ba bằng mấy?"),
+    ("public/media/tts/exp-add-4-3.mp3", "Bốn cộng ba bằng bảy. Bắt đầu từ bốn, đếm thêm ba: năm, sáu, bảy."),
+    ("public/media/tts/prompt-mc-equal-6.mp3", "Phép tính nào dưới đây có kết quả bằng sáu?"),
+    ("public/media/tts/opt-calc-2-3.mp3", "hai cộng ba"),
+    ("public/media/tts/opt-calc-4-2.mp3", "bốn cộng hai"),
+    ("public/media/tts/opt-calc-5-3.mp3", "năm cộng ba"),
+    ("public/media/tts/opt-calc-1-3.mp3", "một cộng ba"),
+    ("public/media/tts/exp-calc-4-2.mp3", "Bốn cộng hai bằng sáu. Bốn thêm hai là sáu."),
+    ("public/media/tts/prompt-count-shapes.mp3", "Đếm xem có tất cả bao nhiêu hình tam giác màu vàng?"),
+    ("public/media/tts/exp-count-shapes.mp3", "Có tất cả năm hình tam giác màu vàng rực rỡ!"),
+    ("public/media/tts/prompt-add-5-5.mp3", "Bé tính kết quả của phép cộng: năm cộng năm bằng mấy?"),
+    ("public/media/tts/exp-add-5-5.mp3", "Năm cộng năm bằng mười. Hai bàn tay, mỗi bàn tay có năm ngón tay, cả hai bàn tay có mười ngón tay."),
 ]
 
 # Legacy/existing WAV filenames to mirror for full compatibility
@@ -69,20 +109,24 @@ WAV_MAPPINGS = [
 ]
 
 def main():
-    print(f"🎙️  Generating {len(AUDIO_ITEMS)} real Vietnamese voiceover files with Google TTS...\n")
+    print(f"🎙️  Checking and generating {len(AUDIO_ITEMS)} real Vietnamese voiceover files...\n")
+    generated = 0
     for path, text in AUDIO_ITEMS:
-        tts = gTTS(text, lang='vi')
-        tts.save(path)
-        size = os.path.getsize(path)
-        print(f"   ✅ {path} ({size:,} bytes) -> \"{text}\"")
+        if not os.path.exists(path):
+            tts = gTTS(text, lang='vi')
+            tts.save(path)
+            size = os.path.getsize(path)
+            print(f"   ✅ [NEW] {path} ({size:,} bytes) -> \"{text}\"")
+            generated += 1
+        else:
+            print(f"   ⏩ [EXISTS] {path}")
 
-    print("\n🔄 Mirroring to WAV filenames for backwards compatibility...")
+    print(f"\n🔄 Mirroring to WAV filenames...")
     for src, dst in WAV_MAPPINGS:
         if os.path.exists(src):
             shutil.copyfile(src, dst)
-            print(f"   🔁 {dst} updated")
 
-    print("\n🎉 Audio generation completed successfully!")
+    print(f"\n🎉 Successfully verified audio! (Generated {generated} new files)")
 
 if __name__ == "__main__":
     main()
