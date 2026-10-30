@@ -26,8 +26,8 @@ createRoot(rootEl).render(
   </StrictMode>
 );
 
-// Register PWA service worker
-if ('serviceWorker' in navigator) {
+// Register PWA service worker (chỉ đăng ký trong production để tránh 404 khi dev)
+if ('serviceWorker' in navigator && import.meta.env.PROD) {
   window.addEventListener('load', () => {
     navigator.serviceWorker.register('/sw.js').catch((err) => {
       console.warn('SW registration failed:', err);

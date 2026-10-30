@@ -125,14 +125,27 @@
   flex-wrap: wrap;
 }
 
-.controlBtn {
-  padding: 16px 32px;
+.controlsGroup {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  background: rgba(15, 23, 42, 0.4);
+  padding: 6px 10px;
   border-radius: 12px;
-  font-size: 18px;
-  font-weight: 600;
+  border: 1px solid #334155;
+}
+
+.controlBtn {
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 700;
   border: none;
   cursor: pointer;
   transition: all 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
 }
 
 .controlBtn:disabled {
@@ -148,6 +161,37 @@
 
 .revealBtn { background: #f59e0b; color: #000; }
 .revealBtn:hover:not(:disabled) { background: #d97706; }
+
+.blackoutBtn { background: #1e293b; color: #f8fafc; border: 1px solid #475569; }
+.blackoutBtn:hover:not(:disabled) { background: #334155; }
+
+@media (max-width: 1200px) {
+  .container {
+    grid-template-columns: 1fr 260px;
+  }
+  .previewsGrid {
+    grid-template-columns: 1fr;
+  }
+  .controlBtn {
+    padding: 10px 16px;
+    font-size: 14px;
+  }
+  .shortcutBar {
+    gap: 8px;
+    font-size: 11px;
+    padding: 6px 10px;
+  }
+}
+
+@media (max-width: 900px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+  .sidebar {
+    border-left: none;
+    border-top: 2px solid #334155;
+  }
+}
 
 .slideList {
   display: flex;

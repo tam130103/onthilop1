@@ -282,6 +282,17 @@ export function LessonEditorPage() {
           <button className={`${styles.btn} ${styles.btnSuccess}`} onClick={handleSave}>
             💾 Lưu bài dạy
           </button>
+          <button
+            className={`${styles.btn}`}
+            style={{ background: '#0891b2', color: '#fff' }}
+            onClick={() => {
+              handleSave();
+              navigate(`/print-worksheet?source=${lesson.id}`);
+            }}
+            title="Lưu bài và mở xem trước trang in phiếu bài tập A4"
+          >
+            🖨️ In phiếu A4
+          </button>
           <button className={`${styles.btn} ${styles.btnPrimary}`} onClick={handlePlayLesson}>
             🚀 Chiếu thử (Mở TV)
           </button>

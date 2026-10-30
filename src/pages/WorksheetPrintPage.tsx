@@ -113,6 +113,29 @@ export function WorksheetPrintPage() {
 
       {/* Printable Pages */}
       <div className={styles.pageWrapper}>
+        {/* Help Tip Banner (Screen only) */}
+        <div
+          style={{
+            maxWidth: '210mm',
+            width: '100%',
+            padding: '10px 16px',
+            background: '#e0f2fe',
+            border: '1px solid #7dd3fc',
+            borderRadius: '8px',
+            color: '#0369a1',
+            fontSize: '13px',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '8px',
+          }}
+          className={styles.screenOnly}
+        >
+          <span>💡</span>
+          <span>
+            <strong>Mẹo in ấn:</strong> Khi hộp thoại in xuất hiện, chọn <strong>"Lưu dưới dạng PDF" (Save as PDF)</strong> để xuất file gửi phụ huynh, hoặc chọn máy in trường học (Khổ A4 dọc, tỉ lệ 100%).
+          </span>
+        </div>
+
         {/* Page 1: Student Worksheet */}
         <div className={styles.sheet}>
           <div className={styles.sheetHeader}>

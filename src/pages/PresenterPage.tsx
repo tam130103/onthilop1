@@ -617,6 +617,26 @@ export function PresenterPage() {
                       {getQuestionAnswerSummary(currentSlide)}
                     </div>
                   )}
+                  {currentSlide.type === 'question-slide' && currentSlide.question.illustration && (
+                    <div style={{ marginTop: '10px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                      <img
+                        src={currentSlide.question.illustration}
+                        alt="Minh họa trên TV"
+                        style={{
+                          height: '50px',
+                          maxWidth: '100px',
+                          objectFit: 'contain',
+                          background: '#1e293b',
+                          borderRadius: '6px',
+                          border: '1px solid #334155',
+                          padding: '4px',
+                        }}
+                      />
+                      <span style={{ fontSize: '12px', color: '#94a3b8' }}>
+                        🖼️ Hình minh họa đang chiếu trên TV
+                      </span>
+                    </div>
+                  )}
                 </div>
               ) : (
                 <span style={{ color: '#64748b' }}>Chưa có slide</span>
@@ -714,24 +734,25 @@ export function PresenterPage() {
 
         {/* Slide Controls */}
         <div className={styles.controls}>
-          <button
-            className={`${styles.controlBtn} ${styles.prevBtn}`}
-            onClick={handlePrev}
-            disabled={state.currentSlideIndex <= 0}
-            data-testid="prev-btn"
-          >
-            ◀ Trước
-          </button>
-          <button
-            className={`${styles.controlBtn} ${styles.nextBtn}`}
-            onClick={handleNext}
-            disabled={state.phase !== 'playing'}
-            data-testid="next-btn"
-          >
-            Tiếp ▶
-          </button>
-          {currentSlide?.type === 'question-slide' && (
-            <>
+          {/* Navigation & Presentation Group */}
+          <div className={styles.controlsGroup}>
+            <button
+              className={`${styles.controlBtn} ${styles.prevBtn}`}
+              onClick={handlePrev}
+              disabled={state.currentSlideIndex <= 0}
+              data-testid="prev-btn"
+            >
+              ◀ Trước
+            </button>
+            <button
+              className={`${styles.controlBtn} ${styles.nextBtn}`}
+              onClick={handleNext}
+              disabled={state.phase !== 'playing'}
+              data-testid="next-btn"
+            >
+              Tiếp ▶
+            </button>
+            {currentSlide?.type === 'question-slide' && (
               <button
                 className={`${styles.controlBtn} ${styles.revealBtn}`}
                 onClick={handleReveal}
@@ -740,21 +761,34 @@ export function PresenterPage() {
               >
                 👁 Đáp án (R)
               </button>
+            )}
+            <button
+              className={`${styles.controlBtn} ${styles.blackoutBtn}`}
+              onClick={handleToggleBlackout}
+              data-testid="blackout-btn"
+            >
+              {state.blackout ? '☀️ Bật màn (B)' : '⬛ Tối màn (B)'}
+            </button>
+          </div>
+
+          {/* Student Evaluation Group */}
+          {currentSlide?.type === 'question-slide' && (
+            <div className={styles.controlsGroup}>
               <button
                 className={`${styles.controlBtn}`}
-                style={{ background: '#22c55e', color: '#fff' }}
+                style={{ background: '#16a34a', color: '#fff' }}
                 onClick={() => handleAnswerChoice('correct')}
                 data-testid="correct-btn"
               >
-                ✅ Đúng
+                ✅ Đúng (C)
               </button>
               <button
                 className={`${styles.controlBtn}`}
-                style={{ background: '#ef4444', color: '#fff' }}
+                style={{ background: '#dc2626', color: '#fff' }}
                 onClick={() => handleAnswerChoice('incorrect')}
                 data-testid="incorrect-btn"
               >
-                ❌ Sai
+                ❌ Sai (X)
               </button>
               {(getMistakeTracker().hasMistake(currentSlide.question.id) ||
                 state.lesson?.id === 'review-mistakes-session') && (
@@ -772,15 +806,8 @@ export function PresenterPage() {
                   🌟 Đã nắm vững (Xóa)
                 </button>
               )}
-            </>
+            </div>
           )}
-          <button
-            className={`${styles.controlBtn} ${styles.blackoutBtn}`}
-            onClick={handleToggleBlackout}
-            data-testid="blackout-btn"
-          >
-            {state.blackout ? '☀️ Bật màn (B)' : '⬛ Tối màn (B)'}
-          </button>
         </div>
 
         {/* Teacher Notes - Chỉ hiện trên màn hình laptop của giáo viên */}

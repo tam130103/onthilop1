@@ -289,8 +289,8 @@ export function HomePage() {
         <h1 className={styles.title}>📚 Trình Chiếu Lớp 1</h1>
         <p className={styles.subtitle}>Công cụ giảng dạy tương tác Toán & Tiếng Việt — Offline PWA</p>
 
-        {/* Status Bar & Action Controls */}
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '12px', flexWrap: 'wrap', marginTop: '16px' }}>
+        {/* Tier 1: Top Status & Storage Utility Bar */}
+        <div className={styles.topUtilityBar}>
           <div className={styles.statusBar}>
             <span
               className={`${styles.statusDot} ${offlineReady ? styles.statusOnline : styles.statusOffline}`}
@@ -305,7 +305,7 @@ export function HomePage() {
                   color: persistenceStatus.isPersisted ? '#86efac' : '#fcd34d',
                   marginLeft: '8px',
                   background: '#1e293b',
-                  padding: '4px 8px',
+                  padding: '3px 8px',
                   borderRadius: '6px',
                   border: '1px solid #334155',
                 }}
@@ -316,124 +316,64 @@ export function HomePage() {
             )}
           </div>
 
-          <button
-            onClick={handleCacheAllOffline}
-            style={{
-              padding: '8px 14px',
-              fontSize: '13px',
-              fontWeight: 700,
-              background: '#047857',
-              color: '#ffffff',
-              border: 'none',
-              borderRadius: '8px',
-              cursor: 'pointer',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '6px',
-            }}
-          >
-            📥 Nạp Offline toàn bộ
-          </button>
-          <button
-            onClick={() => setIsClassroomModalOpen(true)}
-            style={{
-              padding: '8px 14px',
-              fontSize: '13px',
-              fontWeight: 700,
-              background: '#4338ca',
-              color: '#ffffff',
-              border: 'none',
-              borderRadius: '8px',
-              cursor: 'pointer',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '6px',
-            }}
-          >
-            ⚙️ Danh sách lớp & Thi đua
-          </button>
+          <div className={styles.utilityActions}>
+            <button
+              onClick={handleCacheAllOffline}
+              className={styles.utilityBtn}
+              title="Tải trước toàn bộ âm thanh, hình ảnh vào bộ nhớ đệm"
+            >
+              📥 Nạp Offline toàn bộ
+            </button>
+            <button
+              onClick={handleExportBackup}
+              className={styles.utilityBtn}
+              data-testid="export-backup-btn"
+              title="Xuất file sao lưu .json chứa dữ liệu lớp, bài tự soạn, câu sai và giọng đọc"
+            >
+              💾 Xuất sao lưu (.json)
+            </button>
+            <button
+              onClick={() => fileInputRef.current?.click()}
+              className={styles.utilityBtn}
+              data-testid="import-backup-btn"
+              title="Nhập file sao lưu để khôi phục dữ liệu"
+            >
+              📥 Khôi phục sao lưu
+            </button>
+            <input
+              type="file"
+              ref={fileInputRef}
+              onChange={handleImportBackupFile}
+              accept=".json"
+              style={{ display: 'none' }}
+            />
+          </div>
+        </div>
+
+        {/* Tier 2: Primary Teaching Action Bar */}
+        <div className={styles.primaryActionsBar}>
           <button
             onClick={() => navigate('/editor')}
-            style={{
-              padding: '8px 14px',
-              fontSize: '13px',
-              fontWeight: 700,
-              background: '#2563eb',
-              color: '#ffffff',
-              border: 'none',
-              borderRadius: '8px',
-              cursor: 'pointer',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '6px',
-            }}
+            className={styles.primaryActionBtn}
+            style={{ background: 'linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%)', color: '#ffffff' }}
           >
-            ✏️ Soạn bài mới
+            ✏️ Soạn bài dạy mới
           </button>
           <button
             onClick={() => navigate('/print-worksheet')}
-            style={{
-              padding: '8px 14px',
-              fontSize: '13px',
-              fontWeight: 700,
-              background: '#0891b2',
-              color: '#ffffff',
-              border: 'none',
-              borderRadius: '8px',
-              cursor: 'pointer',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '6px',
-            }}
+            className={styles.primaryActionBtn}
+            style={{ background: 'linear-gradient(135deg, #0891b2 0%, #0e7490 100%)', color: '#ffffff' }}
             data-testid="nav-print-worksheet"
           >
             🖨️ In Phiếu Bài tập A4
           </button>
           <button
-            onClick={handleExportBackup}
-            style={{
-              padding: '8px 14px',
-              fontSize: '13px',
-              fontWeight: 700,
-              background: '#7c3aed',
-              color: '#ffffff',
-              border: 'none',
-              borderRadius: '8px',
-              cursor: 'pointer',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '6px',
-            }}
-            data-testid="export-backup-btn"
+            onClick={() => setIsClassroomModalOpen(true)}
+            className={styles.primaryActionBtn}
+            style={{ background: 'linear-gradient(135deg, #4f46e5 0%, #4338ca 100%)', color: '#ffffff' }}
           >
-            💾 Xuất sao lưu (.json)
+            ⚙️ Quản lý Lớp & Thi đua
           </button>
-          <button
-            onClick={() => fileInputRef.current?.click()}
-            style={{
-              padding: '8px 14px',
-              fontSize: '13px',
-              fontWeight: 700,
-              background: '#475569',
-              color: '#ffffff',
-              border: 'none',
-              borderRadius: '8px',
-              cursor: 'pointer',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '6px',
-            }}
-            data-testid="import-backup-btn"
-          >
-            📥 Khôi phục sao lưu
-          </button>
-          <input
-            type="file"
-            ref={fileInputRef}
-            onChange={handleImportBackupFile}
-            accept=".json"
-            style={{ display: 'none' }}
-          />
         </div>
 
         {globalOfflineMsg && (

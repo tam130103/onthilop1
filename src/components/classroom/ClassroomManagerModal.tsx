@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import {
   getClassroomStore,
   type Student,
@@ -22,6 +22,17 @@ export function ClassroomManagerModal({
   const [activeTab, setActiveTab] = useState<'roster' | 'teams'>('roster');
   const [rawText, setRawText] = useState('');
   const [showPasteBox, setShowPasteBox] = useState(false);
+
+  useEffect(() => {
+    if (!isOpen) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        onClose();
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isOpen, onClose]);
 
   if (!isOpen) return null;
 
@@ -207,6 +218,25 @@ export function ClassroomManagerModal({
               </div>
             </>
           )}
+
+          {/* Modal Footer */}
+          <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: '18px', paddingTop: '12px', borderTop: '1px solid #334155' }}>
+            <button
+              onClick={onClose}
+              style={{
+                padding: '8px 20px',
+                fontSize: '14px',
+                fontWeight: 600,
+                background: '#334155',
+                color: '#e2e8f0',
+                border: 'none',
+                borderRadius: '8px',
+                cursor: 'pointer',
+              }}
+            >
+              Đóng lại (Esc)
+            </button>
+          </div>
         </div>
       </div>
     </div>
