@@ -11,6 +11,7 @@ import { PhonicsFlashcard } from '@/components/phonics/PhonicsFlashcard';
 import { TeamScoreboard } from '@/components/classroom/TeamScoreboard';
 import { ClassroomTimer } from '@/components/classroom/ClassroomTimer';
 import { RandomPickerOverlay } from '@/components/classroom/RandomPickerOverlay';
+import { StarRewardOverlay } from '@/components/common/StarRewardOverlay';
 import {
   playerReducer,
   createInitialState,
@@ -42,6 +43,8 @@ export function PresentPage() {
   const isLoadedRef = useRef(false);
   const pendingSnapshotRef = useRef<Record<string, unknown> | null>(null);
   const [hasStarted, setHasStarted] = useState(false);
+  const [showStarReward, setShowStarReward] = useState(false);
+  const prevCorrectSize = useRef(0);
 
   const [classroomData, setClassroomData] = useState<ClassroomData>(
     getClassroomStore().getData()
@@ -51,6 +54,15 @@ export function PresentPage() {
   useEffect(() => {
     return getClassroomStore().subscribe(setClassroomData);
   }, []);
+
+  // Hiệu ứng thưởng sao khi học sinh trả lời đúng
+  useEffect(() => {
+    if (state.answeredCorrectly.size > prevCorrectSize.current) {
+      setShowStarReward(true);
+      getAudioManager().play('/media/tts/timer-chime.mp3');
+    }
+    prevCorrectSize.current = state.answeredCorrectly.size;
+  }, [state.answeredCorrectly.size]);
 
   // Timer interval on TV
   useEffect(() => {
@@ -523,6 +535,12 @@ export function PresentPage() {
       </div>
 
       {renderSlide}
+
+      {/* Hiệu ứng thưởng sao khi trả lời đúng */}
+      <StarRewardOverlay
+        show={showStarReward}
+        onComplete={() => setShowStarReward(false)}
+      />
 
       {/* Slide Counter */}
       {slideInfo && (

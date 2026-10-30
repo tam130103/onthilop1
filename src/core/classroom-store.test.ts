@@ -85,6 +85,10 @@ describe('ClassroomStore & Random Picker Algorithm', () => {
     store.addScore(teamId, 10);
     store.resetScores();
     expect(store.getData().teams[0]?.score).toBe(0);
+
+    // Update team name
+    store.updateTeamName(teamId, 'Đội Rồng Vàng');
+    expect(store.getData().teams[0]?.name).toBe('Đội Rồng Vàng');
   });
 
   it('classroom timer lifecycle (start, tick, finish)', () => {

@@ -8,6 +8,7 @@ import {
 } from '@/core/classroom-store';
 import { TeamScoreboard } from '@/components/classroom/TeamScoreboard';
 import { ClassroomTimer } from '@/components/classroom/ClassroomTimer';
+import { ClassroomManagerModal } from '@/components/classroom/ClassroomManagerModal';
 import { LessonSchema, type Slide } from '@/schemas/content.schema';
 import styles from './PresenterPage.module.css';
 
@@ -48,6 +49,27 @@ function getSlideTypeLabel(slide: Slide): string {
   }
 }
 
+function getQuestionAnswerSummary(slide: Slide): string {
+  if (slide.type !== 'question-slide') return '';
+  const q = slide.question;
+  switch (q.type) {
+    case 'multiple_choice':
+    case 'multiple-choice': {
+      const opt = q.options.find((o) => o.id === q.correctOptionId);
+      return `Đáp án đúng: ${opt?.label ?? ''}`;
+    }
+    case 'counting':
+      return `Số lượng đúng: ${q.correctCount}`;
+    case 'number_select':
+    case 'number-select':
+      return `Kết quả đúng: ${q.correctAnswer}`;
+    case 'tap_place':
+      return 'Bài tập điền chỗ trống';
+    case 'matching':
+      return 'Bài tập nối hai cột';
+  }
+}
+
 export function PresenterPage() {
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
@@ -56,6 +78,7 @@ export function PresenterPage() {
   const channelRef = useRef<SyncChannel | null>(null);
   const stateRef = useRef(state);
   const [offlineStatus, setOfflineStatus] = useState<string | null>(null);
+  const [isClassroomModalOpen, setIsClassroomModalOpen] = useState(false);
 
   const [classroomData, setClassroomData] = useState<ClassroomData>(
     getClassroomStore().getData()
@@ -167,6 +190,7 @@ export function PresenterPage() {
   }, []);
 
   const currentSlide = getCurrentSlide(state);
+  const nextSlide = state.lesson?.slides[state.currentSlideIndex + 1];
 
   const handleAnswerChoice = useCallback(
     (choice: 'correct' | 'incorrect') => {
@@ -290,7 +314,7 @@ export function PresenterPage() {
     }
   }, [state.lesson]);
 
-  // Keyboard navigation: Chặn F5 (clicker), giữ Escape, phím B bật tắt blackout
+  // Keyboard navigation: Chặn F5 (clicker), giữ Escape, phím tắt 1 tay điều khiển
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
       // 1. Chặn F5 (laser clicker gửi F5)
@@ -308,6 +332,8 @@ export function PresenterPage() {
         return;
       }
       switch (e.key) {
+        case ' ':
+        case 'Enter':
         case 'ArrowRight':
         case 'PageDown':
           e.preventDefault();
@@ -318,15 +344,51 @@ export function PresenterPage() {
           e.preventDefault();
           handlePrev();
           break;
-        case 'r':
-        case 'R':
+        case 'a':
+        case 'A':
+          e.preventDefault();
           handleReveal();
           break;
+        case 'c':
+        case 'C':
+          e.preventDefault();
+          handleAnswerChoice('correct');
+          break;
+        case 'x':
+        case 'X':
+          e.preventDefault();
+          handleAnswerChoice('incorrect');
+          break;
+        case 'r':
+        case 'R':
+          e.preventDefault();
+          handleRandomPick();
+          break;
+        case '1':
+        case '2':
+        case '3':
+        case '4': {
+          const idx = parseInt(e.key, 10) - 1;
+          const teams = getClassroomStore().getData().teams;
+          if (teams[idx]) {
+            e.preventDefault();
+            handleAddScore(teams[idx].id, 1);
+          }
+          break;
+        }
       }
     };
     window.addEventListener('keydown', handler);
     return () => window.removeEventListener('keydown', handler);
-  }, [handleNext, handlePrev, handleReveal, handleToggleBlackout]);
+  }, [
+    handleNext,
+    handlePrev,
+    handleReveal,
+    handleAnswerChoice,
+    handleRandomPick,
+    handleAddScore,
+    handleToggleBlackout,
+  ]);
 
   return (
     <div className={styles.container}>
@@ -336,6 +398,22 @@ export function PresenterPage() {
             {state.lesson?.title ?? 'Chưa tải bài học'}
           </span>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <button
+              onClick={() => setIsClassroomModalOpen(true)}
+              style={{
+                fontSize: '12px',
+                padding: '4px 8px',
+                background: '#4338ca',
+                color: '#e2e8f0',
+                border: '1px solid #4f46e5',
+                borderRadius: '6px',
+                cursor: 'pointer',
+                fontWeight: 600,
+              }}
+              title="Quản lý danh sách học sinh và điểm thi đua các tổ"
+            >
+              ⚙️ Lớp học
+            </button>
             <button
               onClick={handleCacheOffline}
               style={{
@@ -373,30 +451,130 @@ export function PresenterPage() {
           </div>
         )}
 
-        {/* Preview Box */}
-        <div className={styles.previewBox}>
-          <div className={styles.previewText} data-testid="slide-preview-text">
-            {currentSlide ? (
-              <div>
-                <div
-                  style={{
-                    fontSize: '18px',
-                    fontWeight: 700,
-                    color: '#f8fafc',
-                    marginBottom: '8px',
-                  }}
-                >
-                  {currentSlide.type === 'question-slide'
-                    ? currentSlide.question.prompt
-                    : currentSlide.title}
+        {/* Previews Grid: Current Slide & Next Slide Preview */}
+        <div className={styles.previewsGrid}>
+          {/* Current Slide */}
+          <div className={styles.currentSlideCard}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+              <span className={`${styles.cardBadge} ${styles.currentBadge}`}>
+                📺 Đang chiếu trên TV · Slide {state.currentSlideIndex + 1}/{state.totalSlides}
+              </span>
+              <span style={{ fontSize: '12px', color: '#64748b' }}>
+                {currentSlide ? getSlideTypeLabel(currentSlide) : ''}
+              </span>
+            </div>
+            <div className={styles.previewText} data-testid="slide-preview-text">
+              {currentSlide ? (
+                <div>
+                  <div
+                    style={{
+                      fontSize: '19px',
+                      fontWeight: 700,
+                      color: '#f8fafc',
+                      marginBottom: '8px',
+                    }}
+                  >
+                    {currentSlide.type === 'question-slide'
+                      ? currentSlide.question.prompt
+                      : currentSlide.title}
+                  </div>
+                  {currentSlide.type === 'question-slide' && (
+                    <div style={{ fontSize: '14px', color: '#38bdf8' }}>
+                      {getQuestionAnswerSummary(currentSlide)}
+                    </div>
+                  )}
                 </div>
-                <div style={{ fontSize: '13px', color: '#64748b' }}>
-                  {getSlideTypeLabel(currentSlide)}
+              ) : (
+                <span style={{ color: '#64748b' }}>Chưa có slide</span>
+              )}
+            </div>
+          </div>
+
+          {/* Next Slide Preview */}
+          <div className={styles.nextSlideCard}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+              <span className={`${styles.cardBadge} ${styles.nextBadge}`}>
+                🔜 Xem trước câu tiếp theo
+              </span>
+              <span style={{ fontSize: '12px', color: '#64748b' }}>
+                {nextSlide ? `Slide ${state.currentSlideIndex + 2}` : 'Hết bài'}
+              </span>
+            </div>
+            <div>
+              {nextSlide ? (
+                <div>
+                  <div
+                    style={{
+                      fontSize: '15px',
+                      fontWeight: 600,
+                      color: '#e2e8f0',
+                      marginBottom: '6px',
+                    }}
+                  >
+                    {nextSlide.type === 'question-slide'
+                      ? nextSlide.question.prompt
+                      : nextSlide.title}
+                  </div>
+                  <div style={{ fontSize: '12px', color: '#94a3b8', marginBottom: '8px' }}>
+                    Loại: {getSlideTypeLabel(nextSlide)}
+                  </div>
+                  {nextSlide.teacherNote && (
+                    <div
+                      style={{
+                        padding: '6px 10px',
+                        background: '#1e293b',
+                        borderLeft: '3px solid #f59e0b',
+                        fontSize: '12px',
+                        color: '#fef08a',
+                        borderRadius: '4px',
+                      }}
+                    >
+                      💡 <strong>Chuẩn bị:</strong> {nextSlide.teacherNote}
+                    </div>
+                  )}
                 </div>
-              </div>
-            ) : (
-              <span style={{ color: '#64748b' }}>Chưa có slide</span>
-            )}
+              ) : (
+                <div style={{ color: '#10b981', fontSize: '14px', fontWeight: 600, padding: '12px 0' }}>
+                  🎉 Đây là slide cuối cùng! Chúc mừng cả lớp.
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+
+        {/* Shortcut Cheat Sheet Bar */}
+        <div className={styles.shortcutBar}>
+          <div className={styles.shortcutItem}>
+            <span className={styles.keyKbd}>Space / ▶</span>
+            <span>Tiếp</span>
+          </div>
+          <div className={styles.shortcutItem}>
+            <span className={styles.keyKbd}>◀</span>
+            <span>Lùi</span>
+          </div>
+          <div className={styles.shortcutItem}>
+            <span className={styles.keyKbd}>A</span>
+            <span>Hiện đáp án</span>
+          </div>
+          <div className={styles.shortcutItem}>
+            <span className={styles.keyKbd}>C</span>
+            <span>Đúng</span>
+          </div>
+          <div className={styles.shortcutItem}>
+            <span className={styles.keyKbd}>X</span>
+            <span>Sai</span>
+          </div>
+          <div className={styles.shortcutItem}>
+            <span className={styles.keyKbd}>R</span>
+            <span>Bốc thăm</span>
+          </div>
+          <div className={styles.shortcutItem}>
+            <span className={styles.keyKbd}>1–4</span>
+            <span>+1 sao tổ</span>
+          </div>
+          <div className={styles.shortcutItem}>
+            <span className={styles.keyKbd}>B</span>
+            <span>Tối/Bật màn</span>
           </div>
         </div>
 
@@ -567,6 +745,13 @@ export function PresenterPage() {
           })}
         </div>
       </div>
+
+      <ClassroomManagerModal
+        isOpen={isClassroomModalOpen}
+        onClose={() => setIsClassroomModalOpen(false)}
+        students={classroomData.students}
+        teams={classroomData.teams}
+      />
     </div>
   );
 }

@@ -1,6 +1,8 @@
 import { useEffect, useState, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { LessonSchema, type Lesson } from '@/schemas/content.schema';
+import { getClassroomStore, type ClassroomData } from '@/core/classroom-store';
+import { ClassroomManagerModal } from '@/components/classroom/ClassroomManagerModal';
 import styles from './HomePage.module.css';
 
 const LESSON_MANIFEST = [
@@ -24,6 +26,12 @@ export function HomePage() {
   const [offlineReady, setOfflineReady] = useState(false);
   const [offlineStatuses, setOfflineStatuses] = useState<Record<string, OfflineStatus>>({});
   const [globalOfflineMsg, setGlobalOfflineMsg] = useState<string | null>(null);
+  const [classroomData, setClassroomData] = useState<ClassroomData>(getClassroomStore().getData());
+  const [isClassroomModalOpen, setIsClassroomModalOpen] = useState(false);
+
+  useEffect(() => {
+    return getClassroomStore().subscribe(setClassroomData);
+  }, []);
 
   useEffect(() => {
     async function loadLessons() {
@@ -178,6 +186,21 @@ export function HomePage() {
     [navigate]
   );
 
+  // Khởi chạy 2 màn hình 1-Click: Mở TV popup và chuyển tab laptop sang Presenter
+  const handleStartClassroom = useCallback(
+    (lessonId: string) => {
+      // Mở màn TV ở cửa sổ riêng để giáo viên kéo sang màn TV / máy chiếu ngoài
+      window.open(
+        `/present?lesson=${lessonId}`,
+        'tv_presentation_screen',
+        'width=1280,height=720,menubar=no,toolbar=no,location=no'
+      );
+      // Chuyển tab hiện tại của laptop thành Bảng điều khiển
+      navigate(`/presenter?lesson=${lessonId}`);
+    },
+    [navigate]
+  );
+
   return (
     <div className={styles.container}>
       <header className={styles.header}>
@@ -209,6 +232,24 @@ export function HomePage() {
             }}
           >
             📥 Kiểm tra & tải offline toàn bộ
+          </button>
+          <button
+            onClick={() => setIsClassroomModalOpen(true)}
+            style={{
+              padding: '8px 16px',
+              fontSize: '14px',
+              fontWeight: 700,
+              background: '#4338ca',
+              color: '#ffffff',
+              border: 'none',
+              borderRadius: '8px',
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '6px',
+            }}
+          >
+            ⚙️ Danh sách lớp & Thi đua
           </button>
         </div>
 
@@ -285,14 +326,23 @@ export function HomePage() {
 
                 <div className={styles.actions}>
                   <button
+                    className={styles.btnDual}
+                    onClick={() => handleStartClassroom(lesson.id)}
+                    title="Mở màn hình TV riêng để chiếu và chuyển tab này sang Bảng điều khiển"
+                  >
+                    🚀 Bắt đầu dạy học (Mở 2 màn hình)
+                  </button>
+                  <button
                     className={`${styles.btn} ${styles.btnPrimary}`}
                     onClick={() => handlePresent(lesson.id)}
+                    title="Chỉ mở màn hình hiển thị TV"
                   >
-                    📺 Chiếu TV
+                    📺 Xem TV
                   </button>
                   <button
                     className={`${styles.btn} ${styles.btnSecondary}`}
                     onClick={() => handlePresenter(lesson.id)}
+                    title="Chỉ mở Bảng điều khiển giáo viên"
                   >
                     🎛️ Điều khiển
                   </button>
@@ -310,6 +360,13 @@ export function HomePage() {
           })}
         </div>
       )}
+
+      <ClassroomManagerModal
+        isOpen={isClassroomModalOpen}
+        onClose={() => setIsClassroomModalOpen(false)}
+        students={classroomData.students}
+        teams={classroomData.teams}
+      />
 
       <div className={styles.footer}>
         <button

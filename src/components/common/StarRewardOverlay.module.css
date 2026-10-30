@@ -1,0 +1,88 @@
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 1000;
+  animation: fadeInOut 1.8s ease-out forwards;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  background: rgba(15, 23, 42, 0.88);
+  border: 4px solid #facc15;
+  box-shadow: 0 0 50px rgba(250, 204, 21, 0.6);
+  border-radius: 28px;
+  padding: 24px 48px;
+  animation: popScale 1.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+.starIcon {
+  font-size: 80px;
+  animation: spinStar 1.8s ease-in-out infinite;
+  filter: drop-shadow(0 0 20px #eab308);
+}
+
+.text {
+  font-size: 44px;
+  font-weight: 900;
+  color: #fef08a;
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.8), 0 0 25px rgba(234, 179, 8, 0.8);
+  letter-spacing: 0.05em;
+  margin: 0;
+}
+
+.subtext {
+  font-size: 24px;
+  font-weight: 700;
+  color: #86efac;
+  margin: 0;
+}
+
+@keyframes popScale {
+  0% {
+    transform: scale(0.3);
+    opacity: 0;
+  }
+  20% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  30% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  80% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.2);
+    opacity: 0;
+  }
+}
+
+@keyframes spinStar {
+  0% {
+    transform: rotate(-10deg) scale(1);
+  }
+  50% {
+    transform: rotate(10deg) scale(1.15);
+  }
+  100% {
+    transform: rotate(-10deg) scale(1);
+  }
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; }
+  15% { opacity: 1; }
+  85% { opacity: 1; }
+  100% { opacity: 0; }
+}

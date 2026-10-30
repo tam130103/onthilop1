@@ -216,6 +216,13 @@ export class ClassroomStore {
     this.persist();
   }
 
+  updateTeamName(teamId: string, name: string): void {
+    this.data.teams = this.data.teams.map((t) =>
+      t.id === teamId ? { ...t, name } : t
+    );
+    this.persist();
+  }
+
   // ---- Classroom Timer ----
   startTimer(seconds: number): void {
     this.data.timer = {
