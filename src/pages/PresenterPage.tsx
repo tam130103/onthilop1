@@ -9,6 +9,7 @@ import {
 import { TeamScoreboard } from '@/components/classroom/TeamScoreboard';
 import { ClassroomTimer } from '@/components/classroom/ClassroomTimer';
 import { ClassroomManagerModal } from '@/components/classroom/ClassroomManagerModal';
+import { getLessonById } from '@/core/lesson-storage';
 import { LessonSchema, type Slide } from '@/schemas/content.schema';
 import styles from './PresenterPage.module.css';
 
@@ -97,19 +98,11 @@ export function PresenterPage() {
   useEffect(() => {
     if (!lessonId) return;
     async function loadLesson() {
-      for (const url of LESSON_URLS) {
-        try {
-          const resp = await fetch(url);
-          const json: unknown = await resp.json();
-          const parsed = LessonSchema.safeParse(json);
-          if (parsed.success && parsed.data.id === lessonId) {
-            dispatch({ type: 'LOAD_LESSON', lesson: parsed.data });
-            dispatch({ type: 'START_SESSION' });
-            return;
-          }
-        } catch {
-          // continue
-        }
+      if (!lessonId) return;
+      const found = await getLessonById(lessonId);
+      if (found) {
+        dispatch({ type: 'LOAD_LESSON', lesson: found });
+        dispatch({ type: 'START_SESSION' });
       }
     }
     loadLesson();

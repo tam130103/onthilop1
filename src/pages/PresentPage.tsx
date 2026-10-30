@@ -27,6 +27,7 @@ import {
   type ClassroomTimerState,
 } from '@/core/classroom-store';
 import { LessonSchema, type Lesson } from '@/schemas/content.schema';
+import { getLessonById } from '@/core/lesson-storage';
 
 const LESSON_URLS = [
   '/content/lessons/math-lesson-01.json',
@@ -164,57 +165,50 @@ export function PresentPage() {
 
     async function loadLesson() {
       try {
-        for (const url of LESSON_URLS) {
-          try {
-            const resp = await fetch(url);
-            const json: unknown = await resp.json();
-            const parsed = LessonSchema.safeParse(json);
-            if (parsed.success && parsed.data.id === lessonId) {
-              if (isCancelled) return;
-              const lesson: Lesson = parsed.data;
-              dispatch({ type: 'LOAD_LESSON', lesson });
-              dispatch({ type: 'START_SESSION' });
-              isLoadedRef.current = true;
+        if (!lessonId) return;
+        const found = await getLessonById(lessonId);
+        if (found) {
+          if (isCancelled) return;
+          const lesson: Lesson = found;
+          dispatch({ type: 'LOAD_LESSON', lesson });
+          dispatch({ type: 'START_SESSION' });
+          isLoadedRef.current = true;
 
-              // Trích xuất audio của đúng buổi học đang dạy để nạp vào SessionAudioManager
-              const sessionAudioUrls: string[] = [];
-              lesson.slides.forEach((s) => {
-                if ('audio' in s && typeof s.audio === 'string' && s.audio) {
-                  sessionAudioUrls.push(s.audio);
-                }
-                if (s.type === 'question-slide') {
-                  const q = s.question;
-                  if (q.promptAudio) sessionAudioUrls.push(q.promptAudio);
-                  if (q.explanationAudio) sessionAudioUrls.push(q.explanationAudio);
-                  if ('options' in q && Array.isArray(q.options)) {
-                    q.options.forEach((opt) => {
-                      if (opt.audio) sessionAudioUrls.push(opt.audio);
-                    });
-                  }
-                }
-              });
-              getAudioManager().loadSessionAudio(sessionAudioUrls);
-
-              if (pendingSnapshotRef.current) {
-                dispatch({
-                  type: 'APPLY_SNAPSHOT',
-                  payload: pendingSnapshotRef.current as Parameters<typeof dispatch>[0] extends {
-                    type: 'APPLY_SNAPSHOT';
-                    payload: infer P;
-                  }
-                    ? P
-                    : Record<string, unknown>,
-                });
-                pendingSnapshotRef.current = null;
-              }
-
-              // Gửi HELLO xin state mới nhất
-              channelRef.current?.send('HELLO', {});
-              return;
+          // Trích xuất audio của đúng buổi học đang dạy để nạp vào SessionAudioManager
+          const sessionAudioUrls: string[] = [];
+          lesson.slides.forEach((s) => {
+            if ('audio' in s && typeof s.audio === 'string' && s.audio) {
+              sessionAudioUrls.push(s.audio);
             }
-          } catch {
-            // continue
+            if (s.type === 'question-slide') {
+              const q = s.question;
+              if (q.promptAudio) sessionAudioUrls.push(q.promptAudio);
+              if (q.explanationAudio) sessionAudioUrls.push(q.explanationAudio);
+              if ('options' in q && Array.isArray(q.options)) {
+                q.options.forEach((opt) => {
+                  if (opt.audio) sessionAudioUrls.push(opt.audio);
+                });
+              }
+            }
+          });
+          getAudioManager().loadSessionAudio(sessionAudioUrls);
+
+          if (pendingSnapshotRef.current) {
+            dispatch({
+              type: 'APPLY_SNAPSHOT',
+              payload: pendingSnapshotRef.current as Parameters<typeof dispatch>[0] extends {
+                type: 'APPLY_SNAPSHOT';
+                payload: infer P;
+              }
+                ? P
+                : Record<string, unknown>,
+            });
+            pendingSnapshotRef.current = null;
           }
+
+          // Gửi HELLO xin state mới nhất
+          channelRef.current?.send('HELLO', {});
+          return;
         }
         dispatch({ type: 'SET_ERROR', error: `Bài học "${lessonId}" không tồn tại` });
       } catch (e) {

@@ -1,16 +1,15 @@
 import { useEffect, useState, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { LessonSchema, type Lesson } from '@/schemas/content.schema';
+import { type Lesson } from '@/schemas/content.schema';
 import { getClassroomStore, type ClassroomData } from '@/core/classroom-store';
 import { ClassroomManagerModal } from '@/components/classroom/ClassroomManagerModal';
+import {
+  getAllLessons,
+  deleteCustomLesson,
+  getCustomLessons,
+  BUILTIN_LESSON_URLS,
+} from '@/core/lesson-storage';
 import styles from './HomePage.module.css';
-
-const LESSON_MANIFEST = [
-  '/content/lessons/math-lesson-01.json',
-  '/content/lessons/math-lesson-02.json',
-  '/content/lessons/vn-lesson-01.json',
-  '/content/lessons/vn-lesson-02.json',
-];
 
 interface OfflineStatus {
   status: 'idle' | 'downloading' | 'ready' | 'error';
@@ -33,28 +32,16 @@ export function HomePage() {
     return getClassroomStore().subscribe(setClassroomData);
   }, []);
 
-  useEffect(() => {
-    async function loadLessons() {
-      const loaded: Lesson[] = [];
-      for (const url of LESSON_MANIFEST) {
-        try {
-          const resp = await fetch(url);
-          const json: unknown = await resp.json();
-          const parsed = LessonSchema.safeParse(json);
-          if (parsed.success) {
-            loaded.push(parsed.data);
-          } else {
-            console.warn(`Invalid lesson ${url}:`, parsed.error.issues);
-          }
-        } catch (e) {
-          console.warn(`Failed to load ${url}:`, e);
-        }
-      }
-      setLessons(loaded);
-      setLoading(false);
-    }
-    loadLessons();
+  const refreshLessons = useCallback(async () => {
+    setLoading(true);
+    const all = await getAllLessons();
+    setLessons(all);
+    setLoading(false);
   }, []);
+
+  useEffect(() => {
+    refreshLessons();
+  }, [refreshLessons]);
 
   useEffect(() => {
     if ('serviceWorker' in navigator) {
@@ -145,7 +132,7 @@ export function HomePage() {
         return;
       }
       const cache = await caches.open('media-cache');
-      const allUrls = new Set<string>(LESSON_MANIFEST);
+      const allUrls = new Set<string>(BUILTIN_LESSON_URLS);
 
       lessons.forEach((les) => {
         const jsonStr = JSON.stringify(les);
@@ -251,6 +238,24 @@ export function HomePage() {
           >
             ⚙️ Danh sách lớp & Thi đua
           </button>
+          <button
+            onClick={() => navigate('/editor')}
+            style={{
+              padding: '8px 16px',
+              fontSize: '14px',
+              fontWeight: 700,
+              background: '#2563eb',
+              color: '#ffffff',
+              border: 'none',
+              borderRadius: '8px',
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '6px',
+            }}
+          >
+            ✏️ Soạn bài dạy mới
+          </button>
         </div>
 
         {globalOfflineMsg && (
@@ -354,6 +359,31 @@ export function HomePage() {
                   >
                     💾 Tải sẵn Offline
                   </button>
+                  {getCustomLessons().some((cl) => cl.id === lesson.id) && (
+                    <>
+                      <button
+                        className={`${styles.btn}`}
+                        style={{ background: '#4f46e5', color: '#fff' }}
+                        onClick={() => navigate(`/editor?lesson=${lesson.id}`)}
+                        title="Chỉnh sửa nội dung bài này"
+                      >
+                        ✏️ Sửa bài
+                      </button>
+                      <button
+                        className={`${styles.btn}`}
+                        style={{ background: '#dc2626', color: '#fff' }}
+                        onClick={() => {
+                          if (confirm(`Bạn có chắc chắn muốn xóa bài "${lesson.title}" không?`)) {
+                            deleteCustomLesson(lesson.id);
+                            refreshLessons();
+                          }
+                        }}
+                        title="Xóa bài này khỏi bộ nhớ máy"
+                      >
+                        🗑️ Xóa
+                      </button>
+                    </>
+                  )}
                 </div>
               </div>
             );
