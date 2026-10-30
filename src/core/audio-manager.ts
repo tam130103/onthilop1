@@ -1,3 +1,5 @@
+import { getAudioObjectUrl } from './audio-storage';
+
 type AudioState = 'idle' | 'loading' | 'playing' | 'paused' | 'error';
 
 interface AudioManagerEvents {
@@ -91,6 +93,13 @@ export class SessionAudioManager {
     const uniqueUrls = Array.from(new Set(urls.filter((u) => typeof u === 'string' && u.trim().length > 0)));
     const promises = uniqueUrls.map(async (url) => {
       try {
+        if (url.startsWith('idb://')) {
+          const objectUrl = await getAudioObjectUrl(url);
+          if (objectUrl) {
+            this.cache.set(url, objectUrl);
+          }
+          return;
+        }
         const response = await fetch(url);
         if (!response.ok) return;
         const blob = await response.blob();
@@ -124,7 +133,15 @@ export class SessionAudioManager {
       this.currentUrl = url;
       this.setState('loading');
 
-      const src = this.cache.get(url) ?? url;
+      let src = this.cache.get(url);
+      if (!src && url.startsWith('idb://')) {
+        const objectUrl = await getAudioObjectUrl(url);
+        if (objectUrl) {
+          this.cache.set(url, objectUrl);
+          src = objectUrl;
+        }
+      }
+      src = src ?? url;
       this.audioElement = new Audio(src);
       this.audioElement.preload = 'auto';
 

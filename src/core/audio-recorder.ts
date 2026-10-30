@@ -1,12 +1,15 @@
 /**
- * Audio recording & local cache utility for Lesson Editor
- * Enables Grade 1 teachers to record voice instructions/phonemes directly in the browser
- * and store them into offline-accessible storage.
+ * Audio recording & IndexedDB integration for Lesson Editor
+ * Enforces a strict 15-second limit per audio clip and saves Blobs directly into IndexedDB,
+ * returning a compact reference URI (`idb://...`) for the lesson JSON.
  */
+import { saveAudioBlob } from './audio-storage';
+
+export const MAX_RECORD_SECONDS = 15;
 
 export interface RecordedAudioResult {
+  refUri: string;
   blob: Blob;
-  dataUrl: string;
   durationMs: number;
 }
 
@@ -15,13 +18,27 @@ class AudioRecorderService {
   private audioChunks: Blob[] = [];
   private startTime: number = 0;
   private stream: MediaStream | null = null;
+  private autoStopTimer: number | null = null;
 
-  async start(): Promise<void> {
+  async start(onMaxLimitReached?: () => void): Promise<void> {
     if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
-      throw new Error('Trình duyệt không hỗ trợ truy cập microphone.');
+      throw new Error('Trình duyệt không hỗ trợ microphone hoặc thiết bị không có micro.');
     }
 
-    this.stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+    try {
+      this.stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+    } catch (err) {
+      if (err instanceof DOMException) {
+        if (err.name === 'NotAllowedError' || err.name === 'PermissionDeniedError') {
+          throw new Error('Bạn đã từ chối quyền truy cập Microphone. Vui lòng cho phép quyền micro trên trình duyệt.');
+        }
+        if (err.name === 'NotFoundError' || err.name === 'DevicesNotFoundError') {
+          throw new Error('Không tìm thấy thiết bị microphone nào được kết nối với máy tính.');
+        }
+      }
+      throw new Error(`Không thể khởi động microphone: ${err instanceof Error ? err.message : String(err)}`);
+    }
+
     this.audioChunks = [];
     this.startTime = Date.now();
 
@@ -47,13 +64,25 @@ class AudioRecorderService {
       }
     };
 
-    this.mediaRecorder.start(100); // 100ms slice
+    // Auto-stop at 15 seconds limit
+    this.autoStopTimer = window.setTimeout(() => {
+      if (this.isRecording()) {
+        onMaxLimitReached?.();
+      }
+    }, MAX_RECORD_SECONDS * 1000);
+
+    this.mediaRecorder.start(100);
   }
 
   stop(): Promise<RecordedAudioResult> {
+    if (this.autoStopTimer) {
+      clearTimeout(this.autoStopTimer);
+      this.autoStopTimer = null;
+    }
+
     return new Promise((resolve, reject) => {
       if (!this.mediaRecorder) {
-        reject(new Error('MediaRecorder chưa được khởi động.'));
+        reject(new Error('Chưa bắt đầu thu âm hoặc tiến trình thu âm đã dừng.'));
         return;
       }
 
@@ -62,26 +91,29 @@ class AudioRecorderService {
         const mimeType = this.mediaRecorder?.mimeType || 'audio/webm';
         const blob = new Blob(this.audioChunks, { type: mimeType });
 
-        // Stop all tracks to turn off mic indicator
+        // Turn off microphone light
         if (this.stream) {
           this.stream.getTracks().forEach((track) => track.stop());
           this.stream = null;
         }
 
-        // Convert to dataUrl for immediate portable offline use
-        const reader = new FileReader();
-        reader.onloadend = () => {
-          const dataUrl = reader.result as string;
+        // Validate 15s limit
+        if (durationMs > (MAX_RECORD_SECONDS + 1) * 1000) {
+          reject(new Error(`Đoạn thu âm vượt quá giới hạn tối đa ${MAX_RECORD_SECONDS} giây!`));
+          return;
+        }
+
+        // Save Blob into IndexedDB and retrieve compact URI
+        try {
+          const refUri = await saveAudioBlob(blob, durationMs);
           resolve({
+            refUri,
             blob,
-            dataUrl,
             durationMs,
           });
-        };
-        reader.onerror = () => {
-          reject(new Error('Lỗi chuyển đổi âm thanh sang Data URL'));
-        };
-        reader.readAsDataURL(blob);
+        } catch (saveErr) {
+          reject(saveErr instanceof Error ? saveErr : new Error(String(saveErr)));
+        }
       };
 
       this.mediaRecorder.stop();

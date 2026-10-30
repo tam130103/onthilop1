@@ -289,7 +289,7 @@ export function PresenterPage() {
         });
       }
 
-      const unique = Array.from(new Set(urlsToCache));
+      const unique = Array.from(new Set(urlsToCache.filter((u) => typeof u === 'string' && u.startsWith('/'))));
       let successCount = 0;
       for (const url of unique) {
         try {

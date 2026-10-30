@@ -16,19 +16,6 @@ const mediaRefPublish: MediaRefType = z
     message: 'Cấm định dạng .wav! Phải dùng .mp3 cho âm thanh',
   });
 
-// Helper check: general praise or utility audio exempted from distinct-label rule
-function isExemptAudio(audioPath: string): boolean {
-  const lower = audioPath.toLowerCase();
-  return (
-    lower.includes('explanation') ||
-    lower.includes('congrats') ||
-    lower.includes('khen') ||
-    lower.includes('timer-chime') ||
-    lower.includes('chime') ||
-    lower.includes('prompt-')
-  );
-}
-
 // ---- 1. Multiple Choice Question ----
 function makeMultipleChoice(
   mediaRef: MediaRefType,
@@ -90,24 +77,22 @@ function makeMultipleChoice(
         });
       }
 
-      // Cấm 2 nhãn khác nhau dùng chung một file audio (trừ lời khen chung)
+      // Cấm 2 nhãn khác nhau dùng chung một file audio
       if (status === 'publish') {
         const audioMap = new Map<string, string>();
         for (const opt of data.options) {
           if (opt.audio && opt.label) {
             const cleanAudio = opt.audio.trim().toLowerCase();
             const cleanLabel = opt.label.trim().toLowerCase();
-            if (!isExemptAudio(cleanAudio)) {
-              const existing = audioMap.get(cleanAudio);
-              if (existing && existing.toLowerCase() !== cleanLabel) {
-                ctx.addIssue({
-                  code: z.ZodIssueCode.custom,
-                  message: `Luật Publish: Hai nhãn khác nhau ('${existing}' và '${opt.label}') không được dùng chung audio '${opt.audio}'`,
-                  path: ['options'],
-                });
-              } else {
-                audioMap.set(cleanAudio, opt.label);
-              }
+            const existing = audioMap.get(cleanAudio);
+            if (existing && existing.toLowerCase() !== cleanLabel) {
+              ctx.addIssue({
+                code: z.ZodIssueCode.custom,
+                message: `Luật Publish: Hai nhãn khác nhau ('${existing}' và '${opt.label}') không được dùng chung audio '${opt.audio}'`,
+                path: ['options'],
+              });
+            } else {
+              audioMap.set(cleanAudio, opt.label);
             }
           }
         }
@@ -293,24 +278,22 @@ function makeTapPlace(mediaRef: MediaRefType, status: 'draft' | 'publish') {
         }
       }
 
-      // Cấm 2 nhãn khác nhau dùng chung một file audio (trừ lời khen chung)
+      // Cấm 2 nhãn khác nhau dùng chung một file audio
       if (status === 'publish') {
         const audioMap = new Map<string, string>();
         for (const item of data.items) {
           if (item.audio && item.label) {
             const cleanAudio = item.audio.trim().toLowerCase();
             const cleanLabel = item.label.trim().toLowerCase();
-            if (!isExemptAudio(cleanAudio)) {
-              const existing = audioMap.get(cleanAudio);
-              if (existing && existing.toLowerCase() !== cleanLabel) {
-                ctx.addIssue({
-                  code: z.ZodIssueCode.custom,
-                  message: `Luật Publish: Hai nhãn khác nhau ('${existing}' và '${item.label}') không được dùng chung audio '${item.audio}'`,
-                  path: ['items'],
-                });
-              } else {
-                audioMap.set(cleanAudio, item.label);
-              }
+            const existing = audioMap.get(cleanAudio);
+            if (existing && existing.toLowerCase() !== cleanLabel) {
+              ctx.addIssue({
+                code: z.ZodIssueCode.custom,
+                message: `Luật Publish: Hai nhãn khác nhau ('${existing}' và '${item.label}') không được dùng chung audio '${item.audio}'`,
+                path: ['items'],
+              });
+            } else {
+              audioMap.set(cleanAudio, item.label);
             }
           }
         }
@@ -444,7 +427,7 @@ function makeMatching(mediaRef: MediaRefType, status: 'draft' | 'publish') {
         usedRightIds.add(pair.rightId);
       });
 
-      // Cấm 2 nhãn khác nhau dùng chung một file audio (trừ lời khen chung)
+      // Cấm 2 nhãn khác nhau dùng chung một file audio
       if (status === 'publish') {
         const audioMap = new Map<string, string>();
         const allItems = [...data.leftColumn, ...data.rightColumn];
@@ -452,17 +435,15 @@ function makeMatching(mediaRef: MediaRefType, status: 'draft' | 'publish') {
           if (item.audio && item.label) {
             const cleanAudio = item.audio.trim().toLowerCase();
             const cleanLabel = item.label.trim().toLowerCase();
-            if (!isExemptAudio(cleanAudio)) {
-              const existing = audioMap.get(cleanAudio);
-              if (existing && existing.toLowerCase() !== cleanLabel) {
-                ctx.addIssue({
-                  code: z.ZodIssueCode.custom,
-                  message: `Luật Publish: Hai nhãn khác nhau ('${existing}' và '${item.label}') không được dùng chung audio '${item.audio}'`,
-                  path: ['leftColumn'],
-                });
-              } else {
-                audioMap.set(cleanAudio, item.label);
-              }
+            const existing = audioMap.get(cleanAudio);
+            if (existing && existing.toLowerCase() !== cleanLabel) {
+              ctx.addIssue({
+                code: z.ZodIssueCode.custom,
+                message: `Luật Publish: Hai nhãn khác nhau ('${existing}' và '${item.label}') không được dùng chung audio '${item.audio}'`,
+                path: ['leftColumn'],
+              });
+            } else {
+              audioMap.set(cleanAudio, item.label);
             }
           }
         }

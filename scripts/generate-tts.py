@@ -1,5 +1,6 @@
 from gtts import gTTS
 import os
+import json
 import shutil
 
 os.makedirs("public/media/tts", exist_ok=True)
@@ -49,6 +50,15 @@ AUDIO_ITEMS = [
     ("public/media/phonemes/ca-sac.mp3", "cá"),
     ("public/media/phonemes/ca-co.mp3", "cá cờ"),
     ("public/media/phonemes/o.mp3", "o"),
+
+    # Vietnamese lesson 1 - Specific slide voiceovers
+    ("public/media/tts/vn1-title.mp3", "Bài một: Âm a, b, c. Tiếng Việt Lớp một - Tuần hai."),
+    ("public/media/tts/vn1-intro.mp3", "Làm quen chữ cái mới. Hôm nay các em sẽ học ba chữ cái đầu tiên: A, B, C."),
+    ("public/media/tts/vn1-exp-tap.mp3", "Con cá bắt đầu bằng âm c, quả bóng bắt đầu bằng âm b."),
+    ("public/media/tts/vn1-prompt-match.mp3", "Nối chữ cái với hình tương ứng:"),
+    ("public/media/tts/vn1-exp-match.mp3", "Chữ B nối với Quả bóng; Chữ C nối với Con cá."),
+    ("public/media/tts/vn1-prompt-mc.mp3", "Âm 'b' ghép với âm 'a' và thanh sắc tạo thành tiếng gì?"),
+    ("public/media/tts/vn1-exp-mc.mp3", "bờ - a - ba - sắc - bá!"),
 
     # Vietnamese lesson 2 - Blending & Words
     ("public/media/tts/vn2-title.mp3", "Bài hai: Ghép vần và từ ứng dụng. Tiếng Việt Lớp một."),
@@ -106,6 +116,18 @@ def main():
             print(f"   ⏩ [EXISTS] {path}")
 
     print(f"\n🎉 Successfully verified audio! (Generated/updated {generated} files)")
+
+    manifest = {}
+    for path, text in AUDIO_ITEMS:
+        clean_path = path.replace("\\", "/")
+        rel_url = "/" + clean_path.replace("public/", "")
+        manifest[rel_url] = text
+        manifest[clean_path] = text
+
+    manifest_path = "scripts/tts-manifest.json"
+    with open(manifest_path, "w", encoding="utf-8") as f:
+        json.dump(manifest, f, ensure_ascii=False, indent=2)
+    print(f"📋 Exported TTS manifest to {manifest_path} ({len(AUDIO_ITEMS)} items)")
 
 if __name__ == "__main__":
     main()

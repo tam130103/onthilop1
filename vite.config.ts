@@ -28,7 +28,7 @@ export default defineConfig({
     copyContentPlugin(),
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['media/**/*', 'content/**/*'],
+      includeAssets: ['icon-192.png', 'icon-512.png'],
       workbox: {
         globPatterns: ['**/*.{js,css,html,ico,png,svg,webp,mp3,json}'],
         maximumFileSizeToCacheInBytes: 50 * 1024 * 1024, // 50MB for audio

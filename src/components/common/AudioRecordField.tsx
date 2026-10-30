@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
-import { audioRecorder } from '@/core/audio-recorder';
+import { audioRecorder, MAX_RECORD_SECONDS } from '@/core/audio-recorder';
+import { getAudioObjectUrl } from '@/core/audio-storage';
 import styles from './AudioRecordField.module.css';
 
 export interface AudioRecordFieldProps {
@@ -24,8 +25,9 @@ export function AudioRecordField({
 
   const timerRef = useRef<number | null>(null);
   const audioPlayerRef = useRef<HTMLAudioElement | null>(null);
+  const currentObjectUrlRef = useRef<string | null>(null);
 
-  // Stop playback on unmount
+  // Stop playback & cleanup object URLs on unmount
   useEffect(() => {
     return () => {
       if (timerRef.current) clearInterval(timerRef.current);
@@ -33,39 +35,58 @@ export function AudioRecordField({
         audioPlayerRef.current.pause();
         audioPlayerRef.current = null;
       }
+      if (currentObjectUrlRef.current) {
+        URL.revokeObjectURL(currentObjectUrlRef.current);
+        currentObjectUrlRef.current = null;
+      }
     };
   }, []);
+
+  const stopAndSave = useCallback(async () => {
+    if (timerRef.current) {
+      clearInterval(timerRef.current);
+      timerRef.current = null;
+    }
+    try {
+      const result = await audioRecorder.stop();
+      setIsRecording(false);
+      onChange(result.refUri);
+    } catch (err) {
+      setIsRecording(false);
+      const msg = err instanceof Error ? err.message : 'Lỗi khi lưu âm thanh vào IndexedDB';
+      setError(`⚠️ Lỗi lưu thu âm: ${msg}`);
+    }
+  }, [onChange]);
 
   const handleToggleRecord = useCallback(async () => {
     setError(null);
     if (!isRecording) {
       try {
-        await audioRecorder.start();
+        await audioRecorder.start(() => {
+          // Reached max limit (15s)
+          stopAndSave();
+        });
         setIsRecording(true);
         setRecordSeconds(0);
         timerRef.current = window.setInterval(() => {
-          setRecordSeconds((s) => s + 1);
+          setRecordSeconds((s) => {
+            if (s + 1 >= MAX_RECORD_SECONDS) {
+              stopAndSave();
+              return MAX_RECORD_SECONDS;
+            }
+            return s + 1;
+          });
         }, 1000);
       } catch (err) {
-        setError(err instanceof Error ? err.message : 'Không thể kết nối mic');
+        const msg = err instanceof Error ? err.message : 'Không thể kết nối microphone';
+        setError(msg);
       }
     } else {
-      if (timerRef.current) {
-        clearInterval(timerRef.current);
-        timerRef.current = null;
-      }
-      try {
-        const result = await audioRecorder.stop();
-        setIsRecording(false);
-        onChange(result.dataUrl);
-      } catch (err) {
-        setIsRecording(false);
-        setError(err instanceof Error ? err.message : 'Lỗi khi dừng thu âm');
-      }
+      await stopAndSave();
     }
-  }, [isRecording, onChange]);
+  }, [isRecording, stopAndSave]);
 
-  const handleTogglePlay = useCallback(() => {
+  const handleTogglePlay = useCallback(async () => {
     if (!value) return;
 
     if (isPlaying && audioPlayerRef.current) {
@@ -78,7 +99,22 @@ export function AudioRecordField({
       if (audioPlayerRef.current) {
         audioPlayerRef.current.pause();
       }
-      const audio = new Audio(value);
+
+      let playSrc = value;
+      if (value.startsWith('idb://')) {
+        const objUrl = await getAudioObjectUrl(value);
+        if (!objUrl) {
+          setError('Không tìm thấy file âm thanh thu âm trong IndexedDB.');
+          return;
+        }
+        if (currentObjectUrlRef.current) {
+          URL.revokeObjectURL(currentObjectUrlRef.current);
+        }
+        currentObjectUrlRef.current = objUrl;
+        playSrc = objUrl;
+      }
+
+      const audio = new Audio(playSrc);
       audioPlayerRef.current = audio;
 
       audio.onended = () => {
@@ -89,18 +125,15 @@ export function AudioRecordField({
         setError('Không thể phát âm thanh này.');
       };
 
-      audio.play().then(() => {
-        setIsPlaying(true);
-      }).catch((e) => {
-        setIsPlaying(false);
-        setError('Lỗi khi phát audio: ' + (e instanceof Error ? e.message : String(e)));
-      });
+      await audio.play();
+      setIsPlaying(true);
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Lỗi khi tạo audio');
+      setIsPlaying(false);
+      setError('Lỗi khi phát audio: ' + (err instanceof Error ? err.message : String(err)));
     }
   }, [value, isPlaying]);
 
-  const isDataUrl = value.startsWith('data:audio');
+  const isIndexedDb = value.startsWith('idb://');
 
   if (compact) {
     return (
@@ -109,9 +142,9 @@ export function AudioRecordField({
           type="button"
           onClick={handleToggleRecord}
           className={`${styles.compactBtn} ${isRecording ? styles.btnRecording : styles.btnRecord}`}
-          title={isRecording ? 'Bấm để dừng thu âm' : 'Bấm để thu âm bằng micro'}
+          title={isRecording ? `Dừng thu âm (${recordSeconds}/${MAX_RECORD_SECONDS}s)` : 'Bấm để thu âm qua micro (tối đa 15s)'}
         >
-          {isRecording ? `⏹️ ${recordSeconds}s` : '🎙️ Thu'}
+          {isRecording ? `⏹️ ${recordSeconds}s/15s` : '🎙️ Thu'}
         </button>
 
         {value && (
@@ -136,7 +169,8 @@ export function AudioRecordField({
           </button>
         )}
 
-        {isDataUrl && <span className={styles.badgeRecorded}>Đã ghi âm</span>}
+        {isIndexedDb && <span className={styles.badgeRecorded}>IDB (≤15s)</span>}
+        {error && <span className={styles.errorMessage} style={{ fontSize: '11px' }}>{error}</span>}
       </div>
     );
   }
@@ -146,7 +180,7 @@ export function AudioRecordField({
       {label && (
         <label className={styles.label}>
           <span>{label}</span>
-          {isDataUrl && <span className={styles.badgeRecorded}>Đã thu âm cục bộ</span>}
+          {isIndexedDb && <span className={styles.badgeRecorded}>Lưu IndexedDB (≤15s)</span>}
         </label>
       )}
 
@@ -154,20 +188,21 @@ export function AudioRecordField({
         <input
           type="text"
           className={styles.input}
-          value={isDataUrl ? '[Đã ghi âm giọng nói qua micro]' : value}
+          value={isIndexedDb ? `[Bản ghi IndexedDB: ${value}]` : value}
           onChange={(e) => {
-            if (!isDataUrl) onChange(e.target.value);
+            if (!isIndexedDb) onChange(e.target.value);
           }}
           placeholder={placeholder}
-          readOnly={isDataUrl}
+          readOnly={isIndexedDb}
         />
 
         <button
           type="button"
           onClick={handleToggleRecord}
           className={`${styles.btn} ${isRecording ? styles.btnRecording : styles.btnRecord}`}
+          title={isRecording ? 'Bấm để dừng thu và lưu vào IndexedDB' : 'Bắt đầu thu âm bằng micro (tối đa 15 giây)'}
         >
-          {isRecording ? `⏹️ Dừng thu (${recordSeconds}s)` : '🎙️ Thu âm'}
+          {isRecording ? `⏹️ Dừng thu (${recordSeconds}s / ${MAX_RECORD_SECONDS}s)` : '🎙️ Thu âm (≤15s)'}
         </button>
 
         {value && (
@@ -185,14 +220,14 @@ export function AudioRecordField({
             type="button"
             onClick={() => onChange('')}
             className={`${styles.btn} ${styles.btnDelete}`}
-            title="Xóa file âm thanh"
+            title="Xóa âm thanh này"
           >
             🗑️ Xóa
           </button>
         )}
       </div>
 
-      {error && <div className={styles.errorMessage}>⚠️ {error}</div>}
+      {error && <div className={styles.errorMessage}>{error}</div>}
     </div>
   );
 }

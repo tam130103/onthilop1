@@ -14,7 +14,7 @@
       "title": "Bài 1: Âm a, b, c",
       "subtitle": "Tiếng Việt Lớp 1 - Tuần 2",
       "backgroundImage": "/media/images/star.svg",
-      "audio": "/media/tts/prompt-mc.mp3"
+      "audio": "/media/tts/vn1-title.mp3"
     },
     {
       "type": "content-slide",
@@ -22,7 +22,7 @@
       "title": "Làm quen chữ cái mới",
       "body": "Hôm nay các em sẽ học 3 chữ cái đầu tiên: A, B, C.",
       "illustration": "/media/images/pencil.svg",
-      "audio": "/media/tts/explanation-01.mp3",
+      "audio": "/media/tts/vn1-intro.mp3",
       "bullets": [
         "Chữ a - quả na, con gà",
         "Chữ b - quả bóng, ba ba",
@@ -111,7 +111,7 @@
           "item-b": "target-ba"
         },
         "explanation": "Con cá bắt đầu bằng âm 'c', quả bóng bắt đầu bằng âm 'b'.",
-        "explanationAudio": "/media/tts/explanation-01.mp3"
+        "explanationAudio": "/media/tts/vn1-exp-tap.mp3"
       },
       "timeLimitSeconds": 40,
       "showRetryOnWrong": true
@@ -123,7 +123,7 @@
         "type": "matching",
         "id": "q-match-1",
         "prompt": "Nối chữ cái với hình tương ứng:",
-        "promptAudio": "/media/tts/prompt-matching.mp3",
+        "promptAudio": "/media/tts/vn1-prompt-match.mp3",
         "illustration": "/media/images/pencil.svg",
         "leftColumn": [
           {
@@ -160,7 +160,7 @@
           { "leftId": "left-c", "rightId": "right-fish" }
         ],
         "explanation": "Chữ B nối với Quả bóng; Chữ C nối với Con cá.",
-        "explanationAudio": "/media/tts/explanation-01.mp3"
+        "explanationAudio": "/media/tts/vn1-exp-match.mp3"
       },
       "timeLimitSeconds": 30,
       "showRetryOnWrong": true
@@ -172,7 +172,7 @@
         "type": "multiple_choice",
         "id": "q-mc-vn",
         "prompt": "Âm 'b' ghép với âm 'a' và thanh sắc tạo thành tiếng gì?",
-        "promptAudio": "/media/tts/prompt-mc.mp3",
+        "promptAudio": "/media/tts/vn1-prompt-mc.mp3",
         "illustration": "/media/images/star.svg",
         "options": [
           {
@@ -196,7 +196,7 @@
         ],
         "correctOptionId": "opt-ba-sac",
         "explanation": "bờ - a - ba - sắc - bá!",
-        "explanationAudio": "/media/tts/explanation-01.mp3"
+        "explanationAudio": "/media/tts/vn1-exp-mc.mp3"
       },
       "timeLimitSeconds": 25,
       "showRetryOnWrong": true
