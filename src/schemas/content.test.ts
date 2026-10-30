@@ -514,10 +514,10 @@ describe('Zod Content Schema - 5 Question Types & superRefine', () => {
           type: 'multiple_choice',
           id: 'q-pub-mc',
           prompt: 'Chọn số lớn hơn',
-          promptAudio: '/media/tts/prompt-mc.wav',
+          promptAudio: '/media/tts/prompt-mc.mp3',
           illustration: '/media/images/star.svg',
           options: [
-            { id: 'opt-1', label: 'Số 3', audio: '/media/tts/prompt-mc.wav' },
+            { id: 'opt-1', label: 'Số 3', audio: '/media/tts/opt-pencil.mp3' },
             { id: 'opt-2', label: 'Số 5' }, // Thiếu audio!
           ],
           correctOptionId: 'opt-2',
@@ -564,15 +564,15 @@ describe('Zod Content Schema - 5 Question Types & superRefine', () => {
           type: 'matching',
           id: 'q-pub-match',
           prompt: 'Nối chữ',
-          promptAudio: '/media/tts/prompt-matching.wav',
+          promptAudio: '/media/tts/prompt-matching.mp3',
           illustration: '/media/images/pencil.svg',
           leftColumn: [
-            { id: 'L1', label: 'Chữ A', audio: '/media/phonemes/a.wav' },
+            { id: 'L1', label: 'Chữ A', audio: '/media/phonemes/a.mp3' },
             { id: 'L2', label: 'Chữ B' }, // Thiếu audio!
           ],
           rightColumn: [
-            { id: 'R1', label: 'Quả na', audio: '/media/phonemes/a.wav' },
-            { id: 'R2', label: 'Quả bóng', audio: '/media/phonemes/b.wav' },
+            { id: 'R1', label: 'Quả bóng', audio: '/media/phonemes/bong.mp3' },
+            { id: 'R2', label: 'Con cá', audio: '/media/phonemes/ca.mp3' },
           ],
           correctPairs: [
             { leftId: 'L1', rightId: 'R1' },
@@ -601,8 +601,8 @@ describe('Zod Content Schema - 5 Question Types & superRefine', () => {
           promptAudio: '', // Rỗng khi publish!
           illustration: '/media/images/star.svg',
           options: [
-            { id: 'opt-1', label: 'A', audio: '/media/tts/prompt-mc.wav' },
-            { id: 'opt-2', label: 'B', audio: '/media/tts/prompt-mc.wav' },
+            { id: 'opt-1', label: 'A', audio: '/media/phonemes/a.mp3' },
+            { id: 'opt-2', label: 'B', audio: '/media/phonemes/b.mp3' },
           ],
           correctOptionId: 'opt-1',
         },
@@ -610,5 +610,59 @@ describe('Zod Content Schema - 5 Question Types & superRefine', () => {
     ]);
     const res = LessonSchema.safeParse(lesson);
     expect(res.success).toBe(false);
+  });
+
+  it('fails when using forbidden .wav format', () => {
+    const lesson = makeValidBase('publish', [
+      {
+        type: 'question-slide',
+        id: 'qs-wav-fail',
+        question: {
+          type: 'multiple_choice',
+          id: 'q-wav-mc',
+          prompt: 'Câu hỏi',
+          promptAudio: '/media/tts/test.wav',
+          illustration: '/media/images/star.svg',
+          options: [
+            { id: 'opt-1', label: 'A', audio: '/media/phonemes/a.mp3' },
+            { id: 'opt-2', label: 'B', audio: '/media/phonemes/b.mp3' },
+          ],
+          correctOptionId: 'opt-1',
+        },
+      },
+    ]);
+    const res = LessonSchema.safeParse(lesson);
+    expect(res.success).toBe(false);
+    if (!res.success) {
+      const msg = res.error.issues.map((i) => i.message).join(' ');
+      expect(msg).toContain('Cấm định dạng .wav');
+    }
+  });
+
+  it('fails Publish mode when two different text labels share the same audio file', () => {
+    const lesson = makeValidBase('publish', [
+      {
+        type: 'question-slide',
+        id: 'qs-shared-audio-fail',
+        question: {
+          type: 'multiple_choice',
+          id: 'q-shared-audio',
+          prompt: 'Chọn âm đúng',
+          promptAudio: '/media/tts/prompt-mc.mp3',
+          illustration: '/media/images/star.svg',
+          options: [
+            { id: 'opt-ba', label: 'ba', audio: '/media/phonemes/ba.mp3' },
+            { id: 'opt-ba-sac', label: 'bá', audio: '/media/phonemes/ba.mp3' }, // Trùng audio với label 'ba'!
+          ],
+          correctOptionId: 'opt-ba-sac',
+        },
+      },
+    ]);
+    const res = LessonSchema.safeParse(lesson);
+    expect(res.success).toBe(false);
+    if (!res.success) {
+      const msg = res.error.issues.map((i) => i.message).join(' ');
+      expect(msg).toContain('không được dùng chung audio');
+    }
   });
 });

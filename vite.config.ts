@@ -30,14 +30,14 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['media/**/*', 'content/**/*'],
       workbox: {
-        globPatterns: ['**/*.{js,css,html,ico,png,svg,webp,mp3,wav,json}'],
+        globPatterns: ['**/*.{js,css,html,ico,png,svg,webp,mp3,json}'],
         maximumFileSizeToCacheInBytes: 50 * 1024 * 1024, // 50MB for audio
         runtimeCaching: [
           {
             urlPattern: /\/media\/.*/,
             handler: 'CacheFirst',
             options: {
-              cacheName: 'media-cache',
+              cacheName: 'trinh-chieu-media-v1',
               expiration: { maxEntries: 500 },
             },
           },
@@ -45,7 +45,7 @@ export default defineConfig({
             urlPattern: /\/content\/.*/,
             handler: 'CacheFirst',
             options: {
-              cacheName: 'content-cache',
+              cacheName: 'trinh-chieu-content-v1',
               expiration: { maxEntries: 100 },
             },
           },

@@ -72,7 +72,7 @@ export function PresentPage() {
     const interval = setInterval(() => {
       const isFinished = getClassroomStore().tickTimer();
       if (isFinished) {
-        getAudioManager().play('/media/tts/timer-chime.wav');
+        getAudioManager().play('/media/tts/timer-chime.mp3');
       }
     }, 1000);
 

@@ -9,6 +9,7 @@ import {
   getCustomLessons,
   BUILTIN_LESSON_URLS,
 } from '@/core/lesson-storage';
+import { APP_CACHE_NAME } from '@/core/cache-config';
 import styles from './HomePage.module.css';
 
 interface OfflineStatus {
@@ -83,7 +84,7 @@ export function HomePage() {
     }
 
     try {
-      const cache = await caches.open('media-cache');
+      const cache = await caches.open(APP_CACHE_NAME);
       let cachedCount = 0;
       const missingList: string[] = [];
 
@@ -131,7 +132,7 @@ export function HomePage() {
         setGlobalOfflineMsg('⚠️ Cache Storage không được hỗ trợ trên trình duyệt này');
         return;
       }
-      const cache = await caches.open('media-cache');
+      const cache = await caches.open(APP_CACHE_NAME);
       const allUrls = new Set<string>(BUILTIN_LESSON_URLS);
 
       lessons.forEach((les) => {

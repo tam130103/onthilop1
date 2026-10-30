@@ -43,8 +43,10 @@ AUDIO_ITEMS = [
     ("public/media/phonemes/b.mp3", "bờ"),
     ("public/media/phonemes/c.mp3", "cờ"),
     ("public/media/phonemes/ba.mp3", "ba"),
+    ("public/media/phonemes/ba-sac.mp3", "bá"),
     ("public/media/phonemes/bong.mp3", "quả bóng"),
-    ("public/media/phonemes/ca.mp3", "con cá"),
+    ("public/media/phonemes/ca.mp3", "ca"),
+    ("public/media/phonemes/ca-sac.mp3", "cá"),
     ("public/media/phonemes/ca-co.mp3", "cá cờ"),
     ("public/media/phonemes/o.mp3", "o"),
 
@@ -89,44 +91,21 @@ AUDIO_ITEMS = [
     ("public/media/tts/exp-add-5-5.mp3", "Năm cộng năm bằng mười. Hai bàn tay, mỗi bàn tay có năm ngón tay, cả hai bàn tay có mười ngón tay."),
 ]
 
-# Legacy/existing WAV filenames to mirror for full compatibility
-WAV_MAPPINGS = [
-    ("public/media/tts/prompt-counting.mp3", "public/media/tts/prompt-counting.wav"),
-    ("public/media/tts/prompt-mc.mp3", "public/media/tts/prompt-mc.wav"),
-    ("public/media/tts/prompt-addition.mp3", "public/media/tts/prompt-addition.wav"),
-    ("public/media/tts/explanation-01.mp3", "public/media/tts/explanation-01.wav"),
-    ("public/media/tts/prompt-matching.mp3", "public/media/tts/prompt-matching.wav"),
-    ("public/media/tts/prompt-tapplace.mp3", "public/media/tts/prompt-tapplace.wav"),
-    ("public/media/tts/timer-chime.mp3", "public/media/tts/timer-chime.wav"),
-    ("public/media/phonemes/a.mp3", "public/media/phonemes/a.wav"),
-    ("public/media/phonemes/b.mp3", "public/media/phonemes/b.wav"),
-    ("public/media/phonemes/c.mp3", "public/media/phonemes/c.wav"),
-    ("public/media/phonemes/ba.mp3", "public/media/phonemes/ba.wav"),
-    ("public/media/phonemes/bong.mp3", "public/media/phonemes/bong.wav"),
-    ("public/media/phonemes/ca.mp3", "public/media/phonemes/ca.wav"),
-    ("public/media/phonemes/ca-co.mp3", "public/media/phonemes/ca-co.wav"),
-    ("public/media/phonemes/o.mp3", "public/media/phonemes/o.wav"),
-]
-
 def main():
     print(f"🎙️  Checking and generating {len(AUDIO_ITEMS)} real Vietnamese voiceover files...\n")
     generated = 0
     for path, text in AUDIO_ITEMS:
-        if not os.path.exists(path):
+        # Re-generate ca.mp3 if it was previously created with "con cá"
+        if not os.path.exists(path) or (path == "public/media/phonemes/ca.mp3" and text == "ca"):
             tts = gTTS(text, lang='vi')
             tts.save(path)
             size = os.path.getsize(path)
-            print(f"   ✅ [NEW] {path} ({size:,} bytes) -> \"{text}\"")
+            print(f"   ✅ [GEN] {path} ({size:,} bytes) -> \"{text}\"")
             generated += 1
         else:
             print(f"   ⏩ [EXISTS] {path}")
 
-    print(f"\n🔄 Mirroring to WAV filenames...")
-    for src, dst in WAV_MAPPINGS:
-        if os.path.exists(src):
-            shutil.copyfile(src, dst)
-
-    print(f"\n🎉 Successfully verified audio! (Generated {generated} new files)")
+    print(f"\n🎉 Successfully verified audio! (Generated/updated {generated} files)")
 
 if __name__ == "__main__":
     main()

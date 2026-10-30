@@ -67,10 +67,14 @@ export function PhonicsBoard({
 
   const playSound = useCallback((type: 'initial' | 'rhyme' | 'spell' | 'word') => {
     // Attempt to play phoneme file if present in /media/phonemes/
+    let wordAudio = `/media/phonemes/${combinedWord}.mp3`;
+    if (combinedWord === 'bá') wordAudio = '/media/phonemes/ba-sac.mp3';
+    if (combinedWord === 'cá') wordAudio = '/media/phonemes/ca-sac.mp3';
+
     const phonemeMap: Record<string, string> = {
-      initial: `/media/phonemes/${selectedInitial}.wav`,
-      rhyme: `/media/phonemes/${selectedRhyme}.wav`,
-      word: `/media/phonemes/${combinedWord}.wav`,
+      initial: `/media/phonemes/${selectedInitial}.mp3`,
+      rhyme: `/media/phonemes/${selectedRhyme}.mp3`,
+      word: wordAudio,
     };
 
     const targetUrl = phonemeMap[type];

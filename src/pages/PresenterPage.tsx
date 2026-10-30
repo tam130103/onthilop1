@@ -11,6 +11,7 @@ import { ClassroomTimer } from '@/components/classroom/ClassroomTimer';
 import { ClassroomManagerModal } from '@/components/classroom/ClassroomManagerModal';
 import { getLessonById } from '@/core/lesson-storage';
 import { LessonSchema, type Slide } from '@/schemas/content.schema';
+import { APP_CACHE_NAME } from '@/core/cache-config';
 import styles from './PresenterPage.module.css';
 
 const LESSON_URLS = [
@@ -264,7 +265,7 @@ export function PresenterPage() {
   const handleCacheOffline = useCallback(async () => {
     setOfflineStatus('Đang kiểm tra & nạp offline...');
     try {
-      const cache = await caches.open('trinh-chieu-media-v1');
+      const cache = await caches.open(APP_CACHE_NAME);
       const urlsToCache: string[] = [...LESSON_URLS];
 
       // Extract all media urls from loaded lesson

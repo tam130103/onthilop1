@@ -11,6 +11,7 @@ import {
   exportLessonAsJson,
   importLessonFromJson,
 } from '@/core/lesson-storage';
+import { AudioRecordField } from '@/components/common/AudioRecordField';
 import styles from './LessonEditorPage.module.css';
 
 const DEFAULT_NEW_LESSON: Lesson = {
@@ -518,6 +519,12 @@ export function LessonEditorPage() {
                       }
                     />
                   </div>
+                  <AudioRecordField
+                    label="Âm thanh lời dẫn slide tiêu đề:"
+                    value={currentSlide.audio || ''}
+                    onChange={(audio) => updateCurrentSlide({ ...currentSlide, audio })}
+                    placeholder="/media/tts/... hoặc bấm Thu âm"
+                  />
                   <div className={styles.formGroup}>
                     <label className={styles.formLabel}>Ghi chú cho giáo viên:</label>
                     <textarea
@@ -556,6 +563,12 @@ export function LessonEditorPage() {
                       }
                     />
                   </div>
+                  <AudioRecordField
+                    label="Âm thanh bài giảng (đọc mẫu / hướng dẫn):"
+                    value={currentSlide.audio || ''}
+                    onChange={(audio) => updateCurrentSlide({ ...currentSlide, audio })}
+                    placeholder="/media/tts/... hoặc bấm Thu âm"
+                  />
                   <div className={styles.formGroup}>
                     <label className={styles.formLabel}>Các ý chính (mỗi dòng một ý):</label>
                     <textarea
@@ -598,11 +611,21 @@ export function LessonEditorPage() {
                     />
                   </div>
 
+                  <AudioRecordField
+                    label="Âm thanh đọc đề bài:"
+                    value={currentSlide.question.promptAudio || ''}
+                    onChange={(audio) => {
+                      const q = { ...currentSlide.question, promptAudio: audio };
+                      updateCurrentSlide({ ...currentSlide, question: q });
+                    }}
+                    placeholder="/media/tts/... hoặc bấm Thu âm"
+                  />
+
                   {/* Multiple Choice specific */}
                   {(currentSlide.question.type === 'multiple_choice' ||
                     currentSlide.question.type === 'multiple-choice') && (
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                      <label className={styles.formLabel}>Các phương án lựa chọn (Chọn đáp án đúng):</label>
+                      <label className={styles.formLabel}>Các phương án lựa chọn (Chọn đáp án đúng & Thu âm giọng đọc):</label>
                       {currentSlide.question.options.map((opt, optIdx) => (
                         <div key={opt.id} className={styles.optionItemRow}>
                           <input
@@ -634,6 +657,25 @@ export function LessonEditorPage() {
                               if (currentSlide.type === 'question-slide' && (currentSlide.question.type === 'multiple_choice' || currentSlide.question.type === 'multiple-choice')) {
                                 const newOpts = currentSlide.question.options.map((o, i) =>
                                   i === optIdx ? { ...o, label: e.target.value } : o
+                                );
+                                updateCurrentSlide({
+                                  ...currentSlide,
+                                  question: {
+                                    ...currentSlide.question,
+                                    options: newOpts,
+                                  },
+                                });
+                              }
+                            }}
+                            placeholder="Nhãn đáp án..."
+                          />
+                          <AudioRecordField
+                            compact
+                            value={opt.audio || ''}
+                            onChange={(audio) => {
+                              if (currentSlide.type === 'question-slide' && (currentSlide.question.type === 'multiple_choice' || currentSlide.question.type === 'multiple-choice')) {
+                                const newOpts = currentSlide.question.options.map((o, i) =>
+                                  i === optIdx ? { ...o, audio } : o
                                 );
                                 updateCurrentSlide({
                                   ...currentSlide,
@@ -752,6 +794,16 @@ export function LessonEditorPage() {
                       placeholder="Nhập lời khen hoặc giải thích ngắn gọn..."
                     />
                   </div>
+
+                  <AudioRecordField
+                    label="Âm thanh lời giải thích / khen ngợi:"
+                    value={currentSlide.question.explanationAudio || ''}
+                    onChange={(audio) => {
+                      const q = { ...currentSlide.question, explanationAudio: audio };
+                      updateCurrentSlide({ ...currentSlide, question: q });
+                    }}
+                    placeholder="/media/tts/... hoặc bấm Thu âm"
+                  />
 
                   <div className={styles.formGroup}>
                     <label className={styles.formLabel}>Ghi chú cho giáo viên:</label>

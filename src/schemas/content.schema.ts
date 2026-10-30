@@ -1,12 +1,37 @@
 import { z } from 'zod';
 
 // ---- Media Reference ----
-const mediaRefDraft = z.string();
-const mediaRefPublish = z.string().min(1, 'Đường dẫn media bắt buộc khi publish');
+type MediaRefType = z.ZodType<string>;
+
+const mediaRefDraft: MediaRefType = z
+  .string()
+  .refine((s) => !s.toLowerCase().endsWith('.wav'), {
+    message: 'Cấm định dạng .wav! Phải dùng .mp3 cho âm thanh',
+  });
+
+const mediaRefPublish: MediaRefType = z
+  .string()
+  .min(1, 'Đường dẫn media bắt buộc khi publish')
+  .refine((s) => !s.toLowerCase().endsWith('.wav'), {
+    message: 'Cấm định dạng .wav! Phải dùng .mp3 cho âm thanh',
+  });
+
+// Helper check: general praise or utility audio exempted from distinct-label rule
+function isExemptAudio(audioPath: string): boolean {
+  const lower = audioPath.toLowerCase();
+  return (
+    lower.includes('explanation') ||
+    lower.includes('congrats') ||
+    lower.includes('khen') ||
+    lower.includes('timer-chime') ||
+    lower.includes('chime') ||
+    lower.includes('prompt-')
+  );
+}
 
 // ---- 1. Multiple Choice Question ----
 function makeMultipleChoice(
-  mediaRef: z.ZodString,
+  mediaRef: MediaRefType,
   typeName: 'multiple_choice' | 'multiple-choice',
   status: 'draft' | 'publish'
 ) {
@@ -65,6 +90,29 @@ function makeMultipleChoice(
         });
       }
 
+      // Cấm 2 nhãn khác nhau dùng chung một file audio (trừ lời khen chung)
+      if (status === 'publish') {
+        const audioMap = new Map<string, string>();
+        for (const opt of data.options) {
+          if (opt.audio && opt.label) {
+            const cleanAudio = opt.audio.trim().toLowerCase();
+            const cleanLabel = opt.label.trim().toLowerCase();
+            if (!isExemptAudio(cleanAudio)) {
+              const existing = audioMap.get(cleanAudio);
+              if (existing && existing.toLowerCase() !== cleanLabel) {
+                ctx.addIssue({
+                  code: z.ZodIssueCode.custom,
+                  message: `Luật Publish: Hai nhãn khác nhau ('${existing}' và '${opt.label}') không được dùng chung audio '${opt.audio}'`,
+                  path: ['options'],
+                });
+              } else {
+                audioMap.set(cleanAudio, opt.label);
+              }
+            }
+          }
+        }
+      }
+
       if (status === 'publish' && data.explanation && (!data.explanationAudio || data.explanationAudio.trim() === '')) {
         ctx.addIssue({
           code: z.ZodIssueCode.custom,
@@ -76,7 +124,7 @@ function makeMultipleChoice(
 }
 
 // ---- 2. Counting Question ----
-function makeCountingQuestion(mediaRef: z.ZodString, status: 'draft' | 'publish') {
+function makeCountingQuestion(mediaRef: MediaRefType, status: 'draft' | 'publish') {
   return z
     .object({
       type: z.literal('counting'),
@@ -114,7 +162,7 @@ function makeCountingQuestion(mediaRef: z.ZodString, status: 'draft' | 'publish'
 
 // ---- 3. Number Select Question ----
 function makeNumberSelect(
-  mediaRef: z.ZodString,
+  mediaRef: MediaRefType,
   typeName: 'number_select' | 'number-select',
   status: 'draft' | 'publish'
 ) {
@@ -158,7 +206,7 @@ function makeNumberSelect(
 }
 
 // ---- 4. Tap Place Question (with superRefine on correctMapping & unique IDs) ----
-function makeTapPlace(mediaRef: z.ZodString, status: 'draft' | 'publish') {
+function makeTapPlace(mediaRef: MediaRefType, status: 'draft' | 'publish') {
   return z
     .object({
       type: z.literal('tap_place'),
@@ -245,6 +293,29 @@ function makeTapPlace(mediaRef: z.ZodString, status: 'draft' | 'publish') {
         }
       }
 
+      // Cấm 2 nhãn khác nhau dùng chung một file audio (trừ lời khen chung)
+      if (status === 'publish') {
+        const audioMap = new Map<string, string>();
+        for (const item of data.items) {
+          if (item.audio && item.label) {
+            const cleanAudio = item.audio.trim().toLowerCase();
+            const cleanLabel = item.label.trim().toLowerCase();
+            if (!isExemptAudio(cleanAudio)) {
+              const existing = audioMap.get(cleanAudio);
+              if (existing && existing.toLowerCase() !== cleanLabel) {
+                ctx.addIssue({
+                  code: z.ZodIssueCode.custom,
+                  message: `Luật Publish: Hai nhãn khác nhau ('${existing}' và '${item.label}') không được dùng chung audio '${item.audio}'`,
+                  path: ['items'],
+                });
+              } else {
+                audioMap.set(cleanAudio, item.label);
+              }
+            }
+          }
+        }
+      }
+
       if (status === 'publish' && data.explanation && (!data.explanationAudio || data.explanationAudio.trim() === '')) {
         ctx.addIssue({
           code: z.ZodIssueCode.custom,
@@ -256,7 +327,7 @@ function makeTapPlace(mediaRef: z.ZodString, status: 'draft' | 'publish') {
 }
 
 // ---- 5. Matching Question (with superRefine on correctPairs & 1-1 matching) ----
-function makeMatching(mediaRef: z.ZodString, status: 'draft' | 'publish') {
+function makeMatching(mediaRef: MediaRefType, status: 'draft' | 'publish') {
   return z
     .object({
       type: z.literal('matching'),
@@ -373,6 +444,30 @@ function makeMatching(mediaRef: z.ZodString, status: 'draft' | 'publish') {
         usedRightIds.add(pair.rightId);
       });
 
+      // Cấm 2 nhãn khác nhau dùng chung một file audio (trừ lời khen chung)
+      if (status === 'publish') {
+        const audioMap = new Map<string, string>();
+        const allItems = [...data.leftColumn, ...data.rightColumn];
+        for (const item of allItems) {
+          if (item.audio && item.label) {
+            const cleanAudio = item.audio.trim().toLowerCase();
+            const cleanLabel = item.label.trim().toLowerCase();
+            if (!isExemptAudio(cleanAudio)) {
+              const existing = audioMap.get(cleanAudio);
+              if (existing && existing.toLowerCase() !== cleanLabel) {
+                ctx.addIssue({
+                  code: z.ZodIssueCode.custom,
+                  message: `Luật Publish: Hai nhãn khác nhau ('${existing}' và '${item.label}') không được dùng chung audio '${item.audio}'`,
+                  path: ['leftColumn'],
+                });
+              } else {
+                audioMap.set(cleanAudio, item.label);
+              }
+            }
+          }
+        }
+      }
+
       if (status === 'publish' && data.explanation && (!data.explanationAudio || data.explanationAudio.trim() === '')) {
         ctx.addIssue({
           code: z.ZodIssueCode.custom,
@@ -384,7 +479,7 @@ function makeMatching(mediaRef: z.ZodString, status: 'draft' | 'publish') {
 }
 
 // ---- Slide Types ----
-function makeTitleSlide(mediaRef: z.ZodString, status: 'draft' | 'publish') {
+function makeTitleSlide(mediaRef: MediaRefType, status: 'draft' | 'publish') {
   return z
     .object({
       type: z.literal('title-slide'),
@@ -406,7 +501,7 @@ function makeTitleSlide(mediaRef: z.ZodString, status: 'draft' | 'publish') {
     });
 }
 
-function makeContentSlide(mediaRef: z.ZodString, status: 'draft' | 'publish') {
+function makeContentSlide(mediaRef: MediaRefType, status: 'draft' | 'publish') {
   return z
     .object({
       type: z.literal('content-slide'),
@@ -429,7 +524,7 @@ function makeContentSlide(mediaRef: z.ZodString, status: 'draft' | 'publish') {
     });
 }
 
-function makeQuestionSlide(mediaRef: z.ZodString, status: 'draft' | 'publish') {
+function makeQuestionSlide(mediaRef: MediaRefType, status: 'draft' | 'publish') {
   return z.object({
     type: z.literal('question-slide'),
     id: z.string().min(1),
@@ -448,7 +543,7 @@ function makeQuestionSlide(mediaRef: z.ZodString, status: 'draft' | 'publish') {
   });
 }
 
-function makePhonicsSlide(mediaRef: z.ZodString) {
+function makePhonicsSlide(mediaRef: MediaRefType) {
   return z.object({
     type: z.literal('phonics-slide'),
     id: z.string().min(1),
@@ -461,7 +556,7 @@ function makePhonicsSlide(mediaRef: z.ZodString) {
   });
 }
 
-function makeFlashcardSlide(mediaRef: z.ZodString, status: 'draft' | 'publish') {
+function makeFlashcardSlide(mediaRef: MediaRefType, status: 'draft' | 'publish') {
   return z.object({
     type: z.literal('flashcard-slide'),
     id: z.string().min(1),
