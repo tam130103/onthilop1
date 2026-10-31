@@ -2,7 +2,17 @@ const fs = require('fs');
 const path = require('path');
 const { Client } = require('pg');
 
-const connectionString = 'postgresql://postgres:2b5POd5KbsD5wjNH@db.vrjzkbndyfdmepvllxcu.supabase.co:5432/postgres';
+// Đọc an toàn từ biến môi trường DATABASE_URL trong .env, tuyệt đối không hardcode mật khẩu
+if (process.loadEnvFile) {
+  process.loadEnvFile(path.join(__dirname, '..', '.env'));
+}
+
+const connectionString = process.env.DATABASE_URL;
+
+if (!connectionString) {
+  console.error('❌ Lỗi: Không tìm thấy biến môi trường DATABASE_URL trong .env');
+  process.exit(1);
+}
 
 async function migrate() {
   const client = new Client({
