@@ -161,55 +161,6 @@ export async function signInWithPassword(
 }
 
 /**
- * Đăng ký tài khoản giáo viên mới
- */
-export async function signUpWithPassword(
-  email: string,
-  password: string,
-  fullName: string
-): Promise<{ success: boolean; user?: User; error?: string; requireEmailConfirmation?: boolean }> {
-  const sb = getSupabase();
-  if (!sb) {
-    return { success: false, error: 'Không tìm thấy cấu hình Supabase Cloud.' };
-  }
-
-  try {
-    const { data, error } = await sb.auth.signUp({
-      email: email.trim().toLowerCase(),
-      password,
-      options: {
-        data: {
-          full_name: fullName.trim(),
-        },
-      },
-    });
-
-    if (error) {
-      return { success: false, error: error.message };
-    }
-
-    if (data.session && data.user) {
-      currentSession = data.session;
-      currentUser = data.user;
-      isOffline = false;
-      setOfflineMode(false);
-      notifyListeners();
-      return { success: true, user: data.user };
-    }
-
-    // Nếu Supabase bật confirm email
-    return {
-      success: true,
-      user: data.user ?? undefined,
-      requireEmailConfirmation: true,
-    };
-  } catch (err: unknown) {
-    const msg = err instanceof Error ? err.message : 'Lỗi tạo tài khoản mới';
-    return { success: false, error: msg };
-  }
-}
-
-/**
  * Đăng xuất khỏi hệ thống Cloud
  */
 export async function signOut(): Promise<{ success: boolean; error?: string }> {

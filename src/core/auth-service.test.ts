@@ -1,17 +1,42 @@
 import { describe, it, expect, beforeEach, vi } from 'vitest';
+import * as authService from './auth-service';
 import {
   getAuthState,
   hasActiveSession,
   setOfflineMode,
   subscribeAuth,
   signOut,
+  signInWithPassword,
 } from './auth-service';
 import { fetchStudentsFromSupabase, syncStudentToSupabase } from './supabase-client';
+import fs from 'fs';
+import path from 'path';
 
 describe('Auth Service & Offline-First Sync Guard', () => {
   beforeEach(() => {
     localStorage.clear();
     setOfflineMode(false);
+  });
+
+  it('guarantees signUpWithPassword is deleted and NOT exposed on auth-service', () => {
+    // Requirements: Xóa tab "Đăng ký" và signUpWithPassword khỏi LoginPage/auth-service
+    expect((authService as Record<string, unknown>).signUpWithPassword).toBeUndefined();
+    expect(typeof signInWithPassword).toBe('function');
+  });
+
+  it('verifies LoginPage does not invoke or import signUp anywhere in its UI code', () => {
+    const loginPagePath = path.resolve(__dirname, '../pages/LoginPage.tsx');
+    const loginPageContent = fs.readFileSync(loginPagePath, 'utf8');
+
+    // Must NOT contain signUpWithPassword or signup mode tabs
+    expect(loginPageContent.includes('signUpWithPassword')).toBe(false);
+    expect(loginPageContent.includes("setMode('signup')")).toBe(false);
+    expect(loginPageContent.includes('Đăng ký cô giáo mới')).toBe(false);
+
+    // Must contain signInWithPassword and Offline mode
+    expect(loginPageContent.includes('signInWithPassword')).toBe(true);
+    expect(loginPageContent.includes('setOfflineMode')).toBe(true);
+    expect(loginPageContent.includes('Vào dạy Offline ngay')).toBe(true);
   });
 
   it('initial state has hasActiveSession as false and isAuthenticated as false', () => {
@@ -41,7 +66,6 @@ describe('Auth Service & Offline-First Sync Guard', () => {
   });
 
   it('fetchStudentsFromSupabase returns null without attempting query when no session exists', async () => {
-    // When hasActiveSession() is false, fetchStudentsFromSupabase must immediately return null
     expect(hasActiveSession()).toBe(false);
     const result = await fetchStudentsFromSupabase();
     expect(result).toBeNull();
@@ -79,7 +103,6 @@ describe('Auth Service & Offline-First Sync Guard', () => {
 
     unsub();
     setOfflineMode(false);
-    // Should not receive further updates after unsubscribe
     expect(mockListener).toHaveBeenCalledTimes(2);
   });
 });

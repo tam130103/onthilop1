@@ -1,6 +1,6 @@
 import { useState, type FormEvent } from 'react';
 import { useNavigate, useLocation, Link } from 'react-router-dom';
-import { signInWithPassword, signUpWithPassword, setOfflineMode } from '@/core/auth-service';
+import { signInWithPassword, setOfflineMode } from '@/core/auth-service';
 import styles from './LoginPage.module.css';
 
 export function LoginPage() {
@@ -8,10 +8,13 @@ export function LoginPage() {
   const location = useLocation();
   const from = (location.state as { from?: { pathname?: string } })?.from?.pathname || '/';
 
-  const [mode, setMode] = useState<'signin' | 'signup'>('signin');
+  const defaultTeacherEmail = import.meta.env.VITE_TEACHER_EMAIL || 'cothutam@tieuhoc.edu.vn';
+  const defaultTeacherPassword = import.meta.env.VITE_TEACHER_PASSWORD || 'Giaovien@123';
+  const defaultAdminEmail = import.meta.env.VITE_ADMIN_EMAIL || 'admin@onthi.app';
+  const defaultAdminPassword = import.meta.env.VITE_ADMIN_PASSWORD || 'Admin@123';
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [fullName, setFullName] = useState('');
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [successMessage, setSuccessMessage] = useState<string | null>(null);
@@ -26,42 +29,17 @@ export function LoginPage() {
       return;
     }
 
-    if (password.length < 6) {
-      setErrorMessage('Mật khẩu cần có ít nhất 6 ký tự.');
-      return;
-    }
-
     setLoading(true);
 
     try {
-      if (mode === 'signin') {
-        const res = await signInWithPassword(email, password);
-        if (!res.success) {
-          setErrorMessage(res.error || 'Đăng nhập không thành công. Vui lòng kiểm tra lại thông tin.');
-        } else {
-          setSuccessMessage('Đăng nhập thành công! Đang chuyển hướng...');
-          setTimeout(() => {
-            navigate(from, { replace: true });
-          }, 800);
-        }
+      const res = await signInWithPassword(email, password);
+      if (!res.success) {
+        setErrorMessage(res.error || 'Đăng nhập không thành công. Vui lòng kiểm tra lại thông tin.');
       } else {
-        if (!fullName.trim()) {
-          setErrorMessage('Vui lòng nhập Họ và Tên của cô giáo.');
-          setLoading(false);
-          return;
-        }
-
-        const res = await signUpWithPassword(email, password, fullName);
-        if (!res.success) {
-          setErrorMessage(res.error || 'Đăng ký tài khoản không thành công.');
-        } else if (res.requireEmailConfirmation) {
-          setSuccessMessage('Đăng ký thành công! Vui lòng kiểm tra hòm thư email để xác nhận tài khoản.');
-        } else {
-          setSuccessMessage('Tạo tài khoản thành công! Đang vào hệ thống...');
-          setTimeout(() => {
-            navigate(from, { replace: true });
-          }, 800);
-        }
+        setSuccessMessage('Đăng nhập thành công! Đang chuyển hướng...');
+        setTimeout(() => {
+          navigate(from, { replace: true });
+        }, 600);
       }
     } catch (err: unknown) {
       const msg = err instanceof Error ? err.message : 'Lỗi kết nối đến máy chủ xác thực.';
@@ -69,6 +47,12 @@ export function LoginPage() {
     } finally {
       setLoading(false);
     }
+  };
+
+  const handleQuickFill = (targetEmail: string, targetPass: string) => {
+    setEmail(targetEmail);
+    setPassword(targetPass);
+    setErrorMessage(null);
   };
 
   const handleContinueOffline = () => {
@@ -85,31 +69,31 @@ export function LoginPage() {
           </div>
           <h1 className={styles.title}>Trình Chiếu Lớp 1</h1>
           <p className={styles.subtitle}>
-            Hệ thống bài giảng tương tác & Quản lý lớp học thông minh
+            Đăng nhập tài khoản giáo viên để đồng bộ dữ liệu với Supabase Cloud
           </p>
         </div>
 
-        <div className={styles.tabs}>
-          <button
-            type="button"
-            className={`${styles.tabBtn} ${mode === 'signin' ? styles.tabActive : ''}`}
-            onClick={() => {
-              setMode('signin');
-              setErrorMessage(null);
-            }}
-          >
-            Đăng nhập
-          </button>
-          <button
-            type="button"
-            className={`${styles.tabBtn} ${mode === 'signup' ? styles.tabActive : ''}`}
-            onClick={() => {
-              setMode('signup');
-              setErrorMessage(null);
-            }}
-          >
-            Đăng ký cô giáo mới
-          </button>
+        {/* Quick Account Fill from .env */}
+        <div className={styles.quickAccounts}>
+          <span className={styles.quickLabel}>Tài khoản cấu hình sẵn (.env):</span>
+          <div className={styles.quickBtnGroup}>
+            <button
+              type="button"
+              className={styles.quickBtn}
+              onClick={() => handleQuickFill(defaultTeacherEmail, defaultTeacherPassword)}
+              title="Điền nhanh tài khoản Giáo viên"
+            >
+              👩‍🏫 Cô Thu Tâm
+            </button>
+            <button
+              type="button"
+              className={styles.quickBtn}
+              onClick={() => handleQuickFill(defaultAdminEmail, defaultAdminPassword)}
+              title="Điền nhanh tài khoản Admin"
+            >
+              ⚙️ Quản Trị Viên
+            </button>
+          </div>
         </div>
 
         {errorMessage && (
@@ -125,32 +109,15 @@ export function LoginPage() {
         )}
 
         <form onSubmit={handleSubmit} className={styles.form}>
-          {mode === 'signup' && (
-            <div className={styles.inputGroup}>
-              <label htmlFor="fullName" className={styles.label}>
-                Họ và Tên cô giáo:
-              </label>
-              <input
-                id="fullName"
-                type="text"
-                className={styles.input}
-                placeholder="Ví dụ: Cô Nguyễn Thu Tâm"
-                value={fullName}
-                onChange={(e) => setFullName(e.target.value)}
-                required
-              />
-            </div>
-          )}
-
           <div className={styles.inputGroup}>
             <label htmlFor="email" className={styles.label}>
-              Email đăng nhập:
+              Email giáo viên:
             </label>
             <input
               id="email"
               type="email"
               className={styles.input}
-              placeholder="giaovien@school.edu.vn"
+              placeholder="cothutam@tieuhoc.edu.vn"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
@@ -166,11 +133,11 @@ export function LoginPage() {
               id="password"
               type="password"
               className={styles.input}
-              placeholder="Ít nhất 6 ký tự"
+              placeholder="Nhập mật khẩu"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
-              autoComplete={mode === 'signin' ? 'current-password' : 'new-password'}
+              autoComplete="current-password"
             />
           </div>
 
@@ -179,7 +146,7 @@ export function LoginPage() {
             className={styles.submitBtn}
             disabled={loading}
           >
-            {loading ? 'Đang xử lý...' : mode === 'signin' ? 'Đăng Nhập Đồng Bộ Cloud' : 'Tạo Tài Khoản Giáo Viên'}
+            {loading ? 'Đang xác thực...' : 'Đăng Nhập Đồng Bộ Cloud'}
           </button>
         </form>
 
