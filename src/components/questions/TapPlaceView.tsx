@@ -28,6 +28,7 @@ export interface TapPlaceViewProps {
   showAnswer: boolean;
   onAnswer?: (mapping: Record<string, string>, isCorrect: boolean) => void;
   initialMapping?: Record<string, string>;
+  hidePrompt?: boolean;
 }
 
 export function TapPlaceView({
@@ -39,6 +40,7 @@ export function TapPlaceView({
   showAnswer,
   onAnswer,
   initialMapping = {},
+  hidePrompt = false,
 }: TapPlaceViewProps) {
   // mapping: targetId -> itemId (which item is placed in which target slot)
   const [placedItems, setPlacedItems] = useState<Record<string, string>>(initialMapping);
@@ -190,7 +192,7 @@ export function TapPlaceView({
 
   return (
     <div className={styles.container} data-testid="tap-place-container">
-      <div className={styles.prompt}>{prompt}</div>
+      {!hidePrompt && <div className={styles.prompt}>{prompt}</div>}
 
       {/* Target slots with prefix/suffix text */}
       <div className={styles.slotsContainer}>
@@ -281,7 +283,7 @@ export function TapPlaceView({
         })}
       </div>
 
-      {showAnswer && explanation && (
+      {!hidePrompt && showAnswer && explanation && (
         <div className={styles.explanation}>{explanation}</div>
       )}
     </div>

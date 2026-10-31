@@ -24,6 +24,7 @@ export interface MatchingViewProps {
   showAnswer: boolean;
   onAnswer?: (pairs: MatchingPair[], isCorrect: boolean) => void;
   initialPairs?: MatchingPair[];
+  hidePrompt?: boolean;
 }
 
 const PAIR_COLORS = ['#38bdf8', '#f472b6', '#a78bfa', '#fb923c', '#4ade80', '#fbbf24'];
@@ -37,6 +38,7 @@ export function MatchingView({
   showAnswer,
   onAnswer,
   initialPairs = [],
+  hidePrompt = false,
 }: MatchingViewProps) {
   const [pairs, setPairs] = useState<MatchingPair[]>(initialPairs);
   const [selectedLeft, setSelectedLeft] = useState<string | null>(null);
@@ -186,7 +188,7 @@ export function MatchingView({
 
   return (
     <div className={styles.container} ref={containerRef} data-testid="matching-container">
-      <div className={styles.prompt}>{prompt}</div>
+      {!hidePrompt && <div className={styles.prompt}>{prompt}</div>}
 
       <div className={styles.columnsWrapper}>
         {/* Left Column */}
@@ -299,7 +301,7 @@ export function MatchingView({
         </div>
       </div>
 
-      {showAnswer && explanation && (
+      {!hidePrompt && showAnswer && explanation && (
         <div className={styles.explanation}>{explanation}</div>
       )}
     </div>

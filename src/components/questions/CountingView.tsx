@@ -15,6 +15,7 @@ interface CountingViewProps {
   explanation?: string;
   showAnswer: boolean;
   onAnswer: (selectedCount: number, isCorrect: boolean) => void;
+  hidePrompt?: boolean;
 }
 
 export function CountingView({
@@ -25,6 +26,7 @@ export function CountingView({
   explanation,
   showAnswer,
   onAnswer,
+  hidePrompt = false,
 }: CountingViewProps) {
   const [selectedNumber, setSelectedNumber] = useState<number | null>(null);
 
@@ -62,7 +64,7 @@ export function CountingView({
 
   return (
     <div className={styles.container}>
-      <div className={styles.prompt}>{prompt}</div>
+      {!hidePrompt && <div className={styles.prompt}>{prompt}</div>}
       <div className={styles.itemsGrid}>
         {items.map((item, idx) => (
           <div key={idx} className={styles.item}>
@@ -81,7 +83,7 @@ export function CountingView({
           </button>
         ))}
       </div>
-      {showAnswer && explanation && (
+      {!hidePrompt && showAnswer && explanation && (
         <div className={styles.explanation}>{explanation}</div>
       )}
     </div>

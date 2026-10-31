@@ -1,6 +1,5 @@
 import { useEffect, useReducer, useCallback, useMemo, useRef, useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
-import { Stage16x9 } from '@/components/Stage16x9';
+import { useSearchParams, useNavigate } from 'react-router-dom';
 import { MultipleChoiceView } from '@/components/questions/MultipleChoiceView';
 import { CountingView } from '@/components/questions/CountingView';
 import { NumberSelectView } from '@/components/questions/NumberSelectView';
@@ -22,22 +21,15 @@ import { getAudioManager } from '@/core/audio-manager';
 import {
   getClassroomStore,
   type ClassroomData,
-  type Team,
-  type Student,
-  type ClassroomTimerState,
 } from '@/core/classroom-store';
-import { LessonSchema, type Lesson } from '@/schemas/content.schema';
+import { type Lesson } from '@/schemas/content.schema';
 import { getLessonById } from '@/core/lesson-storage';
 import { getTeachingSessionById } from '@/core/session-storage';
-
-const LESSON_URLS = [
-  '/content/lessons/math-lesson-01.json',
-  '/content/lessons/math-lesson-02.json',
-  '/content/lessons/vn-lesson-01.json',
-  '/content/lessons/vn-lesson-02.json',
-];
+import { getMistakeTracker } from '@/core/mistake-tracker';
+import styles from './PresentPage.module.css';
 
 export function PresentPage() {
+  const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const lessonId = searchParams.get('lesson');
   const sessionId = searchParams.get('session');
@@ -49,6 +41,10 @@ export function PresentPage() {
   const [showStarReward, setShowStarReward] = useState(false);
   const prevCorrectSize = useRef(0);
 
+  // Local student interaction states
+  const [selectedAnswer, setSelectedAnswer] = useState<{ isCorrect: boolean; answer: string } | null>(null);
+  const [showTeamsDropdown, setShowTeamsDropdown] = useState(false);
+
   const [classroomData, setClassroomData] = useState<ClassroomData>(
     getClassroomStore().getData()
   );
@@ -58,7 +54,7 @@ export function PresentPage() {
     return getClassroomStore().subscribe(setClassroomData);
   }, []);
 
-  // Hiệu ứng thưởng sao khi học sinh trả lời đúng
+  // Hiệu ứng thưởng sao khi trả lời đúng
   useEffect(() => {
     if (state.answeredCorrectly.size > prevCorrectSize.current) {
       setShowStarReward(true);
@@ -66,6 +62,11 @@ export function PresentPage() {
     }
     prevCorrectSize.current = state.answeredCorrectly.size;
   }, [state.answeredCorrectly.size]);
+
+  // Reset selected answer when slide changes
+  useEffect(() => {
+    setSelectedAnswer(null);
+  }, [state.currentSlideIndex]);
 
   // Timer interval on TV
   useEffect(() => {
@@ -81,7 +82,7 @@ export function PresentPage() {
     return () => clearInterval(interval);
   }, [classroomData.timer.isRunning]);
 
-  // Sync channel - /present chỉ hiển thị, nhận STATE_SNAPSHOT từ /presenter
+  // Sync channel - nhận STATE_SNAPSHOT từ /presenter
   useEffect(() => {
     const syncId = lessonId || sessionId || undefined;
     const channel = new SyncChannel('present', syncId);
@@ -102,13 +103,12 @@ export function PresentPage() {
         } else {
           pendingSnapshotRef.current = msg.payload;
         }
-
         // Đồng bộ dữ liệu lớp học nếu có trong snapshot
         const p = msg.payload as {
-          teams?: Team[];
-          timer?: ClassroomTimerState;
+          teams?: import('@/core/classroom-store').Team[];
+          timer?: import('@/core/classroom-store').ClassroomTimerState;
           pickerActive?: boolean;
-          pickedStudent?: Student | null;
+          pickedStudent?: import('@/core/classroom-store').Student | null;
         };
         if (p.teams) getClassroomStore().getData().teams = p.teams;
         if (p.timer) getClassroomStore().getData().timer = p.timer;
@@ -123,26 +123,6 @@ export function PresentPage() {
         if (payload.pickerActive !== undefined) getClassroomStore().getData().pickerActive = payload.pickerActive;
         if (payload.pickedStudent !== undefined) getClassroomStore().getData().pickedStudent = payload.pickedStudent ?? null;
         setClassroomData({ ...getClassroomStore().getData() });
-      }),
-      channel.on('LESSON_CHANGE', async (msg) => {
-        const newLessonId = msg.payload['lessonId'];
-        if (typeof newLessonId === 'string') {
-          const found = await getLessonById(newLessonId);
-          if (found) {
-            dispatch({ type: 'LOAD_LESSON', lesson: found });
-            dispatch({ type: 'START_SESSION' });
-            isLoadedRef.current = true;
-          }
-        }
-      }),
-      channel.on('SLIDE_CHANGE', (msg) => {
-        const index = msg.payload['index'];
-        if (typeof index === 'number') {
-          dispatch({ type: 'GO_TO_SLIDE', index });
-        }
-      }),
-      channel.on('ANSWER_REVEAL', () => {
-        dispatch({ type: 'REVEAL_ANSWER' });
       }),
       channel.on('BLACKOUT_TOGGLE', (msg) => {
         if (typeof msg.payload['blackout'] === 'boolean') {
@@ -172,7 +152,7 @@ export function PresentPage() {
     };
   }, [lessonId, sessionId]);
 
-  // Load lesson & Nạp audio chỉ của buổi đang dạy
+  // Load lesson & Nạp audio
   useEffect(() => {
     const targetLessonId =
       lessonId ||
@@ -194,7 +174,7 @@ export function PresentPage() {
           dispatch({ type: 'START_SESSION' });
           isLoadedRef.current = true;
 
-          // Trích xuất audio của đúng buổi học đang dạy để nạp vào SessionAudioManager
+          // Trích xuất audio của đúng buổi học đang dạy
           const sessionAudioUrls: string[] = [];
           lesson.slides.forEach((s) => {
             if ('audio' in s && typeof s.audio === 'string' && s.audio) {
@@ -226,7 +206,6 @@ export function PresentPage() {
             pendingSnapshotRef.current = null;
           }
 
-          // Gửi HELLO xin state mới nhất
           channelRef.current?.send('HELLO', {});
           return;
         }
@@ -238,29 +217,31 @@ export function PresentPage() {
 
     loadLesson();
 
-    // Dọn dẹp & giải phóng bộ nhớ audio khi kết thúc buổi học hoặc đổi bài
     return () => {
       isCancelled = true;
       getAudioManager().releaseSessionAudio();
     };
   }, [lessonId, sessionId]);
 
-  // Keyboard: Chặn F5 (clicker), giữ Escape, điều hướng mũi tên
+  // Keyboard controls: F5 chặn, Escape giữ, B blackout, Space/Mũi tên
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
-      // 1. Chặn F5 (clicker hay ấn F5)
       if (e.key === 'F5') {
         e.preventDefault();
         return;
       }
-      // 2. Giữ phím Escape: Không chặn e.preventDefault() để thoát Fullscreen tự nhiên
-      if (e.key === 'Escape') {
+      if (e.key === 'Escape') return;
+
+      if (e.key === 'b' || e.key === 'B') {
+        e.preventDefault();
+        dispatch({ type: 'SET_BLACKOUT', blackout: !state.blackout });
         return;
       }
-      // 3. Mũi tên điều hướng cục bộ (cho phép bấm clicker/bàn phím trực tiếp trên màn present)
+
       switch (e.key) {
         case 'ArrowRight':
         case 'PageDown':
+        case ' ':
           e.preventDefault();
           dispatch({ type: 'NEXT_SLIDE' });
           break;
@@ -273,7 +254,7 @@ export function PresentPage() {
     };
     window.addEventListener('keydown', handler);
     return () => window.removeEventListener('keydown', handler);
-  }, []);
+  }, [state.blackout]);
 
   const currentSlide = getCurrentSlide(state);
 
@@ -281,18 +262,95 @@ export function PresentPage() {
     dispatch({ type: 'SET_BLACKOUT', blackout: !state.blackout });
   }, [state.blackout]);
 
-  // Nút "Bắt đầu buổi học" trên TV: mở khóa AudioContext và gỡ màn chờ
   const handleStartSession = useCallback(() => {
     getAudioManager().unlock();
     setHasStarted(true);
     channelRef.current?.send('HELLO', {});
   }, []);
 
+  // Audio playback handler for "Nghe cô đọc" button
+  const handlePlayCurrentAudio = useCallback(() => {
+    if (!currentSlide) return;
+    let audioUrl: string | undefined;
+    if ('audio' in currentSlide && typeof currentSlide.audio === 'string') {
+      audioUrl = currentSlide.audio;
+    } else if (currentSlide.type === 'question-slide') {
+      audioUrl = currentSlide.question.promptAudio;
+    }
+    if (audioUrl) {
+      getAudioManager().play(audioUrl);
+    }
+  }, [currentSlide]);
+
+  // Handle student answer selection
+  const handleAnswerSelect = useCallback((answerId: string, isCorrect: boolean) => {
+    setSelectedAnswer({ isCorrect, answer: answerId });
+  }, []);
+
+  // Check answer button (KIỂM TRA)
+  const handleCheckAnswer = useCallback(() => {
+    if (!selectedAnswer || !currentSlide) return;
+    dispatch({ type: 'REVEAL_ANSWER' });
+
+    if (currentSlide.type === 'question-slide') {
+      const q = currentSlide.question;
+      if (selectedAnswer.isCorrect) {
+        dispatch({ type: 'ANSWER_CORRECT', questionId: q.id });
+        setShowStarReward(true);
+        if (q.explanationAudio) {
+          getAudioManager().play(q.explanationAudio);
+        } else {
+          getAudioManager().play('/media/tts/timer-chime.mp3');
+        }
+      } else {
+        dispatch({
+          type: 'ANSWER_INCORRECT',
+          slideIndex: state.currentSlideIndex,
+          question: q,
+          givenAnswer: selectedAnswer.answer,
+        });
+        if (state.lesson) {
+          getMistakeTracker().recordMistake(
+            state.lesson.id,
+            state.lesson.title,
+            state.lesson.subject,
+            q
+          );
+        }
+      }
+    }
+  }, [selectedAnswer, currentSlide, state.currentSlideIndex, state.lesson]);
+
+  // Next slide button (TIẾP TỤC)
+  const handleNextSlide = useCallback(() => {
+    dispatch({ type: 'NEXT_SLIDE' });
+  }, []);
+
+  const handlePrevSlide = useCallback(() => {
+    dispatch({ type: 'PREV_SLIDE' });
+  }, []);
+
+  // Calculations
+  const progressPercent = state.totalSlides > 0
+    ? Math.min(100, Math.round(((state.currentSlideIndex + 1) / state.totalSlides) * 100))
+    : 0;
+
+  const xpScore = state.answeredCorrectly.size * 10 + 20;
+
+  const isQuestionSlide = currentSlide?.type === 'question-slide';
+  const isAnsweredOrRevealed = state.showAnswer;
+  const isLastSlide = state.totalSlides > 0 && state.currentSlideIndex === state.totalSlides - 1;
+
+  const slideInfo = state.lesson
+    ? `${state.currentSlideIndex + 1} / ${state.totalSlides}`
+    : '';
+
+  // Render Slide Content
   const renderSlide = useMemo(() => {
     if (!currentSlide) {
       return (
-        <div style={{ textAlign: 'center' }}>
-          <p style={{ fontSize: '48px', color: '#94a3b8' }}>
+        <div style={{ textAlign: 'center', padding: '40px' }}>
+          <p style={{ fontSize: '28px', color: '#64748b', fontWeight: 700 }}>
             {state.error ?? 'Đang tải bài học...'}
           </p>
         </div>
@@ -302,43 +360,13 @@ export function PresentPage() {
     switch (currentSlide.type) {
       case 'title-slide':
         return (
-          <div
-            style={{
-              textAlign: 'center',
-              background: '#ffffff',
-              padding: '60px 80px',
-              borderRadius: '40px',
-              border: '3px solid #e2e8f0',
-              borderBottom: '10px solid #cbd5e1',
-              boxShadow: '0 8px 32px rgba(0, 0, 0, 0.05)',
-              maxWidth: '1200px',
-            }}
-            data-testid="title-slide"
-          >
-            <div style={{ fontSize: '54px', marginBottom: '16px' }}>⭐</div>
-            <h1
-              style={{
-                fontSize: '72px',
-                fontWeight: 900,
-                color: '#0f172a',
-                marginBottom: '20px',
-                letterSpacing: '-0.5px',
-              }}
-            >
+          <div className={styles.cardFrame} data-testid="title-slide">
+            <div style={{ fontSize: '64px', marginBottom: '16px' }}>⭐</div>
+            <h1 style={{ fontSize: '48px', fontWeight: 900, color: '#0f172a', marginBottom: '16px', textAlign: 'center' }}>
               {currentSlide.title}
             </h1>
             {currentSlide.subtitle && (
-              <p
-                style={{
-                  fontSize: '34px',
-                  fontWeight: 700,
-                  color: '#7c3aed',
-                  background: '#f5f3ff',
-                  padding: '10px 28px',
-                  borderRadius: '20px',
-                  display: 'inline-block',
-                }}
-              >
+              <p style={{ fontSize: '22px', fontWeight: 800, color: '#7c3aed', background: '#f5f3ff', padding: '10px 24px', borderRadius: '18px' }}>
                 {currentSlide.subtitle}
               </p>
             )}
@@ -347,32 +375,12 @@ export function PresentPage() {
 
       case 'content-slide':
         return (
-          <div
-            style={{
-              textAlign: 'center',
-              padding: '40px 60px',
-              background: '#ffffff',
-              borderRadius: '36px',
-              border: '3px solid #e2e8f0',
-              borderBottom: '8px solid #cbd5e1',
-              boxShadow: '0 8px 30px rgba(0, 0, 0, 0.04)',
-              maxWidth: '1200px',
-            }}
-            data-testid="content-slide"
-          >
-            <h2
-              style={{
-                fontSize: '56px',
-                fontWeight: 900,
-                color: '#0f172a',
-                marginBottom: '24px',
-                letterSpacing: '-0.5px',
-              }}
-            >
+          <div className={styles.cardFrame} data-testid="content-slide">
+            <h2 style={{ fontSize: '42px', fontWeight: 900, color: '#0f172a', marginBottom: '20px', textAlign: 'center' }}>
               {currentSlide.title}
             </h2>
             {currentSlide.body && (
-              <p style={{ fontSize: '34px', color: '#334155', lineHeight: 1.6, fontWeight: 600 }}>
+              <p style={{ fontSize: '24px', color: '#334155', lineHeight: 1.6, fontWeight: 700, textAlign: 'center', maxWidth: '800px' }}>
                 {currentSlide.body}
               </p>
             )}
@@ -380,22 +388,13 @@ export function PresentPage() {
               <img
                 src={currentSlide.illustration}
                 alt=""
-                style={{
-                  maxWidth: '540px',
-                  maxHeight: '360px',
-                  borderRadius: '24px',
-                  marginTop: '20px',
-                  border: '3px solid #e2e8f0',
-                }}
+                style={{ maxWidth: '420px', maxHeight: '280px', borderRadius: '24px', marginTop: '16px', border: '3px solid #e2e8f0' }}
               />
             )}
             {currentSlide.bullets && (
-              <ul style={{ listStyle: 'none', marginTop: '20px' }}>
+              <ul style={{ listStyle: 'none', marginTop: '18px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
                 {currentSlide.bullets.map((b, i) => (
-                  <li
-                    key={i}
-                    style={{ fontSize: '32px', color: '#1e293b', padding: '8px 0', fontWeight: 600 }}
-                  >
+                  <li key={i} style={{ fontSize: '22px', color: '#1e293b', fontWeight: 700 }}>
                     ▸ {b}
                   </li>
                 ))}
@@ -406,19 +405,23 @@ export function PresentPage() {
 
       case 'phonics-slide':
         return (
-          <PhonicsBoard
-            initials={currentSlide.initials}
-            rhymes={currentSlide.rhymes}
-            tones={currentSlide.tones}
-          />
+          <div style={{ width: '100%', maxWidth: '900px' }}>
+            <PhonicsBoard
+              initials={currentSlide.initials}
+              rhymes={currentSlide.rhymes}
+              tones={currentSlide.tones}
+            />
+          </div>
         );
 
       case 'flashcard-slide':
         return (
-          <PhonicsFlashcard
-            cards={currentSlide.cards}
-            title={currentSlide.title}
-          />
+          <div style={{ width: '100%', maxWidth: '800px' }}>
+            <PhonicsFlashcard
+              cards={currentSlide.cards}
+              title={currentSlide.title}
+            />
+          </div>
         );
 
       case 'question-slide': {
@@ -427,9 +430,10 @@ export function PresentPage() {
           case 'multiple_choice':
           case 'multiple-choice':
             return (
-              <div data-testid="multiple-choice-view">
+              <div data-testid="multiple-choice-view" style={{ width: '100%' }}>
                 <MultipleChoiceView
                   prompt={q.prompt}
+                  hidePrompt={true}
                   illustration={q.illustration || undefined}
                   options={q.options.map((o) => ({
                     id: o.id,
@@ -439,15 +443,16 @@ export function PresentPage() {
                   correctOptionId={q.correctOptionId}
                   explanation={q.explanation}
                   showAnswer={state.showAnswer}
-                  onAnswer={() => {}}
+                  onAnswer={(optId, isCorrect) => handleAnswerSelect(optId, isCorrect)}
                 />
               </div>
             );
           case 'counting':
             return (
-              <div data-testid="counting-view">
+              <div data-testid="counting-view" style={{ width: '100%' }}>
                 <CountingView
                   prompt={q.prompt}
+                  hidePrompt={true}
                   items={q.items.map((it) => ({
                     image: it.image,
                     alt: it.alt,
@@ -456,23 +461,24 @@ export function PresentPage() {
                   numberRange={q.numberRange}
                   explanation={q.explanation}
                   showAnswer={state.showAnswer}
-                  onAnswer={() => {}}
+                  onAnswer={(count, isCorrect) => handleAnswerSelect(String(count), isCorrect)}
                 />
               </div>
             );
           case 'number_select':
           case 'number-select':
             return (
-              <div data-testid="number-select-view">
+              <div data-testid="number-select-view" style={{ width: '100%' }}>
                 <NumberSelectView
                   prompt={q.prompt}
+                  hidePrompt={true}
                   expression={q.expression}
                   illustration={q.illustration || undefined}
                   choices={q.choices}
                   correctAnswer={q.correctAnswer}
                   explanation={q.explanation}
                   showAnswer={state.showAnswer}
-                  onAnswer={() => {}}
+                  onAnswer={(choice, isCorrect) => handleAnswerSelect(String(choice), isCorrect)}
                 />
               </div>
             );
@@ -480,26 +486,28 @@ export function PresentPage() {
             return (
               <TapPlaceView
                 prompt={q.prompt}
+                hidePrompt={true}
                 targets={q.targets}
                 items={q.items}
                 correctMapping={q.correctMapping}
                 explanation={q.explanation}
                 showAnswer={state.showAnswer}
                 initialMapping={state.tapPlaceMapping}
-                onAnswer={() => {}}
+                onAnswer={(mapping, isCorrect) => handleAnswerSelect(JSON.stringify(mapping), isCorrect)}
               />
             );
           case 'matching':
             return (
               <MatchingView
                 prompt={q.prompt}
+                hidePrompt={true}
                 leftColumn={q.leftColumn}
                 rightColumn={q.rightColumn}
                 correctPairs={q.correctPairs}
                 explanation={q.explanation}
                 showAnswer={state.showAnswer}
                 initialPairs={state.matchingPairs}
-                onAnswer={() => {}}
+                onAnswer={(pairs, isCorrect) => handleAnswerSelect(JSON.stringify(pairs), isCorrect)}
               />
             );
         }
@@ -511,18 +519,254 @@ export function PresentPage() {
     state.error,
     state.tapPlaceMapping,
     state.matchingPairs,
+    handleAnswerSelect,
   ]);
 
-  const slideInfo = state.lesson
-    ? `${state.currentSlideIndex + 1} / ${state.totalSlides}`
-    : '';
-
   return (
-    <Stage16x9
-      blackout={state.blackout}
-      onToggleBlackout={handleToggleBlackout}
-    >
-      {/* Nút "Bắt đầu buổi học" để kích hoạt âm thanh trên TV khi mới mở trang */}
+    <div className={styles.viewport}>
+      {/* 1. TOP HEADER (onthi.app & Duolingo style) */}
+      <header className={styles.header}>
+        {/* Nút Đóng [X] */}
+        <button
+          onClick={() => navigate('/')}
+          className={styles.closeBtn}
+          title="Trở về trang chủ"
+        >
+          ✕
+        </button>
+
+        {/* Thanh tiến trình Progress Bar */}
+        <div className={styles.progressBarTrack} title={`Tiến độ bài học: ${progressPercent}%`}>
+          <div className={styles.progressBarFill} style={{ width: `${progressPercent}%` }}>
+            <div className={styles.progressBarGloss} />
+          </div>
+        </div>
+
+        {/* Cụm điểm năng lượng & điểm đội thi đua */}
+        <div className={styles.headerRight}>
+          <div className={styles.xpBadge} title="Điểm kinh nghiệm tích lũy">
+            <span style={{ fontSize: '18px' }}>⚡</span>
+            <span>{xpScore} XP</span>
+          </div>
+
+          <div
+            className={styles.teamSummaryPill}
+            onClick={() => setShowTeamsDropdown(!showTeamsDropdown)}
+            title="Bấm để xem/ẩn bảng điểm 4 đội"
+            style={{ cursor: 'pointer' }}
+          >
+            <span>🏆</span>
+            <span>4 Đội thi đua</span>
+          </div>
+        </div>
+      </header>
+
+      {/* Floating Team Scoreboard & Timer if toggled */}
+      {showTeamsDropdown && (
+        <div
+          style={{
+            position: 'absolute',
+            top: '70px',
+            right: '24px',
+            zIndex: 40,
+            background: '#ffffff',
+            borderRadius: '24px',
+            padding: '16px',
+            border: '2px solid #e2e8f0',
+            boxShadow: '0 12px 32px rgba(0,0,0,0.1)',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '12px',
+          }}
+        >
+          <TeamScoreboard teams={classroomData.teams} />
+          <ClassroomTimer timer={classroomData.timer} />
+        </div>
+      )}
+
+      {/* 2. MAIN STAGE CONTENT CONTAINER */}
+      <main className={styles.mainStage}>
+        {state.phase === 'finished' ? (
+          <div className={styles.cardFrame} data-testid="finish-view" style={{ textAlign: 'center', margin: 'auto' }}>
+            <div style={{ fontSize: '72px', marginBottom: '16px' }}>🏆</div>
+            <h1 style={{ fontSize: '44px', fontWeight: 900, color: '#58CC02', marginBottom: '12px' }}>
+              Hoàn Thành Bài Học!
+            </h1>
+            <p style={{ fontSize: '20px', color: '#64748b', fontWeight: 700, marginBottom: '20px' }}>
+              Bé đã nhận được <span style={{ color: '#d97706', fontWeight: 900 }}>+{xpScore} XP</span> tích lũy!
+            </p>
+            <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', marginBottom: '24px' }}>
+              <div style={{ padding: '16px 24px', background: '#f0fdf4', borderRadius: '18px', border: '2px solid #86efac' }}>
+                <div style={{ fontSize: '28px', fontWeight: 900, color: '#15803d' }}>{state.answeredCorrectly.size}</div>
+                <div style={{ fontSize: '13px', fontWeight: 800, color: '#16a34a' }}>Câu đúng</div>
+              </div>
+              <div style={{ padding: '16px 24px', background: '#fef2f2', borderRadius: '18px', border: '2px solid #fca5a5' }}>
+                <div style={{ fontSize: '28px', fontWeight: 900, color: '#dc2626' }}>{state.answeredIncorrectly.size}</div>
+                <div style={{ fontSize: '13px', fontWeight: 800, color: '#ef4444' }}>Cần ôn lại</div>
+              </div>
+            </div>
+            <button
+              onClick={() => navigate('/')}
+              style={{
+                padding: '16px 40px',
+                fontSize: '18px',
+                fontWeight: 900,
+                color: '#ffffff',
+                backgroundColor: '#58CC02',
+                border: 'none',
+                borderBottom: '5px solid #45A300',
+                borderRadius: '18px',
+                cursor: 'pointer',
+                boxShadow: '0 8px 24px rgba(88, 204, 2, 0.3)',
+              }}
+            >
+              TIẾP TỤC HỌC BÀI TIẾP THEO ➔
+            </button>
+          </div>
+        ) : (
+          <>
+            {/* Audio Prompt Bar & Question Prompt Title */}
+            {currentSlide && ('audio' in currentSlide || currentSlide.type === 'question-slide') && (
+              <div className={styles.promptBar}>
+                <button
+                  onClick={handlePlayCurrentAudio}
+                  className={styles.audioBtn}
+                  title="Bấm để nghe cô giáo đọc"
+                >
+                  <span style={{ fontSize: '20px' }}>🔊</span>
+                  <span>Nghe cô đọc</span>
+                </button>
+                {isQuestionSlide && (
+                  <h1 className={styles.promptTitle}>
+                    {currentSlide.question.prompt}
+                  </h1>
+                )}
+              </div>
+            )}
+
+            {/* Slide View */}
+            {renderSlide}
+          </>
+        )}
+
+        {/* Slide Counter Indicator */}
+        {slideInfo && (
+          <div data-testid="slide-counter" style={{ display: 'none' }}>
+            {slideInfo}
+          </div>
+        )}
+      </main>
+
+      {/* 3. BOTTOM ACTION DOCK (onthi.app & Duolingo style) */}
+      {state.phase !== 'finished' && (
+        <footer
+          className={`${styles.bottomDock} ${
+          isAnsweredOrRevealed
+            ? selectedAnswer?.isCorrect
+              ? styles.bottomDockCorrect
+              : styles.bottomDockIncorrect
+            : ''
+        }`}
+      >
+        <div className={styles.bottomDockInner}>
+          {/* Thông báo kết quả phản hồi phong cách Duolingo / onthi.app */}
+          {isAnsweredOrRevealed ? (
+            <div className={styles.toastFeedback}>
+              <div className={styles.toastEmoji}>
+                {selectedAnswer?.isCorrect ? '🥳' : '💡'}
+              </div>
+              <div>
+                <div
+                  className={`${styles.toastTitle} ${
+                    selectedAnswer?.isCorrect
+                      ? styles.toastTitleCorrect
+                      : styles.toastTitleIncorrect
+                  }`}
+                >
+                  {selectedAnswer?.isCorrect
+                    ? 'Chính xác! Tuyệt vời lắm bé ơi!'
+                    : 'Chưa chính xác rồi bé ơi!'}
+                  {selectedAnswer?.isCorrect && (
+                    <span
+                      style={{
+                        marginLeft: '10px',
+                        fontSize: '12px',
+                        fontWeight: 900,
+                        backgroundColor: '#facc15',
+                        color: '#78350f',
+                        padding: '2px 8px',
+                        borderRadius: '12px',
+                      }}
+                    >
+                      +10 XP
+                    </span>
+                  )}
+                </div>
+                <div className={styles.toastSubtext}>
+                  {currentSlide?.type === 'question-slide' && currentSlide.question.explanation
+                    ? currentSlide.question.explanation
+                    : selectedAnswer?.isCorrect
+                    ? 'Bé đã chọn đáp án hoàn toàn chính xác!'
+                    : 'Cố gắng quan sát kỹ hơn ở câu sau nhé!'}
+                </div>
+              </div>
+            </div>
+          ) : (
+            <div style={{ fontSize: '13px', fontWeight: 700, color: '#94a3b8' }}>
+              {isQuestionSlide ? '👉 Bé hãy chọn đáp án đúng rồi bấm KIỂM TRA nhé!' : '📖 Cùng cô đọc và khám phá bài học!'}
+            </div>
+          )}
+
+          {/* Group nút điều hướng & hành động */}
+          <div className={styles.dockButtons}>
+            {/* Nút quay lại slide trước */}
+            <button
+              onClick={handlePrevSlide}
+              disabled={state.currentSlideIndex === 0}
+              className={styles.backBtn}
+              title="Quay lại câu trước"
+              style={{ opacity: state.currentSlideIndex === 0 ? 0.3 : 1 }}
+            >
+              ◀
+            </button>
+
+            {/* Nút mở giấy nháp */}
+            <button
+              onClick={() => alert('Bé có thể dùng bảng con hoặc giấy nháp bên cạnh để tính toán nhé!')}
+              className={styles.scratchpadBtn}
+              title="Mở giấy nháp"
+            >
+              <span>✏️</span>
+              <span>Mở giấy nháp</span>
+            </button>
+
+            {/* Nút Hành động chính */}
+            {isQuestionSlide && !isAnsweredOrRevealed ? (
+              <button
+                onClick={handleCheckAnswer}
+                disabled={!selectedAnswer}
+                className={`${styles.actionBtn} ${
+                  selectedAnswer ? styles.actionBtnActive : styles.actionBtnDisabled
+                }`}
+              >
+                KIỂM TRA
+              </button>
+            ) : (
+              <button
+                onClick={handleNextSlide}
+                className={`${styles.actionBtn} ${styles.actionBtnActive}`}
+              >
+                <span>{isLastSlide ? 'HOÀN THÀNH' : 'TIẾP TỤC'}</span>
+                <span style={{ fontSize: '22px' }}>➔</span>
+              </button>
+            )}
+          </div>
+        </div>
+      </footer>
+      )}
+
+      {/* OVERLAYS */}
+      {/* 1. Màn hình chờ mở khóa âm thanh khi mới vào trang */}
       {!hasStarted && (
         <div
           data-testid="start-overlay"
@@ -544,41 +788,40 @@ export function PresentPage() {
               borderRadius: '36px',
               border: '3px solid #e2e8f0',
               borderBottom: '10px solid #cbd5e1',
-              padding: '60px 80px',
+              padding: '50px 70px',
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',
-              gap: '20px',
+              gap: '18px',
               boxShadow: '0 20px 50px rgba(0, 0, 0, 0.15)',
-              maxWidth: '800px',
+              maxWidth: '750px',
               textAlign: 'center',
             }}
           >
-            <div style={{ fontSize: '64px' }}>⭐</div>
-            <div style={{ fontSize: '42px', fontWeight: 900, color: '#0f172a', letterSpacing: '-0.5px' }}>
-              Sân khấu Trình chiếu Lớp 1
+            <div style={{ fontSize: '56px' }}>⭐</div>
+            <div style={{ fontSize: '36px', fontWeight: 900, color: '#0f172a', letterSpacing: '-0.5px' }}>
+              Vào Học Cùng Ôn Thi Lớp 1
             </div>
-            <p style={{ fontSize: '20px', color: '#64748b', fontWeight: 600, maxWidth: '520px' }}>
-              Chạm vào màn hình hoặc bấm nút bên dưới để kết nối TV và mở khóa âm thanh
+            <p style={{ fontSize: '18px', color: '#64748b', fontWeight: 600, maxWidth: '480px' }}>
+              Chạm vào màn hình để mở khóa giọng đọc của cô giáo và bắt đầu bài học
             </p>
             <button
               onClick={handleStartSession}
               data-testid="start-btn"
               style={{
-                marginTop: '12px',
-                padding: '18px 48px',
-                fontSize: '26px',
+                marginTop: '10px',
+                padding: '16px 44px',
+                fontSize: '22px',
                 fontWeight: 900,
                 color: '#ffffff',
                 backgroundColor: '#58CC02',
                 border: 'none',
                 borderBottom: '6px solid #45A300',
-                borderRadius: '24px',
+                borderRadius: '20px',
                 cursor: 'pointer',
                 boxShadow: '0 8px 24px rgba(88, 204, 2, 0.35)',
                 textTransform: 'uppercase',
-                letterSpacing: '1px',
-                transition: 'all 0.08s ease',
+                letterSpacing: '0.5px',
               }}
             >
               ▶ BẮT ĐẦU BUỔI HỌC
@@ -587,75 +830,37 @@ export function PresentPage() {
         </div>
       )}
 
-      {/* Top Header Classroom Tools Bar */}
-      <div
-        style={{
-          position: 'absolute',
-          top: '20px',
-          left: '40px',
-          right: '40px',
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          zIndex: 10,
-          pointerEvents: 'none',
-        }}
-      >
-        <TeamScoreboard teams={classroomData.teams} />
-        <ClassroomTimer timer={classroomData.timer} />
-      </div>
-
-      {renderSlide}
-
-      {/* Hiệu ứng thưởng sao khi trả lời đúng */}
+      {/* 2. Hiệu ứng thưởng sao khi trả lời đúng */}
       <StarRewardOverlay
         show={showStarReward}
         onComplete={() => setShowStarReward(false)}
       />
 
-      {/* Slide Counter */}
-      {slideInfo && (
+      {/* 3. Blackout Overlay (Phím B) */}
+      {state.blackout && (
         <div
-          data-testid="slide-counter"
+          data-testid="blackout-overlay"
+          onClick={handleToggleBlackout}
           style={{
-            position: 'absolute',
-            bottom: '20px',
-            right: '40px',
-            fontSize: '24px',
-            color: 'rgba(148, 163, 184, 0.5)',
-            fontWeight: 600,
+            position: 'fixed',
+            inset: 0,
+            width: '100vw',
+            height: '100vh',
+            backgroundColor: '#000000',
+            zIndex: 999999,
+            cursor: 'pointer',
           }}
-        >
-          {slideInfo}
-        </div>
+          title="Màn hình đang phủ đen. Nhấn phím B hoặc chạm chuột để tiếp tục buổi học"
+        />
       )}
 
-      {/* Finished view */}
-      {state.phase === 'finished' && (
-        <div style={{ textAlign: 'center' }} data-testid="finish-view">
-          <h1
-            style={{
-              fontSize: '72px',
-              color: '#22c55e',
-              marginBottom: '16px',
-            }}
-          >
-            🎉 Hoàn thành!
-          </h1>
-          <p style={{ fontSize: '32px', color: '#94a3b8' }}>
-            Đúng: {state.answeredCorrectly.size} · Sai:{' '}
-            {state.answeredIncorrectly.size}
-          </p>
-        </div>
-      )}
-
-      {/* Random Picker Overlay */}
+      {/* 4. Random Picker Overlay */}
       <RandomPickerOverlay
         active={classroomData.pickerActive}
         pickedStudent={classroomData.pickedStudent}
         allStudents={classroomData.students}
         onClose={() => getClassroomStore().closePicker()}
       />
-    </Stage16x9>
+    </div>
   );
 }

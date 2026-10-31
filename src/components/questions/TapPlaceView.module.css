@@ -1,17 +1,17 @@
 .container {
   width: 100%;
-  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  padding: 32px;
-  gap: 32px;
+  justify-content: center;
+  padding: 10px 16px;
+  gap: 16px;
   user-select: none;
+  box-sizing: border-box;
 }
 
 .prompt {
-  font-size: 52px;
+  font-size: 28px;
   font-weight: 900;
   color: #0f172a;
   text-align: center;
@@ -24,23 +24,22 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: 36px;
+  gap: 20px;
   width: 100%;
-  max-width: 1500px;
-  padding: 28px;
+  max-width: 780px;
+  padding: 16px 24px;
   background: #ffffff;
-  border-radius: 32px;
+  border-radius: 24px;
   border: 3px solid #e2e8f0;
-  border-bottom: 8px solid #cbd5e1;
+  border-bottom: 7px solid #cbd5e1;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
-  min-height: 200px;
 }
 
 .slotWrapper {
   display: flex;
   align-items: center;
-  gap: 16px;
-  font-size: 56px;
+  gap: 12px;
+  font-size: 34px;
   font-weight: 800;
   color: #0f172a;
 }
@@ -48,17 +47,17 @@
 .prefixText,
 .suffixText {
   color: #0f172a;
-  font-size: 56px;
+  font-size: 34px;
   font-weight: 800;
 }
 
 .slotBox {
-  min-width: 160px;
-  height: 120px;
-  padding: 8px 24px;
+  min-width: 90px;
+  height: 68px;
+  padding: 4px 16px;
   background: #f8fafc;
-  border: 4px dashed #94a3b8;
-  border-radius: 24px;
+  border: 3px dashed #94a3b8;
+  border-radius: 18px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -71,31 +70,35 @@
   border-color: #0284c7;
   border-style: solid;
   background: #e0f2fe;
-  box-shadow: 0 0 20px rgba(2, 132, 199, 0.3);
-  transform: scale(1.03);
+  box-shadow: 0 0 16px rgba(2, 132, 199, 0.25);
+  transform: scale(1.02);
 }
 
 .slotBoxFilled {
   border-style: solid;
   border-color: #38bdf8;
-  border-bottom: 6px solid #0284c7;
+  border-bottom: 5px solid #0284c7;
   background: #ffffff;
 }
 
 .slotBoxCorrect {
   border-style: solid;
   border-color: #58cc02 !important;
-  border-bottom: 6px solid #45a300 !important;
+  border-bottom: 5px solid #45a300 !important;
   background: #f0fdf4 !important;
-  animation: pulseCorrect 0.5s ease;
 }
 
 .slotBoxIncorrect {
   border-style: solid;
   border-color: #ef4444 !important;
-  border-bottom: 6px solid #dc2626 !important;
+  border-bottom: 5px solid #dc2626 !important;
   background: #fef2f2 !important;
-  animation: shake 0.4s ease;
+}
+
+.slotItemLabel {
+  font-size: 36px;
+  font-weight: 900;
+  color: #0284c7;
 }
 
 .itemsPool {
@@ -103,25 +106,25 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: 24px;
+  gap: 14px;
   width: 100%;
-  max-width: 1400px;
-  padding: 20px;
+  max-width: 700px;
+  padding: 8px;
 }
 
 /* 3D draggable letter tile */
 .itemCard {
-  min-width: 140px;
-  height: 100px;
-  padding: 12px 28px;
+  min-width: 80px;
+  height: 64px;
+  padding: 8px 20px;
   background: #ffffff;
   border: 3px solid #e2e8f0;
-  border-bottom: 7px solid #cbd5e1;
-  border-radius: 22px;
+  border-bottom: 6px solid #cbd5e1;
+  border-radius: 18px;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 16px;
+  gap: 10px;
   cursor: grab;
   transition: all 0.08s ease-in-out;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
@@ -129,81 +132,68 @@
 }
 
 .itemCard:hover {
-  border-color: #a78bfa;
-  background: #faf5ff;
+  border-color: #38bdf8;
+  background: #f0f9ff;
+  transform: translateY(-2px);
 }
 
 .itemCard:active {
-  transform: translateY(3px);
-  border-bottom-width: 4px;
+  transform: translateY(2px);
+  border-bottom-width: 3px;
 }
 
 .itemCardSelected {
-  border-color: #f59e0b !important;
-  border-bottom: 7px solid #d97706 !important;
-  background: #fffbeb !important;
-  transform: scale(1.04) !important;
-  box-shadow: 0 6px 20px rgba(245, 158, 11, 0.3) !important;
-}
-
-.itemCardSelected .itemLabel {
-  color: #b45309 !important;
+  border-color: #0284c7 !important;
+  border-bottom: 6px solid #0369a1 !important;
+  background: #e0f2fe !important;
+  transform: scale(1.05);
 }
 
 .itemCardDisabled {
-  opacity: 0.3;
-  pointer-events: none;
-  filter: grayscale(1);
+  opacity: 0.35;
+  cursor: not-allowed;
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+  border-bottom-width: 3px;
+  transform: none !important;
 }
 
 .itemLabel {
-  font-size: 52px;
+  font-size: 34px;
   font-weight: 900;
   color: #0f172a;
 }
 
 .itemImage {
-  width: 60px;
-  height: 60px;
+  width: 36px;
+  height: 36px;
   object-fit: contain;
 }
 
 .keyHint {
   position: absolute;
-  top: -10px;
-  right: -10px;
-  background: #64748b;
-  color: #ffffff;
-  font-size: 14px;
-  font-weight: 800;
-  width: 26px;
-  height: 26px;
+  top: -8px;
+  right: -8px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
+  background: #3b82f6;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 800;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 2px solid #ffffff;
 }
 
 .explanation {
-  font-size: 32px;
+  font-size: 18px;
+  color: #15803d;
   font-weight: 700;
-  color: #475569;
-  text-align: center;
-  background: rgba(255, 255, 255, 0.9);
-  padding: 10px 24px;
+  background: #f0fdf4;
+  border: 2px solid #86efac;
   border-radius: 16px;
-  border: 2px solid #e2e8f0;
-  margin-top: 8px;
-}
-
-@keyframes pulseCorrect {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.05); }
-}
-
-@keyframes shake {
-  0%, 100% { transform: translateX(0); }
-  25% { transform: translateX(-8px); }
-  75% { transform: translateX(8px); }
+  padding: 10px 24px;
+  text-align: center;
+  max-width: 800px;
 }

@@ -10,6 +10,7 @@ interface NumberSelectViewProps {
   explanation?: string;
   showAnswer: boolean;
   onAnswer: (selected: number, isCorrect: boolean) => void;
+  hidePrompt?: boolean;
 }
 
 export function NumberSelectView({
@@ -21,6 +22,7 @@ export function NumberSelectView({
   explanation,
   showAnswer,
   onAnswer,
+  hidePrompt = false,
 }: NumberSelectViewProps) {
   const [selectedChoice, setSelectedChoice] = useState<number | null>(null);
 
@@ -50,7 +52,7 @@ export function NumberSelectView({
 
   return (
     <div className={styles.container}>
-      <div className={styles.prompt}>{prompt}</div>
+      {!hidePrompt && <div className={styles.prompt}>{prompt}</div>}
       <div className={styles.expression}>{expression}</div>
       {illustration && (
         <img src={illustration} alt="" className={styles.illustration} />
@@ -66,7 +68,7 @@ export function NumberSelectView({
           </button>
         ))}
       </div>
-      {showAnswer && explanation && (
+      {!hidePrompt && showAnswer && explanation && (
         <div className={styles.explanation}>{explanation}</div>
       )}
     </div>

@@ -1,7 +1,7 @@
 .backdrop {
   position: fixed;
   inset: 0;
-  background: #000;
+  background: #FAF8F5;
   display: flex;
   align-items: center;
   justify-content: center;

@@ -15,6 +15,7 @@ interface MultipleChoiceViewProps {
   explanation?: string;
   showAnswer: boolean;
   onAnswer: (optionId: string, isCorrect: boolean) => void;
+  hidePrompt?: boolean;
 }
 
 export function MultipleChoiceView({
@@ -25,6 +26,7 @@ export function MultipleChoiceView({
   explanation,
   showAnswer,
   onAnswer,
+  hidePrompt = false,
 }: MultipleChoiceViewProps) {
   const [selectedId, setSelectedId] = useState<string | null>(null);
 
@@ -55,7 +57,7 @@ export function MultipleChoiceView({
 
   return (
     <div className={styles.container}>
-      <div className={styles.prompt}>{prompt}</div>
+      {!hidePrompt && <div className={styles.prompt}>{prompt}</div>}
       {illustration && (
         <img src={illustration} alt="" className={styles.illustration} />
       )}
@@ -74,7 +76,7 @@ export function MultipleChoiceView({
           </button>
         ))}
       </div>
-      {showAnswer && explanation && (
+      {!hidePrompt && showAnswer && explanation && (
         <div className={styles.explanation}>{explanation}</div>
       )}
     </div>
