@@ -11,12 +11,13 @@
 /* TOP NAVBAR (onthi.app header) */
 .navbar {
   width: 100%;
-  background-color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(10px);
   border-bottom: 1px solid #e2e8f0;
   position: sticky;
   top: 0;
-  z-index: 40;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  z-index: 50;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
 .navInner {

@@ -529,39 +529,61 @@ export function PresentPage() {
           style={{
             position: 'absolute',
             inset: 0,
-            background: 'rgba(15, 23, 42, 0.95)',
+            background: 'rgba(15, 23, 42, 0.65)',
+            backdropFilter: 'blur(8px)',
             zIndex: 9999,
             display: 'flex',
-            flexDirection: 'column',
             alignItems: 'center',
             justifyContent: 'center',
-            gap: '24px',
+            padding: '40px',
           }}
         >
-          <div style={{ fontSize: '48px', fontWeight: 800, color: '#f8fafc' }}>
-            📺 Màn chiếu Lớp 1
-          </div>
-          <p style={{ fontSize: '24px', color: '#94a3b8' }}>
-            Nhấp chuột hoặc chạm màn hình để kết nối và mở khóa âm thanh
-          </p>
-          <button
-            onClick={handleStartSession}
-            data-testid="start-btn"
+          <div
             style={{
-              padding: '18px 48px',
-              fontSize: '32px',
-              fontWeight: 800,
-              color: '#ffffff',
-              background: 'linear-gradient(135deg, #22c55e 0%, #16a34a 100%)',
-              border: 'none',
-              borderRadius: '24px',
-              cursor: 'pointer',
-              boxShadow: '0 12px 28px rgba(34, 197, 94, 0.4)',
-              transition: 'transform 0.15s ease',
+              background: '#ffffff',
+              borderRadius: '36px',
+              border: '3px solid #e2e8f0',
+              borderBottom: '10px solid #cbd5e1',
+              padding: '60px 80px',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              gap: '20px',
+              boxShadow: '0 20px 50px rgba(0, 0, 0, 0.15)',
+              maxWidth: '800px',
+              textAlign: 'center',
             }}
           >
-            ▶ BẮT ĐẦU BUỔI HỌC
-          </button>
+            <div style={{ fontSize: '64px' }}>⭐</div>
+            <div style={{ fontSize: '42px', fontWeight: 900, color: '#0f172a', letterSpacing: '-0.5px' }}>
+              Sân khấu Trình chiếu Lớp 1
+            </div>
+            <p style={{ fontSize: '20px', color: '#64748b', fontWeight: 600, maxWidth: '520px' }}>
+              Chạm vào màn hình hoặc bấm nút bên dưới để kết nối TV và mở khóa âm thanh
+            </p>
+            <button
+              onClick={handleStartSession}
+              data-testid="start-btn"
+              style={{
+                marginTop: '12px',
+                padding: '18px 48px',
+                fontSize: '26px',
+                fontWeight: 900,
+                color: '#ffffff',
+                backgroundColor: '#58CC02',
+                border: 'none',
+                borderBottom: '6px solid #45A300',
+                borderRadius: '24px',
+                cursor: 'pointer',
+                boxShadow: '0 8px 24px rgba(88, 204, 2, 0.35)',
+                textTransform: 'uppercase',
+                letterSpacing: '1px',
+                transition: 'all 0.08s ease',
+              }}
+            >
+              ▶ BẮT ĐẦU BUỔI HỌC
+            </button>
+          </div>
         </div>
       )}
 
