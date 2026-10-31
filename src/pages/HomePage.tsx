@@ -21,6 +21,7 @@ import {
   type StoragePersistenceStatus,
 } from '@/core/backup-manager';
 import { APP_CACHE_NAME } from '@/core/cache-config';
+import { subscribeAuth, signOut, getAuthState, type AuthState } from '@/core/auth-service';
 import {
   MATH_STAGES,
   VIETNAMESE_STAGES,
@@ -57,6 +58,12 @@ export function HomePage() {
   const [searchQuery, setSearchQuery] = useState('');
   const [installPrompt, setInstallPrompt] = useState<any>(null);
   const [popupBlockedLessonId, setPopupBlockedLessonId] = useState<string | null>(null);
+  const [authState, setAuthState] = useState<AuthState>(getAuthState());
+
+  useEffect(() => {
+    const unsub = subscribeAuth(setAuthState);
+    return unsub;
+  }, []);
 
   useEffect(() => {
     const handleBeforeInstall = (e: Event) => {
@@ -386,15 +393,53 @@ export function HomePage() {
                 📥 Cài App vào máy
               </button>
             )}
-            <div
-              className={styles.userPill}
-              onClick={() => navigate('/admin')}
-              style={{ cursor: 'pointer' }}
-              title="Mở bảng điều khiển Quản trị Admin"
-            >
-              <div className={styles.avatar}>T</div>
-              <span>Tâm Nguyễn (Admin)</span>
-            </div>
+            {authState.isAuthenticated ? (
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <div
+                  className={styles.userPill}
+                  onClick={() => navigate('/admin')}
+                  style={{ cursor: 'pointer' }}
+                  title="Đã kết nối Supabase Cloud. Bấm để vào Admin"
+                >
+                  <div className={styles.avatar}>
+                    {authState.user?.user_metadata?.full_name?.charAt(0) || authState.user?.email?.charAt(0).toUpperCase() || 'T'}
+                  </div>
+                  <span>
+                    {authState.user?.user_metadata?.full_name || authState.user?.email?.split('@')[0] || 'Cô giáo'}
+                  </span>
+                  <span style={{ fontSize: '11px', background: '#dcfce7', color: '#15803d', padding: '2px 6px', borderRadius: '10px', fontWeight: 800 }}>
+                    Cloud 🟢
+                  </span>
+                </div>
+                <button
+                  onClick={() => signOut()}
+                  className={styles.utilityBtn}
+                  style={{ padding: '6px 10px', fontSize: '13px', cursor: 'pointer' }}
+                  title="Đăng xuất khỏi tài khoản Cloud"
+                >
+                  Đăng xuất
+                </button>
+              </div>
+            ) : (
+              <button
+                onClick={() => navigate('/login')}
+                className={styles.utilityBtn}
+                style={{
+                  backgroundColor: '#f59e0b',
+                  color: '#ffffff',
+                  border: 'none',
+                  borderBottom: '3px solid #d97706',
+                  fontWeight: 800,
+                  cursor: 'pointer',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '6px',
+                }}
+                title="Đăng nhập để đồng bộ dữ liệu với Supabase Cloud"
+              >
+                <span>☁️</span> Đăng nhập Cloud
+              </button>
+            )}
           </div>
         </div>
       </header>

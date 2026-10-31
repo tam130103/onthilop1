@@ -1,5 +1,6 @@
 import { createClient, type SupabaseClient } from '@supabase/supabase-js';
 import type { Student } from './classroom-store';
+import { hasActiveSession } from './auth-service';
 
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || '';
 const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY || import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY || '';
@@ -9,7 +10,6 @@ let client: SupabaseClient | null = null;
 export function getSupabase(): SupabaseClient | null {
   if (client) return client;
   if (!supabaseUrl || !supabaseKey) {
-    console.info('[Supabase] VITE_SUPABASE_URL hoặc KEY chưa được cấu hình. Sử dụng IndexedDB cục bộ.');
     return null;
   }
 
@@ -62,9 +62,14 @@ function studentToRow(s: Student): SupabaseStudentRow {
 }
 
 /**
- * Tải toàn bộ học sinh từ Supabase Cloud
+ * Tải toàn bộ học sinh từ Supabase Cloud (Chỉ chạy khi có active session)
  */
 export async function fetchStudentsFromSupabase(): Promise<Student[] | null> {
+  if (!hasActiveSession()) {
+    // Chưa đăng nhập -> hoạt động hoàn toàn offline qua IndexedDB
+    return null;
+  }
+
   const sb = getSupabase();
   if (!sb) return null;
 
@@ -75,7 +80,7 @@ export async function fetchStudentsFromSupabase(): Promise<Student[] | null> {
       .order('created_at', { ascending: false });
 
     if (error) {
-      console.warn('[Supabase] Không thể tải danh sách học sinh (Có thể chưa tạo bảng students trên Supabase):', error.message);
+      console.warn('[Supabase] Không thể tải danh sách học sinh:', error.message);
       return null;
     }
 
@@ -90,9 +95,11 @@ export async function fetchStudentsFromSupabase(): Promise<Student[] | null> {
 }
 
 /**
- * Lưu hoặc cập nhật một học sinh lên Supabase Cloud (Upsert)
+ * Lưu hoặc cập nhật một học sinh lên Supabase Cloud (Chỉ chạy khi có active session)
  */
 export async function syncStudentToSupabase(student: Student): Promise<boolean> {
+  if (!hasActiveSession()) return false;
+
   const sb = getSupabase();
   if (!sb) return false;
 
@@ -111,9 +118,11 @@ export async function syncStudentToSupabase(student: Student): Promise<boolean> 
 }
 
 /**
- * Xóa một học sinh khỏi Supabase Cloud
+ * Xóa một học sinh khỏi Supabase Cloud (Chỉ chạy khi có active session)
  */
 export async function deleteStudentFromSupabaseCloud(id: string): Promise<boolean> {
+  if (!hasActiveSession()) return false;
+
   const sb = getSupabase();
   if (!sb) return false;
 
@@ -131,11 +140,13 @@ export async function deleteStudentFromSupabaseCloud(id: string): Promise<boolea
 }
 
 /**
- * Đồng bộ toàn bộ danh sách học sinh lên Supabase Cloud (Batch Upsert)
+ * Đồng bộ toàn bộ danh sách học sinh lên Supabase Cloud (Batch Upsert - chỉ khi có session)
  */
 export async function syncAllStudentsToSupabase(students: Student[]): Promise<boolean> {
+  if (!hasActiveSession() || students.length === 0) return false;
+
   const sb = getSupabase();
-  if (!sb || students.length === 0) return false;
+  if (!sb) return false;
 
   try {
     const rows = students.map(studentToRow);
@@ -152,9 +163,11 @@ export async function syncAllStudentsToSupabase(students: Student[]): Promise<bo
 }
 
 /**
- * Tải điểm và tên 4 tổ thi đua từ Supabase
+ * Tải điểm và tên 4 tổ thi đua từ Supabase (Chỉ khi có session)
  */
 export async function fetchTeamsFromSupabase(): Promise<import('./classroom-store').Team[] | null> {
+  if (!hasActiveSession()) return null;
+
   const sb = getSupabase();
   if (!sb) return null;
   try {
@@ -172,9 +185,11 @@ export async function fetchTeamsFromSupabase(): Promise<import('./classroom-stor
 }
 
 /**
- * Cập nhật điểm hoặc tên tổ lên Supabase
+ * Cập nhật điểm hoặc tên tổ lên Supabase (Chỉ khi có session)
  */
 export async function syncTeamToSupabase(teamId: string, updates: { name?: string; score?: number }): Promise<void> {
+  if (!hasActiveSession()) return;
+
   const sb = getSupabase();
   if (!sb) return;
   try {
@@ -188,7 +203,7 @@ export async function syncTeamToSupabase(teamId: string, updates: { name?: strin
 }
 
 /**
- * Ghi nhận lịch sử tiết dạy lên Supabase
+ * Ghi nhận lịch sử tiết dạy lên Supabase (Chỉ khi có session)
  */
 export async function recordSessionToSupabase(session: {
   id: string;
@@ -198,6 +213,8 @@ export async function recordSessionToSupabase(session: {
   totalCorrect?: number;
   starsAwarded?: number;
 }): Promise<void> {
+  if (!hasActiveSession()) return;
+
   const sb = getSupabase();
   if (!sb) return;
   try {
@@ -214,4 +231,3 @@ export async function recordSessionToSupabase(session: {
     // ignore
   }
 }
-

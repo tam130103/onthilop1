@@ -1,4 +1,5 @@
 import { getSupabase } from './supabase-client';
+import { hasActiveSession } from './auth-service';
 import { getAllLessons, getCustomLessons, saveCustomLesson, deleteCustomLesson, BUILTIN_LESSON_URLS } from './lesson-storage';
 import { getClassroomStore, type Student, type Team } from './classroom-store';
 import { getMistakeTracker, type MistakeEntry } from './mistake-tracker';
@@ -101,7 +102,7 @@ function saveLocalUsers(users: AdminUser[]): void {
 // ==========================================
 export async function fetchAdminUsers(): Promise<AdminUser[]> {
   const sb = getSupabase();
-  if (sb) {
+  if (sb && hasActiveSession()) {
     try {
       const { data, error } = await sb
         .from('users')
@@ -141,7 +142,7 @@ export async function saveAdminUser(user: Partial<AdminUser> & { email: string; 
   saveLocalUsers(local);
 
   const sb = getSupabase();
-  if (sb) {
+  if (sb && hasActiveSession()) {
     try {
       const { error } = await sb.from('users').upsert({
         id: fullUser.id,
@@ -168,7 +169,7 @@ export async function deleteAdminUser(id: string): Promise<{ success: boolean; e
   saveLocalUsers(local);
 
   const sb = getSupabase();
-  if (sb) {
+  if (sb && hasActiveSession()) {
     try {
       const { error } = await sb.from('users').delete().eq('id', id);
       if (error) return { success: false, error: error.message };
@@ -184,7 +185,7 @@ export async function deleteAdminUser(id: string): Promise<{ success: boolean; e
 // ==========================================
 export async function fetchAdminClassrooms(): Promise<AdminClassroom[]> {
   const sb = getSupabase();
-  if (sb) {
+  if (sb && hasActiveSession()) {
     try {
       const { data, error } = await sb.from('classrooms').select('*').order('name', { ascending: true });
       if (!error && Array.isArray(data) && data.length > 0) {
@@ -207,7 +208,7 @@ export async function fetchAdminClassrooms(): Promise<AdminClassroom[]> {
 
 export async function saveAdminClassroom(classroom: Partial<AdminClassroom> & { id: string; name: string }): Promise<{ success: boolean; error?: string }> {
   const sb = getSupabase();
-  if (sb) {
+  if (sb && hasActiveSession()) {
     try {
       const { error } = await sb.from('classrooms').upsert({
         id: classroom.id,
@@ -230,7 +231,7 @@ export async function saveAdminClassroom(classroom: Partial<AdminClassroom> & { 
 // ==========================================
 export async function fetchAdminTeams(): Promise<AdminTeam[]> {
   const sb = getSupabase();
-  if (sb) {
+  if (sb && hasActiveSession()) {
     try {
       const { data, error } = await sb.from('teams').select('*').order('order_index', { ascending: true });
       if (!error && Array.isArray(data) && data.length > 0) {
@@ -260,7 +261,7 @@ export async function saveAdminTeam(team: Partial<AdminTeam> & { id: string; nam
   }
 
   const sb = getSupabase();
-  if (sb) {
+  if (sb && hasActiveSession()) {
     try {
       const { error } = await sb.from('teams').upsert({
         id: team.id,
@@ -299,7 +300,7 @@ export async function fetchAdminLessons(): Promise<AdminLessonSummary[]> {
   }));
 
   const sb = getSupabase();
-  if (sb) {
+  if (sb && hasActiveSession()) {
     try {
       const { data, error } = await sb.from('lessons').select('*').order('created_at', { ascending: false });
       if (!error && Array.isArray(data) && data.length > 0) {
@@ -339,7 +340,7 @@ export async function saveAdminLesson(lesson: Lesson): Promise<{ success: boolea
   }
 
   const sb = getSupabase();
-  if (sb) {
+  if (sb && hasActiveSession()) {
     try {
       await sb.from('lessons').upsert({
         id: lesson.id,
@@ -364,7 +365,7 @@ export async function deleteAdminLesson(lessonId: string): Promise<boolean> {
   const localSuccess = deleteCustomLesson(lessonId);
 
   const sb = getSupabase();
-  if (sb) {
+  if (sb && hasActiveSession()) {
     try {
       await sb.from('lessons').delete().eq('id', lessonId);
     } catch (e) {
@@ -380,7 +381,7 @@ export async function deleteAdminLesson(lessonId: string): Promise<boolean> {
 // ==========================================
 export async function fetchAdminSessionHistory(): Promise<AdminTeachingSessionHistory[]> {
   const sb = getSupabase();
-  if (sb) {
+  if (sb && hasActiveSession()) {
     try {
       const { data, error } = await sb.from('teaching_sessions').select('*').order('start_time', { ascending: false }).limit(50);
       if (!error && Array.isArray(data) && data.length > 0) {
@@ -410,6 +411,10 @@ export async function fetchAdminMistakes(): Promise<MistakeEntry[]> {
 // 6. KIỂM TRA KẾT NỐI CLOUD SUPABASE
 // ==========================================
 export async function testCloudConnection(): Promise<{ connected: boolean; latencyMs: number; message: string }> {
+  if (!hasActiveSession()) {
+    return { connected: false, latencyMs: 0, message: 'Đang ở chế độ Ngoại tuyến (Chưa đăng nhập tài khoản Cloud)' };
+  }
+
   const sb = getSupabase();
   if (!sb) {
     return { connected: false, latencyMs: 0, message: 'Chưa cấu hình Supabase URL hoặc API Key' };

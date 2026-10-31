@@ -8,6 +8,11 @@ import { PresenterPage } from '@/pages/PresenterPage';
 import { LessonEditorPage } from '@/pages/LessonEditorPage';
 import { WorksheetPrintPage } from '@/pages/WorksheetPrintPage';
 import { AdminPage } from '@/pages/AdminPage';
+import { LoginPage } from '@/pages/LoginPage';
+import { initAuth } from '@/core/auth-service';
+
+// Initialize Authentication state
+initAuth().catch(() => {});
 
 const rootEl = document.getElementById('root');
 if (!rootEl) throw new Error('Root element not found');
@@ -17,6 +22,7 @@ createRoot(rootEl).render(
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/login" element={<LoginPage />} />
         <Route path="/hardware-test" element={<HardwareTestPage />} />
         <Route path="/present" element={<PresentPage />} />
         <Route path="/presenter" element={<PresenterPage />} />

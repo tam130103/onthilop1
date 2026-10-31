@@ -22,6 +22,7 @@ import {
 } from '@/core/admin-service';
 import { getClassroomStore, type Student } from '@/core/classroom-store';
 import { syncAllStudentsToSupabase } from '@/core/supabase-client';
+import { hasActiveSession, subscribeAuth, signOut, getAuthState, type AuthState } from '@/core/auth-service';
 import { downloadBackupFile, importFullBackup } from '@/core/backup-manager';
 import { LessonSchema, type Lesson } from '@/schemas/content.schema';
 import type { MistakeEntry } from '@/core/mistake-tracker';
@@ -36,12 +37,18 @@ export function AdminPage() {
   const [activeTab, setActiveTab] = useState<AdminTab>('users');
 
   // Cloud Status
+  const [authState, setAuthState] = useState<AuthState>(getAuthState());
   const [cloudStatus, setCloudStatus] = useState<{ connected: boolean; latencyMs: number; message: string }>({
     connected: false,
     latencyMs: 0,
     message: 'Đang kiểm tra kết nối...',
   });
   const [syncingCloud, setSyncingCloud] = useState(false);
+
+  useEffect(() => {
+    const unsub = subscribeAuth(setAuthState);
+    return unsub;
+  }, []);
 
   // Toast
   const [toast, setToast] = useState<string | null>(null);
@@ -133,12 +140,17 @@ export function AdminPage() {
 
   // Sync to Cloud
   const handleFullSync = useCallback(async () => {
+    if (!hasActiveSession()) {
+      showToast('⚠️ Bạn chưa đăng nhập tài khoản Cloud! Vui lòng đăng nhập để đồng bộ.');
+      navigate('/login');
+      return;
+    }
     setSyncingCloud(true);
     try {
       const conn = await testCloudConnection();
       setCloudStatus(conn);
       if (!conn.connected) {
-        showToast('❌ Không thể kết nối tới Supabase Cloud!');
+        showToast(`❌ ${conn.message || 'Không thể kết nối tới Supabase Cloud!'}`);
         return;
       }
 
@@ -153,7 +165,7 @@ export function AdminPage() {
     } finally {
       setSyncingCloud(false);
     }
-  }, [loadData, showToast]);
+  }, [loadData, navigate, showToast]);
 
   // ----------------------------------------------------
   // USER ACTIONS
@@ -475,6 +487,29 @@ export function AdminPage() {
           <Link to="/presenter" className={styles.navBtn}>
             🖥️ Trình chiếu
           </Link>
+
+          {authState.isAuthenticated ? (
+            <button
+              className={styles.navBtn}
+              onClick={() => {
+                signOut();
+                showToast('Đã đăng xuất khỏi Cloud.');
+              }}
+              style={{ color: '#ef4444', cursor: 'pointer' }}
+              title={`Đăng xuất (${authState.user?.email})`}
+            >
+              🚪 Đăng xuất ({authState.user?.user_metadata?.full_name || authState.user?.email?.split('@')[0]})
+            </button>
+          ) : (
+            <Link
+              to="/login"
+              className={styles.navBtn}
+              style={{ backgroundColor: '#4f46e5', color: '#ffffff', fontWeight: 800 }}
+              title="Đăng nhập để đồng bộ với Supabase Cloud"
+            >
+              🔑 Đăng nhập Cloud
+            </Link>
+          )}
         </div>
       </header>
 
@@ -1355,6 +1390,20 @@ export function AdminPage() {
                     <label style={{ fontSize: '0.8rem', color: '#64748b', fontWeight: 700 }}>SUPABASE URL:</label>
                     <div style={{ fontFamily: 'monospace', fontSize: '0.85rem', background: '#f8fafc', padding: '0.5rem', borderRadius: '6px' }}>
                       {import.meta.env.VITE_SUPABASE_URL || 'Chưa cấu hình URL'}
+                    </div>
+                  </div>
+                  <div>
+                    <label style={{ fontSize: '0.8rem', color: '#64748b', fontWeight: 700 }}>TÀI KHOẢN CLOUD:</label>
+                    <div style={{ fontSize: '0.875rem', marginTop: '0.25rem' }}>
+                      {authState.isAuthenticated ? (
+                        <div style={{ color: '#166534', fontWeight: 700 }}>
+                          🟢 Đã đăng nhập: {authState.user?.email} (ID: {authState.user?.id})
+                        </div>
+                      ) : (
+                        <div style={{ color: '#b45309' }}>
+                          🟠 Chưa đăng nhập (Chế độ Ngoại tuyến / IndexedDB)
+                        </div>
+                      )}
                     </div>
                   </div>
                   <div>
