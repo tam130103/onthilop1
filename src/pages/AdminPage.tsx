@@ -672,17 +672,34 @@ export function AdminPage() {
                           </td>
                           <td style={{ color: '#475569' }}>{u.email}</td>
                           <td>
-                            <span
-                              className={`${styles.badge} ${
-                                u.role === 'admin'
-                                  ? styles.badgeAdmin
-                                  : u.role === 'teacher'
-                                  ? styles.badgeTeacher
-                                  : styles.badgeParent
-                              }`}
+                            <select
+                              value={u.role}
+                              onChange={async (e) => {
+                                const newRole = e.target.value as 'admin' | 'teacher' | 'parent';
+                                const res = await saveAdminUser({ ...u, role: newRole });
+                                if (res.success) {
+                                  showToast(`✅ Đã phân quyền cho ${u.full_name} thành: ${newRole === 'admin' ? '🛡️ Quản trị viên (Admin)' : newRole === 'teacher' ? '👩‍🏫 Giáo viên' : '👨‍👩‍👧 Phụ huynh'}`);
+                                  await loadData();
+                                } else {
+                                  showToast('❌ Lỗi cập nhật quyền: ' + (res.error || ''));
+                                }
+                              }}
+                              style={{
+                                padding: '4px 8px',
+                                borderRadius: '8px',
+                                fontSize: '13px',
+                                fontWeight: 700,
+                                backgroundColor: u.role === 'admin' ? '#fee2e2' : u.role === 'teacher' ? '#e0e7ff' : '#fef3c7',
+                                color: u.role === 'admin' ? '#991b1b' : u.role === 'teacher' ? '#3730a3' : '#92400e',
+                                border: '1.5px solid currentColor',
+                                cursor: 'pointer',
+                              }}
+                              title="Bấm để đổi vai trò và phân quyền tài khoản này"
                             >
-                              {u.role === 'admin' ? '🛡️ Admin' : u.role === 'teacher' ? '👩‍🏫 Giáo viên' : '👨‍👩‍👧 Phụ huynh'}
-                            </span>
+                              <option value="admin">🛡️ Quản trị viên (Admin)</option>
+                              <option value="teacher">👩‍🏫 Giáo viên (Teacher)</option>
+                              <option value="parent">👨‍👩‍👧 Phụ huynh (Parent)</option>
+                            </select>
                           </td>
                           <td>{u.phone_number || '—'}</td>
                           <td>{u.school_name || '—'}</td>
@@ -708,6 +725,64 @@ export function AdminPage() {
                         </tr>
                       ))
                     )}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            {/* Role Permissions Matrix */}
+            <div className={styles.card} style={{ marginTop: '1.5rem', padding: '1.5rem' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
+                <span style={{ fontSize: '1.75rem' }}>🛡️</span>
+                <div>
+                  <h3 className={styles.cardTitle} style={{ margin: 0 }}>Ma Trận Phân Quyền Vai Trò Hệ Thống</h3>
+                  <p style={{ margin: 0, fontSize: '0.85rem', color: '#64748b' }}>
+                    Quy định chi tiết quyền hạn truy cập & thao tác dữ liệu theo vai trò người dùng trong hệ thống
+                  </p>
+                </div>
+              </div>
+
+              <div className={styles.tableResponsive}>
+                <table className={styles.table}>
+                  <thead>
+                    <tr>
+                      <th>Nhóm quyền & Chức năng</th>
+                      <th style={{ textAlign: 'center', color: '#dc2626' }}>🛡️ Quản trị viên (Admin)</th>
+                      <th style={{ textAlign: 'center', color: '#4f46e5' }}>👩‍🏫 Giáo viên (Teacher)</th>
+                      <th style={{ textAlign: 'center', color: '#d97706' }}>👨‍👩‍👧 Phụ huynh (Parent)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><strong>Quản lý Người dùng & Phân quyền</strong></td>
+                      <td style={{ textAlign: 'center', color: '#16a34a', fontWeight: 800 }}>✅ Toàn quyền (Tất cả tài khoản)</td>
+                      <td style={{ textAlign: 'center', color: '#dc2626' }}>❌ Không có quyền</td>
+                      <td style={{ textAlign: 'center', color: '#dc2626' }}>❌ Không có quyền</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Quản lý Lớp học & Danh sách Học sinh</strong></td>
+                      <td style={{ textAlign: 'center', color: '#16a34a', fontWeight: 800 }}>✅ Mọi lớp trong trường</td>
+                      <td style={{ textAlign: 'center', color: '#2563eb', fontWeight: 700 }}>⚠️ Chỉ lớp được phân công</td>
+                      <td style={{ textAlign: 'center', color: '#dc2626' }}>❌ Không có quyền</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Quản lý Bài giảng (Soạn, Sửa, Xuất bản)</strong></td>
+                      <td style={{ textAlign: 'center', color: '#16a34a', fontWeight: 800 }}>✅ Toàn bộ bài giảng</td>
+                      <td style={{ textAlign: 'center', color: '#2563eb', fontWeight: 700 }}>⚠️ Bài tự soạn của mình</td>
+                      <td style={{ textAlign: 'center', color: '#64748b' }}>👁️ Chỉ xem bài mẫu</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Trình chiếu TV & Chấm điểm thi đua</strong></td>
+                      <td style={{ textAlign: 'center', color: '#16a34a', fontWeight: 800 }}>✅ Cho phép</td>
+                      <td style={{ textAlign: 'center', color: '#16a34a', fontWeight: 800 }}>✅ Cho phép</td>
+                      <td style={{ textAlign: 'center', color: '#dc2626' }}>❌ Không có quyền</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Cấu hình Supabase Cloud & Sao lưu toàn hệ thống</strong></td>
+                      <td style={{ textAlign: 'center', color: '#16a34a', fontWeight: 800 }}>✅ Toàn quyền</td>
+                      <td style={{ textAlign: 'center', color: '#2563eb', fontWeight: 700 }}>⚠️ Tự động đồng bộ lớp</td>
+                      <td style={{ textAlign: 'center', color: '#dc2626' }}>❌ Không có quyền</td>
+                    </tr>
                   </tbody>
                 </table>
               </div>

@@ -140,10 +140,21 @@ CREATE TABLE IF NOT EXISTS public.class_mistakes (
 );
 
 -- ====================================================================
--- HÀM KIỂM TRA CHỦ SỞ HỮU (is_owner)
+-- HÀM KIỂM TRA PHÂN QUYỀN (is_admin & is_owner)
 -- ====================================================================
 
--- 1. Hàm is_owner không tham số: kiểm tra phiên có người dùng authenticated hợp lệ
+-- 1. Hàm is_admin(): kiểm tra tài khoản hiện tại có vai trò 'admin' hay không
+CREATE OR REPLACE FUNCTION public.is_admin()
+RETURNS boolean AS $$
+BEGIN
+  RETURN EXISTS (
+    SELECT 1 FROM public.users
+    WHERE id = auth.uid() AND role = 'admin'
+  );
+END;
+$$ LANGUAGE plpgsql SECURITY DEFINER STABLE;
+
+-- 2. Hàm is_owner(): kiểm tra phiên người dùng có session authenticated hợp lệ
 CREATE OR REPLACE FUNCTION public.is_owner()
 RETURNS boolean AS $$
 BEGIN
@@ -151,7 +162,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql SECURITY DEFINER STABLE;
 
--- 2. Hàm is_owner theo UUID chủ sở hữu: so khớp chính xác với auth.uid()
+-- 3. Hàm is_owner(owner_id): kiểm tra UUID chủ sở hữu khớp auth.uid()
 CREATE OR REPLACE FUNCTION public.is_owner(owner_id uuid)
 RETURNS boolean AS $$
 BEGIN
@@ -160,11 +171,10 @@ END;
 $$ LANGUAGE plpgsql SECURITY DEFINER STABLE;
 
 -- ====================================================================
--- ROW LEVEL SECURITY (RLS) - BẢO MẬT CHẶT CHẼ THEO is_owner()
--- Không GRANT gì cho anon; Bỏ toàn bộ "OR ... IS NULL"
+-- ROW LEVEL SECURITY (RLS) - PHÂN QUYỀN CHẶT CHẼ
+-- Admin toàn quyền; Giáo viên thao tác theo phạm vi sở hữu (is_owner)
 -- ====================================================================
 
--- 1. Bật RLS và dọn dẹp policy cũ trên toàn bộ 11 bảng
 DO $$
 DECLARE
   t text;
@@ -180,80 +190,76 @@ BEGIN
 END
 $$;
 
--- 2. Tước toàn bộ quyền của anon trên toàn schema public
+-- Tước quyền anon
 REVOKE ALL ON ALL TABLES IN SCHEMA public FROM anon;
 REVOKE ALL ON ALL SEQUENCES IN SCHEMA public FROM anon;
 REVOKE ALL ON ALL ROUTINES IN SCHEMA public FROM anon;
 
--- 3. Cấp quyền cho authenticated và service_role
+-- Cấp quyền authenticated & service_role
 GRANT ALL ON ALL TABLES IN SCHEMA public TO authenticated, service_role;
 GRANT ALL ON ALL SEQUENCES IN SCHEMA public TO authenticated, service_role;
 GRANT ALL ON ALL ROUTINES IN SCHEMA public TO authenticated, service_role;
 
--- 4. Bảng users: Chỉ chủ sở hữu (UUID khớp auth.uid()) mới được xem/sửa
+-- 1. Bảng users: Admin toàn quyền; Giáo viên xem/sửa hồ sơ chính mình
 CREATE POLICY "owner_only_users" ON public.users
   FOR ALL TO authenticated
-  USING (public.is_owner(id))
-  WITH CHECK (public.is_owner(id));
+  USING (public.is_admin() OR public.is_owner(id))
+  WITH CHECK (public.is_admin() OR public.is_owner(id));
 
--- 5. Bảng classrooms: Theo UUID giáo viên sở hữu (bỏ OR teacher_id IS NULL)
+-- 2. Bảng classrooms: Admin toàn quyền; Giáo viên quản lý lớp được phân công
 CREATE POLICY "owner_only_classrooms" ON public.classrooms
   FOR ALL TO authenticated
-  USING (public.is_owner(teacher_id))
-  WITH CHECK (public.is_owner(teacher_id));
+  USING (public.is_admin() OR public.is_owner(teacher_id))
+  WITH CHECK (public.is_admin() OR public.is_owner(teacher_id));
 
--- 6. Bảng teams, students, attendance: Theo phiên chủ sở hữu
+-- 3. Bảng teams, students, attendance: Admin toàn quyền hoặc phiên giáo viên
 CREATE POLICY "owner_only_teams" ON public.teams
   FOR ALL TO authenticated
-  USING (public.is_owner())
-  WITH CHECK (public.is_owner());
+  USING (public.is_admin() OR public.is_owner())
+  WITH CHECK (public.is_admin() OR public.is_owner());
 
 CREATE POLICY "owner_only_students" ON public.students
   FOR ALL TO authenticated
-  USING (public.is_owner())
-  WITH CHECK (public.is_owner());
+  USING (public.is_admin() OR public.is_owner())
+  WITH CHECK (public.is_admin() OR public.is_owner());
 
 CREATE POLICY "owner_only_attendance" ON public.attendance
   FOR ALL TO authenticated
-  USING (public.is_owner())
-  WITH CHECK (public.is_owner());
+  USING (public.is_admin() OR public.is_owner())
+  WITH CHECK (public.is_admin() OR public.is_owner());
 
--- 7. Bảng subjects, stages: Theo phiên chủ sở hữu
+-- 4. Bảng subjects, stages: Admin toàn quyền hoặc giáo viên
 CREATE POLICY "owner_only_subjects" ON public.subjects
   FOR ALL TO authenticated
-  USING (public.is_owner())
-  WITH CHECK (public.is_owner());
+  USING (public.is_admin() OR public.is_owner())
+  WITH CHECK (public.is_admin() OR public.is_owner());
 
 CREATE POLICY "owner_only_stages" ON public.stages
   FOR ALL TO authenticated
-  USING (public.is_owner())
-  WITH CHECK (public.is_owner());
+  USING (public.is_admin() OR public.is_owner())
+  WITH CHECK (public.is_admin() OR public.is_owner());
 
--- 8. Bảng lessons: Tác giả sở hữu hoặc bài học gốc hệ thống (bỏ OR author_id IS NULL)
+-- 5. Bảng lessons: Admin quản lý tất cả; Giáo viên quản lý bài tự soạn hoặc bài gốc
 CREATE POLICY "owner_only_lessons" ON public.lessons
   FOR ALL TO authenticated
-  USING (public.is_owner(author_id) OR is_builtin = true)
-  WITH CHECK (public.is_owner(author_id) OR is_builtin = true);
+  USING (public.is_admin() OR public.is_owner(author_id) OR is_builtin = true)
+  WITH CHECK (public.is_admin() OR public.is_owner(author_id) OR is_builtin = true);
 
--- 9. Bảng teaching_sessions: Theo UUID giáo viên phụ trách (bỏ OR teacher_id IS NULL)
+-- 6. Bảng teaching_sessions, student_results, class_mistakes
 CREATE POLICY "owner_only_teaching_sessions" ON public.teaching_sessions
   FOR ALL TO authenticated
-  USING (public.is_owner(teacher_id))
-  WITH CHECK (public.is_owner(teacher_id));
+  USING (public.is_admin() OR public.is_owner(teacher_id))
+  WITH CHECK (public.is_admin() OR public.is_owner(teacher_id));
 
 CREATE POLICY "owner_only_student_results" ON public.student_results
   FOR ALL TO authenticated
-  USING (public.is_owner())
-  WITH CHECK (public.is_owner());
+  USING (public.is_admin() OR public.is_owner())
+  WITH CHECK (public.is_admin() OR public.is_owner());
 
 CREATE POLICY "owner_only_class_mistakes" ON public.class_mistakes
   FOR ALL TO authenticated
-  USING (public.is_owner())
-  WITH CHECK (public.is_owner());
-
--- 10. Xóa bỏ hoàn toàn trigger handle_new_user theo yêu cầu
-DROP TRIGGER IF EXISTS on_auth_user_created ON auth.users;
-DROP FUNCTION IF EXISTS public.handle_new_user();
+  USING (public.is_admin() OR public.is_owner())
+  WITH CHECK (public.is_admin() OR public.is_owner());
 
 -- SEED DATA BAN ĐẦU
 -- 1. Môn học

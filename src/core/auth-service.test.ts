@@ -44,7 +44,11 @@ describe('Auth Service & Offline-First Sync Guard', () => {
     expect(state.isAuthenticated).toBe(false);
     expect(state.session).toBeNull();
     expect(state.user).toBeNull();
+    expect(state.role).toBe('teacher');
+    expect(state.isAdmin).toBe(false);
     expect(hasActiveSession()).toBe(false);
+    expect(authService.isAdmin()).toBe(false);
+    expect(authService.getUserRole()).toBe('teacher');
   });
 
   it('can toggle offline mode and notify listeners', () => {
