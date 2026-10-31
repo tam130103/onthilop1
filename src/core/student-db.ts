@@ -1,6 +1,12 @@
 // IndexedDB Student Database Manager
-// Stores student records in browser IndexedDB with fallback to localStorage
+// Stores student records in browser IndexedDB with fallback to localStorage & Supabase Cloud
 import type { Student } from './classroom-store';
+import {
+  syncStudentToSupabase,
+  deleteStudentFromSupabaseCloud,
+  syncAllStudentsToSupabase,
+  fetchStudentsFromSupabase,
+} from './supabase-client';
 
 const DB_NAME = 'trinh_chieu_students_db_v1';
 const DB_VERSION = 1;
@@ -46,9 +52,21 @@ export function getStudentDb(): Promise<IDBDatabase> {
 }
 
 /**
- * Đọc toàn bộ danh sách học sinh từ Database IndexedDB
+ * Đọc toàn bộ danh sách học sinh từ Database (Ưu tiên Supabase Cloud nếu online, fallback IndexedDB)
  */
 export async function getStudentsFromDb(): Promise<Student[]> {
+  // 1. Thử tải từ Supabase Cloud trước nếu có kết nối
+  try {
+    const cloudStudents = await fetchStudentsFromSupabase();
+    if (cloudStudents && cloudStudents.length > 0) {
+      // Lưu lại vào IndexedDB nội bộ làm cache offline
+      saveFallbackLocalStorage(cloudStudents);
+      return cloudStudents;
+    }
+  } catch {
+    // continue to local
+  }
+
   if (!isIndexedDbAvailable()) {
     return loadFallbackLocalStorage();
   }
@@ -91,6 +109,9 @@ export async function getStudentsFromDb(): Promise<Student[]> {
  * Lưu hoặc cập nhật một học sinh vào Database
  */
 export async function saveStudentToDb(student: Student): Promise<void> {
+  // Đồng bộ ngầm lên Supabase Cloud
+  syncStudentToSupabase(student).catch(() => {});
+
   if (!isIndexedDbAvailable()) {
     saveFallbackSingle(student);
     return;
@@ -121,6 +142,9 @@ export async function saveAllStudentsToDb(students: Student[]): Promise<void> {
   // 1. Luôn lưu vào LocalStorage snapshot
   saveFallbackLocalStorage(students);
 
+  // 2. Đồng bộ ngầm lên Supabase Cloud
+  syncAllStudentsToSupabase(students).catch(() => {});
+
   if (!isIndexedDbAvailable()) return;
 
   try {
@@ -146,6 +170,9 @@ export async function saveAllStudentsToDb(students: Student[]): Promise<void> {
  * Xóa một học sinh khỏi Database
  */
 export async function deleteStudentFromDb(id: string): Promise<void> {
+  // Đồng bộ xóa trên Supabase Cloud
+  deleteStudentFromSupabaseCloud(id).catch(() => {});
+
   if (isIndexedDbAvailable()) {
     try {
       const db = await getStudentDb();

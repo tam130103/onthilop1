@@ -145,7 +145,7 @@ export function ClassroomManagerModal({
               ⚙️ Quản Lý Học Sinh & Lớp Học
             </h2>
             <div style={{ fontSize: '12px', color: '#059669', fontWeight: 700, marginTop: '2px' }}>
-              💾 Database: IndexedDB Trình duyệt (Lưu vĩnh viễn, F5 không bị mất)
+              💾 Database: Supabase Cloud ☁️ + IndexedDB (Lưu vĩnh viễn, F5 không bị mất)
             </div>
           </div>
           <button className={styles.closeBtn} onClick={onClose} title="Đóng">
