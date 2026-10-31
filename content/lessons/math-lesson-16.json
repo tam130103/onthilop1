@@ -1,0 +1,268 @@
+{
+  "status": "publish",
+  "mode": "publish",
+  "id": "math-16-cong-2cs-1cs",
+  "title": "Cộng số có 2 chữ số với số có 1 chữ số (không nhớ)",
+  "subject": "math",
+  "grade": 1,
+  "description": "Bài học Toán 1: Cộng hàng đơn vị với hàng đơn vị, giữ nguyên chữ số hàng chục (24 + 5 = 29, 61 + 7 = 68).",
+  "totalDurationMinutes": 25,
+  "slides": [
+    {
+      "type": "title-slide",
+      "id": "m16-slide-title",
+      "title": "Cộng số có 2 chữ số với số có 1 chữ số",
+      "subtitle": "Toán Lớp 1 — Phép tính không nhớ",
+      "teacherNote": "Hướng dẫn: lấy hàng đơn vị cộng với nhau rồi ghép vào hàng chục.",
+      "backgroundImage": "/media/images/apple.svg",
+      "audio": "/media/tts/m16-title.mp3"
+    },
+    {
+      "type": "content-slide",
+      "id": "m16-slide-intro",
+      "title": "Cách đặt tính và tính",
+      "body": "Ví dụ tính 24 + 5: Ta lấy 4 cộng 5 bằng 9, hạ 2 viết 2. Vậy 24 + 5 = 29. Rất dễ dàng và nhanh chóng!",
+      "teacherNote": "Cho học sinh nhắc lại: cộng hàng đơn vị trước.",
+      "illustration": "/media/images/apple.svg",
+      "audio": "/media/tts/m16-intro.mp3",
+      "bullets": [
+        "24 + 5 = 29 (4 + 5 = 9, hạ 2)",
+        "61 + 7 = 68 (1 + 7 = 8, hạ 6)",
+        "43 + 4 = 47 (3 + 4 = 7, hạ 4)"
+      ]
+    },
+    {
+      "type": "question-slide",
+      "id": "m16-slide-q1",
+      "teacherNote": "Tính 24 + 5",
+      "question": {
+        "type": "number_select",
+        "id": "m16-q1-ns",
+        "prompt": "Bé hãy tính kết quả phép tính sau:",
+        "promptAudio": "/media/tts/m16-q1-prompt.mp3",
+        "illustration": "/media/images/apple.svg",
+        "expression": "24 + 5 = ?",
+        "choices": [
+          28,
+          29,
+          30,
+          27
+        ],
+        "correctAnswer": 29,
+        "explanation": "Bốn cộng năm bằng chín, hai mươi chín. 24 + 5 = 29.",
+        "explanationAudio": "/media/tts/m16-q1-exp.mp3"
+      },
+      "timeLimitSeconds": 20,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m16-slide-q2",
+      "teacherNote": "Tính 61 + 7",
+      "question": {
+        "type": "multiple_choice",
+        "id": "m16-q2-mc",
+        "prompt": "61 + 7 bằng bao nhiêu?",
+        "promptAudio": "/media/tts/m16-q2-prompt.mp3",
+        "illustration": "/media/images/candy.svg",
+        "options": [
+          {
+            "id": "m16-opt-68",
+            "label": "Bằng 68",
+            "audio": "/media/tts/m16-opt-bang-68.mp3"
+          },
+          {
+            "id": "m16-opt-67",
+            "label": "Bằng 67",
+            "audio": "/media/tts/m16-opt-bang-67.mp3"
+          },
+          {
+            "id": "m16-opt-78",
+            "label": "Bằng 78",
+            "audio": "/media/tts/m16-opt-bang-78.mp3"
+          }
+        ],
+        "explanation": "1 cộng 7 bằng 8, hạ 6 được 68.",
+        "explanationAudio": "/media/tts/m16-q2-exp.mp3",
+        "correctOptionId": "m16-opt-68"
+      },
+      "timeLimitSeconds": 20,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m16-slide-q3",
+      "teacherNote": "Tìm số còn thiếu",
+      "question": {
+        "type": "tap_place",
+        "id": "m16-q3-tap",
+        "prompt": "Điền số thích hợp vào chỗ trống: 52 + ... = 58",
+        "promptAudio": "/media/tts/m16-q3-prompt.mp3",
+        "targets": [
+          {
+            "id": "m16-t1",
+            "label": "Số cần tìm",
+            "prefixText": "52 + ",
+            "suffixText": " = 58"
+          }
+        ],
+        "items": [
+          {
+            "id": "m16-i1",
+            "text": "6",
+            "audio": "/media/tts/m16-num-6.mp3",
+            "label": "6"
+          },
+          {
+            "id": "m16-i2",
+            "text": "5",
+            "audio": "/media/tts/m16-num-5.mp3",
+            "label": "5"
+          },
+          {
+            "id": "m16-i3",
+            "text": "7",
+            "audio": "/media/tts/m16-num-7.mp3",
+            "label": "7"
+          }
+        ],
+        "correctMapping": {
+          "m16-i1": "m16-t1"
+        },
+        "explanation": "Vì 2 + 6 = 8 nên 52 + 6 = 58.",
+        "explanationAudio": "/media/tts/m16-q3-exp.mp3",
+        "illustration": "/media/images/star.svg"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m16-slide-q4",
+      "teacherNote": "Nối phép tính với kết quả",
+      "question": {
+        "type": "matching",
+        "id": "m16-q4-matching",
+        "prompt": "Nối phép cộng với kết quả đúng:",
+        "promptAudio": "/media/tts/m16-q4-prompt.mp3",
+        "leftColumn": [
+          {
+            "id": "m16-l1",
+            "text": "32 + 4",
+            "audio": "/media/tts/m16-lbl-32cong4.mp3",
+            "label": "32 + 4"
+          },
+          {
+            "id": "m16-l2",
+            "text": "73 + 5",
+            "audio": "/media/tts/m16-lbl-73cong5.mp3",
+            "label": "73 + 5"
+          },
+          {
+            "id": "m16-l3",
+            "text": "41 + 6",
+            "audio": "/media/tts/m16-lbl-41cong6.mp3",
+            "label": "41 + 6"
+          }
+        ],
+        "rightColumn": [
+          {
+            "id": "m16-r1",
+            "text": "Bằng 36",
+            "audio": "/media/tts/m16-lbl-bang-36.mp3",
+            "label": "Bằng 36"
+          },
+          {
+            "id": "m16-r2",
+            "text": "Bằng 78",
+            "audio": "/media/tts/m16-lbl-bang-78.mp3",
+            "label": "Bằng 78"
+          },
+          {
+            "id": "m16-r3",
+            "text": "Bằng 47",
+            "audio": "/media/tts/m16-lbl-bang-47.mp3",
+            "label": "Bằng 47"
+          }
+        ],
+        "correctPairs": [
+          {
+            "leftId": "m16-l1",
+            "rightId": "m16-r1"
+          },
+          {
+            "leftId": "m16-l2",
+            "rightId": "m16-r2"
+          },
+          {
+            "leftId": "m16-l3",
+            "rightId": "m16-r3"
+          }
+        ],
+        "explanation": "32 + 4 = 36, 73 + 5 = 78, 41 + 6 = 47.",
+        "explanationAudio": "/media/tts/m16-q4-exp.mp3",
+        "illustration": "/media/images/star.svg"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m16-slide-q5",
+      "teacherNote": "Tính 80 + 9",
+      "question": {
+        "type": "number_select",
+        "id": "m16-q5-ns",
+        "prompt": "Bé hãy tính kết quả phép tính sau:",
+        "promptAudio": "/media/tts/m16-q5-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "expression": "80 + 9 = ?",
+        "choices": [
+          88,
+          89,
+          90,
+          99
+        ],
+        "correctAnswer": 89,
+        "explanation": "Tám mươi cộng chín bằng tám mươi chín.",
+        "explanationAudio": "/media/tts/m16-q5-exp.mp3"
+      },
+      "timeLimitSeconds": 20,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m16-slide-q6",
+      "teacherNote": "Toán có lời văn",
+      "question": {
+        "type": "multiple_choice",
+        "id": "m16-q6-mc",
+        "prompt": "Lớp 1A có 31 bạn, thêm 4 bạn mới chuyển đến. Hỏi lớp có tất cả bao nhiêu bạn?",
+        "promptAudio": "/media/tts/m16-q6-prompt.mp3",
+        "illustration": "/media/images/school.svg",
+        "options": [
+          {
+            "id": "m16-opt-35",
+            "label": "35 bạn",
+            "audio": "/media/tts/m16-opt-35-ban.mp3"
+          },
+          {
+            "id": "m16-opt-34",
+            "label": "34 bạn",
+            "audio": "/media/tts/m16-opt-34-ban.mp3"
+          },
+          {
+            "id": "m16-opt-36",
+            "label": "36 bạn",
+            "audio": "/media/tts/m16-opt-36-ban.mp3"
+          }
+        ],
+        "explanation": "Phép tính: 31 + 4 = 35 bạn.",
+        "explanationAudio": "/media/tts/m16-q6-exp.mp3",
+        "correctOptionId": "m16-opt-35"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    }
+  ]
+}

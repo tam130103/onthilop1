@@ -1,0 +1,310 @@
+{
+  "status": "publish",
+  "mode": "publish",
+  "id": "vn-13-van-ng-nh",
+  "title": "Bài 13: Các vần kết thúc bằng ng, nh",
+  "subject": "vietnamese",
+  "grade": 1,
+  "description": "Học các vần ang, anh, ăng, inh, ênh, uynh; luyện đọc các từ măng tre, cành chanh, bình hoa, kênh rạch, phụ huynh qua 6 câu hỏi tương tác.",
+  "totalDurationMinutes": 25,
+  "slides": [
+    {
+      "type": "title-slide",
+      "id": "vn13-title-slide",
+      "title": "Bài 13: Các vần kết thúc bằng ng, nh",
+      "subtitle": "Tiếng Việt Lớp 1 — Bài học tương tác",
+      "teacherNote": "Rèn phát âm mở rộng vòm họng cho vần ng và bè môi cho vần nh.",
+      "backgroundImage": "/media/images/star.svg",
+      "audio": "/media/tts/vn13-title.mp3"
+    },
+    {
+      "type": "content-slide",
+      "id": "vn13-intro-slide",
+      "title": "Các vần kết thúc bằng NG, NH",
+      "body": "Hôm nay các em sẽ làm quen với các vần có âm cuối ng và nh: ang, anh, ăng, inh, ênh, uynh. Cùng đọc: măng tre, cành chanh, bình hoa, phụ huynh nhé!",
+      "teacherNote": "Hướng dẫn cả lớp luyện đọc đồng thanh các từ ngữ mẫu.",
+      "illustration": "/media/images/book.svg",
+      "audio": "/media/tts/vn13-intro.mp3",
+      "bullets": [
+        "ăng — măng (búp măng tre non)",
+        "anh — chanh (cành chanh sai quả)",
+        "inh — bình (bình hoa ngát hương)",
+        "uynh — huynh (phụ huynh học sinh)"
+      ]
+    },
+    {
+      "type": "question-slide",
+      "id": "vn13-slide-q1",
+      "teacherNote": "Câu hỏi 1: Tiếng 'măng' trong từ 'măng tre' có vần ",
+      "question": {
+        "type": "multiple_choice",
+        "id": "vn13-q1-mc",
+        "prompt": "Tiếng 'măng' trong từ 'măng tre' có vần gì?",
+        "promptAudio": "/media/tts/vn13-q1-prompt.mp3",
+        "illustration": "/media/images/tree.svg",
+        "options": [
+          {
+            "id": "vn13-opt-ang2",
+            "label": "Vần ăng",
+            "audio": "/media/tts/vn13-q1-opt0.mp3"
+          },
+          {
+            "id": "vn13-opt-ang1",
+            "label": "Vần ang",
+            "audio": "/media/tts/vn13-q1-opt1.mp3"
+          },
+          {
+            "id": "vn13-opt-anh",
+            "label": "Vần anh",
+            "audio": "/media/tts/vn13-q1-opt2.mp3"
+          }
+        ],
+        "correctOptionId": "vn13-opt-ang2",
+        "explanation": "Tiếng măng gồm âm m đứng trước, vần ăng đứng sau: m - ăng - măng.",
+        "explanationAudio": "/media/tts/vn13-q1-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn13-slide-q2",
+      "teacherNote": "Câu hỏi 2: Điền vần thích hợp để có từ cành chanh:",
+      "question": {
+        "type": "tap_place",
+        "id": "vn13-q2-tap",
+        "prompt": "Điền vần thích hợp để có từ cành chanh:",
+        "promptAudio": "/media/tts/vn13-q2-prompt.mp3",
+        "illustration": "/media/images/leaf.svg",
+        "targets": [
+          {
+            "id": "vn13-tgt-chanh",
+            "label": "...",
+            "prefixText": "Cành ch",
+            "suffixText": ""
+          }
+        ],
+        "items": [
+          {
+            "id": "vn13-it-anh",
+            "label": "anh",
+            "audio": "/media/tts/vn13-q2-it0.mp3"
+          },
+          {
+            "id": "vn13-it-ang",
+            "label": "ang",
+            "audio": "/media/tts/vn13-q2-it1.mp3"
+          }
+        ],
+        "correctMapping": {
+          "vn13-it-anh": "vn13-tgt-chanh"
+        },
+        "explanation": "Tiếng chanh có âm ch ghép với vần anh.",
+        "explanationAudio": "/media/tts/vn13-q2-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn13-slide-q3",
+      "teacherNote": "Câu hỏi 3: Nối từ ở cột trái với từ tương ứng ở cột",
+      "question": {
+        "type": "matching",
+        "id": "vn13-q3-match",
+        "prompt": "Nối từ ở cột trái với từ tương ứng ở cột phải:",
+        "promptAudio": "/media/tts/vn13-q3-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "leftColumn": [
+          {
+            "id": "vn13-l-mang",
+            "label": "măng tre",
+            "audio": "/media/tts/vn13-q3-l0.mp3"
+          },
+          {
+            "id": "vn13-l-binh",
+            "label": "bình hoa",
+            "audio": "/media/tts/vn13-q3-l1.mp3"
+          },
+          {
+            "id": "vn13-l-phu",
+            "label": "phụ huynh",
+            "audio": "/media/tts/vn13-q3-l2.mp3"
+          }
+        ],
+        "rightColumn": [
+          {
+            "id": "vn13-r-mang",
+            "label": "búp măng non",
+            "audio": "/media/tts/vn13-q3-r0.mp3"
+          },
+          {
+            "id": "vn13-r-binh",
+            "label": "bình hoa đẹp",
+            "audio": "/media/tts/vn13-q3-r1.mp3"
+          },
+          {
+            "id": "vn13-r-phu",
+            "label": "cha mẹ em",
+            "audio": "/media/tts/vn13-q3-r2.mp3"
+          }
+        ],
+        "correctPairs": [
+          {
+            "leftId": "vn13-l-mang",
+            "rightId": "vn13-r-mang"
+          },
+          {
+            "leftId": "vn13-l-binh",
+            "rightId": "vn13-r-binh"
+          },
+          {
+            "leftId": "vn13-l-phu",
+            "rightId": "vn13-r-phu"
+          }
+        ],
+        "explanation": "Chính xác! Măng tre non, bình hoa đẹp, phụ huynh là cha mẹ em.",
+        "explanationAudio": "/media/tts/vn13-q3-exp.mp3"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn13-slide-q4",
+      "teacherNote": "Câu hỏi 4: Từ nào dưới đây có chứa vần 'uynh'?",
+      "question": {
+        "type": "multiple_choice",
+        "id": "vn13-q4-mc",
+        "prompt": "Từ nào dưới đây có chứa vần 'uynh'?",
+        "promptAudio": "/media/tts/vn13-q4-prompt.mp3",
+        "illustration": "/media/images/school.svg",
+        "options": [
+          {
+            "id": "vn13-q4-opt-huynh",
+            "label": "phụ huynh",
+            "audio": "/media/tts/vn13-q4-opt0.mp3"
+          },
+          {
+            "id": "vn13-q4-opt-chanh",
+            "label": "cành chanh",
+            "audio": "/media/tts/vn13-q4-opt1.mp3"
+          },
+          {
+            "id": "vn13-q4-opt-sen",
+            "label": "hoa sen",
+            "audio": "/media/tts/vn13-q4-opt2.mp3"
+          }
+        ],
+        "correctOptionId": "vn13-q4-opt-huynh",
+        "explanation": "Tiếng huynh trong từ phụ huynh có chứa vần uynh: h - uynh - huynh.",
+        "explanationAudio": "/media/tts/vn13-q4-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn13-slide-q5",
+      "teacherNote": "Câu hỏi 5: Điền vần thích hợp vào từ bình minh:",
+      "question": {
+        "type": "tap_place",
+        "id": "vn13-q5-tap",
+        "prompt": "Điền vần thích hợp vào từ bình minh:",
+        "promptAudio": "/media/tts/vn13-q5-prompt.mp3",
+        "illustration": "/media/images/sun.svg",
+        "targets": [
+          {
+            "id": "vn13-tgt-minh",
+            "label": "...",
+            "prefixText": "Bình m",
+            "suffixText": ""
+          }
+        ],
+        "items": [
+          {
+            "id": "vn13-it-inh",
+            "label": "inh",
+            "audio": "/media/tts/vn13-q5-it0.mp3"
+          },
+          {
+            "id": "vn13-it-enh",
+            "label": "ênh",
+            "audio": "/media/tts/vn13-q5-it1.mp3"
+          }
+        ],
+        "correctMapping": {
+          "vn13-it-inh": "vn13-tgt-minh"
+        },
+        "explanation": "Bình minh là lúc mặt trời bắt đầu mọc, tiếng minh có vần inh.",
+        "explanationAudio": "/media/tts/vn13-q5-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn13-slide-q6",
+      "teacherNote": "Câu hỏi 6: Nối tiếng ở cột trái với tiếng ở cột phả",
+      "question": {
+        "type": "matching",
+        "id": "vn13-q6-match",
+        "prompt": "Nối tiếng ở cột trái với tiếng ở cột phải để tạo từ đúng:",
+        "promptAudio": "/media/tts/vn13-q6-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "leftColumn": [
+          {
+            "id": "vn13-l2-binh",
+            "label": "bình",
+            "audio": "/media/tts/vn13-q6-l0.mp3"
+          },
+          {
+            "id": "vn13-l2-kenh",
+            "label": "kênh",
+            "audio": "/media/tts/vn13-q6-l1.mp3"
+          },
+          {
+            "id": "vn13-l2-cay",
+            "label": "cây",
+            "audio": "/media/tts/vn13-q6-l2.mp3"
+          }
+        ],
+        "rightColumn": [
+          {
+            "id": "vn13-r2-minh",
+            "label": "minh",
+            "audio": "/media/tts/vn13-q6-r0.mp3"
+          },
+          {
+            "id": "vn13-r2-rach",
+            "label": "rạch",
+            "audio": "/media/tts/vn13-q6-r1.mp3"
+          },
+          {
+            "id": "vn13-r2-chanh",
+            "label": "chanh",
+            "audio": "/media/tts/vn13-q6-r2.mp3"
+          }
+        ],
+        "correctPairs": [
+          {
+            "leftId": "vn13-l2-binh",
+            "rightId": "vn13-r2-minh"
+          },
+          {
+            "leftId": "vn13-l2-kenh",
+            "rightId": "vn13-r2-rach"
+          },
+          {
+            "leftId": "vn13-l2-cay",
+            "rightId": "vn13-r2-chanh"
+          }
+        ],
+        "explanation": "Tuyệt vời! Bình minh, kênh rạch, cây chanh đều là các từ ghép rất chuẩn.",
+        "explanationAudio": "/media/tts/vn13-q6-exp.mp3"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    }
+  ]
+}

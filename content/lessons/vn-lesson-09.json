@@ -1,0 +1,314 @@
+{
+  "status": "publish",
+  "mode": "publish",
+  "id": "vn-09-p-ph-qu-r-s-x",
+  "title": "Bài 9: Các phụ âm p, ph, qu, r, s, x",
+  "subject": "vietnamese",
+  "grade": 1,
+  "description": "Nhận biết và đọc đúng các phụ âm p, ph, qu, r, s, x; luyện đọc các từ xe buýt, quả táo, bát phở, con rùa, chim sẻ qua 6 câu hỏi tương tác.",
+  "totalDurationMinutes": 25,
+  "slides": [
+    {
+      "type": "title-slide",
+      "id": "vn9-title-slide",
+      "title": "Bài 9: Các phụ âm p, ph, qu, r, s, x",
+      "subtitle": "Tiếng Việt Lớp 1 — Bài học tương tác",
+      "teacherNote": "Rèn phát âm phân biệt s (uốn lưỡi) và x; r và d; qu và p.",
+      "backgroundImage": "/media/images/star.svg",
+      "audio": "/media/tts/vn9-title.mp3"
+    },
+    {
+      "type": "content-slide",
+      "id": "vn9-intro-slide",
+      "title": "Các phụ âm P, PH, QU, R, S, X",
+      "body": "Hôm nay chúng mình học các âm ghép và âm đôi: ph, qu, r, s, x. Cùng đọc các từ: quả táo, bát phở, con rùa, chim sẻ, xe buýt!",
+      "teacherNote": "Hướng dẫn cả lớp luyện đọc đồng thanh các từ ngữ mẫu.",
+      "illustration": "/media/images/book.svg",
+      "audio": "/media/tts/vn9-intro.mp3",
+      "bullets": [
+        "ph — phở (bát phở bò thơm ngon)",
+        "qu — quả (quả táo chín đỏ)",
+        "r — rùa (chú rùa chậm chạp)",
+        "s — sẻ (chú chim sẻ nhỏ)",
+        "x — xe (xe buýt đến trường)"
+      ]
+    },
+    {
+      "type": "question-slide",
+      "id": "vn9-slide-q1",
+      "teacherNote": "Câu hỏi 1: Tiếng 'quả' bắt đầu bằng âm nào dưới đây",
+      "question": {
+        "type": "multiple_choice",
+        "id": "vn9-q1-mc",
+        "prompt": "Tiếng 'quả' bắt đầu bằng âm nào dưới đây?",
+        "promptAudio": "/media/tts/vn9-q1-prompt.mp3",
+        "illustration": "/media/images/apple.svg",
+        "options": [
+          {
+            "id": "vn9-opt-qu",
+            "label": "Âm qu",
+            "audio": "/media/tts/vn9-q1-opt0.mp3"
+          },
+          {
+            "id": "vn9-opt-ph",
+            "label": "Âm ph",
+            "audio": "/media/tts/vn9-q1-opt1.mp3"
+          },
+          {
+            "id": "vn9-opt-r",
+            "label": "Âm r",
+            "audio": "/media/tts/vn9-q1-opt2.mp3"
+          }
+        ],
+        "correctOptionId": "vn9-opt-qu",
+        "explanation": "Tiếng quả bắt đầu bằng âm qu: qu - a - qua - hỏi - quả.",
+        "explanationAudio": "/media/tts/vn9-q1-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn9-slide-q2",
+      "teacherNote": "Câu hỏi 2: Điền âm thích hợp để có từ bát phở:",
+      "question": {
+        "type": "tap_place",
+        "id": "vn9-q2-tap",
+        "prompt": "Điền âm thích hợp để có từ bát phở:",
+        "promptAudio": "/media/tts/vn9-q2-prompt.mp3",
+        "illustration": "/media/images/chair.svg",
+        "targets": [
+          {
+            "id": "vn9-tgt-pho",
+            "label": "...",
+            "prefixText": "Bát ",
+            "suffixText": "ở"
+          }
+        ],
+        "items": [
+          {
+            "id": "vn9-it-ph",
+            "label": "ph",
+            "audio": "/media/tts/vn9-q2-it0.mp3"
+          },
+          {
+            "id": "vn9-it-qu",
+            "label": "qu",
+            "audio": "/media/tts/vn9-q2-it1.mp3"
+          }
+        ],
+        "correctMapping": {
+          "vn9-it-ph": "vn9-tgt-pho"
+        },
+        "explanation": "Tiếng phở bắt đầu bằng âm ph.",
+        "explanationAudio": "/media/tts/vn9-q2-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn9-slide-q3",
+      "teacherNote": "Câu hỏi 3: Nối tiếng ở cột trái với từ thích hợp ở ",
+      "question": {
+        "type": "matching",
+        "id": "vn9-q3-match",
+        "prompt": "Nối tiếng ở cột trái với từ thích hợp ở cột phải:",
+        "promptAudio": "/media/tts/vn9-q3-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "leftColumn": [
+          {
+            "id": "vn9-l-rua",
+            "label": "rùa",
+            "audio": "/media/tts/vn9-q3-l0.mp3"
+          },
+          {
+            "id": "vn9-l-se",
+            "label": "sẻ",
+            "audio": "/media/tts/vn9-q3-l1.mp3"
+          },
+          {
+            "id": "vn9-l-xe",
+            "label": "xe",
+            "audio": "/media/tts/vn9-q3-l2.mp3"
+          }
+        ],
+        "rightColumn": [
+          {
+            "id": "vn9-r-conrua",
+            "label": "con rùa",
+            "audio": "/media/tts/vn9-q3-r0.mp3"
+          },
+          {
+            "id": "vn9-r-chimse",
+            "label": "chim sẻ",
+            "audio": "/media/tts/vn9-q3-r1.mp3"
+          },
+          {
+            "id": "vn9-r-xebuyt",
+            "label": "xe buýt",
+            "audio": "/media/tts/vn9-q3-r2.mp3"
+          }
+        ],
+        "correctPairs": [
+          {
+            "leftId": "vn9-l-rua",
+            "rightId": "vn9-r-conrua"
+          },
+          {
+            "leftId": "vn9-l-se",
+            "rightId": "vn9-r-chimse"
+          },
+          {
+            "leftId": "vn9-l-xe",
+            "rightId": "vn9-r-xebuyt"
+          }
+        ],
+        "explanation": "Đúng rồi! Rùa nối với con rùa, sẻ nối với chim sẻ, xe nối với xe buýt.",
+        "explanationAudio": "/media/tts/vn9-q3-exp.mp3"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn9-slide-q4",
+      "teacherNote": "Câu hỏi 4: Tiếng nào dưới đây bắt đầu bằng âm 's' (",
+      "question": {
+        "type": "multiple_choice",
+        "id": "vn9-q4-mc",
+        "prompt": "Tiếng nào dưới đây bắt đầu bằng âm 's' (sờ nặng)?",
+        "promptAudio": "/media/tts/vn9-q4-prompt.mp3",
+        "illustration": "/media/images/bird.svg",
+        "options": [
+          {
+            "id": "vn9-q4-opt-se",
+            "label": "chim sẻ",
+            "audio": "/media/tts/vn9-q4-opt0.mp3"
+          },
+          {
+            "id": "vn9-q4-opt-xe",
+            "label": "xe đạp",
+            "audio": "/media/tts/vn9-q4-opt1.mp3"
+          },
+          {
+            "id": "vn9-q4-opt-ca",
+            "label": "con cá",
+            "audio": "/media/tts/vn9-q4-opt2.mp3"
+          }
+        ],
+        "correctOptionId": "vn9-q4-opt-se",
+        "explanation": "Tiếng sẻ bắt đầu bằng âm s, ta cần cong lưỡi khi phát âm.",
+        "explanationAudio": "/media/tts/vn9-q4-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn9-slide-q5",
+      "teacherNote": "Câu hỏi 5: Điền âm thích hợp để hoàn thiện từ xe bu",
+      "question": {
+        "type": "tap_place",
+        "id": "vn9-q5-tap",
+        "prompt": "Điền âm thích hợp để hoàn thiện từ xe buýt:",
+        "promptAudio": "/media/tts/vn9-q5-prompt.mp3",
+        "illustration": "/media/images/bus.svg",
+        "targets": [
+          {
+            "id": "vn9-tgt-xe",
+            "label": "...",
+            "prefixText": "",
+            "suffixText": " buýt"
+          }
+        ],
+        "items": [
+          {
+            "id": "vn9-it-xe",
+            "label": "Xe",
+            "audio": "/media/tts/vn9-q5-it0.mp3"
+          },
+          {
+            "id": "vn9-it-be",
+            "label": "Bé",
+            "audio": "/media/tts/vn9-q5-it1.mp3"
+          }
+        ],
+        "correctMapping": {
+          "vn9-it-xe": "vn9-tgt-xe"
+        },
+        "explanation": "Từ đúng là xe buýt, phương tiện chở học sinh đến trường.",
+        "explanationAudio": "/media/tts/vn9-q5-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn9-slide-q6",
+      "teacherNote": "Câu hỏi 6: Nối từ với hình minh họa tương ứng:",
+      "question": {
+        "type": "matching",
+        "id": "vn9-q6-match",
+        "prompt": "Nối từ với hình minh họa tương ứng:",
+        "promptAudio": "/media/tts/vn9-q6-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "leftColumn": [
+          {
+            "id": "vn9-l2-rua",
+            "label": "con rùa",
+            "audio": "/media/tts/vn9-q6-l0.mp3"
+          },
+          {
+            "id": "vn9-l2-xe",
+            "label": "xe buýt",
+            "audio": "/media/tts/vn9-q6-l1.mp3"
+          },
+          {
+            "id": "vn9-l2-qua",
+            "label": "quả táo",
+            "audio": "/media/tts/vn9-q6-l2.mp3"
+          }
+        ],
+        "rightColumn": [
+          {
+            "id": "vn9-r2-rua",
+            "label": "chú rùa vàng",
+            "audio": "/media/tts/vn9-q6-r0.mp3",
+            "image": "/media/images/turtle.svg"
+          },
+          {
+            "id": "vn9-r2-xe",
+            "label": "xe buýt vàng",
+            "audio": "/media/tts/vn9-q6-r1.mp3",
+            "image": "/media/images/bus.svg"
+          },
+          {
+            "id": "vn9-r2-qua",
+            "label": "trái táo đỏ",
+            "audio": "/media/tts/vn9-q6-r2.mp3",
+            "image": "/media/images/apple.svg"
+          }
+        ],
+        "correctPairs": [
+          {
+            "leftId": "vn9-l2-rua",
+            "rightId": "vn9-r2-rua"
+          },
+          {
+            "leftId": "vn9-l2-xe",
+            "rightId": "vn9-r2-xe"
+          },
+          {
+            "leftId": "vn9-l2-qua",
+            "rightId": "vn9-r2-qua"
+          }
+        ],
+        "explanation": "Bé thật xuất sắc! Bé đã nối chính xác con rùa, xe buýt và quả táo.",
+        "explanationAudio": "/media/tts/vn9-q6-exp.mp3"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    }
+  ]
+}

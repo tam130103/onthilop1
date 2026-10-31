@@ -1,0 +1,312 @@
+{
+  "status": "publish",
+  "mode": "publish",
+  "id": "vn-07-o-o-o",
+  "title": "Bài 7: Âm o, ô, ơ và tiếng ghép",
+  "subject": "vietnamese",
+  "grade": 1,
+  "description": "Làm quen các âm o, ô, ơ và luyện đọc, ghép các tiếng bò, cô, cờ, bơ, hồ, nơ qua 6 câu hỏi tương tác.",
+  "totalDurationMinutes": 25,
+  "slides": [
+    {
+      "type": "title-slide",
+      "id": "vn7-title-slide",
+      "title": "Bài 7: Âm o, ô, ơ và tiếng ghép",
+      "subtitle": "Tiếng Việt Lớp 1 — Bài học tương tác",
+      "teacherNote": "Hướng dẫn học sinh phân biệt âm o (tròn như quả trứng gà), ô (có nón), ơ (có râu).",
+      "backgroundImage": "/media/images/star.svg",
+      "audio": "/media/tts/vn7-title.mp3"
+    },
+    {
+      "type": "content-slide",
+      "id": "vn7-intro-slide",
+      "title": "Làm quen ba chữ cái O, Ô, Ơ",
+      "body": "Chữ o tròn như quả trứng, chữ ô đội mũ, chữ ơ có râu. Cùng đọc các tiếng: bò, cô, cờ, bơ nhé!",
+      "teacherNote": "Cho học sinh đọc đồng thanh từng chữ cái và tiếng mẫu.",
+      "illustration": "/media/images/book.svg",
+      "audio": "/media/tts/vn7-intro.mp3",
+      "bullets": [
+        "o — bò (con bò gặm cỏ)",
+        "ô — cô (cô giáo mến yêu)",
+        "ơ — cờ (lá cờ đỏ sao vàng)"
+      ]
+    },
+    {
+      "type": "question-slide",
+      "id": "vn7-slide-q1",
+      "teacherNote": "Nhận diện âm o trong tiếng bò",
+      "question": {
+        "type": "multiple_choice",
+        "id": "vn7-q1-mc",
+        "prompt": "Tiếng 'bò' có chứa âm nào dưới đây?",
+        "promptAudio": "/media/tts/vn7-q1-prompt.mp3",
+        "illustration": "/media/images/cat.svg",
+        "options": [
+          {
+            "id": "vn7-opt-o",
+            "label": "Âm o",
+            "audio": "/media/tts/vn7-opt-o.mp3"
+          },
+          {
+            "id": "vn7-opt-oo",
+            "label": "Âm ô",
+            "audio": "/media/tts/vn7-opt-oo.mp3"
+          },
+          {
+            "id": "vn7-opt-ow",
+            "label": "Âm ơ",
+            "audio": "/media/tts/vn7-opt-ow.mp3"
+          }
+        ],
+        "correctOptionId": "vn7-opt-o",
+        "explanation": "Tiếng bò gồm âm b đứng trước, âm o đứng sau và dấu huyền trên đầu âm o: b - o - bo - huyền - bò.",
+        "explanationAudio": "/media/tts/vn7-q1-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn7-slide-q2",
+      "teacherNote": "Tìm tiếng có âm ô",
+      "question": {
+        "type": "multiple_choice",
+        "id": "vn7-q2-mc",
+        "prompt": "Từ nào dưới đây có chứa âm 'ô'?",
+        "promptAudio": "/media/tts/vn7-q2-prompt.mp3",
+        "illustration": "/media/images/school.svg",
+        "options": [
+          {
+            "id": "vn7-q2-opt-co",
+            "label": "cô giáo",
+            "audio": "/media/tts/vn7-q2-opt-co.mp3"
+          },
+          {
+            "id": "vn7-q2-opt-ca",
+            "label": "con cá",
+            "audio": "/media/tts/vn7-q2-opt-ca.mp3"
+          },
+          {
+            "id": "vn7-q2-opt-me",
+            "label": "quả me",
+            "audio": "/media/tts/vn7-q2-opt-me.mp3"
+          }
+        ],
+        "correctOptionId": "vn7-q2-opt-co",
+        "explanation": "Tiếng cô có âm c đứng trước, âm ô đứng sau tạo thành c - ô - cô.",
+        "explanationAudio": "/media/tts/vn7-q2-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn7-slide-q3",
+      "teacherNote": "Điền âm ơ tạo từ lá cờ",
+      "question": {
+        "type": "tap_place",
+        "id": "vn7-q3-tap",
+        "prompt": "Chọn âm thích hợp đặt vào chỗ trống để tạo thành từ lá cờ:",
+        "promptAudio": "/media/tts/vn7-q3-prompt.mp3",
+        "illustration": "/media/images/flag.svg",
+        "targets": [
+          {
+            "id": "vn7-tgt-co",
+            "label": "...",
+            "prefixText": "Lá c",
+            "suffixText": ""
+          }
+        ],
+        "items": [
+          {
+            "id": "vn7-item-ow",
+            "label": "ờ",
+            "audio": "/media/tts/vn7-item-ow.mp3"
+          },
+          {
+            "id": "vn7-item-o",
+            "label": "ò",
+            "audio": "/media/tts/vn7-item-o.mp3"
+          }
+        ],
+        "correctMapping": {
+          "vn7-item-ow": "vn7-tgt-co"
+        },
+        "explanation": "Lá cờ có tiếng cờ gồm âm c ghép với âm ờ.",
+        "explanationAudio": "/media/tts/vn7-q3-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn7-slide-q4",
+      "teacherNote": "Nối tiếng với từ ứng dụng",
+      "question": {
+        "type": "matching",
+        "id": "vn7-q4-match",
+        "prompt": "Nối tiếng ở cột trái với từ tương ứng ở cột phải:",
+        "promptAudio": "/media/tts/vn7-q4-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "leftColumn": [
+          {
+            "id": "vn7-l-co",
+            "label": "cô",
+            "audio": "/media/tts/vn7-l-co.mp3"
+          },
+          {
+            "id": "vn7-l-bo",
+            "label": "bơ",
+            "audio": "/media/tts/vn7-l-bo.mp3"
+          },
+          {
+            "id": "vn7-l-ho",
+            "label": "hồ",
+            "audio": "/media/tts/vn7-l-ho.mp3"
+          }
+        ],
+        "rightColumn": [
+          {
+            "id": "vn7-r-cogiao",
+            "label": "cô giáo",
+            "audio": "/media/tts/vn7-r-cogiao.mp3"
+          },
+          {
+            "id": "vn7-r-quabo",
+            "label": "quả bơ",
+            "audio": "/media/tts/vn7-r-quabo.mp3"
+          },
+          {
+            "id": "vn7-r-hosen",
+            "label": "hồ sen",
+            "audio": "/media/tts/vn7-r-hosen.mp3"
+          }
+        ],
+        "correctPairs": [
+          {
+            "leftId": "vn7-l-co",
+            "rightId": "vn7-r-cogiao"
+          },
+          {
+            "leftId": "vn7-l-bo",
+            "rightId": "vn7-r-quabo"
+          },
+          {
+            "leftId": "vn7-l-ho",
+            "rightId": "vn7-r-hosen"
+          }
+        ],
+        "explanation": "Đúng rồi! Cô ghép với cô giáo, bơ ghép với quả bơ, hồ ghép với hồ sen.",
+        "explanationAudio": "/media/tts/vn7-q4-exp.mp3"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn7-slide-q5",
+      "teacherNote": "Điền âm tạo từ quả bơ",
+      "question": {
+        "type": "tap_place",
+        "id": "vn7-q5-tap",
+        "prompt": "Chọn âm thích hợp đặt vào chỗ trống để tạo thành từ quả bơ:",
+        "promptAudio": "/media/tts/vn7-q5-prompt.mp3",
+        "illustration": "/media/images/apple.svg",
+        "targets": [
+          {
+            "id": "vn7-tgt-bo",
+            "label": "...",
+            "prefixText": "Quả b",
+            "suffixText": ""
+          }
+        ],
+        "items": [
+          {
+            "id": "vn7-item-bo-ow",
+            "label": "ơ",
+            "audio": "/media/tts/vn7-item-bo-ow.mp3"
+          },
+          {
+            "id": "vn7-item-bo-e",
+            "label": "e",
+            "audio": "/media/tts/vn7-item-bo-e.mp3"
+          }
+        ],
+        "correctMapping": {
+          "vn7-item-bo-ow": "vn7-tgt-bo"
+        },
+        "explanation": "Quả bơ có tiếng bơ: b - ơ - bơ.",
+        "explanationAudio": "/media/tts/vn7-q5-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn7-slide-q6",
+      "teacherNote": "Nối tiếng với hình ảnh tương ứng",
+      "question": {
+        "type": "matching",
+        "id": "vn7-q6-match",
+        "prompt": "Nối tiếng ở cột trái với từ mở rộng ở cột phải:",
+        "promptAudio": "/media/tts/vn7-q6-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "leftColumn": [
+          {
+            "id": "vn7-l2-bo",
+            "label": "bò",
+            "audio": "/media/tts/vn7-l2-bo.mp3"
+          },
+          {
+            "id": "vn7-l2-co",
+            "label": "cờ",
+            "audio": "/media/tts/vn7-l2-co.mp3"
+          },
+          {
+            "id": "vn7-l2-no",
+            "label": "nơ",
+            "audio": "/media/tts/vn7-l2-no.mp3"
+          }
+        ],
+        "rightColumn": [
+          {
+            "id": "vn7-r2-chubo",
+            "label": "chú bò",
+            "image": "/media/images/cat.svg",
+            "audio": "/media/tts/vn7-r2-chubo.mp3"
+          },
+          {
+            "id": "vn7-r2-laco",
+            "label": "lá cờ",
+            "image": "/media/images/flag.svg",
+            "audio": "/media/tts/vn7-r2-laco.mp3"
+          },
+          {
+            "id": "vn7-r2-caino",
+            "label": "cái nơ",
+            "image": "/media/images/flower.svg",
+            "audio": "/media/tts/vn7-r2-caino.mp3"
+          }
+        ],
+        "correctPairs": [
+          {
+            "leftId": "vn7-l2-bo",
+            "rightId": "vn7-r2-chubo"
+          },
+          {
+            "leftId": "vn7-l2-co",
+            "rightId": "vn7-r2-laco"
+          },
+          {
+            "leftId": "vn7-l2-no",
+            "rightId": "vn7-r2-caino"
+          }
+        ],
+        "explanation": "Bé giỏi lắm! Chú bò, lá cờ và cái nơ đều là các từ rất quen thuộc.",
+        "explanationAudio": "/media/tts/vn7-q6-exp.mp3"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    }
+  ]
+}

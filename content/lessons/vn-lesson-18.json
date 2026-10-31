@@ -1,0 +1,309 @@
+{
+  "status": "publish",
+  "mode": "publish",
+  "id": "vn-18-doc-hieu-thien-nhien",
+  "title": "Bài 18: Đọc hiểu Thiên nhiên & Loài vật",
+  "subject": "vietnamese",
+  "grade": 1,
+  "description": "Đọc hiểu đoạn văn ngắn miêu tả cảnh đẹp thiên nhiên, cây cối, con vật nuôi quanh em và ý thức bảo vệ môi trường qua 6 câu hỏi tương tác.",
+  "totalDurationMinutes": 25,
+  "slides": [
+    {
+      "type": "title-slide",
+      "id": "vn18-title-slide",
+      "title": "Bài 18: Đọc hiểu Thiên nhiên & Loài vật",
+      "subtitle": "Tiếng Việt Lớp 1 — Bài học tương tác",
+      "teacherNote": "Rèn luyện tư duy phân tích chi tiết câu chuyện và tình yêu thiên nhiên.",
+      "backgroundImage": "/media/images/star.svg",
+      "audio": "/media/tts/vn18-title.mp3"
+    },
+    {
+      "type": "content-slide",
+      "id": "vn18-intro-slide",
+      "title": "Đọc hiểu: Thiên nhiên & Loài vật",
+      "body": "Thiên nhiên quanh ta có biết bao điều kì thú: chim sâu chăm chỉ, cây xanh toả bóng mát, mặt trời rực rỡ. Cùng đọc bài và khám phá nhé!",
+      "teacherNote": "Hướng dẫn cả lớp luyện đọc đồng thanh các từ ngữ mẫu.",
+      "illustration": "/media/images/book.svg",
+      "audio": "/media/tts/vn18-intro.mp3",
+      "bullets": [
+        "Chim sâu bắt sâu bảo vệ mùa màng",
+        "Cây xanh cho bóng mát và quả ngọt",
+        "Mỗi mùa trong năm đều mang vẻ đẹp riêng"
+      ]
+    },
+    {
+      "type": "question-slide",
+      "id": "vn18-slide-q1",
+      "teacherNote": "Câu hỏi 1: Đoạn văn: 'Chú chim sâu nhỏ bé nhưng rất",
+      "question": {
+        "type": "multiple_choice",
+        "id": "vn18-q1-mc",
+        "prompt": "Đoạn văn: 'Chú chim sâu nhỏ bé nhưng rất chăm chỉ. Ngày ngày chú bắt sâu trên từng tán lá.' Chim sâu giúp ích gì cho cây cối?",
+        "promptAudio": "/media/tts/vn18-q1-prompt.mp3",
+        "illustration": "/media/images/bird.svg",
+        "options": [
+          {
+            "id": "vn18-opt-batsau",
+            "label": "Bắt sâu bảo vệ tán lá xanh",
+            "audio": "/media/tts/vn18-q1-opt0.mp3"
+          },
+          {
+            "id": "vn18-opt-hothay",
+            "label": "Hót vang ru cây ngủ say",
+            "audio": "/media/tts/vn18-q1-opt1.mp3"
+          },
+          {
+            "id": "vn18-opt-anthoc",
+            "label": "Ăn thóc của bác nông dân",
+            "audio": "/media/tts/vn18-q1-opt2.mp3"
+          }
+        ],
+        "correctOptionId": "vn18-opt-batsau",
+        "explanation": "Chim sâu siêng năng bắt sâu giúp cây xanh tươi tốt quanh năm.",
+        "explanationAudio": "/media/tts/vn18-q1-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn18-slide-q2",
+      "teacherNote": "Câu hỏi 2: Nối con vật ở cột trái với tiếng kêu hoặ",
+      "question": {
+        "type": "matching",
+        "id": "vn18-q2-match",
+        "prompt": "Nối con vật ở cột trái với tiếng kêu hoặc hoạt động đặc trưng ở cột phải:",
+        "promptAudio": "/media/tts/vn18-q2-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "leftColumn": [
+          {
+            "id": "vn18-l-ga",
+            "label": "chú gà trống",
+            "audio": "/media/tts/vn18-q2-l0.mp3"
+          },
+          {
+            "id": "vn18-l-meo",
+            "label": "chú mèo con",
+            "audio": "/media/tts/vn18-q2-l1.mp3"
+          },
+          {
+            "id": "vn18-l-cun",
+            "label": "chú cún con",
+            "audio": "/media/tts/vn18-q2-l2.mp3"
+          }
+        ],
+        "rightColumn": [
+          {
+            "id": "vn18-r-gay",
+            "label": "gáy vang gọi bình minh",
+            "audio": "/media/tts/vn18-q2-r0.mp3"
+          },
+          {
+            "id": "vn18-r-bat",
+            "label": "bắt chuột ban đêm",
+            "audio": "/media/tts/vn18-q2-r1.mp3"
+          },
+          {
+            "id": "vn18-r-giu",
+            "label": "trông giữ nhà cửa",
+            "audio": "/media/tts/vn18-q2-r2.mp3"
+          }
+        ],
+        "correctPairs": [
+          {
+            "leftId": "vn18-l-ga",
+            "rightId": "vn18-r-gay"
+          },
+          {
+            "leftId": "vn18-l-meo",
+            "rightId": "vn18-r-bat"
+          },
+          {
+            "leftId": "vn18-l-cun",
+            "rightId": "vn18-r-giu"
+          }
+        ],
+        "explanation": "Chính xác! Gà gáy gọi bình minh, mèo bắt chuột, cún con giữ nhà.",
+        "explanationAudio": "/media/tts/vn18-q2-exp.mp3"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn18-slide-q3",
+      "teacherNote": "Câu hỏi 3: Điền từ thích hợp để hoàn thiện câu: 'Mặ",
+      "question": {
+        "type": "tap_place",
+        "id": "vn18-q3-tap",
+        "prompt": "Điền từ thích hợp để hoàn thiện câu: 'Mặt trời mọc ở hướng ...'",
+        "promptAudio": "/media/tts/vn18-q3-prompt.mp3",
+        "illustration": "/media/images/sun.svg",
+        "targets": [
+          {
+            "id": "vn18-tgt-dong",
+            "label": "...",
+            "prefixText": "Mặt trời mọc ở hướng ",
+            "suffixText": "."
+          }
+        ],
+        "items": [
+          {
+            "id": "vn18-it-dong",
+            "label": "Đông",
+            "audio": "/media/tts/vn18-q3-it0.mp3"
+          },
+          {
+            "id": "vn18-it-tay",
+            "label": "Tây",
+            "audio": "/media/tts/vn18-q3-it1.mp3"
+          }
+        ],
+        "correctMapping": {
+          "vn18-it-dong": "vn18-tgt-dong"
+        },
+        "explanation": "Mặt trời mọc ở hướng Đông vào buổi sáng và lặn ở hướng Tây vào buổi chiều.",
+        "explanationAudio": "/media/tts/vn18-q3-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn18-slide-q4",
+      "teacherNote": "Câu hỏi 4: Trồng nhiều cây xanh mang lại lợi ích gì",
+      "question": {
+        "type": "multiple_choice",
+        "id": "vn18-q4-mc",
+        "prompt": "Trồng nhiều cây xanh mang lại lợi ích gì to lớn cho cuộc sống?",
+        "promptAudio": "/media/tts/vn18-q4-prompt.mp3",
+        "illustration": "/media/images/tree.svg",
+        "options": [
+          {
+            "id": "vn18-q4-opt-bongmat",
+            "label": "Cho bóng mát và không khí trong lành",
+            "audio": "/media/tts/vn18-q4-opt0.mp3"
+          },
+          {
+            "id": "vn18-q4-opt-onhiem",
+            "label": "Làm ô nhiễm bầu không khí",
+            "audio": "/media/tts/vn18-q4-opt1.mp3"
+          },
+          {
+            "id": "vn18-q4-opt-onao",
+            "label": "Gây tiếng ồn xung quanh",
+            "audio": "/media/tts/vn18-q4-opt2.mp3"
+          }
+        ],
+        "correctOptionId": "vn18-q4-opt-bongmat",
+        "explanation": "Cây xanh làm sạch không khí, tạo bóng mát cho chúng ta vui chơi.",
+        "explanationAudio": "/media/tts/vn18-q4-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn18-slide-q5",
+      "teacherNote": "Câu hỏi 5: Nối mùa trong năm ở cột trái với cảnh sắ",
+      "question": {
+        "type": "matching",
+        "id": "vn18-q5-match",
+        "prompt": "Nối mùa trong năm ở cột trái với cảnh sắc đặc trưng ở cột phải:",
+        "promptAudio": "/media/tts/vn18-q5-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "leftColumn": [
+          {
+            "id": "vn18-l2-xuan",
+            "label": "mùa xuân",
+            "audio": "/media/tts/vn18-q5-l0.mp3"
+          },
+          {
+            "id": "vn18-l2-he",
+            "label": "mùa hè",
+            "audio": "/media/tts/vn18-q5-l1.mp3"
+          },
+          {
+            "id": "vn18-l2-thu",
+            "label": "mùa thu",
+            "audio": "/media/tts/vn18-q5-l2.mp3"
+          }
+        ],
+        "rightColumn": [
+          {
+            "id": "vn18-r2-xuan",
+            "label": "hoa đào nở rực rỡ",
+            "audio": "/media/tts/vn18-q5-r0.mp3"
+          },
+          {
+            "id": "vn18-r2-he",
+            "label": "tiếng ve kêu râm ran",
+            "audio": "/media/tts/vn18-q5-r1.mp3"
+          },
+          {
+            "id": "vn18-r2-thu",
+            "label": "lá vàng rơi nhẹ",
+            "audio": "/media/tts/vn18-q5-r2.mp3"
+          }
+        ],
+        "correctPairs": [
+          {
+            "leftId": "vn18-l2-xuan",
+            "rightId": "vn18-r2-xuan"
+          },
+          {
+            "leftId": "vn18-l2-he",
+            "rightId": "vn18-r2-he"
+          },
+          {
+            "leftId": "vn18-l2-thu",
+            "rightId": "vn18-r2-thu"
+          }
+        ],
+        "explanation": "Rất đúng! Mùa xuân có hoa đào, mùa hè có tiếng ve kêu, mùa thu lá vàng rơi.",
+        "explanationAudio": "/media/tts/vn18-q5-exp.mp3"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn18-slide-q6",
+      "teacherNote": "Câu hỏi 6: Điền từ thích hợp: 'Chúng em luôn chung ",
+      "question": {
+        "type": "tap_place",
+        "id": "vn18-q6-tap",
+        "prompt": "Điền từ thích hợp: 'Chúng em luôn chung tay ... cây xanh và môi trường.'",
+        "promptAudio": "/media/tts/vn18-q6-prompt.mp3",
+        "illustration": "/media/images/tree.svg",
+        "targets": [
+          {
+            "id": "vn18-tgt-baove",
+            "label": "...",
+            "prefixText": "Chúng em chung tay ",
+            "suffixText": " cây xanh."
+          }
+        ],
+        "items": [
+          {
+            "id": "vn18-it-baove",
+            "label": "bảo vệ",
+            "audio": "/media/tts/vn18-q6-it0.mp3"
+          },
+          {
+            "id": "vn18-it-chatpha",
+            "label": "chặt phá",
+            "audio": "/media/tts/vn18-q6-it1.mp3"
+          }
+        ],
+        "correctMapping": {
+          "vn18-it-baove": "vn18-tgt-baove"
+        },
+        "explanation": "Mỗi học sinh đều có ý thức bảo vệ cây xanh để môi trường luôn tươi đẹp.",
+        "explanationAudio": "/media/tts/vn18-q6-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    }
+  ]
+}

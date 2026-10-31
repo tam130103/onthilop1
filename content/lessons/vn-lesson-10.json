@@ -1,0 +1,313 @@
+{
+  "status": "publish",
+  "mode": "publish",
+  "id": "vn-10-van-m-n",
+  "title": "Bài 10: Các vần kết thúc bằng m, n",
+  "subject": "vietnamese",
+  "grade": 1,
+  "description": "Nhận diện các vần am, an, em, en, om, on và luyện ghép các từ quả cam, hoa sen, bạn bè, đom đóm qua 6 câu hỏi tương tác.",
+  "totalDurationMinutes": 25,
+  "slides": [
+    {
+      "type": "title-slide",
+      "id": "vn10-title-slide",
+      "title": "Bài 10: Các vần kết thúc bằng m, n",
+      "subtitle": "Tiếng Việt Lớp 1 — Bài học tương tác",
+      "teacherNote": "Hướng dẫn học sinh khép môi khi phát âm vần có âm cuối m, và đầu lưỡi chạm lợi với âm cuối n.",
+      "backgroundImage": "/media/images/star.svg",
+      "audio": "/media/tts/vn10-title.mp3"
+    },
+    {
+      "type": "content-slide",
+      "id": "vn10-intro-slide",
+      "title": "Các vần kết thúc bằng M, N",
+      "body": "Hôm nay chúng mình làm quen với các vần có âm cuối m và n: am, an, em, en, om, on. Cùng đọc: quả cam, bạn bè, hoa sen, đom đóm nhé!",
+      "teacherNote": "Hướng dẫn cả lớp luyện đọc đồng thanh các từ ngữ mẫu.",
+      "illustration": "/media/images/book.svg",
+      "audio": "/media/tts/vn10-intro.mp3",
+      "bullets": [
+        "am — cam (quả cam ngọt)",
+        "an — bạn (bạn bè thân thiết)",
+        "en — sen (hoa sen ngát hương)",
+        "om — đom đóm (chú đom đóm thắp đèn)"
+      ]
+    },
+    {
+      "type": "question-slide",
+      "id": "vn10-slide-q1",
+      "teacherNote": "Câu hỏi 1: Tiếng 'cam' trong từ 'quả cam' có vần gì",
+      "question": {
+        "type": "multiple_choice",
+        "id": "vn10-q1-mc",
+        "prompt": "Tiếng 'cam' trong từ 'quả cam' có vần gì?",
+        "promptAudio": "/media/tts/vn10-q1-prompt.mp3",
+        "illustration": "/media/images/apple.svg",
+        "options": [
+          {
+            "id": "vn10-opt-am",
+            "label": "Vần am",
+            "audio": "/media/tts/vn10-q1-opt0.mp3"
+          },
+          {
+            "id": "vn10-opt-an",
+            "label": "Vần an",
+            "audio": "/media/tts/vn10-q1-opt1.mp3"
+          },
+          {
+            "id": "vn10-opt-em",
+            "label": "Vần em",
+            "audio": "/media/tts/vn10-q1-opt2.mp3"
+          }
+        ],
+        "correctOptionId": "vn10-opt-am",
+        "explanation": "Tiếng cam gồm âm c đứng trước, vần am đứng sau: c - am - cam.",
+        "explanationAudio": "/media/tts/vn10-q1-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn10-slide-q2",
+      "teacherNote": "Câu hỏi 2: Điền vần thích hợp để có từ hoa sen:",
+      "question": {
+        "type": "tap_place",
+        "id": "vn10-q2-tap",
+        "prompt": "Điền vần thích hợp để có từ hoa sen:",
+        "promptAudio": "/media/tts/vn10-q2-prompt.mp3",
+        "illustration": "/media/images/flower.svg",
+        "targets": [
+          {
+            "id": "vn10-tgt-sen",
+            "label": "...",
+            "prefixText": "Hoa s",
+            "suffixText": ""
+          }
+        ],
+        "items": [
+          {
+            "id": "vn10-it-en",
+            "label": "en",
+            "audio": "/media/tts/vn10-q2-it0.mp3"
+          },
+          {
+            "id": "vn10-it-em",
+            "label": "em",
+            "audio": "/media/tts/vn10-q2-it1.mp3"
+          }
+        ],
+        "correctMapping": {
+          "vn10-it-en": "vn10-tgt-sen"
+        },
+        "explanation": "Tiếng sen có âm s đứng trước, vần en đứng sau.",
+        "explanationAudio": "/media/tts/vn10-q2-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn10-slide-q3",
+      "teacherNote": "Câu hỏi 3: Nối từ ở cột trái với từ mở rộng ở cột p",
+      "question": {
+        "type": "matching",
+        "id": "vn10-q3-match",
+        "prompt": "Nối từ ở cột trái với từ mở rộng ở cột phải:",
+        "promptAudio": "/media/tts/vn10-q3-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "leftColumn": [
+          {
+            "id": "vn10-l-cam",
+            "label": "quả cam",
+            "audio": "/media/tts/vn10-q3-l0.mp3"
+          },
+          {
+            "id": "vn10-l-sen",
+            "label": "hoa sen",
+            "audio": "/media/tts/vn10-q3-l1.mp3"
+          },
+          {
+            "id": "vn10-l-ban",
+            "label": "bạn bè",
+            "audio": "/media/tts/vn10-q3-l2.mp3"
+          }
+        ],
+        "rightColumn": [
+          {
+            "id": "vn10-r-camngot",
+            "label": "cam sành ngọt lịm",
+            "audio": "/media/tts/vn10-q3-r0.mp3"
+          },
+          {
+            "id": "vn10-r-senhong",
+            "label": "hoa sen nở rộ",
+            "audio": "/media/tts/vn10-q3-r1.mp3"
+          },
+          {
+            "id": "vn10-r-banthan",
+            "label": "bạn thân cùng lớp",
+            "audio": "/media/tts/vn10-q3-r2.mp3"
+          }
+        ],
+        "correctPairs": [
+          {
+            "leftId": "vn10-l-cam",
+            "rightId": "vn10-r-camngot"
+          },
+          {
+            "leftId": "vn10-l-sen",
+            "rightId": "vn10-r-senhong"
+          },
+          {
+            "leftId": "vn10-l-ban",
+            "rightId": "vn10-r-banthan"
+          }
+        ],
+        "explanation": "Tuyệt vời! Quả cam ngọt lịm, hoa sen nở rộ, bạn thân cùng lớp.",
+        "explanationAudio": "/media/tts/vn10-q3-exp.mp3"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn10-slide-q4",
+      "teacherNote": "Câu hỏi 4: Tiếng nào dưới đây có chứa vần 'an'?",
+      "question": {
+        "type": "multiple_choice",
+        "id": "vn10-q4-mc",
+        "prompt": "Tiếng nào dưới đây có chứa vần 'an'?",
+        "promptAudio": "/media/tts/vn10-q4-prompt.mp3",
+        "illustration": "/media/images/book.svg",
+        "options": [
+          {
+            "id": "vn10-q4-opt-ban",
+            "label": "bạn thân",
+            "audio": "/media/tts/vn10-q4-opt0.mp3"
+          },
+          {
+            "id": "vn10-q4-opt-sen",
+            "label": "búp sen",
+            "audio": "/media/tts/vn10-q4-opt1.mp3"
+          },
+          {
+            "id": "vn10-q4-opt-meo",
+            "label": "mèo con",
+            "audio": "/media/tts/vn10-q4-opt2.mp3"
+          }
+        ],
+        "correctOptionId": "vn10-q4-opt-ban",
+        "explanation": "Tiếng bạn có vần an: b - an - ban - nặng - bạn.",
+        "explanationAudio": "/media/tts/vn10-q4-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn10-slide-q5",
+      "teacherNote": "Câu hỏi 5: Điền vần thích hợp vào từ đom đóm:",
+      "question": {
+        "type": "tap_place",
+        "id": "vn10-q5-tap",
+        "prompt": "Điền vần thích hợp vào từ đom đóm:",
+        "promptAudio": "/media/tts/vn10-q5-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "targets": [
+          {
+            "id": "vn10-tgt-dom",
+            "label": "...",
+            "prefixText": "Đom đ",
+            "suffixText": "s"
+          }
+        ],
+        "items": [
+          {
+            "id": "vn10-it-om",
+            "label": "óm",
+            "audio": "/media/tts/vn10-q5-it0.mp3"
+          },
+          {
+            "id": "vn10-it-on",
+            "label": "ón",
+            "audio": "/media/tts/vn10-q5-it1.mp3"
+          }
+        ],
+        "correctMapping": {
+          "vn10-it-om": "vn10-tgt-dom"
+        },
+        "explanation": "Đom đóm gồm hai tiếng có vần om.",
+        "explanationAudio": "/media/tts/vn10-q5-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn10-slide-q6",
+      "teacherNote": "Câu hỏi 6: Nối từ với hình ảnh thích hợp:",
+      "question": {
+        "type": "matching",
+        "id": "vn10-q6-match",
+        "prompt": "Nối từ với hình ảnh thích hợp:",
+        "promptAudio": "/media/tts/vn10-q6-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "leftColumn": [
+          {
+            "id": "vn10-l2-hoa",
+            "label": "hoa sen",
+            "audio": "/media/tts/vn10-q6-l0.mp3"
+          },
+          {
+            "id": "vn10-l2-cam",
+            "label": "quả cam",
+            "audio": "/media/tts/vn10-q6-l1.mp3"
+          },
+          {
+            "id": "vn10-l2-truong",
+            "label": "trường học",
+            "audio": "/media/tts/vn10-q6-l2.mp3"
+          }
+        ],
+        "rightColumn": [
+          {
+            "id": "vn10-r2-hoa",
+            "label": "bông hoa sen",
+            "audio": "/media/tts/vn10-q6-r0.mp3",
+            "image": "/media/images/flower.svg"
+          },
+          {
+            "id": "vn10-r2-cam",
+            "label": "trái cam ngọt",
+            "audio": "/media/tts/vn10-q6-r1.mp3",
+            "image": "/media/images/apple.svg"
+          },
+          {
+            "id": "vn10-r2-truong",
+            "label": "mái trường em",
+            "audio": "/media/tts/vn10-q6-r2.mp3",
+            "image": "/media/images/school.svg"
+          }
+        ],
+        "correctPairs": [
+          {
+            "leftId": "vn10-l2-hoa",
+            "rightId": "vn10-r2-hoa"
+          },
+          {
+            "leftId": "vn10-l2-cam",
+            "rightId": "vn10-r2-cam"
+          },
+          {
+            "leftId": "vn10-l2-truong",
+            "rightId": "vn10-r2-truong"
+          }
+        ],
+        "explanation": "Bé trả lời rất đúng! Bé đã phân biệt tốt các vần kết thúc bằng m và n.",
+        "explanationAudio": "/media/tts/vn10-q6-exp.mp3"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    }
+  ]
+}

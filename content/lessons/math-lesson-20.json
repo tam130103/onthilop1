@@ -1,0 +1,268 @@
+{
+  "status": "publish",
+  "mode": "publish",
+  "id": "math-20-on-tap-tong-hop",
+  "title": "Ôn tập tổng hợp Toán Lớp 1 cuối năm",
+  "subject": "math",
+  "grade": 1,
+  "description": "Bài học Toán 1: Ôn luyện phép tính liên tiếp (10 + 5 - 3) và giải các bài toán có lời văn thực tế.",
+  "totalDurationMinutes": 30,
+  "slides": [
+    {
+      "type": "title-slide",
+      "id": "m20-slide-title",
+      "title": "Ôn tập tổng hợp Toán Lớp 1",
+      "subtitle": "Phép tính liên tiếp & Toán có lời văn",
+      "teacherNote": "Bài học tổng kết toàn bộ chương trình Toán Lớp 1.",
+      "backgroundImage": "/media/images/star.svg",
+      "audio": "/media/tts/m20-title.mp3"
+    },
+    {
+      "type": "content-slide",
+      "id": "m20-slide-intro",
+      "title": "Chúc mừng các con đã hoàn thành Toán 1",
+      "body": "Các con đã làm quen với các số đến 100, cộng trừ thành thạo và giải được các bài toán có lời văn. Hôm nay chúng mình cùng hoàn thành bài ôn tập xuất sắc nhé!",
+      "teacherNote": "Tuyên dương sự tiến bộ của cả lớp trong năm học.",
+      "illustration": "/media/images/star.svg",
+      "audio": "/media/tts/m20-intro.mp3",
+      "bullets": [
+        "Phép tính liên tiếp: tính từ trái sang phải",
+        "Toán có lời văn: đọc kỹ đề và tìm phép tính",
+        "Bé tự tin chuẩn bị lên Lớp 2"
+      ]
+    },
+    {
+      "type": "question-slide",
+      "id": "m20-slide-q1",
+      "teacherNote": "Tính liên tiếp 10 + 5 - 3",
+      "question": {
+        "type": "number_select",
+        "id": "m20-q1-ns",
+        "prompt": "Bé hãy tính kết quả phép tính sau:",
+        "promptAudio": "/media/tts/m20-q1-prompt.mp3",
+        "illustration": "/media/images/apple.svg",
+        "expression": "10 + 5 - 3 = ?",
+        "choices": [
+          11,
+          12,
+          13,
+          14
+        ],
+        "correctAnswer": 12,
+        "explanation": "10 cộng 5 bằng 15, 15 trừ 3 bằng 12.",
+        "explanationAudio": "/media/tts/m20-q1-exp.mp3"
+      },
+      "timeLimitSeconds": 20,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m20-slide-q2",
+      "teacherNote": "Tính liên tiếp 20 + 30 + 5",
+      "question": {
+        "type": "number_select",
+        "id": "m20-q2-ns",
+        "prompt": "Bé hãy tính kết quả phép tính sau:",
+        "promptAudio": "/media/tts/m20-q2-prompt.mp3",
+        "illustration": "/media/images/candy.svg",
+        "expression": "20 + 30 + 5 = ?",
+        "choices": [
+          50,
+          55,
+          60,
+          65
+        ],
+        "correctAnswer": 55,
+        "explanation": "20 cộng 30 bằng 50, 50 cộng 5 bằng 55.",
+        "explanationAudio": "/media/tts/m20-q2-exp.mp3"
+      },
+      "timeLimitSeconds": 20,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m20-slide-q3",
+      "teacherNote": "Bài toán đàn chim",
+      "question": {
+        "type": "multiple_choice",
+        "id": "m20-q3-mc",
+        "prompt": "Trên cành có 15 con chim, 3 con bay đi, rồi lại có 2 con bay đến. Hỏi có bao nhiêu con chim?",
+        "promptAudio": "/media/tts/m20-q3-prompt.mp3",
+        "illustration": "/media/images/bird.svg",
+        "options": [
+          {
+            "id": "m20-opt-14c",
+            "label": "14 con chim",
+            "audio": "/media/tts/m20-opt-14-con.mp3"
+          },
+          {
+            "id": "m20-opt-15c",
+            "label": "15 con chim",
+            "audio": "/media/tts/m20-opt-15-con.mp3"
+          },
+          {
+            "id": "m20-opt-16c",
+            "label": "16 con chim",
+            "audio": "/media/tts/m20-opt-16-con.mp3"
+          }
+        ],
+        "explanation": "15 trừ 3 bằng 12, 12 cộng 2 bằng 14 con chim.",
+        "explanationAudio": "/media/tts/m20-q3-exp.mp3",
+        "correctOptionId": "m20-opt-14c"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m20-slide-q4",
+      "teacherNote": "Nối phép tính liên tiếp",
+      "question": {
+        "type": "matching",
+        "id": "m20-q4-matching",
+        "prompt": "Nối phép tính với kết quả đúng:",
+        "promptAudio": "/media/tts/m20-q4-prompt.mp3",
+        "leftColumn": [
+          {
+            "id": "m20-l1",
+            "text": "12 + 6 - 4",
+            "audio": "/media/tts/m20-lbl-pt1.mp3",
+            "label": "12 + 6 - 4"
+          },
+          {
+            "id": "m20-l2",
+            "text": "25 - 5 + 10",
+            "audio": "/media/tts/m20-lbl-pt2.mp3",
+            "label": "25 - 5 + 10"
+          },
+          {
+            "id": "m20-l3",
+            "text": "40 + 20 - 10",
+            "audio": "/media/tts/m20-lbl-pt3.mp3",
+            "label": "40 + 20 - 10"
+          }
+        ],
+        "rightColumn": [
+          {
+            "id": "m20-r1",
+            "text": "Bằng 14",
+            "audio": "/media/tts/m20-lbl-kq14.mp3",
+            "label": "Bằng 14"
+          },
+          {
+            "id": "m20-r2",
+            "text": "Bằng 30",
+            "audio": "/media/tts/m20-lbl-kq30.mp3",
+            "label": "Bằng 30"
+          },
+          {
+            "id": "m20-r3",
+            "text": "Bằng 50",
+            "audio": "/media/tts/m20-lbl-kq50.mp3",
+            "label": "Bằng 50"
+          }
+        ],
+        "correctPairs": [
+          {
+            "leftId": "m20-l1",
+            "rightId": "m20-r1"
+          },
+          {
+            "leftId": "m20-l2",
+            "rightId": "m20-r2"
+          },
+          {
+            "leftId": "m20-l3",
+            "rightId": "m20-r3"
+          }
+        ],
+        "explanation": "12 + 6 - 4 = 14, 25 - 5 + 10 = 30, 40 + 20 - 10 = 50.",
+        "explanationAudio": "/media/tts/m20-q4-exp.mp3",
+        "illustration": "/media/images/star.svg"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m20-slide-q5",
+      "teacherNote": "Điền kết quả phép tính liên tiếp",
+      "question": {
+        "type": "tap_place",
+        "id": "m20-q5-tap",
+        "prompt": "Tính kết quả: 18 - 8 + 6 = ?",
+        "promptAudio": "/media/tts/m20-q5-prompt.mp3",
+        "targets": [
+          {
+            "id": "m20-t1",
+            "label": "Kết quả",
+            "prefixText": "18 - 8 + 6 = ",
+            "suffixText": ""
+          }
+        ],
+        "items": [
+          {
+            "id": "m20-i1",
+            "text": "16",
+            "audio": "/media/tts/m20-num-16.mp3",
+            "label": "16"
+          },
+          {
+            "id": "m20-i2",
+            "text": "15",
+            "audio": "/media/tts/m20-num-15.mp3",
+            "label": "15"
+          },
+          {
+            "id": "m20-i3",
+            "text": "14",
+            "audio": "/media/tts/m20-num-14.mp3",
+            "label": "14"
+          }
+        ],
+        "correctMapping": {
+          "m20-i1": "m20-t1"
+        },
+        "explanation": "18 trừ 8 bằng 10, 10 cộng 6 bằng 16.",
+        "explanationAudio": "/media/tts/m20-q5-exp.mp3",
+        "illustration": "/media/images/star.svg"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m20-slide-q6",
+      "teacherNote": "Bài toán chia kẹo",
+      "question": {
+        "type": "multiple_choice",
+        "id": "m20-q6-mc",
+        "prompt": "Bạn Lan có 12 cái kẹo, bạn Mai cho thêm 5 cái kẹo. Hỏi Lan có tất cả bao nhiêu cái kẹo?",
+        "promptAudio": "/media/tts/m20-q6-prompt.mp3",
+        "illustration": "/media/images/candy.svg",
+        "options": [
+          {
+            "id": "m20-opt-17k",
+            "label": "17 cái kẹo",
+            "audio": "/media/tts/m20-opt-17-keo.mp3"
+          },
+          {
+            "id": "m20-opt-16k",
+            "label": "16 cái kẹo",
+            "audio": "/media/tts/m20-opt-16-keo.mp3"
+          },
+          {
+            "id": "m20-opt-18k",
+            "label": "18 cái kẹo",
+            "audio": "/media/tts/m20-opt-18-keo.mp3"
+          }
+        ],
+        "explanation": "Phép tính: 12 + 5 = 17 cái kẹo.",
+        "explanationAudio": "/media/tts/m20-q6-exp.mp3",
+        "correctOptionId": "m20-opt-17k"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    }
+  ]
+}

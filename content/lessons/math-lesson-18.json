@@ -1,0 +1,268 @@
+{
+  "status": "publish",
+  "mode": "publish",
+  "id": "math-18-tru-2cs-khong-nho",
+  "title": "Phép trừ số có hai chữ số (không nhớ)",
+  "subject": "math",
+  "grade": 1,
+  "description": "Bài học Toán 1: Trừ hàng đơn vị cho hàng đơn vị, hàng chục cho hàng chục (48 - 6 = 42, 57 - 23 = 34).",
+  "totalDurationMinutes": 25,
+  "slides": [
+    {
+      "type": "title-slide",
+      "id": "m18-slide-title",
+      "title": "Phép trừ số có hai chữ số",
+      "subtitle": "Toán Lớp 1 — Phép tính không nhớ",
+      "teacherNote": "Trừ thẳng cột từ phải sang trái: đơn vị trừ đơn vị, chục trừ chục.",
+      "backgroundImage": "/media/images/apple.svg",
+      "audio": "/media/tts/m18-title.mp3"
+    },
+    {
+      "type": "content-slide",
+      "id": "m18-slide-intro",
+      "title": "Quy tắc trừ số có hai chữ số",
+      "body": "Ví dụ 57 - 23: Lấy 7 trừ 3 bằng 4, 5 trừ 2 bằng 3. Vậy 57 - 23 = 34. Thật đơn giản và chính xác!",
+      "teacherNote": "Yêu cầu học sinh thực hành đặt tính trên bảng con.",
+      "illustration": "/media/images/apple.svg",
+      "audio": "/media/tts/m18-intro.mp3",
+      "bullets": [
+        "48 - 6 = 42 (8 - 6 = 2, hạ 4)",
+        "57 - 23 = 34 (7 - 3 = 4, 5 - 2 = 3)",
+        "79 - 35 = 44 (9 - 5 = 4, 7 - 3 = 4)"
+      ]
+    },
+    {
+      "type": "question-slide",
+      "id": "m18-slide-q1",
+      "teacherNote": "Tính 48 - 6",
+      "question": {
+        "type": "number_select",
+        "id": "m18-q1-ns",
+        "prompt": "Bé hãy tính kết quả phép tính sau:",
+        "promptAudio": "/media/tts/m18-q1-prompt.mp3",
+        "illustration": "/media/images/apple.svg",
+        "expression": "48 - 6 = ?",
+        "choices": [
+          41,
+          42,
+          43,
+          44
+        ],
+        "correctAnswer": 42,
+        "explanation": "Tám trừ sáu bằng hai, hạ bốn được bốn mươi hai.",
+        "explanationAudio": "/media/tts/m18-q1-exp.mp3"
+      },
+      "timeLimitSeconds": 20,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m18-slide-q2",
+      "teacherNote": "Tính 57 - 23",
+      "question": {
+        "type": "number_select",
+        "id": "m18-q2-ns",
+        "prompt": "Bé hãy tính kết quả phép tính sau:",
+        "promptAudio": "/media/tts/m18-q2-prompt.mp3",
+        "illustration": "/media/images/candy.svg",
+        "expression": "57 - 23 = ?",
+        "choices": [
+          33,
+          34,
+          35,
+          24
+        ],
+        "correctAnswer": 34,
+        "explanation": "7 trừ 3 bằng 4, 5 trừ 2 bằng 3. Kết quả là 34.",
+        "explanationAudio": "/media/tts/m18-q2-exp.mp3"
+      },
+      "timeLimitSeconds": 20,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m18-slide-q3",
+      "teacherNote": "Tính 79 - 35",
+      "question": {
+        "type": "multiple_choice",
+        "id": "m18-q3-mc",
+        "prompt": "79 - 35 bằng bao nhiêu?",
+        "promptAudio": "/media/tts/m18-q3-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "options": [
+          {
+            "id": "m18-opt-44",
+            "label": "Bằng 44",
+            "audio": "/media/tts/m18-opt-bang-44.mp3"
+          },
+          {
+            "id": "m18-opt-43",
+            "label": "Bằng 43",
+            "audio": "/media/tts/m18-opt-bang-43.mp3"
+          },
+          {
+            "id": "m18-opt-54",
+            "label": "Bằng 54",
+            "audio": "/media/tts/m18-opt-bang-54.mp3"
+          }
+        ],
+        "explanation": "9 trừ 5 bằng 4, 7 trừ 3 bằng 4. 79 - 35 = 44.",
+        "explanationAudio": "/media/tts/m18-q3-exp.mp3",
+        "correctOptionId": "m18-opt-44"
+      },
+      "timeLimitSeconds": 20,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m18-slide-q4",
+      "teacherNote": "Nối phép trừ với kết quả",
+      "question": {
+        "type": "matching",
+        "id": "m18-q4-matching",
+        "prompt": "Nối phép trừ với kết quả tương ứng:",
+        "promptAudio": "/media/tts/m18-q4-prompt.mp3",
+        "leftColumn": [
+          {
+            "id": "m18-l1",
+            "text": "65 - 12",
+            "audio": "/media/tts/m18-lbl-65tru12.mp3",
+            "label": "65 - 12"
+          },
+          {
+            "id": "m18-l2",
+            "text": "88 - 44",
+            "audio": "/media/tts/m18-lbl-88tru44.mp3",
+            "label": "88 - 44"
+          },
+          {
+            "id": "m18-l3",
+            "text": "96 - 31",
+            "audio": "/media/tts/m18-lbl-96tru31.mp3",
+            "label": "96 - 31"
+          }
+        ],
+        "rightColumn": [
+          {
+            "id": "m18-r1",
+            "text": "Bằng 53",
+            "audio": "/media/tts/m18-lbl-bang-53.mp3",
+            "label": "Bằng 53"
+          },
+          {
+            "id": "m18-r2",
+            "text": "Bằng 44",
+            "audio": "/media/tts/m18-lbl-bang-44b.mp3",
+            "label": "Bằng 44"
+          },
+          {
+            "id": "m18-r3",
+            "text": "Bằng 65",
+            "audio": "/media/tts/m18-lbl-bang-65.mp3",
+            "label": "Bằng 65"
+          }
+        ],
+        "correctPairs": [
+          {
+            "leftId": "m18-l1",
+            "rightId": "m18-r1"
+          },
+          {
+            "leftId": "m18-l2",
+            "rightId": "m18-r2"
+          },
+          {
+            "leftId": "m18-l3",
+            "rightId": "m18-r3"
+          }
+        ],
+        "explanation": "65 - 12 = 53, 88 - 44 = 44, 96 - 31 = 65.",
+        "explanationAudio": "/media/tts/m18-q4-exp.mp3",
+        "illustration": "/media/images/star.svg"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m18-slide-q5",
+      "teacherNote": "Điền kết quả 36 - 15",
+      "question": {
+        "type": "tap_place",
+        "id": "m18-q5-tap",
+        "prompt": "Đặt số thích hợp vào chỗ trống: 36 - 15 = ...",
+        "promptAudio": "/media/tts/m18-q5-prompt.mp3",
+        "targets": [
+          {
+            "id": "m18-t1",
+            "label": "Kết quả",
+            "prefixText": "36 - 15 = ",
+            "suffixText": ""
+          }
+        ],
+        "items": [
+          {
+            "id": "m18-i1",
+            "text": "21",
+            "audio": "/media/tts/m18-num-21.mp3",
+            "label": "21"
+          },
+          {
+            "id": "m18-i2",
+            "text": "20",
+            "audio": "/media/tts/m18-num-20.mp3",
+            "label": "20"
+          },
+          {
+            "id": "m18-i3",
+            "text": "22",
+            "audio": "/media/tts/m18-num-22.mp3",
+            "label": "22"
+          }
+        ],
+        "correctMapping": {
+          "m18-i1": "m18-t1"
+        },
+        "explanation": "6 - 5 = 1, 3 - 1 = 2. 36 - 15 = 21.",
+        "explanationAudio": "/media/tts/m18-q5-exp.mp3",
+        "illustration": "/media/images/star.svg"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m18-slide-q6",
+      "teacherNote": "Toán lời văn hái bưởi",
+      "question": {
+        "type": "multiple_choice",
+        "id": "m18-q6-mc",
+        "prompt": "Cây bưởi có 46 quả, bác hái đi 14 quả. Hỏi trên cây còn lại bao nhiêu quả bưởi?",
+        "promptAudio": "/media/tts/m18-q6-prompt.mp3",
+        "illustration": "/media/images/tree.svg",
+        "options": [
+          {
+            "id": "m18-opt-32q",
+            "label": "32 quả",
+            "audio": "/media/tts/m18-opt-32-qua.mp3"
+          },
+          {
+            "id": "m18-opt-31q",
+            "label": "31 quả",
+            "audio": "/media/tts/m18-opt-31-qua.mp3"
+          },
+          {
+            "id": "m18-opt-33q",
+            "label": "33 quả",
+            "audio": "/media/tts/m18-opt-33-qua.mp3"
+          }
+        ],
+        "explanation": "Phép tính: 46 - 14 = 32 quả bưởi.",
+        "explanationAudio": "/media/tts/m18-q6-exp.mp3",
+        "correctOptionId": "m18-opt-32q"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    }
+  ]
+}

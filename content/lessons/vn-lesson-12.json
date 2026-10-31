@@ -1,0 +1,309 @@
+{
+  "status": "publish",
+  "mode": "publish",
+  "id": "vn-12-review-sem1",
+  "title": "Bài 12: Ôn tập học kì 1 Tiếng Việt",
+  "subject": "vietnamese",
+  "grade": 1,
+  "description": "Ôn tập tổng hợp bảng chữ cái, các âm đầu, vần cơ bản và kỹ năng đọc hiểu câu ngắn học kì 1 qua 6 câu hỏi tương tác sinh động.",
+  "totalDurationMinutes": 25,
+  "slides": [
+    {
+      "type": "title-slide",
+      "id": "vn12-title-slide",
+      "title": "Bài 12: Ôn tập học kì 1 Tiếng Việt",
+      "subtitle": "Tiếng Việt Lớp 1 — Bài học tương tác",
+      "teacherNote": "Tổng kết kiến thức học kì 1, củng cố sự tự tin cho học sinh.",
+      "backgroundImage": "/media/images/star.svg",
+      "audio": "/media/tts/vn12-title.mp3"
+    },
+    {
+      "type": "content-slide",
+      "id": "vn12-intro-slide",
+      "title": "Ôn tập học kì 1 Tiếng Việt",
+      "body": "Chúc mừng các em đã hoàn thành học kì 1! Hôm nay chúng mình cùng ôn lại các âm chữ cái và đọc câu ứng dụng nhé!",
+      "teacherNote": "Hướng dẫn cả lớp luyện đọc đồng thanh các từ ngữ mẫu.",
+      "illustration": "/media/images/book.svg",
+      "audio": "/media/tts/vn12-intro.mp3",
+      "bullets": [
+        "Nhớ mặt các chữ cái và dấu thanh",
+        "Ghép vần và đọc trơn từ ngữ",
+        "Hiểu nghĩa câu văn ngắn"
+      ]
+    },
+    {
+      "type": "question-slide",
+      "id": "vn12-slide-q1",
+      "teacherNote": "Câu hỏi 1: Chọn câu có nghĩa đúng và hoàn chỉnh nhấ",
+      "question": {
+        "type": "multiple_choice",
+        "id": "vn12-q1-mc",
+        "prompt": "Chọn câu có nghĩa đúng và hoàn chỉnh nhất:",
+        "promptAudio": "/media/tts/vn12-q1-prompt.mp3",
+        "illustration": "/media/images/school.svg",
+        "options": [
+          {
+            "id": "vn12-opt-c1",
+            "label": "Bé đi học vui vẻ",
+            "audio": "/media/tts/vn12-q1-opt0.mp3"
+          },
+          {
+            "id": "vn12-opt-c2",
+            "label": "Bé đi học vở",
+            "audio": "/media/tts/vn12-q1-opt1.mp3"
+          },
+          {
+            "id": "vn12-opt-c3",
+            "label": "Học đi bé bút",
+            "audio": "/media/tts/vn12-q1-opt2.mp3"
+          }
+        ],
+        "correctOptionId": "vn12-opt-c1",
+        "explanation": "Câu 'Bé đi học vui vẻ' diễn đạt một ý trọn vẹn và đúng ngữ pháp.",
+        "explanationAudio": "/media/tts/vn12-q1-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn12-slide-q2",
+      "teacherNote": "Câu hỏi 2: Điền từ thích hợp vào câu: 'Bé chăm ngoa",
+      "question": {
+        "type": "tap_place",
+        "id": "vn12-q2-tap",
+        "prompt": "Điền từ thích hợp vào câu: 'Bé chăm ngoan, ... cô yêu quý.'",
+        "promptAudio": "/media/tts/vn12-q2-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "targets": [
+          {
+            "id": "vn12-tgt-ngoan",
+            "label": "...",
+            "prefixText": "Bé chăm ngoan, ",
+            "suffixText": " cô yêu quý."
+          }
+        ],
+        "items": [
+          {
+            "id": "vn12-it-duoc",
+            "label": "được",
+            "audio": "/media/tts/vn12-q2-it0.mp3"
+          },
+          {
+            "id": "vn12-it-cho",
+            "label": "cho",
+            "audio": "/media/tts/vn12-q2-it1.mp3"
+          }
+        ],
+        "correctMapping": {
+          "vn12-it-duoc": "vn12-tgt-ngoan"
+        },
+        "explanation": "Bé chăm ngoan nên được thầy cô yêu quý.",
+        "explanationAudio": "/media/tts/vn12-q2-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn12-slide-q3",
+      "teacherNote": "Câu hỏi 3: Nối tiếng ở cột trái với tiếng ở cột phả",
+      "question": {
+        "type": "matching",
+        "id": "vn12-q3-match",
+        "prompt": "Nối tiếng ở cột trái với tiếng ở cột phải để tạo từ ghép đúng:",
+        "promptAudio": "/media/tts/vn12-q3-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "leftColumn": [
+          {
+            "id": "vn12-l-cham",
+            "label": "chăm",
+            "audio": "/media/tts/vn12-q3-l0.mp3"
+          },
+          {
+            "id": "vn12-l-hoc",
+            "label": "học",
+            "audio": "/media/tts/vn12-q3-l1.mp3"
+          },
+          {
+            "id": "vn12-l-thay",
+            "label": "thầy",
+            "audio": "/media/tts/vn12-q3-l2.mp3"
+          }
+        ],
+        "rightColumn": [
+          {
+            "id": "vn12-r-chi",
+            "label": "chỉ",
+            "audio": "/media/tts/vn12-q3-r0.mp3"
+          },
+          {
+            "id": "vn12-r-tap",
+            "label": "tập",
+            "audio": "/media/tts/vn12-q3-r1.mp3"
+          },
+          {
+            "id": "vn12-r-co",
+            "label": "cô",
+            "audio": "/media/tts/vn12-q3-r2.mp3"
+          }
+        ],
+        "correctPairs": [
+          {
+            "leftId": "vn12-l-cham",
+            "rightId": "vn12-r-chi"
+          },
+          {
+            "leftId": "vn12-l-hoc",
+            "rightId": "vn12-r-tap"
+          },
+          {
+            "leftId": "vn12-l-thay",
+            "rightId": "vn12-r-co"
+          }
+        ],
+        "explanation": "Chính xác! Chăm chỉ, học tập, thầy cô là những từ ngữ rất ý nghĩa.",
+        "explanationAudio": "/media/tts/vn12-q3-exp.mp3"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn12-slide-q4",
+      "teacherNote": "Câu hỏi 4: Tiếng nào dưới đây bắt đầu bằng âm 'kh'?",
+      "question": {
+        "type": "multiple_choice",
+        "id": "vn12-q4-mc",
+        "prompt": "Tiếng nào dưới đây bắt đầu bằng âm 'kh'?",
+        "promptAudio": "/media/tts/vn12-q4-prompt.mp3",
+        "illustration": "/media/images/tree.svg",
+        "options": [
+          {
+            "id": "vn12-q4-opt-khe",
+            "label": "quả khế",
+            "audio": "/media/tts/vn12-q4-opt0.mp3"
+          },
+          {
+            "id": "vn12-q4-opt-nho",
+            "label": "chùm nho",
+            "audio": "/media/tts/vn12-q4-opt1.mp3"
+          },
+          {
+            "id": "vn12-q4-opt-na",
+            "label": "quả na",
+            "audio": "/media/tts/vn12-q4-opt2.mp3"
+          }
+        ],
+        "correctOptionId": "vn12-q4-opt-khe",
+        "explanation": "Tiếng khế bắt đầu bằng âm kh: kh - ê - khê - sắc - khế.",
+        "explanationAudio": "/media/tts/vn12-q4-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn12-slide-q5",
+      "teacherNote": "Câu hỏi 5: Sắp xếp từ để tạo thành câu hoàn chỉnh: ",
+      "question": {
+        "type": "tap_place",
+        "id": "vn12-q5-tap",
+        "prompt": "Sắp xếp từ để tạo thành câu hoàn chỉnh: Em yêu trường em.",
+        "promptAudio": "/media/tts/vn12-q5-prompt.mp3",
+        "illustration": "/media/images/school.svg",
+        "targets": [
+          {
+            "id": "vn12-tgt-truong",
+            "label": "...",
+            "prefixText": "Em yêu ",
+            "suffixText": "."
+          }
+        ],
+        "items": [
+          {
+            "id": "vn12-it-truongem",
+            "label": "trường em",
+            "audio": "/media/tts/vn12-q5-it0.mp3"
+          },
+          {
+            "id": "vn12-it-lopem",
+            "label": "lớp em",
+            "audio": "/media/tts/vn12-q5-it1.mp3"
+          }
+        ],
+        "correctMapping": {
+          "vn12-it-truongem": "vn12-tgt-truong"
+        },
+        "explanation": "Câu hoàn chỉnh là: Em yêu trường em.",
+        "explanationAudio": "/media/tts/vn12-q5-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn12-slide-q6",
+      "teacherNote": "Câu hỏi 6: Nối câu ở cột trái với thời điểm thích h",
+      "question": {
+        "type": "matching",
+        "id": "vn12-q6-match",
+        "prompt": "Nối câu ở cột trái với thời điểm thích hợp ở cột phải:",
+        "promptAudio": "/media/tts/vn12-q6-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "leftColumn": [
+          {
+            "id": "vn12-l2-sang",
+            "label": "Mặt trời mọc",
+            "audio": "/media/tts/vn12-q6-l0.mp3"
+          },
+          {
+            "id": "vn12-l2-toi",
+            "label": "Đèn đường bật sáng",
+            "audio": "/media/tts/vn12-q6-l1.mp3"
+          },
+          {
+            "id": "vn12-l2-trua",
+            "label": "Mặt trời lên cao",
+            "audio": "/media/tts/vn12-q6-l2.mp3"
+          }
+        ],
+        "rightColumn": [
+          {
+            "id": "vn12-r2-sang",
+            "label": "buổi sáng sớm",
+            "audio": "/media/tts/vn12-q6-r0.mp3"
+          },
+          {
+            "id": "vn12-r2-toi",
+            "label": "buổi tối đến",
+            "audio": "/media/tts/vn12-q6-r1.mp3"
+          },
+          {
+            "id": "vn12-r2-trua",
+            "label": "buổi trưa hè",
+            "audio": "/media/tts/vn12-q6-r2.mp3"
+          }
+        ],
+        "correctPairs": [
+          {
+            "leftId": "vn12-l2-sang",
+            "rightId": "vn12-r2-sang"
+          },
+          {
+            "leftId": "vn12-l2-toi",
+            "rightId": "vn12-r2-toi"
+          },
+          {
+            "leftId": "vn12-l2-trua",
+            "rightId": "vn12-r2-trua"
+          }
+        ],
+        "explanation": "Rất xuất sắc! Bé đã nắm vững toàn bộ kiến thức Tiếng Việt học kì 1!",
+        "explanationAudio": "/media/tts/vn12-q6-exp.mp3"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    }
+  ]
+}

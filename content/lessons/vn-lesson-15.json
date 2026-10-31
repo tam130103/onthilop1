@@ -1,0 +1,310 @@
+{
+  "status": "publish",
+  "mode": "publish",
+  "id": "vn-15-nguyen-am-doi",
+  "title": "Bài 15: Các vần nguyên âm đôi",
+  "subject": "vietnamese",
+  "grade": 1,
+  "description": "Nhận biết và phát âm chuẩn các vần nguyên âm đôi iêu, yêu, uôi, ươi, ươu qua các từ diều sáo, yêu quý, nải chuối, quả bưởi, hươu sao qua 6 câu hỏi tương tác.",
+  "totalDurationMinutes": 25,
+  "slides": [
+    {
+      "type": "title-slide",
+      "id": "vn15-title-slide",
+      "title": "Bài 15: Các vần nguyên âm đôi",
+      "subtitle": "Tiếng Việt Lớp 1 — Bài học tương tác",
+      "teacherNote": "Rèn luyện kéo dài hơi và chuyển khẩu hình nhịp nhàng khi đọc nguyên âm đôi.",
+      "backgroundImage": "/media/images/star.svg",
+      "audio": "/media/tts/vn15-title.mp3"
+    },
+    {
+      "type": "content-slide",
+      "id": "vn15-intro-slide",
+      "title": "Các vần nguyên âm đôi",
+      "body": "Các vần nguyên âm đôi kết hợp hai âm chính lại với nhau: iêu, yêu, uôi, ươi, ươu. Cùng luyện đọc: cánh diều, yêu quý, nải chuối, quả bưởi, chú hươu!",
+      "teacherNote": "Hướng dẫn cả lớp luyện đọc đồng thanh các từ ngữ mẫu.",
+      "illustration": "/media/images/book.svg",
+      "audio": "/media/tts/vn15-intro.mp3",
+      "bullets": [
+        "iêu — diều (cánh diều lượn bay)",
+        "uôi — chuối (nải chuối chín vàng)",
+        "ươi — bưởi (quả bưởi da xanh)",
+        "ươu — hươu (chú hươu sao hiền lành)"
+      ]
+    },
+    {
+      "type": "question-slide",
+      "id": "vn15-slide-q1",
+      "teacherNote": "Câu hỏi 1: Tiếng 'diều' trong 'cánh diều' có vần gì",
+      "question": {
+        "type": "multiple_choice",
+        "id": "vn15-q1-mc",
+        "prompt": "Tiếng 'diều' trong 'cánh diều' có vần gì?",
+        "promptAudio": "/media/tts/vn15-q1-prompt.mp3",
+        "illustration": "/media/images/bird.svg",
+        "options": [
+          {
+            "id": "vn15-opt-ieu",
+            "label": "Vần iêu",
+            "audio": "/media/tts/vn15-q1-opt0.mp3"
+          },
+          {
+            "id": "vn15-opt-yeu",
+            "label": "Vần yêu",
+            "audio": "/media/tts/vn15-q1-opt1.mp3"
+          },
+          {
+            "id": "vn15-opt-uoi",
+            "label": "Vần uôi",
+            "audio": "/media/tts/vn15-q1-opt2.mp3"
+          }
+        ],
+        "correctOptionId": "vn15-opt-ieu",
+        "explanation": "Tiếng diều gồm âm d ghép với vần iêu và dấu huyền: d - iêu - diêu - huyền - diều.",
+        "explanationAudio": "/media/tts/vn15-q1-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn15-slide-q2",
+      "teacherNote": "Câu hỏi 2: Điền vần thích hợp để có từ nải chuối:",
+      "question": {
+        "type": "tap_place",
+        "id": "vn15-q2-tap",
+        "prompt": "Điền vần thích hợp để có từ nải chuối:",
+        "promptAudio": "/media/tts/vn15-q2-prompt.mp3",
+        "illustration": "/media/images/apple.svg",
+        "targets": [
+          {
+            "id": "vn15-tgt-chuoi",
+            "label": "...",
+            "prefixText": "Nải ch",
+            "suffixText": ""
+          }
+        ],
+        "items": [
+          {
+            "id": "vn15-it-uoi",
+            "label": "uối",
+            "audio": "/media/tts/vn15-q2-it0.mp3"
+          },
+          {
+            "id": "vn15-it-uoi2",
+            "label": "ươi",
+            "audio": "/media/tts/vn15-q2-it1.mp3"
+          }
+        ],
+        "correctMapping": {
+          "vn15-it-uoi": "vn15-tgt-chuoi"
+        },
+        "explanation": "Tiếng chuối có âm ch ghép với vần uôi.",
+        "explanationAudio": "/media/tts/vn15-q2-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn15-slide-q3",
+      "teacherNote": "Câu hỏi 3: Nối từ ở cột trái với từ mở rộng ở cột p",
+      "question": {
+        "type": "matching",
+        "id": "vn15-q3-match",
+        "prompt": "Nối từ ở cột trái với từ mở rộng ở cột phải:",
+        "promptAudio": "/media/tts/vn15-q3-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "leftColumn": [
+          {
+            "id": "vn15-l-buoi",
+            "label": "quả bưởi",
+            "audio": "/media/tts/vn15-q3-l0.mp3"
+          },
+          {
+            "id": "vn15-l-huou",
+            "label": "hươu sao",
+            "audio": "/media/tts/vn15-q3-l1.mp3"
+          },
+          {
+            "id": "vn15-l-dieu",
+            "label": "cánh diều",
+            "audio": "/media/tts/vn15-q3-l2.mp3"
+          }
+        ],
+        "rightColumn": [
+          {
+            "id": "vn15-r-buoi",
+            "label": "bưởi năm roi",
+            "audio": "/media/tts/vn15-q3-r0.mp3"
+          },
+          {
+            "id": "vn15-r-huou",
+            "label": "chú hươu trong rừng",
+            "audio": "/media/tts/vn15-q3-r1.mp3"
+          },
+          {
+            "id": "vn15-r-dieu",
+            "label": "diều bay trên đồng",
+            "audio": "/media/tts/vn15-q3-r2.mp3"
+          }
+        ],
+        "correctPairs": [
+          {
+            "leftId": "vn15-l-buoi",
+            "rightId": "vn15-r-buoi"
+          },
+          {
+            "leftId": "vn15-l-huou",
+            "rightId": "vn15-r-huou"
+          },
+          {
+            "leftId": "vn15-l-dieu",
+            "rightId": "vn15-r-dieu"
+          }
+        ],
+        "explanation": "Rất chuẩn! Quả bưởi năm roi, chú hươu trong rừng, diều bay trên đồng.",
+        "explanationAudio": "/media/tts/vn15-q3-exp.mp3"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn15-slide-q4",
+      "teacherNote": "Câu hỏi 4: Từ nào dưới đây có chứa vần 'ươu'?",
+      "question": {
+        "type": "multiple_choice",
+        "id": "vn15-q4-mc",
+        "prompt": "Từ nào dưới đây có chứa vần 'ươu'?",
+        "promptAudio": "/media/tts/vn15-q4-prompt.mp3",
+        "illustration": "/media/images/cat.svg",
+        "options": [
+          {
+            "id": "vn15-q4-opt-huou",
+            "label": "hươu sao",
+            "audio": "/media/tts/vn15-q4-opt0.mp3"
+          },
+          {
+            "id": "vn15-q4-opt-chuoi",
+            "label": "chuối tiêu",
+            "audio": "/media/tts/vn15-q4-opt1.mp3"
+          },
+          {
+            "id": "vn15-q4-opt-yeu",
+            "label": "yêu thương",
+            "audio": "/media/tts/vn15-q4-opt2.mp3"
+          }
+        ],
+        "correctOptionId": "vn15-q4-opt-huou",
+        "explanation": "Tiếng hươu có chứa vần ươu: h - ươu - hươu.",
+        "explanationAudio": "/media/tts/vn15-q4-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn15-slide-q5",
+      "teacherNote": "Câu hỏi 5: Điền vần thích hợp vào từ quả bưởi:",
+      "question": {
+        "type": "tap_place",
+        "id": "vn15-q5-tap",
+        "prompt": "Điền vần thích hợp vào từ quả bưởi:",
+        "promptAudio": "/media/tts/vn15-q5-prompt.mp3",
+        "illustration": "/media/images/tree.svg",
+        "targets": [
+          {
+            "id": "vn15-tgt-buoi",
+            "label": "...",
+            "prefixText": "Quả b",
+            "suffixText": ""
+          }
+        ],
+        "items": [
+          {
+            "id": "vn15-it-uoi3",
+            "label": "ưởi",
+            "audio": "/media/tts/vn15-q5-it0.mp3"
+          },
+          {
+            "id": "vn15-it-uoi4",
+            "label": "uối",
+            "audio": "/media/tts/vn15-q5-it1.mp3"
+          }
+        ],
+        "correctMapping": {
+          "vn15-it-uoi3": "vn15-tgt-buoi"
+        },
+        "explanation": "Tiếng bưởi có vần ươi: b - ươi - bươi - hỏi - bưởi.",
+        "explanationAudio": "/media/tts/vn15-q5-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn15-slide-q6",
+      "teacherNote": "Câu hỏi 6: Nối tiếng ở hai cột để tạo thành từ ghép",
+      "question": {
+        "type": "matching",
+        "id": "vn15-q6-match",
+        "prompt": "Nối tiếng ở hai cột để tạo thành từ ghép đúng:",
+        "promptAudio": "/media/tts/vn15-q6-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "leftColumn": [
+          {
+            "id": "vn15-l2-yeu",
+            "label": "yêu",
+            "audio": "/media/tts/vn15-q6-l0.mp3"
+          },
+          {
+            "id": "vn15-l2-nai",
+            "label": "nải",
+            "audio": "/media/tts/vn15-q6-l1.mp3"
+          },
+          {
+            "id": "vn15-l2-buoi",
+            "label": "vườn",
+            "audio": "/media/tts/vn15-q6-l2.mp3"
+          }
+        ],
+        "rightColumn": [
+          {
+            "id": "vn15-r2-quy",
+            "label": "quý",
+            "audio": "/media/tts/vn15-q6-r0.mp3"
+          },
+          {
+            "id": "vn15-r2-chuoi",
+            "label": "chuối",
+            "audio": "/media/tts/vn15-q6-r1.mp3"
+          },
+          {
+            "id": "vn15-r2-buoi",
+            "label": "bưởi",
+            "audio": "/media/tts/vn15-q6-r2.mp3"
+          }
+        ],
+        "correctPairs": [
+          {
+            "leftId": "vn15-l2-yeu",
+            "rightId": "vn15-r2-quy"
+          },
+          {
+            "leftId": "vn15-l2-nai",
+            "rightId": "vn15-r2-chuoi"
+          },
+          {
+            "leftId": "vn15-l2-buoi",
+            "rightId": "vn15-r2-buoi"
+          }
+        ],
+        "explanation": "Bé thật thông minh! Yêu quý, nải chuối, vườn bưởi đều là các từ ghép chính xác.",
+        "explanationAudio": "/media/tts/vn15-q6-exp.mp3"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    }
+  ]
+}

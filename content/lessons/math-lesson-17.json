@@ -1,0 +1,268 @@
+{
+  "status": "publish",
+  "mode": "publish",
+  "id": "math-17-cong-2cs-2cs",
+  "title": "Cộng 2 chữ số với 2 chữ số (không nhớ)",
+  "subject": "math",
+  "grade": 1,
+  "description": "Bài học Toán 1: Cộng hàng đơn vị với hàng đơn vị, hàng chục với hàng chục (32 + 15 = 47, 40 + 28 = 68).",
+  "totalDurationMinutes": 25,
+  "slides": [
+    {
+      "type": "title-slide",
+      "id": "m17-slide-title",
+      "title": "Cộng 2 chữ số với 2 chữ số",
+      "subtitle": "Toán Lớp 1 — Phép tính không nhớ",
+      "teacherNote": "Cộng thẳng cột: đơn vị cộng đơn vị, chục cộng chục.",
+      "backgroundImage": "/media/images/candy.svg",
+      "audio": "/media/tts/m17-title.mp3"
+    },
+    {
+      "type": "content-slide",
+      "id": "m17-slide-intro",
+      "title": "Quy tắc cộng 2 chữ số với 2 chữ số",
+      "body": "Ví dụ: 32 + 15. Ta lấy 2 cộng 5 bằng 7, 3 cộng 1 bằng 4. Kết quả là 47! Luôn tính từ phải sang trái các con nhé.",
+      "teacherNote": "Cho học sinh lên bảng đặt tính dọc và tính nhẩm ngang.",
+      "illustration": "/media/images/ten-rod.svg",
+      "audio": "/media/tts/m17-intro.mp3",
+      "bullets": [
+        "32 + 15 = 47 (2 + 5 = 7, 3 + 1 = 4)",
+        "40 + 28 = 68 (0 + 8 = 8, 4 + 2 = 6)",
+        "53 + 24 = 77 (3 + 4 = 7, 5 + 2 = 7)"
+      ]
+    },
+    {
+      "type": "question-slide",
+      "id": "m17-slide-q1",
+      "teacherNote": "Tính 32 + 15",
+      "question": {
+        "type": "number_select",
+        "id": "m17-q1-ns",
+        "prompt": "Bé hãy tính kết quả phép tính sau:",
+        "promptAudio": "/media/tts/m17-q1-prompt.mp3",
+        "illustration": "/media/images/apple.svg",
+        "expression": "32 + 15 = ?",
+        "choices": [
+          46,
+          47,
+          48,
+          57
+        ],
+        "correctAnswer": 47,
+        "explanation": "Hai cộng năm bằng bảy, ba cộng một bằng bốn. Kết quả là 47.",
+        "explanationAudio": "/media/tts/m17-q1-exp.mp3"
+      },
+      "timeLimitSeconds": 20,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m17-slide-q2",
+      "teacherNote": "Tính 40 + 28",
+      "question": {
+        "type": "number_select",
+        "id": "m17-q2-ns",
+        "prompt": "Bé hãy tính kết quả phép tính sau:",
+        "promptAudio": "/media/tts/m17-q2-prompt.mp3",
+        "illustration": "/media/images/candy.svg",
+        "expression": "40 + 28 = ?",
+        "choices": [
+          58,
+          68,
+          78,
+          60
+        ],
+        "correctAnswer": 68,
+        "explanation": "Bốn mươi cộng hai mươi tám bằng sáu mươi tám.",
+        "explanationAudio": "/media/tts/m17-q2-exp.mp3"
+      },
+      "timeLimitSeconds": 20,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m17-slide-q3",
+      "teacherNote": "Tính 53 + 24",
+      "question": {
+        "type": "multiple_choice",
+        "id": "m17-q3-mc",
+        "prompt": "53 + 24 bằng bao nhiêu?",
+        "promptAudio": "/media/tts/m17-q3-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "options": [
+          {
+            "id": "m17-opt-77",
+            "label": "Bằng 77",
+            "audio": "/media/tts/m17-opt-bang-77.mp3"
+          },
+          {
+            "id": "m17-opt-76",
+            "label": "Bằng 76",
+            "audio": "/media/tts/m17-opt-bang-76.mp3"
+          },
+          {
+            "id": "m17-opt-87",
+            "label": "Bằng 87",
+            "audio": "/media/tts/m17-opt-bang-87.mp3"
+          }
+        ],
+        "explanation": "3 cộng 4 bằng 7, 5 cộng 2 bằng 7. 53 + 24 = 77.",
+        "explanationAudio": "/media/tts/m17-q3-exp.mp3",
+        "correctOptionId": "m17-opt-77"
+      },
+      "timeLimitSeconds": 20,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m17-slide-q4",
+      "teacherNote": "Nối phép tính với kết quả",
+      "question": {
+        "type": "matching",
+        "id": "m17-q4-matching",
+        "prompt": "Nối phép cộng với kết quả đúng:",
+        "promptAudio": "/media/tts/m17-q4-prompt.mp3",
+        "leftColumn": [
+          {
+            "id": "m17-l1",
+            "text": "21 + 13",
+            "audio": "/media/tts/m17-lbl-21cong13.mp3",
+            "label": "21 + 13"
+          },
+          {
+            "id": "m17-l2",
+            "text": "45 + 32",
+            "audio": "/media/tts/m17-lbl-45cong32.mp3",
+            "label": "45 + 32"
+          },
+          {
+            "id": "m17-l3",
+            "text": "62 + 16",
+            "audio": "/media/tts/m17-lbl-62cong16.mp3",
+            "label": "62 + 16"
+          }
+        ],
+        "rightColumn": [
+          {
+            "id": "m17-r1",
+            "text": "Bằng 34",
+            "audio": "/media/tts/m17-lbl-bang-34.mp3",
+            "label": "Bằng 34"
+          },
+          {
+            "id": "m17-r2",
+            "text": "Bằng 77",
+            "audio": "/media/tts/m17-lbl-bang-77b.mp3",
+            "label": "Bằng 77"
+          },
+          {
+            "id": "m17-r3",
+            "text": "Bằng 78",
+            "audio": "/media/tts/m17-lbl-bang-78b.mp3",
+            "label": "Bằng 78"
+          }
+        ],
+        "correctPairs": [
+          {
+            "leftId": "m17-l1",
+            "rightId": "m17-r1"
+          },
+          {
+            "leftId": "m17-l2",
+            "rightId": "m17-r2"
+          },
+          {
+            "leftId": "m17-l3",
+            "rightId": "m17-r3"
+          }
+        ],
+        "explanation": "21 + 13 = 34, 45 + 32 = 77, 62 + 16 = 78.",
+        "explanationAudio": "/media/tts/m17-q4-exp.mp3",
+        "illustration": "/media/images/star.svg"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m17-slide-q5",
+      "teacherNote": "Điền kết quả vào chỗ trống",
+      "question": {
+        "type": "tap_place",
+        "id": "m17-q5-tap",
+        "prompt": "Đặt số thích hợp vào chỗ trống: 25 + 14 = ...",
+        "promptAudio": "/media/tts/m17-q5-prompt.mp3",
+        "targets": [
+          {
+            "id": "m17-t1",
+            "label": "Kết quả",
+            "prefixText": "25 + 14 = ",
+            "suffixText": ""
+          }
+        ],
+        "items": [
+          {
+            "id": "m17-i1",
+            "text": "39",
+            "audio": "/media/tts/m17-num-39.mp3",
+            "label": "39"
+          },
+          {
+            "id": "m17-i2",
+            "text": "38",
+            "audio": "/media/tts/m17-num-38.mp3",
+            "label": "38"
+          },
+          {
+            "id": "m17-i3",
+            "text": "49",
+            "audio": "/media/tts/m17-num-49.mp3",
+            "label": "49"
+          }
+        ],
+        "correctMapping": {
+          "m17-i1": "m17-t1"
+        },
+        "explanation": "5 + 4 = 9, 2 + 1 = 3. 25 + 14 = 39.",
+        "explanationAudio": "/media/tts/m17-q5-exp.mp3",
+        "illustration": "/media/images/star.svg"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m17-slide-q6",
+      "teacherNote": "Toán lời văn thi đua",
+      "question": {
+        "type": "multiple_choice",
+        "id": "m17-q6-mc",
+        "prompt": "Đội Đỏ có 23 điểm, cô thưởng thêm 12 điểm. Hỏi đội Đỏ có tất cả bao nhiêu điểm?",
+        "promptAudio": "/media/tts/m17-q6-prompt.mp3",
+        "illustration": "/media/images/flag.svg",
+        "options": [
+          {
+            "id": "m17-opt-35d",
+            "label": "35 điểm",
+            "audio": "/media/tts/m17-opt-35-diem.mp3"
+          },
+          {
+            "id": "m17-opt-34d",
+            "label": "34 điểm",
+            "audio": "/media/tts/m17-opt-34-diem.mp3"
+          },
+          {
+            "id": "m17-opt-36d",
+            "label": "36 điểm",
+            "audio": "/media/tts/m17-opt-36-diem.mp3"
+          }
+        ],
+        "explanation": "Phép tính: 23 + 12 = 35 điểm.",
+        "explanationAudio": "/media/tts/m17-q6-exp.mp3",
+        "correctOptionId": "m17-opt-35d"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    }
+  ]
+}

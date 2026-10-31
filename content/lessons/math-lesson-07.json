@@ -1,0 +1,295 @@
+{
+  "status": "publish",
+  "mode": "publish",
+  "id": "math-07-compare-10",
+  "title": "So sánh các số trong phạm vi 10",
+  "subject": "math",
+  "grade": 1,
+  "description": "Bài học Toán 1: Làm quen với các dấu lớn hơn, bé hơn, bằng nhau và so sánh các số đến 10.",
+  "totalDurationMinutes": 25,
+  "slides": [
+    {
+      "type": "title-slide",
+      "id": "m7-slide-title",
+      "title": "So sánh các số trong phạm vi 10",
+      "subtitle": "Toán Lớp 1 — Bài học tương tác",
+      "teacherNote": "Hướng dẫn học sinh nhận biết dấu lớn (>), dấu bé (<), dấu bằng (=).",
+      "backgroundImage": "/media/images/star.svg",
+      "audio": "/media/tts/m7-title.mp3"
+    },
+    {
+      "type": "content-slide",
+      "id": "m7-slide-intro",
+      "title": "Nhận biết Dấu So Sánh",
+      "body": "Đầu nhọn luôn chỉ về số bé hơn, miệng mở rộng hướng về số lớn hơn. Ví dụ: 7 lớn hơn 5 viết là 7 > 5.",
+      "teacherNote": "Cho học sinh làm cử chỉ hai tay tạo hình dấu lớn và dấu bé.",
+      "illustration": "/media/images/apple.svg",
+      "audio": "/media/tts/m7-intro.mp3",
+      "bullets": [
+        "7 lớn hơn 5: 7 > 5",
+        "4 bé hơn 8: 4 < 8",
+        "6 bằng 6: 6 = 6"
+      ]
+    },
+    {
+      "type": "question-slide",
+      "id": "m7-slide-q1",
+      "teacherNote": "So sánh 9 và 6",
+      "question": {
+        "type": "multiple_choice",
+        "id": "m7-q1-mc",
+        "prompt": "Chọn dấu thích hợp điền vào chỗ chấm: 9 ... 6",
+        "promptAudio": "/media/tts/m7-q1-prompt.mp3",
+        "illustration": "/media/images/apple.svg",
+        "options": [
+          {
+            "id": "m7-opt1",
+            "label": "Dấu lớn hơn (>)",
+            "audio": "/media/tts/m7-opt-lon.mp3"
+          },
+          {
+            "id": "m7-opt2",
+            "label": "Dấu bé hơn (<)",
+            "audio": "/media/tts/m7-opt-be.mp3"
+          },
+          {
+            "id": "m7-opt3",
+            "label": "Dấu bằng (=)",
+            "audio": "/media/tts/m7-opt-bang.mp3"
+          }
+        ],
+        "explanation": "Số 9 nhiều hơn số 6 nên 9 lớn hơn 6.",
+        "explanationAudio": "/media/tts/m7-q1-exp.mp3",
+        "correctOptionId": "m7-opt1"
+      },
+      "timeLimitSeconds": 20,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m7-slide-q2",
+      "teacherNote": "Đếm bóng và so sánh số lượng",
+      "question": {
+        "type": "counting",
+        "id": "m7-q2-counting",
+        "prompt": "Đếm xem có bao nhiêu quả bóng trên màn hình?",
+        "promptAudio": "/media/tts/m7-q2-prompt.mp3",
+        "illustration": "/media/images/ball.svg",
+        "items": [
+          {
+            "image": "/media/images/ball.svg",
+            "alt": "Bóng 1"
+          },
+          {
+            "image": "/media/images/ball.svg",
+            "alt": "Bóng 2"
+          },
+          {
+            "image": "/media/images/ball.svg",
+            "alt": "Bóng 3"
+          },
+          {
+            "image": "/media/images/ball.svg",
+            "alt": "Bóng 4"
+          },
+          {
+            "image": "/media/images/ball.svg",
+            "alt": "Bóng 5"
+          },
+          {
+            "image": "/media/images/ball.svg",
+            "alt": "Bóng 6"
+          },
+          {
+            "image": "/media/images/ball.svg",
+            "alt": "Bóng 7"
+          }
+        ],
+        "correctCount": 7,
+        "numberRange": {
+          "min": 1,
+          "max": 10
+        },
+        "explanation": "Có tất cả 7 quả bóng sắc màu.",
+        "explanationAudio": "/media/tts/m7-q2-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m7-slide-q3",
+      "teacherNote": "So sánh số bé hơn",
+      "question": {
+        "type": "number_select",
+        "id": "m7-q3-ns",
+        "prompt": "Trong các số sau, số nào bé hơn 5?",
+        "promptAudio": "/media/tts/m7-q3-prompt.mp3",
+        "illustration": "/media/images/fish.svg",
+        "expression": "? < 5",
+        "choices": [
+          3,
+          5,
+          7,
+          9
+        ],
+        "correctAnswer": 3,
+        "explanation": "Số 3 bé hơn số 5 vì 3 đứng trước 5 trên tia số.",
+        "explanationAudio": "/media/tts/m7-q3-exp.mp3"
+      },
+      "timeLimitSeconds": 20,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m7-slide-q4",
+      "teacherNote": "Nối phép so sánh đúng",
+      "question": {
+        "type": "matching",
+        "id": "m7-q4-matching",
+        "prompt": "Bé hãy nối hai vế để được phép so sánh đúng:",
+        "promptAudio": "/media/tts/m7-q4-prompt.mp3",
+        "leftColumn": [
+          {
+            "id": "m7-l1",
+            "text": "Số 10",
+            "audio": "/media/tts/m7-lbl-so10.mp3",
+            "label": "Số 10"
+          },
+          {
+            "id": "m7-l2",
+            "text": "Số 4",
+            "audio": "/media/tts/m7-lbl-so4.mp3",
+            "label": "Số 4"
+          },
+          {
+            "id": "m7-l3",
+            "text": "Số 8",
+            "audio": "/media/tts/m7-lbl-so8.mp3",
+            "label": "Số 8"
+          }
+        ],
+        "rightColumn": [
+          {
+            "id": "m7-r1",
+            "text": "Lớn hơn 9",
+            "audio": "/media/tts/m7-lbl-lon9.mp3",
+            "label": "Lớn hơn 9"
+          },
+          {
+            "id": "m7-r2",
+            "text": "Bé hơn 5",
+            "audio": "/media/tts/m7-lbl-be5.mp3",
+            "label": "Bé hơn 5"
+          },
+          {
+            "id": "m7-r3",
+            "text": "Bằng 8",
+            "audio": "/media/tts/m7-lbl-bang8.mp3",
+            "label": "Bằng 8"
+          }
+        ],
+        "correctPairs": [
+          {
+            "leftId": "m7-l1",
+            "rightId": "m7-r1"
+          },
+          {
+            "leftId": "m7-l2",
+            "rightId": "m7-r2"
+          },
+          {
+            "leftId": "m7-l3",
+            "rightId": "m7-r3"
+          }
+        ],
+        "explanation": "10 lớn hơn 9, 4 bé hơn 5 và 8 bằng 8.",
+        "explanationAudio": "/media/tts/m7-q4-exp.mp3",
+        "illustration": "/media/images/star.svg"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m7-slide-q5",
+      "teacherNote": "Điền dấu vào chỗ trống",
+      "question": {
+        "type": "tap_place",
+        "id": "m7-q5-tap",
+        "prompt": "Chọn dấu thích hợp đặt vào giữa hai số 6 và 8:",
+        "promptAudio": "/media/tts/m7-q5-prompt.mp3",
+        "targets": [
+          {
+            "id": "m7-t1",
+            "label": "Dấu so sánh",
+            "prefixText": "6 ",
+            "suffixText": " 8"
+          }
+        ],
+        "items": [
+          {
+            "id": "m7-i1",
+            "text": "<",
+            "audio": "/media/tts/m7-dau-be.mp3",
+            "label": "<"
+          },
+          {
+            "id": "m7-i2",
+            "text": ">",
+            "audio": "/media/tts/m7-dau-lon.mp3",
+            "label": ">"
+          },
+          {
+            "id": "m7-i3",
+            "text": "=",
+            "audio": "/media/tts/m7-dau-bang.mp3",
+            "label": "="
+          }
+        ],
+        "correctMapping": {
+          "m7-i1": "m7-t1"
+        },
+        "explanation": "6 bé hơn 8, viết là 6 < 8.",
+        "explanationAudio": "/media/tts/m7-q5-exp.mp3",
+        "illustration": "/media/images/star.svg"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m7-slide-q6",
+      "teacherNote": "Số lớn nhất trong dãy",
+      "question": {
+        "type": "multiple_choice",
+        "id": "m7-q6-mc",
+        "prompt": "Trong các số: 3, 7, 2, 9, số nào lớn nhất?",
+        "promptAudio": "/media/tts/m7-q6-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "options": [
+          {
+            "id": "m7-opt-9",
+            "label": "Số 9",
+            "audio": "/media/tts/m7-opt-so-9.mp3"
+          },
+          {
+            "id": "m7-opt-7",
+            "label": "Số 7",
+            "audio": "/media/tts/m7-opt-so-7.mp3"
+          },
+          {
+            "id": "m7-opt-3",
+            "label": "Số 3",
+            "audio": "/media/tts/m7-opt-so-3.mp3"
+          }
+        ],
+        "explanation": "Số 9 là số lớn nhất trong các số đã cho.",
+        "explanationAudio": "/media/tts/m7-q6-exp.mp3",
+        "correctOptionId": "m7-opt-9"
+      },
+      "timeLimitSeconds": 20,
+      "showRetryOnWrong": true
+    }
+  ]
+}

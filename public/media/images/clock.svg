@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <circle cx="50" cy="50" r="42" fill="#ffffff" stroke="#0284c7" stroke-width="5"/>
+  <circle cx="50" cy="50" r="3" fill="#0369a1"/>
+  <!-- Numbers -->
+  <text x="50" y="22" font-family="sans-serif" font-size="10" font-weight="bold" fill="#0f172a" text-anchor="middle">12</text>
+  <text x="82" y="54" font-family="sans-serif" font-size="10" font-weight="bold" fill="#0f172a" text-anchor="middle">3</text>
+  <text x="50" y="86" font-family="sans-serif" font-size="10" font-weight="bold" fill="#0f172a" text-anchor="middle">6</text>
+  <text x="18" y="54" font-family="sans-serif" font-size="10" font-weight="bold" fill="#0f172a" text-anchor="middle">9</text>
+  <!-- Hands: 8:00 (Short hand at 8, Long hand at 12) -->
+  <line x1="50" y1="50" x2="50" y2="24" stroke="#ef4444" stroke-width="3" stroke-linecap="round"/>
+  <line x1="50" y1="50" x2="30" y2="62" stroke="#0f172a" stroke-width="4.5" stroke-linecap="round"/>
+</svg>

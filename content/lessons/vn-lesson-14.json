@@ -1,0 +1,313 @@
+{
+  "status": "publish",
+  "mode": "publish",
+  "id": "vn-14-van-p",
+  "title": "Bài 14: Các vần kết thúc bằng p",
+  "subject": "vietnamese",
+  "grade": 1,
+  "description": "Học các vần kết thúc bằng âm p: bắp ngô, cặp sách, hộp quà, lớp học, đèn tuýp, cá chép qua 6 câu hỏi tương tác.",
+  "totalDurationMinutes": 25,
+  "slides": [
+    {
+      "type": "title-slide",
+      "id": "vn14-title-slide",
+      "title": "Bài 14: Các vần kết thúc bằng p",
+      "subtitle": "Tiếng Việt Lớp 1 — Bài học tương tác",
+      "teacherNote": "Rèn khép hai môi dứt khoát khi phát âm âm cuối p.",
+      "backgroundImage": "/media/images/star.svg",
+      "audio": "/media/tts/vn14-title.mp3"
+    },
+    {
+      "type": "content-slide",
+      "id": "vn14-intro-slide",
+      "title": "Các vần kết thúc bằng P",
+      "body": "Hôm nay chúng mình học các vần có âm cuối p: ăp, âp, op, ôp, ơp, ep, êp, ip, up. Cùng đọc: bắp ngô, cặp sách, hộp quà, lớp học, cá chép!",
+      "teacherNote": "Hướng dẫn cả lớp luyện đọc đồng thanh các từ ngữ mẫu.",
+      "illustration": "/media/images/book.svg",
+      "audio": "/media/tts/vn14-intro.mp3",
+      "bullets": [
+        "ăp — bắp (bắp ngô non)",
+        "ăp — cặp (cặp sách em mang)",
+        "ơp — lớp (lớp học thân yêu)",
+        "ep — chép (chú cá chép đỏ)"
+      ]
+    },
+    {
+      "type": "question-slide",
+      "id": "vn14-slide-q1",
+      "teacherNote": "Câu hỏi 1: Điền vần thích hợp để có từ bắp ngô:",
+      "question": {
+        "type": "tap_place",
+        "id": "vn14-q1-tap",
+        "prompt": "Điền vần thích hợp để có từ bắp ngô:",
+        "promptAudio": "/media/tts/vn14-q1-prompt.mp3",
+        "illustration": "/media/images/apple.svg",
+        "targets": [
+          {
+            "id": "vn14-tgt-bap",
+            "label": "...",
+            "prefixText": "B",
+            "suffixText": " ngô"
+          }
+        ],
+        "items": [
+          {
+            "id": "vn14-it-ap1",
+            "label": "ắp",
+            "audio": "/media/tts/vn14-q1-it0.mp3"
+          },
+          {
+            "id": "vn14-it-ap2",
+            "label": "ấp",
+            "audio": "/media/tts/vn14-q1-it1.mp3"
+          }
+        ],
+        "correctMapping": {
+          "vn14-it-ap1": "vn14-tgt-bap"
+        },
+        "explanation": "Tiếng bắp có âm b ghép với vần ắp: b - ắp - bắp.",
+        "explanationAudio": "/media/tts/vn14-q1-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn14-slide-q2",
+      "teacherNote": "Câu hỏi 2: Nối từ ở cột trái với từ ở cột phải để t",
+      "question": {
+        "type": "matching",
+        "id": "vn14-q2-match",
+        "prompt": "Nối từ ở cột trái với từ ở cột phải để tạo từ đúng:",
+        "promptAudio": "/media/tts/vn14-q2-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "leftColumn": [
+          {
+            "id": "vn14-l-cap",
+            "label": "cặp",
+            "audio": "/media/tts/vn14-q2-l0.mp3"
+          },
+          {
+            "id": "vn14-l-hop",
+            "label": "hộp",
+            "audio": "/media/tts/vn14-q2-l1.mp3"
+          },
+          {
+            "id": "vn14-l-lop",
+            "label": "lớp",
+            "audio": "/media/tts/vn14-q2-l2.mp3"
+          }
+        ],
+        "rightColumn": [
+          {
+            "id": "vn14-r-sach",
+            "label": "sách đi học",
+            "audio": "/media/tts/vn14-q2-r0.mp3"
+          },
+          {
+            "id": "vn14-r-qua",
+            "label": "quà xinh",
+            "audio": "/media/tts/vn14-q2-r1.mp3"
+          },
+          {
+            "id": "vn14-r-hoc",
+            "label": "học thân thương",
+            "audio": "/media/tts/vn14-q2-r2.mp3"
+          }
+        ],
+        "correctPairs": [
+          {
+            "leftId": "vn14-l-cap",
+            "rightId": "vn14-r-sach"
+          },
+          {
+            "leftId": "vn14-l-hop",
+            "rightId": "vn14-r-qua"
+          },
+          {
+            "leftId": "vn14-l-lop",
+            "rightId": "vn14-r-hoc"
+          }
+        ],
+        "explanation": "Rất giỏi! Cặp sách đi học, hộp quà xinh, lớp học thân thương.",
+        "explanationAudio": "/media/tts/vn14-q2-exp.mp3"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn14-slide-q3",
+      "teacherNote": "Câu hỏi 3: Tiếng 'chép' trong từ 'cá chép' có chứa ",
+      "question": {
+        "type": "multiple_choice",
+        "id": "vn14-q3-mc",
+        "prompt": "Tiếng 'chép' trong từ 'cá chép' có chứa vần gì?",
+        "promptAudio": "/media/tts/vn14-q3-prompt.mp3",
+        "illustration": "/media/images/fish.svg",
+        "options": [
+          {
+            "id": "vn14-opt-ep",
+            "label": "Vần ep",
+            "audio": "/media/tts/vn14-q3-opt0.mp3"
+          },
+          {
+            "id": "vn14-opt-eep",
+            "label": "Vần êp",
+            "audio": "/media/tts/vn14-q3-opt1.mp3"
+          },
+          {
+            "id": "vn14-opt-ip",
+            "label": "Vần ip",
+            "audio": "/media/tts/vn14-q3-opt2.mp3"
+          }
+        ],
+        "correctOptionId": "vn14-opt-ep",
+        "explanation": "Tiếng chép gồm âm ch đứng trước, vần ep đứng sau: ch - ep - chep - sắc - chép.",
+        "explanationAudio": "/media/tts/vn14-q3-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn14-slide-q4",
+      "teacherNote": "Câu hỏi 4: Điền vần thích hợp vào từ lớp học:",
+      "question": {
+        "type": "tap_place",
+        "id": "vn14-q4-tap",
+        "prompt": "Điền vần thích hợp vào từ lớp học:",
+        "promptAudio": "/media/tts/vn14-q4-prompt.mp3",
+        "illustration": "/media/images/school.svg",
+        "targets": [
+          {
+            "id": "vn14-tgt-lop",
+            "label": "...",
+            "prefixText": "L",
+            "suffixText": " học"
+          }
+        ],
+        "items": [
+          {
+            "id": "vn14-it-op1",
+            "label": "ớp",
+            "audio": "/media/tts/vn14-q4-it0.mp3"
+          },
+          {
+            "id": "vn14-it-op2",
+            "label": "ốp",
+            "audio": "/media/tts/vn14-q4-it1.mp3"
+          }
+        ],
+        "correctMapping": {
+          "vn14-it-op1": "vn14-tgt-lop"
+        },
+        "explanation": "Tiếng lớp có vần ớp: l - ớp - lớp.",
+        "explanationAudio": "/media/tts/vn14-q4-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn14-slide-q5",
+      "teacherNote": "Câu hỏi 5: Nối từ với hình ảnh minh họa thích hợp:",
+      "question": {
+        "type": "matching",
+        "id": "vn14-q5-match",
+        "prompt": "Nối từ với hình ảnh minh họa thích hợp:",
+        "promptAudio": "/media/tts/vn14-q5-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "leftColumn": [
+          {
+            "id": "vn14-l2-ca",
+            "label": "cá chép",
+            "audio": "/media/tts/vn14-q5-l0.mp3"
+          },
+          {
+            "id": "vn14-l2-lop",
+            "label": "lớp học",
+            "audio": "/media/tts/vn14-q5-l1.mp3"
+          },
+          {
+            "id": "vn14-l2-but",
+            "label": "cây bút",
+            "audio": "/media/tts/vn14-q5-l2.mp3"
+          }
+        ],
+        "rightColumn": [
+          {
+            "id": "vn14-r2-ca",
+            "label": "con cá chép",
+            "audio": "/media/tts/vn14-q5-r0.mp3",
+            "image": "/media/images/fish.svg"
+          },
+          {
+            "id": "vn14-r2-lop",
+            "label": "ngôi trường",
+            "audio": "/media/tts/vn14-q5-r1.mp3",
+            "image": "/media/images/school.svg"
+          },
+          {
+            "id": "vn14-r2-but",
+            "label": "chiếc bút chì",
+            "audio": "/media/tts/vn14-q5-r2.mp3",
+            "image": "/media/images/pencil.svg"
+          }
+        ],
+        "correctPairs": [
+          {
+            "leftId": "vn14-l2-ca",
+            "rightId": "vn14-r2-ca"
+          },
+          {
+            "leftId": "vn14-l2-lop",
+            "rightId": "vn14-r2-lop"
+          },
+          {
+            "leftId": "vn14-l2-but",
+            "rightId": "vn14-r2-but"
+          }
+        ],
+        "explanation": "Chính xác! Bé đã nối đúng các từ và hình ảnh.",
+        "explanationAudio": "/media/tts/vn14-q5-exp.mp3"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn14-slide-q6",
+      "teacherNote": "Câu hỏi 6: Tiếng nào dưới đây có chứa vần 'up'?",
+      "question": {
+        "type": "multiple_choice",
+        "id": "vn14-q6-mc",
+        "prompt": "Tiếng nào dưới đây có chứa vần 'up'?",
+        "promptAudio": "/media/tts/vn14-q6-prompt.mp3",
+        "illustration": "/media/images/flower.svg",
+        "options": [
+          {
+            "id": "vn14-q6-opt-bup",
+            "label": "búp sen",
+            "audio": "/media/tts/vn14-q6-opt0.mp3"
+          },
+          {
+            "id": "vn14-q6-opt-chep",
+            "label": "cá chép",
+            "audio": "/media/tts/vn14-q6-opt1.mp3"
+          },
+          {
+            "id": "vn14-q6-opt-chop",
+            "label": "tia chớp",
+            "audio": "/media/tts/vn14-q6-opt2.mp3"
+          }
+        ],
+        "correctOptionId": "vn14-q6-opt-bup",
+        "explanation": "Tiếng búp có âm b đứng trước, vần up đứng sau: b - up - bup - sắc - búp.",
+        "explanationAudio": "/media/tts/vn14-q6-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    }
+  ]
+}

@@ -9,12 +9,40 @@ export const BUILTIN_LESSON_URLS = [
   '/content/lessons/math-lesson-04.json',
   '/content/lessons/math-lesson-05.json',
   '/content/lessons/math-lesson-06.json',
+  '/content/lessons/math-lesson-07.json',
+  '/content/lessons/math-lesson-08.json',
+  '/content/lessons/math-lesson-09.json',
+  '/content/lessons/math-lesson-10.json',
+  '/content/lessons/math-lesson-11.json',
+  '/content/lessons/math-lesson-12.json',
+  '/content/lessons/math-lesson-13.json',
+  '/content/lessons/math-lesson-14.json',
+  '/content/lessons/math-lesson-15.json',
+  '/content/lessons/math-lesson-16.json',
+  '/content/lessons/math-lesson-17.json',
+  '/content/lessons/math-lesson-18.json',
+  '/content/lessons/math-lesson-19.json',
+  '/content/lessons/math-lesson-20.json',
   '/content/lessons/vn-lesson-01.json',
   '/content/lessons/vn-lesson-02.json',
   '/content/lessons/vn-lesson-03.json',
   '/content/lessons/vn-lesson-04.json',
   '/content/lessons/vn-lesson-05.json',
   '/content/lessons/vn-lesson-06.json',
+  '/content/lessons/vn-lesson-07.json',
+  '/content/lessons/vn-lesson-08.json',
+  '/content/lessons/vn-lesson-09.json',
+  '/content/lessons/vn-lesson-10.json',
+  '/content/lessons/vn-lesson-11.json',
+  '/content/lessons/vn-lesson-12.json',
+  '/content/lessons/vn-lesson-13.json',
+  '/content/lessons/vn-lesson-14.json',
+  '/content/lessons/vn-lesson-15.json',
+  '/content/lessons/vn-lesson-16.json',
+  '/content/lessons/vn-lesson-17.json',
+  '/content/lessons/vn-lesson-18.json',
+  '/content/lessons/vn-lesson-19.json',
+  '/content/lessons/vn-lesson-20.json',
 ];
 
 const STORAGE_KEY = 'trinh_chieu_custom_lessons_v1';
@@ -95,14 +123,16 @@ export function deleteCustomLesson(lessonId: string): boolean {
 }
 
 export async function getLessonById(lessonId: string): Promise<Lesson | null> {
+  const normalizedId = lessonId === 'vn-01-alphabet' ? 'vn-01-phonics' : lessonId;
+
   // 0. Check for review mistakes session
-  if (lessonId === 'review-mistakes-session') {
+  if (normalizedId === 'review-mistakes-session') {
     return getMistakeTracker().buildReviewLesson();
   }
 
   // 1. Search in custom lessons first
   const customList = getCustomLessons();
-  const customFound = customList.find((l) => l.id === lessonId);
+  const customFound = customList.find((l) => l.id === normalizedId);
   if (customFound) return customFound;
 
   // 2. Search in built-in lessons
@@ -112,7 +142,7 @@ export async function getLessonById(lessonId: string): Promise<Lesson | null> {
       if (resp.ok) {
         const json: unknown = await resp.json();
         const parsed = LessonSchema.safeParse(json);
-        if (parsed.success && parsed.data.id === lessonId) {
+        if (parsed.success && parsed.data.id === normalizedId) {
           return parsed.data;
         }
       }
@@ -122,7 +152,7 @@ export async function getLessonById(lessonId: string): Promise<Lesson | null> {
   }
 
   // 3. Search in Grade-1 onthi curriculum database
-  const currMeta = findCurriculumLessonMeta(lessonId);
+  const currMeta = findCurriculumLessonMeta(lessonId) || findCurriculumLessonMeta(normalizedId);
   if (currMeta) {
     return createInteractiveCurriculumLesson(currMeta);
   }

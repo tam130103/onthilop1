@@ -1,0 +1,287 @@
+{
+  "status": "publish",
+  "mode": "publish",
+  "id": "math-10-3d-shapes",
+  "title": "Khối lập phương & Khối hộp chữ nhật",
+  "subject": "math",
+  "grade": 1,
+  "description": "Bài học Toán 1: Làm quen hình khối không gian, phân biệt khối lập phương và khối hộp chữ nhật trong thực tế.",
+  "totalDurationMinutes": 25,
+  "slides": [
+    {
+      "type": "title-slide",
+      "id": "m10-slide-title",
+      "title": "Khối lập phương & Khối hộp chữ nhật",
+      "subtitle": "Toán Lớp 1 — Hình học không gian",
+      "teacherNote": "Cho học sinh quan sát con xúc xắc và hộp sữa.",
+      "backgroundImage": "/media/images/square.svg",
+      "audio": "/media/tts/m10-title.mp3"
+    },
+    {
+      "type": "content-slide",
+      "id": "m10-slide-intro",
+      "title": "Nhận biết các hình khối",
+      "body": "Con xúc xắc có dạng khối lập phương với các mặt là hình vuông. Hộp sữa, viên gạch có dạng khối hộp chữ nhật.",
+      "teacherNote": "Nhấn mạnh sự khác nhau giữa mặt hình vuông và mặt hình chữ nhật.",
+      "illustration": "/media/images/milk.svg",
+      "audio": "/media/tts/m10-intro.mp3",
+      "bullets": [
+        "Con xúc xắc: Khối lập phương",
+        "Hộp sữa: Khối hộp chữ nhật",
+        "Hộp bánh: Khối hộp chữ nhật"
+      ]
+    },
+    {
+      "type": "question-slide",
+      "id": "m10-slide-q1",
+      "teacherNote": "Đồ vật dạng khối lập phương",
+      "question": {
+        "type": "multiple_choice",
+        "id": "m10-q1-mc",
+        "prompt": "Đồ vật nào dưới đây có dạng khối lập phương?",
+        "promptAudio": "/media/tts/m10-q1-prompt.mp3",
+        "illustration": "/media/images/square.svg",
+        "options": [
+          {
+            "id": "m10-opt-xucxac",
+            "label": "Con xúc xắc",
+            "audio": "/media/tts/m10-opt-xuc-xac.mp3"
+          },
+          {
+            "id": "m10-opt-hopsua",
+            "label": "Hộp sữa tươi",
+            "audio": "/media/tts/m10-opt-hop-sua.mp3"
+          },
+          {
+            "id": "m10-opt-quabong",
+            "label": "Quả bóng đá",
+            "audio": "/media/tts/m10-opt-qua-bong.mp3"
+          }
+        ],
+        "explanation": "Con xúc xắc có các mặt đều là hình vuông, đó là khối lập phương.",
+        "explanationAudio": "/media/tts/m10-q1-exp.mp3",
+        "correctOptionId": "m10-opt-xucxac"
+      },
+      "timeLimitSeconds": 20,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m10-slide-q2",
+      "teacherNote": "Đồ vật dạng khối hộp chữ nhật",
+      "question": {
+        "type": "multiple_choice",
+        "id": "m10-q2-mc",
+        "prompt": "Hộp sữa tươi có dạng hình khối gì?",
+        "promptAudio": "/media/tts/m10-q2-prompt.mp3",
+        "illustration": "/media/images/milk.svg",
+        "options": [
+          {
+            "id": "m10-opt-hhcn",
+            "label": "Khối hộp chữ nhật",
+            "audio": "/media/tts/m10-opt-hhcn.mp3"
+          },
+          {
+            "id": "m10-opt-klp",
+            "label": "Khối lập phương",
+            "audio": "/media/tts/m10-opt-klp.mp3"
+          },
+          {
+            "id": "m10-opt-ht",
+            "label": "Hình tròn",
+            "audio": "/media/tts/m10-opt-htron.mp3"
+          }
+        ],
+        "explanation": "Hộp sữa tươi có dạng khối hộp chữ nhật.",
+        "explanationAudio": "/media/tts/m10-q2-exp.mp3",
+        "correctOptionId": "m10-opt-hhcn"
+      },
+      "timeLimitSeconds": 20,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m10-slide-q3",
+      "teacherNote": "Nối đồ vật với dạng hình khối",
+      "question": {
+        "type": "matching",
+        "id": "m10-q3-matching",
+        "prompt": "Nối đồ vật với hình khối tương ứng:",
+        "promptAudio": "/media/tts/m10-q3-prompt.mp3",
+        "leftColumn": [
+          {
+            "id": "m10-l1",
+            "text": "Khối ru-bích",
+            "audio": "/media/tts/m10-lbl-rubik.mp3",
+            "label": "Khối ru-bích"
+          },
+          {
+            "id": "m10-l2",
+            "text": "Bao diêm",
+            "audio": "/media/tts/m10-lbl-baodiem.mp3",
+            "label": "Bao diêm"
+          },
+          {
+            "id": "m10-l3",
+            "text": "Quyển sách",
+            "audio": "/media/tts/m10-lbl-quyensach.mp3",
+            "label": "Quyển sách"
+          }
+        ],
+        "rightColumn": [
+          {
+            "id": "m10-r1",
+            "text": "Khối lập phương",
+            "audio": "/media/tts/m10-lbl-klp.mp3",
+            "label": "Khối lập phương"
+          },
+          {
+            "id": "m10-r2",
+            "text": "Khối hộp chữ nhật",
+            "audio": "/media/tts/m10-lbl-khcn.mp3",
+            "label": "Khối hộp chữ nhật"
+          },
+          {
+            "id": "m10-r3",
+            "text": "Dạng hộp chữ nhật",
+            "audio": "/media/tts/m10-lbl-dhcn.mp3",
+            "label": "Dạng hộp chữ nhật"
+          }
+        ],
+        "correctPairs": [
+          {
+            "leftId": "m10-l1",
+            "rightId": "m10-r1"
+          },
+          {
+            "leftId": "m10-l2",
+            "rightId": "m10-r2"
+          },
+          {
+            "leftId": "m10-l3",
+            "rightId": "m10-r3"
+          }
+        ],
+        "explanation": "Khối rubik là khối lập phương, bao diêm và quyển sách là khối hộp chữ nhật.",
+        "explanationAudio": "/media/tts/m10-q3-exp.mp3",
+        "illustration": "/media/images/star.svg"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m10-slide-q4",
+      "teacherNote": "Điền từ còn thiếu",
+      "question": {
+        "type": "tap_place",
+        "id": "m10-q4-tap",
+        "prompt": "Chọn tên khối thích hợp điền vào câu sau:",
+        "promptAudio": "/media/tts/m10-q4-prompt.mp3",
+        "targets": [
+          {
+            "id": "m10-t1",
+            "label": "Tên khối",
+            "prefixText": "Con xúc xắc có dạng khối ",
+            "suffixText": "."
+          }
+        ],
+        "items": [
+          {
+            "id": "m10-i1",
+            "text": "lập phương",
+            "audio": "/media/tts/m10-word-lap-phuong.mp3",
+            "label": "lập phương"
+          },
+          {
+            "id": "m10-i2",
+            "text": "chữ nhật",
+            "audio": "/media/tts/m10-word-chu-nhat.mp3",
+            "label": "chữ nhật"
+          },
+          {
+            "id": "m10-i3",
+            "text": "hình tròn",
+            "audio": "/media/tts/m10-word-hinh-tron.mp3",
+            "label": "hình tròn"
+          }
+        ],
+        "correctMapping": {
+          "m10-i1": "m10-t1"
+        },
+        "explanation": "Con xúc xắc có dạng khối lập phương.",
+        "explanationAudio": "/media/tts/m10-q4-exp.mp3",
+        "illustration": "/media/images/star.svg"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m10-slide-q5",
+      "teacherNote": "Đếm số khối lập phương",
+      "question": {
+        "type": "counting",
+        "id": "m10-q5-counting",
+        "prompt": "Đếm xem có bao nhiêu khối hình vuông trên màn hình?",
+        "promptAudio": "/media/tts/m10-q5-prompt.mp3",
+        "illustration": "/media/images/square.svg",
+        "items": [
+          {
+            "image": "/media/images/square.svg",
+            "alt": "Khối 1"
+          },
+          {
+            "image": "/media/images/square.svg",
+            "alt": "Khối 2"
+          },
+          {
+            "image": "/media/images/square.svg",
+            "alt": "Khối 3"
+          },
+          {
+            "image": "/media/images/square.svg",
+            "alt": "Khối 4"
+          },
+          {
+            "image": "/media/images/square.svg",
+            "alt": "Khối 5"
+          }
+        ],
+        "correctCount": 5,
+        "numberRange": {
+          "min": 1,
+          "max": 10
+        },
+        "explanation": "Có tất cả 5 khối hình vuông.",
+        "explanationAudio": "/media/tts/m10-q5-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m10-slide-q6",
+      "teacherNote": "Đếm số mặt",
+      "question": {
+        "type": "number_select",
+        "id": "m10-q6-ns",
+        "prompt": "Khối lập phương có tất cả mấy mặt?",
+        "promptAudio": "/media/tts/m10-q6-prompt.mp3",
+        "illustration": "/media/images/square.svg",
+        "expression": "4 + 2 = ?",
+        "choices": [
+          4,
+          5,
+          6,
+          8
+        ],
+        "correctAnswer": 6,
+        "explanation": "Khối lập phương có đúng 6 mặt bằng nhau.",
+        "explanationAudio": "/media/tts/m10-q6-exp.mp3"
+      },
+      "timeLimitSeconds": 20,
+      "showRetryOnWrong": true
+    }
+  ]
+}

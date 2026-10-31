@@ -1,0 +1,309 @@
+{
+  "status": "publish",
+  "mode": "publish",
+  "id": "vn-17-doc-hieu-gia-dinh",
+  "title": "Bài 17: Đọc hiểu Gia đình & Nhà trường",
+  "subject": "vietnamese",
+  "grade": 1,
+  "description": "Rèn luyện kỹ năng đọc hiểu đoạn văn ngắn 3-4 câu, trả lời câu hỏi tìm ý chính và liên hệ bản thân về gia đình và mái trường mến yêu.",
+  "totalDurationMinutes": 25,
+  "slides": [
+    {
+      "type": "title-slide",
+      "id": "vn17-title-slide",
+      "title": "Bài 17: Đọc hiểu Gia đình & Nhà trường",
+      "subtitle": "Tiếng Việt Lớp 1 — Bài học tương tác",
+      "teacherNote": "Rèn đọc thầm kết hợp đọc to rõ ràng, nhấn giọng ở từ khoá.",
+      "backgroundImage": "/media/images/star.svg",
+      "audio": "/media/tts/vn17-title.mp3"
+    },
+    {
+      "type": "content-slide",
+      "id": "vn17-intro-slide",
+      "title": "Đọc hiểu: Gia đình & Mái trường",
+      "body": "Gia đình là tổ ấm yêu thương, mái trường là ngôi nhà thứ hai của chúng mình. Cùng đọc đoạn văn và trả lời câu hỏi nhé!",
+      "teacherNote": "Hướng dẫn cả lớp luyện đọc đồng thanh các từ ngữ mẫu.",
+      "illustration": "/media/images/book.svg",
+      "audio": "/media/tts/vn17-intro.mp3",
+      "bullets": [
+        "Đoạn văn: 'Nhà bé có ông bà, bố mẹ và bé. Cả nhà luôn yêu thương nhau.'",
+        "'Mỗi ngày đến trường là một ngày vui.'",
+        "Học sinh ngoan lễ phép vâng lời thầy cô."
+      ]
+    },
+    {
+      "type": "question-slide",
+      "id": "vn17-slide-q1",
+      "teacherNote": "Câu hỏi 1: Đoạn văn kể: 'Nhà bé có ông bà, bố mẹ và",
+      "question": {
+        "type": "multiple_choice",
+        "id": "vn17-q1-mc",
+        "prompt": "Đoạn văn kể: 'Nhà bé có ông bà, bố mẹ và bé. Cả nhà luôn yêu thương nhau.' Đoạn văn trên nói về điều gì?",
+        "promptAudio": "/media/tts/vn17-q1-prompt.mp3",
+        "illustration": "/media/images/house.svg",
+        "options": [
+          {
+            "id": "vn17-opt-giadinh",
+            "label": "Gia đình yêu thương của bé",
+            "audio": "/media/tts/vn17-q1-opt0.mp3"
+          },
+          {
+            "id": "vn17-opt-truong",
+            "label": "Sân trường giờ ra chơi",
+            "audio": "/media/tts/vn17-q1-opt1.mp3"
+          },
+          {
+            "id": "vn17-opt-meo",
+            "label": "Chú mèo bắt chuột",
+            "audio": "/media/tts/vn17-q1-opt2.mp3"
+          }
+        ],
+        "correctOptionId": "vn17-opt-giadinh",
+        "explanation": "Đoạn văn giới thiệu các thành viên và tình cảm yêu thương trong gia đình bé.",
+        "explanationAudio": "/media/tts/vn17-q1-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn17-slide-q2",
+      "teacherNote": "Câu hỏi 2: Điền từ thích hợp vào câu: 'Mỗi ngày đến",
+      "question": {
+        "type": "tap_place",
+        "id": "vn17-q2-tap",
+        "prompt": "Điền từ thích hợp vào câu: 'Mỗi ngày đến trường là một ngày ...'",
+        "promptAudio": "/media/tts/vn17-q2-prompt.mp3",
+        "illustration": "/media/images/school.svg",
+        "targets": [
+          {
+            "id": "vn17-tgt-vui",
+            "label": "...",
+            "prefixText": "Mỗi ngày đến trường là một ngày ",
+            "suffixText": "."
+          }
+        ],
+        "items": [
+          {
+            "id": "vn17-it-vui",
+            "label": "vui",
+            "audio": "/media/tts/vn17-q2-it0.mp3"
+          },
+          {
+            "id": "vn17-it-buon",
+            "label": "buồn",
+            "audio": "/media/tts/vn17-q2-it1.mp3"
+          }
+        ],
+        "correctMapping": {
+          "vn17-it-vui": "vn17-tgt-vui"
+        },
+        "explanation": "Đến trường được gặp thầy cô, bạn bè nên mỗi ngày đến trường là một ngày vui.",
+        "explanationAudio": "/media/tts/vn17-q2-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn17-slide-q3",
+      "teacherNote": "Câu hỏi 3: Nối hành động ở cột trái với ý nghĩa tốt",
+      "question": {
+        "type": "matching",
+        "id": "vn17-q3-match",
+        "prompt": "Nối hành động ở cột trái với ý nghĩa tốt đẹp ở cột phải:",
+        "promptAudio": "/media/tts/vn17-q3-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "leftColumn": [
+          {
+            "id": "vn17-l-chao",
+            "label": "Bé chào cô giáo",
+            "audio": "/media/tts/vn17-q3-l0.mp3"
+          },
+          {
+            "id": "vn17-l-nau",
+            "label": "Mẹ nấu cơm",
+            "audio": "/media/tts/vn17-q3-l1.mp3"
+          },
+          {
+            "id": "vn17-l-giup",
+            "label": "Bé giúp mẹ quét nhà",
+            "audio": "/media/tts/vn17-q3-l2.mp3"
+          }
+        ],
+        "rightColumn": [
+          {
+            "id": "vn17-r-le-phep",
+            "label": "thể hiện sự lễ phép",
+            "audio": "/media/tts/vn17-q3-r0.mp3"
+          },
+          {
+            "id": "vn17-r-chamsoc",
+            "label": "chăm sóc cả nhà",
+            "audio": "/media/tts/vn17-q3-r1.mp3"
+          },
+          {
+            "id": "vn17-r-hieuthao",
+            "label": "hiếu thảo, chăm chỉ",
+            "audio": "/media/tts/vn17-q3-r2.mp3"
+          }
+        ],
+        "correctPairs": [
+          {
+            "leftId": "vn17-l-chao",
+            "rightId": "vn17-r-le-phep"
+          },
+          {
+            "leftId": "vn17-l-nau",
+            "rightId": "vn17-r-chamsoc"
+          },
+          {
+            "leftId": "vn17-l-giup",
+            "rightId": "vn17-r-hieuthao"
+          }
+        ],
+        "explanation": "Rất chính xác! Bé ngoan luôn biết chào hỏi lễ phép và giúp đỡ bố mẹ.",
+        "explanationAudio": "/media/tts/vn17-q3-exp.mp3"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn17-slide-q4",
+      "teacherNote": "Câu hỏi 4: Khi cô giáo đang giảng bài trên lớp, các",
+      "question": {
+        "type": "multiple_choice",
+        "id": "vn17-q4-mc",
+        "prompt": "Khi cô giáo đang giảng bài trên lớp, các em cần làm gì?",
+        "promptAudio": "/media/tts/vn17-q4-prompt.mp3",
+        "illustration": "/media/images/school.svg",
+        "options": [
+          {
+            "id": "vn17-q4-opt-chuy",
+            "label": "Chú ý lắng nghe cô giảng",
+            "audio": "/media/tts/vn17-q4-opt0.mp3"
+          },
+          {
+            "id": "vn17-q4-opt-noichuyen",
+            "label": "Nói chuyện riêng với bạn",
+            "audio": "/media/tts/vn17-q4-opt1.mp3"
+          },
+          {
+            "id": "vn17-q4-opt-chaynhay",
+            "label": "Chạy nhảy trong lớp",
+            "audio": "/media/tts/vn17-q4-opt2.mp3"
+          }
+        ],
+        "correctOptionId": "vn17-q4-opt-chuy",
+        "explanation": "Học sinh chăm ngoan luôn tập trung chú ý lắng nghe cô giảng bài.",
+        "explanationAudio": "/media/tts/vn17-q4-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn17-slide-q5",
+      "teacherNote": "Câu hỏi 5: Điền từ còn thiếu vào câu ca dao: 'Công ",
+      "question": {
+        "type": "tap_place",
+        "id": "vn17-q5-tap",
+        "prompt": "Điền từ còn thiếu vào câu ca dao: 'Công cha như núi Thái Sơn, nghĩa mẹ như ... trong nguồn chảy ra.'",
+        "promptAudio": "/media/tts/vn17-q5-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "targets": [
+          {
+            "id": "vn17-tgt-nuoc",
+            "label": "...",
+            "prefixText": "Nghĩa mẹ như ",
+            "suffixText": " trong nguồn chảy ra."
+          }
+        ],
+        "items": [
+          {
+            "id": "vn17-it-nuoc",
+            "label": "nước",
+            "audio": "/media/tts/vn17-q5-it0.mp3"
+          },
+          {
+            "id": "vn17-it-may",
+            "label": "mây",
+            "audio": "/media/tts/vn17-q5-it1.mp3"
+          }
+        ],
+        "correctMapping": {
+          "vn17-it-nuoc": "vn17-tgt-nuoc"
+        },
+        "explanation": "Câu ca dao bất hủ dạy con lòng biết ơn sâu sắc: Nghĩa mẹ như nước trong nguồn chảy ra.",
+        "explanationAudio": "/media/tts/vn17-q5-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn17-slide-q6",
+      "teacherNote": "Câu hỏi 6: Nối từ ở cột trái với từ ở cột phải tạo ",
+      "question": {
+        "type": "matching",
+        "id": "vn17-q6-match",
+        "prompt": "Nối từ ở cột trái với từ ở cột phải tạo từ ghép chỉ tình cảm tốt đẹp:",
+        "promptAudio": "/media/tts/vn17-q6-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "leftColumn": [
+          {
+            "id": "vn17-l2-yeu",
+            "label": "yêu",
+            "audio": "/media/tts/vn17-q6-l0.mp3"
+          },
+          {
+            "id": "vn17-l2-kinh",
+            "label": "kính",
+            "audio": "/media/tts/vn17-q6-l1.mp3"
+          },
+          {
+            "id": "vn17-l2-hieu",
+            "label": "hiếu",
+            "audio": "/media/tts/vn17-q6-l2.mp3"
+          }
+        ],
+        "rightColumn": [
+          {
+            "id": "vn17-r2-thuong",
+            "label": "thương",
+            "audio": "/media/tts/vn17-q6-r0.mp3"
+          },
+          {
+            "id": "vn17-r2-trong",
+            "label": "trọng",
+            "audio": "/media/tts/vn17-q6-r1.mp3"
+          },
+          {
+            "id": "vn17-r2-thao",
+            "label": "thảo",
+            "audio": "/media/tts/vn17-q6-r2.mp3"
+          }
+        ],
+        "correctPairs": [
+          {
+            "leftId": "vn17-l2-yeu",
+            "rightId": "vn17-r2-thuong"
+          },
+          {
+            "leftId": "vn17-l2-kinh",
+            "rightId": "vn17-r2-trong"
+          },
+          {
+            "leftId": "vn17-l2-hieu",
+            "rightId": "vn17-r2-thao"
+          }
+        ],
+        "explanation": "Bé thật xuất sắc! Yêu thương, kính trọng, hiếu thảo là những phẩm chất cao quý.",
+        "explanationAudio": "/media/tts/vn17-q6-exp.mp3"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    }
+  ]
+}

@@ -1,0 +1,313 @@
+{
+  "status": "publish",
+  "mode": "publish",
+  "id": "vn-11-van-t-c",
+  "title": "Bài 11: Các vần kết thúc bằng t, c",
+  "subject": "vietnamese",
+  "grade": 1,
+  "description": "Làm quen với các vần khép âm at, ac, et, ec, ot, oc và luyện đọc các từ bãi cát, hạt thóc, chim vẹt, cá nóc qua 6 câu hỏi tương tác.",
+  "totalDurationMinutes": 25,
+  "slides": [
+    {
+      "type": "title-slide",
+      "id": "vn11-title-slide",
+      "title": "Bài 11: Các vần kết thúc bằng t, c",
+      "subtitle": "Tiếng Việt Lớp 1 — Bài học tương tác",
+      "teacherNote": "Chú ý phát âm dứt khoát âm cuối t (chặn lưỡi) và c (chặn họng).",
+      "backgroundImage": "/media/images/star.svg",
+      "audio": "/media/tts/vn11-title.mp3"
+    },
+    {
+      "type": "content-slide",
+      "id": "vn11-intro-slide",
+      "title": "Các vần kết thúc bằng T, C",
+      "body": "Hôm nay chúng mình học các vần có âm cuối t và c: at, ac, et, ec, ot, oc. Cùng luyện đọc: bãi cát, hạt thóc, chim vẹt, cá nóc!",
+      "teacherNote": "Hướng dẫn cả lớp luyện đọc đồng thanh các từ ngữ mẫu.",
+      "illustration": "/media/images/book.svg",
+      "audio": "/media/tts/vn11-intro.mp3",
+      "bullets": [
+        "at — cát (bãi cát trắng)",
+        "ac — vạc (con chim vạc)",
+        "et — vẹt (chú vẹt biết nói)",
+        "oc — thóc (hạt thóc vàng ươm)"
+      ]
+    },
+    {
+      "type": "question-slide",
+      "id": "vn11-slide-q1",
+      "teacherNote": "Câu hỏi 1: Tiếng 'cát' trong 'bãi cát' có vần gì?",
+      "question": {
+        "type": "multiple_choice",
+        "id": "vn11-q1-mc",
+        "prompt": "Tiếng 'cát' trong 'bãi cát' có vần gì?",
+        "promptAudio": "/media/tts/vn11-q1-prompt.mp3",
+        "illustration": "/media/images/sun.svg",
+        "options": [
+          {
+            "id": "vn11-opt-at",
+            "label": "Vần at",
+            "audio": "/media/tts/vn11-q1-opt0.mp3"
+          },
+          {
+            "id": "vn11-opt-ac",
+            "label": "Vần ac",
+            "audio": "/media/tts/vn11-q1-opt1.mp3"
+          },
+          {
+            "id": "vn11-opt-ot",
+            "label": "Vần ot",
+            "audio": "/media/tts/vn11-q1-opt2.mp3"
+          }
+        ],
+        "correctOptionId": "vn11-opt-at",
+        "explanation": "Tiếng cát gồm âm c đứng trước, vần at đứng sau: c - at - cat - sắc - cát.",
+        "explanationAudio": "/media/tts/vn11-q1-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn11-slide-q2",
+      "teacherNote": "Câu hỏi 2: Điền vần thích hợp để có từ chú vẹt:",
+      "question": {
+        "type": "tap_place",
+        "id": "vn11-q2-tap",
+        "prompt": "Điền vần thích hợp để có từ chú vẹt:",
+        "promptAudio": "/media/tts/vn11-q2-prompt.mp3",
+        "illustration": "/media/images/bird.svg",
+        "targets": [
+          {
+            "id": "vn11-tgt-vet",
+            "label": "...",
+            "prefixText": "Chú v",
+            "suffixText": ""
+          }
+        ],
+        "items": [
+          {
+            "id": "vn11-it-et",
+            "label": "ẹt",
+            "audio": "/media/tts/vn11-q2-it0.mp3"
+          },
+          {
+            "id": "vn11-it-ac",
+            "label": "ạc",
+            "audio": "/media/tts/vn11-q2-it1.mp3"
+          }
+        ],
+        "correctMapping": {
+          "vn11-it-et": "vn11-tgt-vet"
+        },
+        "explanation": "Tiếng vẹt có vần et: v - et - vet - nặng - vẹt.",
+        "explanationAudio": "/media/tts/vn11-q2-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn11-slide-q3",
+      "teacherNote": "Câu hỏi 3: Nối từ ở cột trái với từ ở cột phải để t",
+      "question": {
+        "type": "matching",
+        "id": "vn11-q3-match",
+        "prompt": "Nối từ ở cột trái với từ ở cột phải để tạo từ đúng:",
+        "promptAudio": "/media/tts/vn11-q3-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "leftColumn": [
+          {
+            "id": "vn11-l-hat",
+            "label": "hạt",
+            "audio": "/media/tts/vn11-q3-l0.mp3"
+          },
+          {
+            "id": "vn11-l-bai",
+            "label": "bãi",
+            "audio": "/media/tts/vn11-q3-l1.mp3"
+          },
+          {
+            "id": "vn11-l-chim",
+            "label": "chim",
+            "audio": "/media/tts/vn11-q3-l2.mp3"
+          }
+        ],
+        "rightColumn": [
+          {
+            "id": "vn11-r-thoc",
+            "label": "thóc vàng",
+            "audio": "/media/tts/vn11-q3-r0.mp3"
+          },
+          {
+            "id": "vn11-r-cat",
+            "label": "cát trắng",
+            "audio": "/media/tts/vn11-q3-r1.mp3"
+          },
+          {
+            "id": "vn11-r-vet",
+            "label": "vẹt xanh",
+            "audio": "/media/tts/vn11-q3-r2.mp3"
+          }
+        ],
+        "correctPairs": [
+          {
+            "leftId": "vn11-l-hat",
+            "rightId": "vn11-r-thoc"
+          },
+          {
+            "leftId": "vn11-l-bai",
+            "rightId": "vn11-r-cat"
+          },
+          {
+            "leftId": "vn11-l-chim",
+            "rightId": "vn11-r-vet"
+          }
+        ],
+        "explanation": "Chính xác! Hạt thóc vàng, bãi cát trắng, chim vẹt xanh.",
+        "explanationAudio": "/media/tts/vn11-q3-exp.mp3"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn11-slide-q4",
+      "teacherNote": "Câu hỏi 4: Tiếng nào dưới đây có chứa vần 'oc'?",
+      "question": {
+        "type": "multiple_choice",
+        "id": "vn11-q4-mc",
+        "prompt": "Tiếng nào dưới đây có chứa vần 'oc'?",
+        "promptAudio": "/media/tts/vn11-q4-prompt.mp3",
+        "illustration": "/media/images/flower.svg",
+        "options": [
+          {
+            "id": "vn11-q4-opt-thoc",
+            "label": "hạt thóc",
+            "audio": "/media/tts/vn11-q4-opt0.mp3"
+          },
+          {
+            "id": "vn11-q4-opt-cat",
+            "label": "bãi cát",
+            "audio": "/media/tts/vn11-q4-opt1.mp3"
+          },
+          {
+            "id": "vn11-q4-opt-vet",
+            "label": "chim vẹt",
+            "audio": "/media/tts/vn11-q4-opt2.mp3"
+          }
+        ],
+        "correctOptionId": "vn11-q4-opt-thoc",
+        "explanation": "Tiếng thóc có âm th đứng trước, vần oc đứng sau: th - oc - thoc - sắc - thóc.",
+        "explanationAudio": "/media/tts/vn11-q4-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn11-slide-q5",
+      "teacherNote": "Câu hỏi 5: Điền vần thích hợp để hoàn thiện từ bãi ",
+      "question": {
+        "type": "tap_place",
+        "id": "vn11-q5-tap",
+        "prompt": "Điền vần thích hợp để hoàn thiện từ bãi cát:",
+        "promptAudio": "/media/tts/vn11-q5-prompt.mp3",
+        "illustration": "/media/images/sun.svg",
+        "targets": [
+          {
+            "id": "vn11-tgt-cat",
+            "label": "...",
+            "prefixText": "Bãi c",
+            "suffixText": ""
+          }
+        ],
+        "items": [
+          {
+            "id": "vn11-it-at",
+            "label": "át",
+            "audio": "/media/tts/vn11-q5-it0.mp3"
+          },
+          {
+            "id": "vn11-it-et",
+            "label": "ét",
+            "audio": "/media/tts/vn11-q5-it1.mp3"
+          }
+        ],
+        "correctMapping": {
+          "vn11-it-at": "vn11-tgt-cat"
+        },
+        "explanation": "Tiếng cát có vần át: c - át - cát.",
+        "explanationAudio": "/media/tts/vn11-q5-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn11-slide-q6",
+      "teacherNote": "Câu hỏi 6: Nối từ với hình minh họa thích hợp:",
+      "question": {
+        "type": "matching",
+        "id": "vn11-q6-match",
+        "prompt": "Nối từ với hình minh họa thích hợp:",
+        "promptAudio": "/media/tts/vn11-q6-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "leftColumn": [
+          {
+            "id": "vn11-l2-vet",
+            "label": "chim vẹt",
+            "audio": "/media/tts/vn11-q6-l0.mp3"
+          },
+          {
+            "id": "vn11-l2-nang",
+            "label": "nắng ấm",
+            "audio": "/media/tts/vn11-q6-l1.mp3"
+          },
+          {
+            "id": "vn11-l2-hoa",
+            "label": "hoa nở",
+            "audio": "/media/tts/vn11-q6-l2.mp3"
+          }
+        ],
+        "rightColumn": [
+          {
+            "id": "vn11-r2-vet",
+            "label": "chú vẹt nhỏ",
+            "audio": "/media/tts/vn11-q6-r0.mp3",
+            "image": "/media/images/bird.svg"
+          },
+          {
+            "id": "vn11-r2-nang",
+            "label": "ông mặt trời",
+            "audio": "/media/tts/vn11-q6-r1.mp3",
+            "image": "/media/images/sun.svg"
+          },
+          {
+            "id": "vn11-r2-hoa",
+            "label": "bông hoa tươi",
+            "audio": "/media/tts/vn11-q6-r2.mp3",
+            "image": "/media/images/flower.svg"
+          }
+        ],
+        "correctPairs": [
+          {
+            "leftId": "vn11-l2-vet",
+            "rightId": "vn11-r2-vet"
+          },
+          {
+            "leftId": "vn11-l2-nang",
+            "rightId": "vn11-r2-nang"
+          },
+          {
+            "leftId": "vn11-l2-hoa",
+            "rightId": "vn11-r2-hoa"
+          }
+        ],
+        "explanation": "Bé học rất giỏi! Vẹt, mặt trời và hoa đều được nối rất chuẩn xác.",
+        "explanationAudio": "/media/tts/vn11-q6-exp.mp3"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    }
+  ]
+}

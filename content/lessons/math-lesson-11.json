@@ -1,0 +1,283 @@
+{
+  "status": "publish",
+  "mode": "publish",
+  "id": "math-11-spatial-orientation",
+  "title": "Vị trí & Định hướng không gian",
+  "subject": "math",
+  "grade": 1,
+  "description": "Bài học Toán 1: Xác định vị trí trên – dưới, phải – trái, trước – sau và ở giữa.",
+  "totalDurationMinutes": 25,
+  "slides": [
+    {
+      "type": "title-slide",
+      "id": "m11-slide-title",
+      "title": "Vị trí và Định hướng không gian",
+      "subtitle": "Toán Lớp 1 — Bài học tương tác",
+      "teacherNote": "Dạy học sinh phân biệt tay phải, tay trái và đồ vật xung quanh.",
+      "backgroundImage": "/media/images/flag.svg",
+      "audio": "/media/tts/m11-title.mp3"
+    },
+    {
+      "type": "content-slide",
+      "id": "m11-slide-intro",
+      "title": "Phải, Trái, Trên, Dưới",
+      "body": "Tay phải cầm bút, tay trái giữ vở. Đèn trần ở phía trên, sàn nhà ở phía dưới. Cùng cô xác định vị trí đồ vật nhé!",
+      "teacherNote": "Cho cả lớp cùng giơ tay phải, rồi giơ tay trái.",
+      "illustration": "/media/images/flag.svg",
+      "audio": "/media/tts/m11-intro.mp3",
+      "bullets": [
+        "Tay phải cầm bút viết bài",
+        "Tay trái đặt nhẹ giữ trang vở",
+        "Phía trên và phía dưới"
+      ]
+    },
+    {
+      "type": "question-slide",
+      "id": "m11-slide-q1",
+      "teacherNote": "Xác định vị trí trên",
+      "question": {
+        "type": "multiple_choice",
+        "id": "m11-q1-mc",
+        "prompt": "Mặt trời ở phía nào so với mặt đất?",
+        "promptAudio": "/media/tts/m11-q1-prompt.mp3",
+        "illustration": "/media/images/sun.svg",
+        "options": [
+          {
+            "id": "m11-opt-tren",
+            "label": "Ở phía trên",
+            "audio": "/media/tts/m11-opt-phia-tren.mp3"
+          },
+          {
+            "id": "m11-opt-duoi",
+            "label": "Ở phía dưới",
+            "audio": "/media/tts/m11-opt-phia-duoi.mp3"
+          },
+          {
+            "id": "m11-opt-sau",
+            "label": "Ở phía sau",
+            "audio": "/media/tts/m11-opt-phia-sau.mp3"
+          }
+        ],
+        "explanation": "Mặt trời chiếu sáng trên bầu trời cao, tức là ở phía trên.",
+        "explanationAudio": "/media/tts/m11-q1-exp.mp3",
+        "correctOptionId": "m11-opt-tren"
+      },
+      "timeLimitSeconds": 20,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m11-slide-q2",
+      "teacherNote": "Nối vị trí đối nghịch",
+      "question": {
+        "type": "matching",
+        "id": "m11-q2-matching",
+        "prompt": "Nối các cặp từ chỉ vị trí đối nhau:",
+        "promptAudio": "/media/tts/m11-q2-prompt.mp3",
+        "leftColumn": [
+          {
+            "id": "m11-l1",
+            "text": "Bên phải",
+            "audio": "/media/tts/m11-lbl-ben-phai.mp3",
+            "label": "Bên phải"
+          },
+          {
+            "id": "m11-l2",
+            "text": "Phía trên",
+            "audio": "/media/tts/m11-lbl-phia-tren.mp3",
+            "label": "Phía trên"
+          },
+          {
+            "id": "m11-l3",
+            "text": "Đằng trước",
+            "audio": "/media/tts/m11-lbl-dang-truoc.mp3",
+            "label": "Đằng trước"
+          }
+        ],
+        "rightColumn": [
+          {
+            "id": "m11-r1",
+            "text": "Bên trái",
+            "audio": "/media/tts/m11-lbl-ben-trai.mp3",
+            "label": "Bên trái"
+          },
+          {
+            "id": "m11-r2",
+            "text": "Phía dưới",
+            "audio": "/media/tts/m11-lbl-phia-duoi.mp3",
+            "label": "Phía dưới"
+          },
+          {
+            "id": "m11-r3",
+            "text": "Đằng sau",
+            "audio": "/media/tts/m11-lbl-dang-sau.mp3",
+            "label": "Đằng sau"
+          }
+        ],
+        "correctPairs": [
+          {
+            "leftId": "m11-l1",
+            "rightId": "m11-r1"
+          },
+          {
+            "leftId": "m11-l2",
+            "rightId": "m11-r2"
+          },
+          {
+            "leftId": "m11-l3",
+            "rightId": "m11-r3"
+          }
+        ],
+        "explanation": "Phải đối với trái, trên đối với dưới, trước đối với sau.",
+        "explanationAudio": "/media/tts/m11-q2-exp.mp3",
+        "illustration": "/media/images/star.svg"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m11-slide-q3",
+      "teacherNote": "Điền từ chỉ vị trí",
+      "question": {
+        "type": "tap_place",
+        "id": "m11-q3-tap",
+        "prompt": "Chọn từ thích hợp điền vào câu: Em cầm bút bằng tay ...",
+        "promptAudio": "/media/tts/m11-q3-prompt.mp3",
+        "targets": [
+          {
+            "id": "m11-t1",
+            "label": "Tên tay",
+            "prefixText": "Em cầm bút bằng tay ",
+            "suffixText": "."
+          }
+        ],
+        "items": [
+          {
+            "id": "m11-i1",
+            "text": "phải",
+            "audio": "/media/tts/m11-word-phai.mp3",
+            "label": "phải"
+          },
+          {
+            "id": "m11-i2",
+            "text": "trái",
+            "audio": "/media/tts/m11-word-trai.mp3",
+            "label": "trái"
+          },
+          {
+            "id": "m11-i3",
+            "text": "dưới",
+            "audio": "/media/tts/m11-word-duoi.mp3",
+            "label": "dưới"
+          }
+        ],
+        "correctMapping": {
+          "m11-i1": "m11-t1"
+        },
+        "explanation": "Học sinh thuận tay phải cầm bút bằng tay phải.",
+        "explanationAudio": "/media/tts/m11-q3-exp.mp3",
+        "illustration": "/media/images/star.svg"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m11-slide-q4",
+      "teacherNote": "Đếm chim bay trên cây",
+      "question": {
+        "type": "counting",
+        "id": "m11-q4-counting",
+        "prompt": "Đếm xem có bao nhiêu chú chim đang bay phía trên cành cây?",
+        "promptAudio": "/media/tts/m11-q4-prompt.mp3",
+        "illustration": "/media/images/bird.svg",
+        "items": [
+          {
+            "image": "/media/images/bird.svg",
+            "alt": "Chim 1"
+          },
+          {
+            "image": "/media/images/bird.svg",
+            "alt": "Chim 2"
+          },
+          {
+            "image": "/media/images/bird.svg",
+            "alt": "Chim 3"
+          },
+          {
+            "image": "/media/images/bird.svg",
+            "alt": "Chim 4"
+          }
+        ],
+        "correctCount": 4,
+        "numberRange": {
+          "min": 1,
+          "max": 10
+        },
+        "explanation": "Có đúng 4 chú chim đang bay lượn.",
+        "explanationAudio": "/media/tts/m11-q4-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m11-slide-q5",
+      "teacherNote": "Xác định đồ vật ở giữa",
+      "question": {
+        "type": "multiple_choice",
+        "id": "m11-q5-mc",
+        "prompt": "Trong ba bạn: An, Bình, Cúc xếp hàng từ trái sang phải, bạn nào ở giữa?",
+        "promptAudio": "/media/tts/m11-q5-prompt.mp3",
+        "illustration": "/media/images/chair.svg",
+        "options": [
+          {
+            "id": "m11-opt-binh",
+            "label": "Bạn Bình",
+            "audio": "/media/tts/m11-opt-ban-binh.mp3"
+          },
+          {
+            "id": "m11-opt-an",
+            "label": "Bạn An",
+            "audio": "/media/tts/m11-opt-ban-an.mp3"
+          },
+          {
+            "id": "m11-opt-cuc",
+            "label": "Bạn Cúc",
+            "audio": "/media/tts/m11-opt-ban-cuc.mp3"
+          }
+        ],
+        "explanation": "Bạn Bình đứng giữa bạn An và bạn Cúc.",
+        "explanationAudio": "/media/tts/m11-q5-exp.mp3",
+        "correctOptionId": "m11-opt-binh"
+      },
+      "timeLimitSeconds": 20,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m11-slide-q6",
+      "teacherNote": "Tính nhẩm vị trí",
+      "question": {
+        "type": "number_select",
+        "id": "m11-q6-ns",
+        "prompt": "Bên phải có 3 bạn, bên trái có 2 bạn. Có tất cả mấy bạn?",
+        "promptAudio": "/media/tts/m11-q6-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "expression": "3 + 2 = ?",
+        "choices": [
+          4,
+          5,
+          6,
+          7
+        ],
+        "correctAnswer": 5,
+        "explanation": "Ba bạn cộng hai bạn là năm bạn. 3 + 2 = 5.",
+        "explanationAudio": "/media/tts/m11-q6-exp.mp3"
+      },
+      "timeLimitSeconds": 20,
+      "showRetryOnWrong": true
+    }
+  ]
+}

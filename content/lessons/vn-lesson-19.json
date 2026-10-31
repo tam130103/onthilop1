@@ -1,0 +1,310 @@
+{
+  "status": "publish",
+  "mode": "publish",
+  "id": "vn-19-chinh-ta-nang-cao",
+  "title": "Bài 19: Chính tả nâng cao l/n, hỏi/ngã",
+  "subject": "vietnamese",
+  "grade": 1,
+  "description": "Rèn luyện quy tắc chính tả phân biệt l và n, dấu hỏi và dấu ngã, vần an và ang qua 6 câu hỏi thực hành tương tác sinh động.",
+  "totalDurationMinutes": 25,
+  "slides": [
+    {
+      "type": "title-slide",
+      "id": "vn19-title-slide",
+      "title": "Bài 19: Chính tả nâng cao l/n, hỏi/ngã",
+      "subtitle": "Tiếng Việt Lớp 1 — Bài học tương tác",
+      "teacherNote": "Hướng dẫn tư thế lưỡi khi phát âm l (uốn cong chạm vòm họng) và n (thẳng lưỡi).",
+      "backgroundImage": "/media/images/star.svg",
+      "audio": "/media/tts/vn19-title.mp3"
+    },
+    {
+      "type": "content-slide",
+      "id": "vn19-intro-slide",
+      "title": "Chính tả: Phân biệt L/N và Dấu Thanh",
+      "body": "Phân biệt đúng l và n, dấu hỏi và dấu ngã giúp em viết đúng chính tả tiếng Việt. Cùng luyện tập qua các bài đố vui nhé!",
+      "teacherNote": "Hướng dẫn cả lớp luyện đọc đồng thanh các từ ngữ mẫu.",
+      "illustration": "/media/images/book.svg",
+      "audio": "/media/tts/vn19-intro.mp3",
+      "bullets": [
+        "l — lúa (đồng lúa chín vàng)",
+        "n — nón (chiếc nón lá nghiêng che)",
+        "an — bạn (bạn bè thân thiết)",
+        "ang — vàng (sắc hoa vàng tươi)"
+      ]
+    },
+    {
+      "type": "question-slide",
+      "id": "vn19-slide-q1",
+      "teacherNote": "Câu hỏi 1: Từ nào dưới đây viết ĐÚNG chính tả?",
+      "question": {
+        "type": "multiple_choice",
+        "id": "vn19-q1-mc",
+        "prompt": "Từ nào dưới đây viết ĐÚNG chính tả?",
+        "promptAudio": "/media/tts/vn19-q1-prompt.mp3",
+        "illustration": "/media/images/sun.svg",
+        "options": [
+          {
+            "id": "vn19-opt-nonla",
+            "label": "nón lá",
+            "audio": "/media/tts/vn19-q1-opt0.mp3"
+          },
+          {
+            "id": "vn19-opt-lonla",
+            "label": "lón lá",
+            "audio": "/media/tts/vn19-q1-opt1.mp3"
+          },
+          {
+            "id": "vn19-opt-nonna",
+            "label": "nón ná",
+            "audio": "/media/tts/vn19-q1-opt2.mp3"
+          }
+        ],
+        "correctOptionId": "vn19-opt-nonla",
+        "explanation": "Nón bắt đầu bằng n, lá bắt đầu bằng l: nón lá.",
+        "explanationAudio": "/media/tts/vn19-q1-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn19-slide-q2",
+      "teacherNote": "Câu hỏi 2: Điền 'l' hoặc 'n' vào chỗ trống: 'Hoa ..",
+      "question": {
+        "type": "tap_place",
+        "id": "vn19-q2-tap",
+        "prompt": "Điền 'l' hoặc 'n' vào chỗ trống: 'Hoa ...an nở trắng vườn.'",
+        "promptAudio": "/media/tts/vn19-q2-prompt.mp3",
+        "illustration": "/media/images/flower.svg",
+        "targets": [
+          {
+            "id": "vn19-tgt-lan",
+            "label": "...",
+            "prefixText": "Hoa ",
+            "suffixText": "an nở trắng vườn."
+          }
+        ],
+        "items": [
+          {
+            "id": "vn19-it-l",
+            "label": "l",
+            "audio": "/media/tts/vn19-q2-it0.mp3"
+          },
+          {
+            "id": "vn19-it-n",
+            "label": "n",
+            "audio": "/media/tts/vn19-q2-it1.mp3"
+          }
+        ],
+        "correctMapping": {
+          "vn19-it-l": "vn19-tgt-lan"
+        },
+        "explanation": "Hoa lan viết bằng âm l: l - an - lan.",
+        "explanationAudio": "/media/tts/vn19-q2-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn19-slide-q3",
+      "teacherNote": "Câu hỏi 3: Nối từ ở cột trái với dấu thanh thích hợ",
+      "question": {
+        "type": "matching",
+        "id": "vn19-q3-match",
+        "prompt": "Nối từ ở cột trái với dấu thanh thích hợp ở cột phải:",
+        "promptAudio": "/media/tts/vn19-q3-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "leftColumn": [
+          {
+            "id": "vn19-l-buoi",
+            "label": "quả bưởi",
+            "audio": "/media/tts/vn19-q3-l0.mp3"
+          },
+          {
+            "id": "vn19-l-mu",
+            "label": "chiếc mũ",
+            "audio": "/media/tts/vn19-q3-l1.mp3"
+          },
+          {
+            "id": "vn19-l-sao",
+            "label": "ngôi sao",
+            "audio": "/media/tts/vn19-q3-l2.mp3"
+          }
+        ],
+        "rightColumn": [
+          {
+            "id": "vn19-r-hoi",
+            "label": "thanh hỏi",
+            "audio": "/media/tts/vn19-q3-r0.mp3"
+          },
+          {
+            "id": "vn19-r-nga",
+            "label": "thanh ngã",
+            "audio": "/media/tts/vn19-q3-r1.mp3"
+          },
+          {
+            "id": "vn19-r-ngang",
+            "label": "thanh ngang",
+            "audio": "/media/tts/vn19-q3-r2.mp3"
+          }
+        ],
+        "correctPairs": [
+          {
+            "leftId": "vn19-l-buoi",
+            "rightId": "vn19-r-hoi"
+          },
+          {
+            "leftId": "vn19-l-mu",
+            "rightId": "vn19-r-nga"
+          },
+          {
+            "leftId": "vn19-l-sao",
+            "rightId": "vn19-r-ngang"
+          }
+        ],
+        "explanation": "Rất chuẩn! Quả bưởi có thanh hỏi, chiếc mũ có thanh ngã, ngôi sao có thanh ngang.",
+        "explanationAudio": "/media/tts/vn19-q3-exp.mp3"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn19-slide-q4",
+      "teacherNote": "Câu hỏi 4: Từ nào dưới đây viết SAI chính tả?",
+      "question": {
+        "type": "multiple_choice",
+        "id": "vn19-q4-mc",
+        "prompt": "Từ nào dưới đây viết SAI chính tả?",
+        "promptAudio": "/media/tts/vn19-q4-prompt.mp3",
+        "illustration": "/media/images/book.svg",
+        "options": [
+          {
+            "id": "vn19-q4-opt-lanua",
+            "label": "lá nụa (sai)",
+            "audio": "/media/tts/vn19-q4-opt0.mp3"
+          },
+          {
+            "id": "vn19-q4-opt-hoalan",
+            "label": "hoa lan",
+            "audio": "/media/tts/vn19-q4-opt1.mp3"
+          },
+          {
+            "id": "vn19-q4-opt-nuhoa",
+            "label": "nụ hoa",
+            "audio": "/media/tts/vn19-q4-opt2.mp3"
+          }
+        ],
+        "correctOptionId": "vn19-q4-opt-lanua",
+        "explanation": "Từ 'lá nụa' viết sai, từ đúng phải là 'lá lúa'.",
+        "explanationAudio": "/media/tts/vn19-q4-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn19-slide-q5",
+      "teacherNote": "Câu hỏi 5: Điền vần 'an' hoặc 'ang' vào chỗ trống: ",
+      "question": {
+        "type": "tap_place",
+        "id": "vn19-q5-tap",
+        "prompt": "Điền vần 'an' hoặc 'ang' vào chỗ trống: 'Đồng lúa chín v...'",
+        "promptAudio": "/media/tts/vn19-q5-prompt.mp3",
+        "illustration": "/media/images/sun.svg",
+        "targets": [
+          {
+            "id": "vn19-tgt-vang",
+            "label": "...",
+            "prefixText": "Đồng lúa chín v",
+            "suffixText": "."
+          }
+        ],
+        "items": [
+          {
+            "id": "vn19-it-ang",
+            "label": "àng",
+            "audio": "/media/tts/vn19-q5-it0.mp3"
+          },
+          {
+            "id": "vn19-it-an",
+            "label": "àn",
+            "audio": "/media/tts/vn19-q5-it1.mp3"
+          }
+        ],
+        "correctMapping": {
+          "vn19-it-ang": "vn19-tgt-vang"
+        },
+        "explanation": "Đồng lúa chín vàng, tiếng vàng có vần ang.",
+        "explanationAudio": "/media/tts/vn19-q5-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn19-slide-q6",
+      "teacherNote": "Câu hỏi 6: Nối cặp từ phân biệt l và n ở hai cột:",
+      "question": {
+        "type": "matching",
+        "id": "vn19-q6-match",
+        "prompt": "Nối cặp từ phân biệt l và n ở hai cột:",
+        "promptAudio": "/media/tts/vn19-q6-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "leftColumn": [
+          {
+            "id": "vn19-l2-lua",
+            "label": "lúa",
+            "audio": "/media/tts/vn19-q6-l0.mp3"
+          },
+          {
+            "id": "vn19-l2-lam",
+            "label": "làm",
+            "audio": "/media/tts/vn19-q6-l1.mp3"
+          },
+          {
+            "id": "vn19-l2-no",
+            "label": "nô",
+            "audio": "/media/tts/vn19-q6-l2.mp3"
+          }
+        ],
+        "rightColumn": [
+          {
+            "id": "vn19-r2-nep",
+            "label": "nếp thơm",
+            "audio": "/media/tts/vn19-q6-r0.mp3"
+          },
+          {
+            "id": "vn19-r2-nen",
+            "label": "nên công việc",
+            "audio": "/media/tts/vn19-q6-r1.mp3"
+          },
+          {
+            "id": "vn19-r2-dua",
+            "label": "đùa vui vẻ",
+            "audio": "/media/tts/vn19-q6-r2.mp3"
+          }
+        ],
+        "correctPairs": [
+          {
+            "leftId": "vn19-l2-lua",
+            "rightId": "vn19-r2-nep"
+          },
+          {
+            "leftId": "vn19-l2-lam",
+            "rightId": "vn19-r2-nen"
+          },
+          {
+            "leftId": "vn19-l2-no",
+            "rightId": "vn19-r2-dua"
+          }
+        ],
+        "explanation": "Bé thật xuất sắc! Bé đã nắm vững quy tắc chính tả phân biệt l và n.",
+        "explanationAudio": "/media/tts/vn19-q6-exp.mp3"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    }
+  ]
+}

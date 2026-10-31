@@ -1,0 +1,269 @@
+{
+  "status": "publish",
+  "mode": "publish",
+  "id": "math-13-tron-chuc",
+  "title": "Các số tròn chục và Cộng trừ số tròn chục",
+  "subject": "math",
+  "grade": 1,
+  "description": "Bài học Toán 1: Làm quen các số tròn chục từ 10 đến 90 và thực hành cộng trừ các số tròn chục nhanh chóng.",
+  "totalDurationMinutes": 25,
+  "slides": [
+    {
+      "type": "title-slide",
+      "id": "m13-slide-title",
+      "title": "Các số tròn chục (10 đến 90)",
+      "subtitle": "Toán Lớp 1 — Bài học tương tác",
+      "teacherNote": "Dùng thanh 10 khối lập phương để minh họa 1 chục, 2 chục...",
+      "backgroundImage": "/media/images/ten-rod.svg",
+      "audio": "/media/tts/m13-title.mp3"
+    },
+    {
+      "type": "content-slide",
+      "id": "m13-slide-intro",
+      "title": "Khám phá các số tròn chục",
+      "body": "10 là một chục, 20 là hai chục, 30 là ba chục, ..., 90 là chín chục. Muốn cộng trừ các số tròn chục, ta cộng trừ chữ số hàng chục và thêm số 0 ở sau!",
+      "teacherNote": "Ví dụ: 2 chục + 3 chục = 5 chục (20 + 30 = 50).",
+      "illustration": "/media/images/ten-rod.svg",
+      "audio": "/media/tts/m13-intro.mp3",
+      "bullets": [
+        "Các số tròn chục: 10, 20, 30, 40, 50, 60, 70, 80, 90",
+        "20 + 30 = 50 (2 chục + 3 chục = 5 chục)",
+        "70 - 20 = 50 (7 chục - 2 chục = 5 chục)"
+      ]
+    },
+    {
+      "type": "question-slide",
+      "id": "m13-slide-q1",
+      "teacherNote": "Đếm số thanh tròn chục",
+      "question": {
+        "type": "counting",
+        "id": "m13-q1-counting",
+        "prompt": "Mỗi thanh có 10 khối. Có tất cả bao nhiêu khối lập phương?",
+        "promptAudio": "/media/tts/m13-q1-prompt.mp3",
+        "illustration": "/media/images/ten-rod.svg",
+        "items": [
+          {
+            "image": "/media/images/ten-rod.svg",
+            "alt": "Thanh 10 thứ 1"
+          },
+          {
+            "image": "/media/images/ten-rod.svg",
+            "alt": "Thanh 10 thứ 2"
+          },
+          {
+            "image": "/media/images/ten-rod.svg",
+            "alt": "Thanh 10 thứ 3"
+          }
+        ],
+        "correctCount": 3,
+        "numberRange": {
+          "min": 1,
+          "max": 10
+        },
+        "explanation": "Có 3 thanh mười khối, tức là có 30 khối lập phương.",
+        "explanationAudio": "/media/tts/m13-q1-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m13-slide-q2",
+      "teacherNote": "Phép cộng 20 + 30",
+      "question": {
+        "type": "number_select",
+        "id": "m13-q2-ns",
+        "prompt": "Bé hãy tính kết quả phép tính sau:",
+        "promptAudio": "/media/tts/m13-q2-prompt.mp3",
+        "illustration": "/media/images/ten-rod.svg",
+        "expression": "20 + 30 = ?",
+        "choices": [
+          40,
+          50,
+          60,
+          70
+        ],
+        "correctAnswer": 50,
+        "explanation": "Hai mươi cộng ba mươi bằng năm mươi.",
+        "explanationAudio": "/media/tts/m13-q2-exp.mp3"
+      },
+      "timeLimitSeconds": 20,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m13-slide-q3",
+      "teacherNote": "Phép trừ tròn chục",
+      "question": {
+        "type": "multiple_choice",
+        "id": "m13-q3-mc",
+        "prompt": "80 bớt 30 còn lại bao nhiêu?",
+        "promptAudio": "/media/tts/m13-q3-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "options": [
+          {
+            "id": "m13-opt-50",
+            "label": "Còn 50",
+            "audio": "/media/tts/m13-opt-con-50.mp3"
+          },
+          {
+            "id": "m13-opt-40",
+            "label": "Còn 40",
+            "audio": "/media/tts/m13-opt-con-40.mp3"
+          },
+          {
+            "id": "m13-opt-60",
+            "label": "Còn 60",
+            "audio": "/media/tts/m13-opt-con-60.mp3"
+          }
+        ],
+        "explanation": "8 chục trừ 3 chục còn 5 chục. 80 - 30 = 50.",
+        "explanationAudio": "/media/tts/m13-q3-exp.mp3",
+        "correctOptionId": "m13-opt-50"
+      },
+      "timeLimitSeconds": 20,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m13-slide-q4",
+      "teacherNote": "Nối phép tính tròn chục với kết quả",
+      "question": {
+        "type": "matching",
+        "id": "m13-q4-matching",
+        "prompt": "Nối phép tính với kết quả đúng:",
+        "promptAudio": "/media/tts/m13-q4-prompt.mp3",
+        "leftColumn": [
+          {
+            "id": "m13-l1",
+            "text": "10 + 40",
+            "audio": "/media/tts/m13-lbl-10cong40.mp3",
+            "label": "10 + 40"
+          },
+          {
+            "id": "m13-l2",
+            "text": "60 - 20",
+            "audio": "/media/tts/m13-lbl-60tru20.mp3",
+            "label": "60 - 20"
+          },
+          {
+            "id": "m13-l3",
+            "text": "30 + 30",
+            "audio": "/media/tts/m13-lbl-30cong30.mp3",
+            "label": "30 + 30"
+          }
+        ],
+        "rightColumn": [
+          {
+            "id": "m13-r1",
+            "text": "Bằng 50",
+            "audio": "/media/tts/m13-lbl-bang-50.mp3",
+            "label": "Bằng 50"
+          },
+          {
+            "id": "m13-r2",
+            "text": "Bằng 40",
+            "audio": "/media/tts/m13-lbl-bang-40.mp3",
+            "label": "Bằng 40"
+          },
+          {
+            "id": "m13-r3",
+            "text": "Bằng 60",
+            "audio": "/media/tts/m13-lbl-bang-60.mp3",
+            "label": "Bằng 60"
+          }
+        ],
+        "correctPairs": [
+          {
+            "leftId": "m13-l1",
+            "rightId": "m13-r1"
+          },
+          {
+            "leftId": "m13-l2",
+            "rightId": "m13-r2"
+          },
+          {
+            "leftId": "m13-l3",
+            "rightId": "m13-r3"
+          }
+        ],
+        "explanation": "10 + 40 = 50, 60 - 20 = 40, 30 + 30 = 60.",
+        "explanationAudio": "/media/tts/m13-q4-exp.mp3",
+        "illustration": "/media/images/star.svg"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m13-slide-q5",
+      "teacherNote": "Phép tính 90 - 40",
+      "question": {
+        "type": "number_select",
+        "id": "m13-q5-ns",
+        "prompt": "Bé hãy tính kết quả phép tính sau:",
+        "promptAudio": "/media/tts/m13-q5-prompt.mp3",
+        "illustration": "/media/images/circle.svg",
+        "expression": "90 - 40 = ?",
+        "choices": [
+          40,
+          50,
+          60,
+          30
+        ],
+        "correctAnswer": 50,
+        "explanation": "Chín mươi trừ bốn mươi bằng năm mươi.",
+        "explanationAudio": "/media/tts/m13-q5-exp.mp3"
+      },
+      "timeLimitSeconds": 20,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m13-slide-q6",
+      "teacherNote": "Điền số tròn chục vào chỗ trống",
+      "question": {
+        "type": "tap_place",
+        "id": "m13-q6-tap",
+        "prompt": "Tìm số tròn chục thích hợp để: 40 + ... = 70",
+        "promptAudio": "/media/tts/m13-q6-prompt.mp3",
+        "targets": [
+          {
+            "id": "m13-t1",
+            "label": "Số tròn chục",
+            "prefixText": "40 + ",
+            "suffixText": " = 70"
+          }
+        ],
+        "items": [
+          {
+            "id": "m13-i1",
+            "text": "30",
+            "audio": "/media/tts/m13-num-30.mp3",
+            "label": "30"
+          },
+          {
+            "id": "m13-i2",
+            "text": "20",
+            "audio": "/media/tts/m13-num-20.mp3",
+            "label": "20"
+          },
+          {
+            "id": "m13-i3",
+            "text": "40",
+            "audio": "/media/tts/m13-num-40.mp3",
+            "label": "40"
+          }
+        ],
+        "correctMapping": {
+          "m13-i1": "m13-t1"
+        },
+        "explanation": "Bốn mươi cộng ba mươi bằng bảy mươi.",
+        "explanationAudio": "/media/tts/m13-q6-exp.mp3",
+        "illustration": "/media/images/star.svg"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    }
+  ]
+}

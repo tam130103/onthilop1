@@ -1,0 +1,281 @@
+{
+  "status": "publish",
+  "mode": "publish",
+  "id": "math-09-number-line-10",
+  "title": "Tia số và thứ tự các số đến 10",
+  "subject": "math",
+  "grade": 1,
+  "description": "Bài học Toán 1: Làm quen với tia số, xác định số liền trước, số liền sau và thứ tự các số từ 0 đến 10.",
+  "totalDurationMinutes": 25,
+  "slides": [
+    {
+      "type": "title-slide",
+      "id": "m9-slide-title",
+      "title": "Tia số và thứ tự các số đến 10",
+      "subtitle": "Toán Lớp 1 — Bài học tương tác",
+      "teacherNote": "Chỉ trên tia số để học sinh thấy các số tăng dần từ trái sang phải.",
+      "backgroundImage": "/media/images/star.svg",
+      "audio": "/media/tts/m9-title.mp3"
+    },
+    {
+      "type": "content-slide",
+      "id": "m9-slide-intro",
+      "title": "Tia số là gì?",
+      "body": "Tia số bắt đầu từ vạch số 0. Từ trái sang phải, các số lớn dần: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10.",
+      "teacherNote": "Số đứng ngay trước gọi là số liền trước, số đứng ngay sau gọi là số liền sau.",
+      "illustration": "/media/images/pencil.svg",
+      "audio": "/media/tts/m9-intro.mp3",
+      "bullets": [
+        "Số liền trước của 5 là 4",
+        "Số liền sau của 5 là 6",
+        "Số 0 là số bé nhất trên tia số"
+      ]
+    },
+    {
+      "type": "question-slide",
+      "id": "m9-slide-q1",
+      "teacherNote": "Số liền sau của 7",
+      "question": {
+        "type": "number_select",
+        "id": "m9-q1-ns",
+        "prompt": "Số liền sau của số 7 là số nào?",
+        "promptAudio": "/media/tts/m9-q1-prompt.mp3",
+        "illustration": "/media/images/apple.svg",
+        "expression": "7 + 1 = ?",
+        "choices": [
+          6,
+          7,
+          8,
+          9
+        ],
+        "correctAnswer": 8,
+        "explanation": "Số liền sau của 7 là 8.",
+        "explanationAudio": "/media/tts/m9-q1-exp.mp3"
+      },
+      "timeLimitSeconds": 20,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m9-slide-q2",
+      "teacherNote": "Số liền trước của 4",
+      "question": {
+        "type": "number_select",
+        "id": "m9-q2-ns",
+        "prompt": "Số liền trước của số 4 là số nào?",
+        "promptAudio": "/media/tts/m9-q2-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "expression": "4 - 1 = ?",
+        "choices": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "correctAnswer": 3,
+        "explanation": "Số liền trước của 4 là 3.",
+        "explanationAudio": "/media/tts/m9-q2-exp.mp3"
+      },
+      "timeLimitSeconds": 20,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m9-slide-q3",
+      "teacherNote": "Điền số còn thiếu trên tia số",
+      "question": {
+        "type": "tap_place",
+        "id": "m9-q3-tap",
+        "prompt": "Điền số thích hợp vào chỗ trống trên dãy số: 4, 5, ..., 7",
+        "promptAudio": "/media/tts/m9-q3-prompt.mp3",
+        "targets": [
+          {
+            "id": "m9-t1",
+            "label": "Số ở giữa",
+            "prefixText": "4, 5, ",
+            "suffixText": ", 7"
+          }
+        ],
+        "items": [
+          {
+            "id": "m9-i1",
+            "text": "6",
+            "audio": "/media/tts/m9-num-6.mp3",
+            "label": "6"
+          },
+          {
+            "id": "m9-i2",
+            "text": "8",
+            "audio": "/media/tts/m9-num-8.mp3",
+            "label": "8"
+          },
+          {
+            "id": "m9-i3",
+            "text": "9",
+            "audio": "/media/tts/m9-num-9.mp3",
+            "label": "9"
+          }
+        ],
+        "correctMapping": {
+          "m9-i1": "m9-t1"
+        },
+        "explanation": "Dãy số liên tiếp là 4, 5, 6, 7.",
+        "explanationAudio": "/media/tts/m9-q3-exp.mp3",
+        "illustration": "/media/images/star.svg"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m9-slide-q4",
+      "teacherNote": "Nối số liền trước và liền sau",
+      "question": {
+        "type": "matching",
+        "id": "m9-q4-matching",
+        "prompt": "Nối số với số liền sau của nó:",
+        "promptAudio": "/media/tts/m9-q4-prompt.mp3",
+        "leftColumn": [
+          {
+            "id": "m9-l1",
+            "text": "Số 2",
+            "audio": "/media/tts/m9-lbl-so2.mp3",
+            "label": "Số 2"
+          },
+          {
+            "id": "m9-l2",
+            "text": "Số 5",
+            "audio": "/media/tts/m9-lbl-so5.mp3",
+            "label": "Số 5"
+          },
+          {
+            "id": "m9-l3",
+            "text": "Số 9",
+            "audio": "/media/tts/m9-lbl-so9.mp3",
+            "label": "Số 9"
+          }
+        ],
+        "rightColumn": [
+          {
+            "id": "m9-r1",
+            "text": "Liền sau là 3",
+            "audio": "/media/tts/m9-lbl-ls3.mp3",
+            "label": "Liền sau là 3"
+          },
+          {
+            "id": "m9-r2",
+            "text": "Liền sau là 6",
+            "audio": "/media/tts/m9-lbl-ls6.mp3",
+            "label": "Liền sau là 6"
+          },
+          {
+            "id": "m9-r3",
+            "text": "Liền sau là 10",
+            "audio": "/media/tts/m9-lbl-ls10.mp3",
+            "label": "Liền sau là 10"
+          }
+        ],
+        "correctPairs": [
+          {
+            "leftId": "m9-l1",
+            "rightId": "m9-r1"
+          },
+          {
+            "leftId": "m9-l2",
+            "rightId": "m9-r2"
+          },
+          {
+            "leftId": "m9-l3",
+            "rightId": "m9-r3"
+          }
+        ],
+        "explanation": "Liền sau của 2 là 3, của 5 là 6, của 9 là 10.",
+        "explanationAudio": "/media/tts/m9-q4-exp.mp3",
+        "illustration": "/media/images/star.svg"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m9-slide-q5",
+      "teacherNote": "Sắp xếp từ bé đến lớn",
+      "question": {
+        "type": "multiple_choice",
+        "id": "m9-q5-mc",
+        "prompt": "Dãy số nào được xếp theo thứ tự từ bé đến lớn?",
+        "promptAudio": "/media/tts/m9-q5-prompt.mp3",
+        "illustration": "/media/images/tree.svg",
+        "options": [
+          {
+            "id": "m9-opt-a",
+            "label": "2, 4, 7, 9",
+            "audio": "/media/tts/m9-opt-day-dung.mp3"
+          },
+          {
+            "id": "m9-opt-b",
+            "label": "9, 7, 4, 2",
+            "audio": "/media/tts/m9-opt-day-sai1.mp3"
+          },
+          {
+            "id": "m9-opt-c",
+            "label": "4, 2, 7, 9",
+            "audio": "/media/tts/m9-opt-day-sai2.mp3"
+          }
+        ],
+        "explanation": "Dãy số 2, 4, 7, 9 được xếp từ bé đến lớn.",
+        "explanationAudio": "/media/tts/m9-q5-exp.mp3",
+        "correctOptionId": "m9-opt-a"
+      },
+      "timeLimitSeconds": 20,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m9-slide-q6",
+      "teacherNote": "Đếm bút chì",
+      "question": {
+        "type": "counting",
+        "id": "m9-q6-counting",
+        "prompt": "Đếm xem có bao nhiêu chiếc bút chì?",
+        "promptAudio": "/media/tts/m9-q6-prompt.mp3",
+        "illustration": "/media/images/pencil.svg",
+        "items": [
+          {
+            "image": "/media/images/pencil.svg",
+            "alt": "Bút 1"
+          },
+          {
+            "image": "/media/images/pencil.svg",
+            "alt": "Bút 2"
+          },
+          {
+            "image": "/media/images/pencil.svg",
+            "alt": "Bút 3"
+          },
+          {
+            "image": "/media/images/pencil.svg",
+            "alt": "Bút 4"
+          },
+          {
+            "image": "/media/images/pencil.svg",
+            "alt": "Bút 5"
+          },
+          {
+            "image": "/media/images/pencil.svg",
+            "alt": "Bút 6"
+          }
+        ],
+        "correctCount": 6,
+        "numberRange": {
+          "min": 1,
+          "max": 10
+        },
+        "explanation": "Có đúng 6 chiếc bút chì xinh xắn.",
+        "explanationAudio": "/media/tts/m9-q6-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    }
+  ]
+}

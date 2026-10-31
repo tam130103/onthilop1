@@ -1,0 +1,268 @@
+{
+  "status": "publish",
+  "mode": "publish",
+  "id": "math-15-so-sanh-100",
+  "title": "So sánh các số có hai chữ số",
+  "subject": "math",
+  "grade": 1,
+  "description": "Bài học Toán 1: Nắm chắc quy tắc so sánh hàng chục trước, hàng đơn vị sau và sắp xếp dãy số.",
+  "totalDurationMinutes": 25,
+  "slides": [
+    {
+      "type": "title-slide",
+      "id": "m15-slide-title",
+      "title": "So sánh các số có hai chữ số",
+      "subtitle": "Toán Lớp 1 — Bài học tương tác",
+      "teacherNote": "Hướng dẫn học sinh so sánh số hàng chục trước.",
+      "backgroundImage": "/media/images/star.svg",
+      "audio": "/media/tts/m15-title.mp3"
+    },
+    {
+      "type": "content-slide",
+      "id": "m15-slide-intro",
+      "title": "Quy tắc so sánh số có hai chữ số",
+      "body": "So sánh hàng chục: Số nào có chữ số hàng chục lớn hơn thì lớn hơn (VD: 52 > 47). Nếu hàng chục bằng nhau, so sánh hàng đơn vị (VD: 68 > 63).",
+      "teacherNote": "Cho học sinh luyện tập đọc to các cặp số.",
+      "illustration": "/media/images/apple.svg",
+      "audio": "/media/tts/m15-intro.mp3",
+      "bullets": [
+        "52 > 47 (vì 5 chục > 4 chục)",
+        "68 > 63 (vì cùng 6 chục, 8 đơn vị > 3 đơn vị)",
+        "85 = 85"
+      ]
+    },
+    {
+      "type": "question-slide",
+      "id": "m15-slide-q1",
+      "teacherNote": "So sánh 47 và 52",
+      "question": {
+        "type": "multiple_choice",
+        "id": "m15-q1-mc",
+        "prompt": "Chọn dấu thích hợp: 47 ... 52",
+        "promptAudio": "/media/tts/m15-q1-prompt.mp3",
+        "illustration": "/media/images/apple.svg",
+        "options": [
+          {
+            "id": "m15-opt-be",
+            "label": "Dấu bé hơn (<)",
+            "audio": "/media/tts/m15-opt-dau-be.mp3"
+          },
+          {
+            "id": "m15-opt-lon",
+            "label": "Dấu lớn hơn (>)",
+            "audio": "/media/tts/m15-opt-dau-lon.mp3"
+          },
+          {
+            "id": "m15-opt-bang",
+            "label": "Dấu bằng (=)",
+            "audio": "/media/tts/m15-opt-dau-bang.mp3"
+          }
+        ],
+        "explanation": "4 chục bé hơn 5 chục nên 47 < 52.",
+        "explanationAudio": "/media/tts/m15-q1-exp.mp3",
+        "correctOptionId": "m15-opt-be"
+      },
+      "timeLimitSeconds": 20,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m15-slide-q2",
+      "teacherNote": "Chọn số lớn hơn trong 68 và 63",
+      "question": {
+        "type": "number_select",
+        "id": "m15-q2-ns",
+        "prompt": "Trong hai số 68 và 63, số nào lớn hơn?",
+        "promptAudio": "/media/tts/m15-q2-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "expression": "68 > 63",
+        "choices": [
+          63,
+          68,
+          60,
+          70
+        ],
+        "correctAnswer": 68,
+        "explanation": "Hai số cùng có 6 chục, nhưng 8 đơn vị lớn hơn 3 đơn vị nên 68 lớn hơn 63.",
+        "explanationAudio": "/media/tts/m15-q2-exp.mp3"
+      },
+      "timeLimitSeconds": 20,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m15-slide-q3",
+      "teacherNote": "Điền dấu so sánh vào ô trống",
+      "question": {
+        "type": "tap_place",
+        "id": "m15-q3-tap",
+        "prompt": "Chọn dấu so sánh đúng đặt vào giữa: 85 ... 82",
+        "promptAudio": "/media/tts/m15-q3-prompt.mp3",
+        "targets": [
+          {
+            "id": "m15-t1",
+            "label": "Dấu so sánh",
+            "prefixText": "85 ",
+            "suffixText": " 82"
+          }
+        ],
+        "items": [
+          {
+            "id": "m15-i1",
+            "text": ">",
+            "audio": "/media/tts/m15-sym-lon.mp3",
+            "label": ">"
+          },
+          {
+            "id": "m15-i2",
+            "text": "<",
+            "audio": "/media/tts/m15-sym-be.mp3",
+            "label": "<"
+          },
+          {
+            "id": "m15-i3",
+            "text": "=",
+            "audio": "/media/tts/m15-sym-bang.mp3",
+            "label": "="
+          }
+        ],
+        "correctMapping": {
+          "m15-i1": "m15-t1"
+        },
+        "explanation": "85 lớn hơn 82, viết là 85 > 82.",
+        "explanationAudio": "/media/tts/m15-q3-exp.mp3",
+        "illustration": "/media/images/star.svg"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m15-slide-q4",
+      "teacherNote": "Nối số bé nhất và lớn nhất trong dãy",
+      "question": {
+        "type": "matching",
+        "id": "m15-q4-matching",
+        "prompt": "Với các số 34, 18, 75, hãy nối với đặc điểm đúng:",
+        "promptAudio": "/media/tts/m15-q4-prompt.mp3",
+        "leftColumn": [
+          {
+            "id": "m15-l1",
+            "text": "Số 18",
+            "audio": "/media/tts/m15-lbl-so18.mp3",
+            "label": "Số 18"
+          },
+          {
+            "id": "m15-l2",
+            "text": "Số 75",
+            "audio": "/media/tts/m15-lbl-so75.mp3",
+            "label": "Số 75"
+          },
+          {
+            "id": "m15-l3",
+            "text": "Số 34",
+            "audio": "/media/tts/m15-lbl-so34.mp3",
+            "label": "Số 34"
+          }
+        ],
+        "rightColumn": [
+          {
+            "id": "m15-r1",
+            "text": "Số bé nhất",
+            "audio": "/media/tts/m15-lbl-benhat.mp3",
+            "label": "Số bé nhất"
+          },
+          {
+            "id": "m15-r2",
+            "text": "Số lớn nhất",
+            "audio": "/media/tts/m15-lbl-lonnhat.mp3",
+            "label": "Số lớn nhất"
+          },
+          {
+            "id": "m15-r3",
+            "text": "Số ở giữa",
+            "audio": "/media/tts/m15-lbl-ogiuaday.mp3",
+            "label": "Số ở giữa"
+          }
+        ],
+        "correctPairs": [
+          {
+            "leftId": "m15-l1",
+            "rightId": "m15-r1"
+          },
+          {
+            "leftId": "m15-l2",
+            "rightId": "m15-r2"
+          },
+          {
+            "leftId": "m15-l3",
+            "rightId": "m15-r3"
+          }
+        ],
+        "explanation": "18 là số bé nhất, 75 là số lớn nhất, 34 ở giữa.",
+        "explanationAudio": "/media/tts/m15-q4-exp.mp3",
+        "illustration": "/media/images/star.svg"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m15-slide-q5",
+      "teacherNote": "Sắp xếp dãy số tăng dần",
+      "question": {
+        "type": "multiple_choice",
+        "id": "m15-q5-mc",
+        "prompt": "Dãy số nào được xếp theo thứ tự từ bé đến lớn?",
+        "promptAudio": "/media/tts/m15-q5-prompt.mp3",
+        "illustration": "/media/images/flag.svg",
+        "options": [
+          {
+            "id": "m15-opt-dung",
+            "label": "15, 27, 49, 80",
+            "audio": "/media/tts/m15-opt-day-tang.mp3"
+          },
+          {
+            "id": "m15-opt-sai1",
+            "label": "80, 49, 27, 15",
+            "audio": "/media/tts/m15-opt-day-giam.mp3"
+          },
+          {
+            "id": "m15-opt-sai2",
+            "label": "27, 15, 80, 49",
+            "audio": "/media/tts/m15-opt-day-lonxon.mp3"
+          }
+        ],
+        "explanation": "15 < 27 < 49 < 80 là dãy số từ bé đến lớn.",
+        "explanationAudio": "/media/tts/m15-q5-exp.mp3",
+        "correctOptionId": "m15-opt-dung"
+      },
+      "timeLimitSeconds": 20,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m15-slide-q6",
+      "teacherNote": "Tìm số tròn chục ở giữa",
+      "question": {
+        "type": "number_select",
+        "id": "m15-q6-ns",
+        "prompt": "Số tròn chục nào lớn hơn 50 và bé hơn 70?",
+        "promptAudio": "/media/tts/m15-q6-prompt.mp3",
+        "illustration": "/media/images/circle.svg",
+        "expression": "50 < ? < 70",
+        "choices": [
+          40,
+          60,
+          80,
+          90
+        ],
+        "correctAnswer": 60,
+        "explanation": "Số 60 là số tròn chục nằm giữa 50 và 70.",
+        "explanationAudio": "/media/tts/m15-q6-exp.mp3"
+      },
+      "timeLimitSeconds": 20,
+      "showRetryOnWrong": true
+    }
+  ]
+}

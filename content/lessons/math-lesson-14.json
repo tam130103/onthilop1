@@ -1,0 +1,304 @@
+{
+  "status": "publish",
+  "mode": "publish",
+  "id": "math-14-den-100",
+  "title": "Các số đến 100: Cấu tạo Chục – Đơn vị",
+  "subject": "math",
+  "grade": 1,
+  "description": "Bài học Toán 1: Làm quen các số đến 100, hiểu cấu tạo số gồm hàng chục và hàng đơn vị.",
+  "totalDurationMinutes": 25,
+  "slides": [
+    {
+      "type": "title-slide",
+      "id": "m14-slide-title",
+      "title": "Các số đến 100: Cấu tạo Chục – Đơn vị",
+      "subtitle": "Toán Lớp 1 — Bài học tương tác",
+      "teacherNote": "Phân tích số có hai chữ số: chữ số đứng trước là hàng chục, chữ số đứng sau là hàng đơn vị.",
+      "backgroundImage": "/media/images/ten-rod.svg",
+      "audio": "/media/tts/m14-title.mp3"
+    },
+    {
+      "type": "content-slide",
+      "id": "m14-slide-intro",
+      "title": "Chục và Đơn vị",
+      "body": "Số 54 gồm 5 chục và 4 đơn vị. Số 100 gồm 10 chục, đọc là một trăm. 100 là số có ba chữ số bé nhất!",
+      "teacherNote": "Cho học sinh đọc to các số có hai chữ số tận cùng là 1 (mốt), 4 (tư), 5 (lăm).",
+      "illustration": "/media/images/book.svg",
+      "audio": "/media/tts/m14-intro.mp3",
+      "bullets": [
+        "54 gồm 5 chục và 4 đơn vị",
+        "71 đọc là bảy mươi mốt",
+        "85 đọc là tám mươi lăm",
+        "Số 100 gồm 10 chục"
+      ]
+    },
+    {
+      "type": "question-slide",
+      "id": "m14-slide-q1",
+      "teacherNote": "Cấu tạo số 54",
+      "question": {
+        "type": "multiple_choice",
+        "id": "m14-q1-mc",
+        "prompt": "Số 54 gồm mấy chục và mấy đơn vị?",
+        "promptAudio": "/media/tts/m14-q1-prompt.mp3",
+        "illustration": "/media/images/book.svg",
+        "options": [
+          {
+            "id": "m14-opt-5c4d",
+            "label": "5 chục và 4 đơn vị",
+            "audio": "/media/tts/m14-opt-5c4d.mp3"
+          },
+          {
+            "id": "m14-opt-4c5d",
+            "label": "4 chục và 5 đơn vị",
+            "audio": "/media/tts/m14-opt-4c5d.mp3"
+          },
+          {
+            "id": "m14-opt-5c0d",
+            "label": "5 chục và 0 đơn vị",
+            "audio": "/media/tts/m14-opt-5c0d.mp3"
+          }
+        ],
+        "explanation": "Số 54 có chữ số 5 ở hàng chục và chữ số 4 ở hàng đơn vị.",
+        "explanationAudio": "/media/tts/m14-q1-exp.mp3",
+        "correctOptionId": "m14-opt-5c4d"
+      },
+      "timeLimitSeconds": 20,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m14-slide-q2",
+      "teacherNote": "Viết số từ chục và đơn vị",
+      "question": {
+        "type": "number_select",
+        "id": "m14-q2-ns",
+        "prompt": "3 chục và 8 đơn vị viết thành số nào?",
+        "promptAudio": "/media/tts/m14-q2-prompt.mp3",
+        "illustration": "/media/images/ten-rod.svg",
+        "expression": "30 + 8 = ?",
+        "choices": [
+          38,
+          83,
+          30,
+          80
+        ],
+        "correctAnswer": 38,
+        "explanation": "3 chục và 8 đơn vị viết là số 38.",
+        "explanationAudio": "/media/tts/m14-q2-exp.mp3"
+      },
+      "timeLimitSeconds": 20,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m14-slide-q3",
+      "teacherNote": "Số liền sau của 99",
+      "question": {
+        "type": "multiple_choice",
+        "id": "m14-q3-mc",
+        "prompt": "Số liền sau của số 99 là số nào?",
+        "promptAudio": "/media/tts/m14-q3-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "options": [
+          {
+            "id": "m14-opt-100",
+            "label": "Số 100",
+            "audio": "/media/tts/m14-opt-so-100.mp3"
+          },
+          {
+            "id": "m14-opt-98",
+            "label": "Số 98",
+            "audio": "/media/tts/m14-opt-so-98.mp3"
+          },
+          {
+            "id": "m14-opt-90",
+            "label": "Số 90",
+            "audio": "/media/tts/m14-opt-so-90.mp3"
+          }
+        ],
+        "explanation": "Số liền sau của 99 là số 100, tức là một trăm.",
+        "explanationAudio": "/media/tts/m14-q3-exp.mp3",
+        "correctOptionId": "m14-opt-100"
+      },
+      "timeLimitSeconds": 20,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m14-slide-q4",
+      "teacherNote": "Nối số với cách đọc",
+      "question": {
+        "type": "matching",
+        "id": "m14-q4-matching",
+        "prompt": "Nối số với cách đọc tương ứng:",
+        "promptAudio": "/media/tts/m14-q4-prompt.mp3",
+        "leftColumn": [
+          {
+            "id": "m14-l1",
+            "text": "Số 45",
+            "audio": "/media/tts/m14-lbl-so45.mp3",
+            "label": "Số 45"
+          },
+          {
+            "id": "m14-l2",
+            "text": "Số 71",
+            "audio": "/media/tts/m14-lbl-so71.mp3",
+            "label": "Số 71"
+          },
+          {
+            "id": "m14-l3",
+            "text": "Số 84",
+            "audio": "/media/tts/m14-lbl-so84.mp3",
+            "label": "Số 84"
+          }
+        ],
+        "rightColumn": [
+          {
+            "id": "m14-r1",
+            "text": "Bốn mươi lăm",
+            "audio": "/media/tts/m14-lbl-bonmuoilam.mp3",
+            "label": "Bốn mươi lăm"
+          },
+          {
+            "id": "m14-r2",
+            "text": "Bảy mươi mốt",
+            "audio": "/media/tts/m14-lbl-baymuoimot.mp3",
+            "label": "Bảy mươi mốt"
+          },
+          {
+            "id": "m14-r3",
+            "text": "Tám mươi tư",
+            "audio": "/media/tts/m14-lbl-tammuoitu.mp3",
+            "label": "Tám mươi tư"
+          }
+        ],
+        "correctPairs": [
+          {
+            "leftId": "m14-l1",
+            "rightId": "m14-r1"
+          },
+          {
+            "leftId": "m14-l2",
+            "rightId": "m14-r2"
+          },
+          {
+            "leftId": "m14-l3",
+            "rightId": "m14-r3"
+          }
+        ],
+        "explanation": "45 đọc là bốn mươi lăm, 71 là bảy mươi mốt, 84 là tám mươi tư.",
+        "explanationAudio": "/media/tts/m14-q4-exp.mp3",
+        "illustration": "/media/images/star.svg"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m14-slide-q5",
+      "teacherNote": "Ghép số chục và đơn vị",
+      "question": {
+        "type": "tap_place",
+        "id": "m14-q5-tap",
+        "prompt": "Chọn số thích hợp: 7 chục và 2 đơn vị là số mấy?",
+        "promptAudio": "/media/tts/m14-q5-prompt.mp3",
+        "targets": [
+          {
+            "id": "m14-t1",
+            "label": "Số cần tìm",
+            "prefixText": "7 chục và 2 đơn vị là số ",
+            "suffixText": "."
+          }
+        ],
+        "items": [
+          {
+            "id": "m14-i1",
+            "text": "72",
+            "audio": "/media/tts/m14-num-72.mp3",
+            "label": "72"
+          },
+          {
+            "id": "m14-i2",
+            "text": "27",
+            "audio": "/media/tts/m14-num-27.mp3",
+            "label": "27"
+          },
+          {
+            "id": "m14-i3",
+            "text": "70",
+            "audio": "/media/tts/m14-num-70.mp3",
+            "label": "70"
+          }
+        ],
+        "correctMapping": {
+          "m14-i1": "m14-t1"
+        },
+        "explanation": "7 chục và 2 đơn vị là số 72.",
+        "explanationAudio": "/media/tts/m14-q5-exp.mp3",
+        "illustration": "/media/images/star.svg"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m14-slide-q6",
+      "teacherNote": "Đếm số quyển sách",
+      "question": {
+        "type": "counting",
+        "id": "m14-q6-counting",
+        "prompt": "Đếm xem có bao nhiêu quyển sách trên giá?",
+        "promptAudio": "/media/tts/m14-q6-prompt.mp3",
+        "illustration": "/media/images/book.svg",
+        "items": [
+          {
+            "image": "/media/images/book.svg",
+            "alt": "Sách 1"
+          },
+          {
+            "image": "/media/images/book.svg",
+            "alt": "Sách 2"
+          },
+          {
+            "image": "/media/images/book.svg",
+            "alt": "Sách 3"
+          },
+          {
+            "image": "/media/images/book.svg",
+            "alt": "Sách 4"
+          },
+          {
+            "image": "/media/images/book.svg",
+            "alt": "Sách 5"
+          },
+          {
+            "image": "/media/images/book.svg",
+            "alt": "Sách 6"
+          },
+          {
+            "image": "/media/images/book.svg",
+            "alt": "Sách 7"
+          },
+          {
+            "image": "/media/images/book.svg",
+            "alt": "Sách 8"
+          },
+          {
+            "image": "/media/images/book.svg",
+            "alt": "Sách 9"
+          }
+        ],
+        "correctCount": 9,
+        "numberRange": {
+          "min": 1,
+          "max": 10
+        },
+        "explanation": "Có tất cả 9 quyển sách học tập.",
+        "explanationAudio": "/media/tts/m14-q6-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    }
+  ]
+}

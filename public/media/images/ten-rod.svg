@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <!-- A rod of 10 blocks (vertical rod) -->
+  <g transform="translate(38, 5)">
+    <rect x="0" y="0" width="24" height="9" fill="#3b82f6" stroke="#1d4ed8" stroke-width="1" rx="1"/>
+    <rect x="0" y="9" width="24" height="9" fill="#60a5fa" stroke="#1d4ed8" stroke-width="1"/>
+    <rect x="0" y="18" width="24" height="9" fill="#3b82f6" stroke="#1d4ed8" stroke-width="1"/>
+    <rect x="0" y="27" width="24" height="9" fill="#60a5fa" stroke="#1d4ed8" stroke-width="1"/>
+    <rect x="0" y="36" width="24" height="9" fill="#3b82f6" stroke="#1d4ed8" stroke-width="1"/>
+    <rect x="0" y="45" width="24" height="9" fill="#60a5fa" stroke="#1d4ed8" stroke-width="1"/>
+    <rect x="0" y="54" width="24" height="9" fill="#3b82f6" stroke="#1d4ed8" stroke-width="1"/>
+    <rect x="0" y="63" width="24" height="9" fill="#60a5fa" stroke="#1d4ed8" stroke-width="1"/>
+    <rect x="0" y="72" width="24" height="9" fill="#3b82f6" stroke="#1d4ed8" stroke-width="1"/>
+    <rect x="0" y="81" width="24" height="9" fill="#60a5fa" stroke="#1d4ed8" stroke-width="1" rx="1"/>
+  </g>
+  <text x="22" y="54" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1e3a8a">10</text>
+</svg>

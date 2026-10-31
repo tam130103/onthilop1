@@ -1,0 +1,310 @@
+{
+  "status": "publish",
+  "mode": "publish",
+  "id": "vn-16-am-dem-tron-moi",
+  "title": "Bài 16: Các vần có âm đệm tròn môi",
+  "subject": "vietnamese",
+  "grade": 1,
+  "description": "Luyện phát âm tròn môi và đọc các từ củ khoai, loay hoay, hoa huệ, tàu thủy, đêm khuya, chim khuyên, ánh trăng khuyết qua 6 câu hỏi tương tác.",
+  "totalDurationMinutes": 25,
+  "slides": [
+    {
+      "type": "title-slide",
+      "id": "vn16-title-slide",
+      "title": "Bài 16: Các vần có âm đệm tròn môi",
+      "subtitle": "Tiếng Việt Lớp 1 — Bài học tương tác",
+      "teacherNote": "Hướng dẫn học sinh chúm môi tạo độ tròn trước khi mở miệng phát âm âm chính.",
+      "backgroundImage": "/media/images/star.svg",
+      "audio": "/media/tts/vn16-title.mp3"
+    },
+    {
+      "type": "content-slide",
+      "id": "vn16-intro-slide",
+      "title": "Các vần có âm đệm tròn môi",
+      "body": "Các vần oai, oay, uê, uy, uya, uyên, uyêt cần tròn môi khi phát âm. Cùng đọc các từ: củ khoai, hoa huệ, tàu thủy, chim khuyên nhé!",
+      "teacherNote": "Hướng dẫn cả lớp luyện đọc đồng thanh các từ ngữ mẫu.",
+      "illustration": "/media/images/book.svg",
+      "audio": "/media/tts/vn16-intro.mp3",
+      "bullets": [
+        "oai — khoai (củ khoai lang ngọt bùi)",
+        "uê — huệ (bông hoa huệ trắng tinh)",
+        "uy — thủy (tàu thủy lướt sóng)",
+        "uyên — khuyên (chú chim khuyên líu lo)"
+      ]
+    },
+    {
+      "type": "question-slide",
+      "id": "vn16-slide-q1",
+      "teacherNote": "Câu hỏi 1: Điền vần thích hợp để có từ hoa huệ:",
+      "question": {
+        "type": "tap_place",
+        "id": "vn16-q1-tap",
+        "prompt": "Điền vần thích hợp để có từ hoa huệ:",
+        "promptAudio": "/media/tts/vn16-q1-prompt.mp3",
+        "illustration": "/media/images/flower.svg",
+        "targets": [
+          {
+            "id": "vn16-tgt-hue",
+            "label": "...",
+            "prefixText": "Hoa h",
+            "suffixText": ""
+          }
+        ],
+        "items": [
+          {
+            "id": "vn16-it-ue",
+            "label": "uệ",
+            "audio": "/media/tts/vn16-q1-it0.mp3"
+          },
+          {
+            "id": "vn16-it-oai",
+            "label": "oai",
+            "audio": "/media/tts/vn16-q1-it1.mp3"
+          }
+        ],
+        "correctMapping": {
+          "vn16-it-ue": "vn16-tgt-hue"
+        },
+        "explanation": "Tiếng huệ có âm h ghép với vần uệ: h - uệ - huệ.",
+        "explanationAudio": "/media/tts/vn16-q1-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn16-slide-q2",
+      "teacherNote": "Câu hỏi 2: Nối từ ở cột trái với ý thích hợp ở cột ",
+      "question": {
+        "type": "matching",
+        "id": "vn16-q2-match",
+        "prompt": "Nối từ ở cột trái với ý thích hợp ở cột phải:",
+        "promptAudio": "/media/tts/vn16-q2-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "leftColumn": [
+          {
+            "id": "vn16-l-khoai",
+            "label": "củ khoai",
+            "audio": "/media/tts/vn16-q2-l0.mp3"
+          },
+          {
+            "id": "vn16-l-thuy",
+            "label": "tàu thủy",
+            "audio": "/media/tts/vn16-q2-l1.mp3"
+          },
+          {
+            "id": "vn16-l-khuyen",
+            "label": "chim khuyên",
+            "audio": "/media/tts/vn16-q2-l2.mp3"
+          }
+        ],
+        "rightColumn": [
+          {
+            "id": "vn16-r-khoai",
+            "label": "củ khoai ngọt bùi",
+            "audio": "/media/tts/vn16-q2-r0.mp3"
+          },
+          {
+            "id": "vn16-r-thuy",
+            "label": "tàu trên biển lớn",
+            "audio": "/media/tts/vn16-q2-r1.mp3"
+          },
+          {
+            "id": "vn16-r-khuyen",
+            "label": "hót líu lo trên cành",
+            "audio": "/media/tts/vn16-q2-r2.mp3"
+          }
+        ],
+        "correctPairs": [
+          {
+            "leftId": "vn16-l-khoai",
+            "rightId": "vn16-r-khoai"
+          },
+          {
+            "leftId": "vn16-l-thuy",
+            "rightId": "vn16-r-thuy"
+          },
+          {
+            "leftId": "vn16-l-khuyen",
+            "rightId": "vn16-r-khuyen"
+          }
+        ],
+        "explanation": "Tuyệt vời! Khoai ngọt bùi, tàu thủy trên biển lớn, chim khuyên hót líu lo.",
+        "explanationAudio": "/media/tts/vn16-q2-exp.mp3"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn16-slide-q3",
+      "teacherNote": "Câu hỏi 3: Tiếng 'khoai' trong từ 'củ khoai' có vần",
+      "question": {
+        "type": "multiple_choice",
+        "id": "vn16-q3-mc",
+        "prompt": "Tiếng 'khoai' trong từ 'củ khoai' có vần gì?",
+        "promptAudio": "/media/tts/vn16-q3-prompt.mp3",
+        "illustration": "/media/images/apple.svg",
+        "options": [
+          {
+            "id": "vn16-opt-oai",
+            "label": "Vần oai",
+            "audio": "/media/tts/vn16-q3-opt0.mp3"
+          },
+          {
+            "id": "vn16-opt-oay",
+            "label": "Vần oay",
+            "audio": "/media/tts/vn16-q3-opt1.mp3"
+          },
+          {
+            "id": "vn16-opt-ue",
+            "label": "Vần uê",
+            "audio": "/media/tts/vn16-q3-opt2.mp3"
+          }
+        ],
+        "correctOptionId": "vn16-opt-oai",
+        "explanation": "Tiếng khoai có vần oai: kh - oai - khoai.",
+        "explanationAudio": "/media/tts/vn16-q3-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn16-slide-q4",
+      "teacherNote": "Câu hỏi 4: Điền vần thích hợp để tạo thành từ tàu t",
+      "question": {
+        "type": "tap_place",
+        "id": "vn16-q4-tap",
+        "prompt": "Điền vần thích hợp để tạo thành từ tàu thủy:",
+        "promptAudio": "/media/tts/vn16-q4-prompt.mp3",
+        "illustration": "/media/images/boat.svg",
+        "targets": [
+          {
+            "id": "vn16-tgt-thuy",
+            "label": "...",
+            "prefixText": "Tàu th",
+            "suffixText": ""
+          }
+        ],
+        "items": [
+          {
+            "id": "vn16-it-uy",
+            "label": "ủy",
+            "audio": "/media/tts/vn16-q4-it0.mp3"
+          },
+          {
+            "id": "vn16-it-ue2",
+            "label": "uê",
+            "audio": "/media/tts/vn16-q4-it1.mp3"
+          }
+        ],
+        "correctMapping": {
+          "vn16-it-uy": "vn16-tgt-thuy"
+        },
+        "explanation": "Tiếng thủy có âm th ghép với vần uy: th - uy - thuy - hỏi - thủy.",
+        "explanationAudio": "/media/tts/vn16-q4-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn16-slide-q5",
+      "teacherNote": "Câu hỏi 5: Nối vần ở cột trái với từ chứa vần đó ở ",
+      "question": {
+        "type": "matching",
+        "id": "vn16-q5-match",
+        "prompt": "Nối vần ở cột trái với từ chứa vần đó ở cột phải:",
+        "promptAudio": "/media/tts/vn16-q5-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "leftColumn": [
+          {
+            "id": "vn16-l2-oay",
+            "label": "vần oay",
+            "audio": "/media/tts/vn16-q5-l0.mp3"
+          },
+          {
+            "id": "vn16-l2-uya",
+            "label": "vần uya",
+            "audio": "/media/tts/vn16-q5-l1.mp3"
+          },
+          {
+            "id": "vn16-l2-uyet",
+            "label": "vần uyêt",
+            "audio": "/media/tts/vn16-q5-l2.mp3"
+          }
+        ],
+        "rightColumn": [
+          {
+            "id": "vn16-r2-oay",
+            "label": "loay hoay",
+            "audio": "/media/tts/vn16-q5-r0.mp3"
+          },
+          {
+            "id": "vn16-r2-uya",
+            "label": "đêm khuya",
+            "audio": "/media/tts/vn16-q5-r1.mp3"
+          },
+          {
+            "id": "vn16-r2-uyet",
+            "label": "trăng khuyết",
+            "audio": "/media/tts/vn16-q5-r2.mp3"
+          }
+        ],
+        "correctPairs": [
+          {
+            "leftId": "vn16-l2-oay",
+            "rightId": "vn16-r2-oay"
+          },
+          {
+            "leftId": "vn16-l2-uya",
+            "rightId": "vn16-r2-uya"
+          },
+          {
+            "leftId": "vn16-l2-uyet",
+            "rightId": "vn16-r2-uyet"
+          }
+        ],
+        "explanation": "Chính xác! Loay hoay có vần oay, đêm khuya có vần uya, trăng khuyết có vần uyêt.",
+        "explanationAudio": "/media/tts/vn16-q5-exp.mp3"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn16-slide-q6",
+      "teacherNote": "Câu hỏi 6: Từ nào dưới đây có chứa vần 'uyên'?",
+      "question": {
+        "type": "multiple_choice",
+        "id": "vn16-q6-mc",
+        "prompt": "Từ nào dưới đây có chứa vần 'uyên'?",
+        "promptAudio": "/media/tts/vn16-q6-prompt.mp3",
+        "illustration": "/media/images/bird.svg",
+        "options": [
+          {
+            "id": "vn16-q6-opt-khuyen",
+            "label": "chim khuyên",
+            "audio": "/media/tts/vn16-q6-opt0.mp3"
+          },
+          {
+            "id": "vn16-q6-opt-hue",
+            "label": "hoa huệ",
+            "audio": "/media/tts/vn16-q6-opt1.mp3"
+          },
+          {
+            "id": "vn16-q6-opt-san",
+            "label": "củ sắn",
+            "audio": "/media/tts/vn16-q6-opt2.mp3"
+          }
+        ],
+        "correctOptionId": "vn16-q6-opt-khuyen",
+        "explanation": "Tiếng khuyên có chứa vần uyên: kh - uyên - khuyên.",
+        "explanationAudio": "/media/tts/vn16-q6-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    }
+  ]
+}

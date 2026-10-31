@@ -1,0 +1,309 @@
+{
+  "status": "publish",
+  "mode": "publish",
+  "id": "vn-20-review-final",
+  "title": "Bài 20: Ôn tập Tiếng Việt cuối năm",
+  "subject": "vietnamese",
+  "grade": 1,
+  "description": "Ôn tập toàn diện chương trình Tiếng Việt Lớp 1: Ghép từ thành câu trọn vẹn, đọc hiểu đoạn văn ngắn và sẵn sàng bước vào Lớp 2.",
+  "totalDurationMinutes": 25,
+  "slides": [
+    {
+      "type": "title-slide",
+      "id": "vn20-title-slide",
+      "title": "Bài 20: Ôn tập Tiếng Việt cuối năm",
+      "subtitle": "Tiếng Việt Lớp 1 — Bài học tương tác",
+      "teacherNote": "Tổng kết năm học Lớp 1, khen ngợi và động viên các em tự tin lên lớp 2.",
+      "backgroundImage": "/media/images/star.svg",
+      "audio": "/media/tts/vn20-title.mp3"
+    },
+    {
+      "type": "content-slide",
+      "id": "vn20-intro-slide",
+      "title": "Ôn tập tổng hợp cuối năm",
+      "body": "Chúc mừng các em đã đi đến chặng đường cuối của lớp 1! Giờ đây các em đã biết đọc thông, viết thạo và tự tin bước vào lớp 2!",
+      "teacherNote": "Hướng dẫn cả lớp luyện đọc đồng thanh các từ ngữ mẫu.",
+      "illustration": "/media/images/book.svg",
+      "audio": "/media/tts/vn20-intro.mp3",
+      "bullets": [
+        "Đọc trôi chảy câu và đoạn văn",
+        "Ghép từ tạo thành câu có nghĩa",
+        "Hiểu nội dung bài đọc và diễn đạt tự tin"
+      ]
+    },
+    {
+      "type": "question-slide",
+      "id": "vn20-slide-q1",
+      "teacherNote": "Câu hỏi 1: Sắp xếp từ để tạo thành câu hoàn chỉnh: ",
+      "question": {
+        "type": "tap_place",
+        "id": "vn20-q1-tap",
+        "prompt": "Sắp xếp từ để tạo thành câu hoàn chỉnh: Em là học sinh lớp một.",
+        "promptAudio": "/media/tts/vn20-q1-prompt.mp3",
+        "illustration": "/media/images/school.svg",
+        "targets": [
+          {
+            "id": "vn20-tgt-lopmot",
+            "label": "...",
+            "prefixText": "Em là học sinh ",
+            "suffixText": "."
+          }
+        ],
+        "items": [
+          {
+            "id": "vn20-it-lopmot",
+            "label": "lớp một",
+            "audio": "/media/tts/vn20-q1-it0.mp3"
+          },
+          {
+            "id": "vn20-it-lopnam",
+            "label": "lớp năm",
+            "audio": "/media/tts/vn20-q1-it1.mp3"
+          }
+        ],
+        "correctMapping": {
+          "vn20-it-lopmot": "vn20-tgt-lopmot"
+        },
+        "explanation": "Câu hoàn chỉnh thể hiện niềm tự hào: Em là học sinh lớp một.",
+        "explanationAudio": "/media/tts/vn20-q1-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn20-slide-q2",
+      "teacherNote": "Câu hỏi 2: Nối hai vế câu ở cột trái và cột phải để",
+      "question": {
+        "type": "matching",
+        "id": "vn20-q2-match",
+        "prompt": "Nối hai vế câu ở cột trái và cột phải để tạo câu văn hoàn chỉnh:",
+        "promptAudio": "/media/tts/vn20-q2-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "leftColumn": [
+          {
+            "id": "vn20-l-muahe",
+            "label": "Mùa hè đến,",
+            "audio": "/media/tts/vn20-q2-l0.mp3"
+          },
+          {
+            "id": "vn20-l-bautroi",
+            "label": "Bầu trời mùa hè",
+            "audio": "/media/tts/vn20-q2-l1.mp3"
+          },
+          {
+            "id": "vn20-l-hocsinh",
+            "label": "Các bạn học sinh",
+            "audio": "/media/tts/vn20-q2-l2.mp3"
+          }
+        ],
+        "rightColumn": [
+          {
+            "id": "vn20-r-vekeu",
+            "label": "tiếng ve kêu râm ran.",
+            "audio": "/media/tts/vn20-q2-r0.mp3"
+          },
+          {
+            "id": "vn20-r-trongxanh",
+            "label": "trong xanh vời vợi.",
+            "audio": "/media/tts/vn20-q2-r1.mp3"
+          },
+          {
+            "id": "vn20-r-nghihe",
+            "label": "được nghỉ hè vui vẻ.",
+            "audio": "/media/tts/vn20-q2-r2.mp3"
+          }
+        ],
+        "correctPairs": [
+          {
+            "leftId": "vn20-l-muahe",
+            "rightId": "vn20-r-vekeu"
+          },
+          {
+            "leftId": "vn20-l-bautroi",
+            "rightId": "vn20-r-trongxanh"
+          },
+          {
+            "leftId": "vn20-l-hocsinh",
+            "rightId": "vn20-r-nghihe"
+          }
+        ],
+        "explanation": "Rất chuẩn xác! Cả 3 câu đều nói về mùa hè tươi đẹp và tràn ngập niềm vui.",
+        "explanationAudio": "/media/tts/vn20-q2-exp.mp3"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn20-slide-q3",
+      "teacherNote": "Câu hỏi 3: Đoạn văn: 'Năm học lớp một đã kết thúc. ",
+      "question": {
+        "type": "multiple_choice",
+        "id": "vn20-q3-mc",
+        "prompt": "Đoạn văn: 'Năm học lớp một đã kết thúc. Em biết đọc truyện, viết chữ đẹp và làm toán nhanh.' Sau năm học lớp một, em đã biết làm những gì?",
+        "promptAudio": "/media/tts/vn20-q3-prompt.mp3",
+        "illustration": "/media/images/book.svg",
+        "options": [
+          {
+            "id": "vn20-opt-bietdoc",
+            "label": "Biết đọc truyện, viết chữ và làm toán",
+            "audio": "/media/tts/vn20-q3-opt0.mp3"
+          },
+          {
+            "id": "vn20-opt-laixe",
+            "label": "Biết lái xe ô tô trên đường phố",
+            "audio": "/media/tts/vn20-q3-opt1.mp3"
+          },
+          {
+            "id": "vn20-opt-bay",
+            "label": "Biết tự bay lên mặt trăng",
+            "audio": "/media/tts/vn20-q3-opt2.mp3"
+          }
+        ],
+        "correctOptionId": "vn20-opt-bietdoc",
+        "explanation": "Lớp một đã giúp các em biết đọc, biết viết và làm toán rất giỏi.",
+        "explanationAudio": "/media/tts/vn20-q3-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn20-slide-q4",
+      "teacherNote": "Câu hỏi 4: Điền từ thích hợp: 'Tạm biệt lớp một, ch",
+      "question": {
+        "type": "tap_place",
+        "id": "vn20-q4-tap",
+        "prompt": "Điền từ thích hợp: 'Tạm biệt lớp một, chúng em tự tin bước vào lớp ...'",
+        "promptAudio": "/media/tts/vn20-q4-prompt.mp3",
+        "illustration": "/media/images/school.svg",
+        "targets": [
+          {
+            "id": "vn20-tgt-lophai",
+            "label": "...",
+            "prefixText": "Tự tin bước vào lớp ",
+            "suffixText": "."
+          }
+        ],
+        "items": [
+          {
+            "id": "vn20-it-hai",
+            "label": "hai",
+            "audio": "/media/tts/vn20-q4-it0.mp3"
+          },
+          {
+            "id": "vn20-it-ba",
+            "label": "ba",
+            "audio": "/media/tts/vn20-q4-it1.mp3"
+          }
+        ],
+        "correctMapping": {
+          "vn20-it-hai": "vn20-tgt-lophai"
+        },
+        "explanation": "Hoàn thành lớp một, năm sau các em sẽ là học sinh lớp hai.",
+        "explanationAudio": "/media/tts/vn20-q4-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn20-slide-q5",
+      "teacherNote": "Câu hỏi 5: Nối đức tính tốt ở cột trái với hành độn",
+      "question": {
+        "type": "matching",
+        "id": "vn20-q5-match",
+        "prompt": "Nối đức tính tốt ở cột trái với hành động cụ thể ở cột phải:",
+        "promptAudio": "/media/tts/vn20-q5-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "leftColumn": [
+          {
+            "id": "vn20-l2-cham",
+            "label": "Chăm chỉ",
+            "audio": "/media/tts/vn20-q5-l0.mp3"
+          },
+          {
+            "id": "vn20-l2-le",
+            "label": "Lễ phép",
+            "audio": "/media/tts/vn20-q5-l1.mp3"
+          },
+          {
+            "id": "vn20-l2-doan",
+            "label": "Đoàn kết",
+            "audio": "/media/tts/vn20-q5-l2.mp3"
+          }
+        ],
+        "rightColumn": [
+          {
+            "id": "vn20-r2-di-hoc",
+            "label": "đi học đúng giờ, làm bài đầy đủ",
+            "audio": "/media/tts/vn20-q5-r0.mp3"
+          },
+          {
+            "id": "vn20-r2-chao-hoi",
+            "label": "chào hỏi thầy cô và người lớn",
+            "audio": "/media/tts/vn20-q5-r1.mp3"
+          },
+          {
+            "id": "vn20-r2-giup-do",
+            "label": "yêu quý, giúp đỡ bạn bè",
+            "audio": "/media/tts/vn20-q5-r2.mp3"
+          }
+        ],
+        "correctPairs": [
+          {
+            "leftId": "vn20-l2-cham",
+            "rightId": "vn20-r2-di-hoc"
+          },
+          {
+            "leftId": "vn20-l2-le",
+            "rightId": "vn20-r2-chao-hoi"
+          },
+          {
+            "leftId": "vn20-l2-doan",
+            "rightId": "vn20-r2-giup-do"
+          }
+        ],
+        "explanation": "Chính xác! Chăm chỉ, lễ phép, đoàn kết là những phẩm chất đáng quý của học sinh.",
+        "explanationAudio": "/media/tts/vn20-q5-exp.mp3"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn20-slide-q6",
+      "teacherNote": "Câu hỏi 6: Khi gặp thầy cô giáo trong sân trường, c",
+      "question": {
+        "type": "multiple_choice",
+        "id": "vn20-q6-mc",
+        "prompt": "Khi gặp thầy cô giáo trong sân trường, câu chào nào thể hiện sự lễ phép nhất?",
+        "promptAudio": "/media/tts/vn20-q6-prompt.mp3",
+        "illustration": "/media/images/school.svg",
+        "options": [
+          {
+            "id": "vn20-q6-opt-chao",
+            "label": "Em chào thầy cô ạ!",
+            "audio": "/media/tts/vn20-q6-opt0.mp3"
+          },
+          {
+            "id": "vn20-q6-opt-hoi",
+            "label": "Thầy cô đi đâu đấy?",
+            "audio": "/media/tts/vn20-q6-opt1.mp3"
+          },
+          {
+            "id": "vn20-q6-opt-re",
+            "label": "Chào nhé!",
+            "audio": "/media/tts/vn20-q6-opt2.mp3"
+          }
+        ],
+        "correctOptionId": "vn20-q6-opt-chao",
+        "explanation": "Lời chào 'Em chào thầy cô ạ!' vừa lễ phép vừa thể hiện lòng tôn kính thầy cô giáo.",
+        "explanationAudio": "/media/tts/vn20-q6-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    }
+  ]
+}

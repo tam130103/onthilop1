@@ -1,0 +1,268 @@
+{
+  "status": "publish",
+  "mode": "publish",
+  "id": "math-19-dong-ho-thoi-gian",
+  "title": "Xem đồng hồ (Giờ đúng) & Ngày trong tuần",
+  "subject": "math",
+  "grade": 1,
+  "description": "Bài học Toán 1: Làm quen mặt đồng hồ kim, nhận biết giờ đúng và ghi nhớ 7 ngày trong tuần.",
+  "totalDurationMinutes": 25,
+  "slides": [
+    {
+      "type": "title-slide",
+      "id": "m19-slide-title",
+      "title": "Xem đồng hồ & Ngày trong tuần",
+      "subtitle": "Toán Lớp 1 — Thời gian và cuộc sống",
+      "teacherNote": "Mang đồng hồ mô hình cho học sinh xoay kim ngắn và kim dài.",
+      "backgroundImage": "/media/images/clock.svg",
+      "audio": "/media/tts/m19-title.mp3"
+    },
+    {
+      "type": "content-slide",
+      "id": "m19-slide-intro",
+      "title": "Giờ đúng và Tuần lễ",
+      "body": "Khi kim dài chỉ số 12, kim ngắn chỉ số nào thì đó là bấy nhiêu giờ đúng! Một tuần lễ có 7 ngày: Thứ Hai, Thứ Ba, Thứ Tư, Thứ Năm, Thứ Sáu, Thứ Bảy, Chủ Nhật.",
+      "teacherNote": "Nhắc học sinh các ngày đi học và hai ngày nghỉ cuối tuần.",
+      "illustration": "/media/images/calendar.svg",
+      "audio": "/media/tts/m19-intro.mp3",
+      "bullets": [
+        "Kim dài chỉ số 12, kim ngắn chỉ số 8: 8 giờ đúng",
+        "Một tuần lễ có 7 ngày",
+        "Thứ Bảy và Chủ Nhật là ngày nghỉ"
+      ]
+    },
+    {
+      "type": "question-slide",
+      "id": "m19-slide-q1",
+      "teacherNote": "Đồng hồ chỉ 8 giờ",
+      "question": {
+        "type": "multiple_choice",
+        "id": "m19-q1-mc",
+        "prompt": "Đồng hồ có kim ngắn chỉ số 8, kim dài chỉ số 12 là mấy giờ?",
+        "promptAudio": "/media/tts/m19-q1-prompt.mp3",
+        "illustration": "/media/images/clock.svg",
+        "options": [
+          {
+            "id": "m19-opt-8h",
+            "label": "8 giờ đúng",
+            "audio": "/media/tts/m19-opt-8-gio-dung.mp3"
+          },
+          {
+            "id": "m19-opt-12h",
+            "label": "12 giờ đúng",
+            "audio": "/media/tts/m19-opt-12-gio-dung.mp3"
+          },
+          {
+            "id": "m19-opt-7h",
+            "label": "7 giờ đúng",
+            "audio": "/media/tts/m19-opt-7-gio-dung.mp3"
+          }
+        ],
+        "explanation": "Kim dài chỉ số 12, kim ngắn chỉ số 8 là 8 giờ đúng.",
+        "explanationAudio": "/media/tts/m19-q1-exp.mp3",
+        "correctOptionId": "m19-opt-8h"
+      },
+      "timeLimitSeconds": 20,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m19-slide-q2",
+      "teacherNote": "Nối vị trí kim ngắn với giờ",
+      "question": {
+        "type": "matching",
+        "id": "m19-q2-matching",
+        "prompt": "Khi kim dài chỉ số 12, hãy nối kim ngắn với giờ đúng:",
+        "promptAudio": "/media/tts/m19-q2-prompt.mp3",
+        "leftColumn": [
+          {
+            "id": "m19-l1",
+            "text": "Kim ngắn chỉ số 7",
+            "audio": "/media/tts/m19-lbl-kn-7.mp3",
+            "label": "Kim ngắn chỉ số 7"
+          },
+          {
+            "id": "m19-l2",
+            "text": "Kim ngắn chỉ số 10",
+            "audio": "/media/tts/m19-lbl-kn-10.mp3",
+            "label": "Kim ngắn chỉ số 10"
+          },
+          {
+            "id": "m19-l3",
+            "text": "Kim ngắn chỉ số 3",
+            "audio": "/media/tts/m19-lbl-kn-3.mp3",
+            "label": "Kim ngắn chỉ số 3"
+          }
+        ],
+        "rightColumn": [
+          {
+            "id": "m19-r1",
+            "text": "7 giờ đúng",
+            "audio": "/media/tts/m19-lbl-7-gio.mp3",
+            "label": "7 giờ đúng"
+          },
+          {
+            "id": "m19-r2",
+            "text": "10 giờ đúng",
+            "audio": "/media/tts/m19-lbl-10-gio.mp3",
+            "label": "10 giờ đúng"
+          },
+          {
+            "id": "m19-r3",
+            "text": "3 giờ đúng",
+            "audio": "/media/tts/m19-lbl-3-gio.mp3",
+            "label": "3 giờ đúng"
+          }
+        ],
+        "correctPairs": [
+          {
+            "leftId": "m19-l1",
+            "rightId": "m19-r1"
+          },
+          {
+            "leftId": "m19-l2",
+            "rightId": "m19-r2"
+          },
+          {
+            "leftId": "m19-l3",
+            "rightId": "m19-r3"
+          }
+        ],
+        "explanation": "Kim ngắn chỉ số nào thì đó là bấy nhiêu giờ đúng.",
+        "explanationAudio": "/media/tts/m19-q2-exp.mp3",
+        "illustration": "/media/images/star.svg"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m19-slide-q3",
+      "teacherNote": "Thứ Ba rồi đến thứ mấy?",
+      "question": {
+        "type": "tap_place",
+        "id": "m19-q3-tap",
+        "prompt": "Chọn ngày thích hợp điền vào chỗ trống: Thứ Ba rồi đến ...",
+        "promptAudio": "/media/tts/m19-q3-prompt.mp3",
+        "targets": [
+          {
+            "id": "m19-t1",
+            "label": "Tên thứ",
+            "prefixText": "Thứ Ba rồi đến ",
+            "suffixText": "."
+          }
+        ],
+        "items": [
+          {
+            "id": "m19-i1",
+            "text": "Thứ Tư",
+            "audio": "/media/tts/m19-word-thu-tu.mp3",
+            "label": "Thứ Tư"
+          },
+          {
+            "id": "m19-i2",
+            "text": "Thứ Năm",
+            "audio": "/media/tts/m19-word-thu-nam.mp3",
+            "label": "Thứ Năm"
+          },
+          {
+            "id": "m19-i3",
+            "text": "Thứ Hai",
+            "audio": "/media/tts/m19-word-thu-hai.mp3",
+            "label": "Thứ Hai"
+          }
+        ],
+        "correctMapping": {
+          "m19-i1": "m19-t1"
+        },
+        "explanation": "Thứ Ba liền kề sau đó là Thứ Tư.",
+        "explanationAudio": "/media/tts/m19-q3-exp.mp3",
+        "illustration": "/media/images/star.svg"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m19-slide-q4",
+      "teacherNote": "Một tuần có bao nhiêu ngày?",
+      "question": {
+        "type": "number_select",
+        "id": "m19-q4-ns",
+        "prompt": "Một tuần lễ có bao nhiêu ngày?",
+        "promptAudio": "/media/tts/m19-q4-prompt.mp3",
+        "illustration": "/media/images/calendar.svg",
+        "expression": "5 + 2 = ?",
+        "choices": [
+          5,
+          6,
+          7,
+          8
+        ],
+        "correctAnswer": 7,
+        "explanation": "Một tuần lễ gồm có 7 ngày.",
+        "explanationAudio": "/media/tts/m19-q4-exp.mp3"
+      },
+      "timeLimitSeconds": 20,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m19-slide-q5",
+      "teacherNote": "Tính ngày tiếp theo",
+      "question": {
+        "type": "number_select",
+        "id": "m19-q5-ns",
+        "prompt": "Hôm nay là Thứ Hai ngày 10. Ngày mai Thứ Ba là ngày bao nhiêu?",
+        "promptAudio": "/media/tts/m19-q5-prompt.mp3",
+        "illustration": "/media/images/calendar.svg",
+        "expression": "10 + 1 = ?",
+        "choices": [
+          11,
+          12,
+          13,
+          9
+        ],
+        "correctAnswer": 11,
+        "explanation": "Hôm nay ngày 10 thì ngày mai là ngày 11.",
+        "explanationAudio": "/media/tts/m19-q5-exp.mp3"
+      },
+      "timeLimitSeconds": 20,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m19-slide-q6",
+      "teacherNote": "Các ngày đi học",
+      "question": {
+        "type": "multiple_choice",
+        "id": "m19-q6-mc",
+        "prompt": "Trong tuần, các ngày em đến trường đi học là:",
+        "promptAudio": "/media/tts/m19-q6-prompt.mp3",
+        "illustration": "/media/images/school.svg",
+        "options": [
+          {
+            "id": "m19-opt-t2t6",
+            "label": "Từ Thứ Hai đến Thứ Sáu",
+            "audio": "/media/tts/m19-opt-t2-t6.mp3"
+          },
+          {
+            "id": "m19-opt-t7cn",
+            "label": "Thứ Bảy và Chủ Nhật",
+            "audio": "/media/tts/m19-opt-t7-cn.mp3"
+          },
+          {
+            "id": "m19-opt-tatca",
+            "label": "Tất cả các ngày trong tuần",
+            "audio": "/media/tts/m19-opt-all-week.mp3"
+          }
+        ],
+        "explanation": "Học sinh tiểu học đi học từ Thứ Hai đến Thứ Sáu hàng tuần.",
+        "explanationAudio": "/media/tts/m19-q6-exp.mp3",
+        "correctOptionId": "m19-opt-t2t6"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    }
+  ]
+}

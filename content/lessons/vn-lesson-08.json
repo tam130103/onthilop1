@@ -1,0 +1,312 @@
+{
+  "status": "publish",
+  "mode": "publish",
+  "id": "vn-08-u-u-y",
+  "title": "Bài 8: Âm u, ư, y và tiếng ghép",
+  "subject": "vietnamese",
+  "grade": 1,
+  "description": "Làm quen các âm u, ư, y và luyện đọc từ ngữ ứng dụng: con cú, lá thư, y tá, đu đủ qua 6 câu hỏi tương tác.",
+  "totalDurationMinutes": 25,
+  "slides": [
+    {
+      "type": "title-slide",
+      "id": "vn8-title-slide",
+      "title": "Bài 8: Âm u, ư, y và tiếng ghép",
+      "subtitle": "Tiếng Việt Lớp 1 — Bài học tương tác",
+      "teacherNote": "Hướng dẫn phân biệt u, ư (có móc) và y (i dài).",
+      "backgroundImage": "/media/images/star.svg",
+      "audio": "/media/tts/vn8-title.mp3"
+    },
+    {
+      "type": "content-slide",
+      "id": "vn8-intro-slide",
+      "title": "Làm quen ba chữ cái U, Ư, Y",
+      "body": "Chữ u như cái thuyền nhỏ, chữ ư có móc xinh, chữ y có nét kéo dài. Cùng đọc: cú, thư, y tá nhé!",
+      "teacherNote": "Hướng dẫn cả lớp luyện đọc đồng thanh các từ ngữ mẫu.",
+      "illustration": "/media/images/book.svg",
+      "audio": "/media/tts/vn8-intro.mp3",
+      "bullets": [
+        "u — cú (con cú mèo)",
+        "ư — thư (lá thư tay)",
+        "y — y tá (cô y tá hiền hậu)"
+      ]
+    },
+    {
+      "type": "question-slide",
+      "id": "vn8-slide-q1",
+      "teacherNote": "Câu hỏi 1: Tiếng 'cú' có chứa âm nào dưới đây?",
+      "question": {
+        "type": "multiple_choice",
+        "id": "vn8-q1-mc",
+        "prompt": "Tiếng 'cú' có chứa âm nào dưới đây?",
+        "promptAudio": "/media/tts/vn8-q1-prompt.mp3",
+        "illustration": "/media/images/bird.svg",
+        "options": [
+          {
+            "id": "vn8-opt-u",
+            "label": "Âm u",
+            "audio": "/media/tts/vn8-q1-opt0.mp3"
+          },
+          {
+            "id": "vn8-opt-uw",
+            "label": "Âm ư",
+            "audio": "/media/tts/vn8-q1-opt1.mp3"
+          },
+          {
+            "id": "vn8-opt-y",
+            "label": "Âm y",
+            "audio": "/media/tts/vn8-q1-opt2.mp3"
+          }
+        ],
+        "correctOptionId": "vn8-opt-u",
+        "explanation": "Tiếng cú gồm âm c đứng trước, âm u đứng sau và dấu sắc: c - u - cu - sắc - cú.",
+        "explanationAudio": "/media/tts/vn8-q1-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn8-slide-q2",
+      "teacherNote": "Câu hỏi 2: Điền âm thích hợp để có từ lá thư:",
+      "question": {
+        "type": "tap_place",
+        "id": "vn8-q2-tap",
+        "prompt": "Điền âm thích hợp để có từ lá thư:",
+        "promptAudio": "/media/tts/vn8-q2-prompt.mp3",
+        "illustration": "/media/images/book.svg",
+        "targets": [
+          {
+            "id": "vn8-tgt-thu",
+            "label": "...",
+            "prefixText": "Lá th",
+            "suffixText": ""
+          }
+        ],
+        "items": [
+          {
+            "id": "vn8-it-uw",
+            "label": "ư",
+            "audio": "/media/tts/vn8-q2-it0.mp3"
+          },
+          {
+            "id": "vn8-it-u",
+            "label": "u",
+            "audio": "/media/tts/vn8-q2-it1.mp3"
+          }
+        ],
+        "correctMapping": {
+          "vn8-it-uw": "vn8-tgt-thu"
+        },
+        "explanation": "Lá thư có tiếng thư gồm âm th và âm ư.",
+        "explanationAudio": "/media/tts/vn8-q2-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn8-slide-q3",
+      "teacherNote": "Câu hỏi 3: Nối tiếng ở cột trái với từ thích hợp ở ",
+      "question": {
+        "type": "matching",
+        "id": "vn8-q3-match",
+        "prompt": "Nối tiếng ở cột trái với từ thích hợp ở cột phải:",
+        "promptAudio": "/media/tts/vn8-q3-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "leftColumn": [
+          {
+            "id": "vn8-l-cu",
+            "label": "cú",
+            "audio": "/media/tts/vn8-q3-l0.mp3"
+          },
+          {
+            "id": "vn8-l-thu",
+            "label": "thư",
+            "audio": "/media/tts/vn8-q3-l1.mp3"
+          },
+          {
+            "id": "vn8-l-yta",
+            "label": "y tá",
+            "audio": "/media/tts/vn8-q3-l2.mp3"
+          }
+        ],
+        "rightColumn": [
+          {
+            "id": "vn8-r-cumeo",
+            "label": "cú mèo",
+            "audio": "/media/tts/vn8-q3-r0.mp3"
+          },
+          {
+            "id": "vn8-r-lathu",
+            "label": "lá thư",
+            "audio": "/media/tts/vn8-q3-r1.mp3"
+          },
+          {
+            "id": "vn8-r-coyta",
+            "label": "cô y tá",
+            "audio": "/media/tts/vn8-q3-r2.mp3"
+          }
+        ],
+        "correctPairs": [
+          {
+            "leftId": "vn8-l-cu",
+            "rightId": "vn8-r-cumeo"
+          },
+          {
+            "leftId": "vn8-l-thu",
+            "rightId": "vn8-r-lathu"
+          },
+          {
+            "leftId": "vn8-l-yta",
+            "rightId": "vn8-r-coyta"
+          }
+        ],
+        "explanation": "Rất tốt! Cú ghép với cú mèo, thư ghép với lá thư, y tá ghép với cô y tá.",
+        "explanationAudio": "/media/tts/vn8-q3-exp.mp3"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn8-slide-q4",
+      "teacherNote": "Câu hỏi 4: Từ nào dưới đây có chứa âm 'y'?",
+      "question": {
+        "type": "multiple_choice",
+        "id": "vn8-q4-mc",
+        "prompt": "Từ nào dưới đây có chứa âm 'y'?",
+        "promptAudio": "/media/tts/vn8-q4-prompt.mp3",
+        "illustration": "/media/images/flower.svg",
+        "options": [
+          {
+            "id": "vn8-q4-opt-yta",
+            "label": "y tế",
+            "audio": "/media/tts/vn8-q4-opt0.mp3"
+          },
+          {
+            "id": "vn8-q4-opt-me",
+            "label": "quả me",
+            "audio": "/media/tts/vn8-q4-opt1.mp3"
+          },
+          {
+            "id": "vn8-q4-opt-ca",
+            "label": "con cá",
+            "audio": "/media/tts/vn8-q4-opt2.mp3"
+          }
+        ],
+        "correctOptionId": "vn8-q4-opt-yta",
+        "explanation": "Từ y tế có tiếng y bắt đầu bằng âm y.",
+        "explanationAudio": "/media/tts/vn8-q4-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn8-slide-q5",
+      "teacherNote": "Câu hỏi 5: Điền âm thích hợp để tạo thành từ đu đủ:",
+      "question": {
+        "type": "tap_place",
+        "id": "vn8-q5-tap",
+        "prompt": "Điền âm thích hợp để tạo thành từ đu đủ:",
+        "promptAudio": "/media/tts/vn8-q5-prompt.mp3",
+        "illustration": "/media/images/apple.svg",
+        "targets": [
+          {
+            "id": "vn8-tgt-dudu",
+            "label": "...",
+            "prefixText": "Đu đ",
+            "suffixText": ""
+          }
+        ],
+        "items": [
+          {
+            "id": "vn8-it-du-u",
+            "label": "ủ",
+            "audio": "/media/tts/vn8-q5-it0.mp3"
+          },
+          {
+            "id": "vn8-it-du-a",
+            "label": "ả",
+            "audio": "/media/tts/vn8-q5-it1.mp3"
+          }
+        ],
+        "correctMapping": {
+          "vn8-it-du-u": "vn8-tgt-dudu"
+        },
+        "explanation": "Đu đủ gồm hai tiếng đều có âm u.",
+        "explanationAudio": "/media/tts/vn8-q5-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn8-slide-q6",
+      "teacherNote": "Câu hỏi 6: Nối từ ở cột trái với hình tương ứng ở c",
+      "question": {
+        "type": "matching",
+        "id": "vn8-q6-match",
+        "prompt": "Nối từ ở cột trái với hình tương ứng ở cột phải:",
+        "promptAudio": "/media/tts/vn8-q6-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "leftColumn": [
+          {
+            "id": "vn8-l2-cu",
+            "label": "con cú",
+            "audio": "/media/tts/vn8-q6-l0.mp3"
+          },
+          {
+            "id": "vn8-l2-thu",
+            "label": "lá thư",
+            "audio": "/media/tts/vn8-q6-l1.mp3"
+          },
+          {
+            "id": "vn8-l2-nha",
+            "label": "nhà ga",
+            "audio": "/media/tts/vn8-q6-l2.mp3"
+          }
+        ],
+        "rightColumn": [
+          {
+            "id": "vn8-r2-cu",
+            "label": "chú cú nhỏ",
+            "audio": "/media/tts/vn8-q6-r0.mp3",
+            "image": "/media/images/bird.svg"
+          },
+          {
+            "id": "vn8-r2-thu",
+            "label": "bức thư tay",
+            "audio": "/media/tts/vn8-q6-r1.mp3",
+            "image": "/media/images/book.svg"
+          },
+          {
+            "id": "vn8-r2-nha",
+            "label": "ngôi nhà",
+            "audio": "/media/tts/vn8-q6-r2.mp3",
+            "image": "/media/images/house.svg"
+          }
+        ],
+        "correctPairs": [
+          {
+            "leftId": "vn8-l2-cu",
+            "rightId": "vn8-r2-cu"
+          },
+          {
+            "leftId": "vn8-l2-thu",
+            "rightId": "vn8-r2-thu"
+          },
+          {
+            "leftId": "vn8-l2-nha",
+            "rightId": "vn8-r2-nha"
+          }
+        ],
+        "explanation": "Chính xác! Bé đã nhận biết đúng các từ ngữ và hình ảnh.",
+        "explanationAudio": "/media/tts/vn8-q6-exp.mp3"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    }
+  ]
+}

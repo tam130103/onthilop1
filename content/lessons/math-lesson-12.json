@@ -1,0 +1,297 @@
+{
+  "status": "publish",
+  "mode": "publish",
+  "id": "math-12-review-term1",
+  "title": "Ôn tập học kỳ 1: Cộng trừ phạm vi 10 & Hình học",
+  "subject": "math",
+  "grade": 1,
+  "description": "Bài ôn tập tổng kết học kỳ 1: Củng cố bảng cộng trừ trong phạm vi 10 và nhận biết các hình đã học.",
+  "totalDurationMinutes": 30,
+  "slides": [
+    {
+      "type": "title-slide",
+      "id": "m12-slide-title",
+      "title": "Ôn tập học kỳ 1: Toán Lớp 1",
+      "subtitle": "Bảng cộng trừ phạm vi 10 & Hình học",
+      "teacherNote": "Tổng kết kiến thức học kỳ 1 cho cả lớp.",
+      "backgroundImage": "/media/images/star.svg",
+      "audio": "/media/tts/m12-title.mp3"
+    },
+    {
+      "type": "content-slide",
+      "id": "m12-slide-intro",
+      "title": "Cùng Chinh Phục Học Kỳ 1",
+      "body": "Chúng mình đã học đếm đến 10, cộng trừ thành thạo và nhận biết hình vuông, tròn, tam giác, chữ nhật. Hãy cùng vượt qua các thử thách hôm nay nhé!",
+      "teacherNote": "Khích lệ tinh thần thi đua giữa 4 đội.",
+      "illustration": "/media/images/flag.svg",
+      "audio": "/media/tts/m12-intro.mp3",
+      "bullets": [
+        "Cộng trừ nhanh trong phạm vi 10",
+        "Nhận diện đúng các hình phẳng và hình khối",
+        "Giải toán có lời văn đơn giản"
+      ]
+    },
+    {
+      "type": "question-slide",
+      "id": "m12-slide-q1",
+      "teacherNote": "Tính 4 + 6",
+      "question": {
+        "type": "number_select",
+        "id": "m12-q1-ns",
+        "prompt": "Bé hãy tính kết quả phép tính sau:",
+        "promptAudio": "/media/tts/m12-q1-prompt.mp3",
+        "illustration": "/media/images/apple.svg",
+        "expression": "4 + 6 = ?",
+        "choices": [
+          8,
+          9,
+          10,
+          7
+        ],
+        "correctAnswer": 10,
+        "explanation": "Bốn cộng sáu bằng mười.",
+        "explanationAudio": "/media/tts/m12-q1-exp.mp3"
+      },
+      "timeLimitSeconds": 20,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m12-slide-q2",
+      "teacherNote": "Tính 10 - 7",
+      "question": {
+        "type": "number_select",
+        "id": "m12-q2-ns",
+        "prompt": "Bé hãy tính kết quả phép tính sau:",
+        "promptAudio": "/media/tts/m12-q2-prompt.mp3",
+        "illustration": "/media/images/fish.svg",
+        "expression": "10 - 7 = ?",
+        "choices": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "correctAnswer": 3,
+        "explanation": "Mười trừ bảy bằng ba.",
+        "explanationAudio": "/media/tts/m12-q2-exp.mp3"
+      },
+      "timeLimitSeconds": 20,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m12-slide-q3",
+      "teacherNote": "Hình có 3 cạnh",
+      "question": {
+        "type": "multiple_choice",
+        "id": "m12-q3-mc",
+        "prompt": "Hình nào có đúng 3 cạnh và 3 đỉnh?",
+        "promptAudio": "/media/tts/m12-q3-prompt.mp3",
+        "illustration": "/media/images/triangle.svg",
+        "options": [
+          {
+            "id": "m12-opt-tamgiac",
+            "label": "Hình tam giác",
+            "audio": "/media/tts/m12-opt-tam-giac.mp3"
+          },
+          {
+            "id": "m12-opt-vuong",
+            "label": "Hình vuông",
+            "audio": "/media/tts/m12-opt-hinh-vuong.mp3"
+          },
+          {
+            "id": "m12-opt-tron",
+            "label": "Hình tròn",
+            "audio": "/media/tts/m12-opt-hinh-tron.mp3"
+          }
+        ],
+        "explanation": "Hình tam giác có đúng 3 cạnh và 3 đỉnh.",
+        "explanationAudio": "/media/tts/m12-q3-exp.mp3",
+        "correctOptionId": "m12-opt-tamgiac"
+      },
+      "timeLimitSeconds": 20,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m12-slide-q4",
+      "teacherNote": "Nối phép tính có cùng kết quả",
+      "question": {
+        "type": "matching",
+        "id": "m12-q4-matching",
+        "prompt": "Nối phép tính với kết quả đúng:",
+        "promptAudio": "/media/tts/m12-q4-prompt.mp3",
+        "leftColumn": [
+          {
+            "id": "m12-l1",
+            "text": "5 + 3",
+            "audio": "/media/tts/m12-lbl-5cong3.mp3",
+            "label": "5 + 3"
+          },
+          {
+            "id": "m12-l2",
+            "text": "9 - 5",
+            "audio": "/media/tts/m12-lbl-9tru5.mp3",
+            "label": "9 - 5"
+          },
+          {
+            "id": "m12-l3",
+            "text": "7 + 2",
+            "audio": "/media/tts/m12-lbl-7cong2.mp3",
+            "label": "7 + 2"
+          }
+        ],
+        "rightColumn": [
+          {
+            "id": "m12-r1",
+            "text": "Bằng 8",
+            "audio": "/media/tts/m12-lbl-bang-8.mp3",
+            "label": "Bằng 8"
+          },
+          {
+            "id": "m12-r2",
+            "text": "Bằng 4",
+            "audio": "/media/tts/m12-lbl-bang-4.mp3",
+            "label": "Bằng 4"
+          },
+          {
+            "id": "m12-r3",
+            "text": "Bằng 9",
+            "audio": "/media/tts/m12-lbl-bang-9.mp3",
+            "label": "Bằng 9"
+          }
+        ],
+        "correctPairs": [
+          {
+            "leftId": "m12-l1",
+            "rightId": "m12-r1"
+          },
+          {
+            "leftId": "m12-l2",
+            "rightId": "m12-r2"
+          },
+          {
+            "leftId": "m12-l3",
+            "rightId": "m12-r3"
+          }
+        ],
+        "explanation": "5 + 3 = 8, 9 - 5 = 4, 7 + 2 = 9.",
+        "explanationAudio": "/media/tts/m12-q4-exp.mp3",
+        "illustration": "/media/images/star.svg"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m12-slide-q5",
+      "teacherNote": "Điền số vào phép tính liên tiếp",
+      "question": {
+        "type": "tap_place",
+        "id": "m12-q5-tap",
+        "prompt": "Tính: 3 + 4 + 2 = ?",
+        "promptAudio": "/media/tts/m12-q5-prompt.mp3",
+        "targets": [
+          {
+            "id": "m12-t1",
+            "label": "Kết quả",
+            "prefixText": "3 + 4 + 2 = ",
+            "suffixText": ""
+          }
+        ],
+        "items": [
+          {
+            "id": "m12-i1",
+            "text": "9",
+            "audio": "/media/tts/m12-num-9.mp3",
+            "label": "9"
+          },
+          {
+            "id": "m12-i2",
+            "text": "8",
+            "audio": "/media/tts/m12-num-8.mp3",
+            "label": "8"
+          },
+          {
+            "id": "m12-i3",
+            "text": "10",
+            "audio": "/media/tts/m12-num-10.mp3",
+            "label": "10"
+          }
+        ],
+        "correctMapping": {
+          "m12-i1": "m12-t1"
+        },
+        "explanation": "3 cộng 4 bằng 7, 7 cộng 2 bằng 9.",
+        "explanationAudio": "/media/tts/m12-q5-exp.mp3",
+        "illustration": "/media/images/star.svg"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m12-slide-q6",
+      "teacherNote": "Đếm ngôi sao thưởng",
+      "question": {
+        "type": "counting",
+        "id": "m12-q6-counting",
+        "prompt": "Đếm xem có bao nhiêu ngôi sao vàng trên màn hình?",
+        "promptAudio": "/media/tts/m12-q6-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "items": [
+          {
+            "image": "/media/images/star.svg",
+            "alt": "Sao 1"
+          },
+          {
+            "image": "/media/images/star.svg",
+            "alt": "Sao 2"
+          },
+          {
+            "image": "/media/images/star.svg",
+            "alt": "Sao 3"
+          },
+          {
+            "image": "/media/images/star.svg",
+            "alt": "Sao 4"
+          },
+          {
+            "image": "/media/images/star.svg",
+            "alt": "Sao 5"
+          },
+          {
+            "image": "/media/images/star.svg",
+            "alt": "Sao 6"
+          },
+          {
+            "image": "/media/images/star.svg",
+            "alt": "Sao 7"
+          },
+          {
+            "image": "/media/images/star.svg",
+            "alt": "Sao 8"
+          },
+          {
+            "image": "/media/images/star.svg",
+            "alt": "Sao 9"
+          },
+          {
+            "image": "/media/images/star.svg",
+            "alt": "Sao 10"
+          }
+        ],
+        "correctCount": 10,
+        "numberRange": {
+          "min": 1,
+          "max": 10
+        },
+        "explanation": "Có tất cả 10 ngôi sao vàng tỏa sáng rực rỡ!",
+        "explanationAudio": "/media/tts/m12-q6-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    }
+  ]
+}
