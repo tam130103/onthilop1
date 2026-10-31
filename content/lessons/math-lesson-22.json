@@ -1,0 +1,285 @@
+{
+  "status": "publish",
+  "mode": "publish",
+  "id": "math-22-so-sanh-phep-tinh",
+  "title": "Bài 22: So sánh với phép tính",
+  "subject": "math",
+  "grade": 1,
+  "description": "So sánh kết quả phép tính với một số hoặc so sánh giữa hai phép tính qua 6 câu hỏi tương tác.",
+  "totalDurationMinutes": 25,
+  "slides": [
+    {
+      "type": "title-slide",
+      "id": "m22-title-slide",
+      "title": "Bài 22: So sánh với phép tính",
+      "subtitle": "Toán Lớp 1 — Bài học tương tác",
+      "teacherNote": "Hướng dẫn tính kết quả phép tính trước rồi mới so sánh.",
+      "backgroundImage": "/media/images/star.svg",
+      "audio": "/media/tts/m22-title.mp3"
+    },
+    {
+      "type": "content-slide",
+      "id": "m22-intro-slide",
+      "title": "Cách so sánh phép tính",
+      "body": "Để so sánh phép tính với một số, ta tính kết quả của phép tính đó trước, sau đó so sánh kết quả tìm được với số đã cho.",
+      "teacherNote": "Nhắc học sinh viết kết quả nhẩm lên trên phép tính.",
+      "illustration": "/media/images/pencil.svg",
+      "audio": "/media/tts/m22-intro.mp3",
+      "bullets": [
+        "Ví dụ: 4 + 3 ... 8",
+        "Ta có: 4 + 3 = 7",
+        "Vì 7 < 8 nên 4 + 3 < 8"
+      ]
+    },
+    {
+      "type": "question-slide",
+      "id": "m22-slide-q1",
+      "teacherNote": "So sánh 4 + 3 và 8",
+      "question": {
+        "type": "multiple_choice",
+        "id": "m22-q1-mc",
+        "prompt": "Chọn dấu thích hợp điền vào chỗ chấm: 4 + 3 ... 8",
+        "promptAudio": "/media/tts/m22-q1-prompt.mp3",
+        "illustration": "/media/images/apple.svg",
+        "options": [
+          {
+            "id": "m22-opt-be",
+            "label": "Dấu bé hơn (<)",
+            "audio": "/media/tts/m22-opt-be.mp3"
+          },
+          {
+            "id": "m22-opt-lon",
+            "label": "Dấu lớn hơn (>)",
+            "audio": "/media/tts/m22-opt-lon.mp3"
+          },
+          {
+            "id": "m22-opt-bang",
+            "label": "Dấu bằng (=)",
+            "audio": "/media/tts/m22-opt-bang.mp3"
+          }
+        ],
+        "correctOptionId": "m22-opt-be",
+        "explanation": "4 + 3 = 7, vì 7 bé hơn 8 nên 4 + 3 < 8.",
+        "explanationAudio": "/media/tts/m22-q1-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m22-slide-q2",
+      "teacherNote": "So sánh 9 - 2 và 7",
+      "question": {
+        "type": "multiple_choice",
+        "id": "m22-q2-mc",
+        "prompt": "Chọn dấu thích hợp điền vào chỗ chấm: 9 - 2 ... 7",
+        "promptAudio": "/media/tts/m22-q2-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "options": [
+          {
+            "id": "m22-q2-bang",
+            "label": "Dấu bằng (=)",
+            "audio": "/media/tts/m22-q2-bang.mp3"
+          },
+          {
+            "id": "m22-q2-lon",
+            "label": "Dấu lớn hơn (>)",
+            "audio": "/media/tts/m22-q2-lon.mp3"
+          },
+          {
+            "id": "m22-q2-be",
+            "label": "Dấu bé hơn (<)",
+            "audio": "/media/tts/m22-q2-be.mp3"
+          }
+        ],
+        "correctOptionId": "m22-q2-bang",
+        "explanation": "9 - 2 = 7, vì 7 bằng 7 nên 9 - 2 = 7.",
+        "explanationAudio": "/media/tts/m22-q2-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m22-slide-q3",
+      "teacherNote": "Điền số thỏa mãn 5 + 2 > ?",
+      "question": {
+        "type": "tap_place",
+        "id": "m22-q3-tap",
+        "prompt": "Chọn số thích hợp điền vào ô trống để được phép so sánh đúng: 5 + 2 > ...",
+        "promptAudio": "/media/tts/m22-q3-prompt.mp3",
+        "illustration": "/media/images/apple.svg",
+        "targets": [
+          {
+            "id": "m22-tgt1",
+            "label": "...",
+            "prefixText": "5 + 2 > ",
+            "suffixText": ""
+          }
+        ],
+        "items": [
+          {
+            "id": "m22-it-6",
+            "label": "6",
+            "audio": "/media/tts/m22-it-6.mp3"
+          },
+          {
+            "id": "m22-it-8",
+            "label": "8",
+            "audio": "/media/tts/m22-it-8.mp3"
+          }
+        ],
+        "correctMapping": {
+          "m22-it-6": "m22-tgt1"
+        },
+        "explanation": "5 + 2 = 7, 7 lớn hơn 6 nên ta chọn số 6.",
+        "explanationAudio": "/media/tts/m22-q3-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m22-slide-q4",
+      "teacherNote": "Nối phép tính với so sánh đúng",
+      "question": {
+        "type": "matching",
+        "id": "m22-q4-match",
+        "prompt": "Nối phép tính ở cột trái với so sánh đúng ở cột phải:",
+        "promptAudio": "/media/tts/m22-q4-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "leftColumn": [
+          {
+            "id": "m22-l1",
+            "label": "6 + 3",
+            "audio": "/media/tts/m22-l1.mp3"
+          },
+          {
+            "id": "m22-l2",
+            "label": "5 - 1",
+            "audio": "/media/tts/m22-l2.mp3"
+          },
+          {
+            "id": "m22-l3",
+            "label": "2 + 4",
+            "audio": "/media/tts/m22-l3.mp3"
+          }
+        ],
+        "rightColumn": [
+          {
+            "id": "m22-r1",
+            "label": "Lớn hơn 8",
+            "audio": "/media/tts/m22-r1.mp3"
+          },
+          {
+            "id": "m22-r2",
+            "label": "Bằng số 4",
+            "audio": "/media/tts/m22-r2.mp3"
+          },
+          {
+            "id": "m22-r3",
+            "label": "Bé hơn 7",
+            "audio": "/media/tts/m22-r3.mp3"
+          }
+        ],
+        "correctPairs": [
+          {
+            "leftId": "m22-l1",
+            "rightId": "m22-r1"
+          },
+          {
+            "leftId": "m22-l2",
+            "rightId": "m22-r2"
+          },
+          {
+            "leftId": "m22-l3",
+            "rightId": "m22-r3"
+          }
+        ],
+        "explanation": "6+3=9 > 8; 5-1=4 = 4; 2+4=6 < 7.",
+        "explanationAudio": "/media/tts/m22-q4-exp.mp3"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m22-slide-q5",
+      "teacherNote": "Đếm số sao và so sánh",
+      "question": {
+        "type": "counting",
+        "id": "m22-q5-count",
+        "prompt": "Đếm xem có bao nhiêu ngôi sao vàng trên màn hình?",
+        "promptAudio": "/media/tts/m22-q5-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "items": [
+          {
+            "image": "/media/images/star.svg",
+            "alt": "Sao 1"
+          },
+          {
+            "image": "/media/images/star.svg",
+            "alt": "Sao 2"
+          },
+          {
+            "image": "/media/images/star.svg",
+            "alt": "Sao 3"
+          },
+          {
+            "image": "/media/images/star.svg",
+            "alt": "Sao 4"
+          },
+          {
+            "image": "/media/images/star.svg",
+            "alt": "Sao 5"
+          },
+          {
+            "image": "/media/images/star.svg",
+            "alt": "Sao 6"
+          },
+          {
+            "image": "/media/images/star.svg",
+            "alt": "Sao 7"
+          },
+          {
+            "image": "/media/images/star.svg",
+            "alt": "Sao 8"
+          }
+        ],
+        "correctCount": 8,
+        "numberRange": {
+          "min": 1,
+          "max": 10
+        },
+        "explanation": "Có tất cả 8 ngôi sao vàng, 8 bé hơn 5 + 4 = 9.",
+        "explanationAudio": "/media/tts/m22-q5-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m22-slide-q6",
+      "teacherNote": "So sánh 3 + 4 và 2 + 5",
+      "question": {
+        "type": "number_select",
+        "id": "m22-q6-num",
+        "prompt": "Tính kết quả của phép so sánh: 3 + 4 = 7 và 2 + 5 = 7. Hai kết quả này bằng mấy?",
+        "promptAudio": "/media/tts/m22-q6-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "expression": "3 + 4 = 2 + 5 = ?",
+        "choices": [
+          5,
+          6,
+          7,
+          8
+        ],
+        "correctAnswer": 7,
+        "explanation": "Cả hai phép tính đều có kết quả bằng 7.",
+        "explanationAudio": "/media/tts/m22-q6-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    }
+  ]
+}

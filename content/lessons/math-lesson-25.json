@@ -1,0 +1,282 @@
+{
+  "status": "publish",
+  "mode": "publish",
+  "id": "math-25-dem-them-2-5-10",
+  "title": "Bài 25: Đếm thêm 2, thêm 5, thêm 10",
+  "subject": "math",
+  "grade": 1,
+  "description": "Nhận biết quy luật dãy số cách đều: đếm thêm 2, thêm 5, thêm 10 và điền số còn thiếu vào dãy.",
+  "totalDurationMinutes": 25,
+  "slides": [
+    {
+      "type": "title-slide",
+      "id": "m25-title-slide",
+      "title": "Bài 25: Đếm thêm 2, thêm 5, thêm 10",
+      "subtitle": "Toán Lớp 1 — Bài học tương tác",
+      "teacherNote": "Rèn tư duy phát hiện khoảng cách giữa các số liên tiếp.",
+      "backgroundImage": "/media/images/star.svg",
+      "audio": "/media/tts/m25-title.mp3"
+    },
+    {
+      "type": "content-slide",
+      "id": "m25-intro-slide",
+      "title": "Quy luật đếm cách đều",
+      "body": "Đếm thêm 2: 2, 4, 6, 8, 10. Đếm thêm 5: 5, 10, 15, 20. Đếm thêm 10: 10, 20, 30, 40, 50. Cùng luyện tập đếm thật nhanh nhé!",
+      "teacherNote": "Hướng dẫn cả lớp nắm vững kiến thức trọng tâm.",
+      "illustration": "/media/images/apple.svg",
+      "audio": "/media/tts/m25-intro.mp3",
+      "bullets": [
+        "Đếm thêm 2: cộng thêm 2 đơn vị",
+        "Đếm thêm 5: cộng thêm 5 đơn vị",
+        "Đếm thêm 10: cộng thêm 1 chục"
+      ]
+    },
+    {
+      "type": "question-slide",
+      "id": "m25-slide-q1",
+      "teacherNote": "Câu hỏi 1: Điền số tiếp theo vào dãy số đếm thêm 2:",
+      "question": {
+        "type": "tap_place",
+        "id": "m25-q1-tap",
+        "prompt": "Điền số tiếp theo vào dãy số đếm thêm 2: 2, 4, 6, 8, ...",
+        "promptAudio": "/media/tts/m25-q1-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "targets": [
+          {
+            "id": "m25-t1",
+            "label": "...",
+            "prefixText": "2, 4, 6, 8, ",
+            "suffixText": ""
+          }
+        ],
+        "items": [
+          {
+            "id": "m25-i1",
+            "label": "10",
+            "audio": "/media/tts/m25-q1-it0.mp3"
+          },
+          {
+            "id": "m25-i2",
+            "label": "9",
+            "audio": "/media/tts/m25-q1-it1.mp3"
+          }
+        ],
+        "correctMapping": {
+          "m25-i1": "m25-t1"
+        },
+        "explanation": "8 cộng thêm 2 bằng 10.",
+        "explanationAudio": "/media/tts/m25-q1-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m25-slide-q2",
+      "teacherNote": "Câu hỏi 2: Số tiếp theo trong dãy đếm thêm 5: 5, 10",
+      "question": {
+        "type": "number_select",
+        "id": "m25-q2-num",
+        "prompt": "Số tiếp theo trong dãy đếm thêm 5: 5, 10, 15, ? là số nào?",
+        "promptAudio": "/media/tts/m25-q2-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "expression": "5, 10, 15, ?",
+        "choices": [
+          18,
+          19,
+          20,
+          25
+        ],
+        "correctAnswer": 20,
+        "explanation": "15 cộng thêm 5 bằng 20.",
+        "explanationAudio": "/media/tts/m25-q2-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m25-slide-q3",
+      "teacherNote": "Câu hỏi 3: Nối quy luật đếm ở cột trái với dãy số t",
+      "question": {
+        "type": "matching",
+        "id": "m25-q3-match",
+        "prompt": "Nối quy luật đếm ở cột trái với dãy số tương ứng ở cột phải:",
+        "promptAudio": "/media/tts/m25-q3-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "leftColumn": [
+          {
+            "id": "m25-l1",
+            "label": "Đếm thêm 2",
+            "audio": "/media/tts/m25-q3-l0.mp3"
+          },
+          {
+            "id": "m25-l2",
+            "label": "Đếm thêm 5",
+            "audio": "/media/tts/m25-q3-l1.mp3"
+          },
+          {
+            "id": "m25-l3",
+            "label": "Đếm thêm 10",
+            "audio": "/media/tts/m25-q3-l2.mp3"
+          }
+        ],
+        "rightColumn": [
+          {
+            "id": "m25-r1",
+            "label": "2, 4, 6, 8, 10",
+            "audio": "/media/tts/m25-q3-r0.mp3"
+          },
+          {
+            "id": "m25-r2",
+            "label": "5, 10, 15, 20, 25",
+            "audio": "/media/tts/m25-q3-r1.mp3"
+          },
+          {
+            "id": "m25-r3",
+            "label": "10, 20, 30, 40, 50",
+            "audio": "/media/tts/m25-q3-r2.mp3"
+          }
+        ],
+        "correctPairs": [
+          {
+            "leftId": "m25-l1",
+            "rightId": "m25-r1"
+          },
+          {
+            "leftId": "m25-l2",
+            "rightId": "m25-r2"
+          },
+          {
+            "leftId": "m25-l3",
+            "rightId": "m25-r3"
+          }
+        ],
+        "explanation": "Rất chuẩn xác! Bé đã nhận biết đúng cả 3 quy luật đếm.",
+        "explanationAudio": "/media/tts/m25-q3-exp.mp3"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m25-slide-q4",
+      "teacherNote": "Câu hỏi 4: Trong dãy số 10, 20, 30, 40, ... số tiếp",
+      "question": {
+        "type": "multiple_choice",
+        "id": "m25-q4-mc",
+        "prompt": "Trong dãy số 10, 20, 30, 40, ... số tiếp theo là số nào?",
+        "promptAudio": "/media/tts/m25-q4-prompt.mp3",
+        "illustration": "/media/images/ten-rod.svg",
+        "options": [
+          {
+            "id": "m25-opt-50",
+            "label": "Số 50",
+            "audio": "/media/tts/m25-q4-opt0.mp3"
+          },
+          {
+            "id": "m25-opt-45",
+            "label": "Số 45",
+            "audio": "/media/tts/m25-q4-opt1.mp3"
+          },
+          {
+            "id": "m25-opt-60",
+            "label": "Số 60",
+            "audio": "/media/tts/m25-q4-opt2.mp3"
+          }
+        ],
+        "correctOptionId": "m25-opt-50",
+        "explanation": "Dãy số tròn chục đếm thêm 10, sau 40 là 50.",
+        "explanationAudio": "/media/tts/m25-q4-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m25-slide-q5",
+      "teacherNote": "Câu hỏi 5: Đếm các quả táo trên màn hình (gồm 3 cặp",
+      "question": {
+        "type": "counting",
+        "id": "m25-q5-count",
+        "prompt": "Đếm các quả táo trên màn hình (gồm 3 cặp quả táo):",
+        "promptAudio": "/media/tts/m25-q5-prompt.mp3",
+        "illustration": "/media/images/apple.svg",
+        "items": [
+          {
+            "image": "/media/images/apple.svg",
+            "alt": "Item 1"
+          },
+          {
+            "image": "/media/images/apple.svg",
+            "alt": "Item 2"
+          },
+          {
+            "image": "/media/images/apple.svg",
+            "alt": "Item 3"
+          },
+          {
+            "image": "/media/images/apple.svg",
+            "alt": "Item 4"
+          },
+          {
+            "image": "/media/images/apple.svg",
+            "alt": "Item 5"
+          },
+          {
+            "image": "/media/images/apple.svg",
+            "alt": "Item 6"
+          }
+        ],
+        "correctCount": 6,
+        "numberRange": {
+          "min": 1,
+          "max": 10
+        },
+        "explanation": "Có tất cả 6 quả táo (2, 4, 6 quả).",
+        "explanationAudio": "/media/tts/m25-q5-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m25-slide-q6",
+      "teacherNote": "Câu hỏi 6: Điền số tiếp theo vào dãy số tròn chục: ",
+      "question": {
+        "type": "tap_place",
+        "id": "m25-q6-tap",
+        "prompt": "Điền số tiếp theo vào dãy số tròn chục: 30, 40, 50, ...",
+        "promptAudio": "/media/tts/m25-q6-prompt.mp3",
+        "illustration": "/media/images/ten-rod.svg",
+        "targets": [
+          {
+            "id": "m25-t2",
+            "label": "...",
+            "prefixText": "30, 40, 50, ",
+            "suffixText": ""
+          }
+        ],
+        "items": [
+          {
+            "id": "m25-i3",
+            "label": "60",
+            "audio": "/media/tts/m25-q6-it0.mp3"
+          },
+          {
+            "id": "m25-i4",
+            "label": "55",
+            "audio": "/media/tts/m25-q6-it1.mp3"
+          }
+        ],
+        "correctMapping": {
+          "m25-i3": "m25-t2"
+        },
+        "explanation": "50 cộng thêm 10 bằng 60.",
+        "explanationAudio": "/media/tts/m25-q6-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    }
+  ]
+}

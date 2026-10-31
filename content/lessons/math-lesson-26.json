@@ -1,0 +1,271 @@
+{
+  "status": "publish",
+  "mode": "publish",
+  "id": "math-26-tim-so-con-thieu",
+  "title": "Bài 26: Tìm số còn thiếu",
+  "subject": "math",
+  "grade": 1,
+  "description": "Tìm số thích hợp điền vào chỗ trống trong các phép tính cộng, trừ có khuyết số.",
+  "totalDurationMinutes": 25,
+  "slides": [
+    {
+      "type": "title-slide",
+      "id": "m26-title-slide",
+      "title": "Bài 26: Tìm số còn thiếu",
+      "subtitle": "Toán Lớp 1 — Bài học tương tác",
+      "teacherNote": "Hướng dẫn dựa vào bảng cộng trừ và tách gộp để tìm số chưa biết.",
+      "backgroundImage": "/media/images/star.svg",
+      "audio": "/media/tts/m26-title.mp3"
+    },
+    {
+      "type": "content-slide",
+      "id": "m26-intro-slide",
+      "title": "Tìm số còn thiếu",
+      "body": "Khi phép tính bị khuyết một số: 40 + ? = 47. Ta nhận thấy 47 gồm 40 và 7, vậy số cần tìm chính là 7!",
+      "teacherNote": "Hướng dẫn cả lớp nắm vững kiến thức trọng tâm.",
+      "illustration": "/media/images/apple.svg",
+      "audio": "/media/tts/m26-intro.mp3",
+      "bullets": [
+        "40 + 7 = 47, vậy số còn thiếu là 7",
+        "55 - 5 = 50, vậy số còn thiếu là 5",
+        "Dựa vào cấu tạo chục và đơn vị để tìm nhanh"
+      ]
+    },
+    {
+      "type": "question-slide",
+      "id": "m26-slide-q1",
+      "teacherNote": "Câu hỏi 1: Số nào thích hợp điền vào dấu hỏi chấm: ",
+      "question": {
+        "type": "number_select",
+        "id": "m26-q1-num",
+        "prompt": "Số nào thích hợp điền vào dấu hỏi chấm: 40 + ? = 47",
+        "promptAudio": "/media/tts/m26-q1-prompt.mp3",
+        "illustration": "/media/images/apple.svg",
+        "expression": "40 + ? = 47",
+        "choices": [
+          5,
+          6,
+          7,
+          8
+        ],
+        "correctAnswer": 7,
+        "explanation": "40 cộng 7 bằng 47, vậy số cần điền là 7.",
+        "explanationAudio": "/media/tts/m26-q1-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m26-slide-q2",
+      "teacherNote": "Câu hỏi 2: Số nào thích hợp điền vào ô trống: ? + 5",
+      "question": {
+        "type": "number_select",
+        "id": "m26-q2-num",
+        "prompt": "Số nào thích hợp điền vào ô trống: ? + 5 = 55",
+        "promptAudio": "/media/tts/m26-q2-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "expression": "? + 5 = 55",
+        "choices": [
+          45,
+          50,
+          52,
+          60
+        ],
+        "correctAnswer": 50,
+        "explanation": "50 cộng 5 bằng 55, số cần tìm là 50.",
+        "explanationAudio": "/media/tts/m26-q2-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m26-slide-q3",
+      "teacherNote": "Câu hỏi 3: Chọn số thích hợp đặt vào chỗ trống: 68 ",
+      "question": {
+        "type": "tap_place",
+        "id": "m26-q3-tap",
+        "prompt": "Chọn số thích hợp đặt vào chỗ trống: 68 - ... = 60",
+        "promptAudio": "/media/tts/m26-q3-prompt.mp3",
+        "illustration": "/media/images/apple.svg",
+        "targets": [
+          {
+            "id": "m26-t1",
+            "label": "...",
+            "prefixText": "68 - ",
+            "suffixText": " = 60"
+          }
+        ],
+        "items": [
+          {
+            "id": "m26-i1",
+            "label": "8",
+            "audio": "/media/tts/m26-q3-it0.mp3"
+          },
+          {
+            "id": "m26-i2",
+            "label": "6",
+            "audio": "/media/tts/m26-q3-it1.mp3"
+          }
+        ],
+        "correctMapping": {
+          "m26-i1": "m26-t1"
+        },
+        "explanation": "68 bớt đi 8 đơn vị thì còn 60.",
+        "explanationAudio": "/media/tts/m26-q3-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m26-slide-q4",
+      "teacherNote": "Câu hỏi 4: Nối phép tính khuyết ở cột trái với số c",
+      "question": {
+        "type": "matching",
+        "id": "m26-q4-match",
+        "prompt": "Nối phép tính khuyết ở cột trái với số cần điền ở cột phải:",
+        "promptAudio": "/media/tts/m26-q4-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "leftColumn": [
+          {
+            "id": "m26-l1",
+            "label": "20 + ? = 25",
+            "audio": "/media/tts/m26-q4-l0.mp3"
+          },
+          {
+            "id": "m26-l2",
+            "label": "34 - ? = 30",
+            "audio": "/media/tts/m26-q4-l1.mp3"
+          },
+          {
+            "id": "m26-l3",
+            "label": "70 + ? = 79",
+            "audio": "/media/tts/m26-q4-l2.mp3"
+          }
+        ],
+        "rightColumn": [
+          {
+            "id": "m26-r1",
+            "label": "Điền số 5",
+            "audio": "/media/tts/m26-q4-r0.mp3"
+          },
+          {
+            "id": "m26-r2",
+            "label": "Điền số 4",
+            "audio": "/media/tts/m26-q4-r1.mp3"
+          },
+          {
+            "id": "m26-r3",
+            "label": "Điền số 9",
+            "audio": "/media/tts/m26-q4-r2.mp3"
+          }
+        ],
+        "correctPairs": [
+          {
+            "leftId": "m26-l1",
+            "rightId": "m26-r1"
+          },
+          {
+            "leftId": "m26-l2",
+            "rightId": "m26-r2"
+          },
+          {
+            "leftId": "m26-l3",
+            "rightId": "m26-r3"
+          }
+        ],
+        "explanation": "20+5=25; 34-4=30; 70+9=79.",
+        "explanationAudio": "/media/tts/m26-q4-exp.mp3"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m26-slide-q5",
+      "teacherNote": "Câu hỏi 5: Phép tính nào dưới đây có số thích hợp đ",
+      "question": {
+        "type": "multiple_choice",
+        "id": "m26-q5-mc",
+        "prompt": "Phép tính nào dưới đây có số thích hợp điền vào ô trống là số 4?",
+        "promptAudio": "/media/tts/m26-q5-prompt.mp3",
+        "illustration": "/media/images/pencil.svg",
+        "options": [
+          {
+            "id": "m26-opt-1",
+            "label": "50 + ... = 54",
+            "audio": "/media/tts/m26-q5-opt0.mp3"
+          },
+          {
+            "id": "m26-opt-2",
+            "label": "30 + ... = 35",
+            "audio": "/media/tts/m26-q5-opt1.mp3"
+          },
+          {
+            "id": "m26-opt-3",
+            "label": "70 + ... = 78",
+            "audio": "/media/tts/m26-q5-opt2.mp3"
+          }
+        ],
+        "correctOptionId": "m26-opt-1",
+        "explanation": "50 + 4 = 54 nên số cần điền là 4.",
+        "explanationAudio": "/media/tts/m26-q5-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m26-slide-q6",
+      "teacherNote": "Câu hỏi 6: Đếm xem có bao nhiêu chú cá đang bơi?",
+      "question": {
+        "type": "counting",
+        "id": "m26-q6-count",
+        "prompt": "Đếm xem có bao nhiêu chú cá đang bơi?",
+        "promptAudio": "/media/tts/m26-q6-prompt.mp3",
+        "illustration": "/media/images/fish.svg",
+        "items": [
+          {
+            "image": "/media/images/fish.svg",
+            "alt": "Item 1"
+          },
+          {
+            "image": "/media/images/fish.svg",
+            "alt": "Item 2"
+          },
+          {
+            "image": "/media/images/fish.svg",
+            "alt": "Item 3"
+          },
+          {
+            "image": "/media/images/fish.svg",
+            "alt": "Item 4"
+          },
+          {
+            "image": "/media/images/fish.svg",
+            "alt": "Item 5"
+          },
+          {
+            "image": "/media/images/fish.svg",
+            "alt": "Item 6"
+          },
+          {
+            "image": "/media/images/fish.svg",
+            "alt": "Item 7"
+          }
+        ],
+        "correctCount": 7,
+        "numberRange": {
+          "min": 1,
+          "max": 10
+        },
+        "explanation": "Có đúng 7 chú cá trên màn hình.",
+        "explanationAudio": "/media/tts/m26-q6-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    }
+  ]
+}

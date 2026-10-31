@@ -1,0 +1,309 @@
+{
+  "status": "publish",
+  "mode": "publish",
+  "id": "vn-28-doc-hieu-ong-ba-cha-me",
+  "title": "Bài 28: Đọc hiểu: Kính yêu ông bà, cha mẹ",
+  "subject": "vietnamese",
+  "grade": 1,
+  "description": "Luyện đọc đoạn văn ngắn về tình cảm gia đình, trả lời câu hỏi và bồi dưỡng lòng hiếu thảo.",
+  "totalDurationMinutes": 25,
+  "slides": [
+    {
+      "type": "title-slide",
+      "id": "vn28-title-slide",
+      "title": "Bài 28: Đọc hiểu: Kính yêu ông bà, cha mẹ",
+      "subtitle": "Tiếng Việt Lớp 1 — Bài học tương tác",
+      "teacherNote": "Rèn đọc diễn cảm, ngắt nghỉ đúng dấu câu.",
+      "backgroundImage": "/media/images/star.svg",
+      "audio": "/media/tts/vn28-title.mp3"
+    },
+    {
+      "type": "content-slide",
+      "id": "vn28-intro-slide",
+      "title": "Gia đình mến thương",
+      "body": "Đoạn văn: 'Bé Lan rất yêu bà. Mỗi khi đi học về, Lan lễ phép chào bà, rồi rót nước mời bà uống. Bà âu yếm xoa đầu khen Lan ngoan.'",
+      "teacherNote": "Hướng dẫn học sinh đọc to rõ ràng từng từ ngữ.",
+      "illustration": "/media/images/book.svg",
+      "audio": "/media/tts/vn28-intro.mp3",
+      "bullets": [
+        "Lan lễ phép chào bà khi đi học về",
+        "Lan rót nước mời bà uống",
+        "Bà khen Lan là cô bé hiếu thảo"
+      ]
+    },
+    {
+      "type": "question-slide",
+      "id": "vn28-slide-q1",
+      "teacherNote": "Câu hỏi 1: Khi đi học về, bạn Lan đã làm gì đầu tiê",
+      "question": {
+        "type": "multiple_choice",
+        "id": "vn28-q1-mc",
+        "prompt": "Khi đi học về, bạn Lan đã làm gì đầu tiên?",
+        "promptAudio": "/media/tts/vn28-q1-prompt.mp3",
+        "illustration": "/media/images/house.svg",
+        "options": [
+          {
+            "id": "vn28-opt-chao",
+            "label": "Lễ phép chào bà",
+            "audio": "/media/tts/vn28-q1-opt0.mp3"
+          },
+          {
+            "id": "vn28-opt-xemti",
+            "label": "Bật ti vi xem hoạt hình",
+            "audio": "/media/tts/vn28-q1-opt1.mp3"
+          },
+          {
+            "id": "vn28-opt-di-choi",
+            "label": "Chạy đi chơi ngay",
+            "audio": "/media/tts/vn28-q1-opt2.mp3"
+          }
+        ],
+        "correctOptionId": "vn28-opt-chao",
+        "explanation": "Lan là bé ngoan, vừa về nhà đã lễ phép chào bà.",
+        "explanationAudio": "/media/tts/vn28-q1-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn28-slide-q2",
+      "teacherNote": "Câu hỏi 2: Điền từ thích hợp: Lan rót ... mời bà uố",
+      "question": {
+        "type": "tap_place",
+        "id": "vn28-q2-tap",
+        "prompt": "Điền từ thích hợp: Lan rót ... mời bà uống.",
+        "promptAudio": "/media/tts/vn28-q2-prompt.mp3",
+        "illustration": "/media/images/milk.svg",
+        "targets": [
+          {
+            "id": "vn28-t1",
+            "label": "...",
+            "prefixText": "Lan rót ",
+            "suffixText": " mời bà uống."
+          }
+        ],
+        "items": [
+          {
+            "id": "vn28-i1",
+            "label": "nước",
+            "audio": "/media/tts/vn28-q2-it0.mp3"
+          },
+          {
+            "id": "vn28-i2",
+            "label": "sữa",
+            "audio": "/media/tts/vn28-q2-it1.mp3"
+          }
+        ],
+        "correctMapping": {
+          "vn28-i1": "vn28-t1"
+        },
+        "explanation": "Lan rót nước mời bà uống mát lòng.",
+        "explanationAudio": "/media/tts/vn28-q2-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn28-slide-q3",
+      "teacherNote": "Câu hỏi 3: Nối hành động ở cột trái với ý nghĩa tốt",
+      "question": {
+        "type": "matching",
+        "id": "vn28-q3-match",
+        "prompt": "Nối hành động ở cột trái với ý nghĩa tốt đẹp ở cột phải:",
+        "promptAudio": "/media/tts/vn28-q3-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "leftColumn": [
+          {
+            "id": "vn28-l1",
+            "label": "Chào hỏi lễ phép",
+            "audio": "/media/tts/vn28-q3-l0.mp3"
+          },
+          {
+            "id": "vn28-l2",
+            "label": "Giúp mẹ quét nhà",
+            "audio": "/media/tts/vn28-q3-l1.mp3"
+          },
+          {
+            "id": "vn28-l3",
+            "label": "Vâng lời thầy cô",
+            "audio": "/media/tts/vn28-q3-l2.mp3"
+          }
+        ],
+        "rightColumn": [
+          {
+            "id": "vn28-r1",
+            "label": "kính trọng người lớn",
+            "audio": "/media/tts/vn28-q3-r0.mp3"
+          },
+          {
+            "id": "vn28-r2",
+            "label": "chăm chỉ, đỡ đần cha mẹ",
+            "audio": "/media/tts/vn28-q3-r1.mp3"
+          },
+          {
+            "id": "vn28-r3",
+            "label": "học sinh chăm ngoan",
+            "audio": "/media/tts/vn28-q3-r2.mp3"
+          }
+        ],
+        "correctPairs": [
+          {
+            "leftId": "vn28-l1",
+            "rightId": "vn28-r1"
+          },
+          {
+            "leftId": "vn28-l2",
+            "rightId": "vn28-r2"
+          },
+          {
+            "leftId": "vn28-l3",
+            "rightId": "vn28-r3"
+          }
+        ],
+        "explanation": "Chào hỏi lễ phép, giúp mẹ quét nhà, vâng lời thầy cô.",
+        "explanationAudio": "/media/tts/vn28-q3-exp.mp3"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn28-slide-q4",
+      "teacherNote": "Câu hỏi 4: Thấy Lan ngoan ngoãn, bà đã làm gì?",
+      "question": {
+        "type": "multiple_choice",
+        "id": "vn28-q4-mc",
+        "prompt": "Thấy Lan ngoan ngoãn, bà đã làm gì?",
+        "promptAudio": "/media/tts/vn28-q4-prompt.mp3",
+        "illustration": "/media/images/house.svg",
+        "options": [
+          {
+            "id": "vn28-q4-xoadau",
+            "label": "Âu yếm xoa đầu khen Lan",
+            "audio": "/media/tts/vn28-q4-opt0.mp3"
+          },
+          {
+            "id": "vn28-q4-trach",
+            "label": "Trách phạt Lan",
+            "audio": "/media/tts/vn28-q4-opt1.mp3"
+          },
+          {
+            "id": "vn28-q4-khong",
+            "label": "Không nói gì cả",
+            "audio": "/media/tts/vn28-q4-opt2.mp3"
+          }
+        ],
+        "correctOptionId": "vn28-q4-xoadau",
+        "explanation": "Bà rất vui và âu yếm xoa đầu khen Lan ngoan.",
+        "explanationAudio": "/media/tts/vn28-q4-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn28-slide-q5",
+      "teacherNote": "Câu hỏi 5: Điền từ thích hợp vào câu ca dao: 'Công ",
+      "question": {
+        "type": "tap_place",
+        "id": "vn28-q5-tap",
+        "prompt": "Điền từ thích hợp vào câu ca dao: 'Công cha như núi Thái Sơn, ... mẹ như nước trong nguồn chảy ra.'",
+        "promptAudio": "/media/tts/vn28-q5-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "targets": [
+          {
+            "id": "vn28-t2",
+            "label": "...",
+            "prefixText": "",
+            "suffixText": " mẹ như nước trong nguồn."
+          }
+        ],
+        "items": [
+          {
+            "id": "vn28-i3",
+            "label": "Nghĩa",
+            "audio": "/media/tts/vn28-q5-it0.mp3"
+          },
+          {
+            "id": "vn28-i4",
+            "label": "Tình",
+            "audio": "/media/tts/vn28-q5-it1.mp3"
+          }
+        ],
+        "correctMapping": {
+          "vn28-i3": "vn28-t2"
+        },
+        "explanation": "Công cha như núi Thái Sơn, nghĩa mẹ như nước trong nguồn chảy ra.",
+        "explanationAudio": "/media/tts/vn28-q5-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn28-slide-q6",
+      "teacherNote": "Câu hỏi 6: Nối từ ở cột trái với từ ở cột phải tạo ",
+      "question": {
+        "type": "matching",
+        "id": "vn28-q6-match",
+        "prompt": "Nối từ ở cột trái với từ ở cột phải tạo từ chỉ tình cảm:",
+        "promptAudio": "/media/tts/vn28-q6-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "leftColumn": [
+          {
+            "id": "vn28-l2-yeu",
+            "label": "yêu",
+            "audio": "/media/tts/vn28-q6-l0.mp3"
+          },
+          {
+            "id": "vn28-l2-hieu",
+            "label": "hiếu",
+            "audio": "/media/tts/vn28-q6-l1.mp3"
+          },
+          {
+            "id": "vn28-l2-biet",
+            "label": "biết",
+            "audio": "/media/tts/vn28-q6-l2.mp3"
+          }
+        ],
+        "rightColumn": [
+          {
+            "id": "vn28-r2-quy",
+            "label": "quý",
+            "audio": "/media/tts/vn28-q6-r0.mp3"
+          },
+          {
+            "id": "vn28-r2-thao",
+            "label": "thảo",
+            "audio": "/media/tts/vn28-q6-r1.mp3"
+          },
+          {
+            "id": "vn28-r2-on",
+            "label": "ơn",
+            "audio": "/media/tts/vn28-q6-r2.mp3"
+          }
+        ],
+        "correctPairs": [
+          {
+            "leftId": "vn28-l2-yeu",
+            "rightId": "vn28-r2-quy"
+          },
+          {
+            "leftId": "vn28-l2-hieu",
+            "rightId": "vn28-r2-thao"
+          },
+          {
+            "leftId": "vn28-l2-biet",
+            "rightId": "vn28-r2-on"
+          }
+        ],
+        "explanation": "Yêu quý, hiếu thảo, biết ơn.",
+        "explanationAudio": "/media/tts/vn28-q6-exp.mp3"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    }
+  ]
+}

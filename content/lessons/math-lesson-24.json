@@ -1,0 +1,263 @@
+{
+  "status": "publish",
+  "mode": "publish",
+  "id": "math-24-xang-ti-met",
+  "title": "Bài 24: Đo độ dài & Đơn vị Xăng-ti-mét",
+  "subject": "math",
+  "grade": 1,
+  "description": "Làm quen thước kẻ có vạch chia xăng-ti-mét (cm), tập đo độ dài và làm phép tính đo lường.",
+  "totalDurationMinutes": 25,
+  "slides": [
+    {
+      "type": "title-slide",
+      "id": "m24-title-slide",
+      "title": "Bài 24: Đo độ dài & Đơn vị Xăng-ti-mét",
+      "subtitle": "Toán Lớp 1 — Bài học tương tác",
+      "teacherNote": "Hướng dẫn đặt vạch số 0 trùng với một đầu của vật cần đo.",
+      "backgroundImage": "/media/images/star.svg",
+      "audio": "/media/tts/m24-title.mp3"
+    },
+    {
+      "type": "content-slide",
+      "id": "m24-intro-slide",
+      "title": "Đơn vị Xăng-ti-mét (cm)",
+      "body": "Xăng-ti-mét là đơn vị đo độ dài, viết tắt là cm. Trên thước kẻ, khoảng cách giữa hai vạch số liên tiếp là 1cm.",
+      "teacherNote": "Hướng dẫn cả lớp nắm vững kiến thức trọng tâm.",
+      "illustration": "/media/images/apple.svg",
+      "audio": "/media/tts/m24-intro.mp3",
+      "bullets": [
+        "Xăng-ti-mét viết tắt là cm",
+        "Khi đo, đặt vạch 0 trùng đầu vật",
+        "Cộng trừ số đo kèm đơn vị cm: 5cm + 3cm = 8cm"
+      ]
+    },
+    {
+      "type": "question-slide",
+      "id": "m24-slide-q1",
+      "teacherNote": "Câu hỏi 1: Đơn vị xăng-ti-mét được viết tắt là gì?",
+      "question": {
+        "type": "multiple_choice",
+        "id": "m24-q1-mc",
+        "prompt": "Đơn vị xăng-ti-mét được viết tắt là gì?",
+        "promptAudio": "/media/tts/m24-q1-prompt.mp3",
+        "illustration": "/media/images/ruler.svg",
+        "options": [
+          {
+            "id": "m24-opt-cm",
+            "label": "cm",
+            "audio": "/media/tts/m24-q1-opt0.mp3"
+          },
+          {
+            "id": "m24-opt-kg",
+            "label": "kg",
+            "audio": "/media/tts/m24-q1-opt1.mp3"
+          },
+          {
+            "id": "m24-opt-dm",
+            "label": "dm",
+            "audio": "/media/tts/m24-q1-opt2.mp3"
+          }
+        ],
+        "correctOptionId": "m24-opt-cm",
+        "explanation": "Xăng-ti-mét viết tắt là cm.",
+        "explanationAudio": "/media/tts/m24-q1-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m24-slide-q2",
+      "teacherNote": "Câu hỏi 2: Bút chì đặt từ vạch 0 đến vạch 8 trên th",
+      "question": {
+        "type": "number_select",
+        "id": "m24-q2-num",
+        "prompt": "Bút chì đặt từ vạch 0 đến vạch 8 trên thước kẻ. Bút chì dài bao nhiêu xăng-ti-mét?",
+        "promptAudio": "/media/tts/m24-q2-prompt.mp3",
+        "illustration": "/media/images/ruler.svg",
+        "expression": "Bút chì dài: ? cm",
+        "choices": [
+          6,
+          7,
+          8,
+          9
+        ],
+        "correctAnswer": 8,
+        "explanation": "Từ vạch 0 đến vạch 8 tương ứng độ dài 8cm.",
+        "explanationAudio": "/media/tts/m24-q2-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m24-slide-q3",
+      "teacherNote": "Câu hỏi 3: Nối phép tính đo độ dài với kết quả đúng",
+      "question": {
+        "type": "matching",
+        "id": "m24-q3-match",
+        "prompt": "Nối phép tính đo độ dài với kết quả đúng:",
+        "promptAudio": "/media/tts/m24-q3-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "leftColumn": [
+          {
+            "id": "m24-l1",
+            "label": "5cm + 3cm",
+            "audio": "/media/tts/m24-q3-l0.mp3"
+          },
+          {
+            "id": "m24-l2",
+            "label": "9cm - 4cm",
+            "audio": "/media/tts/m24-q3-l1.mp3"
+          },
+          {
+            "id": "m24-l3",
+            "label": "20cm + 10cm",
+            "audio": "/media/tts/m24-q3-l2.mp3"
+          }
+        ],
+        "rightColumn": [
+          {
+            "id": "m24-r1",
+            "label": "Bằng 8cm",
+            "audio": "/media/tts/m24-q3-r0.mp3"
+          },
+          {
+            "id": "m24-r2",
+            "label": "Bằng 5cm",
+            "audio": "/media/tts/m24-q3-r1.mp3"
+          },
+          {
+            "id": "m24-r3",
+            "label": "Bằng 30cm",
+            "audio": "/media/tts/m24-q3-r2.mp3"
+          }
+        ],
+        "correctPairs": [
+          {
+            "leftId": "m24-l1",
+            "rightId": "m24-r1"
+          },
+          {
+            "leftId": "m24-l2",
+            "rightId": "m24-r2"
+          },
+          {
+            "leftId": "m24-l3",
+            "rightId": "m24-r3"
+          }
+        ],
+        "explanation": "5cm+3cm=8cm; 9cm-4cm=5cm; 20cm+10cm=30cm.",
+        "explanationAudio": "/media/tts/m24-q3-exp.mp3"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m24-slide-q4",
+      "teacherNote": "Câu hỏi 4: Chọn kết quả thích hợp điền vào chỗ chấm",
+      "question": {
+        "type": "tap_place",
+        "id": "m24-q4-tap",
+        "prompt": "Chọn kết quả thích hợp điền vào chỗ chấm: 7cm + 2cm = ...",
+        "promptAudio": "/media/tts/m24-q4-prompt.mp3",
+        "illustration": "/media/images/ruler.svg",
+        "targets": [
+          {
+            "id": "m24-t1",
+            "label": "...",
+            "prefixText": "7cm + 2cm = ",
+            "suffixText": ""
+          }
+        ],
+        "items": [
+          {
+            "id": "m24-i1",
+            "label": "9cm",
+            "audio": "/media/tts/m24-q4-it0.mp3"
+          },
+          {
+            "id": "m24-i2",
+            "label": "8cm",
+            "audio": "/media/tts/m24-q4-it1.mp3"
+          }
+        ],
+        "correctMapping": {
+          "m24-i1": "m24-t1"
+        },
+        "explanation": "7cm cộng 2cm bằng 9cm.",
+        "explanationAudio": "/media/tts/m24-q4-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m24-slide-q5",
+      "teacherNote": "Câu hỏi 5: Đếm xem có bao nhiêu vạch chia trên đoạn",
+      "question": {
+        "type": "counting",
+        "id": "m24-q5-count",
+        "prompt": "Đếm xem có bao nhiêu vạch chia trên đoạn thước?",
+        "promptAudio": "/media/tts/m24-q5-prompt.mp3",
+        "illustration": "/media/images/ruler.svg",
+        "items": [
+          {
+            "image": "/media/images/pencil.svg",
+            "alt": "Item 1"
+          },
+          {
+            "image": "/media/images/pencil.svg",
+            "alt": "Item 2"
+          },
+          {
+            "image": "/media/images/pencil.svg",
+            "alt": "Item 3"
+          },
+          {
+            "image": "/media/images/pencil.svg",
+            "alt": "Item 4"
+          },
+          {
+            "image": "/media/images/pencil.svg",
+            "alt": "Item 5"
+          }
+        ],
+        "correctCount": 5,
+        "numberRange": {
+          "min": 1,
+          "max": 10
+        },
+        "explanation": "Có đúng 5 đoạn khoảng cách xăng-ti-mét.",
+        "explanationAudio": "/media/tts/m24-q5-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m24-slide-q6",
+      "teacherNote": "Câu hỏi 6: Tính: 15cm - 5cm = ?",
+      "question": {
+        "type": "number_select",
+        "id": "m24-q6-num",
+        "prompt": "Tính: 15cm - 5cm = ?",
+        "promptAudio": "/media/tts/m24-q6-prompt.mp3",
+        "illustration": "/media/images/ruler.svg",
+        "expression": "15cm - 5cm = ?",
+        "choices": [
+          8,
+          9,
+          10,
+          12
+        ],
+        "correctAnswer": 10,
+        "explanation": "15 trừ 5 bằng 10, kết quả là 10cm.",
+        "explanationAudio": "/media/tts/m24-q6-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    }
+  ]
+}

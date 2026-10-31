@@ -1,0 +1,309 @@
+{
+  "status": "publish",
+  "mode": "publish",
+  "id": "vn-27-van-iu-uu",
+  "title": "Bài 27: Các vần iu, ưu",
+  "subject": "vietnamese",
+  "grade": 1,
+  "description": "Làm quen với vần iu và ưu, luyện đọc các từ chim hót líu lo, chú cừu non, quả lựu đỏ qua 6 câu hỏi tương tác.",
+  "totalDurationMinutes": 25,
+  "slides": [
+    {
+      "type": "title-slide",
+      "id": "vn27-title-slide",
+      "title": "Bài 27: Các vần iu, ưu",
+      "subtitle": "Tiếng Việt Lớp 1 — Bài học tương tác",
+      "teacherNote": "Rèn khẩu hình chuyển từ i/ư sang u tròn môi.",
+      "backgroundImage": "/media/images/star.svg",
+      "audio": "/media/tts/vn27-title.mp3"
+    },
+    {
+      "type": "content-slide",
+      "id": "vn27-intro-slide",
+      "title": "Các vần IU và ƯU",
+      "body": "Vần iu và ưu xuất hiện trong những tiếng rất vui tai: chim hót líu lo, chú cừu non, quả lựu chín đỏ.",
+      "teacherNote": "Hướng dẫn học sinh đọc to rõ ràng từng từ ngữ.",
+      "illustration": "/media/images/book.svg",
+      "audio": "/media/tts/vn27-intro.mp3",
+      "bullets": [
+        "iu — líu lo (chim hót líu lo)",
+        "ưu — cừu (chú cừu lông trắng)",
+        "ưu — lựu (quả lựu đỏ au)"
+      ]
+    },
+    {
+      "type": "question-slide",
+      "id": "vn27-slide-q1",
+      "teacherNote": "Câu hỏi 1: Tiếng 'líu' trong 'líu lo' có chứa vần g",
+      "question": {
+        "type": "multiple_choice",
+        "id": "vn27-q1-mc",
+        "prompt": "Tiếng 'líu' trong 'líu lo' có chứa vần gì?",
+        "promptAudio": "/media/tts/vn27-q1-prompt.mp3",
+        "illustration": "/media/images/bird.svg",
+        "options": [
+          {
+            "id": "vn27-opt-iu",
+            "label": "Vần iu",
+            "audio": "/media/tts/vn27-q1-opt0.mp3"
+          },
+          {
+            "id": "vn27-opt-uu",
+            "label": "Vần ưu",
+            "audio": "/media/tts/vn27-q1-opt1.mp3"
+          },
+          {
+            "id": "vn27-opt-ui",
+            "label": "Vần ui",
+            "audio": "/media/tts/vn27-q1-opt2.mp3"
+          }
+        ],
+        "correctOptionId": "vn27-opt-iu",
+        "explanation": "Tiếng líu gồm âm l ghép với vần iu và dấu sắc: l - iu - liu - sắc - líu.",
+        "explanationAudio": "/media/tts/vn27-q1-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn27-slide-q2",
+      "teacherNote": "Câu hỏi 2: Điền vần thích hợp để có từ chú cừu:",
+      "question": {
+        "type": "tap_place",
+        "id": "vn27-q2-tap",
+        "prompt": "Điền vần thích hợp để có từ chú cừu:",
+        "promptAudio": "/media/tts/vn27-q2-prompt.mp3",
+        "illustration": "/media/images/rabbit.svg",
+        "targets": [
+          {
+            "id": "vn27-t1",
+            "label": "...",
+            "prefixText": "Chú c",
+            "suffixText": ""
+          }
+        ],
+        "items": [
+          {
+            "id": "vn27-i1",
+            "label": "ừu",
+            "audio": "/media/tts/vn27-q2-it0.mp3"
+          },
+          {
+            "id": "vn27-i2",
+            "label": "ìu",
+            "audio": "/media/tts/vn27-q2-it1.mp3"
+          }
+        ],
+        "correctMapping": {
+          "vn27-i1": "vn27-t1"
+        },
+        "explanation": "Tiếng cừu có vần ưu: c - ưu - cưu - huyền - cừu.",
+        "explanationAudio": "/media/tts/vn27-q2-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn27-slide-q3",
+      "teacherNote": "Câu hỏi 3: Nối từ ở cột trái với từ mở rộng ở cột p",
+      "question": {
+        "type": "matching",
+        "id": "vn27-q3-match",
+        "prompt": "Nối từ ở cột trái với từ mở rộng ở cột phải:",
+        "promptAudio": "/media/tts/vn27-q3-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "leftColumn": [
+          {
+            "id": "vn27-l1",
+            "label": "chim hót",
+            "audio": "/media/tts/vn27-q3-l0.mp3"
+          },
+          {
+            "id": "vn27-l2",
+            "label": "chú cừu",
+            "audio": "/media/tts/vn27-q3-l1.mp3"
+          },
+          {
+            "id": "vn27-l3",
+            "label": "quả lựu",
+            "audio": "/media/tts/vn27-q3-l2.mp3"
+          }
+        ],
+        "rightColumn": [
+          {
+            "id": "vn27-r1",
+            "label": "líu lo trên cành",
+            "audio": "/media/tts/vn27-q3-r0.mp3"
+          },
+          {
+            "id": "vn27-r2",
+            "label": "bộ lông trắng tinh",
+            "audio": "/media/tts/vn27-q3-r1.mp3"
+          },
+          {
+            "id": "vn27-r3",
+            "label": "hạt lựu đỏ tươi",
+            "audio": "/media/tts/vn27-q3-r2.mp3"
+          }
+        ],
+        "correctPairs": [
+          {
+            "leftId": "vn27-l1",
+            "rightId": "vn27-r1"
+          },
+          {
+            "leftId": "vn27-l2",
+            "rightId": "vn27-r2"
+          },
+          {
+            "leftId": "vn27-l3",
+            "rightId": "vn27-r3"
+          }
+        ],
+        "explanation": "Chim hót líu lo, chú cừu lông trắng, quả lựu hạt đỏ.",
+        "explanationAudio": "/media/tts/vn27-q3-exp.mp3"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn27-slide-q4",
+      "teacherNote": "Câu hỏi 4: Từ nào dưới đây có chứa vần 'ưu'?",
+      "question": {
+        "type": "multiple_choice",
+        "id": "vn27-q4-mc",
+        "prompt": "Từ nào dưới đây có chứa vần 'ưu'?",
+        "promptAudio": "/media/tts/vn27-q4-prompt.mp3",
+        "illustration": "/media/images/apple.svg",
+        "options": [
+          {
+            "id": "vn27-q4-luu",
+            "label": "quả lựu",
+            "audio": "/media/tts/vn27-q4-opt0.mp3"
+          },
+          {
+            "id": "vn27-q4-liu",
+            "label": "líu lo",
+            "audio": "/media/tts/vn27-q4-opt1.mp3"
+          },
+          {
+            "id": "vn27-q4-chum",
+            "label": "chùm nho",
+            "audio": "/media/tts/vn27-q4-opt2.mp3"
+          }
+        ],
+        "correctOptionId": "vn27-q4-luu",
+        "explanation": "Tiếng lựu có âm l ghép với vần ưu và dấu nặng.",
+        "explanationAudio": "/media/tts/vn27-q4-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn27-slide-q5",
+      "teacherNote": "Câu hỏi 5: Điền vần thích hợp vào từ quả lựu:",
+      "question": {
+        "type": "tap_place",
+        "id": "vn27-q5-tap",
+        "prompt": "Điền vần thích hợp vào từ quả lựu:",
+        "promptAudio": "/media/tts/vn27-q5-prompt.mp3",
+        "illustration": "/media/images/apple.svg",
+        "targets": [
+          {
+            "id": "vn27-t2",
+            "label": "...",
+            "prefixText": "Quả l",
+            "suffixText": ""
+          }
+        ],
+        "items": [
+          {
+            "id": "vn27-i3",
+            "label": "ựu",
+            "audio": "/media/tts/vn27-q5-it0.mp3"
+          },
+          {
+            "id": "vn27-i4",
+            "label": "ịu",
+            "audio": "/media/tts/vn27-q5-it1.mp3"
+          }
+        ],
+        "correctMapping": {
+          "vn27-i3": "vn27-t2"
+        },
+        "explanation": "Tiếng lựu mang vần ưu.",
+        "explanationAudio": "/media/tts/vn27-q5-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn27-slide-q6",
+      "teacherNote": "Câu hỏi 6: Nối vần ở cột trái với từ chứa vần đó ở ",
+      "question": {
+        "type": "matching",
+        "id": "vn27-q6-match",
+        "prompt": "Nối vần ở cột trái với từ chứa vần đó ở cột phải:",
+        "promptAudio": "/media/tts/vn27-q6-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "leftColumn": [
+          {
+            "id": "vn27-l2-iu",
+            "label": "vần iu",
+            "audio": "/media/tts/vn27-q6-l0.mp3"
+          },
+          {
+            "id": "vn27-l2-uu1",
+            "label": "vần ưu",
+            "audio": "/media/tts/vn27-q6-l1.mp3"
+          },
+          {
+            "id": "vn27-l2-uu2",
+            "label": "vần ưu",
+            "audio": "/media/tts/vn27-q6-l2.mp3"
+          }
+        ],
+        "rightColumn": [
+          {
+            "id": "vn27-r2-iu",
+            "label": "líu lo",
+            "audio": "/media/tts/vn27-q6-r0.mp3"
+          },
+          {
+            "id": "vn27-r2-uu1",
+            "label": "chú cừu",
+            "audio": "/media/tts/vn27-q6-r1.mp3"
+          },
+          {
+            "id": "vn27-r2-uu2",
+            "label": "quả lựu",
+            "audio": "/media/tts/vn27-q6-r2.mp3"
+          }
+        ],
+        "correctPairs": [
+          {
+            "leftId": "vn27-l2-iu",
+            "rightId": "vn27-r2-iu"
+          },
+          {
+            "leftId": "vn27-l2-uu1",
+            "rightId": "vn27-r2-uu1"
+          },
+          {
+            "leftId": "vn27-l2-uu2",
+            "rightId": "vn27-r2-uu2"
+          }
+        ],
+        "explanation": "Bé nối rất chính xác! Líu lo có vần iu, chú cừu và quả lựu có vần ưu.",
+        "explanationAudio": "/media/tts/vn27-q6-exp.mp3"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    }
+  ]
+}

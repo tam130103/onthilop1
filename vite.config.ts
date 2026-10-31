@@ -31,8 +31,20 @@ export default defineConfig({
       includeAssets: ['icon-192.png', 'icon-512.png'],
       workbox: {
         globPatterns: ['**/*.{js,css,html,ico,png,svg,webp,mp3,json}'],
+        globIgnores: ['**/media/tts/*.mp3', '**/media/tts/**/*.mp3'],
         maximumFileSizeToCacheInBytes: 50 * 1024 * 1024, // 50MB for audio
         runtimeCaching: [
+          {
+            urlPattern: /\/media\/tts\/.*\.mp3$/,
+            handler: 'CacheFirst',
+            options: {
+              cacheName: 'tts-audio-cache',
+              expiration: {
+                maxEntries: 5000,
+                maxAgeSeconds: 60 * 60 * 24 * 90, // 90 days
+              },
+            },
+          },
           {
             urlPattern: /\/media\/.*/,
             handler: 'CacheFirst',

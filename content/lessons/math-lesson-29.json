@@ -1,0 +1,274 @@
+{
+  "status": "publish",
+  "mode": "publish",
+  "id": "math-29-thoi-gian-trong-ngay",
+  "title": "Bài 29: Các buổi trong ngày & Thời gian",
+  "subject": "math",
+  "grade": 1,
+  "description": "Nhận biết các thời điểm sáng, trưa, chiều, tối trong ngày; xem giờ đúng và nhận biết 7 ngày trong tuần.",
+  "totalDurationMinutes": 25,
+  "slides": [
+    {
+      "type": "title-slide",
+      "id": "m29-title-slide",
+      "title": "Bài 29: Các buổi trong ngày & Thời gian",
+      "subtitle": "Toán Lớp 1 — Bài học tương tác",
+      "teacherNote": "Liên hệ với thời gian biểu sinh hoạt hàng ngày của học sinh.",
+      "backgroundImage": "/media/images/star.svg",
+      "audio": "/media/tts/m29-title.mp3"
+    },
+    {
+      "type": "content-slide",
+      "id": "m29-intro-slide",
+      "title": "Một ngày của em",
+      "body": "Một ngày gồm các buổi: Sáng (mặt trời mọc, em đi học), Trưa (ăn cơm, nghỉ ngơi), Chiều (tan học vui chơi), Tối (học bài và đi ngủ).",
+      "teacherNote": "Hướng dẫn cả lớp nắm vững kiến thức trọng tâm.",
+      "illustration": "/media/images/apple.svg",
+      "audio": "/media/tts/m29-intro.mp3",
+      "bullets": [
+        "Buổi sáng: 7 giờ em vào lớp",
+        "Buổi trưa: 11 giờ ăn bán trú",
+        "Buổi tối: 8 giờ em học bài",
+        "Một tuần lễ có 7 ngày"
+      ]
+    },
+    {
+      "type": "question-slide",
+      "id": "m29-slide-q1",
+      "teacherNote": "Câu hỏi 1: Em thường đến trường học bài vào buổi nà",
+      "question": {
+        "type": "multiple_choice",
+        "id": "m29-q1-mc",
+        "prompt": "Em thường đến trường học bài vào buổi nào trong ngày?",
+        "promptAudio": "/media/tts/m29-q1-prompt.mp3",
+        "illustration": "/media/images/school.svg",
+        "options": [
+          {
+            "id": "m29-opt-sang",
+            "label": "Buổi sáng",
+            "audio": "/media/tts/m29-q1-opt0.mp3"
+          },
+          {
+            "id": "m29-opt-toi",
+            "label": "Buổi tối",
+            "audio": "/media/tts/m29-q1-opt1.mp3"
+          },
+          {
+            "id": "m29-opt-dem",
+            "label": "Nửa đêm",
+            "audio": "/media/tts/m29-q1-opt2.mp3"
+          }
+        ],
+        "correctOptionId": "m29-opt-sang",
+        "explanation": "Học sinh đến trường học bài vào buổi sáng sớm.",
+        "explanationAudio": "/media/tts/m29-q1-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m29-slide-q2",
+      "teacherNote": "Câu hỏi 2: Nối thời điểm ở cột trái với hoạt động p",
+      "question": {
+        "type": "matching",
+        "id": "m29-q2-match",
+        "prompt": "Nối thời điểm ở cột trái với hoạt động phù hợp ở cột phải:",
+        "promptAudio": "/media/tts/m29-q2-prompt.mp3",
+        "illustration": "/media/images/clock.svg",
+        "leftColumn": [
+          {
+            "id": "m29-l1",
+            "label": "6 giờ sáng",
+            "audio": "/media/tts/m29-q2-l0.mp3"
+          },
+          {
+            "id": "m29-l2",
+            "label": "11 giờ trưa",
+            "audio": "/media/tts/m29-q2-l1.mp3"
+          },
+          {
+            "id": "m29-l3",
+            "label": "8 giờ tối",
+            "audio": "/media/tts/m29-q2-l2.mp3"
+          }
+        ],
+        "rightColumn": [
+          {
+            "id": "m29-r1",
+            "label": "Bé thức dậy tập thể dục",
+            "audio": "/media/tts/m29-q2-r0.mp3"
+          },
+          {
+            "id": "m29-r2",
+            "label": "Bé ăn cơm trưa tại trường",
+            "audio": "/media/tts/m29-q2-r1.mp3"
+          },
+          {
+            "id": "m29-r3",
+            "label": "Bé ngồi học bài ở nhà",
+            "audio": "/media/tts/m29-q2-r2.mp3"
+          }
+        ],
+        "correctPairs": [
+          {
+            "leftId": "m29-l1",
+            "rightId": "m29-r1"
+          },
+          {
+            "leftId": "m29-l2",
+            "rightId": "m29-r2"
+          },
+          {
+            "leftId": "m29-l3",
+            "rightId": "m29-r3"
+          }
+        ],
+        "explanation": "Sáng thức dậy, trưa ăn cơm, tối học bài rất khoa học.",
+        "explanationAudio": "/media/tts/m29-q2-exp.mp3"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m29-slide-q3",
+      "teacherNote": "Câu hỏi 3: Khi đồng hồ chỉ 7 giờ đúng, kim dài luôn",
+      "question": {
+        "type": "multiple_choice",
+        "id": "m29-q3-mc",
+        "prompt": "Khi đồng hồ chỉ 7 giờ đúng, kim dài luôn chỉ vào số nào?",
+        "promptAudio": "/media/tts/m29-q3-prompt.mp3",
+        "illustration": "/media/images/clock.svg",
+        "options": [
+          {
+            "id": "m29-opt-12",
+            "label": "Chỉ số 12",
+            "audio": "/media/tts/m29-q3-opt0.mp3"
+          },
+          {
+            "id": "m29-opt-6",
+            "label": "Chỉ số 6",
+            "audio": "/media/tts/m29-q3-opt1.mp3"
+          },
+          {
+            "id": "m29-opt-1",
+            "label": "Chỉ số 1",
+            "audio": "/media/tts/m29-q3-opt2.mp3"
+          }
+        ],
+        "correctOptionId": "m29-opt-12",
+        "explanation": "Khi đồng hồ chỉ giờ đúng, kim dài luôn chỉ thẳng vào số 12.",
+        "explanationAudio": "/media/tts/m29-q3-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m29-slide-q4",
+      "teacherNote": "Câu hỏi 4: Điền từ thích hợp: Mặt trời mọc vào buổi",
+      "question": {
+        "type": "tap_place",
+        "id": "m29-q4-tap",
+        "prompt": "Điền từ thích hợp: Mặt trời mọc vào buổi ..., lặn vào buổi chiều.",
+        "promptAudio": "/media/tts/m29-q4-prompt.mp3",
+        "illustration": "/media/images/sun.svg",
+        "targets": [
+          {
+            "id": "m29-t1",
+            "label": "...",
+            "prefixText": "Mặt trời mọc vào buổi ",
+            "suffixText": "."
+          }
+        ],
+        "items": [
+          {
+            "id": "m29-i1",
+            "label": "sáng",
+            "audio": "/media/tts/m29-q4-it0.mp3"
+          },
+          {
+            "id": "m29-i2",
+            "label": "tối",
+            "audio": "/media/tts/m29-q4-it1.mp3"
+          }
+        ],
+        "correctMapping": {
+          "m29-i1": "m29-t1"
+        },
+        "explanation": "Mặt trời mọc ở hướng Đông vào buổi sáng.",
+        "explanationAudio": "/media/tts/m29-q4-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m29-slide-q5",
+      "teacherNote": "Câu hỏi 5: Đếm số ngày em đi học từ thứ Hai đến thứ",
+      "question": {
+        "type": "counting",
+        "id": "m29-q5-count",
+        "prompt": "Đếm số ngày em đi học từ thứ Hai đến thứ Sáu:",
+        "promptAudio": "/media/tts/m29-q5-prompt.mp3",
+        "illustration": "/media/images/calendar.svg",
+        "items": [
+          {
+            "image": "/media/images/book.svg",
+            "alt": "Item 1"
+          },
+          {
+            "image": "/media/images/book.svg",
+            "alt": "Item 2"
+          },
+          {
+            "image": "/media/images/book.svg",
+            "alt": "Item 3"
+          },
+          {
+            "image": "/media/images/book.svg",
+            "alt": "Item 4"
+          },
+          {
+            "image": "/media/images/book.svg",
+            "alt": "Item 5"
+          }
+        ],
+        "correctCount": 5,
+        "numberRange": {
+          "min": 1,
+          "max": 10
+        },
+        "explanation": "Em đi học 5 ngày: thứ Hai, Ba, Tư, Năm, Sáu.",
+        "explanationAudio": "/media/tts/m29-q5-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m29-slide-q6",
+      "teacherNote": "Câu hỏi 6: Một tuần lễ có bao nhiêu ngày?",
+      "question": {
+        "type": "number_select",
+        "id": "m29-q6-num",
+        "prompt": "Một tuần lễ có bao nhiêu ngày?",
+        "promptAudio": "/media/tts/m29-q6-prompt.mp3",
+        "illustration": "/media/images/calendar.svg",
+        "expression": "Một tuần = ? ngày",
+        "choices": [
+          5,
+          6,
+          7,
+          8
+        ],
+        "correctAnswer": 7,
+        "explanation": "Một tuần lễ có đúng 7 ngày từ thứ Hai đến Chủ nhật.",
+        "explanationAudio": "/media/tts/m29-q6-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    }
+  ]
+}

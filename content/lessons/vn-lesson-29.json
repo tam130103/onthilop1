@@ -1,0 +1,309 @@
+{
+  "status": "publish",
+  "mode": "publish",
+  "id": "vn-29-doc-hieu-truong-lop-ban-be",
+  "title": "Bài 29: Đọc hiểu: Trường lớp xanh sạch",
+  "subject": "vietnamese",
+  "grade": 1,
+  "description": "Đọc hiểu đoạn văn về giờ ra chơi, giữ gìn vệ sinh lớp học và tình bạn đoàn kết, giúp đỡ nhau.",
+  "totalDurationMinutes": 25,
+  "slides": [
+    {
+      "type": "title-slide",
+      "id": "vn29-title-slide",
+      "title": "Bài 29: Đọc hiểu: Trường lớp xanh sạch",
+      "subtitle": "Tiếng Việt Lớp 1 — Bài học tương tác",
+      "teacherNote": "Rèn ý thức bảo vệ môi trường học đường và tinh thần đoàn kết.",
+      "backgroundImage": "/media/images/star.svg",
+      "audio": "/media/tts/vn29-title.mp3"
+    },
+    {
+      "type": "content-slide",
+      "id": "vn29-intro-slide",
+      "title": "Mái trường mến yêu",
+      "body": "Đoạn văn: 'Giờ ra chơi, sân trường rộn rã tiếng cười. Các bạn cùng nhau tưới hoa và nhặt rác bỏ vào thùng. Lớp học luôn sạch đẹp, ngăn nắp.'",
+      "teacherNote": "Hướng dẫn học sinh đọc to rõ ràng từng từ ngữ.",
+      "illustration": "/media/images/book.svg",
+      "audio": "/media/tts/vn29-intro.mp3",
+      "bullets": [
+        "Sân trường vui tươi trong giờ ra chơi",
+        "Cùng nhau tưới hoa và giữ vệ sinh",
+        "Trường học thân thiện, học sinh tích cực"
+      ]
+    },
+    {
+      "type": "question-slide",
+      "id": "vn29-slide-q1",
+      "teacherNote": "Câu hỏi 1: Trong giờ ra chơi, các bạn học sinh đã c",
+      "question": {
+        "type": "multiple_choice",
+        "id": "vn29-q1-mc",
+        "prompt": "Trong giờ ra chơi, các bạn học sinh đã cùng nhau làm gì?",
+        "promptAudio": "/media/tts/vn29-q1-prompt.mp3",
+        "illustration": "/media/images/school.svg",
+        "options": [
+          {
+            "id": "vn29-opt-tuoihoa",
+            "label": "Tưới hoa và nhặt rác",
+            "audio": "/media/tts/vn29-q1-opt0.mp3"
+          },
+          {
+            "id": "vn29-opt-vutrac",
+            "label": "Vứt rác bừa bãi",
+            "audio": "/media/tts/vn29-q1-opt1.mp3"
+          },
+          {
+            "id": "vn29-opt-behoa",
+            "label": "Bẻ cành hái hoa",
+            "audio": "/media/tts/vn29-q1-opt2.mp3"
+          }
+        ],
+        "correctOptionId": "vn29-opt-tuoihoa",
+        "explanation": "Các bạn cùng nhau tưới hoa và nhặt rác bỏ vào thùng.",
+        "explanationAudio": "/media/tts/vn29-q1-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn29-slide-q2",
+      "teacherNote": "Câu hỏi 2: Điền từ thích hợp: Giữ gìn trường lớp xa",
+      "question": {
+        "type": "tap_place",
+        "id": "vn29-q2-tap",
+        "prompt": "Điền từ thích hợp: Giữ gìn trường lớp xanh, sạch, ...",
+        "promptAudio": "/media/tts/vn29-q2-prompt.mp3",
+        "illustration": "/media/images/school.svg",
+        "targets": [
+          {
+            "id": "vn29-t1",
+            "label": "...",
+            "prefixText": "Giữ gìn trường lớp xanh, sạch, ",
+            "suffixText": "."
+          }
+        ],
+        "items": [
+          {
+            "id": "vn29-i1",
+            "label": "đẹp",
+            "audio": "/media/tts/vn29-q2-it0.mp3"
+          },
+          {
+            "id": "vn29-i2",
+            "label": "xấu",
+            "audio": "/media/tts/vn29-q2-it1.mp3"
+          }
+        ],
+        "correctMapping": {
+          "vn29-i1": "vn29-t1"
+        },
+        "explanation": "Khẩu hiệu trường học thân thiện: Xanh - Sạch - Đẹp.",
+        "explanationAudio": "/media/tts/vn29-q2-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn29-slide-q3",
+      "teacherNote": "Câu hỏi 3: Nối hành động ở cột trái với kết quả tíc",
+      "question": {
+        "type": "matching",
+        "id": "vn29-q3-match",
+        "prompt": "Nối hành động ở cột trái với kết quả tích cực ở cột phải:",
+        "promptAudio": "/media/tts/vn29-q3-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "leftColumn": [
+          {
+            "id": "vn29-l1",
+            "label": "Tưới nước cho cây",
+            "audio": "/media/tts/vn29-q3-l0.mp3"
+          },
+          {
+            "id": "vn29-l2",
+            "label": "Bỏ rác vào thùng",
+            "audio": "/media/tts/vn29-q3-l1.mp3"
+          },
+          {
+            "id": "vn29-l3",
+            "label": "Kê bàn ghế ngay ngắn",
+            "audio": "/media/tts/vn29-q3-l2.mp3"
+          }
+        ],
+        "rightColumn": [
+          {
+            "id": "vn29-r1",
+            "label": "cây xanh tươi tốt",
+            "audio": "/media/tts/vn29-q3-r0.mp3"
+          },
+          {
+            "id": "vn29-r2",
+            "label": "sân trường sạch sẽ",
+            "audio": "/media/tts/vn29-q3-r1.mp3"
+          },
+          {
+            "id": "vn29-r3",
+            "label": "lớp học gọn gàng",
+            "audio": "/media/tts/vn29-q3-r2.mp3"
+          }
+        ],
+        "correctPairs": [
+          {
+            "leftId": "vn29-l1",
+            "rightId": "vn29-r1"
+          },
+          {
+            "leftId": "vn29-l2",
+            "rightId": "vn29-r2"
+          },
+          {
+            "leftId": "vn29-l3",
+            "rightId": "vn29-r3"
+          }
+        ],
+        "explanation": "Cây tươi tốt, sân trường sạch sẽ, lớp học gọn gàng.",
+        "explanationAudio": "/media/tts/vn29-q3-exp.mp3"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn29-slide-q4",
+      "teacherNote": "Câu hỏi 4: Khi thấy bạn làm rơi hộp bút, em nên làm",
+      "question": {
+        "type": "multiple_choice",
+        "id": "vn29-q4-mc",
+        "prompt": "Khi thấy bạn làm rơi hộp bút, em nên làm gì?",
+        "promptAudio": "/media/tts/vn29-q4-prompt.mp3",
+        "illustration": "/media/images/pencil.svg",
+        "options": [
+          {
+            "id": "vn29-q4-giup",
+            "label": "Nhặt lên giúp bạn",
+            "audio": "/media/tts/vn29-q4-opt0.mp3"
+          },
+          {
+            "id": "vn29-q4-che",
+            "label": "Cười chê bạn",
+            "audio": "/media/tts/vn29-q4-opt1.mp3"
+          },
+          {
+            "id": "vn29-q4-lo",
+            "label": "Bỏ đi không quan tâm",
+            "audio": "/media/tts/vn29-q4-opt2.mp3"
+          }
+        ],
+        "correctOptionId": "vn29-q4-giup",
+        "explanation": "Bạn bè tốt luôn sẵn lòng giúp đỡ lẫn nhau.",
+        "explanationAudio": "/media/tts/vn29-q4-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn29-slide-q5",
+      "teacherNote": "Câu hỏi 5: Điền từ thích hợp: Mỗi ngày đến trường l",
+      "question": {
+        "type": "tap_place",
+        "id": "vn29-q5-tap",
+        "prompt": "Điền từ thích hợp: Mỗi ngày đến trường là một ngày ...",
+        "promptAudio": "/media/tts/vn29-q5-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "targets": [
+          {
+            "id": "vn29-t2",
+            "label": "...",
+            "prefixText": "Mỗi ngày đến trường là một ngày ",
+            "suffixText": "."
+          }
+        ],
+        "items": [
+          {
+            "id": "vn29-i3",
+            "label": "vui",
+            "audio": "/media/tts/vn29-q5-it0.mp3"
+          },
+          {
+            "id": "vn29-i4",
+            "label": "buồn",
+            "audio": "/media/tts/vn29-q5-it1.mp3"
+          }
+        ],
+        "correctMapping": {
+          "vn29-i3": "vn29-t2"
+        },
+        "explanation": "Mỗi ngày đến trường là một ngày vui.",
+        "explanationAudio": "/media/tts/vn29-q5-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn29-slide-q6",
+      "teacherNote": "Câu hỏi 6: Nối từ ở cột trái với từ ở cột phải tạo ",
+      "question": {
+        "type": "matching",
+        "id": "vn29-q6-match",
+        "prompt": "Nối từ ở cột trái với từ ở cột phải tạo từ ghép về trường học:",
+        "promptAudio": "/media/tts/vn29-q6-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "leftColumn": [
+          {
+            "id": "vn29-l2-truong",
+            "label": "trường",
+            "audio": "/media/tts/vn29-q6-l0.mp3"
+          },
+          {
+            "id": "vn29-l2-ban",
+            "label": "bạn",
+            "audio": "/media/tts/vn29-q6-l1.mp3"
+          },
+          {
+            "id": "vn29-l2-thay",
+            "label": "thầy",
+            "audio": "/media/tts/vn29-q6-l2.mp3"
+          }
+        ],
+        "rightColumn": [
+          {
+            "id": "vn29-r2-lop",
+            "label": "lớp",
+            "audio": "/media/tts/vn29-q6-r0.mp3"
+          },
+          {
+            "id": "vn29-r2-be",
+            "label": "bè",
+            "audio": "/media/tts/vn29-q6-r1.mp3"
+          },
+          {
+            "id": "vn29-r2-co",
+            "label": "cô",
+            "audio": "/media/tts/vn29-q6-r2.mp3"
+          }
+        ],
+        "correctPairs": [
+          {
+            "leftId": "vn29-l2-truong",
+            "rightId": "vn29-r2-lop"
+          },
+          {
+            "leftId": "vn29-l2-ban",
+            "rightId": "vn29-r2-be"
+          },
+          {
+            "leftId": "vn29-l2-thay",
+            "rightId": "vn29-r2-co"
+          }
+        ],
+        "explanation": "Trường lớp, bạn bè, thầy cô.",
+        "explanationAudio": "/media/tts/vn29-q6-exp.mp3"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    }
+  ]
+}

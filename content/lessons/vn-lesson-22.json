@@ -1,0 +1,312 @@
+{
+  "status": "publish",
+  "mode": "publish",
+  "id": "vn-22-am-gh-nh",
+  "title": "Bài 22: Âm gh, nh và tiếng ghép",
+  "subject": "vietnamese",
+  "grade": 1,
+  "description": "Làm quen âm gh, nh và luyện đọc các từ ghế gỗ, nhà ga, chùm nho qua 6 câu hỏi tương tác.",
+  "totalDurationMinutes": 25,
+  "slides": [
+    {
+      "type": "title-slide",
+      "id": "vn22-title-slide",
+      "title": "Bài 22: Âm gh, nh và tiếng ghép",
+      "subtitle": "Tiếng Việt Lớp 1 — Bài học tương tác",
+      "teacherNote": "Nhắc quy tắc gh chỉ đi với e, ê, i.",
+      "backgroundImage": "/media/images/star.svg",
+      "audio": "/media/tts/vn22-title.mp3"
+    },
+    {
+      "type": "content-slide",
+      "id": "vn22-intro-slide",
+      "title": "Làm quen âm GH và NH",
+      "body": "Âm gh ghép với e, ê, i tạo tiếng: ghế, ghen, ghi. Âm nh tạo tiếng: nhà, nho, nhạn. Cùng luyện đọc nhé!",
+      "teacherNote": "Hướng dẫn học sinh đọc to rõ ràng từng từ ngữ.",
+      "illustration": "/media/images/book.svg",
+      "audio": "/media/tts/vn22-intro.mp3",
+      "bullets": [
+        "gh — ghế (chiếc ghế tựa)",
+        "nh — nhà (ngôi nhà thân yêu)",
+        "nh — nho (chùm nho tím ngọt)"
+      ]
+    },
+    {
+      "type": "question-slide",
+      "id": "vn22-slide-q1",
+      "teacherNote": "Câu hỏi 1: Tiếng 'ghế' bắt đầu bằng âm nào?",
+      "question": {
+        "type": "multiple_choice",
+        "id": "vn22-q1-mc",
+        "prompt": "Tiếng 'ghế' bắt đầu bằng âm nào?",
+        "promptAudio": "/media/tts/vn22-q1-prompt.mp3",
+        "illustration": "/media/images/chair.svg",
+        "options": [
+          {
+            "id": "vn22-opt-gh",
+            "label": "Âm gh",
+            "audio": "/media/tts/vn22-q1-opt0.mp3"
+          },
+          {
+            "id": "vn22-opt-g",
+            "label": "Âm g",
+            "audio": "/media/tts/vn22-q1-opt1.mp3"
+          },
+          {
+            "id": "vn22-opt-nh",
+            "label": "Âm nh",
+            "audio": "/media/tts/vn22-q1-opt2.mp3"
+          }
+        ],
+        "correctOptionId": "vn22-opt-gh",
+        "explanation": "Vì đứng trước âm ê nên phải viết bằng gh.",
+        "explanationAudio": "/media/tts/vn22-q1-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn22-slide-q2",
+      "teacherNote": "Câu hỏi 2: Điền âm thích hợp để có từ chùm nho:",
+      "question": {
+        "type": "tap_place",
+        "id": "vn22-q2-tap",
+        "prompt": "Điền âm thích hợp để có từ chùm nho:",
+        "promptAudio": "/media/tts/vn22-q2-prompt.mp3",
+        "illustration": "/media/images/apple.svg",
+        "targets": [
+          {
+            "id": "vn22-t1",
+            "label": "...",
+            "prefixText": "Chùm ",
+            "suffixText": "o"
+          }
+        ],
+        "items": [
+          {
+            "id": "vn22-i1",
+            "label": "nh",
+            "audio": "/media/tts/vn22-q2-it0.mp3"
+          },
+          {
+            "id": "vn22-i2",
+            "label": "gh",
+            "audio": "/media/tts/vn22-q2-it1.mp3"
+          }
+        ],
+        "correctMapping": {
+          "vn22-i1": "vn22-t1"
+        },
+        "explanation": "Tiếng nho bắt đầu bằng âm nh: nh - o - nho.",
+        "explanationAudio": "/media/tts/vn22-q2-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn22-slide-q3",
+      "teacherNote": "Câu hỏi 3: Nối từ ở cột trái với ý tương ứng ở cột ",
+      "question": {
+        "type": "matching",
+        "id": "vn22-q3-match",
+        "prompt": "Nối từ ở cột trái với ý tương ứng ở cột phải:",
+        "promptAudio": "/media/tts/vn22-q3-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "leftColumn": [
+          {
+            "id": "vn22-l1",
+            "label": "ghế gỗ",
+            "audio": "/media/tts/vn22-q3-l0.mp3"
+          },
+          {
+            "id": "vn22-l2",
+            "label": "ngôi nhà",
+            "audio": "/media/tts/vn22-q3-l1.mp3"
+          },
+          {
+            "id": "vn22-l3",
+            "label": "chùm nho",
+            "audio": "/media/tts/vn22-q3-l2.mp3"
+          }
+        ],
+        "rightColumn": [
+          {
+            "id": "vn22-r1",
+            "label": "chiếc ghế tựa",
+            "audio": "/media/tts/vn22-q3-r0.mp3"
+          },
+          {
+            "id": "vn22-r2",
+            "label": "mái ấm gia đình",
+            "audio": "/media/tts/vn22-q3-r1.mp3"
+          },
+          {
+            "id": "vn22-r3",
+            "label": "quả nho ngọt lịm",
+            "audio": "/media/tts/vn22-q3-r2.mp3"
+          }
+        ],
+        "correctPairs": [
+          {
+            "leftId": "vn22-l1",
+            "rightId": "vn22-r1"
+          },
+          {
+            "leftId": "vn22-l2",
+            "rightId": "vn22-r2"
+          },
+          {
+            "leftId": "vn22-l3",
+            "rightId": "vn22-r3"
+          }
+        ],
+        "explanation": "Ghế tựa, mái ấm gia đình, quả nho ngọt lịm.",
+        "explanationAudio": "/media/tts/vn22-q3-exp.mp3"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn22-slide-q4",
+      "teacherNote": "Câu hỏi 4: Âm 'gh' đi được với những chữ cái nào?",
+      "question": {
+        "type": "multiple_choice",
+        "id": "vn22-q4-mc",
+        "prompt": "Âm 'gh' đi được với những chữ cái nào?",
+        "promptAudio": "/media/tts/vn22-q4-prompt.mp3",
+        "illustration": "/media/images/book.svg",
+        "options": [
+          {
+            "id": "vn22-q4-eei",
+            "label": "e, ê, i",
+            "audio": "/media/tts/vn22-q4-opt0.mp3"
+          },
+          {
+            "id": "vn22-q4-ao",
+            "label": "a, o, u",
+            "audio": "/media/tts/vn22-q4-opt1.mp3"
+          },
+          {
+            "id": "vn22-q4-ou",
+            "label": "o, ô, ơ",
+            "audio": "/media/tts/vn22-q4-opt2.mp3"
+          }
+        ],
+        "correctOptionId": "vn22-q4-eei",
+        "explanation": "Quy tắc chính tả: gh luôn đi với ba âm e, ê, i.",
+        "explanationAudio": "/media/tts/vn22-q4-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn22-slide-q5",
+      "teacherNote": "Câu hỏi 5: Điền từ thích hợp vào chỗ trống: Ngôi ..",
+      "question": {
+        "type": "tap_place",
+        "id": "vn22-q5-tap",
+        "prompt": "Điền từ thích hợp vào chỗ trống: Ngôi ... em ở",
+        "promptAudio": "/media/tts/vn22-q5-prompt.mp3",
+        "illustration": "/media/images/house.svg",
+        "targets": [
+          {
+            "id": "vn22-t2",
+            "label": "...",
+            "prefixText": "Ngôi ",
+            "suffixText": " em ở"
+          }
+        ],
+        "items": [
+          {
+            "id": "vn22-i3",
+            "label": "nhà",
+            "audio": "/media/tts/vn22-q5-it0.mp3"
+          },
+          {
+            "id": "vn22-i4",
+            "label": "ghế",
+            "audio": "/media/tts/vn22-q5-it1.mp3"
+          }
+        ],
+        "correctMapping": {
+          "vn22-i3": "vn22-t2"
+        },
+        "explanation": "Ngôi nhà em ở.",
+        "explanationAudio": "/media/tts/vn22-q5-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn22-slide-q6",
+      "teacherNote": "Câu hỏi 6: Nối từ với hình minh họa thích hợp:",
+      "question": {
+        "type": "matching",
+        "id": "vn22-q6-match",
+        "prompt": "Nối từ với hình minh họa thích hợp:",
+        "promptAudio": "/media/tts/vn22-q6-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "leftColumn": [
+          {
+            "id": "vn22-l2-ghe",
+            "label": "cái ghế",
+            "audio": "/media/tts/vn22-q6-l0.mp3"
+          },
+          {
+            "id": "vn22-l2-nha",
+            "label": "ngôi nhà",
+            "audio": "/media/tts/vn22-q6-l1.mp3"
+          },
+          {
+            "id": "vn22-l2-cay",
+            "label": "cây xanh",
+            "audio": "/media/tts/vn22-q6-l2.mp3"
+          }
+        ],
+        "rightColumn": [
+          {
+            "id": "vn22-r2-ghe",
+            "label": "chiếc ghế ngồi",
+            "audio": "/media/tts/vn22-q6-r0.mp3",
+            "image": "/media/images/chair.svg"
+          },
+          {
+            "id": "vn22-r2-nha",
+            "label": "ngôi nhà ngói đỏ",
+            "audio": "/media/tts/vn22-q6-r1.mp3",
+            "image": "/media/images/house.svg"
+          },
+          {
+            "id": "vn22-r2-cay",
+            "label": "bóng mát sân trường",
+            "audio": "/media/tts/vn22-q6-r2.mp3",
+            "image": "/media/images/tree.svg"
+          }
+        ],
+        "correctPairs": [
+          {
+            "leftId": "vn22-l2-ghe",
+            "rightId": "vn22-r2-ghe"
+          },
+          {
+            "leftId": "vn22-l2-nha",
+            "rightId": "vn22-r2-nha"
+          },
+          {
+            "leftId": "vn22-l2-cay",
+            "rightId": "vn22-r2-cay"
+          }
+        ],
+        "explanation": "Nối rất chính xác! Cái ghế, ngôi nhà và cây xanh.",
+        "explanationAudio": "/media/tts/vn22-q6-exp.mp3"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    }
+  ]
+}

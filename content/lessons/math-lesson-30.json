@@ -1,0 +1,279 @@
+{
+  "status": "publish",
+  "mode": "publish",
+  "id": "math-30-dau-truong-toan-1",
+  "title": "Bài 30: Đấu trường Rung chuông vàng",
+  "subject": "math",
+  "grade": 1,
+  "description": "Tổng kết và thi đua toàn diện: Số học, Phép tính 2 chữ số, Đo lường và Giải toán có lời văn.",
+  "totalDurationMinutes": 25,
+  "slides": [
+    {
+      "type": "title-slide",
+      "id": "m30-title-slide",
+      "title": "Bài 30: Đấu trường Rung chuông vàng",
+      "subtitle": "Toán Lớp 1 — Bài học tương tác",
+      "teacherNote": "Tổ chức trò chơi thi đua 4 đội hào hứng, bấm giờ cho mỗi câu đố.",
+      "backgroundImage": "/media/images/star.svg",
+      "audio": "/media/tts/m30-title.mp3"
+    },
+    {
+      "type": "content-slide",
+      "id": "m30-intro-slide",
+      "title": "Đấu trường Rung chuông vàng",
+      "body": "Chào mừng các em đến với Đấu trường Rung chuông vàng Toán Lớp 1! Cùng nhau chinh phục các thử thách toán học hấp dẫn nhất!",
+      "teacherNote": "Hướng dẫn cả lớp nắm vững kiến thức trọng tâm.",
+      "illustration": "/media/images/apple.svg",
+      "audio": "/media/tts/m30-intro.mp3",
+      "bullets": [
+        "Tính nhanh chính xác phép tính 2 chữ số",
+        "Giải toán có lời văn thông minh",
+        "Tự tin chiến thắng và giành cúp vàng"
+      ]
+    },
+    {
+      "type": "question-slide",
+      "id": "m30-slide-q1",
+      "teacherNote": "Câu hỏi 1: Số liền trước của số 60 là số nào?",
+      "question": {
+        "type": "multiple_choice",
+        "id": "m30-q1-mc",
+        "prompt": "Số liền trước của số 60 là số nào?",
+        "promptAudio": "/media/tts/m30-q1-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "options": [
+          {
+            "id": "m30-opt-59",
+            "label": "Số 59",
+            "audio": "/media/tts/m30-q1-opt0.mp3"
+          },
+          {
+            "id": "m30-opt-61",
+            "label": "Số 61",
+            "audio": "/media/tts/m30-q1-opt1.mp3"
+          },
+          {
+            "id": "m30-opt-58",
+            "label": "Số 58",
+            "audio": "/media/tts/m30-q1-opt2.mp3"
+          }
+        ],
+        "correctOptionId": "m30-opt-59",
+        "explanation": "Số liền trước của 60 là 59.",
+        "explanationAudio": "/media/tts/m30-q1-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m30-slide-q2",
+      "teacherNote": "Câu hỏi 2: Tính: 35 + 24 = ?",
+      "question": {
+        "type": "number_select",
+        "id": "m30-q2-num",
+        "prompt": "Tính: 35 + 24 = ?",
+        "promptAudio": "/media/tts/m30-q2-prompt.mp3",
+        "illustration": "/media/images/apple.svg",
+        "expression": "35 + 24 = ?",
+        "choices": [
+          57,
+          58,
+          59,
+          60
+        ],
+        "correctAnswer": 59,
+        "explanation": "5 cộng 4 bằng 9, 3 cộng 2 bằng 5. Kết quả là 59.",
+        "explanationAudio": "/media/tts/m30-q2-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m30-slide-q3",
+      "teacherNote": "Câu hỏi 3: Tính: 87 - 35 = ?",
+      "question": {
+        "type": "number_select",
+        "id": "m30-q3-num",
+        "prompt": "Tính: 87 - 35 = ?",
+        "promptAudio": "/media/tts/m30-q3-prompt.mp3",
+        "illustration": "/media/images/pencil.svg",
+        "expression": "87 - 35 = ?",
+        "choices": [
+          50,
+          51,
+          52,
+          53
+        ],
+        "correctAnswer": 52,
+        "explanation": "7 trừ 5 bằng 2, 8 trừ 3 bằng 5. Kết quả là 52.",
+        "explanationAudio": "/media/tts/m30-q3-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m30-slide-q4",
+      "teacherNote": "Câu hỏi 4: Nối phép tính với kết quả chính xác:",
+      "question": {
+        "type": "matching",
+        "id": "m30-q4-match",
+        "prompt": "Nối phép tính với kết quả chính xác:",
+        "promptAudio": "/media/tts/m30-q4-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "leftColumn": [
+          {
+            "id": "m30-l1",
+            "label": "42 + 6",
+            "audio": "/media/tts/m30-q4-l0.mp3"
+          },
+          {
+            "id": "m30-l2",
+            "label": "69 - 7",
+            "audio": "/media/tts/m30-q4-l1.mp3"
+          },
+          {
+            "id": "m30-l3",
+            "label": "50 + 30",
+            "audio": "/media/tts/m30-q4-l2.mp3"
+          }
+        ],
+        "rightColumn": [
+          {
+            "id": "m30-r1",
+            "label": "Bằng 48",
+            "audio": "/media/tts/m30-q4-r0.mp3"
+          },
+          {
+            "id": "m30-r2",
+            "label": "Bằng 62",
+            "audio": "/media/tts/m30-q4-r1.mp3"
+          },
+          {
+            "id": "m30-r3",
+            "label": "Bằng 80",
+            "audio": "/media/tts/m30-q4-r2.mp3"
+          }
+        ],
+        "correctPairs": [
+          {
+            "leftId": "m30-l1",
+            "rightId": "m30-r1"
+          },
+          {
+            "leftId": "m30-l2",
+            "rightId": "m30-r2"
+          },
+          {
+            "leftId": "m30-l3",
+            "rightId": "m30-r3"
+          }
+        ],
+        "explanation": "42+6=48; 69-7=62; 50+30=80.",
+        "explanationAudio": "/media/tts/m30-q4-exp.mp3"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m30-slide-q5",
+      "teacherNote": "Câu hỏi 5: Chọn dấu thích hợp điền vào ô trống: 40 ",
+      "question": {
+        "type": "tap_place",
+        "id": "m30-q5-tap",
+        "prompt": "Chọn dấu thích hợp điền vào ô trống: 40 + 30 ... 80",
+        "promptAudio": "/media/tts/m30-q5-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "targets": [
+          {
+            "id": "m30-t1",
+            "label": "...",
+            "prefixText": "40 + 30 ",
+            "suffixText": " 80"
+          }
+        ],
+        "items": [
+          {
+            "id": "m30-i1",
+            "label": "<",
+            "audio": "/media/tts/m30-q5-it0.mp3"
+          },
+          {
+            "id": "m30-i2",
+            "label": ">",
+            "audio": "/media/tts/m30-q5-it1.mp3"
+          }
+        ],
+        "correctMapping": {
+          "m30-i1": "m30-t1"
+        },
+        "explanation": "40 + 30 = 70, vì 70 bé hơn 80 nên điền dấu <.",
+        "explanationAudio": "/media/tts/m30-q5-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m30-slide-q6",
+      "teacherNote": "Câu hỏi 6: Đếm xem có bao nhiêu quả bóng trên màn h",
+      "question": {
+        "type": "counting",
+        "id": "m30-q6-count",
+        "prompt": "Đếm xem có bao nhiêu quả bóng trên màn hình đấu trường?",
+        "promptAudio": "/media/tts/m30-q6-prompt.mp3",
+        "illustration": "/media/images/ball.svg",
+        "items": [
+          {
+            "image": "/media/images/ball.svg",
+            "alt": "Item 1"
+          },
+          {
+            "image": "/media/images/ball.svg",
+            "alt": "Item 2"
+          },
+          {
+            "image": "/media/images/ball.svg",
+            "alt": "Item 3"
+          },
+          {
+            "image": "/media/images/ball.svg",
+            "alt": "Item 4"
+          },
+          {
+            "image": "/media/images/ball.svg",
+            "alt": "Item 5"
+          },
+          {
+            "image": "/media/images/ball.svg",
+            "alt": "Item 6"
+          },
+          {
+            "image": "/media/images/ball.svg",
+            "alt": "Item 7"
+          },
+          {
+            "image": "/media/images/ball.svg",
+            "alt": "Item 8"
+          },
+          {
+            "image": "/media/images/ball.svg",
+            "alt": "Item 9"
+          }
+        ],
+        "correctCount": 9,
+        "numberRange": {
+          "min": 1,
+          "max": 12
+        },
+        "explanation": "Có đúng 9 quả bóng trên màn hình.",
+        "explanationAudio": "/media/tts/m30-q6-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    }
+  ]
+}

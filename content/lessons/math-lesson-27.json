@@ -1,0 +1,263 @@
+{
+  "status": "publish",
+  "mode": "publish",
+  "id": "math-27-tinh-ba-so-100",
+  "title": "Bài 27: Tính ba số trong phạm vi 100",
+  "subject": "math",
+  "grade": 1,
+  "description": "Thực hiện chuỗi hai phép tính liên tiếp với các số tròn chục và số có hai chữ số trong phạm vi 100.",
+  "totalDurationMinutes": 25,
+  "slides": [
+    {
+      "type": "title-slide",
+      "id": "m27-title-slide",
+      "title": "Bài 27: Tính ba số trong phạm vi 100",
+      "subtitle": "Toán Lớp 1 — Bài học tương tác",
+      "teacherNote": "Rèn tính nhẩm nhanh từng cặp số từ trái qua phải.",
+      "backgroundImage": "/media/images/star.svg",
+      "audio": "/media/tts/m27-title.mp3"
+    },
+    {
+      "type": "content-slide",
+      "id": "m27-intro-slide",
+      "title": "Tính ba số đến 100",
+      "body": "Khi tính chuỗi ba số: 30 + 20 + 10 = ? Ta lấy 30 + 20 = 50, rồi 50 + 10 = 60. Rất đơn giản và nhanh chóng!",
+      "teacherNote": "Hướng dẫn cả lớp nắm vững kiến thức trọng tâm.",
+      "illustration": "/media/images/apple.svg",
+      "audio": "/media/tts/m27-intro.mp3",
+      "bullets": [
+        "30 + 20 + 10 = 50 + 10 = 60",
+        "70 - 20 + 5 = 50 + 5 = 55",
+        "Luôn thực hiện lần lượt từ trái sang phải"
+      ]
+    },
+    {
+      "type": "question-slide",
+      "id": "m27-slide-q1",
+      "teacherNote": "Câu hỏi 1: Tính: 30 + 20 + 10 = ?",
+      "question": {
+        "type": "number_select",
+        "id": "m27-q1-num",
+        "prompt": "Tính: 30 + 20 + 10 = ?",
+        "promptAudio": "/media/tts/m27-q1-prompt.mp3",
+        "illustration": "/media/images/ten-rod.svg",
+        "expression": "30 + 20 + 10 = ?",
+        "choices": [
+          50,
+          60,
+          70,
+          80
+        ],
+        "correctAnswer": 60,
+        "explanation": "30 + 20 = 50, 50 + 10 = 60.",
+        "explanationAudio": "/media/tts/m27-q1-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m27-slide-q2",
+      "teacherNote": "Câu hỏi 2: Tính: 70 - 20 + 5 = ?",
+      "question": {
+        "type": "number_select",
+        "id": "m27-q2-num",
+        "prompt": "Tính: 70 - 20 + 5 = ?",
+        "promptAudio": "/media/tts/m27-q2-prompt.mp3",
+        "illustration": "/media/images/apple.svg",
+        "expression": "70 - 20 + 5 = ?",
+        "choices": [
+          50,
+          52,
+          55,
+          60
+        ],
+        "correctAnswer": 55,
+        "explanation": "70 - 20 = 50, 50 + 5 = 55.",
+        "explanationAudio": "/media/tts/m27-q2-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m27-slide-q3",
+      "teacherNote": "Câu hỏi 3: Điền kết quả vào chỗ chấm: 45 + 3 - 2 = ",
+      "question": {
+        "type": "tap_place",
+        "id": "m27-q3-tap",
+        "prompt": "Điền kết quả vào chỗ chấm: 45 + 3 - 2 = ...",
+        "promptAudio": "/media/tts/m27-q3-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "targets": [
+          {
+            "id": "m27-t1",
+            "label": "...",
+            "prefixText": "45 + 3 - 2 = ",
+            "suffixText": ""
+          }
+        ],
+        "items": [
+          {
+            "id": "m27-i1",
+            "label": "46",
+            "audio": "/media/tts/m27-q3-it0.mp3"
+          },
+          {
+            "id": "m27-i2",
+            "label": "47",
+            "audio": "/media/tts/m27-q3-it1.mp3"
+          }
+        ],
+        "correctMapping": {
+          "m27-i1": "m27-t1"
+        },
+        "explanation": "45 + 3 = 48, 48 - 2 = 46.",
+        "explanationAudio": "/media/tts/m27-q3-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m27-slide-q4",
+      "teacherNote": "Câu hỏi 4: Nối phép tính 3 số với kết quả chính xác",
+      "question": {
+        "type": "matching",
+        "id": "m27-q4-match",
+        "prompt": "Nối phép tính 3 số với kết quả chính xác:",
+        "promptAudio": "/media/tts/m27-q4-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "leftColumn": [
+          {
+            "id": "m27-l1",
+            "label": "10 + 40 + 20",
+            "audio": "/media/tts/m27-q4-l0.mp3"
+          },
+          {
+            "id": "m27-l2",
+            "label": "80 - 30 - 10",
+            "audio": "/media/tts/m27-q4-l1.mp3"
+          },
+          {
+            "id": "m27-l3",
+            "label": "62 + 5 - 2",
+            "audio": "/media/tts/m27-q4-l2.mp3"
+          }
+        ],
+        "rightColumn": [
+          {
+            "id": "m27-r1",
+            "label": "Bằng 70",
+            "audio": "/media/tts/m27-q4-r0.mp3"
+          },
+          {
+            "id": "m27-r2",
+            "label": "Bằng 40",
+            "audio": "/media/tts/m27-q4-r1.mp3"
+          },
+          {
+            "id": "m27-r3",
+            "label": "Bằng 65",
+            "audio": "/media/tts/m27-q4-r2.mp3"
+          }
+        ],
+        "correctPairs": [
+          {
+            "leftId": "m27-l1",
+            "rightId": "m27-r1"
+          },
+          {
+            "leftId": "m27-l2",
+            "rightId": "m27-r2"
+          },
+          {
+            "leftId": "m27-l3",
+            "rightId": "m27-r3"
+          }
+        ],
+        "explanation": "10+40+20=70; 80-30-10=40; 62+5-2=65.",
+        "explanationAudio": "/media/tts/m27-q4-exp.mp3"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m27-slide-q5",
+      "teacherNote": "Câu hỏi 5: Kết quả của phép tính 50 + 30 - 40 là ba",
+      "question": {
+        "type": "multiple_choice",
+        "id": "m27-q5-mc",
+        "prompt": "Kết quả của phép tính 50 + 30 - 40 là bao nhiêu?",
+        "promptAudio": "/media/tts/m27-q5-prompt.mp3",
+        "illustration": "/media/images/ten-rod.svg",
+        "options": [
+          {
+            "id": "m27-opt-40",
+            "label": "Bằng 40",
+            "audio": "/media/tts/m27-q5-opt0.mp3"
+          },
+          {
+            "id": "m27-opt-50",
+            "label": "Bằng 50",
+            "audio": "/media/tts/m27-q5-opt1.mp3"
+          },
+          {
+            "id": "m27-opt-60",
+            "label": "Bằng 60",
+            "audio": "/media/tts/m27-q5-opt2.mp3"
+          }
+        ],
+        "correctOptionId": "m27-opt-40",
+        "explanation": "50 + 30 = 80, 80 - 40 = 40.",
+        "explanationAudio": "/media/tts/m27-q5-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m27-slide-q6",
+      "teacherNote": "Câu hỏi 6: Đếm xem có bao nhiêu ngôi sao may mắn?",
+      "question": {
+        "type": "counting",
+        "id": "m27-q6-count",
+        "prompt": "Đếm xem có bao nhiêu ngôi sao may mắn?",
+        "promptAudio": "/media/tts/m27-q6-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "items": [
+          {
+            "image": "/media/images/star.svg",
+            "alt": "Item 1"
+          },
+          {
+            "image": "/media/images/star.svg",
+            "alt": "Item 2"
+          },
+          {
+            "image": "/media/images/star.svg",
+            "alt": "Item 3"
+          },
+          {
+            "image": "/media/images/star.svg",
+            "alt": "Item 4"
+          },
+          {
+            "image": "/media/images/star.svg",
+            "alt": "Item 5"
+          }
+        ],
+        "correctCount": 5,
+        "numberRange": {
+          "min": 1,
+          "max": 10
+        },
+        "explanation": "Có đúng 5 ngôi sao may mắn.",
+        "explanationAudio": "/media/tts/m27-q6-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    }
+  ]
+}

@@ -1,0 +1,269 @@
+{
+  "status": "publish",
+  "mode": "publish",
+  "id": "math-28-giai-toan-loi-van",
+  "title": "Bài 28: Giải toán có lời văn",
+  "subject": "math",
+  "grade": 1,
+  "description": "Đọc hiểu đề bài toán bằng lời văn, nhận diện từ khóa 'thêm vào' hoặc 'bớt đi' để viết phép tính thích hợp.",
+  "totalDurationMinutes": 25,
+  "slides": [
+    {
+      "type": "title-slide",
+      "id": "m28-title-slide",
+      "title": "Bài 28: Giải toán có lời văn",
+      "subtitle": "Toán Lớp 1 — Bài học tương tác",
+      "teacherNote": "Rèn kỹ năng đọc kĩ câu hỏi: 'tất cả' là cộng, 'còn lại' là trừ.",
+      "backgroundImage": "/media/images/star.svg",
+      "audio": "/media/tts/m28-title.mp3"
+    },
+    {
+      "type": "content-slide",
+      "id": "m28-intro-slide",
+      "title": "Giải toán có lời văn",
+      "body": "Khi giải toán có lời văn: Đọc kĩ đề -> Tìm điều bài toán cho biết -> Xác định bài toán hỏi gì -> Viết phép tính và câu trả lời.",
+      "teacherNote": "Hướng dẫn cả lớp nắm vững kiến thức trọng tâm.",
+      "illustration": "/media/images/apple.svg",
+      "audio": "/media/tts/m28-intro.mp3",
+      "bullets": [
+        "Thêm vào, có tất cả: làm phép cộng (+)",
+        "Bớt đi, bay đi, cho đi: làm phép trừ (-)",
+        "Viết phép tính kèm kết quả chính xác"
+      ]
+    },
+    {
+      "type": "question-slide",
+      "id": "m28-slide-q1",
+      "teacherNote": "Câu hỏi 1: Nam có 12 viên bi, Nam mua thêm 3 viên b",
+      "question": {
+        "type": "multiple_choice",
+        "id": "m28-q1-mc",
+        "prompt": "Nam có 12 viên bi, Nam mua thêm 3 viên bi nữa. Hỏi Nam có tất cả bao nhiêu viên bi? Phép tính đúng là:",
+        "promptAudio": "/media/tts/m28-q1-prompt.mp3",
+        "illustration": "/media/images/ball.svg",
+        "options": [
+          {
+            "id": "m28-opt-1",
+            "label": "12 + 3 = 15",
+            "audio": "/media/tts/m28-q1-opt0.mp3"
+          },
+          {
+            "id": "m28-opt-2",
+            "label": "12 - 3 = 9",
+            "audio": "/media/tts/m28-q1-opt1.mp3"
+          },
+          {
+            "id": "m28-opt-3",
+            "label": "12 + 3 = 16",
+            "audio": "/media/tts/m28-q1-opt2.mp3"
+          }
+        ],
+        "correctOptionId": "m28-opt-1",
+        "explanation": "Nam mua thêm nên ta làm phép tính cộng: 12 + 3 = 15 viên bi.",
+        "explanationAudio": "/media/tts/m28-q1-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m28-slide-q2",
+      "teacherNote": "Câu hỏi 2: Trên cành có 18 con chim, 5 con chim bay",
+      "question": {
+        "type": "number_select",
+        "id": "m28-q2-num",
+        "prompt": "Trên cành có 18 con chim, 5 con chim bay đi. Hỏi trên cành còn lại bao nhiêu con chim?",
+        "promptAudio": "/media/tts/m28-q2-prompt.mp3",
+        "illustration": "/media/images/bird.svg",
+        "expression": "18 - 5 = ?",
+        "choices": [
+          11,
+          12,
+          13,
+          14
+        ],
+        "correctAnswer": 13,
+        "explanation": "5 con bay đi nên ta lấy 18 trừ 5 bằng 13 con chim.",
+        "explanationAudio": "/media/tts/m28-q2-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m28-slide-q3",
+      "teacherNote": "Câu hỏi 3: Lan có 20 bông hoa, Mai có 10 bông hoa. ",
+      "question": {
+        "type": "tap_place",
+        "id": "m28-q3-tap",
+        "prompt": "Lan có 20 bông hoa, Mai có 10 bông hoa. Cả hai bạn có ... bông hoa.",
+        "promptAudio": "/media/tts/m28-q3-prompt.mp3",
+        "illustration": "/media/images/flower.svg",
+        "targets": [
+          {
+            "id": "m28-t1",
+            "label": "...",
+            "prefixText": "Cả hai bạn có ",
+            "suffixText": " bông hoa."
+          }
+        ],
+        "items": [
+          {
+            "id": "m28-i1",
+            "label": "30",
+            "audio": "/media/tts/m28-q3-it0.mp3"
+          },
+          {
+            "id": "m28-i2",
+            "label": "25",
+            "audio": "/media/tts/m28-q3-it1.mp3"
+          }
+        ],
+        "correctMapping": {
+          "m28-i1": "m28-t1"
+        },
+        "explanation": "Cả hai bạn có: 20 + 10 = 30 bông hoa.",
+        "explanationAudio": "/media/tts/m28-q3-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m28-slide-q4",
+      "teacherNote": "Câu hỏi 4: Nối bài toán ở cột trái với phép tính tư",
+      "question": {
+        "type": "matching",
+        "id": "m28-q4-match",
+        "prompt": "Nối bài toán ở cột trái với phép tính tương ứng ở cột phải:",
+        "promptAudio": "/media/tts/m28-q4-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "leftColumn": [
+          {
+            "id": "m28-l1",
+            "label": "Có 25 quả cam, bán đi 5 quả",
+            "audio": "/media/tts/m28-q4-l0.mp3"
+          },
+          {
+            "id": "m28-l2",
+            "label": "Lớp có 30 bạn, thêm 4 bạn mới",
+            "audio": "/media/tts/m28-q4-l1.mp3"
+          },
+          {
+            "id": "m28-l3",
+            "label": "Có 48 chiếc kẹo, bớt 8 chiếc",
+            "audio": "/media/tts/m28-q4-l2.mp3"
+          }
+        ],
+        "rightColumn": [
+          {
+            "id": "m28-r1",
+            "label": "25 - 5 = 20",
+            "audio": "/media/tts/m28-q4-r0.mp3"
+          },
+          {
+            "id": "m28-r2",
+            "label": "30 + 4 = 34",
+            "audio": "/media/tts/m28-q4-r1.mp3"
+          },
+          {
+            "id": "m28-r3",
+            "label": "48 - 8 = 40",
+            "audio": "/media/tts/m28-q4-r2.mp3"
+          }
+        ],
+        "correctPairs": [
+          {
+            "leftId": "m28-l1",
+            "rightId": "m28-r1"
+          },
+          {
+            "leftId": "m28-l2",
+            "rightId": "m28-r2"
+          },
+          {
+            "leftId": "m28-l3",
+            "rightId": "m28-r3"
+          }
+        ],
+        "explanation": "Bán đi, bớt đi là trừ; thêm vào là cộng.",
+        "explanationAudio": "/media/tts/m28-q4-exp.mp3"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m28-slide-q5",
+      "teacherNote": "Câu hỏi 5: Bài toán hỏi 'Có tất cả bao nhiêu?' thì ",
+      "question": {
+        "type": "multiple_choice",
+        "id": "m28-q5-mc",
+        "prompt": "Bài toán hỏi 'Có tất cả bao nhiêu?' thì chúng mình thường dùng phép tính gì?",
+        "promptAudio": "/media/tts/m28-q5-prompt.mp3",
+        "illustration": "/media/images/apple.svg",
+        "options": [
+          {
+            "id": "m28-q5-cong",
+            "label": "Phép tính cộng (+)",
+            "audio": "/media/tts/m28-q5-opt0.mp3"
+          },
+          {
+            "id": "m28-q5-tru",
+            "label": "Phép tính trừ (-)",
+            "audio": "/media/tts/m28-q5-opt1.mp3"
+          },
+          {
+            "id": "m28-q5-nhan",
+            "label": "Phép nhân (x)",
+            "audio": "/media/tts/m28-q5-opt2.mp3"
+          }
+        ],
+        "correctOptionId": "m28-q5-cong",
+        "explanation": "Gộp lại để tìm tất cả thì làm phép tính cộng.",
+        "explanationAudio": "/media/tts/m28-q5-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m28-slide-q6",
+      "teacherNote": "Câu hỏi 6: Đếm xem có bao nhiêu quả táo trong giỏ?",
+      "question": {
+        "type": "counting",
+        "id": "m28-q6-count",
+        "prompt": "Đếm xem có bao nhiêu quả táo trong giỏ?",
+        "promptAudio": "/media/tts/m28-q6-prompt.mp3",
+        "illustration": "/media/images/apple.svg",
+        "items": [
+          {
+            "image": "/media/images/apple.svg",
+            "alt": "Item 1"
+          },
+          {
+            "image": "/media/images/apple.svg",
+            "alt": "Item 2"
+          },
+          {
+            "image": "/media/images/apple.svg",
+            "alt": "Item 3"
+          },
+          {
+            "image": "/media/images/apple.svg",
+            "alt": "Item 4"
+          }
+        ],
+        "correctCount": 4,
+        "numberRange": {
+          "min": 1,
+          "max": 10
+        },
+        "explanation": "Trong giỏ có đúng 4 quả táo.",
+        "explanationAudio": "/media/tts/m28-q6-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    }
+  ]
+}

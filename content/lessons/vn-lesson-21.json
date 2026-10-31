@@ -1,0 +1,310 @@
+{
+  "status": "publish",
+  "mode": "publish",
+  "id": "vn-21-am-g-gi",
+  "title": "Bài 21: Âm g, gi và tiếng ghép",
+  "subject": "vietnamese",
+  "grade": 1,
+  "description": "Làm quen âm đơn g, âm đôi gi và luyện đọc các từ con gà, đồ gỗ, gió mát, giỏ cá qua 6 câu hỏi tương tác.",
+  "totalDurationMinutes": 25,
+  "slides": [
+    {
+      "type": "title-slide",
+      "id": "vn21-title-slide",
+      "title": "Bài 21: Âm g, gi và tiếng ghép",
+      "subtitle": "Tiếng Việt Lớp 1 — Bài học tương tác",
+      "teacherNote": "Hướng dẫn phân biệt cách viết và đọc g đơn và gi.",
+      "backgroundImage": "/media/images/star.svg",
+      "audio": "/media/tts/vn21-title.mp3"
+    },
+    {
+      "type": "content-slide",
+      "id": "vn21-intro-slide",
+      "title": "Làm quen âm G và GI",
+      "body": "Hôm nay các em học âm g và gi. Cùng đọc các tiếng: gà, gỗ, gió, giỏ cá nhé!",
+      "teacherNote": "Hướng dẫn học sinh đọc to rõ ràng từng từ ngữ.",
+      "illustration": "/media/images/book.svg",
+      "audio": "/media/tts/vn21-intro.mp3",
+      "bullets": [
+        "g — gà (chú gà trống gáy vang)",
+        "g — gỗ (bộ bàn ghế gỗ)",
+        "gi — gió (gió thổi mát rượi)",
+        "gi — giỏ (chiếc giỏ mây đi chợ)"
+      ]
+    },
+    {
+      "type": "question-slide",
+      "id": "vn21-slide-q1",
+      "teacherNote": "Câu hỏi 1: Tiếng 'gà' bắt đầu bằng âm nào dưới đây?",
+      "question": {
+        "type": "multiple_choice",
+        "id": "vn21-q1-mc",
+        "prompt": "Tiếng 'gà' bắt đầu bằng âm nào dưới đây?",
+        "promptAudio": "/media/tts/vn21-q1-prompt.mp3",
+        "illustration": "/media/images/bird.svg",
+        "options": [
+          {
+            "id": "vn21-opt-g",
+            "label": "Âm g",
+            "audio": "/media/tts/vn21-q1-opt0.mp3"
+          },
+          {
+            "id": "vn21-opt-gi",
+            "label": "Âm gi",
+            "audio": "/media/tts/vn21-q1-opt1.mp3"
+          },
+          {
+            "id": "vn21-opt-c",
+            "label": "Âm c",
+            "audio": "/media/tts/vn21-q1-opt2.mp3"
+          }
+        ],
+        "correctOptionId": "vn21-opt-g",
+        "explanation": "Tiếng gà bắt đầu bằng âm g: g - a - ga - huyền - gà.",
+        "explanationAudio": "/media/tts/vn21-q1-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn21-slide-q2",
+      "teacherNote": "Câu hỏi 2: Điền âm thích hợp để tạo thành từ gió má",
+      "question": {
+        "type": "tap_place",
+        "id": "vn21-q2-tap",
+        "prompt": "Điền âm thích hợp để tạo thành từ gió mát:",
+        "promptAudio": "/media/tts/vn21-q2-prompt.mp3",
+        "illustration": "/media/images/leaf.svg",
+        "targets": [
+          {
+            "id": "vn21-t1",
+            "label": "...",
+            "prefixText": "",
+            "suffixText": "ó mát"
+          }
+        ],
+        "items": [
+          {
+            "id": "vn21-i1",
+            "label": "Gi",
+            "audio": "/media/tts/vn21-q2-it0.mp3"
+          },
+          {
+            "id": "vn21-i2",
+            "label": "G",
+            "audio": "/media/tts/vn21-q2-it1.mp3"
+          }
+        ],
+        "correctMapping": {
+          "vn21-i1": "vn21-t1"
+        },
+        "explanation": "Gió mát bắt đầu bằng âm gi.",
+        "explanationAudio": "/media/tts/vn21-q2-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn21-slide-q3",
+      "teacherNote": "Câu hỏi 3: Nối tiếng ở cột trái với từ tương ứng ở ",
+      "question": {
+        "type": "matching",
+        "id": "vn21-q3-match",
+        "prompt": "Nối tiếng ở cột trái với từ tương ứng ở cột phải:",
+        "promptAudio": "/media/tts/vn21-q3-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "leftColumn": [
+          {
+            "id": "vn21-l1",
+            "label": "con gà",
+            "audio": "/media/tts/vn21-q3-l0.mp3"
+          },
+          {
+            "id": "vn21-l2",
+            "label": "đồ gỗ",
+            "audio": "/media/tts/vn21-q3-l1.mp3"
+          },
+          {
+            "id": "vn21-l3",
+            "label": "giỏ cá",
+            "audio": "/media/tts/vn21-q3-l2.mp3"
+          }
+        ],
+        "rightColumn": [
+          {
+            "id": "vn21-r1",
+            "label": "chú gà trống",
+            "audio": "/media/tts/vn21-q3-r0.mp3"
+          },
+          {
+            "id": "vn21-r2",
+            "label": "bàn ghế gỗ",
+            "audio": "/media/tts/vn21-q3-r1.mp3"
+          },
+          {
+            "id": "vn21-r3",
+            "label": "chiếc giỏ mây",
+            "audio": "/media/tts/vn21-q3-r2.mp3"
+          }
+        ],
+        "correctPairs": [
+          {
+            "leftId": "vn21-l1",
+            "rightId": "vn21-r1"
+          },
+          {
+            "leftId": "vn21-l2",
+            "rightId": "vn21-r2"
+          },
+          {
+            "leftId": "vn21-l3",
+            "rightId": "vn21-r3"
+          }
+        ],
+        "explanation": "Gà trống, bàn ghế gỗ, giỏ mây.",
+        "explanationAudio": "/media/tts/vn21-q3-exp.mp3"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn21-slide-q4",
+      "teacherNote": "Câu hỏi 4: Từ nào dưới đây có chứa âm 'gi'?",
+      "question": {
+        "type": "multiple_choice",
+        "id": "vn21-q4-mc",
+        "prompt": "Từ nào dưới đây có chứa âm 'gi'?",
+        "promptAudio": "/media/tts/vn21-q4-prompt.mp3",
+        "illustration": "/media/images/tree.svg",
+        "options": [
+          {
+            "id": "vn21-q4-gio",
+            "label": "cơn gió",
+            "audio": "/media/tts/vn21-q4-opt0.mp3"
+          },
+          {
+            "id": "vn21-q4-ga",
+            "label": "con gà",
+            "audio": "/media/tts/vn21-q4-opt1.mp3"
+          },
+          {
+            "id": "vn21-q4-go",
+            "label": "khúc gỗ",
+            "audio": "/media/tts/vn21-q4-opt2.mp3"
+          }
+        ],
+        "correctOptionId": "vn21-q4-gio",
+        "explanation": "Từ cơn gió có tiếng gió bắt đầu bằng âm gi.",
+        "explanationAudio": "/media/tts/vn21-q4-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn21-slide-q5",
+      "teacherNote": "Câu hỏi 5: Điền âm g hoặc gi vào chỗ trống: Chú ...",
+      "question": {
+        "type": "tap_place",
+        "id": "vn21-q5-tap",
+        "prompt": "Điền âm g hoặc gi vào chỗ trống: Chú ...à trống",
+        "promptAudio": "/media/tts/vn21-q5-prompt.mp3",
+        "illustration": "/media/images/bird.svg",
+        "targets": [
+          {
+            "id": "vn21-t2",
+            "label": "...",
+            "prefixText": "Chú ",
+            "suffixText": "à trống"
+          }
+        ],
+        "items": [
+          {
+            "id": "vn21-i3",
+            "label": "g",
+            "audio": "/media/tts/vn21-q5-it0.mp3"
+          },
+          {
+            "id": "vn21-i4",
+            "label": "gi",
+            "audio": "/media/tts/vn21-q5-it1.mp3"
+          }
+        ],
+        "correctMapping": {
+          "vn21-i3": "vn21-t2"
+        },
+        "explanation": "Gà viết bằng âm g đơn.",
+        "explanationAudio": "/media/tts/vn21-q5-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn21-slide-q6",
+      "teacherNote": "Câu hỏi 6: Nối âm với phần vần để tạo tiếng có nghĩ",
+      "question": {
+        "type": "matching",
+        "id": "vn21-q6-match",
+        "prompt": "Nối âm với phần vần để tạo tiếng có nghĩa:",
+        "promptAudio": "/media/tts/vn21-q6-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "leftColumn": [
+          {
+            "id": "vn21-l2-g",
+            "label": "g",
+            "audio": "/media/tts/vn21-q6-l0.mp3"
+          },
+          {
+            "id": "vn21-l2-gi",
+            "label": "gi",
+            "audio": "/media/tts/vn21-q6-l1.mp3"
+          },
+          {
+            "id": "vn21-l2-go",
+            "label": "g",
+            "audio": "/media/tts/vn21-q6-l2.mp3"
+          }
+        ],
+        "rightColumn": [
+          {
+            "id": "vn21-r2-a",
+            "label": "à (gà)",
+            "audio": "/media/tts/vn21-q6-r0.mp3"
+          },
+          {
+            "id": "vn21-r2-o",
+            "label": "ó (gió)",
+            "audio": "/media/tts/vn21-q6-r1.mp3"
+          },
+          {
+            "id": "vn21-r2-o2",
+            "label": "ỗ (gỗ)",
+            "audio": "/media/tts/vn21-q6-r2.mp3"
+          }
+        ],
+        "correctPairs": [
+          {
+            "leftId": "vn21-l2-g",
+            "rightId": "vn21-r2-a"
+          },
+          {
+            "leftId": "vn21-l2-gi",
+            "rightId": "vn21-r2-o"
+          },
+          {
+            "leftId": "vn21-l2-go",
+            "rightId": "vn21-r2-o2"
+          }
+        ],
+        "explanation": "g ghép à thành gà; gi ghép ó thành gió; g ghép ỗ thành gỗ.",
+        "explanationAudio": "/media/tts/vn21-q6-exp.mp3"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    }
+  ]
+}

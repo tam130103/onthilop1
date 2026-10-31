@@ -1,0 +1,312 @@
+{
+  "status": "publish",
+  "mode": "publish",
+  "id": "vn-24-van-ia-ua-ua",
+  "title": "Bài 24: Các vần ia, ua, ưa",
+  "subject": "vietnamese",
+  "grade": 1,
+  "description": "Làm quen với các vần nguyên âm ia, ua, ưa và luyện đọc các từ cây mía, con cua, quả dừa, chú ngựa.",
+  "totalDurationMinutes": 25,
+  "slides": [
+    {
+      "type": "title-slide",
+      "id": "vn24-title-slide",
+      "title": "Bài 24: Các vần ia, ua, ưa",
+      "subtitle": "Tiếng Việt Lớp 1 — Bài học tương tác",
+      "teacherNote": "Rèn phát âm lướt từ âm đầu sang âm a.",
+      "backgroundImage": "/media/images/star.svg",
+      "audio": "/media/tts/vn24-title.mp3"
+    },
+    {
+      "type": "content-slide",
+      "id": "vn24-intro-slide",
+      "title": "Các vần IA, UA, ƯA",
+      "body": "Các vần ia, ua, ưa xuất hiện trong rất nhiều từ thân quen: cây mía, con cua, quả dừa, chú ngựa. Cùng đọc với cô nhé!",
+      "teacherNote": "Hướng dẫn học sinh đọc to rõ ràng từng từ ngữ.",
+      "illustration": "/media/images/book.svg",
+      "audio": "/media/tts/vn24-intro.mp3",
+      "bullets": [
+        "ia — mía (cây mía ngọt lịm)",
+        "ua — cua (con cua tám cẳng hai càng)",
+        "ưa — dừa (quả dừa xiêm mát lành)"
+      ]
+    },
+    {
+      "type": "question-slide",
+      "id": "vn24-slide-q1",
+      "teacherNote": "Câu hỏi 1: Tiếng 'mía' có chứa vần gì?",
+      "question": {
+        "type": "multiple_choice",
+        "id": "vn24-q1-mc",
+        "prompt": "Tiếng 'mía' có chứa vần gì?",
+        "promptAudio": "/media/tts/vn24-q1-prompt.mp3",
+        "illustration": "/media/images/apple.svg",
+        "options": [
+          {
+            "id": "vn24-opt-ia",
+            "label": "Vần ia",
+            "audio": "/media/tts/vn24-q1-opt0.mp3"
+          },
+          {
+            "id": "vn24-opt-ua",
+            "label": "Vần ua",
+            "audio": "/media/tts/vn24-q1-opt1.mp3"
+          },
+          {
+            "id": "vn24-opt-uwa",
+            "label": "Vần ưa",
+            "audio": "/media/tts/vn24-q1-opt2.mp3"
+          }
+        ],
+        "correctOptionId": "vn24-opt-ia",
+        "explanation": "Tiếng mía gồm âm m ghép với vần ia và dấu sắc: m - ia - mia - sắc - mía.",
+        "explanationAudio": "/media/tts/vn24-q1-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn24-slide-q2",
+      "teacherNote": "Câu hỏi 2: Điền vần thích hợp để có từ con cua:",
+      "question": {
+        "type": "tap_place",
+        "id": "vn24-q2-tap",
+        "prompt": "Điền vần thích hợp để có từ con cua:",
+        "promptAudio": "/media/tts/vn24-q2-prompt.mp3",
+        "illustration": "/media/images/fish.svg",
+        "targets": [
+          {
+            "id": "vn24-t1",
+            "label": "...",
+            "prefixText": "Con c",
+            "suffixText": ""
+          }
+        ],
+        "items": [
+          {
+            "id": "vn24-i1",
+            "label": "ua",
+            "audio": "/media/tts/vn24-q2-it0.mp3"
+          },
+          {
+            "id": "vn24-i2",
+            "label": "ưa",
+            "audio": "/media/tts/vn24-q2-it1.mp3"
+          }
+        ],
+        "correctMapping": {
+          "vn24-i1": "vn24-t1"
+        },
+        "explanation": "Tiếng cua gồm âm c ghép với vần ua: c - ua - cua.",
+        "explanationAudio": "/media/tts/vn24-q2-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn24-slide-q3",
+      "teacherNote": "Câu hỏi 3: Nối từ ở cột trái với từ mở rộng ở cột p",
+      "question": {
+        "type": "matching",
+        "id": "vn24-q3-match",
+        "prompt": "Nối từ ở cột trái với từ mở rộng ở cột phải:",
+        "promptAudio": "/media/tts/vn24-q3-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "leftColumn": [
+          {
+            "id": "vn24-l1",
+            "label": "cây mía",
+            "audio": "/media/tts/vn24-q3-l0.mp3"
+          },
+          {
+            "id": "vn24-l2",
+            "label": "con cua",
+            "audio": "/media/tts/vn24-q3-l1.mp3"
+          },
+          {
+            "id": "vn24-l3",
+            "label": "quả dừa",
+            "audio": "/media/tts/vn24-q3-l2.mp3"
+          }
+        ],
+        "rightColumn": [
+          {
+            "id": "vn24-r1",
+            "label": "mía ngọt thơm",
+            "audio": "/media/tts/vn24-q3-r0.mp3"
+          },
+          {
+            "id": "vn24-r2",
+            "label": "cua bò ngang",
+            "audio": "/media/tts/vn24-q3-r1.mp3"
+          },
+          {
+            "id": "vn24-r3",
+            "label": "nước dừa ngọt mát",
+            "audio": "/media/tts/vn24-q3-r2.mp3"
+          }
+        ],
+        "correctPairs": [
+          {
+            "leftId": "vn24-l1",
+            "rightId": "vn24-r1"
+          },
+          {
+            "leftId": "vn24-l2",
+            "rightId": "vn24-r2"
+          },
+          {
+            "leftId": "vn24-l3",
+            "rightId": "vn24-r3"
+          }
+        ],
+        "explanation": "Mía ngọt thơm, cua bò ngang, nước dừa ngọt mát.",
+        "explanationAudio": "/media/tts/vn24-q3-exp.mp3"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn24-slide-q4",
+      "teacherNote": "Câu hỏi 4: Từ nào dưới đây có chứa vần 'ưa'?",
+      "question": {
+        "type": "multiple_choice",
+        "id": "vn24-q4-mc",
+        "prompt": "Từ nào dưới đây có chứa vần 'ưa'?",
+        "promptAudio": "/media/tts/vn24-q4-prompt.mp3",
+        "illustration": "/media/images/tree.svg",
+        "options": [
+          {
+            "id": "vn24-q4-dua",
+            "label": "quả dừa",
+            "audio": "/media/tts/vn24-q4-opt0.mp3"
+          },
+          {
+            "id": "vn24-q4-mia",
+            "label": "cây mía",
+            "audio": "/media/tts/vn24-q4-opt1.mp3"
+          },
+          {
+            "id": "vn24-q4-cua",
+            "label": "con cua",
+            "audio": "/media/tts/vn24-q4-opt2.mp3"
+          }
+        ],
+        "correctOptionId": "vn24-q4-dua",
+        "explanation": "Tiếng dừa có âm d ghép với vần ưa và dấu huyền.",
+        "explanationAudio": "/media/tts/vn24-q4-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn24-slide-q5",
+      "teacherNote": "Câu hỏi 5: Điền vần thích hợp vào từ chú ngựa:",
+      "question": {
+        "type": "tap_place",
+        "id": "vn24-q5-tap",
+        "prompt": "Điền vần thích hợp vào từ chú ngựa:",
+        "promptAudio": "/media/tts/vn24-q5-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "targets": [
+          {
+            "id": "vn24-t2",
+            "label": "...",
+            "prefixText": "Chú ng",
+            "suffixText": ""
+          }
+        ],
+        "items": [
+          {
+            "id": "vn24-i3",
+            "label": "ựa",
+            "audio": "/media/tts/vn24-q5-it0.mp3"
+          },
+          {
+            "id": "vn24-i4",
+            "label": "ụa",
+            "audio": "/media/tts/vn24-q5-it1.mp3"
+          }
+        ],
+        "correctMapping": {
+          "vn24-i3": "vn24-t2"
+        },
+        "explanation": "Tiếng ngựa có vần ưa: ng - ưa - ngưa - nặng - ngựa.",
+        "explanationAudio": "/media/tts/vn24-q5-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn24-slide-q6",
+      "teacherNote": "Câu hỏi 6: Nối từ với hình ảnh minh họa thích hợp:",
+      "question": {
+        "type": "matching",
+        "id": "vn24-q6-match",
+        "prompt": "Nối từ với hình ảnh minh họa thích hợp:",
+        "promptAudio": "/media/tts/vn24-q6-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "leftColumn": [
+          {
+            "id": "vn24-l2-rua",
+            "label": "con rùa",
+            "audio": "/media/tts/vn24-q6-l0.mp3"
+          },
+          {
+            "id": "vn24-l2-cay",
+            "label": "cây dừa",
+            "audio": "/media/tts/vn24-q6-l1.mp3"
+          },
+          {
+            "id": "vn24-l2-thuyen",
+            "label": "con thuyền",
+            "audio": "/media/tts/vn24-q6-l2.mp3"
+          }
+        ],
+        "rightColumn": [
+          {
+            "id": "vn24-r2-rua",
+            "label": "chú rùa chậm chạp",
+            "audio": "/media/tts/vn24-q6-r0.mp3",
+            "image": "/media/images/turtle.svg"
+          },
+          {
+            "id": "vn24-r2-cay",
+            "label": "cây dừa trĩu quả",
+            "audio": "/media/tts/vn24-q6-r1.mp3",
+            "image": "/media/images/tree.svg"
+          },
+          {
+            "id": "vn24-r2-thuyen",
+            "label": "thuyền trôi trên sông",
+            "audio": "/media/tts/vn24-q6-r2.mp3",
+            "image": "/media/images/boat.svg"
+          }
+        ],
+        "correctPairs": [
+          {
+            "leftId": "vn24-l2-rua",
+            "rightId": "vn24-r2-rua"
+          },
+          {
+            "leftId": "vn24-l2-cay",
+            "rightId": "vn24-r2-cay"
+          },
+          {
+            "leftId": "vn24-l2-thuyen",
+            "rightId": "vn24-r2-thuyen"
+          }
+        ],
+        "explanation": "Con rùa có vần ua, cây dừa có vần ưa.",
+        "explanationAudio": "/media/tts/vn24-q6-exp.mp3"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    }
+  ]
+}

@@ -1,0 +1,309 @@
+{
+  "status": "publish",
+  "mode": "publish",
+  "id": "vn-30-dau-truong-trang-nguyen-vn",
+  "title": "Bài 30: Đấu trường Trạng nguyên Tiếng Việt",
+  "subject": "vietnamese",
+  "grade": 1,
+  "description": "Tổng kết năm học: Đố vui ghép vần nhanh, kiểm tra chính tả, đọc hiểu và vinh danh Trạng nguyên Lớp 1.",
+  "totalDurationMinutes": 25,
+  "slides": [
+    {
+      "type": "title-slide",
+      "id": "vn30-title-slide",
+      "title": "Bài 30: Đấu trường Trạng nguyên Tiếng Việt",
+      "subtitle": "Tiếng Việt Lớp 1 — Bài học tương tác",
+      "teacherNote": "Tổ chức trò chơi thi đua sôi nổi, trao huy hiệu khen thưởng.",
+      "backgroundImage": "/media/images/star.svg",
+      "audio": "/media/tts/vn30-title.mp3"
+    },
+    {
+      "type": "content-slide",
+      "id": "vn30-intro-slide",
+      "title": "Đấu trường Trạng nguyên Nhí",
+      "body": "Chào mừng các sĩ tử nhí đến với Đấu trường Trạng nguyên Tiếng Việt Lớp 1! Cùng nhau chinh phục các câu đố vần và chính tả để giành vòng nguyệt quế nhé!",
+      "teacherNote": "Hướng dẫn học sinh đọc to rõ ràng từng từ ngữ.",
+      "illustration": "/media/images/book.svg",
+      "audio": "/media/tts/vn30-intro.mp3",
+      "bullets": [
+        "Đọc thông viết thạo âm vần tiếng Việt",
+        "Hiểu đúng nghĩa câu văn và đoạn văn",
+        "Giành danh hiệu Trạng nguyên Lớp 1"
+      ]
+    },
+    {
+      "type": "question-slide",
+      "id": "vn30-slide-q1",
+      "teacherNote": "Câu hỏi 1: Từ nào dưới đây viết ĐÚNG chính tả?",
+      "question": {
+        "type": "multiple_choice",
+        "id": "vn30-q1-mc",
+        "prompt": "Từ nào dưới đây viết ĐÚNG chính tả?",
+        "promptAudio": "/media/tts/vn30-q1-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "options": [
+          {
+            "id": "vn30-opt-dung",
+            "label": "nón lá",
+            "audio": "/media/tts/vn30-q1-opt0.mp3"
+          },
+          {
+            "id": "vn30-opt-sai1",
+            "label": "lón lá",
+            "audio": "/media/tts/vn30-q1-opt1.mp3"
+          },
+          {
+            "id": "vn30-opt-sai2",
+            "label": "nón ná",
+            "audio": "/media/tts/vn30-q1-opt2.mp3"
+          }
+        ],
+        "correctOptionId": "vn30-opt-dung",
+        "explanation": "Nón lá viết đúng: nón bắt đầu bằng n, lá bắt đầu bằng l.",
+        "explanationAudio": "/media/tts/vn30-q1-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn30-slide-q2",
+      "teacherNote": "Câu hỏi 2: Sắp xếp từ để tạo câu hoàn chỉnh: Em yêu",
+      "question": {
+        "type": "tap_place",
+        "id": "vn30-q2-tap",
+        "prompt": "Sắp xếp từ để tạo câu hoàn chỉnh: Em yêu trường em.",
+        "promptAudio": "/media/tts/vn30-q2-prompt.mp3",
+        "illustration": "/media/images/school.svg",
+        "targets": [
+          {
+            "id": "vn30-t1",
+            "label": "...",
+            "prefixText": "Em yêu ",
+            "suffixText": "."
+          }
+        ],
+        "items": [
+          {
+            "id": "vn30-i1",
+            "label": "trường em",
+            "audio": "/media/tts/vn30-q2-it0.mp3"
+          },
+          {
+            "id": "vn30-i2",
+            "label": "lớp em",
+            "audio": "/media/tts/vn30-q2-it1.mp3"
+          }
+        ],
+        "correctMapping": {
+          "vn30-i1": "vn30-t1"
+        },
+        "explanation": "Câu hoàn chỉnh: Em yêu trường em.",
+        "explanationAudio": "/media/tts/vn30-q2-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn30-slide-q3",
+      "teacherNote": "Câu hỏi 3: Nối hai vế để tạo thành câu tục ngữ, ca ",
+      "question": {
+        "type": "matching",
+        "id": "vn30-q3-match",
+        "prompt": "Nối hai vế để tạo thành câu tục ngữ, ca dao đúng:",
+        "promptAudio": "/media/tts/vn30-q3-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "leftColumn": [
+          {
+            "id": "vn30-l1",
+            "label": "Ăn quả",
+            "audio": "/media/tts/vn30-q3-l0.mp3"
+          },
+          {
+            "id": "vn30-l2",
+            "label": "Uống nước",
+            "audio": "/media/tts/vn30-q3-l1.mp3"
+          },
+          {
+            "id": "vn30-l3",
+            "label": "Học thầy",
+            "audio": "/media/tts/vn30-q3-l2.mp3"
+          }
+        ],
+        "rightColumn": [
+          {
+            "id": "vn30-r1",
+            "label": "nhớ kẻ trồng cây",
+            "audio": "/media/tts/vn30-q3-r0.mp3"
+          },
+          {
+            "id": "vn30-r2",
+            "label": "nhớ nguồn",
+            "audio": "/media/tts/vn30-q3-r1.mp3"
+          },
+          {
+            "id": "vn30-r3",
+            "label": "không tày học bạn",
+            "audio": "/media/tts/vn30-q3-r2.mp3"
+          }
+        ],
+        "correctPairs": [
+          {
+            "leftId": "vn30-l1",
+            "rightId": "vn30-r1"
+          },
+          {
+            "leftId": "vn30-l2",
+            "rightId": "vn30-r2"
+          },
+          {
+            "leftId": "vn30-l3",
+            "rightId": "vn30-r3"
+          }
+        ],
+        "explanation": "Ăn quả nhớ kẻ trồng cây, uống nước nhớ nguồn, học thầy không tày học bạn.",
+        "explanationAudio": "/media/tts/vn30-q3-exp.mp3"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn30-slide-q4",
+      "teacherNote": "Câu hỏi 4: Đoạn thơ: 'Trường em ngói mới đỏ hồng / ",
+      "question": {
+        "type": "multiple_choice",
+        "id": "vn30-q4-mc",
+        "prompt": "Đoạn thơ: 'Trường em ngói mới đỏ hồng / Mọc lên tươi thắm giữa đồng lúa xanh.' Đoạn thơ miêu tả trường em ở đâu?",
+        "promptAudio": "/media/tts/vn30-q4-prompt.mp3",
+        "illustration": "/media/images/school.svg",
+        "options": [
+          {
+            "id": "vn30-q4-donglua",
+            "label": "Giữa cánh đồng lúa xanh",
+            "audio": "/media/tts/vn30-q4-opt0.mp3"
+          },
+          {
+            "id": "vn30-q4-trenbien",
+            "label": "Ở trên mặt biển",
+            "audio": "/media/tts/vn30-q4-opt1.mp3"
+          },
+          {
+            "id": "vn30-q4-trongrung",
+            "label": "Ở sâu trong hang đá",
+            "audio": "/media/tts/vn30-q4-opt2.mp3"
+          }
+        ],
+        "correctOptionId": "vn30-q4-donglua",
+        "explanation": "Trường mọc lên tươi thắm giữa cánh đồng lúa xanh ngát.",
+        "explanationAudio": "/media/tts/vn30-q4-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn30-slide-q5",
+      "teacherNote": "Câu hỏi 5: Điền từ thích hợp: Chúc mừng các em tự t",
+      "question": {
+        "type": "tap_place",
+        "id": "vn30-q5-tap",
+        "prompt": "Điền từ thích hợp: Chúc mừng các em tự tin bước vào lớp ...",
+        "promptAudio": "/media/tts/vn30-q5-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "targets": [
+          {
+            "id": "vn30-t2",
+            "label": "...",
+            "prefixText": "Tự tin bước vào lớp ",
+            "suffixText": "!"
+          }
+        ],
+        "items": [
+          {
+            "id": "vn30-i3",
+            "label": "hai",
+            "audio": "/media/tts/vn30-q5-it0.mp3"
+          },
+          {
+            "id": "vn30-i4",
+            "label": "ba",
+            "audio": "/media/tts/vn30-q5-it1.mp3"
+          }
+        ],
+        "correctMapping": {
+          "vn30-i3": "vn30-t2"
+        },
+        "explanation": "Hoàn thành Lớp 1, các em vững bước lên Lớp 2!",
+        "explanationAudio": "/media/tts/vn30-q5-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn30-slide-q6",
+      "teacherNote": "Câu hỏi 6: Nối các danh hiệu với phẩm chất tương ứn",
+      "question": {
+        "type": "matching",
+        "id": "vn30-q6-match",
+        "prompt": "Nối các danh hiệu với phẩm chất tương ứng:",
+        "promptAudio": "/media/tts/vn30-q6-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "leftColumn": [
+          {
+            "id": "vn30-l2-trang",
+            "label": "Trạng nguyên",
+            "audio": "/media/tts/vn30-q6-l0.mp3"
+          },
+          {
+            "id": "vn30-l2-hoa",
+            "label": "Bông hoa điểm 10",
+            "audio": "/media/tts/vn30-q6-l1.mp3"
+          },
+          {
+            "id": "vn30-l2-sao",
+            "label": "Ngôi sao chăm ngoan",
+            "audio": "/media/tts/vn30-q6-l2.mp3"
+          }
+        ],
+        "rightColumn": [
+          {
+            "id": "vn30-r2-trang",
+            "label": "thông minh xuất sắc",
+            "audio": "/media/tts/vn30-q6-r0.mp3"
+          },
+          {
+            "id": "vn30-r2-hoa",
+            "label": "chăm chỉ học giỏi",
+            "audio": "/media/tts/vn30-q6-r1.mp3"
+          },
+          {
+            "id": "vn30-r2-sao",
+            "label": "lễ phép vâng lời",
+            "audio": "/media/tts/vn30-q6-r2.mp3"
+          }
+        ],
+        "correctPairs": [
+          {
+            "leftId": "vn30-l2-trang",
+            "rightId": "vn30-r2-trang"
+          },
+          {
+            "leftId": "vn30-l2-hoa",
+            "rightId": "vn30-r2-hoa"
+          },
+          {
+            "leftId": "vn30-l2-sao",
+            "rightId": "vn30-r2-sao"
+          }
+        ],
+        "explanation": "Chúc mừng tất cả các em đều là những ngôi sao chăm ngoan, học giỏi!",
+        "explanationAudio": "/media/tts/vn30-q6-exp.mp3"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    }
+  ]
+}

@@ -1,0 +1,304 @@
+{
+  "status": "publish",
+  "mode": "publish",
+  "id": "vn-23-am-ng-ngh",
+  "title": "Bài 23: Âm ng, ngh và tiếng ghép",
+  "subject": "vietnamese",
+  "grade": 1,
+  "description": "Phân biệt quy tắc viết ng và ngh qua các từ bắp ngô, con nghé, nghệ vàng, ngỗng trắng.",
+  "totalDurationMinutes": 25,
+  "slides": [
+    {
+      "type": "title-slide",
+      "id": "vn23-title-slide",
+      "title": "Bài 23: Âm ng, ngh và tiếng ghép",
+      "subtitle": "Tiếng Việt Lớp 1 — Bài học tương tác",
+      "teacherNote": "Nhắc lại quy tắc ngh ghép với e, ê, i; ng ghép với các âm còn lại.",
+      "backgroundImage": "/media/images/star.svg",
+      "audio": "/media/tts/vn23-title.mp3"
+    },
+    {
+      "type": "content-slide",
+      "id": "vn23-intro-slide",
+      "title": "Quy tắc chính tả NG và NGH",
+      "body": "Tương tự g và gh, ngh luôn đi cùng e, ê, i (nghé, nghệ, nghi). Còn ng đi cùng a, o, ô, ơ, u, ư (ngô, ngỗng, ngã).",
+      "teacherNote": "Hướng dẫn học sinh đọc to rõ ràng từng từ ngữ.",
+      "illustration": "/media/images/book.svg",
+      "audio": "/media/tts/vn23-intro.mp3",
+      "bullets": [
+        "ngh đi với: e, ê, i (con nghé, củ nghệ)",
+        "ng đi với: a, o, ô, ơ, u, ư (bắp ngô, ngỗng con)",
+        "Phát âm hai âm này giống nhau"
+      ]
+    },
+    {
+      "type": "question-slide",
+      "id": "vn23-slide-q1",
+      "teacherNote": "Câu hỏi 1: Từ 'con nghé' viết bằng âm 'ng' hay 'ngh",
+      "question": {
+        "type": "multiple_choice",
+        "id": "vn23-q1-mc",
+        "prompt": "Từ 'con nghé' viết bằng âm 'ng' hay 'ngh'?",
+        "promptAudio": "/media/tts/vn23-q1-prompt.mp3",
+        "illustration": "/media/images/cat.svg",
+        "options": [
+          {
+            "id": "vn23-opt-ngh",
+            "label": "Âm ngh",
+            "audio": "/media/tts/vn23-q1-opt0.mp3"
+          },
+          {
+            "id": "vn23-opt-ng",
+            "label": "Âm ng",
+            "audio": "/media/tts/vn23-q1-opt1.mp3"
+          }
+        ],
+        "correctOptionId": "vn23-opt-ngh",
+        "explanation": "Vì đứng trước âm é nên phải viết là ngh: con nghé.",
+        "explanationAudio": "/media/tts/vn23-q1-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn23-slide-q2",
+      "teacherNote": "Câu hỏi 2: Điền 'ng' hoặc 'ngh' vào chỗ trống: Bắp ",
+      "question": {
+        "type": "tap_place",
+        "id": "vn23-q2-tap",
+        "prompt": "Điền 'ng' hoặc 'ngh' vào chỗ trống: Bắp ...ô non",
+        "promptAudio": "/media/tts/vn23-q2-prompt.mp3",
+        "illustration": "/media/images/apple.svg",
+        "targets": [
+          {
+            "id": "vn23-t1",
+            "label": "...",
+            "prefixText": "Bắp ",
+            "suffixText": "ô non"
+          }
+        ],
+        "items": [
+          {
+            "id": "vn23-i1",
+            "label": "ng",
+            "audio": "/media/tts/vn23-q2-it0.mp3"
+          },
+          {
+            "id": "vn23-i2",
+            "label": "ngh",
+            "audio": "/media/tts/vn23-q2-it1.mp3"
+          }
+        ],
+        "correctMapping": {
+          "vn23-i1": "vn23-t1"
+        },
+        "explanation": "Âm ô đi với ng đơn: bắp ngô.",
+        "explanationAudio": "/media/tts/vn23-q2-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn23-slide-q3",
+      "teacherNote": "Câu hỏi 3: Nối từ ở cột trái với cách viết đúng ở c",
+      "question": {
+        "type": "matching",
+        "id": "vn23-q3-match",
+        "prompt": "Nối từ ở cột trái với cách viết đúng ở cột phải:",
+        "promptAudio": "/media/tts/vn23-q3-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "leftColumn": [
+          {
+            "id": "vn23-l1",
+            "label": "củ nghệ",
+            "audio": "/media/tts/vn23-q3-l0.mp3"
+          },
+          {
+            "id": "vn23-l2",
+            "label": "ngỗng trắng",
+            "audio": "/media/tts/vn23-q3-l1.mp3"
+          },
+          {
+            "id": "vn23-l3",
+            "label": "nghỉ ngơi",
+            "audio": "/media/tts/vn23-q3-l2.mp3"
+          }
+        ],
+        "rightColumn": [
+          {
+            "id": "vn23-r1",
+            "label": "ngh đi với ê",
+            "audio": "/media/tts/vn23-q3-r0.mp3"
+          },
+          {
+            "id": "vn23-r2",
+            "label": "ng đi với ô",
+            "audio": "/media/tts/vn23-q3-r1.mp3"
+          },
+          {
+            "id": "vn23-r3",
+            "label": "ngh đi với i",
+            "audio": "/media/tts/vn23-q3-r2.mp3"
+          }
+        ],
+        "correctPairs": [
+          {
+            "leftId": "vn23-l1",
+            "rightId": "vn23-r1"
+          },
+          {
+            "leftId": "vn23-l2",
+            "rightId": "vn23-r2"
+          },
+          {
+            "leftId": "vn23-l3",
+            "rightId": "vn23-r3"
+          }
+        ],
+        "explanation": "Quy tắc: ngh đi với e, ê, i; ng đi với a, o, ô, ơ, u, ư.",
+        "explanationAudio": "/media/tts/vn23-q3-exp.mp3"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn23-slide-q4",
+      "teacherNote": "Câu hỏi 4: Từ nào dưới đây viết SAI chính tả?",
+      "question": {
+        "type": "multiple_choice",
+        "id": "vn23-q4-mc",
+        "prompt": "Từ nào dưới đây viết SAI chính tả?",
+        "promptAudio": "/media/tts/vn23-q4-prompt.mp3",
+        "illustration": "/media/images/book.svg",
+        "options": [
+          {
+            "id": "vn23-q4-sai",
+            "label": "nghe ngóng (viết ng-e sai)",
+            "audio": "/media/tts/vn23-q4-opt0.mp3"
+          },
+          {
+            "id": "vn23-q4-dung1",
+            "label": "con nghé",
+            "audio": "/media/tts/vn23-q4-opt1.mp3"
+          },
+          {
+            "id": "vn23-q4-dung2",
+            "label": "bắp ngô",
+            "audio": "/media/tts/vn23-q4-opt2.mp3"
+          }
+        ],
+        "correctOptionId": "vn23-q4-sai",
+        "explanation": "Đi với e phải viết là 'nghe' (ngh), viết 'nge' là sai.",
+        "explanationAudio": "/media/tts/vn23-q4-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn23-slide-q5",
+      "teacherNote": "Câu hỏi 5: Điền âm thích hợp để có từ củ nghệ:",
+      "question": {
+        "type": "tap_place",
+        "id": "vn23-q5-tap",
+        "prompt": "Điền âm thích hợp để có từ củ nghệ:",
+        "promptAudio": "/media/tts/vn23-q5-prompt.mp3",
+        "illustration": "/media/images/apple.svg",
+        "targets": [
+          {
+            "id": "vn23-t2",
+            "label": "...",
+            "prefixText": "Củ ",
+            "suffixText": "ệ"
+          }
+        ],
+        "items": [
+          {
+            "id": "vn23-i3",
+            "label": "ngh",
+            "audio": "/media/tts/vn23-q5-it0.mp3"
+          },
+          {
+            "id": "vn23-i4",
+            "label": "ng",
+            "audio": "/media/tts/vn23-q5-it1.mp3"
+          }
+        ],
+        "correctMapping": {
+          "vn23-i3": "vn23-t2"
+        },
+        "explanation": "Củ nghệ có âm ngh đứng trước âm ê.",
+        "explanationAudio": "/media/tts/vn23-q5-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn23-slide-q6",
+      "teacherNote": "Câu hỏi 6: Nối tiếng ở hai cột để tạo từ ghép đúng:",
+      "question": {
+        "type": "matching",
+        "id": "vn23-q6-match",
+        "prompt": "Nối tiếng ở hai cột để tạo từ ghép đúng:",
+        "promptAudio": "/media/tts/vn23-q6-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "leftColumn": [
+          {
+            "id": "vn23-l2-nghi",
+            "label": "nghỉ",
+            "audio": "/media/tts/vn23-q6-l0.mp3"
+          },
+          {
+            "id": "vn23-l2-nghe",
+            "label": "lắng",
+            "audio": "/media/tts/vn23-q6-l1.mp3"
+          },
+          {
+            "id": "vn23-l2-ngo",
+            "label": "bắp",
+            "audio": "/media/tts/vn23-q6-l2.mp3"
+          }
+        ],
+        "rightColumn": [
+          {
+            "id": "vn23-r2-ngoi",
+            "label": "ngơi",
+            "audio": "/media/tts/vn23-q6-r0.mp3"
+          },
+          {
+            "id": "vn23-r2-nghe",
+            "label": "nghe",
+            "audio": "/media/tts/vn23-q6-r1.mp3"
+          },
+          {
+            "id": "vn23-r2-ngo",
+            "label": "ngô",
+            "audio": "/media/tts/vn23-q6-r2.mp3"
+          }
+        ],
+        "correctPairs": [
+          {
+            "leftId": "vn23-l2-nghi",
+            "rightId": "vn23-r2-ngoi"
+          },
+          {
+            "leftId": "vn23-l2-nghe",
+            "rightId": "vn23-r2-nghe"
+          },
+          {
+            "leftId": "vn23-l2-ngo",
+            "rightId": "vn23-r2-ngo"
+          }
+        ],
+        "explanation": "Nghỉ ngơi, lắng nghe, bắp ngô.",
+        "explanationAudio": "/media/tts/vn23-q6-exp.mp3"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    }
+  ]
+}

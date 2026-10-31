@@ -1,0 +1,313 @@
+{
+  "status": "publish",
+  "mode": "publish",
+  "id": "vn-26-van-ao-eo-au-au",
+  "title": "Bài 26: Các vần kết thúc bằng o, u",
+  "subject": "vietnamese",
+  "grade": 1,
+  "description": "Học các vần ao, eo, au, âu và luyện đọc ngôi sao, chú mèo, cây cau, quả dâu tây.",
+  "totalDurationMinutes": 25,
+  "slides": [
+    {
+      "type": "title-slide",
+      "id": "vn26-title-slide",
+      "title": "Bài 26: Các vần kết thúc bằng o, u",
+      "subtitle": "Tiếng Việt Lớp 1 — Bài học tương tác",
+      "teacherNote": "Rèn tròn môi khi phát âm các vần có âm cuối là o hoặc u.",
+      "backgroundImage": "/media/images/star.svg",
+      "audio": "/media/tts/vn26-title.mp3"
+    },
+    {
+      "type": "content-slide",
+      "id": "vn26-intro-slide",
+      "title": "Các vần AO, EO, AU, ÂU",
+      "body": "Các vần ao, eo, au, âu giúp chúng mình đọc được nhiều từ đẹp: ngôi sao, chú mèo con, cây cau, con bồ câu.",
+      "teacherNote": "Hướng dẫn học sinh đọc to rõ ràng từng từ ngữ.",
+      "illustration": "/media/images/book.svg",
+      "audio": "/media/tts/vn26-intro.mp3",
+      "bullets": [
+        "ao — sao (ngôi sao năm cánh)",
+        "eo — mèo (chú mèo mướp)",
+        "au — cau (cây cau cao vút)",
+        "âu — câu (con chim bồ câu)"
+      ]
+    },
+    {
+      "type": "question-slide",
+      "id": "vn26-slide-q1",
+      "teacherNote": "Câu hỏi 1: Tiếng 'sao' trong 'ngôi sao' có vần gì?",
+      "question": {
+        "type": "multiple_choice",
+        "id": "vn26-q1-mc",
+        "prompt": "Tiếng 'sao' trong 'ngôi sao' có vần gì?",
+        "promptAudio": "/media/tts/vn26-q1-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "options": [
+          {
+            "id": "vn26-opt-ao",
+            "label": "Vần ao",
+            "audio": "/media/tts/vn26-q1-opt0.mp3"
+          },
+          {
+            "id": "vn26-opt-eo",
+            "label": "Vần eo",
+            "audio": "/media/tts/vn26-q1-opt1.mp3"
+          },
+          {
+            "id": "vn26-opt-au",
+            "label": "Vần au",
+            "audio": "/media/tts/vn26-q1-opt2.mp3"
+          }
+        ],
+        "correctOptionId": "vn26-opt-ao",
+        "explanation": "Tiếng sao có âm s ghép với vần ao: s - ao - sao.",
+        "explanationAudio": "/media/tts/vn26-q1-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn26-slide-q2",
+      "teacherNote": "Câu hỏi 2: Điền vần thích hợp để có từ chú mèo:",
+      "question": {
+        "type": "tap_place",
+        "id": "vn26-q2-tap",
+        "prompt": "Điền vần thích hợp để có từ chú mèo:",
+        "promptAudio": "/media/tts/vn26-q2-prompt.mp3",
+        "illustration": "/media/images/cat.svg",
+        "targets": [
+          {
+            "id": "vn26-t1",
+            "label": "...",
+            "prefixText": "Chú m",
+            "suffixText": ""
+          }
+        ],
+        "items": [
+          {
+            "id": "vn26-i1",
+            "label": "èo",
+            "audio": "/media/tts/vn26-q2-it0.mp3"
+          },
+          {
+            "id": "vn26-i2",
+            "label": "ào",
+            "audio": "/media/tts/vn26-q2-it1.mp3"
+          }
+        ],
+        "correctMapping": {
+          "vn26-i1": "vn26-t1"
+        },
+        "explanation": "Tiếng mèo có âm m ghép với vần eo và dấu huyền.",
+        "explanationAudio": "/media/tts/vn26-q2-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn26-slide-q3",
+      "teacherNote": "Câu hỏi 3: Nối từ ở cột trái với từ mở rộng ở cột p",
+      "question": {
+        "type": "matching",
+        "id": "vn26-q3-match",
+        "prompt": "Nối từ ở cột trái với từ mở rộng ở cột phải:",
+        "promptAudio": "/media/tts/vn26-q3-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "leftColumn": [
+          {
+            "id": "vn26-l1",
+            "label": "ngôi sao",
+            "audio": "/media/tts/vn26-q3-l0.mp3"
+          },
+          {
+            "id": "vn26-l2",
+            "label": "chú mèo",
+            "audio": "/media/tts/vn26-q3-l1.mp3"
+          },
+          {
+            "id": "vn26-l3",
+            "label": "bồ câu",
+            "audio": "/media/tts/vn26-q3-l2.mp3"
+          }
+        ],
+        "rightColumn": [
+          {
+            "id": "vn26-r1",
+            "label": "ngôi sao lấp lánh",
+            "audio": "/media/tts/vn26-q3-r0.mp3"
+          },
+          {
+            "id": "vn26-r2",
+            "label": "mèo con bắt chuột",
+            "audio": "/media/tts/vn26-q3-r1.mp3"
+          },
+          {
+            "id": "vn26-r3",
+            "label": "chim bồ câu trắng",
+            "audio": "/media/tts/vn26-q3-r2.mp3"
+          }
+        ],
+        "correctPairs": [
+          {
+            "leftId": "vn26-l1",
+            "rightId": "vn26-r1"
+          },
+          {
+            "leftId": "vn26-l2",
+            "rightId": "vn26-r2"
+          },
+          {
+            "leftId": "vn26-l3",
+            "rightId": "vn26-r3"
+          }
+        ],
+        "explanation": "Ngôi sao lấp lánh, mèo con bắt chuột, chim bồ câu trắng.",
+        "explanationAudio": "/media/tts/vn26-q3-exp.mp3"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn26-slide-q4",
+      "teacherNote": "Câu hỏi 4: Từ nào dưới đây có chứa vần 'âu'?",
+      "question": {
+        "type": "multiple_choice",
+        "id": "vn26-q4-mc",
+        "prompt": "Từ nào dưới đây có chứa vần 'âu'?",
+        "promptAudio": "/media/tts/vn26-q4-prompt.mp3",
+        "illustration": "/media/images/bird.svg",
+        "options": [
+          {
+            "id": "vn26-q4-bocau",
+            "label": "chim bồ câu",
+            "audio": "/media/tts/vn26-q4-opt0.mp3"
+          },
+          {
+            "id": "vn26-q4-ngoisao",
+            "label": "ngôi sao",
+            "audio": "/media/tts/vn26-q4-opt1.mp3"
+          },
+          {
+            "id": "vn26-q4-chumeo",
+            "label": "chú mèo",
+            "audio": "/media/tts/vn26-q4-opt2.mp3"
+          }
+        ],
+        "correctOptionId": "vn26-q4-bocau",
+        "explanation": "Tiếng câu trong bồ câu có chứa vần âu: c - âu - câu.",
+        "explanationAudio": "/media/tts/vn26-q4-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn26-slide-q5",
+      "teacherNote": "Câu hỏi 5: Điền vần thích hợp vào từ cây cau:",
+      "question": {
+        "type": "tap_place",
+        "id": "vn26-q5-tap",
+        "prompt": "Điền vần thích hợp vào từ cây cau:",
+        "promptAudio": "/media/tts/vn26-q5-prompt.mp3",
+        "illustration": "/media/images/tree.svg",
+        "targets": [
+          {
+            "id": "vn26-t2",
+            "label": "...",
+            "prefixText": "Cây c",
+            "suffixText": ""
+          }
+        ],
+        "items": [
+          {
+            "id": "vn26-i3",
+            "label": "au",
+            "audio": "/media/tts/vn26-q5-it0.mp3"
+          },
+          {
+            "id": "vn26-i4",
+            "label": "âu",
+            "audio": "/media/tts/vn26-q5-it1.mp3"
+          }
+        ],
+        "correctMapping": {
+          "vn26-i3": "vn26-t2"
+        },
+        "explanation": "Tiếng cau có vần au: c - au - cau.",
+        "explanationAudio": "/media/tts/vn26-q5-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn26-slide-q6",
+      "teacherNote": "Câu hỏi 6: Nối từ với hình minh họa thích hợp:",
+      "question": {
+        "type": "matching",
+        "id": "vn26-q6-match",
+        "prompt": "Nối từ với hình minh họa thích hợp:",
+        "promptAudio": "/media/tts/vn26-q6-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "leftColumn": [
+          {
+            "id": "vn26-l2-sao",
+            "label": "ngôi sao",
+            "audio": "/media/tts/vn26-q6-l0.mp3"
+          },
+          {
+            "id": "vn26-l2-meo",
+            "label": "con mèo",
+            "audio": "/media/tts/vn26-q6-l1.mp3"
+          },
+          {
+            "id": "vn26-l2-chim",
+            "label": "con chim",
+            "audio": "/media/tts/vn26-q6-l2.mp3"
+          }
+        ],
+        "rightColumn": [
+          {
+            "id": "vn26-r2-sao",
+            "label": "ngôi sao vàng",
+            "audio": "/media/tts/vn26-q6-r0.mp3",
+            "image": "/media/images/star.svg"
+          },
+          {
+            "id": "vn26-r2-meo",
+            "label": "chú mèo con",
+            "audio": "/media/tts/vn26-q6-r1.mp3",
+            "image": "/media/images/cat.svg"
+          },
+          {
+            "id": "vn26-r2-chim",
+            "label": "chú chim sẻ",
+            "audio": "/media/tts/vn26-q6-r2.mp3",
+            "image": "/media/images/bird.svg"
+          }
+        ],
+        "correctPairs": [
+          {
+            "leftId": "vn26-l2-sao",
+            "rightId": "vn26-r2-sao"
+          },
+          {
+            "leftId": "vn26-l2-meo",
+            "rightId": "vn26-r2-meo"
+          },
+          {
+            "leftId": "vn26-l2-chim",
+            "rightId": "vn26-r2-chim"
+          }
+        ],
+        "explanation": "Ngôi sao vàng, chú mèo con, chú chim sẻ.",
+        "explanationAudio": "/media/tts/vn26-q6-exp.mp3"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    }
+  ]
+}

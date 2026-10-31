@@ -1,0 +1,263 @@
+{
+  "status": "publish",
+  "mode": "publish",
+  "id": "math-21-tinh-ba-so",
+  "title": "Bài 21: Tính ba số liên tiếp",
+  "subject": "math",
+  "grade": 1,
+  "description": "Thực hiện chuỗi hai phép tính liên tiếp từ trái sang phải trong phạm vi 10 và 20 qua 6 câu hỏi tương tác.",
+  "totalDurationMinutes": 25,
+  "slides": [
+    {
+      "type": "title-slide",
+      "id": "m21-title-slide",
+      "title": "Bài 21: Tính ba số liên tiếp",
+      "subtitle": "Toán Lớp 1 — Bài học tương tác",
+      "teacherNote": "Hướng dẫn học sinh quy tắc thực hiện phép tính từ trái sang phải.",
+      "backgroundImage": "/media/images/star.svg",
+      "audio": "/media/tts/m21-title.mp3"
+    },
+    {
+      "type": "content-slide",
+      "id": "m21-intro-slide",
+      "title": "Quy tắc tính ba số",
+      "body": "Khi gặp chuỗi hai phép tính, chúng mình thực hiện lần lượt từ trái sang phải. Ví dụ: 5 + 3 - 2 = ? Ta lấy 5 + 3 = 8, rồi lấy 8 - 2 = 6.",
+      "teacherNote": "Cho học sinh nhẩm từng bước trung gian và ghi nhớ kết quả.",
+      "illustration": "/media/images/apple.svg",
+      "audio": "/media/tts/m21-intro.mp3",
+      "bullets": [
+        "Bước 1: Tính phép tính thứ nhất (bên trái)",
+        "Bước 2: Lấy kết quả đó tính tiếp với số thứ ba",
+        "Ví dụ: 5 + 3 - 2 = 8 - 2 = 6"
+      ]
+    },
+    {
+      "type": "question-slide",
+      "id": "m21-slide-q1",
+      "teacherNote": "Tính nhẩm 5 + 3 - 2",
+      "question": {
+        "type": "number_select",
+        "id": "m21-q1-num",
+        "prompt": "Chọn kết quả đúng của phép tính: 5 + 3 - 2 = ?",
+        "promptAudio": "/media/tts/m21-q1-prompt.mp3",
+        "illustration": "/media/images/apple.svg",
+        "expression": "5 + 3 - 2 = ?",
+        "choices": [
+          5,
+          6,
+          7,
+          8
+        ],
+        "correctAnswer": 6,
+        "explanation": "Ta lấy 5 cộng 3 bằng 8, sau đó lấy 8 trừ 2 bằng 6.",
+        "explanationAudio": "/media/tts/m21-q1-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m21-slide-q2",
+      "teacherNote": "Tính nhẩm 8 - 4 + 3",
+      "question": {
+        "type": "multiple_choice",
+        "id": "m21-q2-mc",
+        "prompt": "Kết quả của phép tính 8 - 4 + 3 là bao nhiêu?",
+        "promptAudio": "/media/tts/m21-q2-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "options": [
+          {
+            "id": "m21-opt-7",
+            "label": "Bằng 7",
+            "audio": "/media/tts/m21-opt-7.mp3"
+          },
+          {
+            "id": "m21-opt-6",
+            "label": "Bằng 6",
+            "audio": "/media/tts/m21-opt-6.mp3"
+          },
+          {
+            "id": "m21-opt-8",
+            "label": "Bằng 8",
+            "audio": "/media/tts/m21-opt-8.mp3"
+          }
+        ],
+        "correctOptionId": "m21-opt-7",
+        "explanation": "Ta lấy 8 trừ 4 bằng 4, sau đó lấy 4 cộng 3 bằng 7.",
+        "explanationAudio": "/media/tts/m21-q2-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m21-slide-q3",
+      "teacherNote": "Đếm số bóng sau khi gộp và bớt",
+      "question": {
+        "type": "counting",
+        "id": "m21-q3-count",
+        "prompt": "Đếm xem có bao nhiêu quả bóng trên màn hình?",
+        "promptAudio": "/media/tts/m21-q3-prompt.mp3",
+        "illustration": "/media/images/ball.svg",
+        "items": [
+          {
+            "image": "/media/images/ball.svg",
+            "alt": "Bóng 1"
+          },
+          {
+            "image": "/media/images/ball.svg",
+            "alt": "Bóng 2"
+          },
+          {
+            "image": "/media/images/ball.svg",
+            "alt": "Bóng 3"
+          },
+          {
+            "image": "/media/images/ball.svg",
+            "alt": "Bóng 4"
+          },
+          {
+            "image": "/media/images/ball.svg",
+            "alt": "Bóng 5"
+          }
+        ],
+        "correctCount": 5,
+        "numberRange": {
+          "min": 1,
+          "max": 10
+        },
+        "explanation": "Có đúng 5 quả bóng trên màn hình.",
+        "explanationAudio": "/media/tts/m21-q3-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m21-slide-q4",
+      "teacherNote": "Điền kết quả 10 - 4 + 2",
+      "question": {
+        "type": "tap_place",
+        "id": "m21-q4-tap",
+        "prompt": "Chọn số thích hợp đặt vào ô trống: 10 - 4 + 2 = ...",
+        "promptAudio": "/media/tts/m21-q4-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "targets": [
+          {
+            "id": "m21-tgt1",
+            "label": "...",
+            "prefixText": "10 - 4 + 2 = ",
+            "suffixText": ""
+          }
+        ],
+        "items": [
+          {
+            "id": "m21-it-8",
+            "label": "8",
+            "audio": "/media/tts/m21-it-8.mp3"
+          },
+          {
+            "id": "m21-it-7",
+            "label": "7",
+            "audio": "/media/tts/m21-it-7.mp3"
+          }
+        ],
+        "correctMapping": {
+          "m21-it-8": "m21-tgt1"
+        },
+        "explanation": "10 trừ 4 bằng 6, 6 cộng 2 bằng 8.",
+        "explanationAudio": "/media/tts/m21-q4-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m21-slide-q5",
+      "teacherNote": "Nối phép tính với kết quả",
+      "question": {
+        "type": "matching",
+        "id": "m21-q5-match",
+        "prompt": "Nối phép tính ở cột trái với kết quả tương ứng ở cột phải:",
+        "promptAudio": "/media/tts/m21-q5-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "leftColumn": [
+          {
+            "id": "m21-l1",
+            "label": "4 + 2 + 3",
+            "audio": "/media/tts/m21-l1.mp3"
+          },
+          {
+            "id": "m21-l2",
+            "label": "9 - 5 + 1",
+            "audio": "/media/tts/m21-l2.mp3"
+          },
+          {
+            "id": "m21-l3",
+            "label": "7 + 3 - 4",
+            "audio": "/media/tts/m21-l3.mp3"
+          }
+        ],
+        "rightColumn": [
+          {
+            "id": "m21-r1",
+            "label": "Bằng 9",
+            "audio": "/media/tts/m21-r1.mp3"
+          },
+          {
+            "id": "m21-r2",
+            "label": "Bằng 5",
+            "audio": "/media/tts/m21-r2.mp3"
+          },
+          {
+            "id": "m21-r3",
+            "label": "Bằng 6",
+            "audio": "/media/tts/m21-r3.mp3"
+          }
+        ],
+        "correctPairs": [
+          {
+            "leftId": "m21-l1",
+            "rightId": "m21-r1"
+          },
+          {
+            "leftId": "m21-l2",
+            "rightId": "m21-r2"
+          },
+          {
+            "leftId": "m21-l3",
+            "rightId": "m21-r3"
+          }
+        ],
+        "explanation": "4+2+3=9, 9-5+1=5, 7+3-4=6.",
+        "explanationAudio": "/media/tts/m21-q5-exp.mp3"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m21-slide-q6",
+      "teacherNote": "Tính nhẩm 10 + 6 - 4",
+      "question": {
+        "type": "number_select",
+        "id": "m21-q6-num",
+        "prompt": "Chọn kết quả đúng của phép tính: 10 + 6 - 4 = ?",
+        "promptAudio": "/media/tts/m21-q6-prompt.mp3",
+        "illustration": "/media/images/apple.svg",
+        "expression": "10 + 6 - 4 = ?",
+        "choices": [
+          10,
+          11,
+          12,
+          14
+        ],
+        "correctAnswer": 12,
+        "explanation": "10 cộng 6 bằng 16, 16 trừ 4 bằng 12.",
+        "explanationAudio": "/media/tts/m21-q6-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    }
+  ]
+}

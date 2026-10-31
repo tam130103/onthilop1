@@ -1,0 +1,272 @@
+{
+  "status": "publish",
+  "mode": "publish",
+  "id": "math-23-dai-ngan-so-sanh",
+  "title": "Bài 23: Dài hơn, ngắn hơn",
+  "subject": "math",
+  "grade": 1,
+  "description": "Làm quen với khái niệm đo lường, so sánh chiều dài các đồ vật quen thuộc qua 6 câu hỏi tương tác.",
+  "totalDurationMinutes": 25,
+  "slides": [
+    {
+      "type": "title-slide",
+      "id": "m23-title-slide",
+      "title": "Bài 23: Dài hơn, ngắn hơn",
+      "subtitle": "Toán Lớp 1 — Bài học tương tác",
+      "teacherNote": "Cho học sinh quan sát đồ dùng học tập thực tế và so sánh.",
+      "backgroundImage": "/media/images/star.svg",
+      "audio": "/media/tts/m23-title.mp3"
+    },
+    {
+      "type": "content-slide",
+      "id": "m23-intro-slide",
+      "title": "So sánh chiều dài đồ vật",
+      "body": "Đặt một đầu của hai đồ vật bằng nhau, đồ vật nào nhô ra dài hơn thì đồ vật đó dài hơn. Đồ vật còn lại ngắn hơn.",
+      "teacherNote": "Hướng dẫn đặt thẳng hàng một đầu mốc để so sánh chuẩn xác.",
+      "illustration": "/media/images/pencil.svg",
+      "audio": "/media/tts/m23-intro.mp3",
+      "bullets": [
+        "Bút chì dài hơn cục tẩy",
+        "Cục tẩy ngắn hơn bút chì",
+        "Thước kẻ dài hơn chiếc bút"
+      ]
+    },
+    {
+      "type": "question-slide",
+      "id": "m23-slide-q1",
+      "teacherNote": "So sánh bút chì và cục tẩy",
+      "question": {
+        "type": "multiple_choice",
+        "id": "m23-q1-mc",
+        "prompt": "Cây bút chì dài hơn hay ngắn hơn cục tẩy?",
+        "promptAudio": "/media/tts/m23-q1-prompt.mp3",
+        "illustration": "/media/images/pencil.svg",
+        "options": [
+          {
+            "id": "m23-opt-dai",
+            "label": "Dài hơn",
+            "audio": "/media/tts/m23-opt-dai.mp3"
+          },
+          {
+            "id": "m23-opt-ngan",
+            "label": "Ngắn hơn",
+            "audio": "/media/tts/m23-opt-ngan.mp3"
+          },
+          {
+            "id": "m23-opt-bang",
+            "label": "Bằng nhau",
+            "audio": "/media/tts/m23-opt-bang.mp3"
+          }
+        ],
+        "correctOptionId": "m23-opt-dai",
+        "explanation": "Cây bút chì có chiều dài lớn hơn cục tẩy nên bút chì dài hơn cục tẩy.",
+        "explanationAudio": "/media/tts/m23-q1-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m23-slide-q2",
+      "teacherNote": "Nối đồ vật với mức độ chiều dài",
+      "question": {
+        "type": "matching",
+        "id": "m23-q2-match",
+        "prompt": "Nối đồ vật ở cột trái với nhận xét chiều dài tương ứng ở cột phải:",
+        "promptAudio": "/media/tts/m23-q2-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "leftColumn": [
+          {
+            "id": "m23-l1",
+            "label": "Chiếc xe buýt",
+            "audio": "/media/tts/m23-l1.mp3"
+          },
+          {
+            "id": "m23-l2",
+            "label": "Cây bút chì",
+            "audio": "/media/tts/m23-l2.mp3"
+          },
+          {
+            "id": "m23-l3",
+            "label": "Chiếc lá cây",
+            "audio": "/media/tts/m23-l3.mp3"
+          }
+        ],
+        "rightColumn": [
+          {
+            "id": "m23-r1",
+            "label": "Dài nhất trong ba vật",
+            "audio": "/media/tts/m23-r1.mp3"
+          },
+          {
+            "id": "m23-r2",
+            "label": "Dài vừa phải",
+            "audio": "/media/tts/m23-r2.mp3"
+          },
+          {
+            "id": "m23-r3",
+            "label": "Ngắn nhất trong ba vật",
+            "audio": "/media/tts/m23-r3.mp3"
+          }
+        ],
+        "correctPairs": [
+          {
+            "leftId": "m23-l1",
+            "rightId": "m23-r1"
+          },
+          {
+            "leftId": "m23-l2",
+            "rightId": "m23-r2"
+          },
+          {
+            "leftId": "m23-l3",
+            "rightId": "m23-r3"
+          }
+        ],
+        "explanation": "Xe buýt dài nhất, bút chì dài vừa và chiếc lá ngắn nhất.",
+        "explanationAudio": "/media/tts/m23-q2-exp.mp3"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m23-slide-q3",
+      "teacherNote": "Điền từ dài hơn",
+      "question": {
+        "type": "tap_place",
+        "id": "m23-q3-tap",
+        "prompt": "Chọn từ thích hợp điền vào chỗ chấm: Thước kẻ ... chiếc bút chì.",
+        "promptAudio": "/media/tts/m23-q3-prompt.mp3",
+        "illustration": "/media/images/ruler.svg",
+        "targets": [
+          {
+            "id": "m23-tgt1",
+            "label": "...",
+            "prefixText": "Thước kẻ ",
+            "suffixText": " chiếc bút chì."
+          }
+        ],
+        "items": [
+          {
+            "id": "m23-it-daihon",
+            "label": "dài hơn",
+            "audio": "/media/tts/m23-it-daihon.mp3"
+          },
+          {
+            "id": "m23-it-nganhon",
+            "label": "ngắn hơn",
+            "audio": "/media/tts/m23-it-nganhon.mp3"
+          }
+        ],
+        "correctMapping": {
+          "m23-it-daihon": "m23-tgt1"
+        },
+        "explanation": "Chiếc thước kẻ thường có chiều dài 20cm, dài hơn bút chì.",
+        "explanationAudio": "/media/tts/m23-q3-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m23-slide-q4",
+      "teacherNote": "Đếm số cây bút chì",
+      "question": {
+        "type": "counting",
+        "id": "m23-q4-count",
+        "prompt": "Đếm xem có bao nhiêu cây bút chì trên màn hình?",
+        "promptAudio": "/media/tts/m23-q4-prompt.mp3",
+        "illustration": "/media/images/pencil.svg",
+        "items": [
+          {
+            "image": "/media/images/pencil.svg",
+            "alt": "Bút 1"
+          },
+          {
+            "image": "/media/images/pencil.svg",
+            "alt": "Bút 2"
+          },
+          {
+            "image": "/media/images/pencil.svg",
+            "alt": "Bút 3"
+          },
+          {
+            "image": "/media/images/pencil.svg",
+            "alt": "Bút 4"
+          },
+          {
+            "image": "/media/images/pencil.svg",
+            "alt": "Bút 5"
+          },
+          {
+            "image": "/media/images/pencil.svg",
+            "alt": "Bút 6"
+          }
+        ],
+        "correctCount": 6,
+        "numberRange": {
+          "min": 1,
+          "max": 10
+        },
+        "explanation": "Có tất cả 6 cây bút chì.",
+        "explanationAudio": "/media/tts/m23-q4-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m23-slide-q5",
+      "teacherNote": "Bàn học dài hơn quyển vở",
+      "question": {
+        "type": "multiple_choice",
+        "id": "m23-q5-mc",
+        "prompt": "Chiếc bàn học dài hơn cuốn vở là Đúng hay Sai?",
+        "promptAudio": "/media/tts/m23-q5-prompt.mp3",
+        "illustration": "/media/images/book.svg",
+        "options": [
+          {
+            "id": "m23-opt-dung",
+            "label": "Đúng",
+            "audio": "/media/tts/m23-opt-dung.mp3"
+          },
+          {
+            "id": "m23-opt-sai",
+            "label": "Sai",
+            "audio": "/media/tts/m23-opt-sai.mp3"
+          }
+        ],
+        "correctOptionId": "m23-opt-dung",
+        "explanation": "Bàn học của chúng mình chắc chắn dài hơn cuốn vở ghi bài.",
+        "explanationAudio": "/media/tts/m23-q5-exp.mp3"
+      },
+      "timeLimitSeconds": 20,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m23-slide-q6",
+      "teacherNote": "Số chiếc bút chì dài hơn",
+      "question": {
+        "type": "number_select",
+        "id": "m23-q6-num",
+        "prompt": "Bút chì xanh dài 10cm, bút chì đỏ dài 7cm. Bút chì xanh dài hơn bút chì đỏ mấy cm?",
+        "promptAudio": "/media/tts/m23-q6-prompt.mp3",
+        "illustration": "/media/images/pencil.svg",
+        "expression": "10 - 7 = ?",
+        "choices": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "correctAnswer": 3,
+        "explanation": "Ta lấy 10 trừ 7 bằng 3, bút chì xanh dài hơn 3cm.",
+        "explanationAudio": "/media/tts/m23-q6-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    }
+  ]
+}

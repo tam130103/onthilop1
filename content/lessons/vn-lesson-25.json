@@ -1,0 +1,310 @@
+{
+  "status": "publish",
+  "mode": "publish",
+  "id": "vn-25-van-oi-ai-oi-ui",
+  "title": "Bài 25: Các vần kết thúc bằng i",
+  "subject": "vietnamese",
+  "grade": 1,
+  "description": "Học các vần oi, ai, ơi, ôi, ui, ưi và luyện đọc quả ổi, cái túi, gửi quà, quả bưởi, ngày hội.",
+  "totalDurationMinutes": 25,
+  "slides": [
+    {
+      "type": "title-slide",
+      "id": "vn25-title-slide",
+      "title": "Bài 25: Các vần kết thúc bằng i",
+      "subtitle": "Tiếng Việt Lớp 1 — Bài học tương tác",
+      "teacherNote": "Rèn phát âm âm cuối i kéo nhẹ khóe môi sang hai bên.",
+      "backgroundImage": "/media/images/star.svg",
+      "audio": "/media/tts/vn25-title.mp3"
+    },
+    {
+      "type": "content-slide",
+      "id": "vn25-intro-slide",
+      "title": "Các vần có âm cuối I",
+      "body": "Các vần oi, ai, ơi, ôi, ui, ưi kết thúc bằng âm i. Cùng đọc các từ: quả ổi, cái túi, gửi thư, bơi lội nhé!",
+      "teacherNote": "Hướng dẫn học sinh đọc to rõ ràng từng từ ngữ.",
+      "illustration": "/media/images/book.svg",
+      "audio": "/media/tts/vn25-intro.mp3",
+      "bullets": [
+        "oi — ổi (quả ổi giòn ngọt)",
+        "ai — hai (số hai)",
+        "ui — túi (chiếc túi xinh)",
+        "ơi — bơi (bé tập bơi lội)"
+      ]
+    },
+    {
+      "type": "question-slide",
+      "id": "vn25-slide-q1",
+      "teacherNote": "Câu hỏi 1: Tiếng 'ổi' trong 'quả ổi' có vần gì?",
+      "question": {
+        "type": "multiple_choice",
+        "id": "vn25-q1-mc",
+        "prompt": "Tiếng 'ổi' trong 'quả ổi' có vần gì?",
+        "promptAudio": "/media/tts/vn25-q1-prompt.mp3",
+        "illustration": "/media/images/apple.svg",
+        "options": [
+          {
+            "id": "vn25-opt-oi",
+            "label": "Vần oi",
+            "audio": "/media/tts/vn25-q1-opt0.mp3"
+          },
+          {
+            "id": "vn25-opt-ai",
+            "label": "Vần ai",
+            "audio": "/media/tts/vn25-q1-opt1.mp3"
+          },
+          {
+            "id": "vn25-opt-ui",
+            "label": "Vần ui",
+            "audio": "/media/tts/vn25-q1-opt2.mp3"
+          }
+        ],
+        "correctOptionId": "vn25-opt-oi",
+        "explanation": "Tiếng ổi có vần oi: o - i - oi - hỏi - ổi.",
+        "explanationAudio": "/media/tts/vn25-q1-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn25-slide-q2",
+      "teacherNote": "Câu hỏi 2: Điền vần thích hợp để có từ cái túi:",
+      "question": {
+        "type": "tap_place",
+        "id": "vn25-q2-tap",
+        "prompt": "Điền vần thích hợp để có từ cái túi:",
+        "promptAudio": "/media/tts/vn25-q2-prompt.mp3",
+        "illustration": "/media/images/book.svg",
+        "targets": [
+          {
+            "id": "vn25-t1",
+            "label": "...",
+            "prefixText": "Cái t",
+            "suffixText": ""
+          }
+        ],
+        "items": [
+          {
+            "id": "vn25-i1",
+            "label": "úi",
+            "audio": "/media/tts/vn25-q2-it0.mp3"
+          },
+          {
+            "id": "vn25-i2",
+            "label": "ái",
+            "audio": "/media/tts/vn25-q2-it1.mp3"
+          }
+        ],
+        "correctMapping": {
+          "vn25-i1": "vn25-t1"
+        },
+        "explanation": "Tiếng túi có âm t ghép với vần ui và dấu sắc.",
+        "explanationAudio": "/media/tts/vn25-q2-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn25-slide-q3",
+      "teacherNote": "Câu hỏi 3: Nối từ ở cột trái với từ mở rộng ở cột p",
+      "question": {
+        "type": "matching",
+        "id": "vn25-q3-match",
+        "prompt": "Nối từ ở cột trái với từ mở rộng ở cột phải:",
+        "promptAudio": "/media/tts/vn25-q3-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "leftColumn": [
+          {
+            "id": "vn25-l1",
+            "label": "bơi lội",
+            "audio": "/media/tts/vn25-q3-l0.mp3"
+          },
+          {
+            "id": "vn25-l2",
+            "label": "gửi thư",
+            "audio": "/media/tts/vn25-q3-l1.mp3"
+          },
+          {
+            "id": "vn25-l3",
+            "label": "ngày hội",
+            "audio": "/media/tts/vn25-q3-l2.mp3"
+          }
+        ],
+        "rightColumn": [
+          {
+            "id": "vn25-r1",
+            "label": "bé tập bơi dưới nước",
+            "audio": "/media/tts/vn25-q3-r0.mp3"
+          },
+          {
+            "id": "vn25-r2",
+            "label": "gửi thư cho bà",
+            "audio": "/media/tts/vn25-q3-r1.mp3"
+          },
+          {
+            "id": "vn25-r3",
+            "label": "ngày hội trường em",
+            "audio": "/media/tts/vn25-q3-r2.mp3"
+          }
+        ],
+        "correctPairs": [
+          {
+            "leftId": "vn25-l1",
+            "rightId": "vn25-r1"
+          },
+          {
+            "leftId": "vn25-l2",
+            "rightId": "vn25-r2"
+          },
+          {
+            "leftId": "vn25-l3",
+            "rightId": "vn25-r3"
+          }
+        ],
+        "explanation": "Bơi lội dưới nước, gửi thư cho bà, ngày hội trường em.",
+        "explanationAudio": "/media/tts/vn25-q3-exp.mp3"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn25-slide-q4",
+      "teacherNote": "Câu hỏi 4: Từ nào có chứa vần 'ai'?",
+      "question": {
+        "type": "multiple_choice",
+        "id": "vn25-q4-mc",
+        "prompt": "Từ nào có chứa vần 'ai'?",
+        "promptAudio": "/media/tts/vn25-q4-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "options": [
+          {
+            "id": "vn25-q4-hoa",
+            "label": "hoa mai",
+            "audio": "/media/tts/vn25-q4-opt0.mp3"
+          },
+          {
+            "id": "vn25-q4-tui",
+            "label": "cái túi",
+            "audio": "/media/tts/vn25-q4-opt1.mp3"
+          },
+          {
+            "id": "vn25-q4-boi",
+            "label": "bơi lội",
+            "audio": "/media/tts/vn25-q4-opt2.mp3"
+          }
+        ],
+        "correctOptionId": "vn25-q4-hoa",
+        "explanation": "Hoa mai có tiếng mai mang vần ai.",
+        "explanationAudio": "/media/tts/vn25-q4-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn25-slide-q5",
+      "teacherNote": "Câu hỏi 5: Điền vần thích hợp vào từ gửi thư:",
+      "question": {
+        "type": "tap_place",
+        "id": "vn25-q5-tap",
+        "prompt": "Điền vần thích hợp vào từ gửi thư:",
+        "promptAudio": "/media/tts/vn25-q5-prompt.mp3",
+        "illustration": "/media/images/book.svg",
+        "targets": [
+          {
+            "id": "vn25-t2",
+            "label": "...",
+            "prefixText": "G",
+            "suffixText": " thư"
+          }
+        ],
+        "items": [
+          {
+            "id": "vn25-i3",
+            "label": "ửi",
+            "audio": "/media/tts/vn25-q5-it0.mp3"
+          },
+          {
+            "id": "vn25-i4",
+            "label": "ỏi",
+            "audio": "/media/tts/vn25-q5-it1.mp3"
+          }
+        ],
+        "correctMapping": {
+          "vn25-i3": "vn25-t2"
+        },
+        "explanation": "Tiếng gửi có vần ưi: g - ưi - gưi - hỏi - gửi.",
+        "explanationAudio": "/media/tts/vn25-q5-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn25-slide-q6",
+      "teacherNote": "Câu hỏi 6: Nối vần ở cột trái với từ chứa vần đó ở ",
+      "question": {
+        "type": "matching",
+        "id": "vn25-q6-match",
+        "prompt": "Nối vần ở cột trái với từ chứa vần đó ở cột phải:",
+        "promptAudio": "/media/tts/vn25-q6-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "leftColumn": [
+          {
+            "id": "vn25-l2-oi",
+            "label": "vần ơi",
+            "audio": "/media/tts/vn25-q6-l0.mp3"
+          },
+          {
+            "id": "vn25-l2-ui",
+            "label": "vần ui",
+            "audio": "/media/tts/vn25-q6-l1.mp3"
+          },
+          {
+            "id": "vn25-l2-ai",
+            "label": "vần ai",
+            "audio": "/media/tts/vn25-q6-l2.mp3"
+          }
+        ],
+        "rightColumn": [
+          {
+            "id": "vn25-r2-oi",
+            "label": "bơi lội",
+            "audio": "/media/tts/vn25-q6-r0.mp3"
+          },
+          {
+            "id": "vn25-r2-ui",
+            "label": "túi xách",
+            "audio": "/media/tts/vn25-q6-r1.mp3"
+          },
+          {
+            "id": "vn25-r2-ai",
+            "label": "hoa mai",
+            "audio": "/media/tts/vn25-q6-r2.mp3"
+          }
+        ],
+        "correctPairs": [
+          {
+            "leftId": "vn25-l2-oi",
+            "rightId": "vn25-r2-oi"
+          },
+          {
+            "leftId": "vn25-l2-ui",
+            "rightId": "vn25-r2-ui"
+          },
+          {
+            "leftId": "vn25-l2-ai",
+            "rightId": "vn25-r2-ai"
+          }
+        ],
+        "explanation": "Bơi lội có vần ơi, túi xách có vần ui, hoa mai có vần ai.",
+        "explanationAudio": "/media/tts/vn25-q6-exp.mp3"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    }
+  ]
+}
