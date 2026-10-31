@@ -105,5 +105,35 @@ describe('ClassroomStore & Random Picker Algorithm', () => {
     expect(store.getData().timer.remainingSeconds).toBe(0);
     expect(store.getData().timer.isRunning).toBe(false);
   });
+
+  it('supports full CRUD on students with database persistence', () => {
+    // 1. CREATE
+    const added = store.addStudent({
+      name: 'Trần Minh Khang',
+      gender: 'Nam',
+      note: 'Học sinh mới chuyển trường',
+    });
+    expect(added.id).toBeDefined();
+    expect(added.name).toBe('Trần Minh Khang');
+    expect(added.gender).toBe('Nam');
+    expect(store.getData().students.find((s) => s.id === added.id)).toBeDefined();
+
+    // 2. UPDATE
+    store.updateStudent(added.id, {
+      name: 'Trần Minh Khang (Giỏi Toán)',
+      note: 'Tính nhẩm rất nhanh',
+    });
+    const updated = store.getData().students.find((s) => s.id === added.id);
+    expect(updated?.name).toBe('Trần Minh Khang (Giỏi Toán)');
+    expect(updated?.note).toBe('Tính nhẩm rất nhanh');
+
+    // 3. STARS
+    store.addStudentStar(added.id, 3);
+    expect(store.getData().students.find((s) => s.id === added.id)?.stars).toBe(3);
+
+    // 4. DELETE
+    store.deleteStudent(added.id);
+    expect(store.getData().students.find((s) => s.id === added.id)).toBeUndefined();
+  });
 });
 

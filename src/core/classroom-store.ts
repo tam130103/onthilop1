@@ -1,10 +1,20 @@
 // Classroom Management Store (Offline-First LocalStorage / IndexedDB)
+import {
+  saveAllStudentsToDb,
+  getStudentsFromDb,
+  deleteStudentFromDb,
+} from './student-db';
 
 export interface Student {
   id: string;
   name: string;
   isAbsent: boolean;
   callCount: number;
+  gender?: 'Nam' | 'Nữ';
+  teamId?: string;
+  stars?: number;
+  note?: string;
+  createdAt?: number;
 }
 
 export interface Team {
@@ -56,6 +66,41 @@ export class ClassroomStore {
   constructor() {
     this.data = this.loadInitial();
     this.requestPersistentStorage();
+    this.syncFromIndexedDb();
+    this.listenToCrossTabStorage();
+  }
+
+  private async syncFromIndexedDb(): Promise<void> {
+    try {
+      const dbStudents = await getStudentsFromDb();
+      if (Array.isArray(dbStudents) && dbStudents.length > 0) {
+        this.data.students = dbStudents;
+        this.notify();
+      }
+    } catch {
+      // ignore
+    }
+  }
+
+  private listenToCrossTabStorage(): void {
+    if (typeof window !== 'undefined') {
+      window.addEventListener('storage', (e) => {
+        if (e.key === STORAGE_KEY && e.newValue) {
+          try {
+            const parsed = JSON.parse(e.newValue);
+            if (Array.isArray(parsed.students)) {
+              this.data.students = parsed.students;
+            }
+            if (Array.isArray(parsed.teams)) {
+              this.data.teams = parsed.teams;
+            }
+            this.notify();
+          } catch {
+            // ignore
+          }
+        }
+      });
+    }
   }
 
   private async requestPersistentStorage(): Promise<void> {
@@ -77,8 +122,9 @@ export class ClassroomStore {
         const raw = localStorage.getItem(STORAGE_KEY);
         if (raw) {
           const parsed = JSON.parse(raw);
+          const hasCustomized = parsed.isCustomized === true || (Array.isArray(parsed.students) && parsed.students.length > 0);
           return {
-            students: Array.isArray(parsed.students) && parsed.students.length > 0 ? parsed.students : DEFAULT_STUDENTS,
+            students: hasCustomized ? parsed.students : DEFAULT_STUDENTS,
             teams: Array.isArray(parsed.teams) && parsed.teams.length > 0 ? parsed.teams : DEFAULT_TEAMS,
             timer: parsed.timer || { durationSeconds: 0, remainingSeconds: 0, isRunning: false },
             pickerActive: false,
@@ -107,12 +153,15 @@ export class ClassroomStore {
         const toSave = {
           students: this.data.students,
           teams: this.data.teams,
+          isCustomized: true,
         };
         localStorage.setItem(STORAGE_KEY, JSON.stringify(toSave));
       } catch (e) {
         console.warn('[ClassroomStore] Save error:', e);
       }
     }
+    // Transactional asynchronous IndexedDB save
+    saveAllStudentsToDb(this.data.students).catch(() => {});
     this.notify();
   }
 
@@ -150,7 +199,59 @@ export class ClassroomStore {
     this.persist();
   }
 
-  // ---- Student Roster Management ----
+  // ---- Student Roster Management (Full CRUD) ----
+  addStudent(studentData: {
+    name: string;
+    gender?: 'Nam' | 'Nữ';
+    teamId?: string;
+    note?: string;
+  }): Student {
+    const trimmed = studentData.name.trim();
+    if (!trimmed) throw new Error('Tên học sinh không được để trống.');
+
+    const newStudent: Student = {
+      id: `student-${Date.now()}-${Math.random().toString(36).slice(2, 7)}`,
+      name: trimmed,
+      gender: studentData.gender || 'Nam',
+      teamId: studentData.teamId || this.data.teams[0]?.id,
+      note: studentData.note || '',
+      isAbsent: false,
+      callCount: 0,
+      stars: 0,
+      createdAt: Date.now(),
+    };
+
+    this.data.students = [newStudent, ...this.data.students];
+    this.persist();
+    return newStudent;
+  }
+
+  updateStudent(id: string, updates: Partial<Student>): void {
+    this.data.students = this.data.students.map((s) => {
+      if (s.id === id) {
+        return { ...s, ...updates };
+      }
+      return s;
+    });
+    this.persist();
+  }
+
+  deleteStudent(id: string): void {
+    this.data.students = this.data.students.filter((s) => s.id !== id);
+    deleteStudentFromDb(id).catch(() => {});
+    this.persist();
+  }
+
+  addStudentStar(id: string, delta: number = 1): void {
+    this.data.students = this.data.students.map((s) => {
+      if (s.id === id) {
+        return { ...s, stars: Math.max(0, (s.stars || 0) + delta) };
+      }
+      return s;
+    });
+    this.persist();
+  }
+
   importStudents(namesText: string): void {
     const lines = namesText
       .split('\n')
