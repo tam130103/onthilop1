@@ -1,0 +1,214 @@
+{
+  "status": "publish",
+  "mode": "publish",
+  "id": "vn-06-spelling-rules-c-k-g-gh-ng-ngh",
+  "title": "Bài 6: Quy tắc chính tả c/k, g/gh, ng/ngh",
+  "subject": "vietnamese",
+  "grade": 1,
+  "description": "Bài học Tiếng Việt Lớp 1: Khắc sâu Quy tắc chính tả vàng trong Tiếng Việt (đi với i, e, ê viết là k, gh, ngh; đi với các âm còn lại viết c, g, ng) qua 7 câu hỏi tương tác thú vị.",
+  "totalDurationMinutes": 25,
+  "slides": [
+    {
+      "type": "title-slide",
+      "id": "vn6-title-slide",
+      "title": "Bài 6: Quy tắc chính tả c/k, g/gh, ng/ngh",
+      "subtitle": "Tiếng Việt Lớp 1 — Bài học tương tác",
+      "teacherNote": "Khắc sâu mẹo nhớ: Gặp i, e, ê thì chọn chữ dài hơn (k, gh, ngh).",
+      "backgroundImage": "/media/images/star.svg",
+      "audio": "/media/tts/vn6-title.mp3"
+    },
+    {
+      "type": "content-slide",
+      "id": "vn6-intro-slide",
+      "title": "Quy tắc chính tả vàng",
+      "body": "Chào các em! Hôm nay chúng ta cùng ghi nhớ quy tắc chính tả vàng của Tiếng Việt: đi với i, e, ê thì viết k, gh, ngh; đi với các âm còn lại viết c, g, ng nhé!",
+      "teacherNote": "Cho cả lớp đọc đồng thanh bảng quy tắc trên slide.",
+      "illustration": "/media/images/book.svg",
+      "audio": "/media/tts/vn6-intro.mp3",
+      "bullets": [
+        "Trước i, e, ê: viết k (kẻ vở, cây kim)",
+        "Trước các âm khác: viết c (con cá, cờ đỏ)",
+        "Trước i, e, ê: viết gh (ghế gỗ, ghé qua)",
+        "Trước các âm khác: viết g (gà con, gấu bông)",
+        "Trước i, e, ê: viết ngh (nghỉ hè, lắng nghe)"
+      ]
+    },
+    {
+      "type": "question-slide",
+      "id": "vn6-slide-q1",
+      "teacherNote": "Quy tắc c hay k trước i, e, ê.",
+      "question": {
+        "type": "multiple_choice",
+        "id": "vn6-q1-mc-rule-k",
+        "prompt": "Trước các âm i, e, ê, ta viết chữ c hay chữ k?",
+        "promptAudio": "/media/tts/vn6-q1-prompt.mp3",
+        "illustration": "/media/images/book.svg",
+        "options": [
+          { "id": "opt-k", "label": "chữ k", "audio": "/media/tts/vn6-opt-k.mp3", "isPhonemeOrWord": true },
+          { "id": "opt-c", "label": "chữ c", "audio": "/media/tts/vn6-opt-c.mp3", "isPhonemeOrWord": true }
+        ],
+        "correctOptionId": "opt-k",
+        "explanation": "Quy tắc chính tả: Đứng trước i, e, ê luôn viết là k (ví dụ: kẻ vở, cây kim).",
+        "explanationAudio": "/media/tts/vn6-q1-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn6-slide-q2",
+      "teacherNote": "Phân biệt kẻ vở và cẻ vở.",
+      "question": {
+        "type": "multiple_choice",
+        "id": "vn6-q2-mc-word-kevo",
+        "prompt": "Từ nào dưới đây viết đúng chính tả?",
+        "promptAudio": "/media/tts/vn6-q2-prompt.mp3",
+        "illustration": "/media/images/pencil.svg",
+        "options": [
+          { "id": "opt-ke", "label": "kẻ vở", "audio": "/media/tts/vn6-opt-ke-vo.mp3" },
+          { "id": "opt-ce", "label": "cẻ vở", "audio": "/media/tts/vn6-opt-ce-vo.mp3" }
+        ],
+        "correctOptionId": "opt-ke",
+        "explanation": "Trước âm e phải viết chữ k, do đó 'kẻ vở' là từ đúng chính tả.",
+        "explanationAudio": "/media/tts/vn6-q2-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn6-slide-q3",
+      "teacherNote": "Quy tắc g hay gh trước ê.",
+      "question": {
+        "type": "multiple_choice",
+        "id": "vn6-q3-mc-rule-gh",
+        "prompt": "Trước âm ê, ta viết g hay gh?",
+        "promptAudio": "/media/tts/vn6-q3-prompt.mp3",
+        "illustration": "/media/images/chair.svg",
+        "options": [
+          { "id": "opt-gh", "label": "chữ gh", "audio": "/media/tts/vn6-opt-gh.mp3", "isPhonemeOrWord": true },
+          { "id": "opt-g", "label": "chữ g", "audio": "/media/tts/vn6-opt-g.mp3", "isPhonemeOrWord": true }
+        ],
+        "correctOptionId": "opt-gh",
+        "explanation": "Trước i, e, ê ta viết gh (ví dụ: ghế gỗ).",
+        "explanationAudio": "/media/tts/vn6-q3-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn6-slide-q4",
+      "teacherNote": "Phân biệt nghỉ hè và ngỉ hè.",
+      "question": {
+        "type": "multiple_choice",
+        "id": "vn6-q4-mc-word-nghihe",
+        "prompt": "Từ nào dưới đây viết đúng chính tả?",
+        "promptAudio": "/media/tts/vn6-q4-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "options": [
+          { "id": "opt-nghi", "label": "nghỉ hè", "audio": "/media/tts/vn6-opt-nghi-he.mp3" },
+          { "id": "opt-ngi", "label": "ngỉ hè", "audio": "/media/tts/vn6-opt-ngi-he.mp3" }
+        ],
+        "correctOptionId": "opt-nghi",
+        "explanation": "Trước âm i phải viết ngh, do đó 'nghỉ hè' là đúng chính tả.",
+        "explanationAudio": "/media/tts/vn6-q4-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn6-slide-q5",
+      "teacherNote": "Điền c vào: Con cá.",
+      "question": {
+        "type": "tap_place",
+        "id": "vn6-q5-tap-conca",
+        "prompt": "Chọn c hoặc k điền vào chỗ trống con cá:",
+        "promptAudio": "/media/tts/vn6-q5-prompt.mp3",
+        "illustration": "/media/images/fish.svg",
+        "targets": [
+          {
+            "id": "tgt-ca",
+            "label": "...",
+            "prefixText": "Con ",
+            "suffixText": "á"
+          }
+        ],
+        "items": [
+          { "id": "item-c", "label": "c", "audio": "/media/phonemes/c.mp3", "isPhonemeOrWord": true },
+          { "id": "item-k", "label": "k", "audio": "/media/phonemes/k.mp3", "isPhonemeOrWord": true }
+        ],
+        "correctMapping": {
+          "item-c": "tgt-ca"
+        },
+        "explanation": "Trước âm a ta viết c: con cá.",
+        "explanationAudio": "/media/tts/vn6-q5-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn6-slide-q6",
+      "teacherNote": "Điền gh vào: Cái ghế gỗ.",
+      "question": {
+        "type": "tap_place",
+        "id": "vn6-q6-tap-ghego",
+        "prompt": "Chọn g hoặc gh điền vào chỗ trống cái ghế gỗ:",
+        "promptAudio": "/media/tts/vn6-q6-prompt.mp3",
+        "illustration": "/media/images/chair.svg",
+        "targets": [
+          {
+            "id": "tgt-ghe",
+            "label": "...",
+            "prefixText": "Cái ",
+            "suffixText": "ế gỗ"
+          }
+        ],
+        "items": [
+          { "id": "item-gh", "label": "gh", "audio": "/media/phonemes/gh.mp3", "isPhonemeOrWord": true },
+          { "id": "item-g", "label": "g", "audio": "/media/phonemes/g.mp3", "isPhonemeOrWord": true }
+        ],
+        "correctMapping": {
+          "item-gh": "tgt-ghe"
+        },
+        "explanation": "Trước âm ê ta viết gh: cái ghế gỗ.",
+        "explanationAudio": "/media/tts/vn6-q6-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn6-slide-q7",
+      "teacherNote": "Nối chữ cái với từ viết đúng.",
+      "question": {
+        "type": "matching",
+        "id": "vn6-q7-match-rules",
+        "prompt": "Nối chữ với từ viết đúng chính tả:",
+        "promptAudio": "/media/tts/vn6-q7-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "leftColumn": [
+          { "id": "l-k", "label": "k", "audio": "/media/tts/vn6-lbl-k.mp3" },
+          { "id": "l-c", "label": "c", "audio": "/media/tts/vn6-lbl-c.mp3" },
+          { "id": "l-gh", "label": "gh", "audio": "/media/tts/vn6-lbl-gh.mp3" }
+        ],
+        "rightColumn": [
+          { "id": "r-kevo", "label": "kẻ vở", "audio": "/media/tts/vn6-match-kevo.mp3" },
+          { "id": "r-conca", "label": "con cá", "audio": "/media/tts/vn6-match-conca.mp3" },
+          { "id": "r-ghego", "label": "ghế gỗ", "audio": "/media/tts/vn6-match-ghego.mp3" }
+        ],
+        "correctPairs": [
+          { "leftId": "l-k", "rightId": "r-kevo" },
+          { "leftId": "l-c", "rightId": "r-conca" },
+          { "leftId": "l-gh", "rightId": "r-ghego" }
+        ],
+        "explanation": "Xuất sắc! Bé đã nắm vững các quy tắc chính tả c k và g gh.",
+        "explanationAudio": "/media/tts/vn6-q7-exp.mp3"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    }
+  ]
+}

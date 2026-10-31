@@ -1,0 +1,196 @@
+{
+  "status": "publish",
+  "mode": "publish",
+  "id": "vn-05-digraphs-ch-kh-nh-th-tr",
+  "title": "Bài 5: Phụ âm ghép ch, kh, nh, th, tr",
+  "subject": "vietnamese",
+  "grade": 1,
+  "description": "Bài học Tiếng Việt Lớp 1: Khám phá 5 phụ âm ghép cơ bản (ch, kh, nh, th, tr) và luyện tập đọc, ghép từ ứng dụng (chợ, khỉ, nhà, thỏ, cá trê) qua 6 câu hỏi tương tác.",
+  "totalDurationMinutes": 25,
+  "slides": [
+    {
+      "type": "title-slide",
+      "id": "vn5-title-slide",
+      "title": "Bài 5: Phụ âm ghép ch, kh, nh, th, tr",
+      "subtitle": "Tiếng Việt Lớp 1 — Bài học tương tác",
+      "teacherNote": "Hướng dẫn học sinh nhận biết cấu tạo của phụ âm ghép gồm 2 chữ cái đơn ghép lại.",
+      "backgroundImage": "/media/images/star.svg",
+      "audio": "/media/tts/vn5-title.mp3"
+    },
+    {
+      "type": "content-slide",
+      "id": "vn5-intro-slide",
+      "title": "Năm phụ âm ghép thông dụng",
+      "body": "Chào các em! Hôm nay chúng ta làm quen các phụ âm ghép đặc biệt: ch, kh, nh, th, tr qua các từ quen thuộc: chợ, khỉ, nhà, thỏ, cá trê!",
+      "teacherNote": "Luyện phát âm chuẩn: ch (nhẹ), tr (uốn lưỡi); th, kh, nh.",
+      "illustration": "/media/images/rabbit.svg",
+      "audio": "/media/tts/vn5-intro.mp3",
+      "bullets": [
+        "ch — chợ (đi chợ mua hoa quả)",
+        "kh — khỉ (chú khỉ tinh nghịch)",
+        "nh — nhà (ngôi nhà ấm cúng)",
+        "th — thỏ (chú thỏ trắng dễ thương)",
+        "tr — cá trê (chú cá trê dưới ao)"
+      ]
+    },
+    {
+      "type": "question-slide",
+      "id": "vn5-slide-q1",
+      "teacherNote": "Nhận biết phụ âm ghép ch trong tiếng chợ.",
+      "question": {
+        "type": "multiple_choice",
+        "id": "vn5-q1-mc-sound-ch",
+        "prompt": "Tiếng 'chợ' bắt đầu bằng phụ âm ghép nào?",
+        "promptAudio": "/media/tts/vn5-q1-prompt.mp3",
+        "illustration": "/media/images/apple.svg",
+        "options": [
+          { "id": "opt-ch", "label": "ch", "audio": "/media/tts/vn5-opt-ch.mp3", "isPhonemeOrWord": true },
+          { "id": "opt-kh", "label": "kh", "audio": "/media/tts/vn5-opt-kh.mp3", "isPhonemeOrWord": true },
+          { "id": "opt-th", "label": "th", "audio": "/media/tts/vn5-opt-th.mp3", "isPhonemeOrWord": true }
+        ],
+        "correctOptionId": "opt-ch",
+        "explanation": "Tiếng chợ bắt đầu bằng phụ âm ghép ch: chờ - ơ - chơ - nặng - chợ.",
+        "explanationAudio": "/media/tts/vn5-q1-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn5-slide-q2",
+      "teacherNote": "Nhận biết phụ âm ghép th trong tiếng thỏ.",
+      "question": {
+        "type": "multiple_choice",
+        "id": "vn5-q2-mc-sound-th",
+        "prompt": "Tiếng 'thỏ' bắt đầu bằng phụ âm ghép nào?",
+        "promptAudio": "/media/tts/vn5-q2-prompt.mp3",
+        "illustration": "/media/images/rabbit.svg",
+        "options": [
+          { "id": "opt-th2", "label": "th", "audio": "/media/tts/vn5-opt-th2.mp3", "isPhonemeOrWord": true },
+          { "id": "opt-nh2", "label": "nh", "audio": "/media/tts/vn5-opt-nh2.mp3", "isPhonemeOrWord": true },
+          { "id": "opt-tr2", "label": "tr", "audio": "/media/tts/vn5-opt-tr2.mp3", "isPhonemeOrWord": true }
+        ],
+        "correctOptionId": "opt-th2",
+        "explanation": "Tiếng thỏ bắt đầu bằng phụ âm ghép th: thờ - o - tho - hỏi - thỏ.",
+        "explanationAudio": "/media/tts/vn5-q2-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn5-slide-q3",
+      "teacherNote": "Nhận biết phụ âm ghép kh trong tiếng khỉ.",
+      "question": {
+        "type": "multiple_choice",
+        "id": "vn5-q3-mc-sound-kh",
+        "prompt": "Tiếng 'khỉ' bắt đầu bằng phụ âm ghép nào?",
+        "promptAudio": "/media/tts/vn5-q3-prompt.mp3",
+        "illustration": "/media/images/leaf.svg",
+        "options": [
+          { "id": "opt-kh3", "label": "kh", "audio": "/media/tts/vn5-opt-kh3.mp3", "isPhonemeOrWord": true },
+          { "id": "opt-ch3", "label": "ch", "audio": "/media/tts/vn5-opt-ch3.mp3", "isPhonemeOrWord": true },
+          { "id": "opt-nh3", "label": "nh", "audio": "/media/tts/vn5-opt-nh3.mp3", "isPhonemeOrWord": true }
+        ],
+        "correctOptionId": "opt-kh3",
+        "explanation": "Tiếng khỉ bắt đầu bằng phụ âm kh: khờ - i - khi - hỏi - khỉ.",
+        "explanationAudio": "/media/tts/vn5-q3-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn5-slide-q4",
+      "teacherNote": "Điền phụ âm ghép nh vào: Ngôi nhà.",
+      "question": {
+        "type": "tap_place",
+        "id": "vn5-q4-tap-nha",
+        "prompt": "Chọn phụ âm ghép thích hợp đặt vào chỗ trống ngôi nhà:",
+        "promptAudio": "/media/tts/vn5-q4-prompt.mp3",
+        "illustration": "/media/images/house.svg",
+        "targets": [
+          {
+            "id": "tgt-nha",
+            "label": "...",
+            "prefixText": "Ngôi ",
+            "suffixText": "à"
+          }
+        ],
+        "items": [
+          { "id": "item-nh", "label": "nh", "audio": "/media/phonemes/nh.mp3", "isPhonemeOrWord": true },
+          { "id": "item-th", "label": "th", "audio": "/media/phonemes/th.mp3", "isPhonemeOrWord": true }
+        ],
+        "correctMapping": {
+          "item-nh": "tgt-nha"
+        },
+        "explanation": "Phụ âm ghép nh ghép với à tạo thành tiếng nhà trong từ ngôi nhà.",
+        "explanationAudio": "/media/tts/vn5-q4-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn5-slide-q5",
+      "teacherNote": "Nối phụ âm ghép với từ tương ứng.",
+      "question": {
+        "type": "matching",
+        "id": "vn5-q5-match-digraphs",
+        "prompt": "Nối phụ âm ghép với từ ngữ tương ứng:",
+        "promptAudio": "/media/tts/vn5-q5-prompt.mp3",
+        "illustration": "/media/images/book.svg",
+        "leftColumn": [
+          { "id": "l-th", "label": "th", "audio": "/media/tts/vn5-lbl-th.mp3" },
+          { "id": "l-nh", "label": "nh", "audio": "/media/tts/vn5-lbl-nh.mp3" },
+          { "id": "l-tr", "label": "tr", "audio": "/media/tts/vn5-lbl-tr.mp3" }
+        ],
+        "rightColumn": [
+          { "id": "r-tho", "label": "chú thỏ", "image": "/media/images/rabbit.svg", "audio": "/media/tts/vn5-word-tho.mp3" },
+          { "id": "r-nha", "label": "ngôi nhà", "image": "/media/images/house.svg", "audio": "/media/tts/vn5-word-nha.mp3" },
+          { "id": "r-tre", "label": "cá trê", "image": "/media/images/fish.svg", "audio": "/media/tts/vn5-word-tre.mp3" }
+        ],
+        "correctPairs": [
+          { "leftId": "l-th", "rightId": "r-tho" },
+          { "leftId": "l-nh", "rightId": "r-nha" },
+          { "leftId": "l-tr", "rightId": "r-tre" }
+        ],
+        "explanation": "Nối đúng: th với thỏ, nh với nhà, tr với cá trê.",
+        "explanationAudio": "/media/tts/vn5-q5-exp.mp3"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn5-slide-q6",
+      "teacherNote": "Điền th vào: Chú thỏ trắng.",
+      "question": {
+        "type": "tap_place",
+        "id": "vn5-q6-tap-tho",
+        "prompt": "Điền th hoặc ch vào chỗ trống chú thỏ trắng:",
+        "promptAudio": "/media/tts/vn5-q6-prompt.mp3",
+        "illustration": "/media/images/rabbit.svg",
+        "targets": [
+          {
+            "id": "tgt-tho",
+            "label": "...",
+            "prefixText": "Chú ",
+            "suffixText": "ỏ trắng"
+          }
+        ],
+        "items": [
+          { "id": "item-th-tho", "label": "th", "audio": "/media/phonemes/th.mp3", "isPhonemeOrWord": true },
+          { "id": "item-ch-tho", "label": "ch", "audio": "/media/phonemes/ch.mp3", "isPhonemeOrWord": true }
+        ],
+        "correctMapping": {
+          "item-th-tho": "tgt-tho"
+        },
+        "explanation": "Điền th để được từ chú thỏ trắng.",
+        "explanationAudio": "/media/tts/vn5-q6-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    }
+  ]
+}

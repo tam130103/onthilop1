@@ -1,0 +1,205 @@
+{
+  "status": "publish",
+  "mode": "publish",
+  "id": "math-03-addition-within-5",
+  "title": "Tách – Gộp số và Phép cộng phạm vi 5",
+  "subject": "math",
+  "grade": 1,
+  "description": "Bài học Toán Lớp 1: Khám phá thao tác Tách – Gộp số và hình thành bảng cộng trong phạm vi 5 qua 7 câu hỏi trực quan sinh động.",
+  "totalDurationMinutes": 25,
+  "slides": [
+    {
+      "type": "title-slide",
+      "id": "m3-slide-title",
+      "title": "Tách – Gộp & Phép cộng phạm vi 5",
+      "subtitle": "Toán Lớp 1 — Bài học tương tác",
+      "teacherNote": "Hướng dẫn học sinh thao tác gộp hai nhóm để hình thành bản chất phép cộng.",
+      "backgroundImage": "/media/images/star.svg",
+      "audio": "/media/tts/m3-title.mp3"
+    },
+    {
+      "type": "content-slide",
+      "id": "m3-slide-intro",
+      "title": "Ý nghĩa của Tách – Gộp số",
+      "body": "Gộp hai nhóm lại với nhau ta được phép cộng. Hôm nay các con cùng học tách gộp và làm quen phép cộng trong phạm vi 5 nhé!",
+      "teacherNote": "Dùng ngón tay hoặc que tính để học sinh thực hành gộp 3 và 2 được 5.",
+      "illustration": "/media/images/apple.svg",
+      "audio": "/media/tts/m3-intro.mp3",
+      "bullets": [
+        "Gộp 1 và 1 được 2 (1 + 1 = 2)",
+        "Gộp 2 và 1 được 3 (2 + 1 = 3)",
+        "Gộp 3 và 1 được 4 (3 + 1 = 4)",
+        "Gộp 3 và 2 được 5 (3 + 2 = 5)"
+      ]
+    },
+    {
+      "type": "question-slide",
+      "id": "m3-slide-q1",
+      "teacherNote": "Đếm tổng số hoa của hai nhóm gộp lại.",
+      "question": {
+        "type": "counting",
+        "id": "m3-q1-counting-flowers",
+        "prompt": "Đếm xem có bao nhiêu bông hoa đỏ và vàng tất cả?",
+        "promptAudio": "/media/tts/m3-q1-prompt.mp3",
+        "illustration": "/media/images/flower.svg",
+        "items": [
+          { "image": "/media/images/flower.svg", "alt": "Hoa 1" },
+          { "image": "/media/images/flower.svg", "alt": "Hoa 2" },
+          { "image": "/media/images/flower.svg", "alt": "Hoa 3" },
+          { "image": "/media/images/flower.svg", "alt": "Hoa 4" },
+          { "image": "/media/images/flower.svg", "alt": "Hoa 5" }
+        ],
+        "correctCount": 5,
+        "numberRange": { "min": 1, "max": 5 },
+        "explanation": "Có ba bông hoa đỏ gộp với hai bông hoa vàng là năm bông hoa.",
+        "explanationAudio": "/media/tts/m3-q1-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m3-slide-q2",
+      "teacherNote": "Phép cộng cơ bản: 2 + 1 = 3.",
+      "question": {
+        "type": "number_select",
+        "id": "m3-q2-ns-add-2-1",
+        "prompt": "Bé hãy tính kết quả phép tính sau:",
+        "promptAudio": "/media/tts/m3-q2-prompt.mp3",
+        "illustration": "/media/images/apple.svg",
+        "expression": "2 + 1 = ?",
+        "choices": [1, 2, 3, 4],
+        "correctAnswer": 3,
+        "explanation": "Hai cộng một bằng ba.",
+        "explanationAudio": "/media/tts/m3-q2-exp.mp3"
+      },
+      "timeLimitSeconds": 20,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m3-slide-q3",
+      "teacherNote": "Tách số: 4 gồm 1 và 3.",
+      "question": {
+        "type": "multiple_choice",
+        "id": "m3-q3-mc-split-4",
+        "prompt": "Bốn gồm một và mấy?",
+        "promptAudio": "/media/tts/m3-q3-prompt.mp3",
+        "illustration": "/media/images/ball.svg",
+        "options": [
+          { "id": "opt-3", "label": "và 3", "image": "/media/images/ball.svg", "audio": "/media/tts/m3-opt-va-3.mp3" },
+          { "id": "opt-2", "label": "và 2", "image": "/media/images/candy.svg", "audio": "/media/tts/m3-opt-va-2.mp3" },
+          { "id": "opt-4", "label": "và 4", "image": "/media/images/star.svg", "audio": "/media/tts/m3-opt-va-4.mp3" }
+        ],
+        "correctOptionId": "opt-3",
+        "explanation": "Bốn gồm một và ba, hoặc hai và hai.",
+        "explanationAudio": "/media/tts/m3-q3-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m3-slide-q4",
+      "teacherNote": "Phép cộng 3 + 2 = 5.",
+      "question": {
+        "type": "number_select",
+        "id": "m3-q4-ns-add-3-2",
+        "prompt": "Bé hãy tính kết quả phép cộng sau:",
+        "promptAudio": "/media/tts/m3-q4-prompt.mp3",
+        "illustration": "/media/images/candy.svg",
+        "expression": "3 + 2 = ?",
+        "choices": [3, 4, 5],
+        "correctAnswer": 5,
+        "explanation": "Ba cộng hai bằng năm.",
+        "explanationAudio": "/media/tts/m3-q4-exp.mp3"
+      },
+      "timeLimitSeconds": 20,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m3-slide-q5",
+      "teacherNote": "Nối phép tính với kết quả thích hợp.",
+      "question": {
+        "type": "matching",
+        "id": "m3-q5-match-add",
+        "prompt": "Nối phép tính với kết quả đúng:",
+        "promptAudio": "/media/tts/m3-q5-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "leftColumn": [
+          { "id": "c-1-1", "label": "1 + 1", "audio": "/media/tts/m3-calc-1-1.mp3" },
+          { "id": "c-2-2", "label": "2 + 2", "audio": "/media/tts/m3-calc-2-2.mp3" },
+          { "id": "c-4-1", "label": "4 + 1", "audio": "/media/tts/m3-calc-4-1.mp3" }
+        ],
+        "rightColumn": [
+          { "id": "r-2", "label": "= 2", "audio": "/media/tts/m3-res-2.mp3" },
+          { "id": "r-4", "label": "= 4", "audio": "/media/tts/m3-res-4.mp3" },
+          { "id": "r-5", "label": "= 5", "audio": "/media/tts/m3-res-5.mp3" }
+        ],
+        "correctPairs": [
+          { "leftId": "c-1-1", "rightId": "r-2" },
+          { "leftId": "c-2-2", "rightId": "r-4" },
+          { "leftId": "c-4-1", "rightId": "r-5" }
+        ],
+        "explanation": "Một cộng một bằng hai, hai cộng hai bằng bốn, bốn cộng một bằng năm.",
+        "explanationAudio": "/media/tts/m3-q5-exp.mp3"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m3-slide-q6",
+      "teacherNote": "Chạm/kéo số 2 vào vị trí chấm chấm.",
+      "question": {
+        "type": "tap_place",
+        "id": "m3-q6-tap-add",
+        "prompt": "Chọn số thích hợp đặt vào chỗ trống:",
+        "promptAudio": "/media/tts/m3-q6-prompt.mp3",
+        "illustration": "/media/images/apple.svg",
+        "targets": [
+          {
+            "id": "tgt-add-missing",
+            "label": "...",
+            "prefixText": "1 + ",
+            "suffixText": " = 3"
+          }
+        ],
+        "items": [
+          { "id": "item-num-2", "label": "2", "audio": "/media/tts/m3-item-2.mp3", "isPhonemeOrWord": true },
+          { "id": "item-num-4", "label": "4", "audio": "/media/tts/m3-item-4.mp3", "isPhonemeOrWord": true }
+        ],
+        "correctMapping": {
+          "item-num-2": "tgt-add-missing"
+        },
+        "explanation": "Một cộng hai bằng ba.",
+        "explanationAudio": "/media/tts/m3-q6-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m3-slide-q7",
+      "teacherNote": "Trắc nghiệm tìm phép tính có kết quả bằng 4.",
+      "question": {
+        "type": "multiple_choice",
+        "id": "m3-q7-mc-result-4",
+        "prompt": "Phép tính nào dưới đây có kết quả bằng bốn?",
+        "promptAudio": "/media/tts/m3-q7-prompt.mp3",
+        "illustration": "/media/images/candy.svg",
+        "options": [
+          { "id": "opt-2-2", "label": "2 + 2", "audio": "/media/tts/m3-opt-2-2.mp3" },
+          { "id": "opt-2-1", "label": "2 + 1", "audio": "/media/tts/m3-opt-2-1.mp3" },
+          { "id": "opt-3-2", "label": "3 + 2", "audio": "/media/tts/m3-opt-3-2.mp3" }
+        ],
+        "correctOptionId": "opt-2-2",
+        "explanation": "Hai cộng hai bằng bốn. Rất chính xác!",
+        "explanationAudio": "/media/tts/m3-q7-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    }
+  ]
+}

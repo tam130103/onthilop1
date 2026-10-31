@@ -1,0 +1,223 @@
+{
+  "status": "publish",
+  "mode": "publish",
+  "id": "math-05-add-sub-within-10",
+  "title": "Phép cộng & trừ trong phạm vi 10",
+  "subject": "math",
+  "grade": 1,
+  "description": "Bài học Toán Lớp 1: Rèn luyện kỹ năng tính toán cộng trừ thành thạo trong phạm vi 10 thông qua 8 câu hỏi tương tác phong phú.",
+  "totalDurationMinutes": 30,
+  "slides": [
+    {
+      "type": "title-slide",
+      "id": "m5-slide-title",
+      "title": "Cộng và Trừ trong phạm vi 10",
+      "subtitle": "Toán Lớp 1 — Luyện tập nâng cao",
+      "teacherNote": "Rèn luyện tính nhẩm nhanh và vận dụng bảng cộng trừ đến 10.",
+      "backgroundImage": "/media/images/star.svg",
+      "audio": "/media/tts/m5-title.mp3"
+    },
+    {
+      "type": "content-slide",
+      "id": "m5-slide-intro",
+      "title": "Bảng cộng trừ đến 10",
+      "body": "Hôm nay chúng mình cùng nâng cao kỹ năng tính nhẩm cộng và trừ các số trong phạm vi 10 nhé!",
+      "teacherNote": "Cho học sinh ôn lại: 6 + 2 = 8, 7 + 3 = 10, 8 - 3 = 5, 10 - 4 = 6.",
+      "illustration": "/media/images/flower.svg",
+      "audio": "/media/tts/m5-intro.mp3",
+      "bullets": [
+        "6 + 2 = 8 (Sáu thêm hai là tám)",
+        "7 + 3 = 10 (Bảy thêm ba là mười)",
+        "8 - 3 = 5 (Tám bớt ba còn năm)",
+        "10 - 4 = 6 (Mười bớt bốn còn sáu)"
+      ]
+    },
+    {
+      "type": "question-slide",
+      "id": "m5-slide-q1",
+      "teacherNote": "Đếm 7 bông hoa sắc màu.",
+      "question": {
+        "type": "counting",
+        "id": "m5-q1-counting-7-flowers",
+        "prompt": "Đếm xem có bao nhiêu bông hoa rực rỡ trên màn hình?",
+        "promptAudio": "/media/tts/m5-q1-prompt.mp3",
+        "illustration": "/media/images/flower.svg",
+        "items": [
+          { "image": "/media/images/flower.svg", "alt": "Hoa 1" },
+          { "image": "/media/images/flower.svg", "alt": "Hoa 2" },
+          { "image": "/media/images/flower.svg", "alt": "Hoa 3" },
+          { "image": "/media/images/flower.svg", "alt": "Hoa 4" },
+          { "image": "/media/images/flower.svg", "alt": "Hoa 5" },
+          { "image": "/media/images/flower.svg", "alt": "Hoa 6" },
+          { "image": "/media/images/flower.svg", "alt": "Hoa 7" }
+        ],
+        "correctCount": 7,
+        "numberRange": { "min": 1, "max": 10 },
+        "explanation": "Có đúng bảy bông hoa rực rỡ sắc màu!",
+        "explanationAudio": "/media/tts/m5-q1-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m5-slide-q2",
+      "teacherNote": "Phép cộng 6 + 2 = 8.",
+      "question": {
+        "type": "number_select",
+        "id": "m5-q2-ns-add-6-2",
+        "prompt": "Bé hãy tính phép cộng sau:",
+        "promptAudio": "/media/tts/m5-q2-prompt.mp3",
+        "illustration": "/media/images/apple.svg",
+        "expression": "6 + 2 = ?",
+        "choices": [6, 7, 8, 9],
+        "correctAnswer": 8,
+        "explanation": "Sáu cộng hai bằng tám.",
+        "explanationAudio": "/media/tts/m5-q2-exp.mp3"
+      },
+      "timeLimitSeconds": 20,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m5-slide-q3",
+      "teacherNote": "Phép cộng 7 + 3 = 10.",
+      "question": {
+        "type": "number_select",
+        "id": "m5-q3-ns-add-7-3",
+        "prompt": "Bé hãy tính kết quả phép tính:",
+        "promptAudio": "/media/tts/m5-q3-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "expression": "7 + 3 = ?",
+        "choices": [8, 9, 10],
+        "correctAnswer": 10,
+        "explanation": "Bảy cộng ba bằng mười.",
+        "explanationAudio": "/media/tts/m5-q3-exp.mp3"
+      },
+      "timeLimitSeconds": 20,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m5-slide-q4",
+      "teacherNote": "Phép trừ 8 - 3 = 5.",
+      "question": {
+        "type": "number_select",
+        "id": "m5-q4-ns-sub-8-3",
+        "prompt": "Bé hãy tính phép trừ sau:",
+        "promptAudio": "/media/tts/m5-q4-prompt.mp3",
+        "illustration": "/media/images/candy.svg",
+        "expression": "8 - 3 = ?",
+        "choices": [4, 5, 6, 7],
+        "correctAnswer": 5,
+        "explanation": "Tám trừ ba bằng năm.",
+        "explanationAudio": "/media/tts/m5-q4-exp.mp3"
+      },
+      "timeLimitSeconds": 20,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m5-slide-q5",
+      "teacherNote": "Phép trừ 10 - 4 = 6.",
+      "question": {
+        "type": "number_select",
+        "id": "m5-q5-ns-sub-10-4",
+        "prompt": "Mười trừ bốn bằng mấy?",
+        "promptAudio": "/media/tts/m5-q5-prompt.mp3",
+        "illustration": "/media/images/fish.svg",
+        "expression": "10 - 4 = ?",
+        "choices": [5, 6, 7, 8],
+        "correctAnswer": 6,
+        "explanation": "Mười trừ bốn bằng sáu.",
+        "explanationAudio": "/media/tts/m5-q5-exp.mp3"
+      },
+      "timeLimitSeconds": 20,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m5-slide-q6",
+      "teacherNote": "Trắc nghiệm tìm phép tính bằng 7: 5 + 2 = 7.",
+      "question": {
+        "type": "multiple_choice",
+        "id": "m5-q6-mc-calc-7",
+        "prompt": "Phép tính nào dưới đây có kết quả bằng bảy?",
+        "promptAudio": "/media/tts/m5-q6-prompt.mp3",
+        "illustration": "/media/images/leaf.svg",
+        "options": [
+          { "id": "opt-5-2", "label": "5 + 2", "audio": "/media/tts/m5-opt-5-2.mp3" },
+          { "id": "opt-4-2", "label": "4 + 2", "audio": "/media/tts/m5-opt-4-2.mp3" },
+          { "id": "opt-6-3", "label": "6 + 3", "audio": "/media/tts/m5-opt-6-3.mp3" }
+        ],
+        "correctOptionId": "opt-5-2",
+        "explanation": "Năm cộng hai bằng bảy. Rất tuyệt vời!",
+        "explanationAudio": "/media/tts/m5-q6-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m5-slide-q7",
+      "teacherNote": "Điền số 3 vào: 6 + 3 = 9.",
+      "question": {
+        "type": "tap_place",
+        "id": "m5-q7-tap-add-9",
+        "prompt": "Chọn số thích hợp đặt vào chỗ trống:",
+        "promptAudio": "/media/tts/m5-q7-prompt.mp3",
+        "illustration": "/media/images/flower.svg",
+        "targets": [
+          {
+            "id": "tgt-add-9",
+            "label": "...",
+            "prefixText": "6 + ",
+            "suffixText": " = 9"
+          }
+        ],
+        "items": [
+          { "id": "item-m5-3", "label": "3", "audio": "/media/tts/m5-item-3.mp3", "isPhonemeOrWord": true },
+          { "id": "item-m5-5", "label": "5", "audio": "/media/tts/m5-item-5.mp3", "isPhonemeOrWord": true }
+        ],
+        "correctMapping": {
+          "item-m5-3": "tgt-add-9"
+        },
+        "explanation": "Sáu cộng ba bằng chín.",
+        "explanationAudio": "/media/tts/m5-q7-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m5-slide-q8",
+      "teacherNote": "Nối phép tính với kết quả thích hợp.",
+      "question": {
+        "type": "matching",
+        "id": "m5-q8-match-10",
+        "prompt": "Nối phép tính với kết quả đúng:",
+        "promptAudio": "/media/tts/m5-q8-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "leftColumn": [
+          { "id": "m5-6-1", "label": "6 + 1", "audio": "/media/tts/m5-calc-6-1.mp3" },
+          { "id": "m5-5-3", "label": "5 + 3", "audio": "/media/tts/m5-calc-5-3.mp3" },
+          { "id": "m5-10-1", "label": "10 - 1", "audio": "/media/tts/m5-calc-10-1.mp3" }
+        ],
+        "rightColumn": [
+          { "id": "m5-r-7", "label": "= 7", "audio": "/media/tts/m5-res-7.mp3" },
+          { "id": "m5-r-8", "label": "= 8", "audio": "/media/tts/m5-res-8.mp3" },
+          { "id": "m5-r-9", "label": "= 9", "audio": "/media/tts/m5-res-9.mp3" }
+        ],
+        "correctPairs": [
+          { "leftId": "m5-6-1", "rightId": "m5-r-7" },
+          { "leftId": "m5-5-3", "rightId": "m5-r-8" },
+          { "leftId": "m5-10-1", "rightId": "m5-r-9" }
+        ],
+        "explanation": "Sáu cộng một bằng bảy, năm cộng ba bằng tám, mười trừ một bằng chín.",
+        "explanationAudio": "/media/tts/m5-q8-exp.mp3"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    }
+  ]
+}

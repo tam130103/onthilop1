@@ -1,0 +1,195 @@
+{
+  "status": "publish",
+  "mode": "publish",
+  "id": "vn-04-m-n-u-uw",
+  "title": "Bài 4: Âm m, n, u, ư & Từ ứng dụng",
+  "subject": "vietnamese",
+  "grade": 1,
+  "description": "Bài học Tiếng Việt Lớp 1: Nhận diện và luyện đọc 4 âm m, n, u, ư; mở rộng vốn từ ứng dụng thân thuộc (mẹ, nơ, cá mú, sư tử, mèo con, sữa tươi) qua 6 câu hỏi tương tác.",
+  "totalDurationMinutes": 25,
+  "slides": [
+    {
+      "type": "title-slide",
+      "id": "vn4-title-slide",
+      "title": "Bài 4: Âm m, n, u, ư & Từ ứng dụng",
+      "subtitle": "Tiếng Việt Lớp 1 — Bài học tương tác",
+      "teacherNote": "Hướng dẫn học sinh phân biệt âm môi m và âm đầu lưỡi n; âm tròn môi u và không tròn môi ư.",
+      "backgroundImage": "/media/images/star.svg",
+      "audio": "/media/tts/vn4-title.mp3"
+    },
+    {
+      "type": "content-slide",
+      "id": "vn4-intro-slide",
+      "title": "Làm quen chữ cái M, N, U, Ư",
+      "body": "Hôm nay chúng mình cùng học các âm M, N, U, Ư và khám phá những từ ngữ yêu thương: mẹ, nơ, cá mú, sư tử!",
+      "teacherNote": "Khuyến khích học sinh nói câu có từ mẹ yêu hoặc chú mèo con.",
+      "illustration": "/media/images/cat.svg",
+      "audio": "/media/tts/vn4-intro.mp3",
+      "bullets": [
+        "m — mẹ (mẹ yêu của bé)",
+        "n — nơ (chiếc nơ đỏ cài tóc)",
+        "u — mú (cá mú bơi lội)",
+        "ư — sư tử (chúa sơn lâm dũng mãnh)"
+      ]
+    },
+    {
+      "type": "question-slide",
+      "id": "vn4-slide-q1",
+      "teacherNote": "Nhận diện âm đầu 'm' trong tiếng mẹ.",
+      "question": {
+        "type": "multiple_choice",
+        "id": "vn4-q1-mc-sound-m",
+        "prompt": "Tiếng 'mẹ' bắt đầu bằng âm nào?",
+        "promptAudio": "/media/tts/vn4-q1-prompt.mp3",
+        "illustration": "/media/images/flower.svg",
+        "options": [
+          { "id": "opt-m", "label": "Âm m", "audio": "/media/tts/vn4-opt-m.mp3", "isPhonemeOrWord": true },
+          { "id": "opt-n", "label": "Âm n", "audio": "/media/tts/vn4-opt-n.mp3", "isPhonemeOrWord": true },
+          { "id": "opt-b", "label": "Âm b", "audio": "/media/tts/vn4-opt-b.mp3", "isPhonemeOrWord": true }
+        ],
+        "correctOptionId": "opt-m",
+        "explanation": "Tiếng mẹ có âm m đứng trước, âm e đứng sau và thanh nặng: mờ - e - me - nặng - mẹ.",
+        "explanationAudio": "/media/tts/vn4-q1-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn4-slide-q2",
+      "teacherNote": "Nhận diện âm đầu 'n' trong tiếng nơ.",
+      "question": {
+        "type": "multiple_choice",
+        "id": "vn4-q2-mc-sound-n",
+        "prompt": "Tiếng 'nơ' bắt đầu bằng âm nào?",
+        "promptAudio": "/media/tts/vn4-q2-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "options": [
+          { "id": "opt-n2", "label": "Âm n", "audio": "/media/tts/vn4-opt-n2.mp3", "isPhonemeOrWord": true },
+          { "id": "opt-m2", "label": "Âm m", "audio": "/media/tts/vn4-opt-m2.mp3", "isPhonemeOrWord": true },
+          { "id": "opt-l2", "label": "Âm l", "audio": "/media/tts/vn4-opt-l2.mp3", "isPhonemeOrWord": true }
+        ],
+        "correctOptionId": "opt-n2",
+        "explanation": "Tiếng nơ có âm n đứng trước: nờ - ơ - nơ.",
+        "explanationAudio": "/media/tts/vn4-q2-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn4-slide-q3",
+      "teacherNote": "Điền âm n vào chỗ trống: Cái nơ.",
+      "question": {
+        "type": "tap_place",
+        "id": "vn4-q3-tap-no",
+        "prompt": "Chọn âm thích hợp đặt vào chỗ trống để tạo thành từ cái nơ:",
+        "promptAudio": "/media/tts/vn4-q3-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "targets": [
+          {
+            "id": "tgt-no",
+            "label": "...",
+            "prefixText": "Cái ",
+            "suffixText": "ơ"
+          }
+        ],
+        "items": [
+          { "id": "item-n", "label": "n", "audio": "/media/phonemes/n.mp3", "isPhonemeOrWord": true },
+          { "id": "item-m", "label": "m", "audio": "/media/phonemes/m.mp3", "isPhonemeOrWord": true }
+        ],
+        "correctMapping": {
+          "item-n": "tgt-no"
+        },
+        "explanation": "Âm n ghép với ơ thành tiếng nơ trong từ cái nơ.",
+        "explanationAudio": "/media/tts/vn4-q3-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn4-slide-q4",
+      "teacherNote": "Nối từ ngữ với hình minh họa tương ứng.",
+      "question": {
+        "type": "matching",
+        "id": "vn4-q4-match-words",
+        "prompt": "Nối từ với hình ảnh tương ứng:",
+        "promptAudio": "/media/tts/vn4-q4-prompt.mp3",
+        "illustration": "/media/images/cat.svg",
+        "leftColumn": [
+          { "id": "l-no", "label": "cái nơ", "audio": "/media/tts/vn4-lbl-no.mp3" },
+          { "id": "l-meo", "label": "con mèo", "audio": "/media/tts/vn4-lbl-meo.mp3" },
+          { "id": "l-sua", "label": "hộp sữa", "audio": "/media/tts/vn4-lbl-sua.mp3" }
+        ],
+        "rightColumn": [
+          { "id": "r-no", "label": "Hình chiếc nơ", "image": "/media/images/star.svg", "audio": "/media/tts/vn4-pic-no.mp3" },
+          { "id": "r-meo", "label": "Hình con mèo", "image": "/media/images/cat.svg", "audio": "/media/tts/vn4-pic-meo.mp3" },
+          { "id": "r-sua", "label": "Hình hộp sữa", "image": "/media/images/milk.svg", "audio": "/media/tts/vn4-pic-sua.mp3" }
+        ],
+        "correctPairs": [
+          { "leftId": "l-no", "rightId": "r-no" },
+          { "leftId": "l-meo", "rightId": "r-meo" },
+          { "leftId": "l-sua", "rightId": "r-sua" }
+        ],
+        "explanation": "Nối chính xác cái nơ, con mèo và hộp sữa!",
+        "explanationAudio": "/media/tts/vn4-q4-exp.mp3"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn4-slide-q5",
+      "teacherNote": "Tìm từ có chứa âm u.",
+      "question": {
+        "type": "multiple_choice",
+        "id": "vn4-q5-mc-has-u",
+        "prompt": "Từ nào dưới đây có chứa âm 'u'?",
+        "promptAudio": "/media/tts/vn4-q5-prompt.mp3",
+        "illustration": "/media/images/fish.svg",
+        "options": [
+          { "id": "opt-camu", "label": "cá mú", "audio": "/media/tts/vn4-opt-camu.mp3" },
+          { "id": "opt-caino", "label": "cái nơ", "audio": "/media/tts/vn4-opt-caino.mp3" },
+          { "id": "opt-conbe", "label": "con bê", "audio": "/media/tts/vn4-opt-conbe.mp3" }
+        ],
+        "correctOptionId": "opt-camu",
+        "explanation": "Tiếng mú có âm u: mờ - u - mu - sắc - mú.",
+        "explanationAudio": "/media/tts/vn4-q5-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn4-slide-q6",
+      "teacherNote": "Điền âm m vào: Mẹ yêu.",
+      "question": {
+        "type": "tap_place",
+        "id": "vn4-q6-tap-me",
+        "prompt": "Điền âm m hoặc n vào chỗ trống của mẹ yêu:",
+        "promptAudio": "/media/tts/vn4-q6-prompt.mp3",
+        "illustration": "/media/images/flower.svg",
+        "targets": [
+          {
+            "id": "tgt-me-yeu",
+            "label": "...",
+            "prefixText": "",
+            "suffixText": "ẹ yêu"
+          }
+        ],
+        "items": [
+          { "id": "item-me-m", "label": "m", "audio": "/media/phonemes/m.mp3", "isPhonemeOrWord": true },
+          { "id": "item-me-n", "label": "n", "audio": "/media/phonemes/n.mp3", "isPhonemeOrWord": true }
+        ],
+        "correctMapping": {
+          "item-me-m": "tgt-me-yeu"
+        },
+        "explanation": "Âm m điền vào chỗ trống tạo thành từ mẹ yêu.",
+        "explanationAudio": "/media/tts/vn4-q6-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    }
+  ]
+}

@@ -1,13 +1,14 @@
 from gtts import gTTS
 import os
 import json
-import shutil
 
 os.makedirs("public/media/tts", exist_ok=True)
 os.makedirs("public/media/phonemes", exist_ok=True)
 
 AUDIO_ITEMS = [
+    # ----------------------------------------------------
     # Math lesson 1 - Common & Intro
+    # ----------------------------------------------------
     ("public/media/tts/math-title.mp3", "Bé vui học đếm và tính toán. Toán Lớp một, Bài tập khởi động."),
     ("public/media/tts/math-intro.mp3", "Cùng ôn lại các số từ một đến năm. Các con hãy chú ý quan sát và cùng đếm to với cô nhé! Một, hai, ba, bốn, năm."),
     ("public/media/tts/prompt-counting.mp3", "Đếm xem có bao nhiêu quả táo đỏ?"),
@@ -38,8 +39,172 @@ AUDIO_ITEMS = [
     ("public/media/tts/prompt-matching.mp3", "Bé hãy nối các ô ở hai cột có nội dung tương ứng với nhau:"),
     ("public/media/tts/prompt-tapplace.mp3", "Chọn âm thích hợp đặt vào chỗ trống để tạo thành từ đúng:"),
     ("public/media/tts/timer-chime.mp3", "Đã hết giờ làm bài, các con dừng bút nhé!"),
-    
-    # Vietnamese lesson 1 - Phonemes and words
+
+    # ----------------------------------------------------
+    # Math lesson 2 - So sánh nhiều hơn, ít hơn, bằng nhau & các số 6-10
+    # ----------------------------------------------------
+    ("public/media/tts/m2-title.mp3", "Bài hai: So sánh nhiều hơn, ít hơn, bằng nhau và các số từ sáu đến mười. Toán Lớp một."),
+    ("public/media/tts/m2-intro.mp3", "Hôm nay chúng mình cùng học so sánh số lượng nhiều hơn, ít hơn, bằng nhau và làm quen các số từ sáu đến mười nhé!"),
+    ("public/media/tts/m2-q1-prompt.mp3", "Đếm xem có bao nhiêu quả táo đỏ trên cây?"),
+    ("public/media/tts/m2-q1-exp.mp3", "Có tất cả sáu quả táo đỏ chín mọng!"),
+    ("public/media/tts/m2-q2-prompt.mp3", "Đếm xem có bao nhiêu chú cá đang bơi dưới nước?"),
+    ("public/media/tts/m2-q2-exp.mp3", "Có tất cả bảy chú cá xinh xắn đang tung tăng bơi lội!"),
+    ("public/media/tts/m2-q3-prompt.mp3", "Đếm xem có bao nhiêu chiếc lá xanh trên màn hình?"),
+    ("public/media/tts/m2-q3-exp.mp3", "Có đúng tám chiếc lá xanh tươi mát!"),
+    ("public/media/tts/m2-q4-prompt.mp3", "Số nào lớn hơn: tám hay sáu?"),
+    ("public/media/tts/m2-opt-8.mp3", "Số tám"),
+    ("public/media/tts/m2-opt-6.mp3", "Số sáu"),
+    ("public/media/tts/m2-q4-exp.mp3", "Số tám lớn hơn số sáu vì tám nhiều hơn sáu."),
+    ("public/media/tts/m2-q5-prompt.mp3", "Nhóm nào có số lượng nhiều hơn: năm quả bóng hay ba quả táo?"),
+    ("public/media/tts/m2-opt-5ball.mp3", "Năm quả bóng"),
+    ("public/media/tts/m2-opt-3apple.mp3", "Ba quả táo"),
+    ("public/media/tts/m2-q5-exp.mp3", "Năm quả bóng nhiều hơn ba quả táo vì năm lớn hơn ba."),
+    ("public/media/tts/m2-q6-prompt.mp3", "Chọn số còn thiếu trong dãy số sau: sáu, bảy, tám, chấm hỏi, mười:"),
+    ("public/media/tts/m2-q6-exp.mp3", "Số còn thiếu là số chín. Dãy số đếm tiến là: sáu, bảy, tám, chín, mười."),
+    ("public/media/tts/m2-q7-prompt.mp3", "Nối số với số lượng đồ vật tương ứng:"),
+    ("public/media/tts/m2-num-6.mp3", "Số 6"),
+    ("public/media/tts/m2-num-7.mp3", "Số 7"),
+    ("public/media/tts/m2-num-8.mp3", "Số 8"),
+    ("public/media/tts/m2-grp-6.mp3", "Sáu bông hoa"),
+    ("public/media/tts/m2-grp-7.mp3", "Bảy ngôi sao"),
+    ("public/media/tts/m2-grp-8.mp3", "Tám viên kẹo"),
+    ("public/media/tts/m2-q7-exp.mp3", "Nối chính xác: sáu bông hoa với số sáu, bảy ngôi sao với số bảy, tám viên kẹo với số tám."),
+
+    # ----------------------------------------------------
+    # Math lesson 3 - Tách gộp số & Phép cộng phạm vi 5
+    # ----------------------------------------------------
+    ("public/media/tts/m3-title.mp3", "Bài ba: Tách gộp số và Phép cộng trong phạm vi năm. Toán Lớp một."),
+    ("public/media/tts/m3-intro.mp3", "Gộp hai nhóm lại với nhau ta được phép cộng. Hôm nay các con cùng học tách gộp và làm quen phép cộng trong phạm vi năm nhé!"),
+    ("public/media/tts/m3-q1-prompt.mp3", "Đếm xem có bao nhiêu bông hoa đỏ và vàng tất cả?"),
+    ("public/media/tts/m3-q1-exp.mp3", "Có ba bông hoa đỏ gộp với hai bông hoa vàng là năm bông hoa."),
+    ("public/media/tts/m3-q2-prompt.mp3", "Bé hãy tính kết quả phép tính: hai cộng một bằng mấy?"),
+    ("public/media/tts/m3-q2-exp.mp3", "Hai cộng một bằng ba."),
+    ("public/media/tts/m3-q3-prompt.mp3", "Bốn gồm một và mấy?"),
+    ("public/media/tts/m3-opt-va-3.mp3", "và ba"),
+    ("public/media/tts/m3-opt-va-2.mp3", "và hai"),
+    ("public/media/tts/m3-opt-va-4.mp3", "và bốn"),
+    ("public/media/tts/m3-q3-exp.mp3", "Bốn gồm một và ba, hoặc hai và hai."),
+    ("public/media/tts/m3-q4-prompt.mp3", "Bé hãy tính kết quả phép cộng sau: ba cộng hai bằng mấy?"),
+    ("public/media/tts/m3-q4-exp.mp3", "Ba cộng hai bằng năm."),
+    ("public/media/tts/m3-q5-prompt.mp3", "Nối phép tính với kết quả đúng:"),
+    ("public/media/tts/m3-calc-1-1.mp3", "một cộng một"),
+    ("public/media/tts/m3-calc-2-2.mp3", "hai cộng hai"),
+    ("public/media/tts/m3-calc-4-1.mp3", "bốn cộng một"),
+    ("public/media/tts/m3-res-2.mp3", "kết quả hai"),
+    ("public/media/tts/m3-res-4.mp3", "kết quả bốn"),
+    ("public/media/tts/m3-res-5.mp3", "kết quả năm"),
+    ("public/media/tts/m3-q5-exp.mp3", "Một cộng một bằng hai, hai cộng hai bằng bốn, bốn cộng một bằng năm."),
+    ("public/media/tts/m3-q6-prompt.mp3", "Chọn số thích hợp đặt vào chỗ trống để một cộng mấy bằng ba:"),
+    ("public/media/tts/m3-item-2.mp3", "số hai"),
+    ("public/media/tts/m3-item-4.mp3", "số bốn"),
+    ("public/media/tts/m3-q6-exp.mp3", "Một cộng hai bằng ba."),
+    ("public/media/tts/m3-q7-prompt.mp3", "Phép tính nào dưới đây có kết quả bằng bốn?"),
+    ("public/media/tts/m3-opt-2-2.mp3", "hai cộng hai"),
+    ("public/media/tts/m3-opt-2-1.mp3", "hai cộng một"),
+    ("public/media/tts/m3-opt-3-2.mp3", "ba cộng hai"),
+    ("public/media/tts/m3-q7-exp.mp3", "Hai cộng hai bằng bốn. Rất chính xác!"),
+
+    # ----------------------------------------------------
+    # Math lesson 4 - Phép trừ phạm vi 5 & Số 0
+    # ----------------------------------------------------
+    ("public/media/tts/m4-title.mp3", "Bài bốn: Phép trừ trong phạm vi năm và Số không. Toán Lớp một."),
+    ("public/media/tts/m4-intro.mp3", "Bớt đi chính là phép trừ. Khi bớt đi hết, chúng ta còn lại không đồ vật. Hôm nay chúng mình cùng học phép trừ nhé!"),
+    ("public/media/tts/m4-q1-prompt.mp3", "Có bốn quả táo, ăn mất một quả, hỏi còn lại mấy quả táo?"),
+    ("public/media/tts/m4-q1-exp.mp3", "Bốn bớt một còn ba quả táo!"),
+    ("public/media/tts/m4-q2-prompt.mp3", "Bé hãy tính phép tính: bốn trừ một bằng mấy?"),
+    ("public/media/tts/m4-q2-exp.mp3", "Bốn trừ một bằng ba."),
+    ("public/media/tts/m4-q3-prompt.mp3", "Bé hãy tính kết quả phép trừ: năm trừ hai bằng mấy?"),
+    ("public/media/tts/m4-q3-exp.mp3", "Năm trừ hai bằng ba."),
+    ("public/media/tts/m4-q4-prompt.mp3", "Trên cành cây có ba chú chim, cả ba chú đều bay đi mất. Hỏi trên cành cây còn lại mấy chú chim?"),
+    ("public/media/tts/m4-opt-0-chim.mp3", "Không chú chim"),
+    ("public/media/tts/m4-opt-1-chim.mp3", "Một chú chim"),
+    ("public/media/tts/m4-opt-2-chim.mp3", "Hai chú chim"),
+    ("public/media/tts/m4-q4-exp.mp3", "Ba bớt ba bằng không. Trên cành không còn chú chim nào."),
+    ("public/media/tts/m4-q5-prompt.mp3", "Bé hãy tính phép trừ: ba trừ ba bằng mấy?"),
+    ("public/media/tts/m4-q5-exp.mp3", "Ba trừ ba bằng không. Một số trừ đi chính nó thì bằng không."),
+    ("public/media/tts/m4-q6-prompt.mp3", "Chọn số thích hợp đặt vào chỗ trống để năm trừ mấy bằng bốn:"),
+    ("public/media/tts/m4-item-1.mp3", "số một"),
+    ("public/media/tts/m4-item-3.mp3", "số ba"),
+    ("public/media/tts/m4-q6-exp.mp3", "Năm trừ một bằng bốn."),
+    ("public/media/tts/m4-q7-prompt.mp3", "Nối phép trừ với kết quả tương ứng:"),
+    ("public/media/tts/m4-calc-5-1.mp3", "năm trừ một"),
+    ("public/media/tts/m4-calc-4-2.mp3", "bốn trừ hai"),
+    ("public/media/tts/m4-calc-2-2.mp3", "hai trừ hai"),
+    ("public/media/tts/m4-res-4.mp3", "kết quả bốn"),
+    ("public/media/tts/m4-res-2.mp3", "kết quả hai"),
+    ("public/media/tts/m4-res-0.mp3", "kết quả không"),
+    ("public/media/tts/m4-q7-exp.mp3", "Năm trừ một bằng bốn, bốn trừ hai bằng hai, hai trừ hai bằng không."),
+
+    # ----------------------------------------------------
+    # Math lesson 5 - Phép cộng và trừ phạm vi 10
+    # ----------------------------------------------------
+    ("public/media/tts/m5-title.mp3", "Bài năm: Phép cộng và Phép trừ trong phạm vi mười. Toán Lớp một."),
+    ("public/media/tts/m5-intro.mp3", "Hôm nay chúng mình cùng nâng cao kỹ năng tính nhẩm cộng và trừ các số trong phạm vi mười nhé!"),
+    ("public/media/tts/m5-q1-prompt.mp3", "Đếm xem có bao nhiêu bông hoa rực rỡ trên màn hình?"),
+    ("public/media/tts/m5-q1-exp.mp3", "Có đúng bảy bông hoa rực rỡ sắc màu!"),
+    ("public/media/tts/m5-q2-prompt.mp3", "Bé hãy tính phép cộng sau: sáu cộng hai bằng mấy?"),
+    ("public/media/tts/m5-q2-exp.mp3", "Sáu cộng hai bằng tám."),
+    ("public/media/tts/m5-q3-prompt.mp3", "Bé hãy tính kết quả phép tính: bảy cộng ba bằng mấy?"),
+    ("public/media/tts/m5-q3-exp.mp3", "Bảy cộng ba bằng mười."),
+    ("public/media/tts/m5-q4-prompt.mp3", "Bé hãy tính phép trừ sau: tám trừ ba bằng mấy?"),
+    ("public/media/tts/m5-q4-exp.mp3", "Tám trừ ba bằng năm."),
+    ("public/media/tts/m5-q5-prompt.mp3", "Mười trừ bốn bằng mấy?"),
+    ("public/media/tts/m5-q5-exp.mp3", "Mười trừ bốn bằng sáu."),
+    ("public/media/tts/m5-q6-prompt.mp3", "Phép tính nào dưới đây có kết quả bằng bảy?"),
+    ("public/media/tts/m5-opt-5-2.mp3", "năm cộng hai"),
+    ("public/media/tts/m5-opt-4-2.mp3", "bốn cộng hai"),
+    ("public/media/tts/m5-opt-6-3.mp3", "sáu cộng ba"),
+    ("public/media/tts/m5-q6-exp.mp3", "Năm cộng hai bằng bảy. Rất tuyệt vời!"),
+    ("public/media/tts/m5-q7-prompt.mp3", "Chọn số thích hợp đặt vào chỗ trống để sáu cộng mấy bằng chín:"),
+    ("public/media/tts/m5-item-3.mp3", "số ba"),
+    ("public/media/tts/m5-item-5.mp3", "số năm"),
+    ("public/media/tts/m5-q7-exp.mp3", "Sáu cộng ba bằng chín."),
+    ("public/media/tts/m5-q8-prompt.mp3", "Nối phép tính với kết quả đúng:"),
+    ("public/media/tts/m5-calc-6-1.mp3", "sáu cộng một"),
+    ("public/media/tts/m5-calc-5-3.mp3", "năm cộng ba"),
+    ("public/media/tts/m5-calc-10-1.mp3", "mười trừ một"),
+    ("public/media/tts/m5-res-7.mp3", "đáp số bảy"),
+    ("public/media/tts/m5-res-8.mp3", "đáp số tám"),
+    ("public/media/tts/m5-res-9.mp3", "đáp số chín"),
+    ("public/media/tts/m5-q8-exp.mp3", "Sáu cộng một bằng bảy, năm cộng ba bằng tám, mười trừ một bằng chín."),
+
+    # ----------------------------------------------------
+    # Math lesson 6 - Nhận biết Hình phẳng & Quy luật sắp xếp
+    # ----------------------------------------------------
+    ("public/media/tts/m6-title.mp3", "Bài sáu: Nhận biết Hình phẳng và Quy luật sắp xếp. Toán Lớp một."),
+    ("public/media/tts/m6-intro.mp3", "Các con hãy cùng cô làm quen bốn hình phẳng cơ bản: hình tròn, hình vuông, hình tam giác, hình chữ nhật và khám phá quy luật sắp xếp sinh động nhé!"),
+    ("public/media/tts/m6-q1-prompt.mp3", "Hình nào dưới đây là hình tròn màu đỏ?"),
+    ("public/media/tts/m6-opt-tron.mp3", "Hình tròn"),
+    ("public/media/tts/m6-opt-vuong.mp3", "Hình vuông"),
+    ("public/media/tts/m6-opt-tamgiac.mp3", "Hình tam giác"),
+    ("public/media/tts/m6-q1-exp.mp3", "Hình tròn có đường bao cong tròn khép kín."),
+    ("public/media/tts/m6-q2-prompt.mp3", "Hình nào dưới đây là hình chữ nhật?"),
+    ("public/media/tts/m6-opt-chunhat.mp3", "Hình chữ nhật"),
+    ("public/media/tts/m6-opt-vuong2.mp3", "Hình vuông màu đỏ"),
+    ("public/media/tts/m6-opt-tron2.mp3", "Hình tròn màu vàng"),
+    ("public/media/tts/m6-q2-exp.mp3", "Hình chữ nhật có hai cạnh dài bằng nhau và hai cạnh ngắn bằng nhau."),
+    ("public/media/tts/m6-q3-prompt.mp3", "Đếm xem có tất cả bao nhiêu hình vuông màu xanh?"),
+    ("public/media/tts/m6-q3-exp.mp3", "Có tất cả bốn hình vuông màu xanh!"),
+    ("public/media/tts/m6-q4-prompt.mp3", "Quy luật: Hình tròn, hình vuông, hình tròn, hình vuông. Hình tiếp theo là hình gì?"),
+    ("public/media/tts/m6-opt-pat-tron.mp3", "hình tròn kế tiếp"),
+    ("public/media/tts/m6-opt-pat-tamgiac.mp3", "hình tam giác kế tiếp"),
+    ("public/media/tts/m6-q4-exp.mp3", "Theo quy luật lặp lại, sau hình vuông sẽ là hình tròn."),
+    ("public/media/tts/m6-q5-prompt.mp3", "Bé hãy nối tên gọi với hình vẽ tương ứng:"),
+    ("public/media/tts/m6-lbl-tron.mp3", "tên hình tròn"),
+    ("public/media/tts/m6-lbl-vuong.mp3", "tên hình vuông"),
+    ("public/media/tts/m6-lbl-tamgiac.mp3", "tên hình tam giác"),
+    ("public/media/tts/m6-pic-tron.mp3", "ảnh hình tròn"),
+    ("public/media/tts/m6-pic-vuong.mp3", "ảnh hình vuông"),
+    ("public/media/tts/m6-pic-tamgiac.mp3", "ảnh hình tam giác"),
+    ("public/media/tts/m6-q5-exp.mp3", "Rất chính xác! Bé đã nhận biết đúng tất cả các hình học."),
+    ("public/media/tts/m6-q6-prompt.mp3", "Chọn hình thích hợp đặt vào chỗ trống theo quy luật xen kẽ tam giác và tròn:"),
+    ("public/media/tts/m6-item-tron.mp3", "thẻ hình tròn"),
+    ("public/media/tts/m6-item-vuong.mp3", "thẻ hình vuông"),
+    ("public/media/tts/m6-q6-exp.mp3", "Đúng rồi! Chuỗi quy luật xen kẽ là: tam giác rồi đến tròn."),
+
+    # ----------------------------------------------------
+    # Vietnamese lesson 1 - Common
+    # ----------------------------------------------------
     ("public/media/phonemes/a.mp3", "a"),
     ("public/media/phonemes/b.mp3", "bờ"),
     ("public/media/phonemes/c.mp3", "cờ"),
@@ -50,8 +215,6 @@ AUDIO_ITEMS = [
     ("public/media/phonemes/ca-sac.mp3", "cá"),
     ("public/media/phonemes/ca-co.mp3", "cá cờ"),
     ("public/media/phonemes/o.mp3", "o"),
-
-    # Vietnamese lesson 1 - Specific slide voiceovers
     ("public/media/tts/vn1-title.mp3", "Bài một: Âm a, b, c. Tiếng Việt Lớp một - Tuần hai."),
     ("public/media/tts/vn1-intro.mp3", "Làm quen chữ cái mới. Hôm nay các em sẽ học ba chữ cái đầu tiên: A, B, C."),
     ("public/media/tts/vn1-exp-tap.mp3", "Con cá bắt đầu bằng âm c, quả bóng bắt đầu bằng âm b."),
@@ -60,17 +223,222 @@ AUDIO_ITEMS = [
     ("public/media/tts/vn1-prompt-mc.mp3", "Âm 'b' ghép với âm 'a' và thanh sắc tạo thành tiếng gì?"),
     ("public/media/tts/vn1-exp-mc.mp3", "bờ - a - ba - sắc - bá!"),
 
-    # Vietnamese lesson 2 - Blending & Words
-    ("public/media/tts/vn2-title.mp3", "Bài hai: Ghép vần và từ ứng dụng. Tiếng Việt Lớp một."),
-    ("public/media/tts/vn2-intro.mp3", "Hôm nay chúng ta cùng luyện đọc và ghép các từ ứng dụng: ba ba, con cá, cờ đỏ."),
-    ("public/media/tts/prompt-match-words.mp3", "Bé hãy nối từ ở cột bên trái với hình vẽ tương ứng ở cột bên phải:"),
-    ("public/media/tts/exp-match-words.mp3", "Rất chính xác! Con cá nối với hình cá, quả bóng nối với hình quả bóng, con ba ba nối với hình con ba ba."),
+    # ----------------------------------------------------
+    # Vietnamese lesson 2 - Âm d, đ, e, ê và tiếng ghép
+    # ----------------------------------------------------
+    ("public/media/phonemes/d.mp3", "dờ"),
+    ("public/media/phonemes/dd.mp3", "đờ"),
+    ("public/media/phonemes/e.mp3", "e"),
+    ("public/media/phonemes/ee.mp3", "ê"),
+    ("public/media/phonemes/de.mp3", "dê"),
+    ("public/media/phonemes/do.mp3", "đò"),
+    ("public/media/phonemes/be.mp3", "bê"),
+    ("public/media/phonemes/me.mp3", "me"),
+    ("public/media/tts/vn2-title-new.mp3", "Bài hai: Âm d, đ, e, ê và tiếng ghép. Tiếng Việt Lớp một."),
+    ("public/media/tts/vn2-intro-new.mp3", "Hôm nay chúng mình cùng học bốn chữ cái mới: D, Đ, E, Ê và luyện đọc các tiếng: dê, đò, me, bê nhé!"),
+    ("public/media/tts/vn2-q1-prompt.mp3", "Tiếng 'dê' bắt đầu bằng âm nào?"),
+    ("public/media/tts/vn2-opt-d.mp3", "Âm d"),
+    ("public/media/tts/vn2-opt-dd.mp3", "Âm đ"),
+    ("public/media/tts/vn2-opt-b.mp3", "Âm b"),
+    ("public/media/tts/vn2-q1-exp.mp3", "Tiếng dê có âm d đứng trước, âm ê đứng sau: dờ - ê - dê."),
+    ("public/media/tts/vn2-q2-prompt.mp3", "Tiếng 'đò' bắt đầu bằng âm nào?"),
+    ("public/media/tts/vn2-opt-dd2.mp3", "Âm đ trong đò"),
+    ("public/media/tts/vn2-opt-d2.mp3", "Âm d trong dừa"),
+    ("public/media/tts/vn2-opt-c2.mp3", "Âm c trong cá"),
+    ("public/media/tts/vn2-q2-exp.mp3", "Tiếng đò bắt đầu bằng âm đ: đờ - o - đo - huyền - đò."),
+    ("public/media/tts/vn2-q3-prompt.mp3", "Chọn âm thích hợp đặt vào chỗ trống để tạo thành từ con dê:"),
+    ("public/media/tts/vn2-q3-exp.mp3", "Ghép âm d vào trước âm ê ta được tiếng dê trong từ con dê."),
+    ("public/media/tts/vn2-q4-prompt.mp3", "Nối tiếng với hình ảnh tương ứng:"),
+    ("public/media/tts/vn2-lbl-de.mp3", "con dê cỏ"),
+    ("public/media/tts/vn2-lbl-do.mp3", "con đò nhỏ"),
+    ("public/media/tts/vn2-lbl-be.mp3", "chú bê vàng"),
+    ("public/media/tts/vn2-q4-exp.mp3", "Rất giỏi! Bé đã nối đúng các tiếng với hình ảnh minh họa."),
+    ("public/media/tts/vn2-q5-prompt.mp3", "Chọn tiếng có chứa âm ê:"),
+    ("public/media/tts/vn2-opt-be.mp3", "chú bê"),
+    ("public/media/tts/vn2-opt-me.mp3", "quả me"),
+    ("public/media/tts/vn2-opt-ca.mp3", "con cá"),
+    ("public/media/tts/vn2-q5-exp.mp3", "Tiếng bê có âm ê đứng sau: bờ - ê - bê."),
+    ("public/media/tts/vn2-q6-prompt.mp3", "Chọn âm e hoặc ê thích hợp điền vào chỗ trống quả me:"),
+    ("public/media/tts/vn2-q6-exp.mp3", "Âm e ghép với âm m tạo thành tiếng me trong từ quả me."),
+
+    # ----------------------------------------------------
+    # Vietnamese lesson 3 - Âm i, k, l, h & ghép tiếng mẫu
+    # ----------------------------------------------------
+    ("public/media/phonemes/i.mp3", "i"),
+    ("public/media/phonemes/k.mp3", "k"),
+    ("public/media/phonemes/l.mp3", "lờ"),
+    ("public/media/phonemes/h.mp3", "hờ"),
+    ("public/media/phonemes/bi.mp3", "bi"),
+    ("public/media/phonemes/ki-huyen.mp3", "kì"),
+    ("public/media/phonemes/la-sac.mp3", "lá"),
+    ("public/media/phonemes/ho-huyen.mp3", "hồ"),
+    ("public/media/tts/vn3-title.mp3", "Bài ba: Âm i, k, l, h và tiếng ghép. Tiếng Việt Lớp một."),
+    ("public/media/tts/vn3-intro.mp3", "Chào mừng các con đến với bài học âm I, K, L, H. Chúng mình cùng luyện đọc: viên bi, kì lạ, chiếc lá, hồ nước nhé!"),
+    ("public/media/tts/vn3-q1-prompt.mp3", "Tiếng 'lá' bắt đầu bằng âm nào?"),
+    ("public/media/tts/vn3-opt-l.mp3", "Âm l"),
+    ("public/media/tts/vn3-opt-h.mp3", "Âm h"),
+    ("public/media/tts/vn3-opt-k.mp3", "Âm k"),
+    ("public/media/tts/vn3-q1-exp.mp3", "Tiếng lá có âm l đứng trước: lờ - a - la - sắc - lá."),
+    ("public/media/tts/vn3-q2-prompt.mp3", "Tiếng 'hồ' bắt đầu bằng âm nào?"),
+    ("public/media/tts/vn3-opt-h2.mp3", "Âm h trong hồ"),
+    ("public/media/tts/vn3-opt-l2.mp3", "Âm l trong lá"),
+    ("public/media/tts/vn3-opt-b2.mp3", "Âm b trong ba"),
+    ("public/media/tts/vn3-q2-exp.mp3", "Tiếng hồ có âm h đứng trước: hờ - ô - hô - huyền - hồ."),
+    ("public/media/tts/vn3-q3-prompt.mp3", "Chọn âm thích hợp đặt vào chỗ trống để tạo thành từ viên bi:"),
+    ("public/media/tts/vn3-q3-exp.mp3", "Âm b ghép với âm i tạo thành tiếng bi trong từ viên bi."),
+    ("public/media/tts/vn3-q4-prompt.mp3", "Nối tiếng với hình ảnh tương ứng:"),
+    ("public/media/tts/vn3-lbl-bi.mp3", "viên bi tròn"),
+    ("public/media/tts/vn3-lbl-la.mp3", "chiếc lá xanh"),
+    ("public/media/tts/vn3-lbl-ho.mp3", "hồ sen ngát"),
+    ("public/media/tts/vn3-pic-bi.mp3", "ảnh viên bi tròn"),
+    ("public/media/tts/vn3-pic-la.mp3", "ảnh chiếc lá xanh"),
+    ("public/media/tts/vn3-pic-ho.mp3", "ảnh hồ sen ngát"),
+    ("public/media/tts/vn3-q4-exp.mp3", "Nối chính xác: viên bi, chiếc lá, hồ sen."),
+    ("public/media/tts/vn3-q5-prompt.mp3", "Âm 'k' ghép với âm 'i' và thanh huyền tạo thành tiếng gì?"),
+    ("public/media/tts/vn3-opt-ki.mp3", "tiếng kì"),
+    ("public/media/tts/vn3-opt-la.mp3", "tiếng lá"),
+    ("public/media/tts/vn3-opt-ho.mp3", "tiếng hồ"),
+    ("public/media/tts/vn3-q5-exp.mp3", "kờ - i - ki - huyền - kì."),
+    ("public/media/tts/vn3-q6-prompt.mp3", "Điền âm l hoặc k vào chỗ trống của chiếc lá:"),
+    ("public/media/tts/vn3-q6-exp.mp3", "Âm l ghép với á tạo thành tiếng lá."),
+
+    # ----------------------------------------------------
+    # Vietnamese lesson 4 - Âm m, n, u, ư & từ ứng dụng
+    # ----------------------------------------------------
+    ("public/media/phonemes/m.mp3", "mờ"),
+    ("public/media/phonemes/n.mp3", "nờ"),
+    ("public/media/phonemes/u.mp3", "u"),
+    ("public/media/phonemes/uw.mp3", "ư"),
+    ("public/media/phonemes/me-nang.mp3", "mẹ"),
+    ("public/media/phonemes/no.mp3", "nơ"),
+    ("public/media/phonemes/mu-sac.mp3", "mú"),
+    ("public/media/phonemes/tu-hoi.mp3", "tử"),
+    ("public/media/tts/vn4-title.mp3", "Bài bốn: Âm m, n, u, ư và từ ứng dụng. Tiếng Việt Lớp một."),
+    ("public/media/tts/vn4-intro.mp3", "Hôm nay chúng mình cùng học các âm M, N, U, Ư và khám phá những từ ngữ yêu thương: mẹ, nơ, cá mú, sư tử!"),
+    ("public/media/tts/vn4-q1-prompt.mp3", "Tiếng 'mẹ' bắt đầu bằng âm nào?"),
+    ("public/media/tts/vn4-opt-m.mp3", "Âm m"),
+    ("public/media/tts/vn4-opt-n.mp3", "Âm n"),
+    ("public/media/tts/vn4-opt-b.mp3", "Âm b"),
+    ("public/media/tts/vn4-q1-exp.mp3", "Tiếng mẹ có âm m đứng trước, âm e đứng sau và thanh nặng: mờ - e - me - nặng - mẹ."),
+    ("public/media/tts/vn4-q2-prompt.mp3", "Tiếng 'nơ' bắt đầu bằng âm nào?"),
+    ("public/media/tts/vn4-opt-n2.mp3", "Âm n trong nơ"),
+    ("public/media/tts/vn4-opt-m2.mp3", "Âm m trong mẹ"),
+    ("public/media/tts/vn4-opt-l2.mp3", "Âm l trong lá"),
+    ("public/media/tts/vn4-q2-exp.mp3", "Tiếng nơ có âm n đứng trước: nờ - ơ - nơ."),
+    ("public/media/tts/vn4-q3-prompt.mp3", "Chọn âm thích hợp đặt vào chỗ trống để tạo thành từ cái nơ:"),
+    ("public/media/tts/vn4-q3-exp.mp3", "Âm n ghép với ơ thành tiếng nơ trong từ cái nơ."),
+    ("public/media/tts/vn4-q4-prompt.mp3", "Nối từ với hình ảnh tương ứng:"),
+    ("public/media/tts/vn4-lbl-no.mp3", "chiếc nơ xinh"),
+    ("public/media/tts/vn4-lbl-meo.mp3", "chú mèo con"),
+    ("public/media/tts/vn4-lbl-sua.mp3", "hộp sữa tươi"),
+    ("public/media/tts/vn4-pic-no.mp3", "ảnh chiếc nơ xinh"),
+    ("public/media/tts/vn4-pic-meo.mp3", "ảnh chú mèo con"),
+    ("public/media/tts/vn4-pic-sua.mp3", "ảnh hộp sữa tươi"),
+    ("public/media/tts/vn4-q4-exp.mp3", "Nối chính xác cái nơ, con mèo và hộp sữa!"),
+    ("public/media/tts/vn4-q5-prompt.mp3", "Từ nào dưới đây có chứa âm 'u'?"),
+    ("public/media/tts/vn4-opt-camu.mp3", "cá mú"),
+    ("public/media/tts/vn4-opt-caino.mp3", "cái nơ"),
+    ("public/media/tts/vn4-opt-conbe.mp3", "con bê"),
+    ("public/media/tts/vn4-q5-exp.mp3", "Tiếng mú có âm u: mờ - u - mu - sắc - mú."),
+    ("public/media/tts/vn4-q6-prompt.mp3", "Điền âm m hoặc n vào chỗ trống của mẹ yêu:"),
+    ("public/media/tts/vn4-q6-exp.mp3", "Âm m điền vào chỗ trống tạo thành từ mẹ yêu."),
+
+    # ----------------------------------------------------
+    # Vietnamese lesson 5 - Phụ âm ghép ch, kh, nh, th, tr
+    # ----------------------------------------------------
+    ("public/media/phonemes/ch.mp3", "chờ"),
+    ("public/media/phonemes/kh.mp3", "khờ"),
+    ("public/media/phonemes/nh.mp3", "nhờ"),
+    ("public/media/phonemes/th.mp3", "thờ"),
+    ("public/media/phonemes/tr.mp3", "trờ"),
+    ("public/media/phonemes/cho-nang.mp3", "chợ"),
+    ("public/media/phonemes/khi-hoi.mp3", "khỉ"),
+    ("public/media/phonemes/nha-huyen.mp3", "nhà"),
+    ("public/media/phonemes/tho-hoi.mp3", "thỏ"),
+    ("public/media/phonemes/tre.mp3", "trê"),
+    ("public/media/tts/vn5-title.mp3", "Bài năm: Phụ âm ghép ch, kh, nh, th, tr. Tiếng Việt Lớp một."),
+    ("public/media/tts/vn5-intro.mp3", "Chào các em! Hôm nay chúng ta làm quen các phụ âm ghép đặc biệt: ch, kh, nh, th, tr qua các từ quen thuộc: chợ, khỉ, nhà, thỏ, cá trê!"),
+    ("public/media/tts/vn5-q1-prompt.mp3", "Tiếng 'chợ' bắt đầu bằng phụ âm ghép nào?"),
+    ("public/media/tts/vn5-opt-ch.mp3", "chữ ch"),
+    ("public/media/tts/vn5-opt-kh.mp3", "chữ kh"),
+    ("public/media/tts/vn5-opt-th.mp3", "chữ th"),
+    ("public/media/tts/vn5-q1-exp.mp3", "Tiếng chợ bắt đầu bằng phụ âm ghép ch: chờ - ơ - chơ - nặng - chợ."),
+    ("public/media/tts/vn5-q2-prompt.mp3", "Tiếng 'thỏ' bắt đầu bằng phụ âm ghép nào?"),
+    ("public/media/tts/vn5-opt-th2.mp3", "phụ âm th"),
+    ("public/media/tts/vn5-opt-nh2.mp3", "phụ âm nh"),
+    ("public/media/tts/vn5-opt-tr2.mp3", "phụ âm tr"),
+    ("public/media/tts/vn5-q2-exp.mp3", "Tiếng thỏ bắt đầu bằng phụ âm ghép th: thờ - o - tho - hỏi - thỏ."),
+    ("public/media/tts/vn5-q3-prompt.mp3", "Tiếng 'khỉ' bắt đầu bằng phụ âm ghép nào?"),
+    ("public/media/tts/vn5-opt-kh3.mp3", "ghép kh"),
+    ("public/media/tts/vn5-opt-ch3.mp3", "ghép ch"),
+    ("public/media/tts/vn5-opt-nh3.mp3", "ghép nh"),
+    ("public/media/tts/vn5-q3-exp.mp3", "Tiếng khỉ bắt đầu bằng phụ âm kh: khờ - i - khi - hỏi - khỉ."),
+    ("public/media/tts/vn5-q4-prompt.mp3", "Chọn phụ âm ghép thích hợp đặt vào chỗ trống ngôi nhà:"),
+    ("public/media/tts/vn5-q4-exp.mp3", "Phụ âm ghép nh ghép với à tạo thành tiếng nhà trong từ ngôi nhà."),
+    ("public/media/tts/vn5-q5-prompt.mp3", "Nối phụ âm ghép với từ ngữ tương ứng:"),
+    ("public/media/tts/vn5-lbl-th.mp3", "âm th"),
+    ("public/media/tts/vn5-lbl-nh.mp3", "âm nh"),
+    ("public/media/tts/vn5-lbl-tr.mp3", "âm tr"),
+    ("public/media/tts/vn5-word-tho.mp3", "từ chú thỏ"),
+    ("public/media/tts/vn5-word-nha.mp3", "từ ngôi nhà"),
+    ("public/media/tts/vn5-word-tre.mp3", "từ cá trê"),
+    ("public/media/tts/vn5-q5-exp.mp3", "Nối đúng: th với thỏ, nh với nhà, tr với cá trê."),
+    ("public/media/tts/vn5-q6-prompt.mp3", "Điền th hoặc ch vào chỗ trống chú thỏ trắng:"),
+    ("public/media/tts/vn5-q6-exp.mp3", "Điền th để được từ chú thỏ trắng."),
+
+    # ----------------------------------------------------
+    # Vietnamese lesson 6 - Quy tắc chính tả c/k, g/gh, ng/ngh
+    # ----------------------------------------------------
+    ("public/media/phonemes/gh.mp3", "ghê"),
+    ("public/media/phonemes/g.mp3", "gờ"),
+    ("public/media/phonemes/ng.mp3", "ngờ"),
+    ("public/media/phonemes/ngh.mp3", "nghê"),
+    ("public/media/phonemes/ke-hoi.mp3", "kẻ"),
+    ("public/media/phonemes/ghe-sac.mp3", "ghế"),
+    ("public/media/phonemes/nghi-hoi.mp3", "nghỉ"),
+    ("public/media/phonemes/ga-huyen.mp3", "gà"),
+    ("public/media/phonemes/ngu-hoi.mp3", "ngủ"),
+    ("public/media/tts/vn6-title.mp3", "Bài sáu: Quy tắc chính tả c k, g gh, ng ngh. Tiếng Việt Lớp một."),
+    ("public/media/tts/vn6-intro.mp3", "Chào các em! Hôm nay chúng ta cùng ghi nhớ quy tắc chính tả vàng của Tiếng Việt: đi với i, e, ê thì viết k, gh, ngh; đi với các âm còn lại viết c, g, ng nhé!"),
+    ("public/media/tts/vn6-q1-prompt.mp3", "Trước các âm i, e, ê, ta viết chữ c hay chữ k?"),
+    ("public/media/tts/vn6-opt-k.mp3", "chữ k"),
+    ("public/media/tts/vn6-opt-c.mp3", "chữ c"),
+    ("public/media/tts/vn6-q1-exp.mp3", "Quy tắc chính tả: Đứng trước i, e, ê luôn viết là k (ví dụ: kẻ vở, cây kim)."),
+    ("public/media/tts/vn6-q2-prompt.mp3", "Từ nào dưới đây viết đúng chính tả?"),
+    ("public/media/tts/vn6-opt-ke-vo.mp3", "kẻ vở"),
+    ("public/media/tts/vn6-opt-ce-vo.mp3", "cẻ vở"),
+    ("public/media/tts/vn6-q2-exp.mp3", "Trước âm e phải viết chữ k, do đó 'kẻ vở' là từ đúng chính tả."),
+    ("public/media/tts/vn6-q3-prompt.mp3", "Trước âm ê, ta viết g hay gh?"),
+    ("public/media/tts/vn6-opt-gh.mp3", "chữ gh"),
+    ("public/media/tts/vn6-opt-g.mp3", "chữ g"),
+    ("public/media/tts/vn6-q3-exp.mp3", "Trước i, e, ê ta viết gh (ví dụ: ghế gỗ)."),
+    ("public/media/tts/vn6-q4-prompt.mp3", "Từ nào dưới đây viết đúng chính tả?"),
+    ("public/media/tts/vn6-opt-nghi-he.mp3", "nghỉ hè"),
+    ("public/media/tts/vn6-opt-ngi-he.mp3", "ngỉ hè"),
+    ("public/media/tts/vn6-q4-exp.mp3", "Trước âm i phải viết ngh, do đó 'nghỉ hè' là đúng chính tả."),
+    ("public/media/tts/vn6-q5-prompt.mp3", "Chọn c hoặc k điền vào chỗ trống con cá:"),
+    ("public/media/tts/vn6-q5-exp.mp3", "Trước âm a ta viết c: con cá."),
+    ("public/media/tts/vn6-q6-prompt.mp3", "Chọn g hoặc gh điền vào chỗ trống cái ghế gỗ:"),
+    ("public/media/tts/vn6-q6-exp.mp3", "Trước âm ê ta viết gh: cái ghế gỗ."),
+    ("public/media/tts/vn6-q7-prompt.mp3", "Nối chữ với từ viết đúng chính tả:"),
+    ("public/media/tts/vn6-lbl-k.mp3", "chữ cái k"),
+    ("public/media/tts/vn6-lbl-c.mp3", "chữ cái c"),
+    ("public/media/tts/vn6-lbl-gh.mp3", "chữ cái gh"),
+    ("public/media/tts/vn6-match-kevo.mp3", "từ kẻ vở đúng"),
+    ("public/media/tts/vn6-match-conca.mp3", "từ con cá đúng"),
+    ("public/media/tts/vn6-match-ghego.mp3", "từ ghế gỗ đúng"),
+    ("public/media/tts/vn6-q7-exp.mp3", "Xuất sắc! Bé đã nắm vững các quy tắc chính tả c k và g gh."),
+    # ----------------------------------------------------
+    # Legacy & Shared Audio Items
+    # ----------------------------------------------------
     ("public/media/tts/word-con-ca.mp3", "con cá"),
     ("public/media/tts/word-qua-bong.mp3", "quả bóng"),
     ("public/media/tts/word-ba-ba.mp3", "ba ba"),
     ("public/media/tts/desc-hinh-ca.mp3", "Hình cá"),
     ("public/media/tts/desc-hinh-bong.mp3", "Hình bóng"),
     ("public/media/tts/desc-hinh-baba.mp3", "Hình con ba ba"),
+    ("public/media/tts/prompt-match-words.mp3", "Bé hãy nối từ ở cột bên trái với hình vẽ tương ứng ở cột bên phải:"),
+    ("public/media/tts/exp-match-words.mp3", "Rất chính xác! Con cá nối với hình cá, quả bóng nối với hình quả bóng, con ba ba nối với hình con ba ba."),
     ("public/media/tts/prompt-tap-baba.mp3", "Bé hãy chọn âm thích hợp đặt vào chỗ trống để tạo thành từ ba ba:"),
     ("public/media/tts/exp-tap-baba.mp3", "Chính xác! Âm bờ ghép với âm a tạo thành tiếng ba, trong từ ba ba."),
     ("public/media/tts/prompt-mc-co-do.mp3", "Hình ảnh lá cờ đỏ sao vàng ứng với từ ngữ nào?"),
@@ -78,10 +446,8 @@ AUDIO_ITEMS = [
     ("public/media/tts/opt-ca-co.mp3", "cá cờ"),
     ("public/media/tts/opt-ba-ba.mp3", "ba ba"),
     ("public/media/tts/exp-co-do.mp3", "Lá cờ đỏ sao vàng là Quốc kỳ thiêng liêng của nước Việt Nam chúng mình."),
-
-    # Math lesson 2 - Addition & 2D Shapes
-    ("public/media/tts/math2-title.mp3", "Phép cộng trong phạm vi mười và Làm quen hình phẳng. Toán Lớp một."),
-    ("public/media/tts/math2-intro.mp3", "Phép cộng là gộp hai nhóm lại với nhau. Hôm nay chúng mình cùng học cộng và làm quen các hình học nhé!"),
+    ("public/media/tts/vn2-title.mp3", "Bài hai: Ghép vần và từ ứng dụng. Tiếng Việt Lớp một."),
+    ("public/media/tts/vn2-intro.mp3", "Hôm nay chúng ta cùng luyện đọc và ghép các từ ứng dụng: ba ba, con cá, cờ đỏ."),
     ("public/media/tts/prompt-shape-square.mp3", "Hình nào dưới đây là hình vuông màu xanh?"),
     ("public/media/tts/opt-shape-square.mp3", "Hình vuông"),
     ("public/media/tts/opt-shape-circle.mp3", "Hình tròn"),
@@ -99,23 +465,25 @@ AUDIO_ITEMS = [
     ("public/media/tts/exp-count-shapes.mp3", "Có tất cả năm hình tam giác màu vàng rực rỡ!"),
     ("public/media/tts/prompt-add-5-5.mp3", "Bé tính kết quả của phép cộng: năm cộng năm bằng mấy?"),
     ("public/media/tts/exp-add-5-5.mp3", "Năm cộng năm bằng mười. Hai bàn tay, mỗi bàn tay có năm ngón tay, cả hai bàn tay có mười ngón tay."),
+    ("public/media/tts/math2-title.mp3", "Phép cộng trong phạm vi mười và Làm quen hình phẳng. Toán Lớp một."),
+    ("public/media/tts/math2-intro.mp3", "Phép cộng là gộp hai nhóm lại với nhau. Hôm nay chúng mình cùng học cộng và làm quen các hình học nhé!"),
 ]
 
 def main():
     print(f"🎙️  Checking and generating {len(AUDIO_ITEMS)} real Vietnamese voiceover files...\n")
     generated = 0
     for path, text in AUDIO_ITEMS:
-        # Re-generate ca.mp3 if it was previously created with "con cá"
-        if not os.path.exists(path) or (path == "public/media/phonemes/ca.mp3" and text == "ca"):
+        if not os.path.exists(path) or os.path.getsize(path) == 0:
             tts = gTTS(text, lang='vi')
             tts.save(path)
             size = os.path.getsize(path)
             print(f"   ✅ [GEN] {path} ({size:,} bytes) -> \"{text}\"")
             generated += 1
         else:
-            print(f"   ⏩ [EXISTS] {path}")
+            # File already exists
+            pass
 
-    print(f"\n🎉 Successfully verified audio! (Generated/updated {generated} files)")
+    print(f"\n🎉 Successfully verified audio! (Generated/updated {generated} files, total {len(AUDIO_ITEMS)} files)")
 
     manifest = {}
     for path, text in AUDIO_ITEMS:
@@ -127,7 +495,7 @@ def main():
     manifest_path = "scripts/tts-manifest.json"
     with open(manifest_path, "w", encoding="utf-8") as f:
         json.dump(manifest, f, ensure_ascii=False, indent=2)
-    print(f"📋 Exported TTS manifest to {manifest_path} ({len(AUDIO_ITEMS)} items)")
+    print(f"📋 Exported TTS manifest to {manifest_path} ({len(manifest)} keys)")
 
 if __name__ == "__main__":
     main()

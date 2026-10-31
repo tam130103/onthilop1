@@ -1,0 +1,195 @@
+{
+  "status": "publish",
+  "mode": "publish",
+  "id": "vn-03-i-k-l-h",
+  "title": "Bài 3: Âm i, k, l, h & Ghép tiếng mẫu",
+  "subject": "vietnamese",
+  "grade": 1,
+  "description": "Bài học Tiếng Việt Lớp 1: Nhận biết và phát âm chuẩn các âm i, k, l, h; luyện ghép tiếng mẫu (bi, kì, lá, hồ) qua 6 câu hỏi tương tác.",
+  "totalDurationMinutes": 25,
+  "slides": [
+    {
+      "type": "title-slide",
+      "id": "vn3-title-slide",
+      "title": "Bài 3: Âm i, k, l, h & Tiếng mẫu",
+      "subtitle": "Tiếng Việt Lớp 1 — Bài học tương tác",
+      "teacherNote": "Hướng dẫn học sinh phân biệt âm l (lờ uốn lưỡi) và n (nờ); cách phát âm âm k (ca) và h (hờ).",
+      "backgroundImage": "/media/images/star.svg",
+      "audio": "/media/tts/vn3-title.mp3"
+    },
+    {
+      "type": "content-slide",
+      "id": "vn3-intro-slide",
+      "title": "Làm quen chữ cái I, K, L, H",
+      "body": "Chào mừng các con đến với bài học âm I, K, L, H. Chúng mình cùng luyện đọc: viên bi, kì lạ, chiếc lá, hồ nước nhé!",
+      "teacherNote": "Mời cả lớp đọc to các từ mẫu trên bảng.",
+      "illustration": "/media/images/leaf.svg",
+      "audio": "/media/tts/vn3-intro.mp3",
+      "bullets": [
+        "i — bi (viên bi tròn)",
+        "k — kì (kì lạ, kì diệu)",
+        "l — lá (chiếc lá xanh)",
+        "h — hồ (hồ sen ngát hương)"
+      ]
+    },
+    {
+      "type": "question-slide",
+      "id": "vn3-slide-q1",
+      "teacherNote": "Nhận diện âm đầu 'l' trong tiếng lá.",
+      "question": {
+        "type": "multiple_choice",
+        "id": "vn3-q1-mc-sound-l",
+        "prompt": "Tiếng 'lá' bắt đầu bằng âm nào?",
+        "promptAudio": "/media/tts/vn3-q1-prompt.mp3",
+        "illustration": "/media/images/leaf.svg",
+        "options": [
+          { "id": "opt-l", "label": "Âm l", "audio": "/media/tts/vn3-opt-l.mp3", "isPhonemeOrWord": true },
+          { "id": "opt-h", "label": "Âm h", "audio": "/media/tts/vn3-opt-h.mp3", "isPhonemeOrWord": true },
+          { "id": "opt-k", "label": "Âm k", "audio": "/media/tts/vn3-opt-k.mp3", "isPhonemeOrWord": true }
+        ],
+        "correctOptionId": "opt-l",
+        "explanation": "Tiếng lá có âm l đứng trước: lờ - a - la - sắc - lá.",
+        "explanationAudio": "/media/tts/vn3-q1-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn3-slide-q2",
+      "teacherNote": "Nhận diện âm đầu 'h' trong tiếng hồ.",
+      "question": {
+        "type": "multiple_choice",
+        "id": "vn3-q2-mc-sound-h",
+        "prompt": "Tiếng 'hồ' bắt đầu bằng âm nào?",
+        "promptAudio": "/media/tts/vn3-q2-prompt.mp3",
+        "illustration": "/media/images/boat.svg",
+        "options": [
+          { "id": "opt-h2", "label": "Âm h", "audio": "/media/tts/vn3-opt-h2.mp3", "isPhonemeOrWord": true },
+          { "id": "opt-l2", "label": "Âm l", "audio": "/media/tts/vn3-opt-l2.mp3", "isPhonemeOrWord": true },
+          { "id": "opt-b2", "label": "Âm b", "audio": "/media/tts/vn3-opt-b2.mp3", "isPhonemeOrWord": true }
+        ],
+        "correctOptionId": "opt-h2",
+        "explanation": "Tiếng hồ có âm h đứng trước: hờ - ô - hô - huyền - hồ.",
+        "explanationAudio": "/media/tts/vn3-q2-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn3-slide-q3",
+      "teacherNote": "Điền âm b để tạo thành tiếng bi trong viên bi.",
+      "question": {
+        "type": "tap_place",
+        "id": "vn3-q3-tap-bi",
+        "prompt": "Chọn âm thích hợp đặt vào chỗ trống để tạo thành từ viên bi:",
+        "promptAudio": "/media/tts/vn3-q3-prompt.mp3",
+        "illustration": "/media/images/ball.svg",
+        "targets": [
+          {
+            "id": "tgt-bi",
+            "label": "...",
+            "prefixText": "Viên ",
+            "suffixText": "i"
+          }
+        ],
+        "items": [
+          { "id": "item-bi-b", "label": "b", "audio": "/media/phonemes/b.mp3", "isPhonemeOrWord": true },
+          { "id": "item-bi-h", "label": "h", "audio": "/media/phonemes/h.mp3", "isPhonemeOrWord": true }
+        ],
+        "correctMapping": {
+          "item-bi-b": "tgt-bi"
+        },
+        "explanation": "Âm b ghép với âm i tạo thành tiếng bi trong từ viên bi.",
+        "explanationAudio": "/media/tts/vn3-q3-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn3-slide-q4",
+      "teacherNote": "Nối tiếng với tranh vẽ tương ứng.",
+      "question": {
+        "type": "matching",
+        "id": "vn3-q4-match-words",
+        "prompt": "Nối tiếng với hình ảnh tương ứng:",
+        "promptAudio": "/media/tts/vn3-q4-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "leftColumn": [
+          { "id": "l-bi", "label": "viên bi", "audio": "/media/tts/vn3-lbl-bi.mp3" },
+          { "id": "l-la", "label": "chiếc lá", "audio": "/media/tts/vn3-lbl-la.mp3" },
+          { "id": "l-ho", "label": "hồ sen", "audio": "/media/tts/vn3-lbl-ho.mp3" }
+        ],
+        "rightColumn": [
+          { "id": "r-bi", "label": "Tranh viên bi", "image": "/media/images/ball.svg", "audio": "/media/tts/vn3-pic-bi.mp3" },
+          { "id": "r-la", "label": "Tranh chiếc lá", "image": "/media/images/leaf.svg", "audio": "/media/tts/vn3-pic-la.mp3" },
+          { "id": "r-ho", "label": "Tranh hồ sen", "image": "/media/images/boat.svg", "audio": "/media/tts/vn3-pic-ho.mp3" }
+        ],
+        "correctPairs": [
+          { "leftId": "l-bi", "rightId": "r-bi" },
+          { "leftId": "l-la", "rightId": "r-la" },
+          { "leftId": "l-ho", "rightId": "r-ho" }
+        ],
+        "explanation": "Nối chính xác: viên bi, chiếc lá, hồ sen.",
+        "explanationAudio": "/media/tts/vn3-q4-exp.mp3"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn3-slide-q5",
+      "teacherNote": "Đánh vần: kờ - i - ki - huyền - kì.",
+      "question": {
+        "type": "multiple_choice",
+        "id": "vn3-q5-mc-blend-ki",
+        "prompt": "Âm 'k' ghép với âm 'i' và thanh huyền tạo thành tiếng gì?",
+        "promptAudio": "/media/tts/vn3-q5-prompt.mp3",
+        "illustration": "/media/images/book.svg",
+        "options": [
+          { "id": "opt-ki", "label": "kì", "audio": "/media/tts/vn3-opt-ki.mp3", "isPhonemeOrWord": true },
+          { "id": "opt-la", "label": "lá", "audio": "/media/tts/vn3-opt-la.mp3", "isPhonemeOrWord": true },
+          { "id": "opt-ho", "label": "hồ", "audio": "/media/tts/vn3-opt-ho.mp3", "isPhonemeOrWord": true }
+        ],
+        "correctOptionId": "opt-ki",
+        "explanation": "kờ - i - ki - huyền - kì.",
+        "explanationAudio": "/media/tts/vn3-q5-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn3-slide-q6",
+      "teacherNote": "Điền âm l vào: Chiếc lá.",
+      "question": {
+        "type": "tap_place",
+        "id": "vn3-q6-tap-la",
+        "prompt": "Điền âm l hoặc k vào chỗ trống của chiếc lá:",
+        "promptAudio": "/media/tts/vn3-q6-prompt.mp3",
+        "illustration": "/media/images/leaf.svg",
+        "targets": [
+          {
+            "id": "tgt-la",
+            "label": "...",
+            "prefixText": "Chiếc ",
+            "suffixText": "á"
+          }
+        ],
+        "items": [
+          { "id": "item-l", "label": "l", "audio": "/media/phonemes/l.mp3", "isPhonemeOrWord": true },
+          { "id": "item-k", "label": "k", "audio": "/media/phonemes/k.mp3", "isPhonemeOrWord": true }
+        ],
+        "correctMapping": {
+          "item-l": "tgt-la"
+        },
+        "explanation": "Âm l ghép với á tạo thành tiếng lá.",
+        "explanationAudio": "/media/tts/vn3-q6-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    }
+  ]
+}

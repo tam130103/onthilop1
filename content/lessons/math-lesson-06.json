@@ -1,0 +1,187 @@
+{
+  "status": "publish",
+  "mode": "publish",
+  "id": "math-06-shapes-and-patterns",
+  "title": "Hình phẳng & Quy luật sắp xếp",
+  "subject": "math",
+  "grade": 1,
+  "description": "Bài học Toán Lớp 1: Nhận diện 4 hình phẳng cơ bản (hình vuông, hình tròn, hình tam giác, hình chữ nhật) và khám phá quy luật sắp xếp chuỗi hình học sinh động qua 6 câu hỏi.",
+  "totalDurationMinutes": 25,
+  "slides": [
+    {
+      "type": "title-slide",
+      "id": "m6-slide-title",
+      "title": "Hình phẳng & Quy luật sắp xếp",
+      "subtitle": "Toán Lớp 1 — Bài học tương tác",
+      "teacherNote": "Hướng dẫn học sinh gọi tên và chỉ ra các đồ vật thực tế có dạng hình tròn, vuông, tam giác, chữ nhật.",
+      "backgroundImage": "/media/images/star.svg",
+      "audio": "/media/tts/m6-title.mp3"
+    },
+    {
+      "type": "content-slide",
+      "id": "m6-slide-intro",
+      "title": "Bốn hình phẳng quen thuộc",
+      "body": "Các con hãy cùng cô làm quen bốn hình phẳng cơ bản: hình tròn, hình vuông, hình tam giác, hình chữ nhật và khám phá quy luật sắp xếp sinh động nhé!",
+      "teacherNote": "Cho học sinh sờ và cảm nhận các khối hình thực tế trong lớp.",
+      "illustration": "/media/images/square.svg",
+      "audio": "/media/tts/m6-intro.mp3",
+      "bullets": [
+        "Hình tròn: Đường cong khép kín (như chiếc đĩa, đồng hồ)",
+        "Hình vuông: Có 4 cạnh bằng nhau (như viên gạch bông)",
+        "Hình tam giác: Có 3 cạnh và 3 góc (như biển báo giao thông)",
+        "Hình chữ nhật: Có 2 cạnh dài và 2 cạnh ngắn (như bảng lớp, quyển sách)"
+      ]
+    },
+    {
+      "type": "question-slide",
+      "id": "m6-slide-q1",
+      "teacherNote": "Nhận biết hình tròn màu đỏ.",
+      "question": {
+        "type": "multiple_choice",
+        "id": "m6-q1-mc-circle",
+        "prompt": "Hình nào dưới đây là hình tròn màu đỏ?",
+        "promptAudio": "/media/tts/m6-q1-prompt.mp3",
+        "illustration": "/media/images/circle.svg",
+        "options": [
+          { "id": "opt-c-red", "label": "Hình tròn", "image": "/media/images/circle.svg", "audio": "/media/tts/m6-opt-tron.mp3" },
+          { "id": "opt-s-blue", "label": "Hình vuông", "image": "/media/images/square.svg", "audio": "/media/tts/m6-opt-vuong.mp3" },
+          { "id": "opt-t-yellow", "label": "Hình tam giác", "image": "/media/images/triangle.svg", "audio": "/media/tts/m6-opt-tamgiac.mp3" }
+        ],
+        "correctOptionId": "opt-c-red",
+        "explanation": "Hình tròn có đường bao cong tròn khép kín.",
+        "explanationAudio": "/media/tts/m6-q1-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m6-slide-q2",
+      "teacherNote": "Nhận biết hình chữ nhật.",
+      "question": {
+        "type": "multiple_choice",
+        "id": "m6-q2-mc-rectangle",
+        "prompt": "Hình nào dưới đây là hình chữ nhật?",
+        "promptAudio": "/media/tts/m6-q2-prompt.mp3",
+        "illustration": "/media/images/rectangle.svg",
+        "options": [
+          { "id": "opt-rect", "label": "Hình chữ nhật", "image": "/media/images/rectangle.svg", "audio": "/media/tts/m6-opt-chunhat.mp3" },
+          { "id": "opt-sq2", "label": "Hình vuông", "image": "/media/images/square.svg", "audio": "/media/tts/m6-opt-vuong2.mp3" },
+          { "id": "opt-cir2", "label": "Hình tròn", "image": "/media/images/circle.svg", "audio": "/media/tts/m6-opt-tron2.mp3" }
+        ],
+        "correctOptionId": "opt-rect",
+        "explanation": "Hình chữ nhật có hai cạnh dài bằng nhau và hai cạnh ngắn bằng nhau.",
+        "explanationAudio": "/media/tts/m6-q2-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m6-slide-q3",
+      "teacherNote": "Đếm 4 hình vuông.",
+      "question": {
+        "type": "counting",
+        "id": "m6-q3-counting-squares",
+        "prompt": "Đếm xem có tất cả bao nhiêu hình vuông màu xanh?",
+        "promptAudio": "/media/tts/m6-q3-prompt.mp3",
+        "illustration": "/media/images/square.svg",
+        "items": [
+          { "image": "/media/images/square.svg", "alt": "Hình vuông 1" },
+          { "image": "/media/images/square.svg", "alt": "Hình vuông 2" },
+          { "image": "/media/images/square.svg", "alt": "Hình vuông 3" },
+          { "image": "/media/images/square.svg", "alt": "Hình vuông 4" }
+        ],
+        "correctCount": 4,
+        "numberRange": { "min": 1, "max": 5 },
+        "explanation": "Có tất cả bốn hình vuông màu xanh!",
+        "explanationAudio": "/media/tts/m6-q3-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m6-slide-q4",
+      "teacherNote": "Quy luật xen kẽ: Tròn - Vuông - Tròn - Vuông - ? (Tròn).",
+      "question": {
+        "type": "multiple_choice",
+        "id": "m6-q4-mc-pattern",
+        "prompt": "Quy luật: Hình tròn, hình vuông, hình tròn, hình vuông. Hình tiếp theo là hình gì?",
+        "promptAudio": "/media/tts/m6-q4-prompt.mp3",
+        "illustration": "/media/images/circle.svg",
+        "options": [
+          { "id": "opt-next-cir", "label": "Hình tròn", "image": "/media/images/circle.svg", "audio": "/media/tts/m6-opt-pat-tron.mp3" },
+          { "id": "opt-next-tri", "label": "Hình tam giác", "image": "/media/images/triangle.svg", "audio": "/media/tts/m6-opt-pat-tamgiac.mp3" }
+        ],
+        "correctOptionId": "opt-next-cir",
+        "explanation": "Theo quy luật lặp lại, sau hình vuông sẽ là hình tròn.",
+        "explanationAudio": "/media/tts/m6-q4-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m6-slide-q5",
+      "teacherNote": "Nối tên hình học với hình tương ứng.",
+      "question": {
+        "type": "matching",
+        "id": "m6-q5-match-shapes",
+        "prompt": "Bé hãy nối tên gọi với hình vẽ tương ứng:",
+        "promptAudio": "/media/tts/m6-q5-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "leftColumn": [
+          { "id": "l-tron", "label": "Hình tròn", "audio": "/media/tts/m6-lbl-tron.mp3" },
+          { "id": "l-vuong", "label": "Hình vuông", "audio": "/media/tts/m6-lbl-vuong.mp3" },
+          { "id": "l-tamgiac", "label": "Hình tam giác", "audio": "/media/tts/m6-lbl-tamgiac.mp3" }
+        ],
+        "rightColumn": [
+          { "id": "r-tron", "label": "Tranh hình tròn", "image": "/media/images/circle.svg", "audio": "/media/tts/m6-pic-tron.mp3" },
+          { "id": "r-vuong", "label": "Tranh hình vuông", "image": "/media/images/square.svg", "audio": "/media/tts/m6-pic-vuong.mp3" },
+          { "id": "r-tamgiac", "label": "Tranh hình tam giác", "image": "/media/images/triangle.svg", "audio": "/media/tts/m6-pic-tamgiac.mp3" }
+        ],
+        "correctPairs": [
+          { "leftId": "l-tron", "rightId": "r-tron" },
+          { "leftId": "l-vuong", "rightId": "r-vuong" },
+          { "leftId": "l-tamgiac", "rightId": "r-tamgiac" }
+        ],
+        "explanation": "Rất chính xác! Bé đã nhận biết đúng tất cả các hình học.",
+        "explanationAudio": "/media/tts/m6-q5-exp.mp3"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m6-slide-q6",
+      "teacherNote": "Đặt hình tròn còn thiếu vào chuỗi quy luật.",
+      "question": {
+        "type": "tap_place",
+        "id": "m6-q6-tap-pattern",
+        "prompt": "Chọn hình thích hợp đặt vào chỗ trống theo quy luật:",
+        "promptAudio": "/media/tts/m6-q6-prompt.mp3",
+        "illustration": "/media/images/triangle.svg",
+        "targets": [
+          {
+            "id": "tgt-pattern-missing",
+            "label": "...",
+            "prefixText": "Tam giác, Tròn, Tam giác, ",
+            "suffixText": ""
+          }
+        ],
+        "items": [
+          { "id": "item-tron", "label": "Hình tròn", "audio": "/media/tts/m6-item-tron.mp3", "isPhonemeOrWord": true },
+          { "id": "item-vuong", "label": "Hình vuông", "audio": "/media/tts/m6-item-vuong.mp3", "isPhonemeOrWord": true }
+        ],
+        "correctMapping": {
+          "item-tron": "tgt-pattern-missing"
+        },
+        "explanation": "Đúng rồi! Chuỗi quy luật xen kẽ là: tam giác rồi đến tròn.",
+        "explanationAudio": "/media/tts/m6-q6-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    }
+  ]
+}

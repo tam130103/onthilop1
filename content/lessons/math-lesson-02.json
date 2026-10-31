@@ -1,157 +1,210 @@
 {
   "status": "publish",
   "mode": "publish",
-  "id": "math-02-addition",
-  "title": "Phép cộng phạm vi 10 & Làm quen hình phẳng",
+  "id": "math-02-comparison-6-10",
+  "title": "So sánh nhiều hơn, ít hơn & Các số từ 6 đến 10",
   "subject": "math",
   "grade": 1,
-  "description": "Bài học Toán Lớp 1: Khám phá phép cộng trong phạm vi 10 và làm quen các hình học phẳng quen thuộc (hình vuông, hình tròn, hình tam giác).",
+  "description": "Bài học Toán Lớp 1: Rèn luyện kỹ năng so sánh nhiều hơn, ít hơn, bằng nhau và làm quen nhận biết các số từ 6 đến 10 qua 7 câu hỏi tương tác.",
   "totalDurationMinutes": 25,
   "slides": [
     {
       "type": "title-slide",
-      "id": "math2-title-slide",
-      "title": "Phép cộng phạm vi 10 & Hình học",
+      "id": "m2-slide-title",
+      "title": "So sánh nhiều hơn, ít hơn & Các số 6 đến 10",
       "subtitle": "Toán Lớp 1 — Bài học tương tác",
-      "teacherNote": "Giới thiệu ý nghĩa của việc gộp hai nhóm số lượng và nhận diện hình dáng đồ vật.",
+      "teacherNote": "Hướng dẫn học sinh quan sát số lượng đồ vật, so sánh số lớn hơn, bé hơn và đếm đến 10.",
       "backgroundImage": "/media/images/star.svg",
-      "audio": "/media/tts/math2-title.mp3"
+      "audio": "/media/tts/m2-title.mp3"
     },
     {
       "type": "content-slide",
-      "id": "math2-intro-slide",
-      "title": "Phép cộng là gì?",
-      "body": "Phép cộng là gộp hai nhóm lại với nhau để biết tổng cộng có bao nhiêu. Hôm nay chúng mình cùng học cộng và làm quen các hình học nhé!",
-      "teacherNote": "Hướng dẫn học sinh nhận biết dấu cộng (+), dấu bằng (=) và đếm thêm.",
-      "illustration": "/media/images/square.svg",
-      "audio": "/media/tts/math2-intro.mp3",
+      "id": "m2-slide-intro",
+      "title": "Làm quen các số từ 6 đến 10",
+      "body": "Hôm nay chúng mình cùng học so sánh số lượng nhiều hơn, ít hơn, bằng nhau và làm quen các số từ 6 đến 10 nhé!",
+      "teacherNote": "Mời cả lớp cùng đếm to từ 6 đến 10.",
+      "illustration": "/media/images/apple.svg",
+      "audio": "/media/tts/m2-intro.mp3",
       "bullets": [
-        "Dấu cộng: + (thêm vào, gộp lại)",
-        "Dấu bằng: = (kết quả)",
-        "Hình phẳng: Hình vuông, Hình tròn, Hình tam giác"
+        "Số 6 — Sáu quả táo",
+        "Số 7 — Bảy chú cá",
+        "Số 8 — Tám chiếc lá",
+        "Số 9 — Chín ngôi sao",
+        "Số 10 — Mười bông hoa"
       ]
     },
     {
       "type": "question-slide",
-      "id": "math2-q1-shape",
-      "teacherNote": "Gợi ý cho các con quan sát 4 cạnh bằng nhau của hình vuông.",
-      "question": {
-        "type": "multiple_choice",
-        "id": "math2-q1-mc-shape",
-        "prompt": "Hình nào dưới đây là hình vuông màu xanh?",
-        "promptAudio": "/media/tts/prompt-shape-square.mp3",
-        "illustration": "/media/images/square.svg",
-        "options": [
-          { "id": "opt-sq", "label": "Hình vuông", "image": "/media/images/square.svg", "audio": "/media/tts/opt-shape-square.mp3" },
-          { "id": "opt-cir", "label": "Hình tròn", "image": "/media/images/circle.svg", "audio": "/media/tts/opt-shape-circle.mp3" },
-          { "id": "opt-tri", "label": "Hình tam giác", "image": "/media/images/triangle.svg", "audio": "/media/tts/opt-shape-triangle.mp3" }
-        ],
-        "correctOptionId": "opt-sq",
-        "explanation": "Hình vuông có bốn cạnh bằng nhau và bốn góc vuông vắn.",
-        "explanationAudio": "/media/tts/exp-shape-square.mp3"
-      },
-      "timeLimitSeconds": 25,
-      "showRetryOnWrong": true
-    },
-    {
-      "type": "question-slide",
-      "id": "math2-q2-add",
-      "teacherNote": "Khuyến khích học sinh đếm tiếp từ 4: thêm 1 là 5, thêm 1 là 6, thêm 1 là 7.",
-      "question": {
-        "type": "number_select",
-        "id": "math2-q2-ns-add-4-3",
-        "prompt": "Bé hãy tính kết quả phép tính sau:",
-        "promptAudio": "/media/tts/prompt-add-4-3.mp3",
-        "illustration": "/media/images/apple.svg",
-        "expression": "4 + 3 = ?",
-        "choices": [5, 6, 7, 8],
-        "correctAnswer": 7,
-        "explanation": "Bốn cộng ba bằng bảy. Bắt đầu từ bốn, đếm thêm ba: năm, sáu, bảy.",
-        "explanationAudio": "/media/tts/exp-add-4-3.mp3"
-      },
-      "timeLimitSeconds": 25,
-      "showRetryOnWrong": true
-    },
-    {
-      "type": "question-slide",
-      "id": "math2-q3-calc-6",
-      "teacherNote": "Cho cả lớp tính nhẩm từng phép tính trước khi chọn.",
-      "question": {
-        "type": "multiple_choice",
-        "id": "math2-q3-mc-calc-6",
-        "prompt": "Phép tính nào dưới đây có kết quả bằng 6?",
-        "promptAudio": "/media/tts/prompt-mc-equal-6.mp3",
-        "illustration": "/media/images/star.svg",
-        "options": [
-          { "id": "calc-2-3", "label": "2 + 3", "audio": "/media/tts/opt-calc-2-3.mp3" },
-          { "id": "calc-4-2", "label": "4 + 2", "audio": "/media/tts/opt-calc-4-2.mp3" },
-          { "id": "calc-5-3", "label": "5 + 3", "audio": "/media/tts/opt-calc-5-3.mp3" },
-          { "id": "calc-1-3", "label": "1 + 3", "audio": "/media/tts/opt-calc-1-3.mp3" }
-        ],
-        "correctOptionId": "calc-4-2",
-        "explanation": "Bốn cộng hai bằng sáu. Bốn thêm hai là sáu.",
-        "explanationAudio": "/media/tts/exp-calc-4-2.mp3"
-      },
-      "timeLimitSeconds": 30,
-      "showRetryOnWrong": true
-    },
-    {
-      "type": "question-slide",
-      "id": "math2-q4-count-triangles",
-      "teacherNote": "Hướng dẫn học sinh chỉ tay đếm lần lượt từng hình tam giác màu vàng.",
+      "id": "m2-slide-q1",
+      "teacherNote": "Mời học sinh đếm lần lượt 6 quả táo đỏ.",
       "question": {
         "type": "counting",
-        "id": "math2-q4-counting-triangles",
-        "prompt": "Đếm xem có tất cả bao nhiêu hình tam giác màu vàng?",
-        "promptAudio": "/media/tts/prompt-count-shapes.mp3",
-        "illustration": "/media/images/triangle.svg",
+        "id": "m2-q1-counting-6-apples",
+        "prompt": "Đếm xem có bao nhiêu quả táo đỏ trên cây?",
+        "promptAudio": "/media/tts/m2-q1-prompt.mp3",
+        "illustration": "/media/images/apple.svg",
         "items": [
-          { "image": "/media/images/triangle.svg", "alt": "Tam giác 1" },
-          { "image": "/media/images/triangle.svg", "alt": "Tam giác 2" },
-          { "image": "/media/images/triangle.svg", "alt": "Tam giác 3" },
-          { "image": "/media/images/triangle.svg", "alt": "Tam giác 4" },
-          { "image": "/media/images/triangle.svg", "alt": "Tam giác 5" }
+          { "image": "/media/images/apple.svg", "alt": "Táo 1" },
+          { "image": "/media/images/apple.svg", "alt": "Táo 2" },
+          { "image": "/media/images/apple.svg", "alt": "Táo 3" },
+          { "image": "/media/images/apple.svg", "alt": "Táo 4" },
+          { "image": "/media/images/apple.svg", "alt": "Táo 5" },
+          { "image": "/media/images/apple.svg", "alt": "Táo 6" }
         ],
-        "correctCount": 5,
+        "correctCount": 6,
         "numberRange": { "min": 1, "max": 10 },
-        "explanation": "Có tất cả năm hình tam giác màu vàng rực rỡ!",
-        "explanationAudio": "/media/tts/exp-count-shapes.mp3"
-      },
-      "timeLimitSeconds": 30,
-      "showRetryOnWrong": true
-    },
-    {
-      "type": "question-slide",
-      "id": "math2-q5-add-5-5",
-      "teacherNote": "Liên hệ thực tế: 2 bàn tay có 10 ngón tay.",
-      "question": {
-        "type": "number_select",
-        "id": "math2-q5-ns-add-5-5",
-        "prompt": "Bé tính kết quả của phép cộng:",
-        "promptAudio": "/media/tts/prompt-add-5-5.mp3",
-        "illustration": "/media/images/star.svg",
-        "expression": "5 + 5 = ?",
-        "choices": [8, 9, 10, 11],
-        "correctAnswer": 10,
-        "explanation": "Năm cộng năm bằng mười. Hai bàn tay, mỗi bàn tay có năm ngón tay, cả hai bàn tay có mười ngón tay.",
-        "explanationAudio": "/media/tts/exp-add-5-5.mp3"
+        "explanation": "Có tất cả sáu quả táo đỏ chín mọng!",
+        "explanationAudio": "/media/tts/m2-q1-exp.mp3"
       },
       "timeLimitSeconds": 25,
       "showRetryOnWrong": true
     },
     {
-      "type": "content-slide",
-      "id": "math2-summary",
-      "title": "Chúc mừng cả lớp!",
-      "body": "Các con đã xuất sắc hoàn thành bài học phép cộng và nhận diện hình học hôm nay!",
-      "teacherNote": "Tổng kết điểm sao thi đua và trao danh hiệu tổ xuất sắc nhất.",
-      "illustration": "/media/images/star.svg",
-      "audio": "/media/tts/math-congrats.mp3",
-      "bullets": [
-        "Biết tính phép cộng trong phạm vi 10",
-        "Nhận biết được hình vuông, hình tròn, hình tam giác",
-        "Đếm và gộp số lượng chính xác"
-      ]
+      "type": "question-slide",
+      "id": "m2-slide-q2",
+      "teacherNote": "Hướng dẫn học sinh chỉ tay đếm 7 chú cá dưới nước.",
+      "question": {
+        "type": "counting",
+        "id": "m2-q2-counting-7-fish",
+        "prompt": "Đếm xem có bao nhiêu chú cá đang bơi dưới nước?",
+        "promptAudio": "/media/tts/m2-q2-prompt.mp3",
+        "illustration": "/media/images/fish.svg",
+        "items": [
+          { "image": "/media/images/fish.svg", "alt": "Cá 1" },
+          { "image": "/media/images/fish.svg", "alt": "Cá 2" },
+          { "image": "/media/images/fish.svg", "alt": "Cá 3" },
+          { "image": "/media/images/fish.svg", "alt": "Cá 4" },
+          { "image": "/media/images/fish.svg", "alt": "Cá 5" },
+          { "image": "/media/images/fish.svg", "alt": "Cá 6" },
+          { "image": "/media/images/fish.svg", "alt": "Cá 7" }
+        ],
+        "correctCount": 7,
+        "numberRange": { "min": 1, "max": 10 },
+        "explanation": "Có tất cả bảy chú cá xinh xắn đang tung tăng bơi lội!",
+        "explanationAudio": "/media/tts/m2-q2-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m2-slide-q3",
+      "teacherNote": "Đếm 8 chiếc lá xanh.",
+      "question": {
+        "type": "counting",
+        "id": "m2-q3-counting-8-leaves",
+        "prompt": "Đếm xem có bao nhiêu chiếc lá xanh trên màn hình?",
+        "promptAudio": "/media/tts/m2-q3-prompt.mp3",
+        "illustration": "/media/images/leaf.svg",
+        "items": [
+          { "image": "/media/images/leaf.svg", "alt": "Lá 1" },
+          { "image": "/media/images/leaf.svg", "alt": "Lá 2" },
+          { "image": "/media/images/leaf.svg", "alt": "Lá 3" },
+          { "image": "/media/images/leaf.svg", "alt": "Lá 4" },
+          { "image": "/media/images/leaf.svg", "alt": "Lá 5" },
+          { "image": "/media/images/leaf.svg", "alt": "Lá 6" },
+          { "image": "/media/images/leaf.svg", "alt": "Lá 7" },
+          { "image": "/media/images/leaf.svg", "alt": "Lá 8" }
+        ],
+        "correctCount": 8,
+        "numberRange": { "min": 1, "max": 10 },
+        "explanation": "Có đúng tám chiếc lá xanh tươi mát!",
+        "explanationAudio": "/media/tts/m2-q3-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m2-slide-q4",
+      "teacherNote": "Nhắc lại quy tắc so sánh: Số 8 đứng sau số 6 trên tia số nên lớn hơn.",
+      "question": {
+        "type": "multiple_choice",
+        "id": "m2-q4-mc-compare-8-6",
+        "prompt": "Số nào lớn hơn: tám hay sáu?",
+        "promptAudio": "/media/tts/m2-q4-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "options": [
+          { "id": "opt-num-8", "label": "Số 8", "image": "/media/images/star.svg", "audio": "/media/tts/m2-opt-8.mp3" },
+          { "id": "opt-num-6", "label": "Số 6", "image": "/media/images/leaf.svg", "audio": "/media/tts/m2-opt-6.mp3" }
+        ],
+        "correctOptionId": "opt-num-8",
+        "explanation": "Số tám lớn hơn số sáu vì tám nhiều hơn sáu.",
+        "explanationAudio": "/media/tts/m2-q4-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m2-slide-q5",
+      "teacherNote": "So sánh nhiều hơn: 5 quả bóng so với 3 quả táo.",
+      "question": {
+        "type": "multiple_choice",
+        "id": "m2-q5-mc-more-less",
+        "prompt": "Nhóm nào có số lượng nhiều hơn: năm quả bóng hay ba quả táo?",
+        "promptAudio": "/media/tts/m2-q5-prompt.mp3",
+        "illustration": "/media/images/ball.svg",
+        "options": [
+          { "id": "opt-5ball", "label": "5 quả bóng", "image": "/media/images/ball.svg", "audio": "/media/tts/m2-opt-5ball.mp3" },
+          { "id": "opt-3apple", "label": "3 quả táo", "image": "/media/images/apple.svg", "audio": "/media/tts/m2-opt-3apple.mp3" }
+        ],
+        "correctOptionId": "opt-5ball",
+        "explanation": "Năm quả bóng nhiều hơn ba quả táo vì năm lớn hơn ba.",
+        "explanationAudio": "/media/tts/m2-q5-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m2-slide-q6",
+      "teacherNote": "Tìm số còn thiếu trong dãy số tự nhiên liên tiếp.",
+      "question": {
+        "type": "number_select",
+        "id": "m2-q6-ns-missing-seq",
+        "prompt": "Chọn số còn thiếu trong dãy số sau:",
+        "promptAudio": "/media/tts/m2-q6-prompt.mp3",
+        "illustration": "/media/images/pencil.svg",
+        "expression": "6, 7, 8, ?, 10",
+        "choices": [7, 8, 9, 10],
+        "correctAnswer": 9,
+        "explanation": "Số còn thiếu là số chín. Dãy số đếm tiến là: sáu, bảy, tám, chín, mười.",
+        "explanationAudio": "/media/tts/m2-q6-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m2-slide-q7",
+      "teacherNote": "Nối số với số lượng đồ vật tương ứng.",
+      "question": {
+        "type": "matching",
+        "id": "m2-q7-matching-numbers",
+        "prompt": "Nối số với số lượng đồ vật tương ứng:",
+        "promptAudio": "/media/tts/m2-q7-prompt.mp3",
+        "illustration": "/media/images/flower.svg",
+        "leftColumn": [
+          { "id": "l-6", "label": "Số 6", "audio": "/media/tts/m2-num-6.mp3" },
+          { "id": "l-7", "label": "Số 7", "audio": "/media/tts/m2-num-7.mp3" },
+          { "id": "l-8", "label": "Số 8", "audio": "/media/tts/m2-num-8.mp3" }
+        ],
+        "rightColumn": [
+          { "id": "r-6", "label": "6 bông hoa", "image": "/media/images/flower.svg", "audio": "/media/tts/m2-grp-6.mp3" },
+          { "id": "r-7", "label": "7 ngôi sao", "image": "/media/images/star.svg", "audio": "/media/tts/m2-grp-7.mp3" },
+          { "id": "r-8", "label": "8 viên kẹo", "image": "/media/images/candy.svg", "audio": "/media/tts/m2-grp-8.mp3" }
+        ],
+        "correctPairs": [
+          { "leftId": "l-6", "rightId": "r-6" },
+          { "leftId": "l-7", "rightId": "r-7" },
+          { "leftId": "l-8", "rightId": "r-8" }
+        ],
+        "explanation": "Nối chính xác: sáu bông hoa với số sáu, bảy ngôi sao với số bảy, tám viên kẹo với số tám.",
+        "explanationAudio": "/media/tts/m2-q7-exp.mp3"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
     }
   ]
 }

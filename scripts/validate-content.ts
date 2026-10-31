@@ -128,7 +128,7 @@ function validateAudioContentMatching(data: unknown, filePath: string): string[]
     '5': 'năm', '6': 'sáu', '7': 'bảy', '8': 'tám', '9': 'chín', '10': 'mười',
   };
   const phonemeMap: Record<string, string> = {
-    'b': 'bờ', 'c': 'cờ', 'd': 'dờ', 'đ': 'đờ', 'g': 'gờ',
+    'b': 'bờ', 'c': 'cờ', 'd': 'dờ', 'đ': 'đờ', 'g': 'gờ', 'k': 'ca',
   };
 
   function norm(text: string): string[] {

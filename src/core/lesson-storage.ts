@@ -5,8 +5,16 @@ import { findCurriculumLessonMeta, createInteractiveCurriculumLesson } from '@/d
 export const BUILTIN_LESSON_URLS = [
   '/content/lessons/math-lesson-01.json',
   '/content/lessons/math-lesson-02.json',
+  '/content/lessons/math-lesson-03.json',
+  '/content/lessons/math-lesson-04.json',
+  '/content/lessons/math-lesson-05.json',
+  '/content/lessons/math-lesson-06.json',
   '/content/lessons/vn-lesson-01.json',
   '/content/lessons/vn-lesson-02.json',
+  '/content/lessons/vn-lesson-03.json',
+  '/content/lessons/vn-lesson-04.json',
+  '/content/lessons/vn-lesson-05.json',
+  '/content/lessons/vn-lesson-06.json',
 ];
 
 const STORAGE_KEY = 'trinh_chieu_custom_lessons_v1';

@@ -1,0 +1,200 @@
+{
+  "status": "publish",
+  "mode": "publish",
+  "id": "math-04-subtraction-within-5",
+  "title": "Phép trừ trong phạm vi 5 & Số 0",
+  "subject": "math",
+  "grade": 1,
+  "description": "Bài học Toán Lớp 1: Khái niệm bớt đi và hình thành phép trừ trong phạm vi 5, giới thiệu ý nghĩa của số 0 qua 7 câu hỏi tương tác.",
+  "totalDurationMinutes": 25,
+  "slides": [
+    {
+      "type": "title-slide",
+      "id": "m4-slide-title",
+      "title": "Phép trừ trong phạm vi 5 & Số 0",
+      "subtitle": "Toán Lớp 1 — Bài học tương tác",
+      "teacherNote": "Hướng dẫn học sinh thao tác bớt đi từ một nhóm để hình thành bản chất phép trừ.",
+      "backgroundImage": "/media/images/star.svg",
+      "audio": "/media/tts/m4-title.mp3"
+    },
+    {
+      "type": "content-slide",
+      "id": "m4-slide-intro",
+      "title": "Bớt đi và Số 0",
+      "body": "Bớt đi chính là phép trừ. Khi bớt đi hết, chúng ta còn lại không đồ vật. Hôm nay chúng mình cùng học phép trừ nhé!",
+      "teacherNote": "Thực hành: 5 con cá bơi đi 2 con, còn 3 con. 3 bớt 3 còn 0.",
+      "illustration": "/media/images/fish.svg",
+      "audio": "/media/tts/m4-intro.mp3",
+      "bullets": [
+        "Dấu trừ: - (bớt đi, cho đi, ăn mất)",
+        "5 bớt 1 còn 4 (5 - 1 = 4)",
+        "4 bớt 2 còn 2 (4 - 2 = 2)",
+        "3 bớt 3 còn 0 (3 - 3 = 0)"
+      ]
+    },
+    {
+      "type": "question-slide",
+      "id": "m4-slide-q1",
+      "teacherNote": "Có 4 quả táo, ăn 1 quả, còn 3 quả.",
+      "question": {
+        "type": "counting",
+        "id": "m4-q1-counting-sub",
+        "prompt": "Có bốn quả táo, ăn mất một quả, hỏi còn lại mấy quả táo?",
+        "promptAudio": "/media/tts/m4-q1-prompt.mp3",
+        "illustration": "/media/images/apple.svg",
+        "items": [
+          { "image": "/media/images/apple.svg", "alt": "Táo còn lại 1" },
+          { "image": "/media/images/apple.svg", "alt": "Táo còn lại 2" },
+          { "image": "/media/images/apple.svg", "alt": "Táo còn lại 3" }
+        ],
+        "correctCount": 3,
+        "numberRange": { "min": 1, "max": 5 },
+        "explanation": "Bốn bớt một còn ba quả táo!",
+        "explanationAudio": "/media/tts/m4-q1-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m4-slide-q2",
+      "teacherNote": "Phép tính: 4 - 1 = 3.",
+      "question": {
+        "type": "number_select",
+        "id": "m4-q2-ns-sub-4-1",
+        "prompt": "Bé hãy tính phép tính sau:",
+        "promptAudio": "/media/tts/m4-q2-prompt.mp3",
+        "illustration": "/media/images/apple.svg",
+        "expression": "4 - 1 = ?",
+        "choices": [1, 2, 3, 4],
+        "correctAnswer": 3,
+        "explanation": "Bốn trừ một bằng ba.",
+        "explanationAudio": "/media/tts/m4-q2-exp.mp3"
+      },
+      "timeLimitSeconds": 20,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m4-slide-q3",
+      "teacherNote": "Phép tính: 5 - 2 = 3.",
+      "question": {
+        "type": "number_select",
+        "id": "m4-q3-ns-sub-5-2",
+        "prompt": "Bé hãy tính kết quả phép trừ sau:",
+        "promptAudio": "/media/tts/m4-q3-prompt.mp3",
+        "illustration": "/media/images/fish.svg",
+        "expression": "5 - 2 = ?",
+        "choices": [2, 3, 4, 5],
+        "correctAnswer": 3,
+        "explanation": "Năm trừ hai bằng ba.",
+        "explanationAudio": "/media/tts/m4-q3-exp.mp3"
+      },
+      "timeLimitSeconds": 20,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m4-slide-q4",
+      "teacherNote": "Ý nghĩa số 0: Hết đồ vật.",
+      "question": {
+        "type": "multiple_choice",
+        "id": "m4-q4-mc-zero-birds",
+        "prompt": "Trên cành cây có ba chú chim, cả ba chú đều bay đi mất. Hỏi trên cành cây còn lại mấy chú chim?",
+        "promptAudio": "/media/tts/m4-q4-prompt.mp3",
+        "illustration": "/media/images/bird.svg",
+        "options": [
+          { "id": "opt-0-chim", "label": "0 chú chim", "image": "/media/images/bird.svg", "audio": "/media/tts/m4-opt-0-chim.mp3" },
+          { "id": "opt-1-chim", "label": "1 chú chim", "image": "/media/images/leaf.svg", "audio": "/media/tts/m4-opt-1-chim.mp3" },
+          { "id": "opt-2-chim", "label": "2 chú chim", "image": "/media/images/flower.svg", "audio": "/media/tts/m4-opt-2-chim.mp3" }
+        ],
+        "correctOptionId": "opt-0-chim",
+        "explanation": "Ba bớt ba bằng không. Trên cành không còn chú chim nào.",
+        "explanationAudio": "/media/tts/m4-q4-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m4-slide-q5",
+      "teacherNote": "Quy tắc trừ số giống nhau: 3 - 3 = 0.",
+      "question": {
+        "type": "number_select",
+        "id": "m4-q5-ns-sub-3-3",
+        "prompt": "Bé hãy tính phép trừ sau:",
+        "promptAudio": "/media/tts/m4-q5-prompt.mp3",
+        "illustration": "/media/images/bird.svg",
+        "expression": "3 - 3 = ?",
+        "choices": [0, 1, 2, 3],
+        "correctAnswer": 0,
+        "explanation": "Ba trừ ba bằng không. Một số trừ đi chính nó thì bằng không.",
+        "explanationAudio": "/media/tts/m4-q5-exp.mp3"
+      },
+      "timeLimitSeconds": 20,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m4-slide-q6",
+      "teacherNote": "Điền số 1 vào chỗ trống: 5 - 1 = 4.",
+      "question": {
+        "type": "tap_place",
+        "id": "m4-q6-tap-sub",
+        "prompt": "Chọn số thích hợp đặt vào chỗ trống:",
+        "promptAudio": "/media/tts/m4-q6-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "targets": [
+          {
+            "id": "tgt-sub-missing",
+            "label": "...",
+            "prefixText": "5 - ",
+            "suffixText": " = 4"
+          }
+        ],
+        "items": [
+          { "id": "item-sub-1", "label": "1", "audio": "/media/tts/m4-item-1.mp3", "isPhonemeOrWord": true },
+          { "id": "item-sub-3", "label": "3", "audio": "/media/tts/m4-item-3.mp3", "isPhonemeOrWord": true }
+        ],
+        "correctMapping": {
+          "item-sub-1": "tgt-sub-missing"
+        },
+        "explanation": "Năm trừ một bằng bốn.",
+        "explanationAudio": "/media/tts/m4-q6-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m4-slide-q7",
+      "teacherNote": "Nối phép trừ với kết quả đúng.",
+      "question": {
+        "type": "matching",
+        "id": "m4-q7-match-sub",
+        "prompt": "Nối phép trừ với kết quả tương ứng:",
+        "promptAudio": "/media/tts/m4-q7-prompt.mp3",
+        "illustration": "/media/images/pencil.svg",
+        "leftColumn": [
+          { "id": "sub-5-1", "label": "5 - 1", "audio": "/media/tts/m4-calc-5-1.mp3" },
+          { "id": "sub-4-2", "label": "4 - 2", "audio": "/media/tts/m4-calc-4-2.mp3" },
+          { "id": "sub-2-2", "label": "2 - 2", "audio": "/media/tts/m4-calc-2-2.mp3" }
+        ],
+        "rightColumn": [
+          { "id": "r-sub-4", "label": "= 4", "audio": "/media/tts/m4-res-4.mp3" },
+          { "id": "r-sub-2", "label": "= 2", "audio": "/media/tts/m4-res-2.mp3" },
+          { "id": "r-sub-0", "label": "= 0", "audio": "/media/tts/m4-res-0.mp3" }
+        ],
+        "correctPairs": [
+          { "leftId": "sub-5-1", "rightId": "r-sub-4" },
+          { "leftId": "sub-4-2", "rightId": "r-sub-2" },
+          { "leftId": "sub-2-2", "rightId": "r-sub-0" }
+        ],
+        "explanation": "Năm trừ một bằng bốn, bốn trừ hai bằng hai, hai trừ hai bằng không.",
+        "explanationAudio": "/media/tts/m4-q7-exp.mp3"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    }
+  ]
+}
