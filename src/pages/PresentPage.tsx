@@ -302,19 +302,43 @@ export function PresentPage() {
     switch (currentSlide.type) {
       case 'title-slide':
         return (
-          <div style={{ textAlign: 'center' }} data-testid="title-slide">
+          <div
+            style={{
+              textAlign: 'center',
+              background: '#ffffff',
+              padding: '60px 80px',
+              borderRadius: '40px',
+              border: '3px solid #e2e8f0',
+              borderBottom: '10px solid #cbd5e1',
+              boxShadow: '0 8px 32px rgba(0, 0, 0, 0.05)',
+              maxWidth: '1200px',
+            }}
+            data-testid="title-slide"
+          >
+            <div style={{ fontSize: '54px', marginBottom: '16px' }}>⭐</div>
             <h1
               style={{
-                fontSize: '80px',
-                fontWeight: 800,
-                color: '#f8fafc',
-                marginBottom: '16px',
+                fontSize: '72px',
+                fontWeight: 900,
+                color: '#0f172a',
+                marginBottom: '20px',
+                letterSpacing: '-0.5px',
               }}
             >
               {currentSlide.title}
             </h1>
             {currentSlide.subtitle && (
-              <p style={{ fontSize: '36px', color: '#94a3b8' }}>
+              <p
+                style={{
+                  fontSize: '34px',
+                  fontWeight: 700,
+                  color: '#7c3aed',
+                  background: '#f5f3ff',
+                  padding: '10px 28px',
+                  borderRadius: '20px',
+                  display: 'inline-block',
+                }}
+              >
                 {currentSlide.subtitle}
               </p>
             )}
@@ -324,21 +348,31 @@ export function PresentPage() {
       case 'content-slide':
         return (
           <div
-            style={{ textAlign: 'center', padding: '20px' }}
+            style={{
+              textAlign: 'center',
+              padding: '40px 60px',
+              background: '#ffffff',
+              borderRadius: '36px',
+              border: '3px solid #e2e8f0',
+              borderBottom: '8px solid #cbd5e1',
+              boxShadow: '0 8px 30px rgba(0, 0, 0, 0.04)',
+              maxWidth: '1200px',
+            }}
             data-testid="content-slide"
           >
             <h2
               style={{
-                fontSize: '64px',
-                fontWeight: 700,
-                color: '#f8fafc',
+                fontSize: '56px',
+                fontWeight: 900,
+                color: '#0f172a',
                 marginBottom: '24px',
+                letterSpacing: '-0.5px',
               }}
             >
               {currentSlide.title}
             </h2>
             {currentSlide.body && (
-              <p style={{ fontSize: '36px', color: '#cbd5e1', lineHeight: 1.6 }}>
+              <p style={{ fontSize: '34px', color: '#334155', lineHeight: 1.6, fontWeight: 600 }}>
                 {currentSlide.body}
               </p>
             )}
@@ -349,8 +383,9 @@ export function PresentPage() {
                 style={{
                   maxWidth: '540px',
                   maxHeight: '360px',
-                  borderRadius: '16px',
+                  borderRadius: '24px',
                   marginTop: '20px',
+                  border: '3px solid #e2e8f0',
                 }}
               />
             )}
@@ -359,7 +394,7 @@ export function PresentPage() {
                 {currentSlide.bullets.map((b, i) => (
                   <li
                     key={i}
-                    style={{ fontSize: '32px', color: '#e2e8f0', padding: '8px 0' }}
+                    style={{ fontSize: '32px', color: '#1e293b', padding: '8px 0', fontWeight: 600 }}
                   >
                     ▸ {b}
                   </li>

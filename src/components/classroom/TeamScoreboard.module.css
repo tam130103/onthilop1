@@ -2,39 +2,41 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 20px;
-  background: rgba(15, 23, 42, 0.75);
-  backdrop-filter: blur(8px);
-  padding: 8px 24px;
-  border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  gap: 16px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  padding: 8px 20px;
+  border-radius: 24px;
+  border: 2px solid #e2e8f0;
+  border-bottom: 5px solid #cbd5e1;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
 }
 
 .teamBadge {
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 6px 16px;
+  gap: 10px;
+  padding: 6px 14px;
   border-radius: 14px;
-  background: #1e293b;
-  border: 2px solid transparent;
+  background: #ffffff;
+  border: 2px solid #e2e8f0;
+  border-bottom: 3px solid #cbd5e1;
   transition: transform 0.2s ease;
 }
 
 .teamName {
-  font-size: 18px;
-  font-weight: 700;
-  color: #f1f5f9;
+  font-size: 17px;
+  font-weight: 800;
+  color: #0f172a;
 }
 
 .starScore {
   display: flex;
   align-items: center;
   gap: 6px;
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 900;
-  color: #facc15;
+  color: #d97706;
 }
 
 /* Presenter controls row */

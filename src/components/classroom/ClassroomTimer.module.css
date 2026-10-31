@@ -2,28 +2,31 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  background: rgba(15, 23, 42, 0.85);
-  border: 2px solid #334155;
-  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.92);
+  border: 2px solid #e2e8f0;
+  border-bottom: 5px solid #cbd5e1;
+  border-radius: 20px;
   padding: 8px 18px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
 }
 
 .timerRunning {
   border-color: #38bdf8;
-  box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
+  border-bottom-color: #0284c7;
+  box-shadow: 0 0 16px rgba(56, 189, 248, 0.25);
 }
 
 .timerUrgent {
   border-color: #ef4444;
+  border-bottom-color: #dc2626;
   animation: urgentBlink 1s infinite alternate;
 }
 
 .clockDisplay {
-  font-family: monospace;
-  font-size: 28px;
-  font-weight: 800;
-  color: #f8fafc;
+  font-family: 'Be Vietnam Pro', monospace;
+  font-size: 26px;
+  font-weight: 900;
+  color: #0f172a;
   letter-spacing: 2px;
 }
 

@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Tiếng Việt 1 Vui Học - Học Vần &amp; Ghép Tiếng</title>
+<!-- Google Fonts: Quicksand & Nunito Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,400;0,6..12,600;0,6..12,700;0,6..12,800;1,6..12,600&amp;family=Quicksand:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "secondary-fixed-dim": "#ffb4a4",
+            "surface-bright": "#fdf9ee",
+            "on-surface-variant": "#404753",
+            "surface-container": "#f1eee3",
+            "on-error": "#ffffff",
+            "surface-container-low": "#f7f3e8",
+            "on-tertiary-container": "#f7fff1",
+            "surface-container-high": "#ece8dd",
+            "secondary": "#b22200",
+            "on-primary-fixed-variant": "#004883",
+            "inverse-on-surface": "#f4f1e6",
+            "primary-fixed": "#d3e3ff",
+            "on-tertiary-fixed": "#002203",
+            "inverse-primary": "#a3c9ff",
+            "on-secondary-container": "#fffbff",
+            "on-secondary": "#ffffff",
+            "on-secondary-fixed-variant": "#8c1800",
+            "on-primary": "#ffffff",
+            "secondary-container": "#d73b19",
+            "on-surface": "#1c1c15",
+            "on-primary-container": "#fdfcff",
+            "secondary-fixed": "#ffdad3",
+            "tertiary-fixed": "#78fe77",
+            "on-primary-fixed": "#001c39",
+            "on-background": "#1c1c15",
+            "error-container": "#ffdad6",
+            "primary-container": "#0076d1",
+            "background": "#fdf9ee",
+            "on-error-container": "#93000a",
+            "surface-dim": "#dddacf",
+            "tertiary": "#006b17",
+            "on-tertiary": "#ffffff",
+            "error": "#ba1a1a",
+            "surface-container-highest": "#e6e2d8",
+            "surface-tint": "#0060ab",
+            "tertiary-fixed-dim": "#5ae15e",
+            "tertiary-container": "#008820",
+            "surface-container-lowest": "#ffffff",
+            "primary-fixed-dim": "#a3c9ff",
+            "inverse-surface": "#31312a",
+            "outline": "#707784",
+            "on-secondary-fixed": "#3d0600",
+            "surface-variant": "#e6e2d8",
+            "primary": "#005da7",
+            "outline-variant": "#c0c7d5",
+            "surface": "#fdf9ee",
+            "on-tertiary-fixed-variant": "#005310"
+          },
+          "borderRadius": {
+            "DEFAULT": "1rem",
+            "lg": "2rem",
+            "xl": "3rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-lg": "2.25rem",
+            "space-xl": "3.5rem",
+            "space-md": "1.5rem",
+            "margin-sm": "1.5rem",
+            "margin": "3rem",
+            "space-sm": "1rem",
+            "gutter": "2rem",
+            "space-xs": "0.5rem",
+            "gutter-sm": "1.25rem"
+          },
+          "fontFamily": {
+            "headline-lg": ["Quicksand", "sans-serif"],
+            "label-md": ["Quicksand", "sans-serif"],
+            "display-lg": ["Quicksand", "sans-serif"],
+            "headline-md": ["Quicksand", "sans-serif"],
+            "body-md": ["Nunito Sans", "sans-serif"],
+            "label-lg": ["Quicksand", "sans-serif"],
+            "headline-xl": ["Quicksand", "sans-serif"],
+            "body-lg": ["Nunito Sans", "sans-serif"],
+            "display-xl": ["Quicksand", "sans-serif"],
+            "body-xl": ["Nunito Sans", "sans-serif"]
+          },
+          "fontSize": {
+            "headline-lg": ["36px", { "lineHeight": "46px", "letterSpacing": "0.01em", "fontWeight": "700" }],
+            "label-md": ["18px", { "lineHeight": "24px", "letterSpacing": "0.03em", "fontWeight": "700" }],
+            "display-lg": ["56px", { "lineHeight": "68px", "letterSpacing": "0em", "fontWeight": "700" }],
+            "headline-md": ["28px", { "lineHeight": "36px", "letterSpacing": "0.01em", "fontWeight": "700" }],
+            "body-md": ["20px", { "lineHeight": "30px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "label-lg": ["22px", { "lineHeight": "28px", "letterSpacing": "0.02em", "fontWeight": "700" }],
+            "headline-xl": ["44px", { "lineHeight": "54px", "letterSpacing": "0em", "fontWeight": "700" }],
+            "body-lg": ["24px", { "lineHeight": "34px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+            "display-xl": ["72px", { "lineHeight": "84px", "letterSpacing": "-0.01em", "fontWeight": "800" }],
+            "body-xl": ["28px", { "lineHeight": "40px", "letterSpacing": "0.01em", "fontWeight": "600" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 40;
+      user-select: none;
+      vertical-align: middle;
+    }
+    .material-symbols-filled {
+      font-variation-settings: 'FILL' 1, 'wght' 700, 'GRAD' 0, 'opsz' 40;
+      user-select: none;
+      vertical-align: middle;
+    }
+    /* Playful Neobrutalist custom mechanical button transitions */
+    .tactile-btn {
+      transition: all 0.12s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .tactile-btn:active {
+      transform: translateY(4px);
+      box-shadow: 0px 2px 0px #1c1c15 !important;
+    }
+    .tactile-card {
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .tactile-card:hover {
+      transform: translateY(-2px);
+    }
+    /* Matching dotted path rendering */
+    .match-line {
+      stroke-dasharray: 8 6;
+      animation: dashmove 20s linear infinite;
+    }
+    @keyframes dashmove {
+      to {
+        stroke-dashoffset: -100;
+      }
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface antialiased select-none min-h-screen pb-36 flex flex-col justify-between overflow-x-hidden">
+<!-- TOP APP BAR (Shared Component: TopNavBar with Neobrutalist Smartboard Theme) -->
+<header class="bg-surface-container flex justify-between items-center w-full px-margin py-space-sm h-28 max-w-full shadow-[0px_6px_0px_#1c1c15] border-b-4 border-on-surface z-40 sticky top-0">
+<!-- Left: Brand Logo & Subjects -->
+<div class="flex items-center gap-space-md">
+<div class="flex items-center gap-space-xs bg-primary-fixed border-4 border-on-surface rounded-full px-space-md py-2 shadow-[0px_4px_0px_#1c1c15]">
+<span class="material-symbols-outlined material-symbols-filled text-primary text-3xl" data-icon="auto_stories">auto_stories</span>
+<span class="font-headline-md text-headline-md font-extrabold text-primary">Lớp 1 Vui Học</span>
+</div>
+<!-- Navigation Links -->
+<nav class="hidden md:flex items-center gap-space-md ml-4">
+<a class="font-label-lg text-label-lg text-on-surface-variant font-medium hover:text-primary transition-all" href="#">Toán 1</a>
+<a class="font-label-lg text-label-lg text-primary font-bold border-b-4 border-primary pb-1" href="#">Tiếng Việt 1</a>
+<a class="font-label-lg text-label-lg text-on-surface-variant font-medium hover:text-primary transition-all" href="#">Bảng Sao Đội</a>
+</nav>
+</div>
+<!-- Center/Right: Team Score Indicators (Classroom Focus) -->
+<div class="hidden xl:flex items-center gap-space-xs bg-surface-container-lowest border-4 border-on-surface rounded-2xl px-space-md py-2 shadow-[0px_4px_0px_#1c1c15]">
+<!-- Team 1 -->
+<div class="flex items-center gap-1.5 px-3 py-1 bg-surface-container rounded-xl border-2 border-on-surface">
+<span class="text-xl">⭐</span>
+<span class="font-headline-md text-label-md font-bold text-on-surface">Sao Vàng: <span class="text-primary font-extrabold text-label-lg">6</span></span>
+</div>
+<!-- Team 2 -->
+<div class="flex items-center gap-1.5 px-3 py-1 bg-surface-container rounded-xl border-2 border-on-surface">
+<span class="text-xl">🌱</span>
+<span class="font-headline-md text-label-md font-bold text-on-surface">Mầm Xanh: <span class="text-tertiary font-extrabold text-label-lg">5</span></span>
+</div>
+<!-- Team 3 -->
+<div class="flex items-center gap-1.5 px-3 py-1 bg-surface-container rounded-xl border-2 border-on-surface">
+<span class="text-xl">⚡</span>
+<span class="font-headline-md text-label-md font-bold text-on-surface">Tia Chớp: <span class="text-secondary font-extrabold text-label-lg">7</span></span>
+</div>
+<!-- Team 4 -->
+<div class="flex items-center gap-1.5 px-3 py-1 bg-surface-container rounded-xl border-2 border-on-surface">
+<span class="text-xl">☀️</span>
+<span class="font-headline-md text-label-md font-bold text-on-surface">Mặt Trời: <span class="text-on-surface font-extrabold text-label-lg">4</span></span>
+</div>
+</div>
+<!-- Trailing Action Badges (Class Stars + Timer + Primary Action) -->
+<div class="flex items-center gap-space-sm">
+<!-- Total Stars -->
+<div class="flex items-center gap-2 bg-secondary-fixed border-4 border-on-surface rounded-full px-4 py-2 shadow-[0px_4px_0px_#1c1c15]">
+<span class="material-symbols-outlined text-secondary font-bold text-3xl" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-headline-md text-label-lg font-extrabold text-on-secondary-fixed">18 Sao</span>
+</div>
+<!-- Classroom Countdown Timer -->
+<div class="flex items-center gap-2 bg-surface-container-lowest border-4 border-on-surface rounded-full px-4 py-2 shadow-[0px_4px_0px_#1c1c15]">
+<span class="material-symbols-outlined text-primary text-3xl animate-spin" data-icon="timer" style="animation-duration: 8s;">timer</span>
+<span class="font-headline-md text-label-lg font-extrabold text-primary">01:00</span>
+</div>
+<!-- Sound Toggle Icon Button -->
+<button class="tactile-btn w-14 h-14 bg-surface-container-lowest border-4 border-on-surface rounded-2xl flex items-center justify-center shadow-[0px_4px_0px_#1c1c15] text-on-surface hover:bg-surface-variant">
+<span class="material-symbols-outlined text-3xl" data-icon="volume_up">volume_up</span>
+</button>
+<!-- Settings / Teacher Tool -->
+<button class="tactile-btn w-14 h-14 bg-surface-container-lowest border-4 border-on-surface rounded-2xl flex items-center justify-center shadow-[0px_4px_0px_#1c1c15] text-on-surface hover:bg-surface-variant">
+<span class="material-symbols-outlined text-3xl" data-icon="settings">settings</span>
+</button>
+<!-- Trailing Action -->
+<button class="tactile-btn hidden sm:flex items-center gap-2 bg-tertiary-fixed-dim text-on-tertiary-fixed font-headline-md text-label-lg px-space-md py-3 rounded-2xl border-4 border-on-surface shadow-[0px_6px_0px_#1c1c15]">
+<span class="material-symbols-outlined text-2xl font-bold" data-icon="play_arrow">play_arrow</span>
+        Bắt Đầu Giờ
+      </button>
+</div>
+</header>
+<!-- MAIN CLASSROOM SMARTBOARD WORKSPACE -->
+<main class="w-full max-w-[1840px] mx-auto px-6 lg:px-margin pt-6 flex flex-col gap-6">
+<!-- QUESTION / PROMPT BANNER CARD -->
+<section class="bg-surface-container-lowest border-4 border-on-surface rounded-3xl p-5 shadow-[0px_8px_0px_#1c1c15] flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4">
+<div class="flex items-center gap-4">
+<!-- Interactive Big Audio Speaker -->
+<button class="tactile-btn w-20 h-20 bg-primary-container text-on-primary-container border-4 border-on-surface rounded-2xl flex flex-col items-center justify-center shadow-[0px_6px_0px_#1c1c15] flex-shrink-0 group">
+<span class="material-symbols-outlined text-4xl group-hover:scale-110 transition-transform" data-icon="volume_up">volume_up</span>
+<span class="font-headline-md text-xs font-bold uppercase tracking-wider">Đọc đề</span>
+</button>
+<div class="flex flex-col">
+<div class="flex items-center gap-3 flex-wrap">
+<span class="bg-secondary-fixed-dim border-2 border-on-surface text-on-secondary-fixed font-headline-md text-label-md px-3 py-1 rounded-full shadow-[0px_2px_0px_#1c1c15]">
+              Bài 05: Âm b, c ghép a, o
+            </span>
+<span class="bg-tertiary-fixed border-2 border-on-surface text-on-tertiary-fixed font-headline-md text-label-md px-3 py-1 rounded-full shadow-[0px_2px_0px_#1c1c15]">
+              ⭐ Đang làm: Ghép vần &amp; Nối tranh
+            </span>
+</div>
+<h1 class="font-headline-lg text-headline-md lg:text-headline-lg font-extrabold text-on-surface mt-1">
+            Em hãy quan sát tranh, nối từ thích hợp và ghép vần thành tiếng!
+          </h1>
+</div>
+</div>
+<!-- Quick Helper Badges -->
+<div class="flex items-center gap-3 self-end lg:self-center">
+<div class="bg-surface-container border-2 border-on-surface rounded-xl px-4 py-2 font-body-md text-body-md text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="touch_app">touch_app</span>
+<span>Chạm vào tranh rồi chạm thẻ từ để nối</span>
+</div>
+</div>
+</section>
+<!-- SECTION 2: INTERACTIVE WORD & PICTURE MATCHING STAGE (Bento 2 Columns with Connector Simulation) -->
+<section class="relative bg-surface-container border-4 border-on-surface rounded-3xl p-6 lg:p-8 shadow-[0px_8px_0px_#1c1c15] overflow-hidden">
+<!-- Background subtle tactile dots -->
+<div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: radial-gradient(#1c1c15 2px, transparent 2px); background-size: 24px 24px;"></div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 relative z-10">
+<!-- COLUMN 1: TRANH MINH HỌA (LEFT) -->
+<div class="flex flex-col gap-5">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="w-10 h-10 rounded-xl bg-primary text-surface flex items-center justify-center font-headline-md text-label-lg font-extrabold border-2 border-on-surface shadow-[0px_3px_0px_#1c1c15]">1</span>
+<h2 class="font-headline-md text-headline-md font-extrabold text-on-surface">Cột 1: Tranh Minh Họa</h2>
+</div>
+<span class="text-sm font-headline-md font-bold text-on-surface-variant bg-surface-bright px-3 py-1 rounded-full border border-on-surface">3 Tranh</span>
+</div>
+<!-- Card 1: Con Cá -->
+<div class="tactile-card group relative bg-surface-container-lowest border-4 border-on-surface rounded-2xl p-4 shadow-[0px_6px_0px_#1c1c15] flex items-center justify-between cursor-pointer border-l-8 border-l-primary hover:border-l-primary-container">
+<div class="flex items-center gap-5">
+<!-- Visual Image Illustration -->
+<div class="w-32 h-28 rounded-xl bg-primary-fixed border-3 border-on-surface overflow-hidden flex items-center justify-center relative flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="A vivid, adorable cartoon goldfish swimming happily in turquoise transparent water bubbles. The illustration style is chunky, clean vector art with thick outlines, bright primary colors, and cheerful classroom appeal suited for early childhood education." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD85KNO-On6DJPsz3B5BcF4Xm20IbtYnzcoBraCocNe2LwAjsC5snow4bczR-ekDhVtJpO-KNhpwl3z6Pz7V_wnrXt2Vz4m_1xVu6YwAmn-fYMsw_7n2nhy7dfZxtgik8nyq5EMF0CUOzvpPrtbFjLATDFpHNoyL1NTCFUGcTlv0U96RBU_4xj6wpEwQkrXKoZ7E5SFI9T21pGbkgWMsa2AtXKIaxa5qfp4qxTCm6af0TIEa_myzjGMwLBR03Pgiu5r8tfz4KtbOPZm"/>
+<span class="absolute bottom-1 right-1 bg-surface-bright/90 px-1.5 py-0.5 rounded text-xs font-bold border border-on-surface">#1</span>
+</div>
+<div class="flex flex-col gap-1">
+<span class="font-headline-md text-label-md text-on-surface-variant font-bold uppercase tracking-wide">Hình 1</span>
+<span class="font-headline-lg text-headline-md font-extrabold text-on-surface">Con cá vàng</span>
+<button class="tactile-btn mt-1 flex items-center gap-1.5 w-fit px-3 py-1.5 bg-primary-fixed text-on-primary-fixed-variant rounded-xl border-2 border-on-surface shadow-[0px_2px_0px_#1c1c15] text-sm font-bold">
+<span class="material-symbols-outlined text-lg" data-icon="volume_up">volume_up</span>
+<span>Nghe "Cá"</span>
+</button>
+</div>
+</div>
+<!-- Connector Touch Node (Right side anchor) -->
+<div class="flex items-center gap-2">
+<span class="hidden sm:inline font-label-md text-sm font-bold text-primary">Chạm nối</span>
+<div class="w-12 h-12 rounded-full bg-primary-container border-4 border-on-surface flex items-center justify-center shadow-[0px_4px_0px_#1c1c15] group-hover:scale-110 transition-transform">
+<div class="w-4 h-4 rounded-full bg-surface-bright animate-ping"></div>
+</div>
+</div>
+</div>
+<!-- Card 2: Con Ba Ba -->
+<div class="tactile-card group relative bg-surface-container-lowest border-4 border-on-surface rounded-2xl p-4 shadow-[0px_6px_0px_#1c1c15] flex items-center justify-between cursor-pointer border-l-8 border-l-tertiary">
+<div class="flex items-center gap-5">
+<!-- Visual Image Illustration -->
+<div class="w-32 h-28 rounded-xl bg-tertiary-fixed border-3 border-on-surface overflow-hidden flex items-center justify-center relative flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="A friendly cute baby freshwater turtle or ba ba crawling happily on a soft sandy sunny riverbank near lotus leaves. Playful tactile vector Neobrutalist design with bold outlines, bright emerald green shell, and warm sunlight reflections." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBkRFh0jpUeFr-6Gw4MR1uBPrf0YqFL27ECBfrXCXuIaTb2by-_s-EAs6r4E99G1M7jWGXxqOH_SeuiLmPY7uSLW06DbX-4T1dlFZAMZXEXbNnRqMF-Ir6wZF3rUDHs1uPQFWAHGYMLTMlVbYLdmV7vKXeXuIJBaTUKjK60i0lEp_yIi5dYqBXj6dbf5fIaXCgoUb0W8_ZX8BuA6EAitL7QX2gKnM08TnwHvCeWRnYwtpXYl18qd_PnvyCcAj3YwFx5X2h4FIzLA-TS"/>
+<span class="absolute bottom-1 right-1 bg-surface-bright/90 px-1.5 py-0.5 rounded text-xs font-bold border border-on-surface">#2</span>
+</div>
+<div class="flex flex-col gap-1">
+<span class="font-headline-md text-label-md text-on-surface-variant font-bold uppercase tracking-wide">Hình 2</span>
+<span class="font-headline-lg text-headline-md font-extrabold text-on-surface">Con ba ba</span>
+<button class="tactile-btn mt-1 flex items-center gap-1.5 w-fit px-3 py-1.5 bg-tertiary-fixed text-on-tertiary-fixed-variant rounded-xl border-2 border-on-surface shadow-[0px_2px_0px_#1c1c15] text-sm font-bold">
+<span class="material-symbols-outlined text-lg" data-icon="volume_up">volume_up</span>
+<span>Nghe "Ba ba"</span>
+</button>
+</div>
+</div>
+<!-- Connector Touch Node -->
+<div class="flex items-center gap-2">
+<span class="hidden sm:inline font-label-md text-sm font-bold text-tertiary">Chạm nối</span>
+<div class="w-12 h-12 rounded-full bg-tertiary-container border-4 border-on-surface flex items-center justify-center shadow-[0px_4px_0px_#1c1c15] group-hover:scale-110 transition-transform">
+<div class="w-4 h-4 rounded-full bg-surface-bright"></div>
+</div>
+</div>
+</div>
+<!-- Card 3: Lá Cờ Đỏ -->
+<div class="tactile-card group relative bg-surface-container-lowest border-4 border-on-surface rounded-2xl p-4 shadow-[0px_6px_0px_#1c1c15] flex items-center justify-between cursor-pointer border-l-8 border-l-secondary">
+<div class="flex items-center gap-5">
+<!-- Visual Image Illustration -->
+<div class="w-32 h-28 rounded-xl bg-secondary-fixed border-3 border-on-surface overflow-hidden flex items-center justify-center relative flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="A bright national red flag with a golden five-pointed star waving cheerfully against a soft sky blue backdrop. Clean minimal vector Neobrutalist design with bold lines, joyful high contrast, and warm sunny daylight suitable for 1st-grade learning." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAwU5A5Os8Se03L9Ss5_tDpmgbf158iNfblSI9w8KN3NPotL--JbakxlyqQ2q419UiGpE3fXmNkAbM8ZhQ6BsxjiyUSdThRsD3sWNICjzjq644a4c52KfgxkgIXdKJbXylIzXG5wo_shVI35JLcvacLEciPcGVe3I64ki3VfUbohVKkQ_FqjIeod_dj-K1FZX9SIVZ7xWs1j1kBCXTbVBtZuZBMCl3F2EHZAoP4PGpB3hDJ1rHviSOLvDreMgTUvXTQvAaGDpk5SX4_"/>
+<span class="absolute bottom-1 right-1 bg-surface-bright/90 px-1.5 py-0.5 rounded text-xs font-bold border border-on-surface">#3</span>
+</div>
+<div class="flex flex-col gap-1">
+<span class="font-headline-md text-label-md text-on-surface-variant font-bold uppercase tracking-wide">Hình 3</span>
+<span class="font-headline-lg text-headline-md font-extrabold text-on-surface">Lá cờ đỏ sao vàng</span>
+<button class="tactile-btn mt-1 flex items-center gap-1.5 w-fit px-3 py-1.5 bg-secondary-fixed text-on-secondary-fixed-variant rounded-xl border-2 border-on-surface shadow-[0px_2px_0px_#1c1c15] text-sm font-bold">
+<span class="material-symbols-outlined text-lg" data-icon="volume_up">volume_up</span>
+<span>Nghe "Cờ"</span>
+</button>
+</div>
+</div>
+<!-- Connector Touch Node -->
+<div class="flex items-center gap-2">
+<span class="hidden sm:inline font-label-md text-sm font-bold text-secondary">Chạm nối</span>
+<div class="w-12 h-12 rounded-full bg-secondary-container border-4 border-on-surface flex items-center justify-center shadow-[0px_4px_0px_#1c1c15] group-hover:scale-110 transition-transform">
+<div class="w-4 h-4 rounded-full bg-surface-bright"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- COLUMN 2: THẺ TỪ NGỮ (RIGHT) -->
+<div class="flex flex-col gap-5">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="w-10 h-10 rounded-xl bg-secondary text-surface flex items-center justify-center font-headline-md text-label-lg font-extrabold border-2 border-on-surface shadow-[0px_3px_0px_#1c1c15]">2</span>
+<h2 class="font-headline-md text-headline-md font-extrabold text-on-surface">Cột 2: Thẻ Từ Ngữ</h2>
+</div>
+<span class="text-sm font-headline-md font-bold text-on-surface-variant bg-surface-bright px-3 py-1 rounded-full border border-on-surface">Nối đúng từ</span>
+</div>
+<!-- Word Block A: ba ba -->
+<div class="tactile-card group relative bg-surface-container-lowest border-4 border-on-surface rounded-2xl p-4 shadow-[0px_6px_0px_#1c1c15] flex items-center justify-between cursor-pointer border-r-8 border-r-tertiary">
+<!-- Left Node for Match Target -->
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-tertiary-fixed border-4 border-on-surface flex items-center justify-center shadow-[0px_4px_0px_#1c1c15] group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-tertiary text-2xl" data-icon="adjust">adjust</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-baseline gap-3">
+<span class="font-display-lg text-display-lg font-extrabold text-tertiary tracking-wide">ba ba</span>
+<span class="bg-tertiary-fixed-dim text-on-tertiary-fixed px-3 py-1 rounded-full font-headline-md text-sm border-2 border-on-surface font-bold">
+                    b - a / b - a
+                  </span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">Âm "b" ghép với âm "a" lặp lại hai lần</p>
+</div>
+</div>
+<!-- Speak single word button -->
+<button class="tactile-btn w-14 h-14 rounded-2xl bg-surface-container border-3 border-on-surface flex items-center justify-center shadow-[0px_4px_0px_#1c1c15]">
+<span class="material-symbols-outlined text-3xl text-on-surface" data-icon="volume_up">volume_up</span>
+</button>
+</div>
+<!-- Word Block B: lá cờ (cờ) -->
+<div class="tactile-card group relative bg-surface-container-lowest border-4 border-on-surface rounded-2xl p-4 shadow-[0px_6px_0px_#1c1c15] flex items-center justify-between cursor-pointer border-r-8 border-r-secondary">
+<!-- Left Node for Match Target -->
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-secondary-fixed border-4 border-on-surface flex items-center justify-center shadow-[0px_4px_0px_#1c1c15] group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-secondary text-2xl" data-icon="adjust">adjust</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-baseline gap-3">
+<span class="font-display-lg text-display-lg font-extrabold text-secondary tracking-wide">lá cờ</span>
+<span class="bg-secondary-fixed-dim text-on-secondary-fixed px-3 py-1 rounded-full font-headline-md text-sm border-2 border-on-surface font-bold">
+                    c - ơ - huyền - CỜ
+                  </span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">Âm "c" ghép với âm "ơ", thêm dấu huyền</p>
+</div>
+</div>
+<button class="tactile-btn w-14 h-14 rounded-2xl bg-surface-container border-3 border-on-surface flex items-center justify-center shadow-[0px_4px_0px_#1c1c15]">
+<span class="material-symbols-outlined text-3xl text-on-surface" data-icon="volume_up">volume_up</span>
+</button>
+</div>
+<!-- Word Block C: con cá (cá) -->
+<div class="tactile-card group relative bg-surface-container-lowest border-4 border-on-surface rounded-2xl p-4 shadow-[0px_6px_0px_#1c1c15] flex items-center justify-between cursor-pointer border-r-8 border-r-primary">
+<!-- Left Node for Match Target -->
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-primary-fixed border-4 border-on-surface flex items-center justify-center shadow-[0px_4px_0px_#1c1c15] group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-primary text-2xl" data-icon="adjust">adjust</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-baseline gap-3">
+<span class="font-display-lg text-display-lg font-extrabold text-primary tracking-wide">cá</span>
+<span class="bg-primary-fixed-dim text-on-primary-fixed px-3 py-1 rounded-full font-headline-md text-sm border-2 border-on-surface font-bold">
+                    c - a - sắc - CÁ
+                  </span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">Âm "c" ghép với âm "a", thêm dấu sắc</p>
+</div>
+</div>
+<button class="tactile-btn w-14 h-14 rounded-2xl bg-surface-container border-3 border-on-surface flex items-center justify-center shadow-[0px_4px_0px_#1c1c15]">
+<span class="material-symbols-outlined text-3xl text-on-surface" data-icon="volume_up">volume_up</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Interactive feedback pill centered -->
+<div class="mt-6 pt-4 border-t-2 border-dashed border-on-surface/40 flex flex-wrap items-center justify-between gap-4">
+<div class="flex items-center gap-2">
+<span class="w-4 h-4 rounded-full bg-tertiary"></span>
+<span class="font-headline-md text-label-md font-bold text-on-surface">Đã kết nối mẫu: <strong class="text-tertiary">[Hình con cá] ➔ [cá]</strong></span>
+</div>
+<div class="flex items-center gap-3">
+<button class="tactile-btn px-5 py-2.5 bg-surface-bright border-3 border-on-surface rounded-xl font-headline-md text-label-md font-bold shadow-[0px_4px_0px_#1c1c15] flex items-center gap-2 hover:bg-surface-variant">
+<span class="material-symbols-outlined text-xl" data-icon="refresh">refresh</span>
+<span>Nối lại từ đầu</span>
+</button>
+<button class="tactile-btn px-6 py-2.5 bg-tertiary-container text-on-tertiary-container border-3 border-on-surface rounded-xl font-headline-md text-label-md font-bold shadow-[0px_4px_0px_#1c1c15] flex items-center gap-2">
+<span class="material-symbols-outlined text-xl" data-icon="check_circle">check_circle</span>
+<span>Kiểm Tra Nối Cặp</span>
+</button>
+</div>
+</div>
+</section>
+<!-- SECTION 3: TACTILE PHONICS SOUND BLENDING ZONE (Khu Vực Ghép Vần & Tạo Tiếng) -->
+<section class="bg-surface-container-lowest border-4 border-on-surface rounded-3xl p-6 lg:p-8 shadow-[0px_8px_0px_#1c1c15]">
+<div class="flex flex-col md:flex-row md:items-center justify-between pb-6 border-b-2 border-on-surface/20 gap-4">
+<div class="flex items-center gap-4">
+<div class="w-14 h-14 rounded-2xl bg-secondary-fixed text-secondary flex items-center justify-center font-headline-md text-headline-md border-3 border-on-surface shadow-[0px_4px_0px_#1c1c15]">
+<span class="material-symbols-outlined text-3xl" data-icon="extension">extension</span>
+</div>
+<div>
+<h2 class="font-headline-lg text-headline-md lg:text-headline-lg font-extrabold text-on-surface">
+              Khu Vực Ghép Vần &amp; Đánh Vần Trực Tiếp
+            </h2>
+<p class="font-body-md text-body-md text-on-surface-variant">
+              Kéo hoặc chọn các quân chữ cơ bản để ghép thành một tiếng có nghĩa
+            </p>
+</div>
+</div>
+<!-- Quick letter pool tabs -->
+<div class="flex items-center gap-2 bg-surface-container-low p-2 rounded-2xl border-2 border-on-surface">
+<span class="text-xs font-bold uppercase tracking-wider text-on-surface-variant pl-2">Chọn mẫu:</span>
+<button class="tactile-btn px-3 py-1 bg-primary text-on-primary font-headline-md text-sm rounded-xl border border-on-surface shadow-[0px_2px_0px_#1c1c15]">b + a + sắc</button>
+<button class="tactile-btn px-3 py-1 bg-surface-bright text-on-surface font-headline-md text-sm rounded-xl border border-on-surface hover:bg-surface-container">c + a + huyền</button>
+<button class="tactile-btn px-3 py-1 bg-surface-bright text-on-surface font-headline-md text-sm rounded-xl border border-on-surface hover:bg-surface-container">b + o + hỏi</button>
+</div>
+</div>
+<!-- CHUNKY PHYSICAL LETTER TILES SLOTS -->
+<div class="py-8 flex flex-wrap items-center justify-center gap-4 lg:gap-8">
+<!-- Tile 1: Âm Đầu (b) -->
+<div class="flex flex-col items-center gap-3">
+<span class="font-headline-md text-label-md font-bold text-primary bg-primary-fixed px-3 py-1 rounded-full border-2 border-on-surface shadow-[0px_2px_0px_#1c1c15]">
+            Âm đầu (Phụ âm)
+          </span>
+<div class="tactile-btn w-32 h-36 bg-surface-container-lowest border-4 border-on-surface rounded-3xl flex flex-col items-center justify-center shadow-[0px_8px_0px_#1c1c15] relative group cursor-pointer hover:bg-primary-fixed/30">
+<span class="font-display-xl text-display-xl font-extrabold text-primary leading-none">b</span>
+<div class="absolute -top-3 -right-2 bg-surface-bright border-2 border-on-surface rounded-full w-8 h-8 flex items-center justify-center text-xs font-black shadow-[0px_2px_0px_#1c1c15]">
+              1
+            </div>
+<span class="text-xs font-bold text-on-surface-variant mt-1">bê</span>
+</div>
+</div>
+<!-- Math Operator Plus -->
+<div class="font-display-lg text-display-lg font-black text-on-surface-variant pb-6 select-none">
+          +
+        </div>
+<!-- Tile 2: Âm Chính (a) -->
+<div class="flex flex-col items-center gap-3">
+<span class="font-headline-md text-label-md font-bold text-tertiary bg-tertiary-fixed px-3 py-1 rounded-full border-2 border-on-surface shadow-[0px_2px_0px_#1c1c15]">
+            Âm chính (Nguyên âm)
+          </span>
+<div class="tactile-btn w-32 h-36 bg-surface-container-lowest border-4 border-on-surface rounded-3xl flex flex-col items-center justify-center shadow-[0px_8px_0px_#1c1c15] relative group cursor-pointer hover:bg-tertiary-fixed/30">
+<span class="font-display-xl text-display-xl font-extrabold text-tertiary leading-none">a</span>
+<div class="absolute -top-3 -right-2 bg-surface-bright border-2 border-on-surface rounded-full w-8 h-8 flex items-center justify-center text-xs font-black shadow-[0px_2px_0px_#1c1c15]">
+              2
+            </div>
+<span class="text-xs font-bold text-on-surface-variant mt-1">a</span>
+</div>
+</div>
+<!-- Math Operator Plus -->
+<div class="font-display-lg text-display-lg font-black text-on-surface-variant pb-6 select-none">
+          +
+        </div>
+<!-- Tile 3: Dấu Thanh (Dấu Sắc) -->
+<div class="flex flex-col items-center gap-3">
+<span class="font-headline-md text-label-md font-bold text-secondary bg-secondary-fixed px-3 py-1 rounded-full border-2 border-on-surface shadow-[0px_2px_0px_#1c1c15]">
+            Dấu thanh
+          </span>
+<div class="tactile-btn w-32 h-36 bg-surface-container-lowest border-4 border-on-surface rounded-3xl flex flex-col items-center justify-center shadow-[0px_8px_0px_#1c1c15] relative group cursor-pointer hover:bg-secondary-fixed/30">
+<span class="font-display-xl text-display-xl font-extrabold text-secondary leading-none">´</span>
+<div class="absolute -top-3 -right-2 bg-surface-bright border-2 border-on-surface rounded-full w-8 h-8 flex items-center justify-center text-xs font-black shadow-[0px_2px_0px_#1c1c15]">
+              3
+            </div>
+<span class="text-xs font-bold text-on-surface-variant mt-1">Dấu Sắc</span>
+</div>
+</div>
+<!-- Math Operator Equals -->
+<div class="font-display-lg text-display-lg font-black text-on-surface-variant pb-6 select-none">
+          =
+        </div>
+<!-- RESULT TILE (bá) -->
+<div class="flex flex-col items-center gap-3">
+<span class="font-headline-md text-label-md font-bold text-on-tertiary bg-tertiary-container px-4 py-1 rounded-full border-2 border-on-surface shadow-[0px_2px_0px_#1c1c15] animate-bounce">
+            🎉 Tiếng hoàn chỉnh
+          </span>
+<div class="tactile-card w-44 h-36 bg-tertiary-fixed border-4 border-on-surface rounded-3xl flex flex-col items-center justify-center shadow-[0px_10px_0px_#1c1c15] relative border-dashed">
+<span class="font-display-xl text-display-xl font-extrabold text-on-tertiary-fixed leading-none">bá</span>
+<span class="font-headline-md text-sm font-bold text-tertiary mt-2 bg-surface-bright px-3 py-0.5 rounded-full border border-on-surface">
+              b - a - ba - sắc - BÁ!
+            </span>
+</div>
+</div>
+</div>
+<!-- ACTION BUTTONS FOR PHONICS -->
+<div class="flex flex-wrap items-center justify-center gap-4 pt-4 border-t-2 border-on-surface/20">
+<button class="tactile-btn min-h-[72px] px-8 bg-primary-container text-on-primary-container border-4 border-on-surface rounded-2xl font-headline-md text-label-lg font-extrabold shadow-[0px_6px_0px_#1c1c15] flex items-center gap-3 hover:brightness-105">
+<span class="material-symbols-outlined text-3xl" data-icon="volume_up">volume_up</span>
+<span>Đánh Vần To Rõ: "b - a - ba - sắc - BÁ"</span>
+</button>
+<button class="tactile-btn min-h-[72px] px-6 bg-surface-container-highest text-on-surface border-4 border-on-surface rounded-2xl font-headline-md text-label-lg font-bold shadow-[0px_6px_0px_#1c1c15] flex items-center gap-3 hover:bg-surface-variant">
+<span class="material-symbols-outlined text-3xl" data-icon="autorenew">autorenew</span>
+<span>Đổi Âm Khác (c, o, dấu huyền)</span>
+</button>
+<button class="tactile-btn min-h-[72px] px-6 bg-secondary-fixed text-on-secondary-fixed-variant border-4 border-on-surface rounded-2xl font-headline-md text-label-lg font-bold shadow-[0px_6px_0px_#1c1c15] flex items-center gap-3 hover:brightness-95">
+<span class="material-symbols-outlined text-3xl" data-icon="mic">mic</span>
+<span>Học Sinh Đọc Thử</span>
+</button>
+</div>
+</section>
+</main>
+<!-- BOTTOM CONTROL DOCK (Shared Component: BottomNavBar / Teacher & Student Dock) -->
+<footer class="bg-surface-container-lowest fixed bottom-0 left-0 w-full z-50 flex justify-between items-center px-margin py-space-md h-32 border-t-4 border-on-surface shadow-[0px_-6px_0px_#1c1c15]">
+<!-- Left: Navigation (Quay Lại) & Progress counter -->
+<div class="flex items-center gap-space-sm">
+<!-- Item 1: Quay Lại (Exact JSON label: Quay Lại, icon: arrow_back) -->
+<button class="tactile-btn flex items-center justify-center gap-space-xs bg-surface-container text-on-surface rounded-lg px-space-md py-space-sm border-2 border-on-surface min-h-[76px] shadow-[0px_4px_0px_#1c1c15] hover:bg-surface-variant hover:scale-105 transition-all">
+<span class="material-symbols-outlined text-3xl font-bold" data-icon="arrow_back">arrow_back</span>
+<span class="font-headline-sm text-label-lg font-bold">Quay Lại</span>
+</button>
+<!-- Slide counter badge pill -->
+<div class="hidden sm:flex items-center gap-2 bg-surface-container-high border-3 border-on-surface px-5 py-3 rounded-2xl shadow-[0px_3px_0px_#1c1c15]">
+<span class="material-symbols-outlined text-primary text-2xl" data-icon="school">school</span>
+<span class="font-headline-md text-label-lg font-extrabold text-on-surface">Câu 05 / 10</span>
+</div>
+</div>
+<!-- Center Classroom Activity Tools: Phát Âm, Quay Tên, Khen Thưởng -->
+<div class="flex items-center gap-space-sm">
+<!-- Item 2: Phát Âm (Exact JSON label: Phát Âm, icon: volume_up) -->
+<button class="tactile-btn hidden md:flex items-center justify-center gap-space-xs bg-surface-container text-on-surface rounded-lg px-space-md py-space-sm border-2 border-on-surface min-h-[76px] shadow-[0px_4px_0px_#1c1c15] hover:bg-surface-variant hover:scale-105 transition-all">
+<span class="material-symbols-outlined text-3xl font-bold" data-icon="volume_up">volume_up</span>
+<span class="font-headline-sm text-label-lg font-bold">Phát Âm</span>
+</button>
+<!-- Item 3: Quay Tên (Exact JSON label: Quay Tên, icon: casino) -->
+<button class="tactile-btn flex items-center justify-center gap-space-xs bg-surface-container text-on-surface rounded-lg px-space-md py-space-sm border-2 border-on-surface min-h-[76px] shadow-[0px_4px_0px_#1c1c15] hover:bg-surface-variant hover:scale-105 transition-all">
+<span class="material-symbols-outlined text-3xl font-bold text-secondary" data-icon="casino">casino</span>
+<span class="font-headline-sm text-label-lg font-bold">Quay Tên</span>
+</button>
+<!-- Extra pedagogical hint action -->
+<button class="tactile-btn hidden lg:flex items-center justify-center gap-space-xs bg-surface-container text-on-surface rounded-lg px-space-md py-space-sm border-2 border-on-surface min-h-[76px] shadow-[0px_4px_0px_#1c1c15] hover:bg-surface-variant hover:scale-105 transition-all">
+<span class="material-symbols-outlined text-3xl font-bold text-primary" data-icon="lightbulb">lightbulb</span>
+<span class="font-headline-sm text-label-lg font-bold">Gợi Ý</span>
+</button>
+<!-- Item 5: Khen Thưởng (Exact JSON label: Khen Thưởng, icon: emoji_events) -->
+<button class="tactile-btn flex items-center justify-center gap-space-xs bg-secondary-fixed text-on-secondary-fixed font-bold rounded-lg px-space-md py-space-sm border-2 border-on-surface min-h-[76px] shadow-[0px_4px_0px_#1c1c15] hover:scale-105 transition-all">
+<span class="material-symbols-outlined text-3xl font-bold" data-icon="emoji_events">emoji_events</span>
+<span class="font-headline-sm text-label-lg font-bold">Khen Thưởng</span>
+</button>
+</div>
+<!-- Right: Next Slide (Active Next step in workflow) -->
+<!-- Item 4: Tiếp Theo (Exact JSON label: Tiếp Theo, icon: arrow_forward) -->
+<!-- Mapped with style_active_navigation as it is the primary forward classroom action -->
+<div>
+<button class="tactile-btn flex items-center justify-center gap-space-xs bg-primary-container text-on-primary-container rounded-lg px-space-md py-space-sm border-2 border-on-surface min-h-[76px] shadow-[0px_6px_0px_#1c1c15] hover:bg-primary-container/90 hover:scale-105 transition-all">
+<span class="font-headline-sm text-headline-md font-extrabold pr-1">Tiếp Theo</span>
+<span class="material-symbols-outlined text-4xl font-extrabold" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</footer>
+</body></html>
