@@ -24,7 +24,7 @@ export interface SessionStep {
 export interface TeachingSession {
   id: string;
   title: string;
-  subject: 'math' | 'vietnamese';
+  subject: 'math' | 'vietnamese' | 'english';
   grade: 1;
   description: string;
   estimatedDurationMinutes: number;

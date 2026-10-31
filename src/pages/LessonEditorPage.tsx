@@ -453,12 +453,13 @@ export function LessonEditorPage() {
                   onChange={(e) =>
                     setLesson((prev) => ({
                       ...prev,
-                      subject: e.target.value as 'math' | 'vietnamese',
+                      subject: e.target.value as 'math' | 'vietnamese' | 'english',
                     }))
                   }
                 >
                   <option value="math">🧮 Toán Lớp 1</option>
                   <option value="vietnamese">📖 Tiếng Việt Lớp 1</option>
+                  <option value="english">🇬🇧 Tiếng Anh Lớp 1</option>
                 </select>
               </div>
 

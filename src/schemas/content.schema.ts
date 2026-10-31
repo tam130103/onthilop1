@@ -568,7 +568,7 @@ function makeLessonSchema(status: 'draft' | 'publish') {
       mode: z.literal(status).optional(),
       id: z.string().min(1),
       title: z.string().min(1),
-      subject: z.enum(['math', 'vietnamese']),
+      subject: z.enum(['math', 'vietnamese', 'english']),
       grade: z.literal(1),
       description: z.string().optional(),
       totalDurationMinutes: z.number().int().min(1).max(90).optional(),

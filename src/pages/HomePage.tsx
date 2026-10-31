@@ -21,6 +21,15 @@ import {
   type StoragePersistenceStatus,
 } from '@/core/backup-manager';
 import { APP_CACHE_NAME } from '@/core/cache-config';
+import {
+  MATH_STAGES,
+  VIETNAMESE_STAGES,
+  ENGLISH_STAGES,
+  EXAMS_LIST,
+  TOOLS_LIST,
+  type CurriculumStage,
+  type CurriculumLessonMeta,
+} from '@/data/onthi-curriculum';
 import styles from './HomePage.module.css';
 
 interface OfflineStatus {
@@ -44,6 +53,8 @@ export function HomePage() {
   const [globalOfflineMsg, setGlobalOfflineMsg] = useState<string | null>(null);
   const [classroomData, setClassroomData] = useState<ClassroomData>(getClassroomStore().getData());
   const [isClassroomModalOpen, setIsClassroomModalOpen] = useState(false);
+  const [activeSubjectTab, setActiveSubjectTab] = useState<'math' | 'vietnamese' | 'english' | 'custom'>('math');
+  const [searchQuery, setSearchQuery] = useState('');
 
   useEffect(() => {
     return getClassroomStore().subscribe(setClassroomData);
@@ -587,187 +598,415 @@ export function HomePage() {
           </div>
         </section>
 
-        {/* SECTION 3: Bài học độc lập (Học theo bản đồ) */}
+        {/* SECTION 3: HỌC THEO BẢN ĐỒ - TOÀN BỘ CHƯƠNG TRÌNH ONTHI.APP */}
         <section>
           <div className={styles.sectionHeader}>
             <h2 className={styles.sectionTitle}>
-              <span>🎮</span> Học theo bản đồ · Danh mục bài giảng Lớp 1
+              <span>🗺️</span> Học theo bản đồ · Chương trình Lớp 1 chuẩn onthi.app
             </h2>
             <span className={styles.sectionSubtitle}>
-              Toán 48 bài · Tiếng Việt 132 bài · Giọng cô giáo đọc từng câu
+              Toán (48 bài · 11 chặng) · Tiếng Việt (132 bài · 17 chặng) · Tiếng Anh (16 Unit)
             </span>
           </div>
 
-          {loading ? (
-            <p style={{ color: '#64748b', fontSize: '16px', fontWeight: 600 }}>Đang tải bài học...</p>
-          ) : lessons.length === 0 ? (
-            <p style={{ color: '#64748b', fontSize: '16px', fontWeight: 600 }}>Không tìm thấy bài học nào.</p>
-          ) : (
-            <div className={styles.lessonGrid}>
-              {lessons.map((lesson) => {
-                const offline = offlineStatuses[lesson.id];
-                const isVietnamese = lesson.subject === 'vietnamese';
-                const isCustom = getCustomLessons().some((cl) => cl.id === lesson.id);
+          {/* Subject Switcher Tabs */}
+          <div className={styles.curriculumNav}>
+            <button
+              className={`${styles.subjectTab} ${activeSubjectTab === 'math' ? styles.subjectTabActiveMath : ''}`}
+              onClick={() => setActiveSubjectTab('math')}
+              data-testid="tab-math"
+            >
+              <span>🔢</span>
+              <span>Toán Lớp 1</span>
+              <span className={styles.tabPill}>48 bài · 11 chặng</span>
+            </button>
 
-                return (
-                  <div key={lesson.id} className={styles.lessonCard}>
-                    <div>
-                      <div className={styles.lessonCardTop}>
-                        <div
-                          className={`${styles.cardIcon} ${
-                            isCustom ? styles.cardIconCustom : isVietnamese ? styles.cardIconVn : styles.cardIconMath
-                          }`}
-                        >
-                          {isCustom ? '⭐' : isVietnamese ? 'ba' : '1+1'}
+            <button
+              className={`${styles.subjectTab} ${activeSubjectTab === 'vietnamese' ? styles.subjectTabActiveVn : ''}`}
+              onClick={() => setActiveSubjectTab('vietnamese')}
+              data-testid="tab-vietnamese"
+            >
+              <span>📖</span>
+              <span>Tiếng Việt Lớp 1</span>
+              <span className={styles.tabPill}>132 bài · 17 chặng</span>
+            </button>
+
+            <button
+              className={`${styles.subjectTab} ${activeSubjectTab === 'english' ? styles.subjectTabActiveEn : ''}`}
+              onClick={() => setActiveSubjectTab('english')}
+              data-testid="tab-english"
+            >
+              <span>🇬🇧</span>
+              <span>Tiếng Anh Lớp 1</span>
+              <span className={styles.tabPill}>16 Unit · Global Success</span>
+            </button>
+
+            <button
+              className={`${styles.subjectTab} ${activeSubjectTab === 'custom' ? styles.subjectTabActiveCustom : ''}`}
+              onClick={() => setActiveSubjectTab('custom')}
+              data-testid="tab-custom"
+            >
+              <span>⭐</span>
+              <span>Bài của cô</span>
+              <span className={styles.tabPill}>{getCustomLessons().length} bài</span>
+            </button>
+          </div>
+
+          {/* Search Box */}
+          <div className={styles.searchBar}>
+            <input
+              type="text"
+              className={styles.searchInput}
+              placeholder="🔍 Tìm nhanh bài học (vd: đếm số, phép cộng, âm o, vần an, unit 1)..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
+            {searchQuery && (
+              <button
+                className={styles.btnPrintSmall}
+                onClick={() => setSearchQuery('')}
+                style={{ padding: '0 16px', borderRadius: '16px' }}
+              >
+                ✕ Xóa tìm kiếm
+              </button>
+            )}
+          </div>
+
+          {/* Render Curriculum Content */}
+          {activeSubjectTab === 'custom' ? (
+            /* Tab: Bài giáo viên tự soạn & bài mẫu tích hợp */
+            loading ? (
+              <p style={{ color: '#64748b', fontSize: '16px', fontWeight: 600 }}>Đang tải bài học...</p>
+            ) : lessons.length === 0 ? (
+              <p style={{ color: '#64748b', fontSize: '16px', fontWeight: 600 }}>Chưa có bài soạn nào.</p>
+            ) : (
+              <div className={styles.lessonGrid}>
+                {lessons.map((lesson) => {
+                  const offline = offlineStatuses[lesson.id];
+                  const isVietnamese = lesson.subject === 'vietnamese';
+                  const isCustom = getCustomLessons().some((cl) => cl.id === lesson.id);
+
+                  return (
+                    <div key={lesson.id} className={styles.lessonCard}>
+                      <div>
+                        <div className={styles.lessonCardTop}>
+                          <div
+                            className={`${styles.cardIcon} ${
+                              isCustom ? styles.cardIconCustom : isVietnamese ? styles.cardIconVn : styles.cardIconMath
+                            }`}
+                          >
+                            {isCustom ? '⭐' : isVietnamese ? 'ba' : '1+1'}
+                          </div>
+                          <div>
+                            <h3 className={styles.lessonTitle}>{lesson.title}</h3>
+                            <div className={styles.lessonMeta}>
+                              <span className={`${styles.badge} ${isVietnamese ? styles.badgeVn : styles.badgeMath}`}>
+                                {isVietnamese ? 'Tiếng Việt 1' : 'Toán 1'}
+                              </span>
+                              <span>{lesson.slides.length} slide</span>
+                              <span style={{ color: lesson.status === 'publish' ? '#059669' : '#d97706' }}>
+                                {lesson.status === 'publish' ? '● Xuất bản' : '○ Bản nháp'}
+                              </span>
+                            </div>
+                          </div>
                         </div>
-                        <div>
-                          <h3 className={styles.lessonTitle}>{lesson.title}</h3>
-                          <div className={styles.lessonMeta}>
-                            <span className={`${styles.badge} ${isVietnamese ? styles.badgeVn : styles.badgeMath}`}>
-                              {isVietnamese ? 'Tiếng Việt 1' : 'Toán 1'}
-                            </span>
-                            <span>{lesson.slides.length} slide</span>
-                            <span style={{ color: lesson.status === 'publish' ? '#059669' : '#d97706' }}>
-                              {lesson.status === 'publish' ? '● Xuất bản' : '○ Bản nháp'}
+
+                        {lesson.description && <p className={styles.lessonDesc}>{lesson.description}</p>}
+
+                        {offline && (
+                          <div style={{ marginBottom: '14px', fontSize: '12px' }}>
+                            {offline.status === 'downloading' && (
+                              <span style={{ color: '#0284c7' }}>⏳ Đang tải file ({offline.cached}/{offline.total})...</span>
+                            )}
+                            {offline.status === 'ready' && (
+                              <span style={{ color: '#059669', fontWeight: 700 }}>
+                                ✅ Đã sẵn sàng Offline ({offline.cached}/{offline.total} file)
+                              </span>
+                            )}
+                          </div>
+                        )}
+                      </div>
+
+                      <div className={styles.actions}>
+                        <button
+                          className={styles.btnDual}
+                          onClick={() => handleStartClassroom(lesson.id)}
+                          data-testid={`start-lesson-${lesson.id}`}
+                        >
+                          🚀 Chiếu bài dạy (Mở 2 màn hình)
+                        </button>
+
+                        <div className={styles.secondaryRow}>
+                          <button className={styles.btnTv} onClick={() => handlePresent(lesson.id)}>
+                            📺 Xem TV
+                          </button>
+                          <button className={styles.btnTeacher} onClick={() => handlePresenter(lesson.id)}>
+                            🎛️ Điều khiển
+                          </button>
+                        </div>
+
+                        <div className={styles.secondaryRow}>
+                          <button
+                            className={styles.btnTeacher}
+                            onClick={() => navigate(`/print-worksheet?source=${lesson.id}`)}
+                          >
+                            🖨️ In phiếu A4
+                          </button>
+                          <button
+                            className={styles.btnTeacher}
+                            onClick={() => handleCacheLesson(lesson)}
+                          >
+                            💾 Nạp Offline
+                          </button>
+                        </div>
+
+                        {isCustom && (
+                          <div className={styles.secondaryRow}>
+                            <button
+                              className={styles.btnTeacher}
+                              onClick={() => navigate(`/editor?lesson=${lesson.id}`)}
+                            >
+                              ✏️ Sửa bài
+                            </button>
+                            <button
+                              className={styles.btnTeacher}
+                              style={{ color: '#dc2626' }}
+                              onClick={() => {
+                                if (confirm(`Bạn có chắc chắn muốn xóa bài "${lesson.title}" không?`)) {
+                                  deleteCustomLesson(lesson.id);
+                                  refreshData();
+                                }
+                              }}
+                            >
+                              🗑️ Xóa
+                            </button>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            )
+          ) : (
+            /* Tab: Toán / Tiếng Việt / Tiếng Anh theo Chặng onthi.app */
+            <div>
+              {(activeSubjectTab === 'math'
+                ? MATH_STAGES
+                : activeSubjectTab === 'vietnamese'
+                ? VIETNAMESE_STAGES
+                : ENGLISH_STAGES
+              )
+                .map((stage) => {
+                  const filteredLessons = stage.lessons.filter((l) => {
+                    if (!searchQuery.trim()) return true;
+                    const q = searchQuery.toLowerCase().trim();
+                    return (
+                      l.title.toLowerCase().includes(q) ||
+                      l.description.toLowerCase().includes(q) ||
+                      l.code.toLowerCase().includes(q)
+                    );
+                  });
+
+                  if (filteredLessons.length === 0) return null;
+
+                  return (
+                    <div key={stage.id} className={styles.stageSection}>
+                      <div className={styles.stageSectionHeader}>
+                        <div className={styles.stageLeft}>
+                          <div className={styles.stageIcon}>{stage.icon}</div>
+                          <div>
+                            <h3 className={styles.stageTitle}>
+                              {stage.title}
+                            </h3>
+                            <span className={styles.stageCount}>
+                              {filteredLessons.length} bài học tương tác có âm thanh
                             </span>
                           </div>
                         </div>
                       </div>
 
-                      {lesson.description && <p className={styles.lessonDesc}>{lesson.description}</p>}
-
-                      {/* Offline Status Report */}
-                      {offline && (
-                        <div style={{ marginBottom: '14px', fontSize: '12px' }}>
-                          {offline.status === 'downloading' && (
-                            <span style={{ color: '#0284c7' }}>⏳ Đang tải file ({offline.cached}/{offline.total})...</span>
-                          )}
-                          {offline.status === 'ready' && (
-                            <span style={{ color: '#059669', fontWeight: 700 }}>
-                              ✅ Đã sẵn sàng Offline ({offline.cached}/{offline.total} file)
-                            </span>
-                          )}
-                          {offline.status === 'error' && (
-                            <div style={{ color: '#dc2626', fontWeight: 600 }}>
-                              ⚠️ Thiếu {offline.missing.length} file:
-                              <ul style={{ margin: '2px 0 0 16px', fontSize: '11px' }}>
-                                {offline.missing.map((m, i) => (
-                                  <li key={i}>{m}</li>
-                                ))}
-                              </ul>
+                      <div className={styles.curriculumGrid}>
+                        {filteredLessons.map((item) => (
+                          <div key={item.id} className={styles.curriculumItem}>
+                            <div>
+                              <div className={styles.currItemTop}>
+                                <span className={styles.codeBadge}>{item.code}</span>
+                                <div>
+                                  <div className={styles.currTitle}>{item.title}</div>
+                                  <div className={styles.currDesc}>{item.description}</div>
+                                </div>
+                              </div>
                             </div>
-                          )}
-                        </div>
-                      )}
-                    </div>
 
-                    <div className={styles.actions}>
-                      <button
-                        className={styles.btnDual}
-                        onClick={() => handleStartClassroom(lesson.id)}
-                        title="Mở màn hình TV riêng để chiếu và chuyển tab này sang Bảng điều khiển"
-                        data-testid={`start-lesson-${lesson.id}`}
-                      >
-                        🚀 Chiếu bài dạy (Mở 2 màn hình)
-                      </button>
+                            <div>
+                              <button
+                                className={styles.btnDual}
+                                style={{ width: '100%', marginBottom: '8px', fontSize: '13px', padding: '10px' }}
+                                onClick={() => handleStartClassroom(item.id)}
+                                title="Bắt đầu chiếu với 2 màn hình (TV + Laptop giáo viên)"
+                              >
+                                🚀 Chiếu 2 Màn hình
+                              </button>
 
-                      <div className={styles.secondaryRow}>
-                        <button className={styles.btnTv} onClick={() => handlePresent(lesson.id)} title="Chỉ mở màn hình hiển thị TV">
-                          📺 Xem TV
-                        </button>
-                        <button className={styles.btnTeacher} onClick={() => handlePresenter(lesson.id)} title="Chỉ mở Bảng điều khiển giáo viên">
-                          🎛️ Điều khiển
-                        </button>
+                              <div className={styles.currActions}>
+                                <button
+                                  className={styles.btnTv}
+                                  style={{ flex: 1, padding: '7px 8px', fontSize: '12px' }}
+                                  onClick={() => handlePresent(item.id)}
+                                  title="Chỉ mở màn hình TV học sinh"
+                                >
+                                  📺 TV
+                                </button>
+                                <button
+                                  className={styles.btnTeacher}
+                                  style={{ flex: 1, padding: '7px 8px', fontSize: '12px' }}
+                                  onClick={() => handlePresenter(item.id)}
+                                  title="Chỉ mở màn hình điều khiển cô giáo"
+                                >
+                                  🎛️ Bàn cô
+                                </button>
+                                <button
+                                  className={styles.btnPrintSmall}
+                                  onClick={() => navigate(`/print-worksheet?source=${item.id}`)}
+                                  title="In phiếu bài tập A4"
+                                >
+                                  🖨️
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        ))}
                       </div>
-
-                      <div className={styles.secondaryRow}>
-                        <button
-                          className={styles.btnTeacher}
-                          onClick={() => navigate(`/print-worksheet?source=${lesson.id}`)}
-                          title="In phiếu bài tập A4 cho bài này"
-                        >
-                          🖨️ In phiếu A4
-                        </button>
-                        <button
-                          className={styles.btnTeacher}
-                          onClick={() => handleCacheLesson(lesson)}
-                          title="Tải toàn bộ media vào bộ nhớ đệm offline"
-                        >
-                          💾 Nạp Offline
-                        </button>
-                      </div>
-
-                      {isCustom && (
-                        <div className={styles.secondaryRow}>
-                          <button
-                            className={styles.btnTeacher}
-                            onClick={() => navigate(`/editor?lesson=${lesson.id}`)}
-                            title="Chỉnh sửa nội dung bài này"
-                          >
-                            ✏️ Sửa bài
-                          </button>
-                          <button
-                            className={styles.btnTeacher}
-                            style={{ color: '#dc2626' }}
-                            onClick={() => {
-                              if (confirm(`Bạn có chắc chắn muốn xóa bài "${lesson.title}" không?`)) {
-                                deleteCustomLesson(lesson.id);
-                                refreshData();
-                              }
-                            }}
-                            title="Xóa bài này khỏi bộ nhớ máy"
-                          >
-                            🗑️ Xóa
-                          </button>
-                        </div>
-                      )}
                     </div>
-                  </div>
-                );
-              })}
+                  );
+                })}
             </div>
           )}
         </section>
 
-        {/* SECTION 4: Công cụ lớp 1 miễn phí */}
+        {/* SECTION: ĐỀ THI 4 KÌ CHUẨN (ONTHI.APP) */}
         <section>
           <div className={styles.sectionHeader}>
             <h2 className={styles.sectionTitle}>
-              <span>🛠️</span> Công cụ Lớp 1 miễn phí
+              <span>🏆</span> Đề thi 4 kì chuẩn GDPT 2018 (onthi.app)
             </h2>
-            <span className={styles.sectionSubtitle}>Dành cho giáo viên và phụ huynh đồng hành cùng con</span>
+            <span className={styles.sectionSubtitle}>
+              Toán & Tiếng Việt · Đề Giữa HK1, Cuối HK1, Giữa HK2, Cuối năm có chấm điểm tức thì
+            </span>
+          </div>
+
+          <div className={styles.examsGrid}>
+            {EXAMS_LIST.map((exam) => (
+              <div key={exam.id} className={styles.examCard}>
+                <div>
+                  <div className={styles.examHeader}>
+                    <div className={styles.examIcon}>{exam.icon}</div>
+                    <div>
+                      <div className={styles.examTerm}>{exam.termLabel} · {exam.durationMinutes} phút</div>
+                      <div className={styles.examTitle}>{exam.title}</div>
+                    </div>
+                  </div>
+                  <p style={{ fontSize: '13px', color: '#64748b', margin: '10px 0 0 0', lineHeight: 1.4 }}>
+                    {exam.description}
+                  </p>
+                </div>
+
+                <div style={{ display: 'flex', gap: '8px', marginTop: '12px' }}>
+                  <button
+                    className={styles.btnDual}
+                    style={{ flex: 1, fontSize: '13px', padding: '10px' }}
+                    onClick={() => handleStartClassroom(exam.id)}
+                  >
+                    🚀 Bắt đầu làm bài thi
+                  </button>
+                  <button
+                    className={styles.btnPrintSmall}
+                    onClick={() => navigate(`/print-worksheet?source=${exam.id}`)}
+                    title="In đề thi A4"
+                  >
+                    🖨️ In đề A4
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* SECTION 4: Công cụ lớp 1 miễn phí (onthi.app) */}
+        <section>
+          <div className={styles.sectionHeader}>
+            <h2 className={styles.sectionTitle}>
+              <span>🛠️</span> Công cụ Lớp 1 miễn phí (onthi.app)
+            </h2>
+            <span className={styles.sectionSubtitle}>
+              Trợ giảng đắc lực cho giáo viên & học sinh lớp 1 tại lớp học
+            </span>
           </div>
 
           <div className={styles.toolsGrid}>
-            <div className={styles.toolCard} onClick={() => navigate('/print-worksheet')} data-testid="nav-print-worksheet">
-              <div className={styles.toolIcon} style={{ backgroundColor: '#e0f2fe', color: '#0284c7' }}>🖨️</div>
-              <div>
-                <div className={styles.toolTitle}>In Phiếu bài tập A4</div>
-                <div className={styles.toolSubtitle}>Chuẩn khổ A4 kèm đáp án chi tiết</div>
+            {TOOLS_LIST.map((tool) => (
+              <div
+                key={tool.id}
+                className={styles.toolCard}
+                onClick={() => {
+                  if (tool.route.startsWith('/present')) {
+                    const match = tool.route.match(/lesson=([^&]+)/);
+                    if (match && match[1]) {
+                      handleStartClassroom(match[1]);
+                      return;
+                    }
+                  }
+                  navigate(tool.route);
+                }}
+              >
+                <div className={styles.toolIcon} style={{ backgroundColor: '#e0f2fe', color: '#0284c7' }}>
+                  {tool.icon}
+                </div>
+                <div>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                    <span className={styles.toolTitle}>{tool.title}</span>
+                    {tool.badge && (
+                      <span
+                        style={{
+                          fontSize: '10px',
+                          fontWeight: 800,
+                          backgroundColor: '#fef3c7',
+                          color: '#d97706',
+                          padding: '1px 6px',
+                          borderRadius: '8px',
+                        }}
+                      >
+                        {tool.badge}
+                      </span>
+                    )}
+                  </div>
+                  <div className={styles.toolSubtitle}>{tool.description}</div>
+                </div>
               </div>
-            </div>
-
-            <div className={styles.toolCard} onClick={() => navigate('/editor')}>
-              <div className={styles.toolIcon} style={{ backgroundColor: '#f3e8ff', color: '#7c3aed' }}>✏️</div>
-              <div>
-                <div className={styles.toolTitle}>Soạn bài giảng mới</div>
-                <div className={styles.toolSubtitle}>Tạo câu hỏi trắc nghiệm, nối từ, đếm số</div>
-              </div>
-            </div>
+            ))}
 
             <div className={styles.toolCard} onClick={() => setIsClassroomModalOpen(true)}>
-              <div className={styles.toolIcon} style={{ backgroundColor: '#fef3c7', color: '#d97706' }}>⚙️</div>
-              <div>
-                <div className={styles.toolTitle}>Quản lý Lớp & 4 Tổ</div>
-                <div className={styles.toolSubtitle}>Danh sách học sinh, vòng quay gọi tên</div>
+              <div className={styles.toolIcon} style={{ backgroundColor: '#fef3c7', color: '#d97706' }}>
+                ⚙️
               </div>
-            </div>
-
-            <div className={styles.toolCard} onClick={() => navigate('/hardware-test')}>
-              <div className={styles.toolIcon} style={{ backgroundColor: '#dcfce7', color: '#059669' }}>🔧</div>
               <div>
-                <div className={styles.toolTitle}>Kiểm tra âm thanh & TV</div>
-                <div className={styles.toolSubtitle}>Test loa, micro, audio context</div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                  <span className={styles.toolTitle}>Quản lý Lớp & 4 Tổ</span>
+                  <span
+                    style={{
+                      fontSize: '10px',
+                      fontWeight: 800,
+                      backgroundColor: '#ecfdf5',
+                      color: '#059669',
+                      padding: '1px 6px',
+                      borderRadius: '8px',
+                    }}
+                  >
+                    Thi đua
+                  </span>
+                </div>
+                <div className={styles.toolSubtitle}>Danh sách học sinh, vòng quay gọi tên ngẫu nhiên</div>
               </div>
             </div>
           </div>

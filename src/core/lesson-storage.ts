@@ -1,5 +1,6 @@
 import { LessonSchema, type Lesson } from '@/schemas/content.schema';
 import { getMistakeTracker } from './mistake-tracker';
+import { findCurriculumLessonMeta, createInteractiveCurriculumLesson } from '@/data/onthi-curriculum';
 
 export const BUILTIN_LESSON_URLS = [
   '/content/lessons/math-lesson-01.json',
@@ -110,6 +111,12 @@ export async function getLessonById(lessonId: string): Promise<Lesson | null> {
     } catch {
       // continue
     }
+  }
+
+  // 3. Search in Grade-1 onthi curriculum database
+  const currMeta = findCurriculumLessonMeta(lessonId);
+  if (currMeta) {
+    return createInteractiveCurriculumLesson(currMeta);
   }
 
   return null;

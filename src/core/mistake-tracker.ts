@@ -12,7 +12,7 @@ export interface MistakeEntry {
   questionId: string;
   lessonId: string;
   lessonTitle: string;
-  subject: 'math' | 'vietnamese';
+  subject: 'math' | 'vietnamese' | 'english';
   question: Question;
   wrongCount: number;
   lastWrongAt: number;
@@ -62,7 +62,7 @@ export class MistakeTracker {
   recordMistake(
     lessonId: string,
     lessonTitle: string,
-    subject: 'math' | 'vietnamese',
+    subject: 'math' | 'vietnamese' | 'english',
     question: Question
   ): void {
     const existing = this.cache.get(question.id);
