@@ -355,6 +355,14 @@ export function HomePage() {
             <button className={styles.navLink} onClick={() => setIsClassroomModalOpen(true)}>
               Lớp & Thi đua
             </button>
+            <button
+              className={styles.navLink}
+              onClick={() => navigate('/admin')}
+              style={{ fontWeight: 800, color: '#2563eb' }}
+              title="Trang quản trị toàn diện hệ thống: User, Bài giảng, Lớp học, Supabase"
+            >
+              ⚙️ Quản trị Admin
+            </button>
             <a href="/onthi-preview.html" target="_blank" rel="noreferrer" className={styles.navLink} title="Xem bản mẫu thiết kế Stitch">
               Bản mẫu Stitch ↗
             </a>
@@ -378,9 +386,14 @@ export function HomePage() {
                 📥 Cài App vào máy
               </button>
             )}
-            <div className={styles.userPill}>
+            <div
+              className={styles.userPill}
+              onClick={() => navigate('/admin')}
+              style={{ cursor: 'pointer' }}
+              title="Mở bảng điều khiển Quản trị Admin"
+            >
               <div className={styles.avatar}>T</div>
-              <span>Tâm Nguyễn</span>
+              <span>Tâm Nguyễn (Admin)</span>
             </div>
           </div>
         </div>

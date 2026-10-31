@@ -338,6 +338,14 @@ export class ClassroomStore {
     this.persist();
   }
 
+  setTeamScore(teamId: string, score: number): void {
+    this.data.teams = this.data.teams.map((t) =>
+      t.id === teamId ? { ...t, score: Math.max(0, score) } : t
+    );
+    syncTeamToSupabase(teamId, { score });
+    this.persist();
+  }
+
   resetScores(): void {
     this.data.teams = this.data.teams.map((t) => ({ ...t, score: 0 }));
     for (const t of this.data.teams) {
@@ -352,6 +360,10 @@ export class ClassroomStore {
     );
     syncTeamToSupabase(teamId, { name });
     this.persist();
+  }
+
+  renameTeam(teamId: string, name: string): void {
+    this.updateTeamName(teamId, name);
   }
 
   // ---- Classroom Timer ----
