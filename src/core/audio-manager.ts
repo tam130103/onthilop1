@@ -219,6 +219,97 @@ export class SessionAudioManager {
     return this.currentUrl;
   }
 
+  /**
+   * Tổng hợp âm thanh tức thì qua Web Audio API Oscillator (Không cần tải file mạng)
+   */
+  playSynthesizedSfx(type: 'correct' | 'wrong' | 'timer'): void {
+    try {
+      if (!this.audioContext) {
+        const AudioCtx = window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
+        if (AudioCtx) this.audioContext = new AudioCtx();
+      }
+      if (!this.audioContext) return;
+      if (this.audioContext.state === 'suspended') {
+        this.audioContext.resume().catch(() => {});
+      }
+
+      const now = this.audioContext.currentTime;
+      const gainNode = this.audioContext.createGain();
+      gainNode.connect(this.audioContext.destination);
+
+      if (type === 'correct') {
+        // Pentatonic joyful arpeggio: C5 -> E5 -> G5 -> C6
+        const notes = [523.25, 659.25, 783.99, 1046.5];
+        notes.forEach((freq, idx) => {
+          if (!this.audioContext) return;
+          const osc = this.audioContext.createOscillator();
+          const noteGain = this.audioContext.createGain();
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(freq, now + idx * 0.08);
+          noteGain.gain.setValueAtTime(0.18, now + idx * 0.08);
+          noteGain.gain.exponentialRampToValueAtTime(0.001, now + idx * 0.08 + 0.35);
+          osc.connect(noteGain);
+          noteGain.connect(gainNode);
+          osc.start(now + idx * 0.08);
+          osc.stop(now + idx * 0.08 + 0.35);
+        });
+      } else if (type === 'wrong') {
+        // Gentle soft buzz
+        const osc = this.audioContext.createOscillator();
+        osc.type = 'triangle';
+        osc.frequency.setValueAtTime(220, now);
+        osc.frequency.setValueAtTime(196, now + 0.15);
+        gainNode.gain.setValueAtTime(0.12, now);
+        gainNode.gain.exponentialRampToValueAtTime(0.001, now + 0.35);
+        osc.connect(gainNode);
+        osc.start(now);
+        osc.stop(now + 0.35);
+      } else if (type === 'timer') {
+        // Two-tone bell
+        const osc = this.audioContext.createOscillator();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(880, now);
+        osc.frequency.setValueAtTime(1760, now + 0.1);
+        gainNode.gain.setValueAtTime(0.2, now);
+        gainNode.gain.exponentialRampToValueAtTime(0.001, now + 0.6);
+        osc.connect(gainNode);
+        osc.start(now);
+        osc.stop(now + 0.6);
+      }
+    } catch {
+      // ignore
+    }
+  }
+
+  /**
+   * Đọc văn bản tiếng Việt qua Web Speech Synthesis (Trợ giảng AI trực tiếp trên web)
+   */
+  speakText(text: string, lang: string = 'vi-VN'): void {
+    if (typeof window === 'undefined' || !('speechSynthesis' in window)) return;
+    try {
+      window.speechSynthesis.cancel();
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.lang = lang;
+      utterance.rate = 0.88; // Tốc độ chuẩn chậm rãi, dễ nghe cho học sinh lớp 1
+      utterance.pitch = 1.05;
+      const voices = window.speechSynthesis.getVoices();
+      const viVoice = voices.find((v) => v.lang.includes('vi') || v.lang.includes('VIE'));
+      if (viVoice) utterance.voice = viVoice;
+
+      utterance.onstart = () => this.setState('playing');
+      utterance.onend = () => {
+        this.setState('idle');
+        this.emit('ended');
+      };
+      utterance.onerror = () => {
+        this.setState('idle');
+      };
+      window.speechSynthesis.speak(utterance);
+    } catch {
+      // ignore
+    }
+  }
+
   dispose(): void {
     this.releaseSessionAudio();
     this.listeners.clear();

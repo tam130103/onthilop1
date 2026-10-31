@@ -55,6 +55,35 @@ export function HomePage() {
   const [isClassroomModalOpen, setIsClassroomModalOpen] = useState(false);
   const [activeSubjectTab, setActiveSubjectTab] = useState<'math' | 'vietnamese' | 'english' | 'custom'>('math');
   const [searchQuery, setSearchQuery] = useState('');
+  const [installPrompt, setInstallPrompt] = useState<any>(null);
+  const [popupBlockedLessonId, setPopupBlockedLessonId] = useState<string | null>(null);
+
+  useEffect(() => {
+    const handleBeforeInstall = (e: Event) => {
+      e.preventDefault();
+      setInstallPrompt(e);
+    };
+    window.addEventListener('beforeinstallprompt', handleBeforeInstall);
+    return () => window.removeEventListener('beforeinstallprompt', handleBeforeInstall);
+  }, []);
+
+  const handleInstallApp = useCallback(async () => {
+    if (!installPrompt) return;
+    installPrompt.prompt();
+    const choice = await installPrompt.userChoice;
+    if (choice?.outcome === 'accepted') {
+      setInstallPrompt(null);
+    }
+  }, [installPrompt]);
+
+  const handleCopyLessonLink = useCallback((id: string) => {
+    const url = `${window.location.origin}/present?lesson=${id}`;
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(url).then(() => {
+        alert(`🔗 Đã sao chép link trình chiếu bài học:\n${url}`);
+      }).catch(() => {});
+    }
+  }, []);
 
   useEffect(() => {
     return getClassroomStore().subscribe(setClassroomData);
@@ -216,11 +245,14 @@ export function HomePage() {
   // Khởi chạy 2 màn hình 1-Click: Mở TV popup và chuyển tab laptop sang Presenter
   const handleStartClassroom = useCallback(
     (lessonId: string) => {
-      window.open(
+      const tvWin = window.open(
         `/present?lesson=${lessonId}`,
         'tv_presentation_screen',
         'width=1280,height=720,menubar=no,toolbar=no,location=no'
       );
+      if (!tvWin || tvWin.closed || typeof tvWin.closed === 'undefined') {
+        setPopupBlockedLessonId(lessonId);
+      }
       navigate(`/presenter?lesson=${lessonId}`);
     },
     [navigate]
@@ -231,11 +263,14 @@ export function HomePage() {
     (session: TeachingSession) => {
       const firstLessonId = session.steps.find((s) => s.lessonId)?.lessonId;
       const lessonQuery = firstLessonId ? `&lesson=${firstLessonId}` : '';
-      window.open(
+      const tvWin = window.open(
         `/present?session=${session.id}${lessonQuery}`,
         'tv_presentation_screen',
         'width=1280,height=720,menubar=no,toolbar=no,location=no'
       );
+      if (!tvWin || tvWin.closed || typeof tvWin.closed === 'undefined') {
+        setPopupBlockedLessonId(firstLessonId || session.id);
+      }
       navigate(`/presenter?session=${session.id}${lessonQuery}`);
     },
     [navigate]
@@ -326,6 +361,23 @@ export function HomePage() {
           </nav>
 
           <div className={styles.navRight}>
+            {installPrompt && (
+              <button
+                onClick={handleInstallApp}
+                className={styles.utilityBtn}
+                style={{
+                  backgroundColor: '#10b981',
+                  color: '#ffffff',
+                  border: 'none',
+                  borderBottom: '3px solid #059669',
+                  fontWeight: 800,
+                  cursor: 'pointer',
+                }}
+                title="Cài đặt ứng dụng trực tiếp vào máy tính/máy tính bảng"
+              >
+                📥 Cài App vào máy
+              </button>
+            )}
             <div className={styles.userPill}>
               <div className={styles.avatar}>T</div>
               <span>Tâm Nguyễn</span>
@@ -336,6 +388,62 @@ export function HomePage() {
 
       {/* 2. MAIN CONTAINER */}
       <main className={styles.mainContainer}>
+        {/* Popup Blocked Alert if applicable */}
+        {popupBlockedLessonId && (
+          <div
+            style={{
+              padding: '14px 20px',
+              borderRadius: '16px',
+              backgroundColor: '#fffbeb',
+              color: '#b45309',
+              border: '2px solid #fde68a',
+              marginBottom: '16px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              gap: '12px',
+              flexWrap: 'wrap',
+            }}
+          >
+            <div>
+              <strong>⚠️ Trình duyệt chặn mở cửa sổ mới:</strong> Vui lòng cho phép popup để TV mở tự động, hoặc bấm nút bên dưới:
+            </div>
+            <div style={{ display: 'flex', gap: '8px' }}>
+              <a
+                href={`/present?lesson=${popupBlockedLessonId}`}
+                target="_blank"
+                rel="noreferrer"
+                style={{
+                  padding: '8px 16px',
+                  backgroundColor: '#f59e0b',
+                  color: '#ffffff',
+                  borderRadius: '12px',
+                  fontWeight: 800,
+                  textDecoration: 'none',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '6px',
+                }}
+              >
+                📺 Mở màn hình TV ngay
+              </a>
+              <button
+                onClick={() => setPopupBlockedLessonId(null)}
+                style={{
+                  background: 'none',
+                  border: 'none',
+                  cursor: 'pointer',
+                  fontWeight: 800,
+                  color: '#92400e',
+                  fontSize: '16px',
+                }}
+              >
+                ✕
+              </button>
+            </div>
+          </div>
+        )}
+
         {/* Breadcrumb */}
         <div className={styles.breadcrumb}>
           <span>Trang chủ</span>
@@ -873,6 +981,13 @@ export function HomePage() {
                                 >
                                   🖨️
                                 </button>
+                                <button
+                                  className={styles.btnPrintSmall}
+                                  onClick={() => handleCopyLessonLink(item.id)}
+                                  title="Sao chép link trình chiếu bài học này"
+                                >
+                                  🔗
+                                </button>
                               </div>
                             </div>
                           </div>
@@ -926,6 +1041,13 @@ export function HomePage() {
                     title="In đề thi A4"
                   >
                     🖨️ In đề A4
+                  </button>
+                  <button
+                    className={styles.btnPrintSmall}
+                    onClick={() => handleCopyLessonLink(exam.id)}
+                    title="Sao chép link đề thi"
+                  >
+                    🔗
                   </button>
                 </div>
               </div>

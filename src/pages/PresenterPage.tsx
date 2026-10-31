@@ -143,6 +143,23 @@ export function PresenterPage() {
     [sendSnapshot]
   );
 
+  const handleOpenTvPopup = useCallback(() => {
+    const query = lessonId ? `lesson=${lessonId}` : sessionId ? `session=${sessionId}` : '';
+    window.open(
+      `/present?${query}`,
+      'tv_presentation_screen',
+      'width=1280,height=720,menubar=no,toolbar=no,location=no'
+    );
+  }, [lessonId, sessionId]);
+
+  const toggleFullscreen = useCallback(() => {
+    if (!document.fullscreenElement) {
+      document.documentElement.requestFullscreen().catch(() => {});
+    } else {
+      document.exitFullscreen().catch(() => {});
+    }
+  }, []);
+
   // Load session or lesson
   useEffect(() => {
     if (sessionId) {
@@ -447,6 +464,38 @@ export function PresenterPage() {
           </span>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
             <button
+              onClick={handleOpenTvPopup}
+              style={{
+                fontSize: '12px',
+                padding: '4px 8px',
+                background: '#0284c7',
+                color: '#ffffff',
+                border: '1px solid #0369a1',
+                borderRadius: '6px',
+                cursor: 'pointer',
+                fontWeight: 700,
+              }}
+              title="Mở cửa sổ màn hình TV hiển thị cho học sinh"
+            >
+              📺 Mở TV Popup
+            </button>
+            <button
+              onClick={toggleFullscreen}
+              style={{
+                fontSize: '12px',
+                padding: '4px 8px',
+                background: '#334155',
+                color: '#e2e8f0',
+                border: '1px solid #475569',
+                borderRadius: '6px',
+                cursor: 'pointer',
+                fontWeight: 600,
+              }}
+              title="Bật/Tắt Toàn màn hình (F11)"
+            >
+              ⛶ Toàn màn hình
+            </button>
+            <button
               onClick={() => setIsClassroomModalOpen(true)}
               style={{
                 fontSize: '12px',
@@ -476,6 +525,21 @@ export function PresenterPage() {
               title="Kiểm tra và nạp sẵn tất cả tài nguyên vào bộ nhớ đệm offline"
             >
               📥 Tải offline
+            </button>
+            <button
+              onClick={() => navigate('/')}
+              style={{
+                fontSize: '12px',
+                padding: '4px 8px',
+                background: '#1e293b',
+                color: '#94a3b8',
+                border: '1px solid #334155',
+                borderRadius: '6px',
+                cursor: 'pointer',
+              }}
+              title="Trở về Trang chủ"
+            >
+              🏠 Về trang chủ
             </button>
             <span className={styles.slideCounter} data-testid="presenter-slide-counter">
               {state.lesson

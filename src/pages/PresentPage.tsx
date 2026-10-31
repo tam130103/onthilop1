@@ -268,17 +268,39 @@ export function PresentPage() {
     channelRef.current?.send('HELLO', {});
   }, []);
 
+  const toggleFullscreen = useCallback(() => {
+    if (!document.fullscreenElement) {
+      document.documentElement.requestFullscreen().catch(() => {});
+    } else {
+      document.exitFullscreen().catch(() => {});
+    }
+  }, []);
+
   // Audio playback handler for "Nghe cô đọc" button
   const handlePlayCurrentAudio = useCallback(() => {
     if (!currentSlide) return;
     let audioUrl: string | undefined;
+    let promptText = '';
+
     if ('audio' in currentSlide && typeof currentSlide.audio === 'string') {
       audioUrl = currentSlide.audio;
     } else if (currentSlide.type === 'question-slide') {
       audioUrl = currentSlide.question.promptAudio;
+      promptText = currentSlide.question.prompt;
+    } else if ('title' in currentSlide && currentSlide.title) {
+      promptText = currentSlide.title;
     }
+
     if (audioUrl) {
-      getAudioManager().play(audioUrl);
+      getAudioManager()
+        .play(audioUrl)
+        .catch(() => {
+          if (promptText) {
+            getAudioManager().speakText(promptText);
+          }
+        });
+    } else if (promptText) {
+      getAudioManager().speakText(promptText);
     }
   }, [currentSlide]);
 
@@ -297,12 +319,14 @@ export function PresentPage() {
       if (selectedAnswer.isCorrect) {
         dispatch({ type: 'ANSWER_CORRECT', questionId: q.id });
         setShowStarReward(true);
+        getAudioManager().playSynthesizedSfx('correct');
         if (q.explanationAudio) {
-          getAudioManager().play(q.explanationAudio);
-        } else {
-          getAudioManager().play('/media/tts/timer-chime.mp3');
+          getAudioManager().play(q.explanationAudio).catch(() => {
+            if (q.explanation) getAudioManager().speakText(q.explanation);
+          });
         }
       } else {
+        getAudioManager().playSynthesizedSfx('wrong');
         dispatch({
           type: 'ANSWER_INCORRECT',
           slideIndex: state.currentSlideIndex,
@@ -547,6 +571,16 @@ export function PresentPage() {
           <div className={styles.xpBadge} title="Điểm kinh nghiệm tích lũy">
             <span style={{ fontSize: '18px' }}>⚡</span>
             <span>{xpScore} XP</span>
+          </div>
+
+          <div
+            className={styles.teamSummaryPill}
+            onClick={toggleFullscreen}
+            title="Bật/Tắt Toàn màn hình (F11)"
+            style={{ cursor: 'pointer', background: '#f8fafc', color: '#334155', border: '2px solid #cbd5e1' }}
+          >
+            <span>⛶</span>
+            <span>Toàn màn hình</span>
           </div>
 
           <div
