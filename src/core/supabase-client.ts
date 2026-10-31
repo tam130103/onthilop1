@@ -150,3 +150,68 @@ export async function syncAllStudentsToSupabase(students: Student[]): Promise<bo
     return false;
   }
 }
+
+/**
+ * Tải điểm và tên 4 tổ thi đua từ Supabase
+ */
+export async function fetchTeamsFromSupabase(): Promise<import('./classroom-store').Team[] | null> {
+  const sb = getSupabase();
+  if (!sb) return null;
+  try {
+    const { data, error } = await sb.from('teams').select('*').order('order_index', { ascending: true });
+    if (error || !Array.isArray(data) || data.length === 0) return null;
+    return data.map((t) => ({
+      id: t.id,
+      name: t.name,
+      color: t.color_hex,
+      score: Number(t.score || 0),
+    }));
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * Cập nhật điểm hoặc tên tổ lên Supabase
+ */
+export async function syncTeamToSupabase(teamId: string, updates: { name?: string; score?: number }): Promise<void> {
+  const sb = getSupabase();
+  if (!sb) return;
+  try {
+    const payload: Record<string, unknown> = {};
+    if (updates.name !== undefined) payload.name = updates.name;
+    if (updates.score !== undefined) payload.score = updates.score;
+    await sb.from('teams').update(payload).eq('id', teamId);
+  } catch {
+    // ignore
+  }
+}
+
+/**
+ * Ghi nhận lịch sử tiết dạy lên Supabase
+ */
+export async function recordSessionToSupabase(session: {
+  id: string;
+  title: string;
+  subject: string;
+  totalQuestions?: number;
+  totalCorrect?: number;
+  starsAwarded?: number;
+}): Promise<void> {
+  const sb = getSupabase();
+  if (!sb) return;
+  try {
+    await sb.from('teaching_sessions').upsert({
+      id: session.id,
+      title: session.title,
+      subject: session.subject,
+      total_questions: session.totalQuestions || 0,
+      total_correct: session.totalCorrect || 0,
+      stars_awarded: session.starsAwarded || 0,
+      start_time: new Date().toISOString(),
+    });
+  } catch {
+    // ignore
+  }
+}
+

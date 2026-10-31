@@ -4,6 +4,10 @@ import {
   getStudentsFromDb,
   deleteStudentFromDb,
 } from './student-db';
+import {
+  fetchTeamsFromSupabase,
+  syncTeamToSupabase,
+} from './supabase-client';
 
 export interface Student {
   id: string;
@@ -75,6 +79,12 @@ export class ClassroomStore {
       const dbStudents = await getStudentsFromDb();
       if (Array.isArray(dbStudents) && dbStudents.length > 0) {
         this.data.students = dbStudents;
+        this.notify();
+      }
+
+      const cloudTeams = await fetchTeamsFromSupabase();
+      if (cloudTeams && cloudTeams.length > 0) {
+        this.data.teams = cloudTeams;
         this.notify();
       }
     } catch {
@@ -321,11 +331,18 @@ export class ClassroomStore {
     this.data.teams = this.data.teams.map((t) =>
       t.id === teamId ? { ...t, score: Math.max(0, t.score + delta) } : t
     );
+    const updatedTeam = this.data.teams.find((t) => t.id === teamId);
+    if (updatedTeam) {
+      syncTeamToSupabase(teamId, { score: updatedTeam.score });
+    }
     this.persist();
   }
 
   resetScores(): void {
     this.data.teams = this.data.teams.map((t) => ({ ...t, score: 0 }));
+    for (const t of this.data.teams) {
+      syncTeamToSupabase(t.id, { score: 0 });
+    }
     this.persist();
   }
 
@@ -333,6 +350,7 @@ export class ClassroomStore {
     this.data.teams = this.data.teams.map((t) =>
       t.id === teamId ? { ...t, name } : t
     );
+    syncTeamToSupabase(teamId, { name });
     this.persist();
   }
 
