@@ -13,6 +13,7 @@ import {
 } from '@/core/lesson-storage';
 import { AudioRecordField } from '@/components/common/AudioRecordField';
 import { ThemeToggle } from '@/components/common/ThemeToggle';
+import { getAuthState } from '@/core/auth-service';
 import styles from './LessonEditorPage.module.css';
 
 const DEFAULT_NEW_LESSON: Lesson = {
@@ -71,6 +72,15 @@ export function LessonEditorPage() {
   const [selectedSlideIndex, setSelectedSlideIndex] = useState(0);
   const [saveMessage, setSaveMessage] = useState<string | null>(null);
   const [importError, setImportError] = useState<string | null>(null);
+
+  // Phân quyền: Phụ huynh chỉ học bài, không có quyền soạn bài
+  useEffect(() => {
+    const auth = getAuthState();
+    if (auth.role === 'parent') {
+      alert('Chức năng Soạn bài giảng chỉ dành riêng cho Giáo viên và Quản trị viên. Phụ huynh chỉ có quyền học tập.');
+      navigate('/', { replace: true });
+    }
+  }, [navigate]);
 
   // Load existing lesson if editLessonId provided
   useEffect(() => {

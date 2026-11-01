@@ -1,5 +1,5 @@
 import { getSupabase } from './supabase-client';
-import { hasActiveSession } from './auth-service';
+import { hasActiveSession, canManageUsers } from './auth-service';
 import { getAllLessons, getCustomLessons, saveCustomLesson, deleteCustomLesson, BUILTIN_LESSON_URLS } from './lesson-storage';
 import { getClassroomStore, type Student, type Team } from './classroom-store';
 import { getMistakeTracker, type MistakeEntry } from './mistake-tracker';
@@ -86,6 +86,15 @@ function getLocalUsers(): AdminUser[] {
       school_name: 'Trường Tiểu học Kim Đồng',
       created_at: new Date().toISOString(),
     },
+    {
+      id: 'a0000000-0000-0000-0000-000000000003',
+      email: 'phuhuynh@tieuhoc.edu.vn',
+      full_name: 'Phụ huynh Bé An',
+      role: 'parent',
+      phone_number: '0977889900',
+      school_name: 'Trường Tiểu học Kim Đồng',
+      created_at: new Date().toISOString(),
+    },
   ];
 }
 
@@ -121,6 +130,14 @@ export async function fetchAdminUsers(): Promise<AdminUser[]> {
 }
 
 export async function saveAdminUser(user: Partial<AdminUser> & { email: string; full_name: string }): Promise<{ success: boolean; error?: string; user?: AdminUser }> {
+  // Phân quyền: Chỉ tài khoản Admin mới có quyền phân quyền và chỉnh sửa người dùng
+  if (!canManageUsers()) {
+    return {
+      success: false,
+      error: 'Quyền bị từ chối: Chỉ tài khoản Quản trị viên (Admin) mới có quyền phân quyền và quản lý tài khoản người dùng.',
+    };
+  }
+
   const id = user.id || crypto.randomUUID();
   const fullUser: AdminUser = {
     id,
@@ -165,6 +182,14 @@ export async function saveAdminUser(user: Partial<AdminUser> & { email: string; 
 }
 
 export async function deleteAdminUser(id: string): Promise<{ success: boolean; error?: string }> {
+  // Phân quyền: Chỉ tài khoản Admin mới có quyền xóa người dùng
+  if (!canManageUsers()) {
+    return {
+      success: false,
+      error: 'Quyền bị từ chối: Chỉ tài khoản Quản trị viên (Admin) mới có quyền xóa người dùng.',
+    };
+  }
+
   const local = getLocalUsers().filter((u) => u.id !== id);
   saveLocalUsers(local);
 

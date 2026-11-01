@@ -35,7 +35,7 @@ export function AdminPage() {
   const navigate = useNavigate();
 
   // Active Tab
-  const [activeTab, setActiveTab] = useState<AdminTab>('users');
+  const [activeTab, setActiveTab] = useState<AdminTab>(() => getAuthState().role === 'admin' ? 'users' : 'classrooms');
 
   // Cloud Status
   const [authState, setAuthState] = useState<AuthState>(getAuthState());
@@ -447,6 +447,70 @@ export function AdminPage() {
     });
   }, [lessons, lessonSubjectFilter, lessonSearch]);
 
+  // Phân quyền: Tài khoản Phụ huynh chỉ học được, không có quyền vào trang Admin
+  if (authState.role === 'parent') {
+    return (
+      <div className={styles.container}>
+        {toast && <div className={styles.toast}>{toast}</div>}
+        <header className={styles.header}>
+          <div className={styles.brand}>
+            <div className={styles.brandIcon}>👨‍👩‍👧</div>
+            <div>
+              <h1 className={styles.brandTitle}>TRÌNH CHIẾU LỚP 1 — GÓC PHỤ HUYNH</h1>
+              <p className={styles.brandSubtitle}>
+                Chế độ học tập và theo dõi bài giảng của con
+              </p>
+            </div>
+          </div>
+          <div className={styles.headerActions}>
+            <ThemeToggle showLabel={false} />
+            <Link to="/" className={styles.navBtn}>
+              🏠 Về trang chủ học bài
+            </Link>
+            <button
+              className={styles.navBtn}
+              onClick={() => {
+                signOut();
+                navigate('/');
+              }}
+              style={{ color: '#ef4444', cursor: 'pointer' }}
+            >
+              🚪 Đăng xuất ({authState.user?.user_metadata?.full_name || authState.user?.email?.split('@')[0]})
+            </button>
+          </div>
+        </header>
+
+        <main className={styles.main} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '65vh' }}>
+          <div className={styles.card} style={{ maxWidth: '540px', padding: '36px 28px', textAlign: 'center', margin: 'auto' }}>
+            <div style={{ fontSize: '64px', marginBottom: '16px' }}>👨‍👩‍👧</div>
+            <h2 style={{ fontSize: '22px', fontWeight: 800, color: 'var(--text-primary)', marginBottom: '10px' }}>
+              Tài khoản Phụ huynh chỉ có quyền học tập
+            </h2>
+            <p style={{ color: 'var(--text-secondary)', fontSize: '15px', lineHeight: 1.6, marginBottom: '24px' }}>
+              Trang Quản trị hệ thống và phân quyền dành riêng cho <strong>Quản trị viên</strong> và <strong>Giáo viên</strong>. Ba mẹ có thể cùng bé học các bài giảng tương tác, làm đề thi 15 phút hoặc in phiếu tập viết A4 cho con.
+            </p>
+            <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
+              <button
+                type="button"
+                className={styles.primaryBtn}
+                onClick={() => navigate('/')}
+              >
+                📚 Học bài giảng Lớp 1
+              </button>
+              <button
+                type="button"
+                className={styles.secondaryBtn}
+                onClick={() => navigate('/exam')}
+              >
+                📝 Làm đề thi định kỳ
+              </button>
+            </div>
+          </div>
+        </main>
+      </div>
+    );
+  }
+
   return (
     <div className={styles.container}>
       {/* Toast Alert */}
@@ -517,13 +581,15 @@ export function AdminPage() {
 
       {/* Navigation Tabs Bar */}
       <nav className={styles.tabsBar}>
-        <button
-          className={`${styles.tabItem} ${activeTab === 'users' ? styles.tabItemActive : ''}`}
-          onClick={() => setActiveTab('users')}
-        >
-          <span>👥 Giáo viên & Người dùng</span>
-          <span className={styles.tabBadge}>{users.length}</span>
-        </button>
+        {authState.canManageUsers && (
+          <button
+            className={`${styles.tabItem} ${activeTab === 'users' ? styles.tabItemActive : ''}`}
+            onClick={() => setActiveTab('users')}
+          >
+            <span>🛡️ Phân quyền Người dùng</span>
+            <span className={styles.tabBadge}>{users.length}</span>
+          </button>
+        )}
 
         <button
           className={`${styles.tabItem} ${activeTab === 'classrooms' ? styles.tabItemActive : ''}`}
@@ -568,9 +634,27 @@ export function AdminPage() {
       {/* Main Content */}
       <main className={styles.main}>
         {/* ========================================================= */}
-        {/* TAB 1: USERS & TEACHERS */}
+        {/* TAB 1: USERS & TEACHERS (CHỈ ADMIN MỚI ĐƯỢC PHÂN QUYỀN) */}
         {/* ========================================================= */}
         {activeTab === 'users' && (
+          !authState.canManageUsers ? (
+            <div className={styles.card} style={{ padding: '36px', textAlign: 'center', marginTop: '1rem' }}>
+              <div style={{ fontSize: '56px', marginBottom: '12px' }}>🔒</div>
+              <h3 style={{ fontSize: '20px', fontWeight: 800, color: 'var(--text-primary)' }}>
+                Chỉ tài khoản Quản trị viên (Admin) mới được phân quyền
+              </h3>
+              <p style={{ color: 'var(--text-secondary)', fontSize: '14px', maxWidth: '520px', margin: '8px auto 20px', lineHeight: 1.6 }}>
+                Tài khoản Giáo viên chỉ có quyền chỉnh sửa học sinh và thi đua trong lớp học. Vui lòng liên hệ Quản trị viên nếu cần thay đổi quyền tài khoản.
+              </p>
+              <button
+                type="button"
+                className={styles.primaryBtn}
+                onClick={() => setActiveTab('classrooms')}
+              >
+                🏫 Quản lý lớp học của tôi
+              </button>
+            </div>
+          ) : (
           <div>
             <div className={styles.sectionHeader}>
               <div>
@@ -790,6 +874,7 @@ export function AdminPage() {
               </div>
             </div>
           </div>
+          )
         )}
 
         {/* ========================================================= */}

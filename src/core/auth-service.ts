@@ -9,6 +9,10 @@ export interface AuthState {
   session: Session | null;
   role: UserRole;
   isAdmin: boolean;
+  isTeacher: boolean;
+  isParent: boolean;
+  canManageUsers: boolean;
+  canEditClassroom: boolean;
   isAuthenticated: boolean;
   isOfflineMode: boolean;
   isLoading: boolean;
@@ -35,12 +39,27 @@ function notifyListeners(): void {
   });
 }
 
-async function resolveUserRole(uid: string, email?: string): Promise<UserRole> {
-  const adminEmail = import.meta.env.VITE_ADMIN_EMAIL || 'admin@tieuhoc.edu.vn';
-  if (email && email.trim().toLowerCase() === adminEmail.trim().toLowerCase()) {
+export async function resolveUserRole(uid: string, email?: string): Promise<UserRole> {
+  const normalizedEmail = email?.trim().toLowerCase();
+  const adminEmail = (import.meta.env.VITE_ADMIN_EMAIL || 'admin@tieuhoc.edu.vn').trim().toLowerCase();
+  if (normalizedEmail && normalizedEmail === adminEmail) {
     return 'admin';
   }
 
+  const parentEmail = (import.meta.env.VITE_PARENT_EMAIL || 'phuhuynh@tieuhoc.edu.vn').trim().toLowerCase();
+  if (normalizedEmail && normalizedEmail === parentEmail) {
+    return 'parent';
+  }
+
+  // 1. Check user_metadata if available
+  if (currentUser?.user_metadata?.role) {
+    const metaRole = currentUser.user_metadata.role as string;
+    if (metaRole === 'admin' || metaRole === 'teacher' || metaRole === 'parent') {
+      return metaRole;
+    }
+  }
+
+  // 2. Check Supabase users table
   const sb = getSupabase();
   if (sb) {
     try {
@@ -50,6 +69,21 @@ async function resolveUserRole(uid: string, email?: string): Promise<UserRole> {
       // fallback
     }
   }
+
+  // 3. Check local users cache
+  try {
+    const raw = localStorage.getItem('onthi_admin_users_cache_v1');
+    if (raw) {
+      const list = JSON.parse(raw);
+      if (Array.isArray(list)) {
+        const found = list.find((u: any) => u.email?.toLowerCase() === normalizedEmail || u.id === uid);
+        if (found?.role) return found.role as UserRole;
+      }
+    }
+  } catch {
+    // ignore
+  }
+
   return 'teacher';
 }
 
@@ -62,6 +96,10 @@ export function getAuthState(): AuthState {
     session: currentSession,
     role: currentRole,
     isAdmin: currentRole === 'admin',
+    isTeacher: currentRole === 'teacher',
+    isParent: currentRole === 'parent',
+    canManageUsers: currentRole === 'admin',
+    canEditClassroom: currentRole === 'admin' || currentRole === 'teacher',
     isAuthenticated: Boolean(currentSession?.user),
     isOfflineMode: isOffline,
     isLoading: !isInitialized,
@@ -80,6 +118,58 @@ export function hasActiveSession(): boolean {
  */
 export function isAdmin(): boolean {
   return currentRole === 'admin';
+}
+
+/**
+ * Kiểm tra người dùng hiện tại có vai trò Giáo viên không
+ */
+export function isTeacher(): boolean {
+  return currentRole === 'teacher';
+}
+
+/**
+ * Kiểm tra người dùng hiện tại có vai trò Phụ huynh (chỉ học tập) không
+ */
+export function isParent(): boolean {
+  return currentRole === 'parent';
+}
+
+/**
+ * Phân quyền: Chỉ tài khoản Admin mới có quyền phân quyền người dùng
+ */
+export function canManageUsers(): boolean {
+  return currentRole === 'admin';
+}
+
+/**
+ * Phân quyền: Giáo viên và Admin được chỉnh sửa trong lớp học
+ * (Phụ huynh chỉ xem, không được sửa học sinh hay điểm tổ)
+ */
+export function canEditClassroom(): boolean {
+  return currentRole === 'admin' || currentRole === 'teacher';
+}
+
+/**
+ * Phân quyền: Giáo viên và Admin được soạn bài dạy
+ * (Phụ huynh chỉ học)
+ */
+export function canEditLessons(): boolean {
+  return currentRole === 'admin' || currentRole === 'teacher';
+}
+
+/**
+ * Phân quyền: Chỉ Giáo viên và Admin mới được vào phòng dạy Presenter
+ */
+export function canTeach(): boolean {
+  return currentRole === 'admin' || currentRole === 'teacher';
+}
+
+/**
+ * Thiết lập trực tiếp vai trò (dành cho kiểm thử hoặc chuyển role offline)
+ */
+export function setUserRole(role: UserRole): void {
+  currentRole = role;
+  notifyListeners();
 }
 
 /**

@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { getAuthState } from '@/core/auth-service';
 import {
   getClassroomStore,
   type Student,
@@ -20,6 +21,8 @@ export function ClassroomManagerModal({
   teams,
 }: ClassroomManagerModalProps) {
   const [activeTab, setActiveTab] = useState<'roster' | 'teams'>('roster');
+  const authState = getAuthState();
+  const canEdit = authState.canEditClassroom;
   
   // Add single student state
   const [newName, setNewName] = useState('');
@@ -144,8 +147,10 @@ export function ClassroomManagerModal({
             <h2 className={styles.title}>
               ⚙️ Quản Lý Học Sinh & Lớp Học
             </h2>
-            <div style={{ fontSize: '12px', color: '#059669', fontWeight: 700, marginTop: '2px' }}>
-              💾 Database: Supabase Cloud ☁️ + IndexedDB (Lưu vĩnh viễn, F5 không bị mất)
+            <div style={{ fontSize: '12px', color: canEdit ? '#059669' : '#d97706', fontWeight: 700, marginTop: '2px' }}>
+              {canEdit
+                ? '💾 Database: Supabase Cloud ☁️ + IndexedDB (Giáo viên có quyền quản lý & chỉnh sửa lớp)'
+                : '👨‍👩‍👧 Chế độ xem Phụ huynh (Chỉ theo dõi tiến độ & điểm thi đua của con)'}
             </div>
           </div>
           <button className={styles.closeBtn} onClick={onClose} title="Đóng">
@@ -174,6 +179,7 @@ export function ClassroomManagerModal({
           {activeTab === 'roster' && (
             <>
               {/* Form Thêm Học Sinh Mới */}
+              {canEdit && (
               <form onSubmit={handleAddStudent} className={styles.addForm}>
                 <div style={{ fontSize: '14px', fontWeight: 800, color: '#1e293b' }}>
                   ➕ Thêm học sinh mới vào Database:
@@ -226,6 +232,7 @@ export function ClassroomManagerModal({
                   </div>
                 )}
               </form>
+              )}
 
               {/* Status and Action Buttons */}
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '8px' }}>
@@ -331,7 +338,7 @@ export function ClassroomManagerModal({
                           </div>
                         </div>
 
-                        {/* Actions per student */}
+                        {/* Actions per student (Chỉ Giáo viên & Admin mới có quyền thao tác) */}
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', alignItems: 'flex-end' }}>
                           <button
                             className={styles.absentTag}
@@ -339,37 +346,40 @@ export function ClassroomManagerModal({
                               background: student.isAbsent ? '#ef4444' : '#10b981',
                               color: '#ffffff',
                               border: 'none',
+                              cursor: canEdit ? 'pointer' : 'default',
                             }}
-                            onClick={() => handleToggleAbsent(student.id)}
-                            title={student.isAbsent ? 'Bấm để đánh dấu Có mặt' : 'Bấm để đánh dấu Vắng'}
+                            onClick={() => canEdit && handleToggleAbsent(student.id)}
+                            title={canEdit ? (student.isAbsent ? 'Bấm để đánh dấu Có mặt' : 'Bấm để đánh dấu Vắng') : (student.isAbsent ? 'Vắng' : 'Có mặt')}
                           >
                             {student.isAbsent ? 'Vắng' : 'Có mặt'}
                           </button>
 
-                          <div style={{ display: 'flex', gap: '4px', marginTop: '2px' }}>
-                            <button
-                              className={styles.btnActionSmall}
-                              onClick={() => handleAddStar(student.id, 1)}
-                              title="Tặng 1 sao thưởng"
-                            >
-                              ⭐+
-                            </button>
-                            <button
-                              className={styles.btnActionSmall}
-                              onClick={() => setEditingStudent(student)}
-                              title="Chỉnh sửa thông tin học sinh"
-                            >
-                              ✏️
-                            </button>
-                            <button
-                              className={styles.btnActionSmall}
-                              style={{ color: '#dc2626' }}
-                              onClick={() => handleDeleteStudent(student.id, student.name)}
-                              title="Xóa học sinh này"
-                            >
-                              🗑️
-                            </button>
-                          </div>
+                          {canEdit && (
+                            <div style={{ display: 'flex', gap: '4px', marginTop: '2px' }}>
+                              <button
+                                className={styles.btnActionSmall}
+                                onClick={() => handleAddStar(student.id, 1)}
+                                title="Tặng 1 sao thưởng"
+                              >
+                                ⭐+
+                              </button>
+                              <button
+                                className={styles.btnActionSmall}
+                                onClick={() => setEditingStudent(student)}
+                                title="Chỉnh sửa thông tin học sinh"
+                              >
+                                ✏️
+                              </button>
+                              <button
+                                className={styles.btnActionSmall}
+                                style={{ color: '#dc2626' }}
+                                onClick={() => handleDeleteStudent(student.id, student.name)}
+                                title="Xóa học sinh này"
+                              >
+                                🗑️
+                              </button>
+                            </div>
+                          )}
                         </div>
                       </div>
                     );
@@ -385,6 +395,7 @@ export function ClassroomManagerModal({
                 <span style={{ fontSize: '14px', color: '#64748b', fontWeight: 600 }}>
                   Tùy chỉnh tên gọi của các tổ thi đua trong lớp:
                 </span>
+                {canEdit && (
                 <button
                   className={styles.btnSecondary}
                   style={{ fontSize: '13px', padding: '6px 12px' }}
@@ -392,6 +403,7 @@ export function ClassroomManagerModal({
                 >
                   ⭐ Đặt lại 0 sao
                 </button>
+                )}
               </div>
 
               <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
@@ -408,7 +420,8 @@ export function ClassroomManagerModal({
                       type="text"
                       className={styles.teamInput}
                       value={team.name}
-                      onChange={(e) => handleTeamNameChange(team.id, e.target.value)}
+                      readOnly={!canEdit}
+                      onChange={(e) => canEdit && handleTeamNameChange(team.id, e.target.value)}
                       placeholder="Nhập tên tổ..."
                     />
                     <span style={{ fontSize: '13px', color: '#d97706', fontWeight: 800 }}>

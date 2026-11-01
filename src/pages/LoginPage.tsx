@@ -13,6 +13,8 @@ export function LoginPage() {
   const defaultTeacherPassword = import.meta.env.VITE_TEACHER_PASSWORD || 'Giaovien@123';
   const defaultAdminEmail = import.meta.env.VITE_ADMIN_EMAIL || 'admin@tieuhoc.edu.vn';
   const defaultAdminPassword = import.meta.env.VITE_ADMIN_PASSWORD || 'Admin@123';
+  const defaultParentEmail = import.meta.env.VITE_PARENT_EMAIL || 'phuhuynh@tieuhoc.edu.vn';
+  const defaultParentPassword = import.meta.env.VITE_PARENT_PASSWORD || 'Phuhuynh@123';
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -93,9 +95,17 @@ export function LoginPage() {
               type="button"
               className={styles.quickBtn}
               onClick={() => handleQuickFill(defaultAdminEmail, defaultAdminPassword)}
-              title="Điền nhanh tài khoản Admin"
+              title="Điền nhanh tài khoản Admin (Phân quyền)"
             >
-              ⚙️ Quản Trị Viên
+              🛡️ Quản Trị Viên
+            </button>
+            <button
+              type="button"
+              className={styles.quickBtn}
+              onClick={() => handleQuickFill(defaultParentEmail, defaultParentPassword)}
+              title="Điền nhanh tài khoản Phụ huynh (Chỉ học tập)"
+            >
+              👨‍👩‍👧 Phụ Huynh
             </button>
           </div>
         </div>

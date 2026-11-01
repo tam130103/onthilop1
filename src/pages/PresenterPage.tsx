@@ -18,6 +18,7 @@ import {
 import { LessonSchema, type Slide } from '@/schemas/content.schema';
 import { APP_CACHE_NAME } from '@/core/cache-config';
 import { ThemeToggle } from '@/components/common/ThemeToggle';
+import { getAuthState } from '@/core/auth-service';
 import styles from './PresenterPage.module.css';
 
 function getSlideLabel(slide: Slide): string {
@@ -93,6 +94,15 @@ export function PresenterPage() {
   useEffect(() => {
     return getClassroomStore().subscribe(setClassroomData);
   }, []);
+
+  // Phân quyền: Phụ huynh chỉ học bài, không vào màn hình điều khiển của giáo viên
+  useEffect(() => {
+    const auth = getAuthState();
+    if (auth.role === 'parent') {
+      const q = lessonId ? `?lesson=${lessonId}` : sessionId ? `?session=${sessionId}` : '';
+      navigate(`/present${q}`, { replace: true });
+    }
+  }, [lessonId, sessionId, navigate]);
 
   // Keep stateRef updated
   useEffect(() => {

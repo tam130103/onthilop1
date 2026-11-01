@@ -254,6 +254,10 @@ export function HomePage() {
   // Khởi chạy 2 màn hình 1-Click: Mở TV popup và chuyển tab laptop sang Presenter
   const handleStartClassroom = useCallback(
     (lessonId: string) => {
+      if (authState.role === 'parent') {
+        navigate(`/present?lesson=${lessonId}`);
+        return;
+      }
       const tvWin = window.open(
         `/present?lesson=${lessonId}`,
         'tv_presentation_screen',
@@ -264,7 +268,7 @@ export function HomePage() {
       }
       navigate(`/presenter?lesson=${lessonId}`);
     },
-    [navigate]
+    [navigate, authState.role]
   );
 
   // Khởi chạy Buổi dạy (Teaching Session) 2 Màn hình
@@ -272,6 +276,10 @@ export function HomePage() {
     (session: TeachingSession) => {
       const firstLessonId = session.steps.find((s) => s.lessonId)?.lessonId;
       const lessonQuery = firstLessonId ? `&lesson=${firstLessonId}` : '';
+      if (authState.role === 'parent') {
+        navigate(`/present?session=${session.id}${lessonQuery}`);
+        return;
+      }
       const tvWin = window.open(
         `/present?session=${session.id}${lessonQuery}`,
         'tv_presentation_screen',
@@ -282,18 +290,25 @@ export function HomePage() {
       }
       navigate(`/presenter?session=${session.id}${lessonQuery}`);
     },
-    [navigate]
+    [navigate, authState.role]
   );
 
   // Ôn tập câu hay sai
   const handleStartMistakesReview = useCallback(() => {
-    window.open(
+    if (authState.role === 'parent') {
+      navigate(`/present?lesson=review-mistakes-session`);
+      return;
+    }
+    const tvWin = window.open(
       `/present?lesson=review-mistakes-session`,
       'tv_presentation_screen',
       'width=1280,height=720,menubar=no,toolbar=no,location=no'
     );
+    if (!tvWin || tvWin.closed || typeof tvWin.closed === 'undefined') {
+      setPopupBlockedLessonId('review-mistakes-session');
+    }
     navigate(`/presenter?lesson=review-mistakes-session`);
-  }, [navigate]);
+  }, [navigate, authState.role]);
 
   const handleClearAllMistakes = useCallback(() => {
     if (confirm('Bạn có chắc chắn muốn xóa toàn bộ lịch sử câu hay sai không? (Cả lớp đã nắm vững bài)')) {
@@ -368,20 +383,24 @@ export function HomePage() {
             <button className={styles.navLink} onClick={() => navigate('/print-worksheet')}>
               Công cụ miễn phí
             </button>
-            <button className={styles.navLink} onClick={() => navigate('/editor')}>
-              Soạn bài
-            </button>
+            {authState.role !== 'parent' && (
+              <button className={styles.navLink} onClick={() => navigate('/editor')}>
+                Soạn bài
+              </button>
+            )}
             <button className={styles.navLink} onClick={() => setIsClassroomModalOpen(true)}>
-              Lớp & Thi đua
+              {authState.role === 'parent' ? 'Thi đua lớp con' : 'Lớp & Thi đua'}
             </button>
-            <button
-              className={styles.navLink}
-              onClick={() => navigate('/admin')}
-              style={{ fontWeight: 800, color: '#2563eb' }}
-              title="Trang quản trị toàn diện hệ thống: User, Bài giảng, Lớp học, Supabase"
-            >
-              ⚙️ Quản trị Admin
-            </button>
+            {authState.role !== 'parent' && (
+              <button
+                className={styles.navLink}
+                onClick={() => navigate('/admin')}
+                style={{ fontWeight: 800, color: '#2563eb' }}
+                title="Trang quản trị toàn diện hệ thống: User, Bài giảng, Lớp học, Supabase"
+              >
+                ⚙️ Quản trị Admin
+              </button>
+            )}
           </nav>
 
           <div className={styles.navRight}>
@@ -410,18 +429,31 @@ export function HomePage() {
               <div className={styles.authWrapper}>
                 <div
                   className={styles.userPill}
-                  onClick={() => navigate('/admin')}
-                  style={{ cursor: 'pointer' }}
-                  title="Đã kết nối Supabase Cloud. Bấm để vào Admin"
+                  onClick={() => {
+                    if (authState.role !== 'parent') {
+                      navigate('/admin');
+                    }
+                  }}
+                  style={{ cursor: authState.role !== 'parent' ? 'pointer' : 'default' }}
+                  title={authState.role !== 'parent' ? 'Đã kết nối Supabase Cloud. Bấm để vào Admin' : 'Tài khoản Phụ huynh'}
                 >
                   <div className={styles.avatar}>
-                    {authState.user?.user_metadata?.full_name?.charAt(0) || authState.user?.email?.charAt(0).toUpperCase() || 'T'}
+                    {authState.user?.user_metadata?.full_name?.charAt(0) || authState.user?.email?.charAt(0).toUpperCase() || (authState.isParent ? 'P' : 'T')}
                   </div>
                   <span className={styles.userName}>
-                    {authState.user?.user_metadata?.full_name || authState.user?.email?.split('@')[0] || 'Cô giáo'}
+                    {authState.user?.user_metadata?.full_name || authState.user?.email?.split('@')[0] || (authState.isParent ? 'Phụ Huynh' : 'Cô giáo')}
                   </span>
-                  <span style={{ fontSize: '11px', background: '#dcfce7', color: '#15803d', padding: '2px 6px', borderRadius: '10px', fontWeight: 800 }}>
-                    Cloud 🟢
+                  <span
+                    style={{
+                      fontSize: '11px',
+                      background: authState.isParent ? '#fef3c7' : '#dcfce7',
+                      color: authState.isParent ? '#b45309' : '#15803d',
+                      padding: '2px 6px',
+                      borderRadius: '10px',
+                      fontWeight: 800,
+                    }}
+                  >
+                    {authState.isParent ? '👨‍👩‍👧 Phụ Huynh' : 'Cloud 🟢'}
                   </span>
                 </div>
                 <button
@@ -542,16 +574,18 @@ export function HomePage() {
                   <span className={styles.drawerNavIcon}>🖨️</span>
                   <span>In bài tập & Ô ly A4</span>
                 </button>
-                <button
-                  className={styles.drawerNavLink}
-                  onClick={() => {
-                    setIsMobileMenuOpen(false);
-                    navigate('/editor');
-                  }}
-                >
-                  <span className={styles.drawerNavIcon}>✏️</span>
-                  <span>Soạn & chỉnh sửa bài</span>
-                </button>
+                {authState.role !== 'parent' && (
+                  <button
+                    className={styles.drawerNavLink}
+                    onClick={() => {
+                      setIsMobileMenuOpen(false);
+                      navigate('/editor');
+                    }}
+                  >
+                    <span className={styles.drawerNavIcon}>✏️</span>
+                    <span>Soạn & chỉnh sửa bài</span>
+                  </button>
+                )}
                 <button
                   className={styles.drawerNavLink}
                   onClick={() => {
@@ -560,18 +594,20 @@ export function HomePage() {
                   }}
                 >
                   <span className={styles.drawerNavIcon}>🏆</span>
-                  <span>Lớp học & Thi đua 4 đội</span>
+                  <span>{authState.role === 'parent' ? 'Thi đua lớp con' : 'Lớp học & Thi đua 4 đội'}</span>
                 </button>
-                <button
-                  className={styles.drawerNavLink}
-                  onClick={() => {
-                    setIsMobileMenuOpen(false);
-                    navigate('/admin');
-                  }}
-                >
-                  <span className={styles.drawerNavIcon}>⚙️</span>
-                  <span>Quản trị Hệ thống Admin</span>
-                </button>
+                {authState.role !== 'parent' && (
+                  <button
+                    className={styles.drawerNavLink}
+                    onClick={() => {
+                      setIsMobileMenuOpen(false);
+                      navigate('/admin');
+                    }}
+                  >
+                    <span className={styles.drawerNavIcon}>⚙️</span>
+                    <span>Quản trị Hệ thống Admin</span>
+                  </button>
+                )}
 
                 <div className={styles.drawerDivider} />
 
@@ -768,10 +804,14 @@ export function HomePage() {
             <button onClick={handleExportBackup} className={styles.utilityBtn} data-testid="export-backup-btn" title="Xuất file sao lưu .json">
               💾 Xuất sao lưu (.json)
             </button>
-            <button onClick={() => fileInputRef.current?.click()} className={styles.utilityBtn} data-testid="import-backup-btn" title="Khôi phục sao lưu">
-              📥 Khôi phục sao lưu
-            </button>
-            <input type="file" ref={fileInputRef} onChange={handleImportBackupFile} accept=".json" style={{ display: 'none' }} />
+            {authState.role !== 'parent' && (
+              <>
+                <button onClick={() => fileInputRef.current?.click()} className={styles.utilityBtn} data-testid="import-backup-btn" title="Khôi phục sao lưu">
+                  📥 Khôi phục sao lưu
+                </button>
+                <input type="file" ref={fileInputRef} onChange={handleImportBackupFile} accept=".json" style={{ display: 'none' }} />
+              </>
+            )}
           </div>
         </div>
 
@@ -806,10 +846,14 @@ export function HomePage() {
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '14px' }}>
             <div>
               <h2 style={{ fontSize: '18px', fontWeight: 800, color: '#1e1b4b', margin: '0 0 4px 0', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                🎯 Ôn tập câu cả lớp hay sai ({mistakes.length} câu)
+                {authState.role === 'parent'
+                  ? `🎯 Rèn luyện các câu hay nhầm (${mistakes.length} câu)`
+                  : `🎯 Ôn tập câu cả lớp hay sai (${mistakes.length} câu)`}
               </h2>
               <p style={{ color: '#64748b', fontSize: '13px', margin: 0 }}>
-                Tự động ghi nhận câu hỏi học sinh trả lời nhầm lẫn trong các tiết trước để củng cố 5 phút đầu giờ.
+                {authState.role === 'parent'
+                  ? 'Tự động ghi nhận câu hỏi bé làm nhầm lẫn trong các bài học để rèn luyện lại vững chắc.'
+                  : 'Tự động ghi nhận câu hỏi học sinh trả lời nhầm lẫn trong các tiết trước để củng cố 5 phút đầu giờ.'}
               </p>
             </div>
 
@@ -833,7 +877,7 @@ export function HomePage() {
                 }}
                 data-testid="review-mistakes-now-btn"
               >
-                🚀 Chiếu ôn tập ngay
+                {authState.role === 'parent' ? '▶️ Luyện câu hay sai ngay' : '🚀 Chiếu ôn tập ngay'}
               </button>
               <button
                 onClick={() => navigate('/print-worksheet?source=mistakes')}
@@ -855,7 +899,7 @@ export function HomePage() {
               >
                 🖨️ In phiếu ôn tập
               </button>
-              {mistakes.length > 0 && (
+              {mistakes.length > 0 && authState.role !== 'parent' && (
                 <button
                   onClick={handleClearAllMistakes}
                   style={{
@@ -950,7 +994,7 @@ export function HomePage() {
                   style={{ fontSize: '14px', padding: '11px 16px' }}
                   data-testid={`start-session-btn-${session.id}`}
                 >
-                  🚀 Bắt đầu buổi dạy (2 Màn hình)
+                  {authState.role === 'parent' ? '▶️ Bé cùng học theo buổi' : '🚀 Bắt đầu buổi dạy (2 Màn hình)'}
                 </button>
               </div>
             ))}
@@ -1006,7 +1050,7 @@ export function HomePage() {
               data-testid="tab-custom"
             >
               <span>⭐</span>
-              <span>Bài của cô</span>
+              <span>{authState.role === 'parent' ? 'Bài mở rộng' : 'Bài của cô'}</span>
               <span className={styles.tabPill}>{getCustomLessons().length} bài</span>
             </button>
           </div>
@@ -1087,21 +1131,33 @@ export function HomePage() {
                       </div>
 
                       <div className={styles.actions}>
-                        <button
-                          className={styles.btnDual}
-                          onClick={() => handleStartClassroom(lesson.id)}
-                          data-testid={`start-lesson-${lesson.id}`}
-                        >
-                          🚀 Chiếu bài dạy (Mở 2 màn hình)
-                        </button>
+                        {authState.role === 'parent' ? (
+                          <button
+                            className={styles.btnDual}
+                            onClick={() => handlePresent(lesson.id)}
+                            data-testid={`start-lesson-${lesson.id}`}
+                          >
+                            ▶️ Bé học bài ngay
+                          </button>
+                        ) : (
+                          <button
+                            className={styles.btnDual}
+                            onClick={() => handleStartClassroom(lesson.id)}
+                            data-testid={`start-lesson-${lesson.id}`}
+                          >
+                            🚀 Chiếu bài dạy (Mở 2 màn hình)
+                          </button>
+                        )}
 
                         <div className={styles.secondaryRow}>
                           <button className={styles.btnTv} onClick={() => handlePresent(lesson.id)}>
-                            📺 Xem TV
+                            📺 {authState.role === 'parent' ? 'Màn hình to' : 'Xem TV'}
                           </button>
-                          <button className={styles.btnTeacher} onClick={() => handlePresenter(lesson.id)}>
-                            🎛️ Điều khiển
-                          </button>
+                          {authState.role !== 'parent' && (
+                            <button className={styles.btnTeacher} onClick={() => handlePresenter(lesson.id)}>
+                              🎛️ Điều khiển
+                            </button>
+                          )}
                         </div>
 
                         <div className={styles.secondaryRow}>
@@ -1119,7 +1175,7 @@ export function HomePage() {
                           </button>
                         </div>
 
-                        {isCustom && (
+                        {isCustom && authState.role !== 'parent' && (
                           <div className={styles.secondaryRow}>
                             <button
                               className={styles.btnTeacher}
@@ -1221,32 +1277,45 @@ export function HomePage() {
                             </div>
 
                             <div>
-                              <button
-                                className={styles.btnDual}
-                                style={{ width: '100%', marginBottom: '8px', fontSize: '13px', padding: '10px' }}
-                                onClick={() => handleStartClassroom(item.id)}
-                                title="Bắt đầu chiếu với 2 màn hình (TV + Laptop giáo viên)"
-                              >
-                                🚀 Chiếu 2 Màn hình
-                              </button>
+                              {authState.role === 'parent' ? (
+                                <button
+                                  className={styles.btnDual}
+                                  style={{ width: '100%', marginBottom: '8px', fontSize: '13px', padding: '10px' }}
+                                  onClick={() => handlePresent(item.id)}
+                                  title="Mở bài học tương tác cho bé"
+                                >
+                                  ▶️ Bé học bài ngay
+                                </button>
+                              ) : (
+                                <button
+                                  className={styles.btnDual}
+                                  style={{ width: '100%', marginBottom: '8px', fontSize: '13px', padding: '10px' }}
+                                  onClick={() => handleStartClassroom(item.id)}
+                                  title="Bắt đầu chiếu với 2 màn hình (TV + Laptop giáo viên)"
+                                >
+                                  🚀 Chiếu 2 Màn hình
+                                </button>
+                              )}
 
                               <div className={styles.currActions}>
                                 <button
                                   className={styles.btnTv}
                                   style={{ flex: 1, padding: '7px 8px', fontSize: '12px' }}
                                   onClick={() => handlePresent(item.id)}
-                                  title="Chỉ mở màn hình TV học sinh"
+                                  title={authState.role === 'parent' ? 'Mở bài học tương tác' : 'Chỉ mở màn hình TV học sinh'}
                                 >
-                                  📺 TV
+                                  📺 {authState.role === 'parent' ? 'Học bài' : 'TV'}
                                 </button>
-                                <button
-                                  className={styles.btnTeacher}
-                                  style={{ flex: 1, padding: '7px 8px', fontSize: '12px' }}
-                                  onClick={() => handlePresenter(item.id)}
-                                  title="Chỉ mở màn hình điều khiển cô giáo"
-                                >
-                                  🎛️ Bàn cô
-                                </button>
+                                {authState.role !== 'parent' && (
+                                  <button
+                                    className={styles.btnTeacher}
+                                    style={{ flex: 1, padding: '7px 8px', fontSize: '12px' }}
+                                    onClick={() => handlePresenter(item.id)}
+                                    title="Chỉ mở màn hình điều khiển cô giáo"
+                                  >
+                                    🎛️ Bàn cô
+                                  </button>
+                                )}
                                 <button
                                   className={styles.btnPrintSmall}
                                   onClick={() => navigate(`/print-worksheet?source=${item.id}`)}
