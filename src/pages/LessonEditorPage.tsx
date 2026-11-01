@@ -12,6 +12,7 @@ import {
   importLessonFromJson,
 } from '@/core/lesson-storage';
 import { AudioRecordField } from '@/components/common/AudioRecordField';
+import { ThemeToggle } from '@/components/common/ThemeToggle';
 import styles from './LessonEditorPage.module.css';
 
 const DEFAULT_NEW_LESSON: Lesson = {
@@ -267,6 +268,7 @@ export function LessonEditorPage() {
         </div>
 
         <div className={styles.actions}>
+          <ThemeToggle showLabel={false} />
           <label className={`${styles.btn} ${styles.btnSecondary}`} style={{ cursor: 'pointer' }}>
             📥 Nhập JSON
             <input

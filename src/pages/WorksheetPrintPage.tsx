@@ -2,6 +2,7 @@ import { useState, useEffect, useMemo, useCallback } from 'react';
 import { useSearchParams, useNavigate } from 'react-router-dom';
 import { getAllLessons, getLessonById } from '@/core/lesson-storage';
 import { getMistakeTracker, type MistakeEntry } from '@/core/mistake-tracker';
+import { ThemeToggle } from '@/components/common/ThemeToggle';
 import type { Lesson, Question } from '@/schemas/content.schema';
 import styles from './WorksheetPrintPage.module.css';
 
@@ -242,6 +243,7 @@ export function WorksheetPrintPage() {
         </div>
 
         <div className={styles.toolbarRight}>
+          <ThemeToggle showLabel={false} />
           <button
             type="button"
             data-testid="print-btn"

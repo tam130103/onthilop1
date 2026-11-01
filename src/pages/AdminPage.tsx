@@ -26,6 +26,7 @@ import { hasActiveSession, subscribeAuth, signOut, getAuthState, type AuthState 
 import { downloadBackupFile, importFullBackup } from '@/core/backup-manager';
 import { LessonSchema, type Lesson } from '@/schemas/content.schema';
 import type { MistakeEntry } from '@/core/mistake-tracker';
+import { ThemeToggle } from '@/components/common/ThemeToggle';
 import styles from './AdminPage.module.css';
 
 type AdminTab = 'users' | 'classrooms' | 'students' | 'lessons' | 'sessions' | 'system';
@@ -464,6 +465,7 @@ export function AdminPage() {
         </div>
 
         <div className={styles.headerActions}>
+          <ThemeToggle showLabel={false} />
           <div className={styles.cloudBadge}>
             <span className={cloudStatus.connected ? styles.statusDot : styles.statusDotOffline} />
             <span>{cloudStatus.connected ? `Supabase Online (${cloudStatus.latencyMs}ms)` : 'Offline Local'}</span>

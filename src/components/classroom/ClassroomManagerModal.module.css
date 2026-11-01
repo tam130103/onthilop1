@@ -1,19 +1,28 @@
+/* ClassroomManagerModal.module.css - Responsive & Dark Mode */
+
 .backdrop {
   position: fixed;
   inset: 0;
-  background: rgba(15, 23, 42, 0.45);
+  background: rgba(0, 0, 0, 0.65);
   backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   z-index: 99999;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 20px;
+  padding: 16px;
+  animation: fadeIn 0.15s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 .modal {
-  background: #ffffff;
-  border: 2px solid #e2e8f0;
-  border-bottom: 6px solid #cbd5e1;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-bottom: 5px solid var(--border-strong);
   border-radius: 24px;
   width: 100%;
   max-width: 760px;
@@ -21,14 +30,15 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-  color: #0f172a;
+  box-shadow: var(--shadow-lg);
+  color: var(--text-primary);
+  transition: background-color 0.25s ease;
 }
 
 .header {
   padding: 18px 24px;
-  background: #faf8f5;
-  border-bottom: 1px solid #e2e8f0;
+  background: var(--bg-subtle);
+  border-bottom: 1px solid var(--border-subtle);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -41,13 +51,13 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  color: #0f172a;
+  color: var(--text-primary);
 }
 
 .closeBtn {
   background: transparent;
   border: none;
-  color: #64748b;
+  color: var(--text-muted);
   font-size: 24px;
   cursor: pointer;
   padding: 4px 8px;
@@ -56,14 +66,16 @@
 }
 
 .closeBtn:hover {
-  color: #0f172a;
-  background: #e2e8f0;
+  color: var(--text-primary);
+  background: var(--bg-subtle-hover);
 }
 
 .tabs {
   display: flex;
-  border-bottom: 1px solid #e2e8f0;
-  background: #faf8f5;
+  border-bottom: 1px solid var(--border-subtle);
+  background: var(--bg-subtle);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .tabBtn {
@@ -72,21 +84,24 @@
   background: transparent;
   border: none;
   border-bottom: 3px solid transparent;
-  color: #64748b;
+  color: var(--text-secondary);
   font-size: 15px;
   font-weight: 700;
   cursor: pointer;
   transition: all 0.15s ease;
+  white-space: nowrap;
+  min-height: 44px;
 }
 
 .tabBtn:hover {
-  color: #0f172a;
+  color: var(--text-primary);
+  background: var(--bg-subtle-hover);
 }
 
 .activeTab {
-  color: #7c3aed;
-  border-bottom-color: #7c3aed;
-  background: #ffffff;
+  color: var(--accent-primary);
+  border-bottom-color: var(--accent-primary);
+  background: var(--bg-surface);
 }
 
 .body {
@@ -99,11 +114,11 @@
 
 .textarea {
   width: 100%;
-  background: #f8fafc;
-  border: 2px solid #e2e8f0;
+  background: var(--bg-subtle);
+  border: 2px solid var(--border-subtle);
   border-radius: 14px;
   padding: 14px;
-  color: #0f172a;
+  color: var(--text-primary);
   font-family: inherit;
   font-size: 14px;
   line-height: 1.5;
@@ -114,7 +129,7 @@
 
 .textarea:focus {
   outline: none;
-  border-color: #7c3aed;
+  border-color: var(--accent-primary);
 }
 
 .btnPrimary {
@@ -128,6 +143,7 @@
   font-size: 14px;
   cursor: pointer;
   transition: all 0.1s ease;
+  min-height: 44px;
 }
 
 .btnPrimary:hover {
@@ -140,21 +156,22 @@
 }
 
 .btnSecondary {
-  background: #ffffff;
-  color: #475569;
-  border: 2px solid #e2e8f0;
-  border-bottom: 3px solid #cbd5e1;
+  background: var(--bg-surface);
+  color: var(--text-secondary);
+  border: 2px solid var(--border-subtle);
+  border-bottom: 3px solid var(--border-strong);
   padding: 10px 18px;
   border-radius: 12px;
   font-weight: 700;
   font-size: 14px;
   cursor: pointer;
   transition: all 0.1s ease;
+  min-height: 44px;
 }
 
 .btnSecondary:hover {
-  background: #f8fafc;
-  color: #0f172a;
+  background: var(--bg-subtle-hover);
+  color: var(--text-primary);
 }
 
 .btnSecondary:active {
@@ -172,9 +189,9 @@
 }
 
 .studentCard {
-  background: #ffffff;
-  border: 2px solid #e2e8f0;
-  border-bottom: 4px solid #cbd5e1;
+  background: var(--bg-surface);
+  border: 2px solid var(--border-subtle);
+  border-bottom: 4px solid var(--border-strong);
   border-radius: 14px;
   padding: 10px 14px;
   display: flex;
@@ -185,20 +202,20 @@
 }
 
 .studentCardAbsent {
-  opacity: 0.5;
-  background: #f1f5f9;
+  opacity: 0.55;
+  background: var(--bg-subtle);
   border-style: dashed;
 }
 
 .studentName {
   font-size: 14px;
   font-weight: 700;
-  color: #0f172a;
+  color: var(--text-primary);
 }
 
 .nameCrossed {
   text-decoration: line-through;
-  color: #94a3b8;
+  color: var(--text-muted);
 }
 
 .absentTag {
@@ -214,9 +231,9 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  background: #f8fafc;
-  border: 2px solid #e2e8f0;
-  border-bottom: 3px solid #cbd5e1;
+  background: var(--bg-subtle);
+  border: 2px solid var(--border-subtle);
+  border-bottom: 3px solid var(--border-strong);
   padding: 10px 16px;
   border-radius: 14px;
 }
@@ -230,19 +247,24 @@
 
 .teamInput {
   flex: 1;
-  background: #ffffff;
-  border: 2px solid #e2e8f0;
-  color: #0f172a;
+  background: var(--bg-surface);
+  border: 2px solid var(--border-subtle);
+  color: var(--text-primary);
   padding: 8px 12px;
   border-radius: 10px;
   font-size: 14px;
   font-weight: 700;
 }
 
+.teamInput:focus {
+  outline: none;
+  border-color: var(--accent-primary);
+}
+
 .addForm {
-  background: #f8fafc;
-  border: 2px solid #e2e8f0;
-  border-bottom: 4px solid #cbd5e1;
+  background: var(--bg-subtle);
+  border: 2px solid var(--border-subtle);
+  border-bottom: 4px solid var(--border-strong);
   border-radius: 16px;
   padding: 16px;
   display: flex;
@@ -260,53 +282,56 @@
   flex: 2;
   min-width: 180px;
   padding: 10px 14px;
-  border: 2px solid #cbd5e1;
+  border: 2px solid var(--border-subtle);
   border-radius: 12px;
   font-size: 14px;
   font-weight: 700;
-  color: #0f172a;
-  background: #ffffff;
+  color: var(--text-primary);
+  background: var(--bg-surface);
   outline: none;
+  min-height: 44px;
 }
 
 .formInput:focus {
-  border-color: #6366f1;
+  border-color: var(--accent-primary);
 }
 
 .formSelect {
   flex: 1;
   min-width: 130px;
   padding: 10px 12px;
-  border: 2px solid #cbd5e1;
+  border: 2px solid var(--border-subtle);
   border-radius: 12px;
   font-size: 14px;
   font-weight: 700;
-  color: #0f172a;
-  background: #ffffff;
+  color: var(--text-primary);
+  background: var(--bg-surface);
   outline: none;
+  min-height: 44px;
 }
 
 .formSelect:focus {
-  border-color: #6366f1;
+  border-color: var(--accent-primary);
 }
 
 .btnActionSmall {
-  background: #ffffff;
-  border: 1px solid #cbd5e1;
-  padding: 4px 8px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  padding: 6px 10px;
   border-radius: 8px;
   font-size: 12px;
   font-weight: 700;
   cursor: pointer;
-  color: #475569;
+  color: var(--text-secondary);
   display: flex;
   align-items: center;
   gap: 4px;
+  min-height: 32px;
 }
 
 .btnActionSmall:hover {
-  background: #f1f5f9;
-  color: #0f172a;
+  background: var(--bg-subtle-hover);
+  color: var(--text-primary);
 }
 
 .teamBadgeSmall {
@@ -320,30 +345,47 @@
 .editOverlay {
   position: absolute;
   inset: 0;
-  background: rgba(15, 23, 42, 0.6);
+  background: rgba(0, 0, 0, 0.65);
   backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
   z-index: 50;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 20px;
+  padding: 16px;
 }
 
 .editCard {
-  background: #ffffff;
+  background: var(--bg-surface);
   border-radius: 20px;
-  border: 2px solid #e2e8f0;
-  border-bottom: 5px solid #cbd5e1;
+  border: 2px solid var(--border-subtle);
+  border-bottom: 5px solid var(--border-strong);
   padding: 24px;
   width: 100%;
   max-width: 480px;
   display: flex;
   flex-direction: column;
   gap: 16px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--shadow-lg);
 }
 
-.teamInput:focus {
-  outline: none;
-  border-color: #7c3aed;
+@media (max-width: 640px) {
+  .modal {
+    border-radius: 16px;
+  }
+  .header {
+    padding: 14px 16px;
+  }
+  .body {
+    padding: 16px;
+  }
+  .studentGrid {
+    grid-template-columns: 1fr;
+  }
+  .formRow {
+    flex-direction: column;
+  }
+  .formInput, .formSelect {
+    width: 100%;
+  }
 }

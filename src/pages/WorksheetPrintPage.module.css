@@ -1,17 +1,20 @@
-/* WorksheetPrintPage.module.css */
+/* WorksheetPrintPage.module.css - Responsive & Dark Mode Toolbar */
 
 .container {
-  min-height: 100vh;
-  background: #FAF8F5;
+  min-height: 100dvh;
+  background: var(--bg-primary);
   font-family: 'Nunito', 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, Arial, sans-serif;
-  color: #0f172a;
+  color: var(--text-primary);
+  transition: background-color 0.25s ease, color 0.25s ease;
 }
 
 /* Control Toolbar (Hidden when printing) */
 .toolbar {
-  background: #ffffff;
-  border-bottom: 1px solid #e2e8f0;
-  padding: 12px 24px;
+  background: var(--header-glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--header-glass-border);
+  padding: 12px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -19,7 +22,8 @@
   position: sticky;
   top: 0;
   z-index: 50;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  box-shadow: var(--shadow-sm);
+  flex-wrap: wrap;
 }
 
 .toolbarLeft {
@@ -27,6 +31,7 @@
   align-items: center;
   gap: 12px;
   flex-wrap: wrap;
+  flex: 1;
 }
 
 .toolbarRight {
@@ -66,15 +71,15 @@
 }
 
 .btnSecondary {
-  background: #ffffff;
-  border: 2px solid #e2e8f0;
-  border-bottom: 3px solid #cbd5e1;
-  color: #475569;
+  background: var(--bg-surface);
+  border: 2px solid var(--border-subtle);
+  border-bottom: 3px solid var(--border-strong);
+  color: var(--text-secondary);
 }
 
 .btnSecondary:hover {
-  background: #f8fafc;
-  color: #0f172a;
+  background: var(--bg-subtle-hover);
+  color: var(--text-primary);
 }
 
 .btnSecondary:active {
@@ -85,10 +90,11 @@
 .select {
   padding: 8px 12px;
   border-radius: 8px;
-  border: 1px solid #cbd5e1;
+  border: 1px solid var(--border-subtle);
   font-size: 14px;
-  background: #ffffff;
-  color: #0f172a;
+  background: var(--bg-surface);
+  color: var(--text-primary);
+  min-height: 40px;
 }
 
 /* Printable A4 Page */
@@ -375,7 +381,8 @@
 /* Mode Tab Selector */
 .modeTabs {
   display: flex;
-  background: #f1f5f9;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-subtle);
   padding: 4px;
   border-radius: 12px;
   gap: 4px;
@@ -388,15 +395,20 @@
   background: transparent;
   font-size: 14px;
   font-weight: 700;
-  color: #64748b;
+  color: var(--text-secondary);
   cursor: pointer;
   transition: all 0.15s ease;
+  min-height: 38px;
+}
+
+.modeTab:hover {
+  color: var(--text-primary);
 }
 
 .modeTabActive {
-  background: #ffffff;
-  color: #0f172a;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  background: var(--bg-surface);
+  color: var(--accent-primary);
+  box-shadow: var(--shadow-sm);
 }
 
 .oliToolbarRow {

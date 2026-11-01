@@ -1,6 +1,7 @@
 import { useState, type FormEvent } from 'react';
 import { useNavigate, useLocation, Link } from 'react-router-dom';
 import { signInWithPassword, setOfflineMode } from '@/core/auth-service';
+import { ThemeToggle } from '@/components/common/ThemeToggle';
 import styles from './LoginPage.module.css';
 
 export function LoginPage() {
@@ -63,6 +64,9 @@ export function LoginPage() {
   return (
     <div className={styles.container}>
       <div className={styles.card}>
+        <div style={{ position: 'absolute', top: '16px', right: '16px' }}>
+          <ThemeToggle showLabel={false} />
+        </div>
         <div className={styles.brandHeader}>
           <div className={styles.brandIcon}>
             <span>🎓</span>

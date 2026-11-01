@@ -2,6 +2,7 @@ import { useState, useEffect, useMemo, useCallback } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { EXAMS_DATA, getExamById, type ExamData } from '@/data/exam-data';
 import { getMistakeTracker } from '@/core/mistake-tracker';
+import { ThemeToggle } from '@/components/common/ThemeToggle';
 import type { Question } from '@/schemas/content.schema';
 import styles from './ExamPage.module.css';
 
@@ -173,13 +174,16 @@ export function ExamPage() {
       {/* NAVBAR */}
       <header className={styles.navbar}>
         <div className={styles.navInner}>
-          <button
-            type="button"
-            className={styles.backBtn}
-            onClick={() => navigate('/')}
-          >
-            ← Về trang chủ
-          </button>
+          <div className={styles.navLeft}>
+            <button
+              type="button"
+              className={styles.backBtn}
+              onClick={() => navigate('/')}
+            >
+              ← Trang chủ
+            </button>
+            <ThemeToggle showLabel={false} />
+          </div>
 
           <div className={styles.titleArea}>
             <span className={styles.termBadge}>

@@ -22,6 +22,7 @@ import {
 } from '@/core/backup-manager';
 import { APP_CACHE_NAME } from '@/core/cache-config';
 import { subscribeAuth, signOut, getAuthState, type AuthState } from '@/core/auth-service';
+import { ThemeToggle } from '@/components/common/ThemeToggle';
 import {
   MATH_STAGES,
   VIETNAMESE_STAGES,
@@ -59,6 +60,7 @@ export function HomePage() {
   const [installPrompt, setInstallPrompt] = useState<any>(null);
   const [popupBlockedLessonId, setPopupBlockedLessonId] = useState<string | null>(null);
   const [authState, setAuthState] = useState<AuthState>(getAuthState());
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const unsub = subscribeAuth(setAuthState);
@@ -383,10 +385,14 @@ export function HomePage() {
           </nav>
 
           <div className={styles.navRight}>
+            <div className={styles.desktopThemeToggle}>
+              <ThemeToggle showLabel={false} />
+            </div>
+
             {installPrompt && (
               <button
                 onClick={handleInstallApp}
-                className={styles.utilityBtn}
+                className={`${styles.utilityBtn} ${styles.installBtn}`}
                 style={{
                   backgroundColor: '#10b981',
                   color: '#ffffff',
@@ -397,11 +403,11 @@ export function HomePage() {
                 }}
                 title="Cài đặt ứng dụng trực tiếp vào máy tính/máy tính bảng"
               >
-                📥 Cài App vào máy
+                📥 Cài App
               </button>
             )}
             {authState.isAuthenticated ? (
-              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <div className={styles.authWrapper}>
                 <div
                   className={styles.userPill}
                   onClick={() => navigate('/admin')}
@@ -411,7 +417,7 @@ export function HomePage() {
                   <div className={styles.avatar}>
                     {authState.user?.user_metadata?.full_name?.charAt(0) || authState.user?.email?.charAt(0).toUpperCase() || 'T'}
                   </div>
-                  <span>
+                  <span className={styles.userName}>
                     {authState.user?.user_metadata?.full_name || authState.user?.email?.split('@')[0] || 'Cô giáo'}
                   </span>
                   <span style={{ fontSize: '11px', background: '#dcfce7', color: '#15803d', padding: '2px 6px', borderRadius: '10px', fontWeight: 800 }}>
@@ -430,7 +436,7 @@ export function HomePage() {
             ) : (
               <button
                 onClick={() => navigate('/login')}
-                className={styles.utilityBtn}
+                className={`${styles.utilityBtn} ${styles.cloudLoginBtn}`}
                 style={{
                   backgroundColor: '#f59e0b',
                   color: '#ffffff',
@@ -447,8 +453,188 @@ export function HomePage() {
                 <span>☁️</span> Đăng nhập Cloud
               </button>
             )}
+
+            {/* Mobile Hamburger Toggle Button */}
+            <button
+              type="button"
+              className={styles.hamburgerBtn}
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-label={isMobileMenuOpen ? 'Đóng menu' : 'Mở menu điều hướng'}
+              aria-expanded={isMobileMenuOpen}
+            >
+              {isMobileMenuOpen ? (
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <line x1="18" y1="6" x2="6" y2="18" />
+                  <line x1="6" y1="6" x2="18" y2="18" />
+                </svg>
+              ) : (
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <line x1="3" y1="6" x2="21" y2="6" />
+                  <line x1="3" y1="12" x2="21" y2="12" />
+                  <line x1="3" y1="18" x2="21" y2="18" />
+                </svg>
+              )}
+            </button>
           </div>
         </div>
+
+        {/* Mobile Navigation Drawer & Backdrop */}
+        {isMobileMenuOpen && (
+          <>
+            <div
+              className={styles.mobileOverlay}
+              onClick={() => setIsMobileMenuOpen(false)}
+              aria-hidden="true"
+            />
+            <div className={styles.mobileDrawer} role="dialog" aria-modal="true" aria-label="Menu điều hướng">
+              <div className={styles.drawerHeader}>
+                <div className={styles.brand} onClick={() => { setIsMobileMenuOpen(false); navigate('/'); }}>
+                  <div className={styles.brandLogo}>⭐</div>
+                  <span className={styles.brandName}>
+                    <span className={styles.brandOn}>Trình</span>
+                    <span className={styles.brandThi}>Chiếu 1</span>
+                  </span>
+                </div>
+                <button
+                  type="button"
+                  className={styles.drawerCloseBtn}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  aria-label="Đóng menu"
+                >
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18" />
+                    <line x1="6" y1="6" x2="18" y2="18" />
+                  </svg>
+                </button>
+              </div>
+
+              <div className={styles.drawerBody}>
+                <div className={styles.drawerSectionLabel}>Điều hướng</div>
+                <button
+                  className={`${styles.drawerNavLink} ${styles.drawerNavLinkActive}`}
+                  onClick={() => {
+                    setIsMobileMenuOpen(false);
+                    navigate('/');
+                  }}
+                >
+                  <span className={styles.drawerNavIcon}>📚</span>
+                  <span>Học theo lớp (GDPT 2018)</span>
+                </button>
+                <button
+                  className={styles.drawerNavLink}
+                  onClick={() => {
+                    setIsMobileMenuOpen(false);
+                    const el = document.getElementById('exams-section');
+                    if (el) el.scrollIntoView({ behavior: 'smooth' });
+                    else navigate('/exam');
+                  }}
+                >
+                  <span className={styles.drawerNavIcon}>📝</span>
+                  <span>Đề thi định kỳ 15 phút</span>
+                </button>
+                <button
+                  className={styles.drawerNavLink}
+                  onClick={() => {
+                    setIsMobileMenuOpen(false);
+                    navigate('/print-worksheet');
+                  }}
+                >
+                  <span className={styles.drawerNavIcon}>🖨️</span>
+                  <span>In bài tập & Ô ly A4</span>
+                </button>
+                <button
+                  className={styles.drawerNavLink}
+                  onClick={() => {
+                    setIsMobileMenuOpen(false);
+                    navigate('/editor');
+                  }}
+                >
+                  <span className={styles.drawerNavIcon}>✏️</span>
+                  <span>Soạn & chỉnh sửa bài</span>
+                </button>
+                <button
+                  className={styles.drawerNavLink}
+                  onClick={() => {
+                    setIsMobileMenuOpen(false);
+                    setIsClassroomModalOpen(true);
+                  }}
+                >
+                  <span className={styles.drawerNavIcon}>🏆</span>
+                  <span>Lớp học & Thi đua 4 đội</span>
+                </button>
+                <button
+                  className={styles.drawerNavLink}
+                  onClick={() => {
+                    setIsMobileMenuOpen(false);
+                    navigate('/admin');
+                  }}
+                >
+                  <span className={styles.drawerNavIcon}>⚙️</span>
+                  <span>Quản trị Hệ thống Admin</span>
+                </button>
+
+                <div className={styles.drawerDivider} />
+
+                <div className={styles.drawerSectionLabel}>Giao diện & Cài đặt</div>
+                <div className={styles.drawerThemeRow}>
+                  <ThemeToggle showLabel={true} />
+                </div>
+
+                {installPrompt && (
+                  <button
+                    onClick={() => {
+                      setIsMobileMenuOpen(false);
+                      handleInstallApp();
+                    }}
+                    className={styles.drawerActionBtn}
+                    style={{ backgroundColor: '#10b981', color: '#ffffff' }}
+                  >
+                    📥 Cài ứng dụng vào máy (PWA)
+                  </button>
+                )}
+
+                <div className={styles.drawerDivider} />
+
+                <div className={styles.drawerSectionLabel}>Tài khoản Giáo viên</div>
+                {authState.isAuthenticated ? (
+                  <div className={styles.drawerUserSection}>
+                    <div className={styles.drawerUserRow}>
+                      <div className={styles.avatar}>
+                        {authState.user?.user_metadata?.full_name?.charAt(0) || authState.user?.email?.charAt(0).toUpperCase() || 'T'}
+                      </div>
+                      <div className={styles.drawerUserInfo}>
+                        <div className={styles.drawerUserName}>
+                          {authState.user?.user_metadata?.full_name || authState.user?.email?.split('@')[0] || 'Cô giáo'}
+                        </div>
+                        <div className={styles.drawerUserStatus}>Cloud Sync Đang Bật 🟢</div>
+                      </div>
+                    </div>
+                    <button
+                      onClick={() => {
+                        setIsMobileMenuOpen(false);
+                        signOut();
+                      }}
+                      className={styles.drawerSignOutBtn}
+                    >
+                      Đăng xuất tài khoản
+                    </button>
+                  </div>
+                ) : (
+                  <button
+                    onClick={() => {
+                      setIsMobileMenuOpen(false);
+                      navigate('/login');
+                    }}
+                    className={styles.drawerActionBtn}
+                    style={{ backgroundColor: '#f59e0b', color: '#ffffff' }}
+                  >
+                    ☁️ Đăng nhập Supabase Cloud
+                  </button>
+                )}
+              </div>
+            </div>
+          </>
+        )}
       </header>
 
       {/* 2. MAIN CONTAINER */}

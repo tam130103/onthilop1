@@ -17,6 +17,7 @@ import {
 } from '@/core/session-storage';
 import { LessonSchema, type Slide } from '@/schemas/content.schema';
 import { APP_CACHE_NAME } from '@/core/cache-config';
+import { ThemeToggle } from '@/components/common/ThemeToggle';
 import styles from './PresenterPage.module.css';
 
 function getSlideLabel(slide: Slide): string {
@@ -534,6 +535,7 @@ export function PresenterPage() {
             >
               🏠 Về trang chủ
             </button>
+            <ThemeToggle showLabel={false} />
             <span className={styles.slideCounter} data-testid="presenter-slide-counter">
               {state.lesson
                 ? `Slide ${state.currentSlideIndex + 1} / ${state.totalSlides}`
