@@ -259,6 +259,35 @@
   margin-top: 2px;
 }
 
+.notesBox {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-left: 4px solid var(--accent-amber);
+  border-radius: 12px;
+  padding: 14px 18px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.notesTitle {
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--accent-amber);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.notesContent {
+  font-size: 14px;
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
 .stats {
   background: var(--bg-subtle);
   border-radius: 12px;

@@ -35,11 +35,17 @@ export function PresentPage() {
   const sessionId = searchParams.get('session');
   const [state, dispatch] = useReducer(playerReducer, createInitialState());
   const channelRef = useRef<SyncChannel | null>(null);
+  const stateRef = useRef(state);
   const isLoadedRef = useRef(false);
   const pendingSnapshotRef = useRef<Record<string, unknown> | null>(null);
   const [hasStarted, setHasStarted] = useState(false);
   const [showStarReward, setShowStarReward] = useState(false);
   const prevCorrectSize = useRef(0);
+
+  // Keep stateRef updated
+  useEffect(() => {
+    stateRef.current = state;
+  }, [state]);
 
   // Local student interaction states
   const [selectedAnswer, setSelectedAnswer] = useState<{ isCorrect: boolean; answer: string } | null>(null);
@@ -84,7 +90,7 @@ export function PresentPage() {
 
   // Sync channel - nhận STATE_SNAPSHOT từ /presenter
   useEffect(() => {
-    const syncId = lessonId || sessionId || undefined;
+    const syncId = sessionId || lessonId || undefined;
     const channel = new SyncChannel('present', syncId);
     channelRef.current = channel;
 
@@ -115,6 +121,38 @@ export function PresentPage() {
         if (p.pickerActive !== undefined) getClassroomStore().getData().pickerActive = p.pickerActive;
         if (p.pickedStudent !== undefined) getClassroomStore().getData().pickedStudent = p.pickedStudent;
         setClassroomData({ ...getClassroomStore().getData() });
+      }),
+      channel.on('LESSON_CHANGE', async (msg) => {
+        const targetId = msg.payload['lessonId'];
+        if (typeof targetId === 'string' && targetId !== stateRef.current.lesson?.id) {
+          try {
+            const found = await getLessonById(targetId);
+            if (found) {
+              dispatch({ type: 'LOAD_LESSON', lesson: found });
+              dispatch({ type: 'START_SESSION' });
+              isLoadedRef.current = true;
+              const sessionAudioUrls: string[] = [];
+              found.slides.forEach((s) => {
+                if ('audio' in s && typeof s.audio === 'string' && s.audio) {
+                  sessionAudioUrls.push(s.audio);
+                }
+                if (s.type === 'question-slide') {
+                  const q = s.question;
+                  if (q.promptAudio) sessionAudioUrls.push(q.promptAudio);
+                  if (q.explanationAudio) sessionAudioUrls.push(q.explanationAudio);
+                  if ('options' in q && Array.isArray(q.options)) {
+                    q.options.forEach((opt) => {
+                      if (opt.audio) sessionAudioUrls.push(opt.audio);
+                    });
+                  }
+                }
+              });
+              getAudioManager().loadSessionAudio(sessionAudioUrls);
+            }
+          } catch (e) {
+            console.error('[PresentPage] Lỗi tải bài học mới từ sự kiện LESSON_CHANGE:', e);
+          }
+        }
       }),
       channel.on('CLASSROOM_UPDATE', (msg) => {
         const payload = msg.payload as Partial<ClassroomData>;
@@ -615,6 +653,39 @@ export function PresentPage() {
         >
           <TeamScoreboard teams={classroomData.teams} />
           <ClassroomTimer timer={classroomData.timer} />
+        </div>
+      )}
+
+      {/* Prominent Floating Timer Badge on TV when running and dropdown closed */}
+      {classroomData.timer.isRunning && !showTeamsDropdown && (
+        <div
+          style={{
+            position: 'absolute',
+            top: '76px',
+            right: '24px',
+            zIndex: 45,
+            background: 'linear-gradient(135deg, #ef4444 0%, #dc2626 100%)',
+            color: '#ffffff',
+            borderRadius: '20px',
+            padding: '10px 18px',
+            boxShadow: '0 8px 24px rgba(220, 38, 38, 0.4)',
+            border: '2px solid #fecaca',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '10px',
+          }}
+          data-testid="tv-floating-timer"
+        >
+          <span style={{ fontSize: '24px' }}>⏱️</span>
+          <div>
+            <div style={{ fontSize: '10px', textTransform: 'uppercase', letterSpacing: '0.05em', opacity: 0.9, fontWeight: 800 }}>
+              Thời gian thi đua
+            </div>
+            <div style={{ fontSize: '24px', fontWeight: 900, fontFamily: 'monospace', lineHeight: 1 }}>
+              {String(Math.floor(classroomData.timer.remainingSeconds / 60)).padStart(2, '0')}:
+              {String(classroomData.timer.remainingSeconds % 60).padStart(2, '0')}
+            </div>
+          </div>
         </div>
       )}
 

@@ -148,9 +148,12 @@ export function PresenterPage() {
   );
 
   const handleOpenTvPopup = useCallback(() => {
-    const query = lessonId ? `lesson=${lessonId}` : sessionId ? `session=${sessionId}` : '';
+    const params = new URLSearchParams();
+    if (sessionId) params.set('session', sessionId);
+    if (lessonId) params.set('lesson', lessonId);
+    const query = params.toString();
     window.open(
-      `/present?${query}`,
+      `/present${query ? `?${query}` : ''}`,
       'tv_presentation_screen',
       'width=1280,height=720,menubar=no,toolbar=no,location=no'
     );
@@ -170,7 +173,12 @@ export function PresenterPage() {
       const s = getTeachingSessionById(sessionId);
       if (s) {
         setTeachingSession(s);
-        if (!lessonId && s.steps[0]?.lessonId) {
+        if (lessonId) {
+          const stepIdx = s.steps.findIndex((st) => st.lessonId === lessonId);
+          if (stepIdx >= 0) {
+            setCurrentStepIndex(stepIdx);
+          }
+        } else if (s.steps[0]?.lessonId) {
           loadSpecificLesson(s.steps[0].lessonId);
         }
       }
@@ -265,7 +273,7 @@ export function PresenterPage() {
 
   // Init sync channel and respond to HELLO from /present
   useEffect(() => {
-    const syncId = lessonId || sessionId || undefined;
+    const syncId = sessionId || lessonId || undefined;
     const channel = new SyncChannel('presenter', syncId);
     channelRef.current = channel;
 
@@ -326,10 +334,15 @@ export function PresenterPage() {
       if (!step) return;
       setCurrentStepIndex(index);
       if (step.lessonId) {
-        loadSpecificLesson(step.lessonId);
+        if (stateRef.current.lesson?.id !== step.lessonId) {
+          loadSpecificLesson(step.lessonId);
+        }
       }
-      if (step.type === 'game' && step.config?.timerSeconds) {
+      if (step.config?.timerSeconds) {
         getClassroomStore().startTimer(step.config.timerSeconds);
+        broadcastClassroom();
+      }
+      if (step.type === 'warmup') {
         broadcastClassroom();
       }
     },
@@ -673,7 +686,7 @@ export function PresenterPage() {
                     style={{
                       fontSize: '19px',
                       fontWeight: 700,
-                      color: '#f8fafc',
+                      color: 'var(--text-primary)',
                       marginBottom: '8px',
                     }}
                   >
@@ -682,7 +695,7 @@ export function PresenterPage() {
                       : currentSlide.title}
                   </div>
                   {currentSlide.type === 'question-slide' && (
-                    <div style={{ fontSize: '14px', color: '#38bdf8' }}>
+                    <div style={{ fontSize: '14px', color: 'var(--accent-primary, #4f46e5)', fontWeight: 600 }}>
                       {getQuestionAnswerSummary(currentSlide)}
                     </div>
                   )}
@@ -695,20 +708,20 @@ export function PresenterPage() {
                           height: '50px',
                           maxWidth: '100px',
                           objectFit: 'contain',
-                          background: '#1e293b',
+                          background: 'var(--bg-subtle)',
                           borderRadius: '6px',
-                          border: '1px solid #334155',
+                          border: '1px solid var(--border-subtle)',
                           padding: '4px',
                         }}
                       />
-                      <span style={{ fontSize: '12px', color: '#94a3b8' }}>
+                      <span style={{ fontSize: '12px', color: 'var(--text-muted)' }}>
                         🖼️ Hình minh họa đang chiếu trên TV
                       </span>
                     </div>
                   )}
                 </div>
               ) : (
-                <span style={{ color: '#64748b' }}>Chưa có slide</span>
+                <span style={{ color: 'var(--text-muted)' }}>Chưa có slide</span>
               )}
             </div>
           </div>
@@ -719,7 +732,7 @@ export function PresenterPage() {
               <span className={`${styles.cardBadge} ${styles.nextBadge}`}>
                 🔜 Xem trước câu tiếp theo
               </span>
-              <span style={{ fontSize: '12px', color: '#64748b' }}>
+              <span style={{ fontSize: '12px', color: 'var(--text-muted)' }}>
                 {nextSlide ? `Slide ${state.currentSlideIndex + 2}` : 'Hết bài'}
               </span>
             </div>
@@ -730,7 +743,7 @@ export function PresenterPage() {
                     style={{
                       fontSize: '15px',
                       fontWeight: 600,
-                      color: '#e2e8f0',
+                      color: 'var(--text-primary)',
                       marginBottom: '6px',
                     }}
                   >
@@ -738,18 +751,20 @@ export function PresenterPage() {
                       ? nextSlide.question.prompt
                       : nextSlide.title}
                   </div>
-                  <div style={{ fontSize: '12px', color: '#94a3b8', marginBottom: '8px' }}>
+                  <div style={{ fontSize: '12px', color: 'var(--text-muted)', marginBottom: '8px' }}>
                     Loại: {getSlideTypeLabel(nextSlide)}
                   </div>
                   {nextSlide.teacherNote && (
                     <div
                       style={{
-                        padding: '6px 10px',
-                        background: '#1e293b',
-                        borderLeft: '3px solid #f59e0b',
+                        padding: '8px 12px',
+                        background: 'var(--bg-surface)',
+                        border: '1px solid var(--border-subtle)',
+                        borderLeft: '4px solid var(--accent-amber)',
                         fontSize: '12px',
-                        color: '#fef08a',
-                        borderRadius: '4px',
+                        color: 'var(--text-secondary)',
+                        borderRadius: '6px',
+                        lineHeight: 1.5,
                       }}
                     >
                       💡 <strong>Chuẩn bị:</strong> {nextSlide.teacherNote}
@@ -828,7 +843,7 @@ export function PresenterPage() {
                 disabled={state.showAnswer}
                 data-testid="reveal-btn"
               >
-                👁 Đáp án (R)
+                👁 Đáp án (A)
               </button>
             )}
             <button
@@ -884,12 +899,16 @@ export function PresenterPage() {
           <div className={styles.notesTitle}>📝 Ghi chú sư phạm (Chỉ giáo viên thấy)</div>
           <div className={styles.notesContent}>
             {currentSlide?.teacherNote ? (
-              <p style={{ color: '#fef08a', fontWeight: 500 }}>{currentSlide.teacherNote}</p>
+              <p style={{ color: 'var(--text-primary)', fontWeight: 600, margin: 0, lineHeight: 1.6 }}>
+                {currentSlide.teacherNote}
+              </p>
             ) : (
               currentSlide?.type === 'question-slide' && currentSlide.question.explanation ? (
-                <p>{currentSlide.question.explanation}</p>
+                <p style={{ color: 'var(--text-secondary)', margin: 0, lineHeight: 1.6 }}>
+                  {currentSlide.question.explanation}
+                </p>
               ) : (
-                <p style={{ color: '#64748b', fontStyle: 'italic' }}>
+                <p style={{ color: 'var(--text-muted)', fontStyle: 'italic', margin: 0 }}>
                   Không có ghi chú cho slide này.
                 </p>
               )
@@ -916,7 +935,7 @@ export function PresenterPage() {
         {/* Classroom Management Tools */}
         <div className={styles.classroomTools}>
           <div className={styles.toolsHeader}>
-            <span style={{ fontWeight: 700, fontSize: '14px', color: '#e2e8f0' }}>
+            <span style={{ fontWeight: 700, fontSize: '14px', color: 'var(--text-primary)' }}>
               🛠️ Bộ công cụ lớp học
             </span>
             <button
