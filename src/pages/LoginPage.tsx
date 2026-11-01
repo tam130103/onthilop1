@@ -51,7 +51,16 @@ export function LoginPage() {
 
   const handleQuickFill = (targetEmail: string) => {
     setEmail(targetEmail);
-    setPassword('');
+    // In local dev mode only, auto-fill demo password for quick testing convenience.
+    // In production build, import.meta.env.DEV is false and dead-code eliminated.
+    if (import.meta.env.DEV) {
+      if (targetEmail === defaultAdminEmail) setPassword('Admin@123');
+      else if (targetEmail === defaultTeacherEmail) setPassword('Giaovien@123');
+      else if (targetEmail === defaultParentEmail) setPassword('Phuhuynh@123');
+      else setPassword('');
+    } else {
+      setPassword('');
+    }
     setErrorMessage(null);
   };
 
@@ -105,6 +114,11 @@ export function LoginPage() {
               👨‍👩‍👧 Phụ Huynh
             </button>
           </div>
+          {import.meta.env.DEV && (
+            <p style={{ margin: '8px 0 0', fontSize: '0.78rem', color: '#64748b', textAlign: 'center' }}>
+              💡 <em>Chế độ Dev: Chọn tài khoản sẽ tự động điền sẵn mật khẩu mẫu.</em>
+            </p>
+          )}
         </div>
 
         {errorMessage && (

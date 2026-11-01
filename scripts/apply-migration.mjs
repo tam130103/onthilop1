@@ -23,9 +23,13 @@ if (!connectionString) {
   process.exit(1);
 }
 
+const sslConfig = process.env.DB_SSL_CA
+  ? { ca: fs.readFileSync(process.env.DB_SSL_CA, 'utf8'), rejectUnauthorized: true }
+  : { rejectUnauthorized: process.env.DB_SSL_REJECT_UNAUTHORIZED === 'true' };
+
 const client = new Client({
   connectionString,
-  ssl: { rejectUnauthorized: true }
+  ssl: sslConfig
 });
 
 async function run() {
