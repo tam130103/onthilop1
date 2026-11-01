@@ -1,4 +1,5 @@
 import { chromium } from 'playwright';
+import { runExamAndHandwritingE2ETests } from '../tests/e2e/batch5-exam-and-handwriting.e2e';
 
 async function runE2ETests() {
   console.log('🚀 Starting E2E Presentation & Sync Tests (Phase 1 & Phase 2)...\n');
@@ -268,8 +269,8 @@ async function runE2ETests() {
     await homePage.waitForSelector('[data-testid="mistakes-section"]', { timeout: 8000 });
     console.log('   ✅ Mistakes Review section rendered on Home Page');
 
-    const mathSessionCard = await homePage.$('[data-testid="session-card-session-math-01"]');
-    const vnSessionCard = await homePage.$('[data-testid="session-card-session-vn-01"]');
+    const mathSessionCard = await homePage.waitForSelector('[data-testid="session-card-session-math-01"]', { timeout: 10000 });
+    const vnSessionCard = await homePage.waitForSelector('[data-testid="session-card-session-vn-01"]', { timeout: 10000 });
     if (mathSessionCard && vnSessionCard) {
       console.log('   ✅ PASS: Both Math and Vietnamese Teaching Session presets rendered!');
     } else {
@@ -286,7 +287,12 @@ async function runE2ETests() {
 
     await homePage.close();
 
-    console.log('\n🎉 ALL E2E BROWSER TESTS (PHASE 1, PHASE 2 & PHASE 3) PASSED 100%!');
+    // ---------------------------------------------------------
+    // TEST 10 & 11 (Phase 5): Periodic Exam & Handwriting Ô Ly A4
+    // ---------------------------------------------------------
+    await runExamAndHandwritingE2ETests(context, baseUrl);
+
+    console.log('\n🎉 ALL E2E BROWSER TESTS (PHASE 1, 2, 3 & 5) PASSED 100%!');
   } finally {
     await browser.close();
   }

@@ -132,6 +132,7 @@ export function WorksheetPrintPage() {
           <div className={styles.modeTabs}>
             <button
               type="button"
+              data-testid="tab-worksheet"
               className={`${styles.modeTab} ${printMode === 'worksheet' ? styles.modeTabActive : ''}`}
               onClick={() => setPrintMode('worksheet')}
             >
@@ -139,6 +140,7 @@ export function WorksheetPrintPage() {
             </button>
             <button
               type="button"
+              data-testid="tab-handwriting"
               className={`${styles.modeTab} ${printMode === 'handwriting' ? styles.modeTabActive : ''}`}
               onClick={() => setPrintMode('handwriting')}
             >
@@ -183,6 +185,7 @@ export function WorksheetPrintPage() {
           {printMode === 'handwriting' && (
             <div className={styles.oliToolbarRow}>
               <select
+                data-testid="preset-select"
                 className={styles.select}
                 value={selectedPresetId}
                 onChange={(e) => setSelectedPresetId(e.target.value)}
@@ -197,6 +200,7 @@ export function WorksheetPrintPage() {
               {selectedPresetId === 'custom' && (
                 <input
                   type="text"
+                  data-testid="custom-text-input"
                   className={styles.select}
                   style={{ width: '220px' }}
                   value={customWritingText}
@@ -240,6 +244,7 @@ export function WorksheetPrintPage() {
         <div className={styles.toolbarRight}>
           <button
             type="button"
+            data-testid="print-btn"
             className={`${styles.btn} ${styles.btnPrimary}`}
             onClick={() => window.print()}
           >
@@ -254,7 +259,7 @@ export function WorksheetPrintPage() {
             MODE 1: HANDWRITING Ô LY A4
            ========================================================================= */}
         {printMode === 'handwriting' ? (
-          <div className={styles.oliSheet}>
+          <div data-testid="oli-sheet" className={styles.oliSheet}>
             {/* HEADER */}
             <div className={styles.oliHeader}>
               <div className={styles.oliHeaderLeft}>
@@ -287,6 +292,7 @@ export function WorksheetPrintPage() {
                 return (
                   <div key={lineIdx} className={styles.oliRowWrapper}>
                     <svg
+                      data-testid="oli-svg-line"
                       viewBox="0 0 720 64"
                       className={styles.oliSvg}
                       xmlns="http://www.w3.org/2000/svg"
@@ -322,6 +328,7 @@ export function WorksheetPrintPage() {
 
                       {/* Sample Letter on Left (Mẫu cô viết) */}
                       <text
+                        data-testid="oli-sample-char"
                         x="28"
                         y="48"
                         fontSize="26"
@@ -516,7 +523,7 @@ export function WorksheetPrintPage() {
             </div>
 
             {/* SHEET 2: ĐÁP ÁN & HƯỚNG DẪN DÀNH CHO GIÁO VIÊN */}
-            <div className={`${styles.sheet} ${styles.teacherPage}`}>
+            <div data-testid="answer-key-page" className={`${styles.sheet} ${styles.teacherPage}`}>
               <div style={{ borderBottom: '2px solid #000000', paddingBottom: '8px' }}>
                 <h2 className={styles.teacherHeaderTitle}>
                   HƯỚNG DẪN CHẤM & ĐÁP ÁN CHI TIẾT

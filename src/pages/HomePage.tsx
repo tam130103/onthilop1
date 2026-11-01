@@ -1071,7 +1071,7 @@ export function HomePage() {
 
           <div className={styles.examsGrid}>
             {EXAMS_LIST.map((exam) => (
-              <div key={exam.id} className={styles.examCard}>
+              <div key={exam.id} data-testid={`exam-card-${exam.id}`} className={styles.examCard}>
                 <div>
                   <div className={styles.examHeader}>
                     <div className={styles.examIcon}>{exam.icon}</div>
@@ -1087,6 +1087,7 @@ export function HomePage() {
 
                 <div style={{ display: 'flex', gap: '8px', marginTop: '12px' }}>
                   <button
+                    data-testid={`start-exam-btn-${exam.id}`}
                     className={styles.btnDual}
                     style={{ flex: 1, fontSize: '13px', padding: '10px' }}
                     onClick={() => navigate(`/exam/${exam.id}`)}

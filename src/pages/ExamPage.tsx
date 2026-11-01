@@ -188,7 +188,7 @@ export function ExamPage() {
             <h1 className={styles.examTitle}>{exam.title}</h1>
           </div>
 
-          <div className={timerClass}>
+          <div data-testid="exam-timer" className={timerClass}>
             <span>⏱️</span>
             <span>{isSubmitted ? '00:00' : formatTime(timeLeft)}</span>
           </div>
@@ -200,12 +200,12 @@ export function ExamPage() {
         {/* IF SUBMITTED: RESULT VIEW */}
         {isSubmitted ? (
           <>
-            <div className={styles.resultHeader}>
+            <div data-testid="exam-result-card" className={styles.resultHeader}>
               <div className={styles.resultTrophy}>{performanceTier.trophy}</div>
-              <div className={styles.resultScore}>
+              <div data-testid="exam-score" className={styles.resultScore}>
                 {scoreResult.score} / 10 Điểm
               </div>
-              <div className={styles.resultTier}>{performanceTier.badge}</div>
+              <div data-testid="exam-tier" className={styles.resultTier}>{performanceTier.badge}</div>
               <p className={styles.resultSub}>{performanceTier.message}</p>
 
               <div style={{ marginTop: '8px', fontSize: '14px', opacity: 0.9 }}>
@@ -215,6 +215,7 @@ export function ExamPage() {
               <div className={styles.resultActions}>
                 <button
                   type="button"
+                  data-testid="print-exam-btn"
                   className={styles.resultActionBtn}
                   style={{ background: '#ffffff', color: '#4f46e5' }}
                   onClick={() => navigate(`/print-worksheet?source=${exam.id}`)}
@@ -233,6 +234,7 @@ export function ExamPage() {
                 )}
                 <button
                   type="button"
+                  data-testid="restart-exam-btn"
                   className={styles.resultActionBtn}
                   style={{ background: '#10b981', color: '#ffffff' }}
                   onClick={handleRestart}
@@ -251,7 +253,7 @@ export function ExamPage() {
             </div>
 
             {/* REVIEW SECTION */}
-            <div className={styles.reviewSection}>
+            <div data-testid="exam-review-section" className={styles.reviewSection}>
               <h2 className={styles.reviewTitle}>
                 📋 Xem lại lời giải chi tiết 10 câu hỏi
               </h2>
@@ -362,6 +364,7 @@ export function ExamPage() {
                     <button
                       key={q.id}
                       type="button"
+                      data-testid={`exam-nav-${idx + 1}`}
                       className={cls}
                       onClick={() => setCurrentIndex(idx)}
                     >
@@ -374,7 +377,7 @@ export function ExamPage() {
 
             {/* QUESTION CARD */}
             {currentQ && (currentQ.type === 'multiple_choice' || currentQ.type === 'multiple-choice') && (
-              <div className={styles.questionCard}>
+              <div data-testid="exam-question-card" className={styles.questionCard}>
                 <div className={styles.questionMeta}>
                   <span className={styles.questionBadge}>
                     Câu hỏi {currentIndex + 1} / {totalQuestions}
@@ -419,6 +422,7 @@ export function ExamPage() {
                     return (
                       <div
                         key={opt.id}
+                        data-testid={`exam-option-${opt.id}`}
                         className={`${styles.optionCard} ${
                           isSelected ? styles.optionSelected : ''
                         }`}
@@ -466,6 +470,7 @@ export function ExamPage() {
 
                   <button
                     type="button"
+                    data-testid="submit-exam-btn"
                     className={styles.submitBtn}
                     onClick={() => {
                       if (unansweredCount > 0) {
@@ -504,7 +509,7 @@ export function ExamPage() {
 
       {/* CONFIRMATION MODAL IF UNANSWERED QUESTIONS */}
       {showConfirmModal && (
-        <div className={styles.modalBackdrop}>
+        <div data-testid="confirm-modal" className={styles.modalBackdrop}>
           <div className={styles.modalContent}>
             <div style={{ fontSize: '48px' }}>⚠️</div>
             <h3 className={styles.modalTitle}>Bé có muốn nộp bài ngay không?</h3>
@@ -521,6 +526,7 @@ export function ExamPage() {
               </button>
               <button
                 type="button"
+                data-testid="confirm-submit-btn"
                 className={styles.submitBtn}
                 onClick={handleSubmitExam}
               >
