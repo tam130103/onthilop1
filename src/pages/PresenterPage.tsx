@@ -9,7 +9,7 @@ import {
 import { TeamScoreboard } from '@/components/classroom/TeamScoreboard';
 import { ClassroomTimer } from '@/components/classroom/ClassroomTimer';
 import { ClassroomManagerModal } from '@/components/classroom/ClassroomManagerModal';
-import { getLessonById } from '@/core/lesson-storage';
+import { getLessonById, BUILTIN_LESSON_URLS } from '@/core/lesson-storage';
 import { getMistakeTracker } from '@/core/mistake-tracker';
 import {
   getTeachingSessionById,
@@ -18,13 +18,6 @@ import {
 import { LessonSchema, type Slide } from '@/schemas/content.schema';
 import { APP_CACHE_NAME } from '@/core/cache-config';
 import styles from './PresenterPage.module.css';
-
-const LESSON_URLS = [
-  '/content/lessons/math-lesson-01.json',
-  '/content/lessons/math-lesson-02.json',
-  '/content/lessons/vn-lesson-01.json',
-  '/content/lessons/vn-lesson-02.json',
-];
 
 function getSlideLabel(slide: Slide): string {
   switch (slide.type) {
@@ -337,7 +330,7 @@ export function PresenterPage() {
     setOfflineStatus('Đang kiểm tra & nạp offline...');
     try {
       const cache = await caches.open(APP_CACHE_NAME);
-      const urlsToCache: string[] = [...LESSON_URLS];
+      const urlsToCache: string[] = [...BUILTIN_LESSON_URLS];
 
       // Extract all media urls from loaded lesson
       if (state.lesson) {

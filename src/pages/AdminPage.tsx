@@ -1585,7 +1585,7 @@ export function AdminPage() {
                   <input
                     type="email"
                     required
-                    placeholder="Ví dụ: giaovien@onthi.app"
+                    placeholder="Ví dụ: giaovien@tieuhoc.edu.vn"
                     value={editingUser?.email || ''}
                     onChange={(e) => setEditingUser((prev) => ({ ...prev, email: e.target.value }))}
                     className={styles.formInput}

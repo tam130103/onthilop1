@@ -70,7 +70,7 @@ function getLocalUsers(): AdminUser[] {
   return [
     {
       id: 'a0000000-0000-0000-0000-000000000001',
-      email: 'giaovien@onthi.app',
+      email: 'cothutam@tieuhoc.edu.vn',
       full_name: 'Cô Thu Tâm',
       role: 'teacher',
       phone_number: '0988123456',
@@ -79,11 +79,11 @@ function getLocalUsers(): AdminUser[] {
     },
     {
       id: 'a0000000-0000-0000-0000-000000000002',
-      email: 'admin@onthi.app',
+      email: 'admin@tieuhoc.edu.vn',
       full_name: 'Thầy Quản Trị Viên',
       role: 'admin',
       phone_number: '0912345678',
-      school_name: 'Hệ thống Onthi Tiểu Học',
+      school_name: 'Trường Tiểu học Kim Đồng',
       created_at: new Date().toISOString(),
     },
   ];

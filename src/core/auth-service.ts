@@ -36,7 +36,7 @@ function notifyListeners(): void {
 }
 
 async function resolveUserRole(uid: string, email?: string): Promise<UserRole> {
-  const adminEmail = import.meta.env.VITE_ADMIN_EMAIL || 'admin@onthi.app';
+  const adminEmail = import.meta.env.VITE_ADMIN_EMAIL || 'admin@tieuhoc.edu.vn';
   if (email && email.trim().toLowerCase() === adminEmail.trim().toLowerCase()) {
     return 'admin';
   }

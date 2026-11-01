@@ -10,7 +10,7 @@ export function LoginPage() {
 
   const defaultTeacherEmail = import.meta.env.VITE_TEACHER_EMAIL || 'cothutam@tieuhoc.edu.vn';
   const defaultTeacherPassword = import.meta.env.VITE_TEACHER_PASSWORD || 'Giaovien@123';
-  const defaultAdminEmail = import.meta.env.VITE_ADMIN_EMAIL || 'admin@onthi.app';
+  const defaultAdminEmail = import.meta.env.VITE_ADMIN_EMAIL || 'admin@tieuhoc.edu.vn';
   const defaultAdminPassword = import.meta.env.VITE_ADMIN_PASSWORD || 'Admin@123';
 
   const [email, setEmail] = useState('');

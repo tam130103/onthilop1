@@ -344,14 +344,24 @@ export function HomePage() {
           <div className={styles.brand} onClick={() => navigate('/')}>
             <div className={styles.brandLogo}>⭐</div>
             <span className={styles.brandName}>
-              <span className={styles.brandOn}>Ôn</span>
-              <span className={styles.brandThi}>Thi</span>
+              <span className={styles.brandOn}>Trình</span>
+              <span className={styles.brandThi}>Chiếu 1</span>
             </span>
           </div>
 
           <nav className={styles.navLinks}>
             <button className={`${styles.navLink} ${styles.navLinkActive}`} onClick={() => navigate('/')}>
               Học theo lớp
+            </button>
+            <button
+              className={styles.navLink}
+              onClick={() => {
+                const el = document.getElementById('exams-section');
+                if (el) el.scrollIntoView({ behavior: 'smooth' });
+                else navigate('/exam');
+              }}
+            >
+              Đề thi định kỳ
             </button>
             <button className={styles.navLink} onClick={() => navigate('/print-worksheet')}>
               Công cụ miễn phí
@@ -370,9 +380,6 @@ export function HomePage() {
             >
               ⚙️ Quản trị Admin
             </button>
-            <a href="/onthi-preview.html" target="_blank" rel="noreferrer" className={styles.navLink} title="Xem bản mẫu thiết kế Stitch">
-              Bản mẫu Stitch ↗
-            </a>
           </nav>
 
           <div className={styles.navRight}>
@@ -768,10 +775,10 @@ export function HomePage() {
         <section>
           <div className={styles.sectionHeader}>
             <h2 className={styles.sectionTitle}>
-              <span>🗺️</span> Học theo bản đồ · Chương trình Lớp 1 chuẩn onthi.app
+              <span>🗺️</span> Học theo bản đồ · Phân phối chương trình Lớp 1 chuẩn GDPT 2018
             </h2>
             <span className={styles.sectionSubtitle}>
-              Toán (48 bài · 11 chặng) · Tiếng Việt (132 bài · 17 chặng) · Tiếng Anh (16 Unit)
+              Toán (48 bài · 10 chặng) · Tiếng Việt (40 bài · 10 chặng) · 100% Sẵn sàng Offline
             </span>
           </div>
 
@@ -784,7 +791,7 @@ export function HomePage() {
             >
               <span>🔢</span>
               <span>Toán Lớp 1</span>
-              <span className={styles.tabPill}>48 bài · 11 chặng</span>
+              <span className={styles.tabPill}>48 bài · 10 chặng</span>
             </button>
 
             <button
@@ -794,7 +801,7 @@ export function HomePage() {
             >
               <span>📖</span>
               <span>Tiếng Việt Lớp 1</span>
-              <span className={styles.tabPill}>132 bài · 17 chặng</span>
+              <span className={styles.tabPill}>40 bài · 10 chặng</span>
             </button>
 
             <button
@@ -804,7 +811,7 @@ export function HomePage() {
             >
               <span>🇬🇧</span>
               <span>Tiếng Anh Lớp 1</span>
-              <span className={styles.tabPill}>16 Unit · Global Success</span>
+              <span className={styles.tabPill}>16 Unit · Sắp ra mắt</span>
             </button>
 
             <button
@@ -957,6 +964,28 @@ export function HomePage() {
           ) : (
             /* Tab: Toán / Tiếng Việt / Tiếng Anh theo Chặng onthi.app */
             <div>
+              {activeSubjectTab === 'english' && (
+                <div
+                  style={{
+                    padding: '16px 20px',
+                    borderRadius: '16px',
+                    backgroundColor: '#f0fdf4',
+                    border: '2px solid #bbf7d0',
+                    color: '#166534',
+                    marginBottom: '20px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '12px',
+                    fontSize: '14px',
+                    fontWeight: 700,
+                  }}
+                >
+                  <span style={{ fontSize: '24px' }}>🇬🇧</span>
+                  <div>
+                    Chương trình Tiếng Anh Lớp 1 (Global Success) đang trong lộ trình tích hợp âm thanh bản ngữ chuẩn. Các bài học Toán (48 bài) và Tiếng Việt (40 bài) đã hoàn thiện 100% âm thanh chuẩn và sẵn sàng giảng dạy.
+                  </div>
+                </div>
+              )}
               {(activeSubjectTab === 'math'
                 ? MATH_STAGES
                 : activeSubjectTab === 'vietnamese'
@@ -1058,11 +1087,11 @@ export function HomePage() {
           )}
         </section>
 
-        {/* SECTION: ĐỀ THI 4 KÌ CHUẨN (ONTHI.APP) */}
-        <section>
+        {/* SECTION: ĐỀ THI 4 KỲ CHUẨN */}
+        <section id="exams-section">
           <div className={styles.sectionHeader}>
             <h2 className={styles.sectionTitle}>
-              <span>🏆</span> Đề thi 4 kì chuẩn GDPT 2018 (onthi.app)
+              <span>🏆</span> Đề thi định kỳ 4 kỳ học chuẩn GDPT 2018
             </h2>
             <span className={styles.sectionSubtitle}>
               Toán & Tiếng Việt · Đề Giữa HK1, Cuối HK1, Giữa HK2, Cuối năm có chấm điểm tức thì
@@ -1114,11 +1143,11 @@ export function HomePage() {
           </div>
         </section>
 
-        {/* SECTION 4: Công cụ lớp 1 miễn phí (onthi.app) */}
+        {/* SECTION 4: Công cụ lớp 1 miễn phí */}
         <section>
           <div className={styles.sectionHeader}>
             <h2 className={styles.sectionTitle}>
-              <span>🛠️</span> Công cụ Lớp 1 miễn phí (onthi.app)
+              <span>🛠️</span> Công cụ trợ giảng Lớp 1 miễn phí
             </h2>
             <span className={styles.sectionSubtitle}>
               Trợ giảng đắc lực cho giáo viên & học sinh lớp 1 tại lớp học
@@ -1202,7 +1231,7 @@ export function HomePage() {
       />
 
       <footer className={styles.footer}>
-        <div>© 2025 Ôn Thi Lớp 1 (onthi.app clone) · Hoạt động 100% Offline trên laptop giáo viên</div>
+        <div>© 2025 Trình Chiếu Lớp 1 · Hoạt động 100% Offline trên laptop giáo viên</div>
         <div style={{ fontSize: '11px', color: '#94a3b8' }}>
           Tối ưu cho TV & Bảng thông minh 16:9 · Trình điều khiển 1 chạm cho giáo viên
         </div>
