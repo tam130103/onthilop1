@@ -24,6 +24,8 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 *.zip
+supabase/.temp/
+.supabase/
 
 # Editor & OS files
 .vscode/
