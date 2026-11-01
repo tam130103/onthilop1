@@ -1,0 +1,288 @@
+{
+  "status": "publish",
+  "mode": "publish",
+  "id": "math-34-boss-hk1",
+  "title": "Bài 34: BOSS Thử Thách Ôn Tập Học Kì 1",
+  "subject": "math",
+  "grade": 1,
+  "description": "Tổng hợp kiến thức trọng tâm Học kì 1: số đếm 0-10, phép cộng trừ phạm vi 10 và nhận diện hình học.",
+  "totalDurationMinutes": 25,
+  "slides": [
+    {
+      "type": "title-slide",
+      "id": "m34-title-slide",
+      "title": "Bài 34: BOSS Thử Thách Ôn Tập Học Kì 1",
+      "subtitle": "Bài học tương tác — Lớp 1",
+      "teacherNote": "Khích lệ học sinh tự tin hoàn thành đấu trường vượt chướng ngại vật cuối kì 1.",
+      "backgroundImage": "/media/images/star.svg",
+      "audio": "/media/tts/m34-title.mp3"
+    },
+    {
+      "type": "content-slide",
+      "id": "m34-intro-slide",
+      "title": "Đấu trường Học kì 1",
+      "body": "Chúc mừng các em đã đến chặng tổng kết Học kì 1! Hãy vận dụng thật tốt trí nhớ và sự nhanh nhẹn để giải cứu ngôi sao vàng nhé!",
+      "teacherNote": "Khích lệ học sinh tự tin hoàn thành đấu trường vượt chướng ngại vật cuối kì 1.",
+      "illustration": "/media/images/star.svg",
+      "audio": "/media/tts/m34-intro.mp3",
+      "bullets": [
+        "Đếm và so sánh số 0 đến 10",
+        "Cộng trừ nhẩm nhanh trong phạm vi 10",
+        "Phân biệt khối hình phẳng và hình khối"
+      ]
+    },
+    {
+      "type": "question-slide",
+      "id": "m34-slide-q1",
+      "teacherNote": "Câu hỏi 1: Tính nhẩm: 6 + 4 = ?",
+      "question": {
+        "type": "number_select",
+        "id": "m34-q1-num",
+        "prompt": "Tính nhẩm: 6 + 4 = ?",
+        "promptAudio": "/media/tts/m34-q1-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "expression": "6 + 4 = ?",
+        "choices": [
+          8,
+          9,
+          10,
+          11
+        ],
+        "correctAnswer": 10,
+        "explanation": "6 cộng 4 bằng 10.",
+        "explanationAudio": "/media/tts/m34-q1-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m34-slide-q2",
+      "teacherNote": "Câu hỏi 2: Tính nhẩm: 10 - 7 = ?",
+      "question": {
+        "type": "number_select",
+        "id": "m34-q2-num",
+        "prompt": "Tính nhẩm: 10 - 7 = ?",
+        "promptAudio": "/media/tts/m34-q2-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "expression": "10 - 7 = ?",
+        "choices": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "correctAnswer": 3,
+        "explanation": "10 trừ 7 bằng 3.",
+        "explanationAudio": "/media/tts/m34-q2-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m34-slide-q3",
+      "teacherNote": "Câu hỏi 3: Số nào lớn nhất trong các số sau: 4, 9, ",
+      "question": {
+        "type": "multiple_choice",
+        "id": "m34-q3-mc",
+        "prompt": "Số nào lớn nhất trong các số sau: 4, 9, 2, 7?",
+        "promptAudio": "/media/tts/m34-q3-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "options": [
+          {
+            "id": "m34-opt-9",
+            "label": "Số 9",
+            "audio": "/media/tts/m34-q3-opt0.mp3"
+          },
+          {
+            "id": "m34-opt-7",
+            "label": "Số 7",
+            "audio": "/media/tts/m34-q3-opt1.mp3"
+          },
+          {
+            "id": "m34-opt-4",
+            "label": "Số 4",
+            "audio": "/media/tts/m34-q3-opt2.mp3"
+          }
+        ],
+        "correctOptionId": "m34-opt-9",
+        "explanation": "Trong các số trên, 9 là số lớn nhất.",
+        "explanationAudio": "/media/tts/m34-q3-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m34-slide-q4",
+      "teacherNote": "Câu hỏi 4: Nối phép tính với kết quả đúng:",
+      "question": {
+        "type": "matching",
+        "id": "m34-q4-match",
+        "prompt": "Nối phép tính với kết quả đúng:",
+        "promptAudio": "/media/tts/m34-q4-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "leftColumn": [
+          {
+            "id": "m34-l1",
+            "label": "5 + 3",
+            "audio": "/media/tts/m34-q4-l0.mp3"
+          },
+          {
+            "id": "m34-l2",
+            "label": "9 - 2",
+            "audio": "/media/tts/m34-q4-l1.mp3"
+          },
+          {
+            "id": "m34-l3",
+            "label": "3 + 3",
+            "audio": "/media/tts/m34-q4-l2.mp3"
+          }
+        ],
+        "rightColumn": [
+          {
+            "id": "m34-r1",
+            "label": "Bằng 8",
+            "audio": "/media/tts/m34-q4-r0.mp3"
+          },
+          {
+            "id": "m34-r2",
+            "label": "Bằng 7",
+            "audio": "/media/tts/m34-q4-r1.mp3"
+          },
+          {
+            "id": "m34-r3",
+            "label": "Bằng 6",
+            "audio": "/media/tts/m34-q4-r2.mp3"
+          }
+        ],
+        "correctPairs": [
+          {
+            "leftId": "m34-l1",
+            "rightId": "m34-r1"
+          },
+          {
+            "leftId": "m34-l2",
+            "rightId": "m34-r2"
+          },
+          {
+            "leftId": "m34-l3",
+            "rightId": "m34-r3"
+          }
+        ],
+        "explanation": "5+3=8; 9-2=7; 3+3=6.",
+        "explanationAudio": "/media/tts/m34-q4-exp.mp3"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m34-slide-q5",
+      "teacherNote": "Câu hỏi 5: Chọn dấu thích hợp điền vào ô trống: 8 .",
+      "question": {
+        "type": "tap_place",
+        "id": "m34-q5-tap",
+        "prompt": "Chọn dấu thích hợp điền vào ô trống: 8 ... 5 + 2",
+        "promptAudio": "/media/tts/m34-q5-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "targets": [
+          {
+            "id": "m34-t1",
+            "label": "...",
+            "prefixText": "8 ",
+            "suffixText": " 5 + 2"
+          }
+        ],
+        "items": [
+          {
+            "id": "m34-i1",
+            "label": ">",
+            "audio": "/media/tts/m34-q5-it0.mp3"
+          },
+          {
+            "id": "m34-i2",
+            "label": "<",
+            "audio": "/media/tts/m34-q5-it1.mp3"
+          },
+          {
+            "id": "m34-i3",
+            "label": "=",
+            "audio": "/media/tts/m34-q5-it2.mp3"
+          }
+        ],
+        "correctMapping": {
+          "m34-i1": "m34-t1"
+        },
+        "explanation": "5 + 2 = 7; vì 8 lớn hơn 7 nên 8 > 5 + 2.",
+        "explanationAudio": "/media/tts/m34-q5-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m34-slide-q6",
+      "teacherNote": "Câu hỏi 6: Đếm xem có bao nhiêu ngôi sao chiến thắn",
+      "question": {
+        "type": "counting",
+        "id": "m34-q6-cnt",
+        "prompt": "Đếm xem có bao nhiêu ngôi sao chiến thắng?",
+        "promptAudio": "/media/tts/m34-q6-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "items": [
+          {
+            "image": "/media/images/star.svg",
+            "alt": "Hình 1"
+          },
+          {
+            "image": "/media/images/star.svg",
+            "alt": "Hình 2"
+          },
+          {
+            "image": "/media/images/star.svg",
+            "alt": "Hình 3"
+          },
+          {
+            "image": "/media/images/star.svg",
+            "alt": "Hình 4"
+          },
+          {
+            "image": "/media/images/star.svg",
+            "alt": "Hình 5"
+          },
+          {
+            "image": "/media/images/star.svg",
+            "alt": "Hình 6"
+          },
+          {
+            "image": "/media/images/star.svg",
+            "alt": "Hình 7"
+          },
+          {
+            "image": "/media/images/star.svg",
+            "alt": "Hình 8"
+          },
+          {
+            "image": "/media/images/star.svg",
+            "alt": "Hình 9"
+          },
+          {
+            "image": "/media/images/star.svg",
+            "alt": "Hình 10"
+          }
+        ],
+        "correctCount": 10,
+        "numberRange": {
+          "min": 1,
+          "max": 12
+        },
+        "explanation": "Có đủ 10 ngôi sao hoàn hảo!",
+        "explanationAudio": "/media/tts/m34-q6-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    }
+  ]
+}

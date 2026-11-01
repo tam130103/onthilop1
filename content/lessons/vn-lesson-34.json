@@ -1,0 +1,282 @@
+{
+  "status": "publish",
+  "mode": "publish",
+  "id": "vn-34-van-am-am-am",
+  "title": "Bài 34: Các vần am, ăm, âm",
+  "subject": "vietnamese",
+  "grade": 1,
+  "description": "Luyện phát âm các vần kết thúc bằng m: am, ăm, âm trong từ quả cam, chăm chỉ, cây nấm.",
+  "totalDurationMinutes": 25,
+  "slides": [
+    {
+      "type": "title-slide",
+      "id": "vn34-title-slide",
+      "title": "Bài 34: Các vần am, ăm, âm",
+      "subtitle": "Bài học tương tác — Lớp 1",
+      "teacherNote": "Khi phát âm âm cuối m, hai môi khép kín lại nhẹ nhàng.",
+      "backgroundImage": "/media/images/star.svg",
+      "audio": "/media/tts/vn34-title.mp3"
+    },
+    {
+      "type": "content-slide",
+      "id": "vn34-intro-slide",
+      "title": "Nhà vần khép môi: am, ăm, âm",
+      "body": "Quả cam ngọt lành mang vần am. Bé chăm chỉ học bài mang vần ăm. Cây nấm sau mưa mang vần âm. Cùng phát âm khép môi thật xinh nhé!",
+      "teacherNote": "Khi phát âm âm cuối m, hai môi khép kín lại nhẹ nhàng.",
+      "illustration": "/media/images/book.svg",
+      "audio": "/media/tts/vn34-intro.mp3",
+      "bullets": [
+        "a - m - am: quả cam, hàm răng",
+        "ă - m - ăm: chăm chỉ, bắp tằm",
+        "â - m - âm: cây nấm, mầm non"
+      ]
+    },
+    {
+      "type": "question-slide",
+      "id": "vn34-slide-q1",
+      "teacherNote": "Câu hỏi 1: Tiếng 'cam' trong 'quả cam' chứa vần gì?",
+      "question": {
+        "type": "multiple_choice",
+        "id": "v34-q1-mc",
+        "prompt": "Tiếng 'cam' trong 'quả cam' chứa vần gì?",
+        "promptAudio": "/media/tts/v34-q1-prompt.mp3",
+        "illustration": "/media/images/apple.svg",
+        "options": [
+          {
+            "id": "v34-opt-am",
+            "label": "Vần am",
+            "audio": "/media/tts/v34-q1-opt0.mp3"
+          },
+          {
+            "id": "v34-opt-am2",
+            "label": "Vần ăm",
+            "audio": "/media/tts/v34-q1-opt1.mp3"
+          },
+          {
+            "id": "v34-opt-am3",
+            "label": "Vần âm",
+            "audio": "/media/tts/v34-q1-opt2.mp3"
+          }
+        ],
+        "correctOptionId": "v34-opt-am",
+        "explanation": "Tiếng cam gồm âm c ghép với vần am.",
+        "explanationAudio": "/media/tts/v34-q1-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn34-slide-q2",
+      "teacherNote": "Câu hỏi 2: Nối từ với vần phù hợp:",
+      "question": {
+        "type": "matching",
+        "id": "v34-q2-match",
+        "prompt": "Nối từ với vần phù hợp:",
+        "promptAudio": "/media/tts/v34-q2-prompt.mp3",
+        "illustration": "/media/images/leaf.svg",
+        "leftColumn": [
+          {
+            "id": "v34-l1",
+            "label": "Quả cam",
+            "audio": "/media/tts/v34-q2-l0.mp3"
+          },
+          {
+            "id": "v34-l2",
+            "label": "Chăm chỉ",
+            "audio": "/media/tts/v34-q2-l1.mp3"
+          },
+          {
+            "id": "v34-l3",
+            "label": "Cây nấm",
+            "audio": "/media/tts/v34-q2-l2.mp3"
+          }
+        ],
+        "rightColumn": [
+          {
+            "id": "v34-r1",
+            "label": "Chứa vần am",
+            "audio": "/media/tts/v34-q2-r0.mp3"
+          },
+          {
+            "id": "v34-r2",
+            "label": "Chứa vần ăm",
+            "audio": "/media/tts/v34-q2-r1.mp3"
+          },
+          {
+            "id": "v34-r3",
+            "label": "Chứa vần âm",
+            "audio": "/media/tts/v34-q2-r2.mp3"
+          }
+        ],
+        "correctPairs": [
+          {
+            "leftId": "v34-l1",
+            "rightId": "v34-r1"
+          },
+          {
+            "leftId": "v34-l2",
+            "rightId": "v34-r2"
+          },
+          {
+            "leftId": "v34-l3",
+            "rightId": "v34-r3"
+          }
+        ],
+        "explanation": "Cam vần am; chăm vần ăm; nấm vần âm.",
+        "explanationAudio": "/media/tts/v34-q2-exp.mp3"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn34-slide-q3",
+      "teacherNote": "Câu hỏi 3: Điền từ: 'Mùa xuân đến, hạt thóc nảy ...",
+      "question": {
+        "type": "tap_place",
+        "id": "v34-q3-tap",
+        "prompt": "Điền từ: 'Mùa xuân đến, hạt thóc nảy ... non xanh biếc.'",
+        "promptAudio": "/media/tts/v34-q3-prompt.mp3",
+        "illustration": "/media/images/leaf.svg",
+        "targets": [
+          {
+            "id": "v34-t1",
+            "label": "...",
+            "prefixText": "Nảy ",
+            "suffixText": " non."
+          }
+        ],
+        "items": [
+          {
+            "id": "v34-i1",
+            "label": "mầm",
+            "audio": "/media/tts/v34-q3-it0.mp3"
+          },
+          {
+            "id": "v34-i2",
+            "label": "nấm",
+            "audio": "/media/tts/v34-q3-it1.mp3"
+          }
+        ],
+        "correctMapping": {
+          "v34-i1": "v34-t1"
+        },
+        "explanation": "Hạt thóc nảy mầm non.",
+        "explanationAudio": "/media/tts/v34-q3-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn34-slide-q4",
+      "teacherNote": "Câu hỏi 4: Khi phát âm các vần kết thúc bằng âm 'm'",
+      "question": {
+        "type": "multiple_choice",
+        "id": "v34-q4-mc",
+        "prompt": "Khi phát âm các vần kết thúc bằng âm 'm', môi của em như thế nào?",
+        "promptAudio": "/media/tts/v34-q4-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "options": [
+          {
+            "id": "v34-opt4-khep",
+            "label": "Hai môi khép lại",
+            "audio": "/media/tts/v34-q4-opt0.mp3"
+          },
+          {
+            "id": "v34-opt4-mo",
+            "label": "Môi mở to tròn",
+            "audio": "/media/tts/v34-q4-opt1.mp3"
+          }
+        ],
+        "correctOptionId": "v34-opt4-khep",
+        "explanation": "Âm m là âm khép môi nhẹ nhàng.",
+        "explanationAudio": "/media/tts/v34-q4-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn34-slide-q5",
+      "teacherNote": "Câu hỏi 5: Đếm xem có bao nhiêu cây nấm nhỏ mọc ven",
+      "question": {
+        "type": "counting",
+        "id": "v34-q5-cnt",
+        "prompt": "Đếm xem có bao nhiêu cây nấm nhỏ mọc ven rừng?",
+        "promptAudio": "/media/tts/v34-q5-prompt.mp3",
+        "illustration": "/media/images/leaf.svg",
+        "items": [
+          {
+            "image": "/media/images/leaf.svg",
+            "alt": "Hình 1"
+          },
+          {
+            "image": "/media/images/leaf.svg",
+            "alt": "Hình 2"
+          },
+          {
+            "image": "/media/images/leaf.svg",
+            "alt": "Hình 3"
+          },
+          {
+            "image": "/media/images/leaf.svg",
+            "alt": "Hình 4"
+          },
+          {
+            "image": "/media/images/leaf.svg",
+            "alt": "Hình 5"
+          },
+          {
+            "image": "/media/images/leaf.svg",
+            "alt": "Hình 6"
+          }
+        ],
+        "correctCount": 6,
+        "numberRange": {
+          "min": 1,
+          "max": 10
+        },
+        "explanation": "Có đúng 6 cây nấm nhỏ xinh.",
+        "explanationAudio": "/media/tts/v34-q5-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn34-slide-q6",
+      "teacherNote": "Câu hỏi 6: Từ nào dưới đây khen ngợi bạn học sinh s",
+      "question": {
+        "type": "multiple_choice",
+        "id": "v34-q6-mc",
+        "prompt": "Từ nào dưới đây khen ngợi bạn học sinh siêng năng?",
+        "promptAudio": "/media/tts/v34-q6-prompt.mp3",
+        "illustration": "/media/images/book.svg",
+        "options": [
+          {
+            "id": "v34-opt6-chamchi",
+            "label": "Chăm chỉ",
+            "audio": "/media/tts/v34-q6-opt0.mp3"
+          },
+          {
+            "id": "v34-opt6-quacam",
+            "label": "Quả cam",
+            "audio": "/media/tts/v34-q6-opt1.mp3"
+          },
+          {
+            "id": "v34-opt6-caynam",
+            "label": "Cây nấm",
+            "audio": "/media/tts/v34-q6-opt2.mp3"
+          }
+        ],
+        "correctOptionId": "v34-opt6-chamchi",
+        "explanation": "'Chăm chỉ' là đức tính siêng năng, cần cù.",
+        "explanationAudio": "/media/tts/v34-q6-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    }
+  ]
+}

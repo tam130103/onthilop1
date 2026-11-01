@@ -1,0 +1,283 @@
+{
+  "status": "publish",
+  "mode": "publish",
+  "id": "vn-33-van-en-en-in",
+  "title": "Bài 33: Các vần en, ên, in",
+  "subject": "vietnamese",
+  "grade": 1,
+  "description": "Luyện đọc các vần en, ên, in trong từ hoa sen, mũi tên, đèn pin, con nhím.",
+  "totalDurationMinutes": 25,
+  "slides": [
+    {
+      "type": "title-slide",
+      "id": "vn33-title-slide",
+      "title": "Bài 33: Các vần en, ên, in",
+      "subtitle": "Bài học tương tác — Lớp 1",
+      "teacherNote": "Rèn phát âm chuẩn âm cuối n không lẫn sang ng.",
+      "backgroundImage": "/media/images/star.svg",
+      "audio": "/media/tts/vn33-title.mp3"
+    },
+    {
+      "type": "content-slide",
+      "id": "vn33-intro-slide",
+      "title": "Nhà vần en, ên, in",
+      "body": "Búp sen thơm ngát trong đầm mang vần en. Cây nến lung linh mang vần ên. Chiếc đèn pin soi sáng mang vần in. Cùng khám phá nhé!",
+      "teacherNote": "Rèn phát âm chuẩn âm cuối n không lẫn sang ng.",
+      "illustration": "/media/images/book.svg",
+      "audio": "/media/tts/vn33-intro.mp3",
+      "bullets": [
+        "e - n - en: hoa sen, dế mèn",
+        "ê - n - ên: mũi tên, con sên",
+        "i - n - in: đèn pin, niềm tin"
+      ]
+    },
+    {
+      "type": "question-slide",
+      "id": "vn33-slide-q1",
+      "teacherNote": "Câu hỏi 1: Tiếng 'sen' trong 'hoa sen' chứa vần gì?",
+      "question": {
+        "type": "multiple_choice",
+        "id": "v33-q1-mc",
+        "prompt": "Tiếng 'sen' trong 'hoa sen' chứa vần gì?",
+        "promptAudio": "/media/tts/v33-q1-prompt.mp3",
+        "illustration": "/media/images/flower.svg",
+        "options": [
+          {
+            "id": "v33-opt-en",
+            "label": "Vần en",
+            "audio": "/media/tts/v33-q1-opt0.mp3"
+          },
+          {
+            "id": "v33-opt-en2",
+            "label": "Vần ên",
+            "audio": "/media/tts/v33-q1-opt1.mp3"
+          },
+          {
+            "id": "v33-opt-in",
+            "label": "Vần in",
+            "audio": "/media/tts/v33-q1-opt2.mp3"
+          }
+        ],
+        "correctOptionId": "v33-opt-en",
+        "explanation": "Tiếng sen gồm âm s và vần en.",
+        "explanationAudio": "/media/tts/v33-q1-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn33-slide-q2",
+      "teacherNote": "Câu hỏi 2: Nối từ với hình ảnh vần phù hợp:",
+      "question": {
+        "type": "matching",
+        "id": "v33-q2-match",
+        "prompt": "Nối từ với hình ảnh vần phù hợp:",
+        "promptAudio": "/media/tts/v33-q2-prompt.mp3",
+        "illustration": "/media/images/flower.svg",
+        "leftColumn": [
+          {
+            "id": "v33-l1",
+            "label": "Hoa sen",
+            "audio": "/media/tts/v33-q2-l0.mp3"
+          },
+          {
+            "id": "v33-l2",
+            "label": "Mũi tên",
+            "audio": "/media/tts/v33-q2-l1.mp3"
+          },
+          {
+            "id": "v33-l3",
+            "label": "Đèn pin",
+            "audio": "/media/tts/v33-q2-l2.mp3"
+          }
+        ],
+        "rightColumn": [
+          {
+            "id": "v33-r1",
+            "label": "Vần en thanh mát",
+            "audio": "/media/tts/v33-q2-r0.mp3"
+          },
+          {
+            "id": "v33-r2",
+            "label": "Vần ên thẳng tắp",
+            "audio": "/media/tts/v33-q2-r1.mp3"
+          },
+          {
+            "id": "v33-r3",
+            "label": "Vần in sáng rực",
+            "audio": "/media/tts/v33-q2-r2.mp3"
+          }
+        ],
+        "correctPairs": [
+          {
+            "leftId": "v33-l1",
+            "rightId": "v33-r1"
+          },
+          {
+            "leftId": "v33-l2",
+            "rightId": "v33-r2"
+          },
+          {
+            "leftId": "v33-l3",
+            "rightId": "v33-r3"
+          }
+        ],
+        "explanation": "Hoa sen vần en; mũi tên vần ên; đèn pin vần in.",
+        "explanationAudio": "/media/tts/v33-q2-exp.mp3"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn33-slide-q3",
+      "teacherNote": "Câu hỏi 3: Điền vần thích hợp vào câu: 'Bé thắp ngọ",
+      "question": {
+        "type": "tap_place",
+        "id": "v33-q3-tap",
+        "prompt": "Điền vần thích hợp vào câu: 'Bé thắp ngọn n... lung linh.'",
+        "promptAudio": "/media/tts/v33-q3-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "targets": [
+          {
+            "id": "v33-t1",
+            "label": "...",
+            "prefixText": "Ngọn n",
+            "suffixText": " lung linh."
+          }
+        ],
+        "items": [
+          {
+            "id": "v33-i1",
+            "label": "ến",
+            "audio": "/media/tts/v33-q3-it0.mp3"
+          },
+          {
+            "id": "v33-i2",
+            "label": "in",
+            "audio": "/media/tts/v33-q3-it1.mp3"
+          }
+        ],
+        "correctMapping": {
+          "v33-i1": "v33-t1"
+        },
+        "explanation": "Điền vần ến tạo thành tiếng 'nến'.",
+        "explanationAudio": "/media/tts/v33-q3-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn33-slide-q4",
+      "teacherNote": "Câu hỏi 4: Con vật nào sau đây mang vần 'en' trong ",
+      "question": {
+        "type": "multiple_choice",
+        "id": "v33-q4-mc",
+        "prompt": "Con vật nào sau đây mang vần 'en' trong tên gọi?",
+        "promptAudio": "/media/tts/v33-q4-prompt.mp3",
+        "illustration": "/media/images/cat.svg",
+        "options": [
+          {
+            "id": "v33-opt4-demen",
+            "label": "Chú dế mèn",
+            "audio": "/media/tts/v33-q4-opt0.mp3"
+          },
+          {
+            "id": "v33-opt4-conmeo",
+            "label": "Con mèo",
+            "audio": "/media/tts/v33-q4-opt1.mp3"
+          },
+          {
+            "id": "v33-opt4-contho",
+            "label": "Con thỏ",
+            "audio": "/media/tts/v33-q4-opt2.mp3"
+          }
+        ],
+        "correctOptionId": "v33-opt4-demen",
+        "explanation": "Dế mèn có tiếng mèn chứa vần en.",
+        "explanationAudio": "/media/tts/v33-q4-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn33-slide-q5",
+      "teacherNote": "Câu hỏi 5: Đếm xem có bao nhiêu bông hoa sen nở tro",
+      "question": {
+        "type": "counting",
+        "id": "v33-q5-cnt",
+        "prompt": "Đếm xem có bao nhiêu bông hoa sen nở trong hồ?",
+        "promptAudio": "/media/tts/v33-q5-prompt.mp3",
+        "illustration": "/media/images/flower.svg",
+        "items": [
+          {
+            "image": "/media/images/flower.svg",
+            "alt": "Hình 1"
+          },
+          {
+            "image": "/media/images/flower.svg",
+            "alt": "Hình 2"
+          },
+          {
+            "image": "/media/images/flower.svg",
+            "alt": "Hình 3"
+          },
+          {
+            "image": "/media/images/flower.svg",
+            "alt": "Hình 4"
+          },
+          {
+            "image": "/media/images/flower.svg",
+            "alt": "Hình 5"
+          }
+        ],
+        "correctCount": 5,
+        "numberRange": {
+          "min": 1,
+          "max": 10
+        },
+        "explanation": "Có đúng 5 bông hoa sen nở ngát hương.",
+        "explanationAudio": "/media/tts/v33-q5-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn33-slide-q6",
+      "teacherNote": "Câu hỏi 6: Từ nào chứa tiếng có vần 'in'?",
+      "question": {
+        "type": "multiple_choice",
+        "id": "v33-q6-mc",
+        "prompt": "Từ nào chứa tiếng có vần 'in'?",
+        "promptAudio": "/media/tts/v33-q6-prompt.mp3",
+        "illustration": "/media/images/pencil.svg",
+        "options": [
+          {
+            "id": "v33-opt6-denpin",
+            "label": "Đèn pin",
+            "audio": "/media/tts/v33-q6-opt0.mp3"
+          },
+          {
+            "id": "v33-opt6-muiten",
+            "label": "Mũi tên",
+            "audio": "/media/tts/v33-q6-opt1.mp3"
+          },
+          {
+            "id": "v33-opt6-hoasen",
+            "label": "Hoa sen",
+            "audio": "/media/tts/v33-q6-opt2.mp3"
+          }
+        ],
+        "correctOptionId": "v33-opt6-denpin",
+        "explanation": "Từ 'đèn pin' chứa tiếng pin mang vần in.",
+        "explanationAudio": "/media/tts/v33-q6-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    }
+  ]
+}

@@ -1089,7 +1089,7 @@ export function HomePage() {
                   <button
                     className={styles.btnDual}
                     style={{ flex: 1, fontSize: '13px', padding: '10px' }}
-                    onClick={() => handleStartClassroom(exam.id)}
+                    onClick={() => navigate(`/exam/${exam.id}`)}
                   >
                     🚀 Bắt đầu làm bài thi
                   </button>

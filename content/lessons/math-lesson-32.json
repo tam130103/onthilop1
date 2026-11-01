@@ -1,0 +1,260 @@
+{
+  "status": "publish",
+  "mode": "publish",
+  "id": "math-32-vi-tri-khong-gian",
+  "title": "Bài 32: Định hướng Vị trí không gian",
+  "subject": "math",
+  "grade": 1,
+  "description": "Xác định chính xác vị trí các vật thể: ở trên, ở dưới, phía trước, phía sau, bên trái, bên phải.",
+  "totalDurationMinutes": 25,
+  "slides": [
+    {
+      "type": "title-slide",
+      "id": "m32-title-slide",
+      "title": "Bài 32: Định hướng Vị trí không gian",
+      "subtitle": "Bài học tương tác — Lớp 1",
+      "teacherNote": "Rèn luyện khả năng quan sát từ góc nhìn của bản thân và người đối diện.",
+      "backgroundImage": "/media/images/star.svg",
+      "audio": "/media/tts/m32-title.mp3"
+    },
+    {
+      "type": "content-slide",
+      "id": "m32-intro-slide",
+      "title": "Vị trí trong không gian",
+      "body": "Chim hót trên cành cây, thỏ gặm cỏ dưới đất. Tay phải cầm bút, tay trái giữ vở. Nắm vững vị trí giúp chúng mình làm mọi việc thật chuẩn xác!",
+      "teacherNote": "Rèn luyện khả năng quan sát từ góc nhìn của bản thân và người đối diện.",
+      "illustration": "/media/images/star.svg",
+      "audio": "/media/tts/m32-intro.mp3",
+      "bullets": [
+        "Trên — dưới: chim ở trên, hoa ở dưới",
+        "Trước — sau: cô giáo phía trước, bảng phía sau",
+        "Trái — phải: tay trái giữ vở, tay phải cầm bút"
+      ]
+    },
+    {
+      "type": "question-slide",
+      "id": "m32-slide-q1",
+      "teacherNote": "Câu hỏi 1: Khi viết bài, em cầm bút bằng tay nào?",
+      "question": {
+        "type": "multiple_choice",
+        "id": "m32-q1-mc",
+        "prompt": "Khi viết bài, em cầm bút bằng tay nào?",
+        "promptAudio": "/media/tts/m32-q1-prompt.mp3",
+        "illustration": "/media/images/pencil.svg",
+        "options": [
+          {
+            "id": "m32-opt-phai",
+            "label": "Tay phải",
+            "audio": "/media/tts/m32-q1-opt0.mp3"
+          },
+          {
+            "id": "m32-opt-trai",
+            "label": "Tay trái",
+            "audio": "/media/tts/m32-q1-opt1.mp3"
+          }
+        ],
+        "correctOptionId": "m32-opt-phai",
+        "explanation": "Chúng mình cầm bút viết bằng tay phải và giữ vở bằng tay trái.",
+        "explanationAudio": "/media/tts/m32-q1-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m32-slide-q2",
+      "teacherNote": "Câu hỏi 2: Chọn từ điền vào chỗ chấm: 'Mặt trời ở .",
+      "question": {
+        "type": "tap_place",
+        "id": "m32-q2-tap",
+        "prompt": "Chọn từ điền vào chỗ chấm: 'Mặt trời ở ... cao tỏa nắng.'",
+        "promptAudio": "/media/tts/m32-q2-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "targets": [
+          {
+            "id": "m32-t1",
+            "label": "...",
+            "prefixText": "Mặt trời ở ",
+            "suffixText": " cao."
+          }
+        ],
+        "items": [
+          {
+            "id": "m32-i1",
+            "label": "trên",
+            "audio": "/media/tts/m32-q2-it0.mp3"
+          },
+          {
+            "id": "m32-i2",
+            "label": "dưới",
+            "audio": "/media/tts/m32-q2-it1.mp3"
+          }
+        ],
+        "correctMapping": {
+          "m32-i1": "m32-t1"
+        },
+        "explanation": "Mặt trời ở trên cao tỏa ánh nắng ấm áp.",
+        "explanationAudio": "/media/tts/m32-q2-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m32-slide-q3",
+      "teacherNote": "Câu hỏi 3: Nối đồ vật với vị trí phù hợp trong phòn",
+      "question": {
+        "type": "matching",
+        "id": "m32-q3-match",
+        "prompt": "Nối đồ vật với vị trí phù hợp trong phòng học:",
+        "promptAudio": "/media/tts/m32-q3-prompt.mp3",
+        "illustration": "/media/images/house.svg",
+        "leftColumn": [
+          {
+            "id": "m32-l1",
+            "label": "Quạt trần",
+            "audio": "/media/tts/m32-q3-l0.mp3"
+          },
+          {
+            "id": "m32-l2",
+            "label": "Sàn lớp học",
+            "audio": "/media/tts/m32-q3-l1.mp3"
+          },
+          {
+            "id": "m32-l3",
+            "label": "Bảng đen",
+            "audio": "/media/tts/m32-q3-l2.mp3"
+          }
+        ],
+        "rightColumn": [
+          {
+            "id": "m32-r1",
+            "label": "Ở trên trần nhà",
+            "audio": "/media/tts/m32-q3-r0.mp3"
+          },
+          {
+            "id": "m32-r2",
+            "label": "Ở dưới chân em",
+            "audio": "/media/tts/m32-q3-r1.mp3"
+          },
+          {
+            "id": "m32-r3",
+            "label": "Ở phía trước lớp",
+            "audio": "/media/tts/m32-q3-r2.mp3"
+          }
+        ],
+        "correctPairs": [
+          {
+            "leftId": "m32-l1",
+            "rightId": "m32-r1"
+          },
+          {
+            "leftId": "m32-l2",
+            "rightId": "m32-r2"
+          },
+          {
+            "leftId": "m32-l3",
+            "rightId": "m32-r3"
+          }
+        ],
+        "explanation": "Quạt ở trên trần, sàn ở dưới chân, bảng đen ở phía trước.",
+        "explanationAudio": "/media/tts/m32-q3-exp.mp3"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m32-slide-q4",
+      "teacherNote": "Câu hỏi 4: Mèo nằm dưới gầm bàn. Bàn ở vị trí nào s",
+      "question": {
+        "type": "multiple_choice",
+        "id": "m32-q4-mc",
+        "prompt": "Mèo nằm dưới gầm bàn. Bàn ở vị trí nào so với mèo?",
+        "promptAudio": "/media/tts/m32-q4-prompt.mp3",
+        "illustration": "/media/images/cat.svg",
+        "options": [
+          {
+            "id": "m32-opt4-tren",
+            "label": "Ở trên mèo",
+            "audio": "/media/tts/m32-q4-opt0.mp3"
+          },
+          {
+            "id": "m32-opt4-duoi",
+            "label": "Ở dưới mèo",
+            "audio": "/media/tts/m32-q4-opt1.mp3"
+          },
+          {
+            "id": "m32-opt4-sau",
+            "label": "Ở phía sau mèo",
+            "audio": "/media/tts/m32-q4-opt2.mp3"
+          }
+        ],
+        "correctOptionId": "m32-opt4-tren",
+        "explanation": "Mèo ở dưới bàn thì bàn ở phía trên mèo.",
+        "explanationAudio": "/media/tts/m32-q4-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m32-slide-q5",
+      "teacherNote": "Câu hỏi 5: Đếm xem có mấy chú chim bay ở phía bên t",
+      "question": {
+        "type": "counting",
+        "id": "m32-q5-cnt",
+        "prompt": "Đếm xem có mấy chú chim bay ở phía bên trái ngọn cây?",
+        "promptAudio": "/media/tts/m32-q5-prompt.mp3",
+        "illustration": "/media/images/bird.svg",
+        "items": [
+          {
+            "image": "/media/images/bird.svg",
+            "alt": "Hình 1"
+          },
+          {
+            "image": "/media/images/bird.svg",
+            "alt": "Hình 2"
+          },
+          {
+            "image": "/media/images/bird.svg",
+            "alt": "Hình 3"
+          }
+        ],
+        "correctCount": 3,
+        "numberRange": {
+          "min": 1,
+          "max": 10
+        },
+        "explanation": "Có đúng 3 chú chim bên trái ngọn cây.",
+        "explanationAudio": "/media/tts/m32-q5-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m32-slide-q6",
+      "teacherNote": "Câu hỏi 6: Bên trái có 4 bông hoa, bên phải có 3 bô",
+      "question": {
+        "type": "number_select",
+        "id": "m32-q6-num",
+        "prompt": "Bên trái có 4 bông hoa, bên phải có 3 bông hoa. Cả hai bên có mấy bông hoa?",
+        "promptAudio": "/media/tts/m32-q6-prompt.mp3",
+        "illustration": "/media/images/flower.svg",
+        "expression": "4 + 3 = ?",
+        "choices": [
+          6,
+          7,
+          8,
+          9
+        ],
+        "correctAnswer": 7,
+        "explanation": "4 cộng 3 bằng 7 bông hoa.",
+        "explanationAudio": "/media/tts/m32-q6-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    }
+  ]
+}

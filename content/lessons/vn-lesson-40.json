@@ -1,0 +1,270 @@
+{
+  "status": "publish",
+  "mode": "publish",
+  "id": "vn-40-doc-hieu-que-huong",
+  "title": "Bài 40: Đọc hiểu Đoạn văn — Quê hương tươi đẹp",
+  "subject": "vietnamese",
+  "grade": 1,
+  "description": "Luyện đọc đoạn văn 40-50 chữ ca ngợi vẻ đẹp quê hương, rèn kỹ năng trả lời câu hỏi đọc hiểu.",
+  "totalDurationMinutes": 25,
+  "slides": [
+    {
+      "type": "title-slide",
+      "id": "vn40-title-slide",
+      "title": "Bài 40: Đọc hiểu Đoạn văn — Quê hương tươi đẹp",
+      "subtitle": "Bài học tương tác — Lớp 1",
+      "teacherNote": "Khép lại toàn bộ 40 bài giảng Tiếng Việt Lớp 1, chuẩn bị sẵn sàng cho các kỳ thi định kỳ.",
+      "backgroundImage": "/media/images/star.svg",
+      "audio": "/media/tts/vn40-title.mp3"
+    },
+    {
+      "type": "content-slide",
+      "id": "vn40-intro-slide",
+      "title": "Quê hương tươi đẹp của em",
+      "body": "Quê hương em có con sông xanh mát uốn quanh xóm làng. Những cánh đồng lúa chín vàng trĩu hạt dập dờn theo gió. Em yêu tha thiết quê hương em.",
+      "teacherNote": "Khép lại toàn bộ 40 bài giảng Tiếng Việt Lớp 1, chuẩn bị sẵn sàng cho các kỳ thi định kỳ.",
+      "illustration": "/media/images/book.svg",
+      "audio": "/media/tts/vn40-intro.mp3",
+      "bullets": [
+        "Đọc trơn lưu loát, ngắt nghỉ đúng dấu câu",
+        "Hiểu nội dung vẻ đẹp của quê hương",
+        "Bồi đắp tình yêu gia đình, làng quê và Tổ quốc"
+      ]
+    },
+    {
+      "type": "question-slide",
+      "id": "vn40-slide-q1",
+      "teacherNote": "Câu hỏi 1: Trong đoạn văn, con sông quê hương có đặ",
+      "question": {
+        "type": "multiple_choice",
+        "id": "v40-q1-mc",
+        "prompt": "Trong đoạn văn, con sông quê hương có đặc điểm gì?",
+        "promptAudio": "/media/tts/v40-q1-prompt.mp3",
+        "illustration": "/media/images/boat.svg",
+        "options": [
+          {
+            "id": "v40-opt-song",
+            "label": "Xanh mát uốn quanh xóm làng",
+            "audio": "/media/tts/v40-q1-opt0.mp3"
+          },
+          {
+            "id": "v40-opt-duc",
+            "label": "Nước đục ngầu",
+            "audio": "/media/tts/v40-q1-opt1.mp3"
+          },
+          {
+            "id": "v40-opt-can",
+            "label": "Khô cạn",
+            "audio": "/media/tts/v40-q1-opt2.mp3"
+          }
+        ],
+        "correctOptionId": "v40-opt-song",
+        "explanation": "Đoạn văn viết: 'Quê hương em có con sông xanh mát uốn quanh xóm làng'.",
+        "explanationAudio": "/media/tts/v40-q1-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn40-slide-q2",
+      "teacherNote": "Câu hỏi 2: Cánh đồng lúa chín có màu gì?",
+      "question": {
+        "type": "multiple_choice",
+        "id": "v40-q2-mc",
+        "prompt": "Cánh đồng lúa chín có màu gì?",
+        "promptAudio": "/media/tts/v40-q2-prompt.mp3",
+        "illustration": "/media/images/leaf.svg",
+        "options": [
+          {
+            "id": "v40-opt2-vang",
+            "label": "Vàng trĩu hạt",
+            "audio": "/media/tts/v40-q2-opt0.mp3"
+          },
+          {
+            "id": "v40-opt2-xanh",
+            "label": "Xanh ngắt",
+            "audio": "/media/tts/v40-q2-opt1.mp3"
+          },
+          {
+            "id": "v40-opt2-do",
+            "label": "Đỏ thẫm",
+            "audio": "/media/tts/v40-q2-opt2.mp3"
+          }
+        ],
+        "correctOptionId": "v40-opt2-vang",
+        "explanation": "Cánh đồng lúa chín vàng trĩu hạt dập dờn theo gió.",
+        "explanationAudio": "/media/tts/v40-q2-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn40-slide-q3",
+      "teacherNote": "Câu hỏi 3: Nối hình ảnh quê hương với miêu tả tương",
+      "question": {
+        "type": "matching",
+        "id": "v40-q3-match",
+        "prompt": "Nối hình ảnh quê hương với miêu tả tương ứng:",
+        "promptAudio": "/media/tts/v40-q3-prompt.mp3",
+        "illustration": "/media/images/house.svg",
+        "leftColumn": [
+          {
+            "id": "v40-l1",
+            "label": "Dòng sông quê",
+            "audio": "/media/tts/v40-q3-l0.mp3"
+          },
+          {
+            "id": "v40-l2",
+            "label": "Cánh đồng lúa",
+            "audio": "/media/tts/v40-q3-l1.mp3"
+          },
+          {
+            "id": "v40-l3",
+            "label": "Tình cảm của em",
+            "audio": "/media/tts/v40-q3-l2.mp3"
+          }
+        ],
+        "rightColumn": [
+          {
+            "id": "v40-r1",
+            "label": "Nước trong xanh uốn lượn",
+            "audio": "/media/tts/v40-q3-r0.mp3"
+          },
+          {
+            "id": "v40-r2",
+            "label": "Chín vàng thơm ngát",
+            "audio": "/media/tts/v40-q3-r1.mp3"
+          },
+          {
+            "id": "v40-r3",
+            "label": "Yêu tha thiết quê hương",
+            "audio": "/media/tts/v40-q3-r2.mp3"
+          }
+        ],
+        "correctPairs": [
+          {
+            "leftId": "v40-l1",
+            "rightId": "v40-r1"
+          },
+          {
+            "leftId": "v40-l2",
+            "rightId": "v40-r2"
+          },
+          {
+            "leftId": "v40-l3",
+            "rightId": "v40-r3"
+          }
+        ],
+        "explanation": "Dòng sông xanh, cánh đồng lúa vàng, em yêu tha thiết quê hương.",
+        "explanationAudio": "/media/tts/v40-q3-exp.mp3"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn40-slide-q4",
+      "teacherNote": "Câu hỏi 4: Điền từ: 'Em ... tha thiết quê hương em.",
+      "question": {
+        "type": "tap_place",
+        "id": "v40-q4-tap",
+        "prompt": "Điền từ: 'Em ... tha thiết quê hương em.'",
+        "promptAudio": "/media/tts/v40-q4-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "targets": [
+          {
+            "id": "v40-t1",
+            "label": "...",
+            "prefixText": "Em ",
+            "suffixText": " tha thiết quê hương."
+          }
+        ],
+        "items": [
+          {
+            "id": "v40-i1",
+            "label": "yêu",
+            "audio": "/media/tts/v40-q4-it0.mp3"
+          },
+          {
+            "id": "v40-i2",
+            "label": "thích",
+            "audio": "/media/tts/v40-q4-it1.mp3"
+          }
+        ],
+        "correctMapping": {
+          "v40-i1": "v40-t1"
+        },
+        "explanation": "Câu văn chuẩn là: 'Em yêu tha thiết quê hương em'.",
+        "explanationAudio": "/media/tts/v40-q4-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn40-slide-q5",
+      "teacherNote": "Câu hỏi 5: Đếm xem có bao nhiêu chiếc thuyền nhỏ xu",
+      "question": {
+        "type": "counting",
+        "id": "v40-q5-cnt",
+        "prompt": "Đếm xem có bao nhiêu chiếc thuyền nhỏ xuôi dòng sông?",
+        "promptAudio": "/media/tts/v40-q5-prompt.mp3",
+        "illustration": "/media/images/boat.svg",
+        "items": [
+          {
+            "image": "/media/images/boat.svg",
+            "alt": "Hình 1"
+          },
+          {
+            "image": "/media/images/boat.svg",
+            "alt": "Hình 2"
+          },
+          {
+            "image": "/media/images/boat.svg",
+            "alt": "Hình 3"
+          }
+        ],
+        "correctCount": 3,
+        "numberRange": {
+          "min": 1,
+          "max": 10
+        },
+        "explanation": "Có đúng 3 chiếc thuyền nhỏ êm đềm.",
+        "explanationAudio": "/media/tts/v40-q5-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn40-slide-q6",
+      "teacherNote": "Câu hỏi 6: Đoạn văn trên khuyên chúng mình điều gì?",
+      "question": {
+        "type": "multiple_choice",
+        "id": "v40-q6-mc",
+        "prompt": "Đoạn văn trên khuyên chúng mình điều gì?",
+        "promptAudio": "/media/tts/v40-q6-prompt.mp3",
+        "illustration": "/media/images/house.svg",
+        "options": [
+          {
+            "id": "v40-opt6-yeu",
+            "label": "Yêu quý và giữ gìn quê hương tươi đẹp",
+            "audio": "/media/tts/v40-q6-opt0.mp3"
+          },
+          {
+            "id": "v40-opt6-pha",
+            "label": "Chặt phá cây xanh",
+            "audio": "/media/tts/v40-q6-opt1.mp3"
+          }
+        ],
+        "correctOptionId": "v40-opt6-yeu",
+        "explanation": "Đoạn văn bồi đắp lòng tự hào và tình yêu quê hương đất nước.",
+        "explanationAudio": "/media/tts/v40-q6-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    }
+  ]
+}

@@ -1,0 +1,278 @@
+{
+  "status": "publish",
+  "mode": "publish",
+  "id": "vn-35-van-om-om-em",
+  "title": "Bài 35: Các vần om, ôm, em",
+  "subject": "vietnamese",
+  "grade": 1,
+  "description": "Luyện đọc các vần om, ôm, em trong từ đom đóm, con tôm, con tem, que kem.",
+  "totalDurationMinutes": 25,
+  "slides": [
+    {
+      "type": "title-slide",
+      "id": "vn35-title-slide",
+      "title": "Bài 35: Các vần om, ôm, em",
+      "subtitle": "Bài học tương tác — Lớp 1",
+      "teacherNote": "Phân biệt vần om tròn môi, ôm chúm môi và em bè môi.",
+      "backgroundImage": "/media/images/star.svg",
+      "audio": "/media/tts/vn35-title.mp3"
+    },
+    {
+      "type": "content-slide",
+      "id": "vn35-intro-slide",
+      "title": "Nhà vần om, ôm, em",
+      "body": "Đêm hè chú đom đóm thắp đèn mang vần om. Con tôm nhảy tanh tách mang vần ôm. Chiếc que kem mát lạnh mang vần em.",
+      "teacherNote": "Phân biệt vần om tròn môi, ôm chúm môi và em bè môi.",
+      "illustration": "/media/images/book.svg",
+      "audio": "/media/tts/vn35-intro.mp3",
+      "bullets": [
+        "o - m - om: đom đóm, làng xóm",
+        "ô - m - ôm: con tôm, ôm ấp",
+        "e - m - em: que kem, con tem"
+      ]
+    },
+    {
+      "type": "question-slide",
+      "id": "vn35-slide-q1",
+      "teacherNote": "Câu hỏi 1: Từ 'đom đóm' chứa vần gì?",
+      "question": {
+        "type": "multiple_choice",
+        "id": "v35-q1-mc",
+        "prompt": "Từ 'đom đóm' chứa vần gì?",
+        "promptAudio": "/media/tts/v35-q1-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "options": [
+          {
+            "id": "v35-opt-om",
+            "label": "Vần om",
+            "audio": "/media/tts/v35-q1-opt0.mp3"
+          },
+          {
+            "id": "v35-opt-om2",
+            "label": "Vần ôm",
+            "audio": "/media/tts/v35-q1-opt1.mp3"
+          },
+          {
+            "id": "v35-opt-em",
+            "label": "Vần em",
+            "audio": "/media/tts/v35-q1-opt2.mp3"
+          }
+        ],
+        "correctOptionId": "v35-opt-om",
+        "explanation": "Đom đóm chứa vần om.",
+        "explanationAudio": "/media/tts/v35-q1-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn35-slide-q2",
+      "teacherNote": "Câu hỏi 2: Nối tiếng với vần phù hợp:",
+      "question": {
+        "type": "matching",
+        "id": "v35-q2-match",
+        "prompt": "Nối tiếng với vần phù hợp:",
+        "promptAudio": "/media/tts/v35-q2-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "leftColumn": [
+          {
+            "id": "v35-l1",
+            "label": "Tiếng tôm",
+            "audio": "/media/tts/v35-q2-l0.mp3"
+          },
+          {
+            "id": "v35-l2",
+            "label": "Tiếng xóm",
+            "audio": "/media/tts/v35-q2-l1.mp3"
+          },
+          {
+            "id": "v35-l3",
+            "label": "Tiếng kem",
+            "audio": "/media/tts/v35-q2-l2.mp3"
+          }
+        ],
+        "rightColumn": [
+          {
+            "id": "v35-r1",
+            "label": "Vần ôm",
+            "audio": "/media/tts/v35-q2-r0.mp3"
+          },
+          {
+            "id": "v35-r2",
+            "label": "Vần om",
+            "audio": "/media/tts/v35-q2-r1.mp3"
+          },
+          {
+            "id": "v35-r3",
+            "label": "Vần em",
+            "audio": "/media/tts/v35-q2-r2.mp3"
+          }
+        ],
+        "correctPairs": [
+          {
+            "leftId": "v35-l1",
+            "rightId": "v35-r1"
+          },
+          {
+            "leftId": "v35-l2",
+            "rightId": "v35-r2"
+          },
+          {
+            "leftId": "v35-l3",
+            "rightId": "v35-r3"
+          }
+        ],
+        "explanation": "Tôm vần ôm; xóm vần om; kem vần em.",
+        "explanationAudio": "/media/tts/v35-q2-exp.mp3"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn35-slide-q3",
+      "teacherNote": "Câu hỏi 3: Điền từ: 'Mùa hè bé thích ăn que ... mát",
+      "question": {
+        "type": "tap_place",
+        "id": "v35-q3-tap",
+        "prompt": "Điền từ: 'Mùa hè bé thích ăn que ... mát lạnh.'",
+        "promptAudio": "/media/tts/v35-q3-prompt.mp3",
+        "illustration": "/media/images/milk.svg",
+        "targets": [
+          {
+            "id": "v35-t1",
+            "label": "...",
+            "prefixText": "Ăn que ",
+            "suffixText": " mát lạnh."
+          }
+        ],
+        "items": [
+          {
+            "id": "v35-i1",
+            "label": "kem",
+            "audio": "/media/tts/v35-q3-it0.mp3"
+          },
+          {
+            "id": "v35-i2",
+            "label": "cơm",
+            "audio": "/media/tts/v35-q3-it1.mp3"
+          }
+        ],
+        "correctMapping": {
+          "v35-i1": "v35-t1"
+        },
+        "explanation": "Ăn que kem mát lạnh.",
+        "explanationAudio": "/media/tts/v35-q3-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn35-slide-q4",
+      "teacherNote": "Câu hỏi 4: Con vật nào bơi lùi trong nước và chứa v",
+      "question": {
+        "type": "multiple_choice",
+        "id": "v35-q4-mc",
+        "prompt": "Con vật nào bơi lùi trong nước và chứa vần 'ôm'?",
+        "promptAudio": "/media/tts/v35-q4-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "options": [
+          {
+            "id": "v35-opt4-contom",
+            "label": "Con tôm",
+            "audio": "/media/tts/v35-q4-opt0.mp3"
+          },
+          {
+            "id": "v35-opt4-conca",
+            "label": "Con cá",
+            "audio": "/media/tts/v35-q4-opt1.mp3"
+          },
+          {
+            "id": "v35-opt4-conrua",
+            "label": "Con rùa",
+            "audio": "/media/tts/v35-q4-opt2.mp3"
+          }
+        ],
+        "correctOptionId": "v35-opt4-contom",
+        "explanation": "Con tôm có tiếng tôm mang vần ôm.",
+        "explanationAudio": "/media/tts/v35-q4-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn35-slide-q5",
+      "teacherNote": "Câu hỏi 5: Đếm xem có bao nhiêu chú đom đóm đang ph",
+      "question": {
+        "type": "counting",
+        "id": "v35-q5-cnt",
+        "prompt": "Đếm xem có bao nhiêu chú đom đóm đang phát sáng?",
+        "promptAudio": "/media/tts/v35-q5-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "items": [
+          {
+            "image": "/media/images/star.svg",
+            "alt": "Hình 1"
+          },
+          {
+            "image": "/media/images/star.svg",
+            "alt": "Hình 2"
+          },
+          {
+            "image": "/media/images/star.svg",
+            "alt": "Hình 3"
+          },
+          {
+            "image": "/media/images/star.svg",
+            "alt": "Hình 4"
+          },
+          {
+            "image": "/media/images/star.svg",
+            "alt": "Hình 5"
+          }
+        ],
+        "correctCount": 5,
+        "numberRange": {
+          "min": 1,
+          "max": 10
+        },
+        "explanation": "Có đúng 5 chú đom đóm lấp lánh.",
+        "explanationAudio": "/media/tts/v35-q5-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn35-slide-q6",
+      "teacherNote": "Câu hỏi 6: Cặp từ nào dưới đây cùng chứa vần 'em'?",
+      "question": {
+        "type": "multiple_choice",
+        "id": "v35-q6-mc",
+        "prompt": "Cặp từ nào dưới đây cùng chứa vần 'em'?",
+        "promptAudio": "/media/tts/v35-q6-prompt.mp3",
+        "illustration": "/media/images/book.svg",
+        "options": [
+          {
+            "id": "v35-opt6-kemtem",
+            "label": "Que kem, con tem",
+            "audio": "/media/tts/v35-q6-opt0.mp3"
+          },
+          {
+            "id": "v35-opt6-tomca",
+            "label": "Con tôm, con cá",
+            "audio": "/media/tts/v35-q6-opt1.mp3"
+          }
+        ],
+        "correctOptionId": "v35-opt6-kemtem",
+        "explanation": "Kem và tem đều chứa vần em.",
+        "explanationAudio": "/media/tts/v35-q6-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    }
+  ]
+}

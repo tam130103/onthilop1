@@ -1,0 +1,281 @@
+{
+  "status": "publish",
+  "mode": "publish",
+  "id": "math-42-viet-phep-tinh",
+  "title": "Bài 42: Bài toán — Viết phép tính phù hợp",
+  "subject": "math",
+  "grade": 1,
+  "description": "Đọc hiểu tình huống thực tế và lựa chọn phép tính cộng hoặc trừ tương ứng.",
+  "totalDurationMinutes": 25,
+  "slides": [
+    {
+      "type": "title-slide",
+      "id": "m42-title-slide",
+      "title": "Bài 42: Bài toán — Viết phép tính phù hợp",
+      "subtitle": "Bài học tương tác — Lớp 1",
+      "teacherNote": "'Thêm vào, tất cả' -> Phép cộng (+). 'Bớt đi, cho đi, còn lại' -> Phép trừ (-).",
+      "backgroundImage": "/media/images/star.svg",
+      "audio": "/media/tts/m42-title.mp3"
+    },
+    {
+      "type": "content-slide",
+      "id": "m42-intro-slide",
+      "title": "Nhận diện phép tính từ tình huống",
+      "body": "Khi bài toán cho thêm hoặc hỏi có tất cả: dùng phép cộng (+). Khi bài toán bớt đi, bay đi, cho bạn: dùng phép trừ (-).",
+      "teacherNote": "'Thêm vào, tất cả' -> Phép cộng (+). 'Bớt đi, cho đi, còn lại' -> Phép trừ (-).",
+      "illustration": "/media/images/star.svg",
+      "audio": "/media/tts/m42-intro.mp3",
+      "bullets": [
+        "Thêm vào, bay đến -> Dùng dấu cộng (+)",
+        "Bớt đi, ăn mất, cho bạn -> Dùng dấu trừ (-)",
+        "Viết phép tính kèm kết quả chính xác"
+      ]
+    },
+    {
+      "type": "question-slide",
+      "id": "m42-slide-q1",
+      "teacherNote": "Câu hỏi 1: Trên cành có 5 con chim, 3 con chim bay ",
+      "question": {
+        "type": "multiple_choice",
+        "id": "m42-q1-mc",
+        "prompt": "Trên cành có 5 con chim, 3 con chim bay đến đậu cùng. Phép tính nào đúng?",
+        "promptAudio": "/media/tts/m42-q1-prompt.mp3",
+        "illustration": "/media/images/bird.svg",
+        "options": [
+          {
+            "id": "m42-opt-cong",
+            "label": "5 + 3 = 8",
+            "audio": "/media/tts/m42-q1-opt0.mp3"
+          },
+          {
+            "id": "m42-opt-tru",
+            "label": "5 - 3 = 2",
+            "audio": "/media/tts/m42-q1-opt1.mp3"
+          },
+          {
+            "id": "m42-opt-nhan",
+            "label": "5 + 5 = 10",
+            "audio": "/media/tts/m42-q1-opt2.mp3"
+          }
+        ],
+        "correctOptionId": "m42-opt-cong",
+        "explanation": "Bay đến là thêm vào nên dùng phép cộng: 5 + 3 = 8.",
+        "explanationAudio": "/media/tts/m42-q1-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m42-slide-q2",
+      "teacherNote": "Câu hỏi 2: Đĩa có 9 quả táo, bé ăn mất 4 quả. Phép ",
+      "question": {
+        "type": "multiple_choice",
+        "id": "m42-q2-mc",
+        "prompt": "Đĩa có 9 quả táo, bé ăn mất 4 quả. Phép tính tìm số quả táo còn lại là:",
+        "promptAudio": "/media/tts/m42-q2-prompt.mp3",
+        "illustration": "/media/images/apple.svg",
+        "options": [
+          {
+            "id": "m42-opt2-tru",
+            "label": "9 - 4 = 5",
+            "audio": "/media/tts/m42-q2-opt0.mp3"
+          },
+          {
+            "id": "m42-opt2-cong",
+            "label": "9 + 4 = 13",
+            "audio": "/media/tts/m42-q2-opt1.mp3"
+          },
+          {
+            "id": "m42-opt2-sai",
+            "label": "9 - 5 = 4",
+            "audio": "/media/tts/m42-q2-opt2.mp3"
+          }
+        ],
+        "correctOptionId": "m42-opt2-tru",
+        "explanation": "Ăn mất là bớt đi nên dùng phép trừ: 9 - 4 = 5.",
+        "explanationAudio": "/media/tts/m42-q2-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m42-slide-q3",
+      "teacherNote": "Câu hỏi 3: Nối tình huống với phép tính phù hợp:",
+      "question": {
+        "type": "matching",
+        "id": "m42-q3-match",
+        "prompt": "Nối tình huống với phép tính phù hợp:",
+        "promptAudio": "/media/tts/m42-q3-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "leftColumn": [
+          {
+            "id": "m42-l1",
+            "label": "Có 6 bông hoa, cắm thêm 2 bông",
+            "audio": "/media/tts/m42-q3-l0.mp3"
+          },
+          {
+            "id": "m42-l2",
+            "label": "Có 8 quả bóng, vỡ mất 3 quả",
+            "audio": "/media/tts/m42-q3-l1.mp3"
+          },
+          {
+            "id": "m42-l3",
+            "label": "Có 10 viên kẹo, cho bạn 4 viên",
+            "audio": "/media/tts/m42-q3-l2.mp3"
+          }
+        ],
+        "rightColumn": [
+          {
+            "id": "m42-r1",
+            "label": "Phép tính: 6 + 2 = 8",
+            "audio": "/media/tts/m42-q3-r0.mp3"
+          },
+          {
+            "id": "m42-r2",
+            "label": "Phép tính: 8 - 3 = 5",
+            "audio": "/media/tts/m42-q3-r1.mp3"
+          },
+          {
+            "id": "m42-r3",
+            "label": "Phép tính: 10 - 4 = 6",
+            "audio": "/media/tts/m42-q3-r2.mp3"
+          }
+        ],
+        "correctPairs": [
+          {
+            "leftId": "m42-l1",
+            "rightId": "m42-r1"
+          },
+          {
+            "leftId": "m42-l2",
+            "rightId": "m42-r2"
+          },
+          {
+            "leftId": "m42-l3",
+            "rightId": "m42-r3"
+          }
+        ],
+        "explanation": "Cắm thêm là cộng; vỡ mất và cho bạn là phép trừ.",
+        "explanationAudio": "/media/tts/m42-q3-exp.mp3"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m42-slide-q4",
+      "teacherNote": "Câu hỏi 4: Điền dấu phép tính: 'Có 7 quả cam, mẹ mu",
+      "question": {
+        "type": "tap_place",
+        "id": "m42-q4-tap",
+        "prompt": "Điền dấu phép tính: 'Có 7 quả cam, mẹ mua thêm 3 quả: 7 ... 3 = 10'",
+        "promptAudio": "/media/tts/m42-q4-prompt.mp3",
+        "illustration": "/media/images/apple.svg",
+        "targets": [
+          {
+            "id": "m42-t1",
+            "label": "...",
+            "prefixText": "7 ",
+            "suffixText": " 3 = 10"
+          }
+        ],
+        "items": [
+          {
+            "id": "m42-i1",
+            "label": "+",
+            "audio": "/media/tts/m42-q4-it0.mp3"
+          },
+          {
+            "id": "m42-i2",
+            "label": "-",
+            "audio": "/media/tts/m42-q4-it1.mp3"
+          }
+        ],
+        "correctMapping": {
+          "m42-i1": "m42-t1"
+        },
+        "explanation": "Mua thêm nên dùng dấu cộng (+).",
+        "explanationAudio": "/media/tts/m42-q4-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m42-slide-q5",
+      "teacherNote": "Câu hỏi 5: Lớp có 20 bạn nam và 15 bạn nữ. Cả lớp c",
+      "question": {
+        "type": "number_select",
+        "id": "m42-q5-num",
+        "prompt": "Lớp có 20 bạn nam và 15 bạn nữ. Cả lớp có bao nhiêu bạn?",
+        "promptAudio": "/media/tts/m42-q5-prompt.mp3",
+        "illustration": "/media/images/book.svg",
+        "expression": "20 + 15 = ?",
+        "choices": [
+          25,
+          30,
+          35,
+          40
+        ],
+        "correctAnswer": 35,
+        "explanation": "20 + 15 = 35 bạn học sinh.",
+        "explanationAudio": "/media/tts/m42-q5-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m42-slide-q6",
+      "teacherNote": "Câu hỏi 6: Đếm xem có bao nhiêu chú chim đang đậu t",
+      "question": {
+        "type": "counting",
+        "id": "m42-q6-cnt",
+        "prompt": "Đếm xem có bao nhiêu chú chim đang đậu trên cành?",
+        "promptAudio": "/media/tts/m42-q6-prompt.mp3",
+        "illustration": "/media/images/bird.svg",
+        "items": [
+          {
+            "image": "/media/images/bird.svg",
+            "alt": "Hình 1"
+          },
+          {
+            "image": "/media/images/bird.svg",
+            "alt": "Hình 2"
+          },
+          {
+            "image": "/media/images/bird.svg",
+            "alt": "Hình 3"
+          },
+          {
+            "image": "/media/images/bird.svg",
+            "alt": "Hình 4"
+          },
+          {
+            "image": "/media/images/bird.svg",
+            "alt": "Hình 5"
+          },
+          {
+            "image": "/media/images/bird.svg",
+            "alt": "Hình 6"
+          },
+          {
+            "image": "/media/images/bird.svg",
+            "alt": "Hình 7"
+          }
+        ],
+        "correctCount": 7,
+        "numberRange": {
+          "min": 1,
+          "max": 10
+        },
+        "explanation": "Có đúng 7 chú chim.",
+        "explanationAudio": "/media/tts/m42-q6-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    }
+  ]
+}

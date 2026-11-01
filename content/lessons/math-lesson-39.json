@@ -1,0 +1,293 @@
+{
+  "status": "publish",
+  "mode": "publish",
+  "id": "math-39-bang-so-1-100",
+  "title": "Bài 39: Bảng các số từ 1 đến 100",
+  "subject": "math",
+  "grade": 1,
+  "description": "Khám phá quy luật hàng ngang và cột dọc trên bảng số 1-100.",
+  "totalDurationMinutes": 25,
+  "slides": [
+    {
+      "type": "title-slide",
+      "id": "m39-title-slide",
+      "title": "Bài 39: Bảng các số từ 1 đến 100",
+      "subtitle": "Bài học tương tác — Lớp 1",
+      "teacherNote": "Theo hàng ngang: hơn kém nhau 1 đơn vị. Theo cột dọc: hơn kém nhau 1 chục (10 đơn vị).",
+      "backgroundImage": "/media/images/star.svg",
+      "audio": "/media/tts/m39-title.mp3"
+    },
+    {
+      "type": "content-slide",
+      "id": "m39-intro-slide",
+      "title": "Bảng số kỳ diệu 1 đến 100",
+      "body": "Bảng có 10 hàng và 10 cột. Sang phải 1 ô: cộng thêm 1. Xuống dưới 1 ô: cộng thêm 10. Tìm hiểu bảng số giúp tính nhẩm siêu tốc!",
+      "teacherNote": "Theo hàng ngang: hơn kém nhau 1 đơn vị. Theo cột dọc: hơn kém nhau 1 chục (10 đơn vị).",
+      "illustration": "/media/images/star.svg",
+      "audio": "/media/tts/m39-intro.mp3",
+      "bullets": [
+        "Các số cùng một hàng có cùng chữ số hàng chục",
+        "Các số cùng một cột có cùng chữ số hàng đơn vị",
+        "Số 100 là số có 3 chữ số nhỏ nhất"
+      ]
+    },
+    {
+      "type": "question-slide",
+      "id": "m39-slide-q1",
+      "teacherNote": "Câu hỏi 1: Trong bảng số, ô liền ngay bên phải số 3",
+      "question": {
+        "type": "multiple_choice",
+        "id": "m39-q1-mc",
+        "prompt": "Trong bảng số, ô liền ngay bên phải số 35 là số nào?",
+        "promptAudio": "/media/tts/m39-q1-prompt.mp3",
+        "illustration": "/media/images/book.svg",
+        "options": [
+          {
+            "id": "m39-opt-36",
+            "label": "Số 36",
+            "audio": "/media/tts/m39-q1-opt0.mp3"
+          },
+          {
+            "id": "m39-opt-34",
+            "label": "Số 34",
+            "audio": "/media/tts/m39-q1-opt1.mp3"
+          },
+          {
+            "id": "m39-opt-45",
+            "label": "Số 45",
+            "audio": "/media/tts/m39-q1-opt2.mp3"
+          }
+        ],
+        "correctOptionId": "m39-opt-36",
+        "explanation": "Ô liền bên phải số 35 là 35 + 1 = 36.",
+        "explanationAudio": "/media/tts/m39-q1-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m39-slide-q2",
+      "teacherNote": "Câu hỏi 2: Trong bảng số, ô liền ngay phía dưới số ",
+      "question": {
+        "type": "multiple_choice",
+        "id": "m39-q2-mc",
+        "prompt": "Trong bảng số, ô liền ngay phía dưới số 42 là số nào?",
+        "promptAudio": "/media/tts/m39-q2-prompt.mp3",
+        "illustration": "/media/images/book.svg",
+        "options": [
+          {
+            "id": "m39-opt2-52",
+            "label": "Số 52",
+            "audio": "/media/tts/m39-q2-opt0.mp3"
+          },
+          {
+            "id": "m39-opt2-43",
+            "label": "Số 43",
+            "audio": "/media/tts/m39-q2-opt1.mp3"
+          },
+          {
+            "id": "m39-opt2-32",
+            "label": "Số 32",
+            "audio": "/media/tts/m39-q2-opt2.mp3"
+          }
+        ],
+        "correctOptionId": "m39-opt2-52",
+        "explanation": "Ô liền phía dưới số 42 là 42 + 10 = 52.",
+        "explanationAudio": "/media/tts/m39-q2-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m39-slide-q3",
+      "teacherNote": "Câu hỏi 3: Nối vị trí với quy luật biến đổi số:",
+      "question": {
+        "type": "matching",
+        "id": "m39-q3-match",
+        "prompt": "Nối vị trí với quy luật biến đổi số:",
+        "promptAudio": "/media/tts/m39-q3-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "leftColumn": [
+          {
+            "id": "m39-l1",
+            "label": "Sang phải 1 ô",
+            "audio": "/media/tts/m39-q3-l0.mp3"
+          },
+          {
+            "id": "m39-l2",
+            "label": "Sang trái 1 ô",
+            "audio": "/media/tts/m39-q3-l1.mp3"
+          },
+          {
+            "id": "m39-l3",
+            "label": "Xuống dưới 1 ô",
+            "audio": "/media/tts/m39-q3-l2.mp3"
+          }
+        ],
+        "rightColumn": [
+          {
+            "id": "m39-r1",
+            "label": "Cộng thêm 1 đơn vị",
+            "audio": "/media/tts/m39-q3-r0.mp3"
+          },
+          {
+            "id": "m39-r2",
+            "label": "Bớt đi 1 đơn vị",
+            "audio": "/media/tts/m39-q3-r1.mp3"
+          },
+          {
+            "id": "m39-r3",
+            "label": "Cộng thêm 1 chục",
+            "audio": "/media/tts/m39-q3-r2.mp3"
+          }
+        ],
+        "correctPairs": [
+          {
+            "leftId": "m39-l1",
+            "rightId": "m39-r1"
+          },
+          {
+            "leftId": "m39-l2",
+            "rightId": "m39-r2"
+          },
+          {
+            "leftId": "m39-l3",
+            "rightId": "m39-r3"
+          }
+        ],
+        "explanation": "Sang phải cộng 1, sang trái trừ 1, xuống dưới cộng 10.",
+        "explanationAudio": "/media/tts/m39-q3-exp.mp3"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m39-slide-q4",
+      "teacherNote": "Câu hỏi 4: Số nhỏ nhất có 3 chữ số trong bảng số là",
+      "question": {
+        "type": "tap_place",
+        "id": "m39-q4-tap",
+        "prompt": "Số nhỏ nhất có 3 chữ số trong bảng số là số ...",
+        "promptAudio": "/media/tts/m39-q4-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "targets": [
+          {
+            "id": "m39-t1",
+            "label": "...",
+            "prefixText": "Số nhỏ nhất có 3 chữ số là ",
+            "suffixText": "."
+          }
+        ],
+        "items": [
+          {
+            "id": "m39-i1",
+            "label": "100",
+            "audio": "/media/tts/m39-q4-it0.mp3"
+          },
+          {
+            "id": "m39-i2",
+            "label": "99",
+            "audio": "/media/tts/m39-q4-it1.mp3"
+          }
+        ],
+        "correctMapping": {
+          "m39-i1": "m39-t1"
+        },
+        "explanation": "Số 100 là số có 3 chữ số nhỏ nhất.",
+        "explanationAudio": "/media/tts/m39-q4-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m39-slide-q5",
+      "teacherNote": "Câu hỏi 5: Số nào nằm ngay trước số 100 trên bảng s",
+      "question": {
+        "type": "number_select",
+        "id": "m39-q5-num",
+        "prompt": "Số nào nằm ngay trước số 100 trên bảng số?",
+        "promptAudio": "/media/tts/m39-q5-prompt.mp3",
+        "illustration": "/media/images/book.svg",
+        "expression": "Số liền trước 100 là: ?",
+        "choices": [
+          90,
+          98,
+          99,
+          101
+        ],
+        "correctAnswer": 99,
+        "explanation": "Số liền trước số 100 là 99.",
+        "explanationAudio": "/media/tts/m39-q5-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m39-slide-q6",
+      "teacherNote": "Câu hỏi 6: Đếm xem có bao nhiêu số tròn chục trong ",
+      "question": {
+        "type": "counting",
+        "id": "m39-q6-cnt",
+        "prompt": "Đếm xem có bao nhiêu số tròn chục trong bảng từ 1 đến 100?",
+        "promptAudio": "/media/tts/m39-q6-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "items": [
+          {
+            "image": "/media/images/star.svg",
+            "alt": "Hình 1"
+          },
+          {
+            "image": "/media/images/star.svg",
+            "alt": "Hình 2"
+          },
+          {
+            "image": "/media/images/star.svg",
+            "alt": "Hình 3"
+          },
+          {
+            "image": "/media/images/star.svg",
+            "alt": "Hình 4"
+          },
+          {
+            "image": "/media/images/star.svg",
+            "alt": "Hình 5"
+          },
+          {
+            "image": "/media/images/star.svg",
+            "alt": "Hình 6"
+          },
+          {
+            "image": "/media/images/star.svg",
+            "alt": "Hình 7"
+          },
+          {
+            "image": "/media/images/star.svg",
+            "alt": "Hình 8"
+          },
+          {
+            "image": "/media/images/star.svg",
+            "alt": "Hình 9"
+          },
+          {
+            "image": "/media/images/star.svg",
+            "alt": "Hình 10"
+          }
+        ],
+        "correctCount": 10,
+        "numberRange": {
+          "min": 1,
+          "max": 12
+        },
+        "explanation": "Có 10 số tròn chục: 10, 20, 30, 40, 50, 60, 70, 80, 90, 100.",
+        "explanationAudio": "/media/tts/m39-q6-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    }
+  ]
+}

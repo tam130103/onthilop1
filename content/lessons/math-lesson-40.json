@@ -1,0 +1,267 @@
+{
+  "status": "publish",
+  "mode": "publish",
+  "id": "math-40-cong-pham-vi-100",
+  "title": "Bài 40: Phép cộng trong phạm vi 100 (Không nhớ)",
+  "subject": "math",
+  "grade": 1,
+  "description": "Cộng hai số có hai chữ số: cộng hàng đơn vị với hàng đơn vị, cộng hàng chục với hàng chục.",
+  "totalDurationMinutes": 25,
+  "slides": [
+    {
+      "type": "title-slide",
+      "id": "m40-title-slide",
+      "title": "Bài 40: Phép cộng trong phạm vi 100 (Không nhớ)",
+      "subtitle": "Bài học tương tác — Lớp 1",
+      "teacherNote": "Cộng theo cột dọc: thẳng hàng đơn vị và thẳng hàng chục.",
+      "backgroundImage": "/media/images/star.svg",
+      "audio": "/media/tts/m40-title.mp3"
+    },
+    {
+      "type": "content-slide",
+      "id": "m40-intro-slide",
+      "title": "Cộng không nhớ đến 100",
+      "body": "Để tính 34 + 23: Lấy 4 + 3 = 7, viết 7 ở hàng đơn vị. Lấy 3 + 2 = 5, viết 5 ở hàng chục. Kết quả là 57.",
+      "teacherNote": "Cộng theo cột dọc: thẳng hàng đơn vị và thẳng hàng chục.",
+      "illustration": "/media/images/star.svg",
+      "audio": "/media/tts/m40-intro.mp3",
+      "bullets": [
+        "Cộng từ phải sang trái (đơn vị trước, chục sau)",
+        "4 + 3 = 7 đơn vị",
+        "3 + 2 = 5 chục -> 57"
+      ]
+    },
+    {
+      "type": "question-slide",
+      "id": "m40-slide-q1",
+      "teacherNote": "Câu hỏi 1: Tính: 34 + 23 = ?",
+      "question": {
+        "type": "number_select",
+        "id": "m40-q1-num",
+        "prompt": "Tính: 34 + 23 = ?",
+        "promptAudio": "/media/tts/m40-q1-prompt.mp3",
+        "illustration": "/media/images/apple.svg",
+        "expression": "34 + 23 = ?",
+        "choices": [
+          55,
+          56,
+          57,
+          58
+        ],
+        "correctAnswer": 57,
+        "explanation": "4 + 3 = 7, 3 + 2 = 5, kết quả là 57.",
+        "explanationAudio": "/media/tts/m40-q1-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m40-slide-q2",
+      "teacherNote": "Câu hỏi 2: Tính: 41 + 16 = ?",
+      "question": {
+        "type": "number_select",
+        "id": "m40-q2-num",
+        "prompt": "Tính: 41 + 16 = ?",
+        "promptAudio": "/media/tts/m40-q2-prompt.mp3",
+        "illustration": "/media/images/apple.svg",
+        "expression": "41 + 16 = ?",
+        "choices": [
+          55,
+          57,
+          58,
+          67
+        ],
+        "correctAnswer": 57,
+        "explanation": "1 + 6 = 7, 4 + 1 = 5, kết quả là 57.",
+        "explanationAudio": "/media/tts/m40-q2-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m40-slide-q3",
+      "teacherNote": "Câu hỏi 3: Nối phép tính với kết quả đúng:",
+      "question": {
+        "type": "matching",
+        "id": "m40-q3-match",
+        "prompt": "Nối phép tính với kết quả đúng:",
+        "promptAudio": "/media/tts/m40-q3-prompt.mp3",
+        "illustration": "/media/images/apple.svg",
+        "leftColumn": [
+          {
+            "id": "m40-l1",
+            "label": "52 + 14",
+            "audio": "/media/tts/m40-q3-l0.mp3"
+          },
+          {
+            "id": "m40-l2",
+            "label": "30 + 25",
+            "audio": "/media/tts/m40-q3-l1.mp3"
+          },
+          {
+            "id": "m40-l3",
+            "label": "61 + 27",
+            "audio": "/media/tts/m40-q3-l2.mp3"
+          }
+        ],
+        "rightColumn": [
+          {
+            "id": "m40-r1",
+            "label": "Bằng 66",
+            "audio": "/media/tts/m40-q3-r0.mp3"
+          },
+          {
+            "id": "m40-r2",
+            "label": "Bằng 55",
+            "audio": "/media/tts/m40-q3-r1.mp3"
+          },
+          {
+            "id": "m40-r3",
+            "label": "Bằng 88",
+            "audio": "/media/tts/m40-q3-r2.mp3"
+          }
+        ],
+        "correctPairs": [
+          {
+            "leftId": "m40-l1",
+            "rightId": "m40-r1"
+          },
+          {
+            "leftId": "m40-l2",
+            "rightId": "m40-r2"
+          },
+          {
+            "leftId": "m40-l3",
+            "rightId": "m40-r3"
+          }
+        ],
+        "explanation": "52+14=66; 30+25=55; 61+27=88.",
+        "explanationAudio": "/media/tts/m40-q3-exp.mp3"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m40-slide-q4",
+      "teacherNote": "Câu hỏi 4: Chọn kết quả điền vào chỗ chấm: 20 + 35 ",
+      "question": {
+        "type": "tap_place",
+        "id": "m40-q4-tap",
+        "prompt": "Chọn kết quả điền vào chỗ chấm: 20 + 35 = ...",
+        "promptAudio": "/media/tts/m40-q4-prompt.mp3",
+        "illustration": "/media/images/apple.svg",
+        "targets": [
+          {
+            "id": "m40-t1",
+            "label": "...",
+            "prefixText": "20 + 35 = ",
+            "suffixText": ""
+          }
+        ],
+        "items": [
+          {
+            "id": "m40-i1",
+            "label": "55",
+            "audio": "/media/tts/m40-q4-it0.mp3"
+          },
+          {
+            "id": "m40-i2",
+            "label": "65",
+            "audio": "/media/tts/m40-q4-it1.mp3"
+          }
+        ],
+        "correctMapping": {
+          "m40-i1": "m40-t1"
+        },
+        "explanation": "20 cộng 35 bằng 55.",
+        "explanationAudio": "/media/tts/m40-q4-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m40-slide-q5",
+      "teacherNote": "Câu hỏi 5: Phép tính nào có kết quả bằng 79?",
+      "question": {
+        "type": "multiple_choice",
+        "id": "m40-q5-mc",
+        "prompt": "Phép tính nào có kết quả bằng 79?",
+        "promptAudio": "/media/tts/m40-q5-prompt.mp3",
+        "illustration": "/media/images/apple.svg",
+        "options": [
+          {
+            "id": "m40-opt-dung",
+            "label": "45 + 34",
+            "audio": "/media/tts/m40-q5-opt0.mp3"
+          },
+          {
+            "id": "m40-opt-sai1",
+            "label": "40 + 35",
+            "audio": "/media/tts/m40-q5-opt1.mp3"
+          },
+          {
+            "id": "m40-opt-sai2",
+            "label": "50 + 28",
+            "audio": "/media/tts/m40-q5-opt2.mp3"
+          }
+        ],
+        "correctOptionId": "m40-opt-dung",
+        "explanation": "45 + 34 = 79.",
+        "explanationAudio": "/media/tts/m40-q5-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m40-slide-q6",
+      "teacherNote": "Câu hỏi 6: Đếm xem có bao nhiêu quả táo đỏ?",
+      "question": {
+        "type": "counting",
+        "id": "m40-q6-cnt",
+        "prompt": "Đếm xem có bao nhiêu quả táo đỏ?",
+        "promptAudio": "/media/tts/m40-q6-prompt.mp3",
+        "illustration": "/media/images/apple.svg",
+        "items": [
+          {
+            "image": "/media/images/apple.svg",
+            "alt": "Hình 1"
+          },
+          {
+            "image": "/media/images/apple.svg",
+            "alt": "Hình 2"
+          },
+          {
+            "image": "/media/images/apple.svg",
+            "alt": "Hình 3"
+          },
+          {
+            "image": "/media/images/apple.svg",
+            "alt": "Hình 4"
+          },
+          {
+            "image": "/media/images/apple.svg",
+            "alt": "Hình 5"
+          },
+          {
+            "image": "/media/images/apple.svg",
+            "alt": "Hình 6"
+          }
+        ],
+        "correctCount": 6,
+        "numberRange": {
+          "min": 1,
+          "max": 10
+        },
+        "explanation": "Có đúng 6 quả táo đỏ.",
+        "explanationAudio": "/media/tts/m40-q6-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    }
+  ]
+}

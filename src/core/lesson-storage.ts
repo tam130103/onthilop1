@@ -1,8 +1,10 @@
 import { LessonSchema, type Lesson } from '@/schemas/content.schema';
 import { getMistakeTracker } from './mistake-tracker';
 import { findCurriculumLessonMeta, createInteractiveCurriculumLesson } from '@/data/onthi-curriculum';
+import { getExamById } from '@/data/exam-data';
 
 export const BUILTIN_LESSON_URLS = [
+  // Math Lessons 01 - 48 (Complete Grade 1 GDPT 2018 Curriculum)
   '/content/lessons/math-lesson-01.json',
   '/content/lessons/math-lesson-02.json',
   '/content/lessons/math-lesson-03.json',
@@ -33,6 +35,26 @@ export const BUILTIN_LESSON_URLS = [
   '/content/lessons/math-lesson-28.json',
   '/content/lessons/math-lesson-29.json',
   '/content/lessons/math-lesson-30.json',
+  '/content/lessons/math-lesson-31.json',
+  '/content/lessons/math-lesson-32.json',
+  '/content/lessons/math-lesson-33.json',
+  '/content/lessons/math-lesson-34.json',
+  '/content/lessons/math-lesson-35.json',
+  '/content/lessons/math-lesson-36.json',
+  '/content/lessons/math-lesson-37.json',
+  '/content/lessons/math-lesson-38.json',
+  '/content/lessons/math-lesson-39.json',
+  '/content/lessons/math-lesson-40.json',
+  '/content/lessons/math-lesson-41.json',
+  '/content/lessons/math-lesson-42.json',
+  '/content/lessons/math-lesson-43.json',
+  '/content/lessons/math-lesson-44.json',
+  '/content/lessons/math-lesson-45.json',
+  '/content/lessons/math-lesson-46.json',
+  '/content/lessons/math-lesson-47.json',
+  '/content/lessons/math-lesson-48.json',
+
+  // Vietnamese Lessons 01 - 40 (Complete Phonics, Blends, Rhymes & Reading Comprehension)
   '/content/lessons/vn-lesson-01.json',
   '/content/lessons/vn-lesson-02.json',
   '/content/lessons/vn-lesson-03.json',
@@ -63,6 +85,16 @@ export const BUILTIN_LESSON_URLS = [
   '/content/lessons/vn-lesson-28.json',
   '/content/lessons/vn-lesson-29.json',
   '/content/lessons/vn-lesson-30.json',
+  '/content/lessons/vn-lesson-31.json',
+  '/content/lessons/vn-lesson-32.json',
+  '/content/lessons/vn-lesson-33.json',
+  '/content/lessons/vn-lesson-34.json',
+  '/content/lessons/vn-lesson-35.json',
+  '/content/lessons/vn-lesson-36.json',
+  '/content/lessons/vn-lesson-37.json',
+  '/content/lessons/vn-lesson-38.json',
+  '/content/lessons/vn-lesson-39.json',
+  '/content/lessons/vn-lesson-40.json',
 ];
 
 const STORAGE_KEY = 'trinh_chieu_custom_lessons_v1';
@@ -148,6 +180,31 @@ export async function getLessonById(lessonId: string): Promise<Lesson | null> {
   // 0. Check for review mistakes session
   if (normalizedId === 'review-mistakes-session') {
     return getMistakeTracker().buildReviewLesson();
+  }
+
+  // 0b. Check for period standard exams
+  if (normalizedId.startsWith('exam-')) {
+    const exam = getExamById(normalizedId);
+    if (exam) {
+      return {
+        id: exam.id,
+        title: exam.title,
+        subject: exam.subject,
+        grade: 1,
+        description: exam.description,
+        totalDurationMinutes: exam.durationMinutes,
+        status: 'publish',
+        mode: 'publish',
+        slides: exam.questions.map((q, idx) => ({
+          type: 'question-slide' as const,
+          id: `exam-slide-${idx + 1}`,
+          teacherNote: `Câu ${idx + 1}`,
+          timeLimitSeconds: 60,
+          showRetryOnWrong: true,
+          question: q,
+        })),
+      };
+    }
   }
 
   // 1. Search in custom lessons first

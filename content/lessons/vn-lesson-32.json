@@ -1,0 +1,275 @@
+{
+  "status": "publish",
+  "mode": "publish",
+  "id": "vn-32-van-on-on-on",
+  "title": "Bài 32: Các vần on, ôn, ơn",
+  "subject": "vietnamese",
+  "grade": 1,
+  "description": "Luyện đọc các vần on, ôn, ơn trong từ con cá, chim sơn ca, ôn bài.",
+  "totalDurationMinutes": 25,
+  "slides": [
+    {
+      "type": "title-slide",
+      "id": "vn32-title-slide",
+      "title": "Bài 32: Các vần on, ôn, ơn",
+      "subtitle": "Bài học tương tác — Lớp 1",
+      "teacherNote": "Chú ý khẩu hình miệng mở tròn với o, khép hơn với ô và bè ngang với ơ.",
+      "backgroundImage": "/media/images/star.svg",
+      "audio": "/media/tts/vn32-title.mp3"
+    },
+    {
+      "type": "content-slide",
+      "id": "vn32-intro-slide",
+      "title": "Nhà vần tròn môi: on, ôn, ơn",
+      "body": "Cùng lắng nghe tiếng chim sơn ca hót véo von nhé! Vần on trong nón lá, vần ôn trong ôn bài, vần ơn trong cảm ơn.",
+      "teacherNote": "Chú ý khẩu hình miệng mở tròn với o, khép hơn với ô và bè ngang với ơ.",
+      "illustration": "/media/images/book.svg",
+      "audio": "/media/tts/vn32-intro.mp3",
+      "bullets": [
+        "o - n - on: con cá, nón lá",
+        "ô - n - ôn: ôn bài, thủ môn",
+        "ơ - n - ơn: sơn ca, cảm ơn"
+      ]
+    },
+    {
+      "type": "question-slide",
+      "id": "vn32-slide-q1",
+      "teacherNote": "Câu hỏi 1: Tiếng 'nón' trong 'nón lá' chứa vần gì?",
+      "question": {
+        "type": "multiple_choice",
+        "id": "v32-q1-mc",
+        "prompt": "Tiếng 'nón' trong 'nón lá' chứa vần gì?",
+        "promptAudio": "/media/tts/v32-q1-prompt.mp3",
+        "illustration": "/media/images/leaf.svg",
+        "options": [
+          {
+            "id": "v32-opt-on",
+            "label": "Vần on",
+            "audio": "/media/tts/v32-q1-opt0.mp3"
+          },
+          {
+            "id": "v32-opt-on2",
+            "label": "Vần ôn",
+            "audio": "/media/tts/v32-q1-opt1.mp3"
+          },
+          {
+            "id": "v32-opt-on3",
+            "label": "Vần ơn",
+            "audio": "/media/tts/v32-q1-opt2.mp3"
+          }
+        ],
+        "correctOptionId": "v32-opt-on",
+        "explanation": "Tiếng nón chứa vần on.",
+        "explanationAudio": "/media/tts/v32-q1-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn32-slide-q2",
+      "teacherNote": "Câu hỏi 2: Nối tiếng với vần tương ứng:",
+      "question": {
+        "type": "matching",
+        "id": "v32-q2-match",
+        "prompt": "Nối tiếng với vần tương ứng:",
+        "promptAudio": "/media/tts/v32-q2-prompt.mp3",
+        "illustration": "/media/images/bird.svg",
+        "leftColumn": [
+          {
+            "id": "v32-l1",
+            "label": "Tiếng con",
+            "audio": "/media/tts/v32-q2-l0.mp3"
+          },
+          {
+            "id": "v32-l2",
+            "label": "Tiếng môn",
+            "audio": "/media/tts/v32-q2-l1.mp3"
+          },
+          {
+            "id": "v32-l3",
+            "label": "Tiếng sơn",
+            "audio": "/media/tts/v32-q2-l2.mp3"
+          }
+        ],
+        "rightColumn": [
+          {
+            "id": "v32-r1",
+            "label": "Vần on",
+            "audio": "/media/tts/v32-q2-r0.mp3"
+          },
+          {
+            "id": "v32-r2",
+            "label": "Vần ôn",
+            "audio": "/media/tts/v32-q2-r1.mp3"
+          },
+          {
+            "id": "v32-r3",
+            "label": "Vần ơn",
+            "audio": "/media/tts/v32-q2-r2.mp3"
+          }
+        ],
+        "correctPairs": [
+          {
+            "leftId": "v32-l1",
+            "rightId": "v32-r1"
+          },
+          {
+            "leftId": "v32-l2",
+            "rightId": "v32-r2"
+          },
+          {
+            "leftId": "v32-l3",
+            "rightId": "v32-r3"
+          }
+        ],
+        "explanation": "Con vần on; môn vần ôn; sơn vần ơn.",
+        "explanationAudio": "/media/tts/v32-q2-exp.mp3"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn32-slide-q3",
+      "teacherNote": "Câu hỏi 3: Chọn tiếng điền vào câu: 'Chim ... ca hó",
+      "question": {
+        "type": "tap_place",
+        "id": "v32-q3-tap",
+        "prompt": "Chọn tiếng điền vào câu: 'Chim ... ca hót líu lo trên cành.'",
+        "promptAudio": "/media/tts/v32-q3-prompt.mp3",
+        "illustration": "/media/images/bird.svg",
+        "targets": [
+          {
+            "id": "v32-t1",
+            "label": "...",
+            "prefixText": "Chim ",
+            "suffixText": " ca hót líu lo."
+          }
+        ],
+        "items": [
+          {
+            "id": "v32-i1",
+            "label": "sơn",
+            "audio": "/media/tts/v32-q3-it0.mp3"
+          },
+          {
+            "id": "v32-i2",
+            "label": "son",
+            "audio": "/media/tts/v32-q3-it1.mp3"
+          }
+        ],
+        "correctMapping": {
+          "v32-i1": "v32-t1"
+        },
+        "explanation": "Điền tiếng 'sơn' tạo thành từ 'chim sơn ca'.",
+        "explanationAudio": "/media/tts/v32-q3-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn32-slide-q4",
+      "teacherNote": "Câu hỏi 4: Từ nào sau đây thể hiện phép lịch sự khi",
+      "question": {
+        "type": "multiple_choice",
+        "id": "v32-q4-mc",
+        "prompt": "Từ nào sau đây thể hiện phép lịch sự khi được giúp đỡ?",
+        "promptAudio": "/media/tts/v32-q4-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "options": [
+          {
+            "id": "v32-opt4-camon",
+            "label": "Cảm ơn",
+            "audio": "/media/tts/v32-q4-opt0.mp3"
+          },
+          {
+            "id": "v32-opt4-onbai",
+            "label": "Ôn bài",
+            "audio": "/media/tts/v32-q4-opt1.mp3"
+          },
+          {
+            "id": "v32-opt4-conca",
+            "label": "Con cá",
+            "audio": "/media/tts/v32-q4-opt2.mp3"
+          }
+        ],
+        "correctOptionId": "v32-opt4-camon",
+        "explanation": "Khi được người khác giúp đỡ, em nói lời 'Cảm ơn'.",
+        "explanationAudio": "/media/tts/v32-q4-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn32-slide-q5",
+      "teacherNote": "Câu hỏi 5: Đếm xem có bao nhiêu chú chim sơn ca đan",
+      "question": {
+        "type": "counting",
+        "id": "v32-q5-cnt",
+        "prompt": "Đếm xem có bao nhiêu chú chim sơn ca đang hót?",
+        "promptAudio": "/media/tts/v32-q5-prompt.mp3",
+        "illustration": "/media/images/bird.svg",
+        "items": [
+          {
+            "image": "/media/images/bird.svg",
+            "alt": "Hình 1"
+          },
+          {
+            "image": "/media/images/bird.svg",
+            "alt": "Hình 2"
+          },
+          {
+            "image": "/media/images/bird.svg",
+            "alt": "Hình 3"
+          }
+        ],
+        "correctCount": 3,
+        "numberRange": {
+          "min": 1,
+          "max": 10
+        },
+        "explanation": "Có đúng 3 chú chim sơn ca.",
+        "explanationAudio": "/media/tts/v32-q5-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn32-slide-q6",
+      "teacherNote": "Câu hỏi 6: Vần nào xuất hiện trong cả hai từ 'thủ m",
+      "question": {
+        "type": "multiple_choice",
+        "id": "v32-q6-mc",
+        "prompt": "Vần nào xuất hiện trong cả hai từ 'thủ môn' và 'bồn hoa'?",
+        "promptAudio": "/media/tts/v32-q6-prompt.mp3",
+        "illustration": "/media/images/flower.svg",
+        "options": [
+          {
+            "id": "v32-opt6-on",
+            "label": "Vần ôn",
+            "audio": "/media/tts/v32-q6-opt0.mp3"
+          },
+          {
+            "id": "v32-opt6-onb",
+            "label": "Vần on",
+            "audio": "/media/tts/v32-q6-opt1.mp3"
+          },
+          {
+            "id": "v32-opt6-onc",
+            "label": "Vần ơn",
+            "audio": "/media/tts/v32-q6-opt2.mp3"
+          }
+        ],
+        "correctOptionId": "v32-opt6-on",
+        "explanation": "Môn và bồn đều chứa vần ôn.",
+        "explanationAudio": "/media/tts/v32-q6-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    }
+  ]
+}

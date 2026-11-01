@@ -7,6 +7,7 @@ import { PresentPage } from '@/pages/PresentPage';
 import { PresenterPage } from '@/pages/PresenterPage';
 import { LessonEditorPage } from '@/pages/LessonEditorPage';
 import { WorksheetPrintPage } from '@/pages/WorksheetPrintPage';
+import { ExamPage } from '@/pages/ExamPage';
 import { AdminPage } from '@/pages/AdminPage';
 import { LoginPage } from '@/pages/LoginPage';
 import { initAuth } from '@/core/auth-service';
@@ -28,6 +29,8 @@ createRoot(rootEl).render(
         <Route path="/presenter" element={<PresenterPage />} />
         <Route path="/editor" element={<LessonEditorPage />} />
         <Route path="/print-worksheet" element={<WorksheetPrintPage />} />
+        <Route path="/exam" element={<ExamPage />} />
+        <Route path="/exam/:examId" element={<ExamPage />} />
         <Route path="/admin" element={<AdminPage />} />
       </Routes>
     </BrowserRouter>

@@ -1,0 +1,244 @@
+{
+  "status": "publish",
+  "mode": "publish",
+  "id": "math-41-tru-pham-vi-100",
+  "title": "Bài 41: Phép trừ trong phạm vi 100 (Không nhớ)",
+  "subject": "math",
+  "grade": 1,
+  "description": "Trừ hai số có hai chữ số: trừ hàng đơn vị cho hàng đơn vị, trừ hàng chục cho hàng chục.",
+  "totalDurationMinutes": 25,
+  "slides": [
+    {
+      "type": "title-slide",
+      "id": "m41-title-slide",
+      "title": "Bài 41: Phép trừ trong phạm vi 100 (Không nhớ)",
+      "subtitle": "Bài học tương tác — Lớp 1",
+      "teacherNote": "Trừ từ phải sang trái, thẳng hàng đơn vị và thẳng hàng chục.",
+      "backgroundImage": "/media/images/star.svg",
+      "audio": "/media/tts/m41-title.mp3"
+    },
+    {
+      "type": "content-slide",
+      "id": "m41-intro-slide",
+      "title": "Trừ không nhớ đến 100",
+      "body": "Để tính 58 - 25: Lấy 8 - 5 = 3 ở hàng đơn vị. Lấy 5 - 2 = 3 ở hàng chục. Kết quả là 33.",
+      "teacherNote": "Trừ từ phải sang trái, thẳng hàng đơn vị và thẳng hàng chục.",
+      "illustration": "/media/images/star.svg",
+      "audio": "/media/tts/m41-intro.mp3",
+      "bullets": [
+        "Trừ đơn vị trước: 8 - 5 = 3",
+        "Trừ chục sau: 5 - 2 = 3",
+        "58 - 25 = 33"
+      ]
+    },
+    {
+      "type": "question-slide",
+      "id": "m41-slide-q1",
+      "teacherNote": "Câu hỏi 1: Tính: 58 - 25 = ?",
+      "question": {
+        "type": "number_select",
+        "id": "m41-q1-num",
+        "prompt": "Tính: 58 - 25 = ?",
+        "promptAudio": "/media/tts/m41-q1-prompt.mp3",
+        "illustration": "/media/images/apple.svg",
+        "expression": "58 - 25 = ?",
+        "choices": [
+          31,
+          32,
+          33,
+          34
+        ],
+        "correctAnswer": 33,
+        "explanation": "8 - 5 = 3, 5 - 2 = 3, kết quả là 33.",
+        "explanationAudio": "/media/tts/m41-q1-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m41-slide-q2",
+      "teacherNote": "Câu hỏi 2: Tính: 79 - 46 = ?",
+      "question": {
+        "type": "number_select",
+        "id": "m41-q2-num",
+        "prompt": "Tính: 79 - 46 = ?",
+        "promptAudio": "/media/tts/m41-q2-prompt.mp3",
+        "illustration": "/media/images/apple.svg",
+        "expression": "79 - 46 = ?",
+        "choices": [
+          23,
+          33,
+          35,
+          43
+        ],
+        "correctAnswer": 33,
+        "explanation": "9 - 6 = 3, 7 - 4 = 3, kết quả là 33.",
+        "explanationAudio": "/media/tts/m41-q2-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m41-slide-q3",
+      "teacherNote": "Câu hỏi 3: Nối phép tính trừ với kết quả đúng:",
+      "question": {
+        "type": "matching",
+        "id": "m41-q3-match",
+        "prompt": "Nối phép tính trừ với kết quả đúng:",
+        "promptAudio": "/media/tts/m41-q3-prompt.mp3",
+        "illustration": "/media/images/apple.svg",
+        "leftColumn": [
+          {
+            "id": "m41-l1",
+            "label": "67 - 32",
+            "audio": "/media/tts/m41-q3-l0.mp3"
+          },
+          {
+            "id": "m41-l2",
+            "label": "85 - 15",
+            "audio": "/media/tts/m41-q3-l1.mp3"
+          },
+          {
+            "id": "m41-l3",
+            "label": "49 - 20",
+            "audio": "/media/tts/m41-q3-l2.mp3"
+          }
+        ],
+        "rightColumn": [
+          {
+            "id": "m41-r1",
+            "label": "Bằng 35",
+            "audio": "/media/tts/m41-q3-r0.mp3"
+          },
+          {
+            "id": "m41-r2",
+            "label": "Bằng 70",
+            "audio": "/media/tts/m41-q3-r1.mp3"
+          },
+          {
+            "id": "m41-r3",
+            "label": "Bằng 29",
+            "audio": "/media/tts/m41-q3-r2.mp3"
+          }
+        ],
+        "correctPairs": [
+          {
+            "leftId": "m41-l1",
+            "rightId": "m41-r1"
+          },
+          {
+            "leftId": "m41-l2",
+            "rightId": "m41-r2"
+          },
+          {
+            "leftId": "m41-l3",
+            "rightId": "m41-r3"
+          }
+        ],
+        "explanation": "67-32=35; 85-15=70; 49-20=29.",
+        "explanationAudio": "/media/tts/m41-q3-exp.mp3"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m41-slide-q4",
+      "teacherNote": "Câu hỏi 4: Điền kết quả vào chỗ chấm: 96 - 54 = ...",
+      "question": {
+        "type": "tap_place",
+        "id": "m41-q4-tap",
+        "prompt": "Điền kết quả vào chỗ chấm: 96 - 54 = ...",
+        "promptAudio": "/media/tts/m41-q4-prompt.mp3",
+        "illustration": "/media/images/apple.svg",
+        "targets": [
+          {
+            "id": "m41-t1",
+            "label": "...",
+            "prefixText": "96 - 54 = ",
+            "suffixText": ""
+          }
+        ],
+        "items": [
+          {
+            "id": "m41-i1",
+            "label": "42",
+            "audio": "/media/tts/m41-q4-it0.mp3"
+          },
+          {
+            "id": "m41-i2",
+            "label": "44",
+            "audio": "/media/tts/m41-q4-it1.mp3"
+          }
+        ],
+        "correctMapping": {
+          "m41-i1": "m41-t1"
+        },
+        "explanation": "6 - 4 = 2, 9 - 5 = 4, kết quả là 42.",
+        "explanationAudio": "/media/tts/m41-q4-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m41-slide-q5",
+      "teacherNote": "Câu hỏi 5: Mẹ có 48 quả trứng, mẹ dùng 12 quả làm b",
+      "question": {
+        "type": "multiple_choice",
+        "id": "m41-q5-mc",
+        "prompt": "Mẹ có 48 quả trứng, mẹ dùng 12 quả làm bánh. Còn lại bao nhiêu quả trứng?",
+        "promptAudio": "/media/tts/m41-q5-prompt.mp3",
+        "illustration": "/media/images/apple.svg",
+        "options": [
+          {
+            "id": "m41-opt-36",
+            "label": "36 quả trứng",
+            "audio": "/media/tts/m41-q5-opt0.mp3"
+          },
+          {
+            "id": "m41-opt-35",
+            "label": "35 quả trứng",
+            "audio": "/media/tts/m41-q5-opt1.mp3"
+          },
+          {
+            "id": "m41-opt-40",
+            "label": "40 quả trứng",
+            "audio": "/media/tts/m41-q5-opt2.mp3"
+          }
+        ],
+        "correctOptionId": "m41-opt-36",
+        "explanation": "48 - 12 = 36 quả trứng.",
+        "explanationAudio": "/media/tts/m41-q5-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m41-slide-q6",
+      "teacherNote": "Câu hỏi 6: Tính: 64 - 24 = ?",
+      "question": {
+        "type": "number_select",
+        "id": "m41-q6-num",
+        "prompt": "Tính: 64 - 24 = ?",
+        "promptAudio": "/media/tts/m41-q6-prompt.mp3",
+        "illustration": "/media/images/apple.svg",
+        "expression": "64 - 24 = ?",
+        "choices": [
+          30,
+          40,
+          44,
+          50
+        ],
+        "correctAnswer": 40,
+        "explanation": "4 - 4 = 0, 6 - 2 = 4, kết quả là 40.",
+        "explanationAudio": "/media/tts/m41-q6-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    }
+  ]
+}

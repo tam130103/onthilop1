@@ -1,0 +1,276 @@
+{
+  "status": "publish",
+  "mode": "publish",
+  "id": "math-47-thuc-hanh-xem-lich",
+  "title": "Bài 47: Thực hành Xem lịch và Giờ",
+  "subject": "math",
+  "grade": 1,
+  "description": "Kết hợp xem tờ lịch ngày (thứ, ngày, tháng) và mặt đồng hồ kim trong sinh hoạt hàng ngày.",
+  "totalDurationMinutes": 25,
+  "slides": [
+    {
+      "type": "title-slide",
+      "id": "m47-title-slide",
+      "title": "Bài 47: Thực hành Xem lịch và Giờ",
+      "subtitle": "Bài học tương tác — Lớp 1",
+      "teacherNote": "Quan sát tờ lịch treo tường: số to ở giữa là ngày, chữ ở trên là thứ.",
+      "backgroundImage": "/media/images/star.svg",
+      "audio": "/media/tts/m47-title.mp3"
+    },
+    {
+      "type": "content-slide",
+      "id": "m47-intro-slide",
+      "title": "Tờ lịch và chiếc đồng hồ",
+      "body": "Tờ lịch bóc mỗi ngày cho em biết hôm nay là thứ mấy, ngày bao nhiêu. Kết hợp với đồng hồ giúp em sắp xếp thời gian biểu thật khoa học!",
+      "teacherNote": "Quan sát tờ lịch treo tường: số to ở giữa là ngày, chữ ở trên là thứ.",
+      "illustration": "/media/images/star.svg",
+      "audio": "/media/tts/m47-intro.mp3",
+      "bullets": [
+        "Số lớn ở giữa tờ lịch là ngày trong tháng",
+        "Chữ phía trên là thứ trong tuần",
+        "Đồng hồ chỉ giờ làm việc và học tập"
+      ]
+    },
+    {
+      "type": "question-slide",
+      "id": "m47-slide-q1",
+      "teacherNote": "Câu hỏi 1: Trên tờ lịch ngày, chữ số to nhất ở chín",
+      "question": {
+        "type": "multiple_choice",
+        "id": "m47-q1-mc",
+        "prompt": "Trên tờ lịch ngày, chữ số to nhất ở chính giữa chỉ điều gì?",
+        "promptAudio": "/media/tts/m47-q1-prompt.mp3",
+        "illustration": "/media/images/book.svg",
+        "options": [
+          {
+            "id": "m47-opt-ngay",
+            "label": "Ngày trong tháng",
+            "audio": "/media/tts/m47-q1-opt0.mp3"
+          },
+          {
+            "id": "m47-opt-thu",
+            "label": "Thứ trong tuần",
+            "audio": "/media/tts/m47-q1-opt1.mp3"
+          },
+          {
+            "id": "m47-opt-gio",
+            "label": "Giờ trong ngày",
+            "audio": "/media/tts/m47-q1-opt2.mp3"
+          }
+        ],
+        "correctOptionId": "m47-opt-ngay",
+        "explanation": "Số to nhất ở giữa tờ lịch chỉ ngày trong tháng.",
+        "explanationAudio": "/media/tts/m47-q1-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m47-slide-q2",
+      "teacherNote": "Câu hỏi 2: Nối mốc thời gian với hoạt động ý nghĩa:",
+      "question": {
+        "type": "matching",
+        "id": "m47-q2-match",
+        "prompt": "Nối mốc thời gian với hoạt động ý nghĩa:",
+        "promptAudio": "/media/tts/m47-q2-prompt.mp3",
+        "illustration": "/media/images/flower.svg",
+        "leftColumn": [
+          {
+            "id": "m47-l1",
+            "label": "Ngày 20 tháng 11",
+            "audio": "/media/tts/m47-q2-l0.mp3"
+          },
+          {
+            "id": "m47-l2",
+            "label": "Ngày 1 tháng 6",
+            "audio": "/media/tts/m47-q2-l1.mp3"
+          },
+          {
+            "id": "m47-l3",
+            "label": "Ngày 2 tháng 9",
+            "audio": "/media/tts/m47-q2-l2.mp3"
+          }
+        ],
+        "rightColumn": [
+          {
+            "id": "m47-r1",
+            "label": "Ngày Nhà giáo Việt Nam",
+            "audio": "/media/tts/m47-q2-r0.mp3"
+          },
+          {
+            "id": "m47-r2",
+            "label": "Ngày Quốc tế Thiếu nhi",
+            "audio": "/media/tts/m47-q2-r1.mp3"
+          },
+          {
+            "id": "m47-r3",
+            "label": "Ngày Quốc khánh Việt Nam",
+            "audio": "/media/tts/m47-q2-r2.mp3"
+          }
+        ],
+        "correctPairs": [
+          {
+            "leftId": "m47-l1",
+            "rightId": "m47-r1"
+          },
+          {
+            "leftId": "m47-l2",
+            "rightId": "m47-r2"
+          },
+          {
+            "leftId": "m47-l3",
+            "rightId": "m47-r3"
+          }
+        ],
+        "explanation": "20/11: Ngày Nhà giáo; 1/6: Thiếu nhi; 2/9: Quốc khánh.",
+        "explanationAudio": "/media/tts/m47-q2-exp.mp3"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m47-slide-q3",
+      "teacherNote": "Câu hỏi 3: Điền từ: 'Hôm nay là ngày 15, ngày mai s",
+      "question": {
+        "type": "tap_place",
+        "id": "m47-q3-tap",
+        "prompt": "Điền từ: 'Hôm nay là ngày 15, ngày mai sẽ là ngày ...'",
+        "promptAudio": "/media/tts/m47-q3-prompt.mp3",
+        "illustration": "/media/images/book.svg",
+        "targets": [
+          {
+            "id": "m47-t1",
+            "label": "...",
+            "prefixText": "Ngày mai là ngày ",
+            "suffixText": "."
+          }
+        ],
+        "items": [
+          {
+            "id": "m47-i1",
+            "label": "16",
+            "audio": "/media/tts/m47-q3-it0.mp3"
+          },
+          {
+            "id": "m47-i2",
+            "label": "14",
+            "audio": "/media/tts/m47-q3-it1.mp3"
+          }
+        ],
+        "correctMapping": {
+          "m47-i1": "m47-t1"
+        },
+        "explanation": "Ngày mai là ngày liền sau: 15 + 1 = 16.",
+        "explanationAudio": "/media/tts/m47-q3-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m47-slide-q4",
+      "teacherNote": "Câu hỏi 4: Đồng hồ chỉ 3 giờ chiều, bé học đàn tron",
+      "question": {
+        "type": "number_select",
+        "id": "m47-q4-num",
+        "prompt": "Đồng hồ chỉ 3 giờ chiều, bé học đàn trong 1 giờ. Bé học xong lúc mấy giờ?",
+        "promptAudio": "/media/tts/m47-q4-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "expression": "3 + 1 = ?",
+        "choices": [
+          4,
+          5,
+          6,
+          7
+        ],
+        "correctAnswer": 4,
+        "explanation": "3 + 1 = 4 giờ chiều.",
+        "explanationAudio": "/media/tts/m47-q4-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m47-slide-q5",
+      "teacherNote": "Câu hỏi 5: Đếm xem có bao nhiêu tờ lịch trên bàn?",
+      "question": {
+        "type": "counting",
+        "id": "m47-q5-cnt",
+        "prompt": "Đếm xem có bao nhiêu tờ lịch trên bàn?",
+        "promptAudio": "/media/tts/m47-q5-prompt.mp3",
+        "illustration": "/media/images/book.svg",
+        "items": [
+          {
+            "image": "/media/images/book.svg",
+            "alt": "Hình 1"
+          },
+          {
+            "image": "/media/images/book.svg",
+            "alt": "Hình 2"
+          },
+          {
+            "image": "/media/images/book.svg",
+            "alt": "Hình 3"
+          },
+          {
+            "image": "/media/images/book.svg",
+            "alt": "Hình 4"
+          },
+          {
+            "image": "/media/images/book.svg",
+            "alt": "Hình 5"
+          },
+          {
+            "image": "/media/images/book.svg",
+            "alt": "Hình 6"
+          },
+          {
+            "image": "/media/images/book.svg",
+            "alt": "Hình 7"
+          }
+        ],
+        "correctCount": 7,
+        "numberRange": {
+          "min": 1,
+          "max": 10
+        },
+        "explanation": "Có đúng 7 tờ lịch tượng trưng cho 7 ngày.",
+        "explanationAudio": "/media/tts/m47-q5-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m47-slide-q6",
+      "teacherNote": "Câu hỏi 6: Mỗi ngày chúng mình xé mấy tờ lịch ngày?",
+      "question": {
+        "type": "multiple_choice",
+        "id": "m47-q6-mc",
+        "prompt": "Mỗi ngày chúng mình xé mấy tờ lịch ngày?",
+        "promptAudio": "/media/tts/m47-q6-prompt.mp3",
+        "illustration": "/media/images/book.svg",
+        "options": [
+          {
+            "id": "m47-opt-1to",
+            "label": "1 tờ lịch",
+            "audio": "/media/tts/m47-q6-opt0.mp3"
+          },
+          {
+            "id": "m47-opt-2to",
+            "label": "2 tờ lịch",
+            "audio": "/media/tts/m47-q6-opt1.mp3"
+          }
+        ],
+        "correctOptionId": "m47-opt-1to",
+        "explanation": "Mỗi ngày trôi qua chúng mình bóc 1 tờ lịch.",
+        "explanationAudio": "/media/tts/m47-q6-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    }
+  ]
+}

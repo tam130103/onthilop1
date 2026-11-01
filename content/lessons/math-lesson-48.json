@@ -1,0 +1,258 @@
+{
+  "status": "publish",
+  "mode": "publish",
+  "id": "math-48-boss-hinh-do-luong",
+  "title": "Bài 48: BOSS Đấu Trường Hình Học & Đo Lường",
+  "subject": "math",
+  "grade": 1,
+  "description": "Tổng kết toàn diện học phần Hình học, Độ dài xăng-ti-mét và Thời gian lớp 1.",
+  "totalDurationMinutes": 25,
+  "slides": [
+    {
+      "type": "title-slide",
+      "id": "m48-title-slide",
+      "title": "Bài 48: BOSS Đấu Trường Hình Học & Đo Lường",
+      "subtitle": "Bài học tương tác — Lớp 1",
+      "teacherNote": "Bài học khép lại toàn bộ 48 bài giảng Toán Lớp 1 chuẩn GDPT 2018.",
+      "backgroundImage": "/media/images/star.svg",
+      "audio": "/media/tts/m48-title.mp3"
+    },
+    {
+      "type": "content-slide",
+      "id": "m48-intro-slide",
+      "title": "Đấu trường Vua Hình học",
+      "body": "Chúc mừng các dũng sĩ nhí đã đi đến chặng cuối cùng của môn Toán Lớp 1! Hãy vượt qua thử thách này để nhận Huy hiệu Toán học Xuất sắc nhé!",
+      "teacherNote": "Bài học khép lại toàn bộ 48 bài giảng Toán Lớp 1 chuẩn GDPT 2018.",
+      "illustration": "/media/images/star.svg",
+      "audio": "/media/tts/m48-intro.mp3",
+      "bullets": [
+        "Đo độ dài chính xác bằng thước cm",
+        "Xem giờ đồng hồ thành thạo",
+        "Phân biệt khối hình phẳng và hình khối"
+      ]
+    },
+    {
+      "type": "question-slide",
+      "id": "m48-slide-q1",
+      "teacherNote": "Câu hỏi 1: Đoạn dây dài 30cm, cắt bớt 10cm. Đoạn dâ",
+      "question": {
+        "type": "number_select",
+        "id": "m48-q1-num",
+        "prompt": "Đoạn dây dài 30cm, cắt bớt 10cm. Đoạn dây còn lại dài bao nhiêu cm?",
+        "promptAudio": "/media/tts/m48-q1-prompt.mp3",
+        "illustration": "/media/images/ruler.svg",
+        "expression": "30 - 10 = ?",
+        "choices": [
+          15,
+          20,
+          25,
+          30
+        ],
+        "correctAnswer": 20,
+        "explanation": "30cm - 10cm = 20cm.",
+        "explanationAudio": "/media/tts/m48-q1-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m48-slide-q2",
+      "teacherNote": "Câu hỏi 2: Đồng hồ chỉ đúng 12 giờ trưa. Kim ngắn v",
+      "question": {
+        "type": "multiple_choice",
+        "id": "m48-q2-mc",
+        "prompt": "Đồng hồ chỉ đúng 12 giờ trưa. Kim ngắn và kim dài ở vị trí nào?",
+        "promptAudio": "/media/tts/m48-q2-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "options": [
+          {
+            "id": "m48-opt-chapp",
+            "label": "Cả 2 kim cùng chỉ vào số 12",
+            "audio": "/media/tts/m48-q2-opt0.mp3"
+          },
+          {
+            "id": "m48-opt-lech",
+            "label": "Kim ngắn số 12, kim dài số 6",
+            "audio": "/media/tts/m48-q2-opt1.mp3"
+          }
+        ],
+        "correctOptionId": "m48-opt-chapp",
+        "explanation": "Đúng 12 giờ thì cả kim ngắn và kim dài đều chỉ số 12 trùng nhau.",
+        "explanationAudio": "/media/tts/m48-q2-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m48-slide-q3",
+      "teacherNote": "Câu hỏi 3: Nối đơn vị đo với đại lượng tương ứng:",
+      "question": {
+        "type": "matching",
+        "id": "m48-q3-match",
+        "prompt": "Nối đơn vị đo với đại lượng tương ứng:",
+        "promptAudio": "/media/tts/m48-q3-prompt.mp3",
+        "illustration": "/media/images/ruler.svg",
+        "leftColumn": [
+          {
+            "id": "m48-l1",
+            "label": "Xăng-ti-mét (cm)",
+            "audio": "/media/tts/m48-q3-l0.mp3"
+          },
+          {
+            "id": "m48-l2",
+            "label": "Giờ",
+            "audio": "/media/tts/m48-q3-l1.mp3"
+          },
+          {
+            "id": "m48-l3",
+            "label": "Khối lập phương",
+            "audio": "/media/tts/m48-q3-l2.mp3"
+          }
+        ],
+        "rightColumn": [
+          {
+            "id": "m48-r1",
+            "label": "Đo độ dài vật thể",
+            "audio": "/media/tts/m48-q3-r0.mp3"
+          },
+          {
+            "id": "m48-r2",
+            "label": "Đo thời gian trong ngày",
+            "audio": "/media/tts/m48-q3-r1.mp3"
+          },
+          {
+            "id": "m48-r3",
+            "label": "Hình khối có 6 mặt vuông",
+            "audio": "/media/tts/m48-q3-r2.mp3"
+          }
+        ],
+        "correctPairs": [
+          {
+            "leftId": "m48-l1",
+            "rightId": "m48-r1"
+          },
+          {
+            "leftId": "m48-l2",
+            "rightId": "m48-r2"
+          },
+          {
+            "leftId": "m48-l3",
+            "rightId": "m48-r3"
+          }
+        ],
+        "explanation": "cm đo độ dài, giờ đo thời gian, khối lập phương có 6 mặt vuông.",
+        "explanationAudio": "/media/tts/m48-q3-exp.mp3"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m48-slide-q4",
+      "teacherNote": "Câu hỏi 4: Tính: 40cm + 25cm = ...",
+      "question": {
+        "type": "tap_place",
+        "id": "m48-q4-tap",
+        "prompt": "Tính: 40cm + 25cm = ...",
+        "promptAudio": "/media/tts/m48-q4-prompt.mp3",
+        "illustration": "/media/images/ruler.svg",
+        "targets": [
+          {
+            "id": "m48-t1",
+            "label": "...",
+            "prefixText": "40cm + 25cm = ",
+            "suffixText": ""
+          }
+        ],
+        "items": [
+          {
+            "id": "m48-i1",
+            "label": "65cm",
+            "audio": "/media/tts/m48-q4-it0.mp3"
+          },
+          {
+            "id": "m48-i2",
+            "label": "60cm",
+            "audio": "/media/tts/m48-q4-it1.mp3"
+          }
+        ],
+        "correctMapping": {
+          "m48-i1": "m48-t1"
+        },
+        "explanation": "40cm + 25cm = 65cm.",
+        "explanationAudio": "/media/tts/m48-q4-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m48-slide-q5",
+      "teacherNote": "Câu hỏi 5: Đếm xem có bao nhiêu chiếc cúp vinh quan",
+      "question": {
+        "type": "counting",
+        "id": "m48-q5-cnt",
+        "prompt": "Đếm xem có bao nhiêu chiếc cúp vinh quang?",
+        "promptAudio": "/media/tts/m48-q5-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "items": [
+          {
+            "image": "/media/images/star.svg",
+            "alt": "Hình 1"
+          },
+          {
+            "image": "/media/images/star.svg",
+            "alt": "Hình 2"
+          },
+          {
+            "image": "/media/images/star.svg",
+            "alt": "Hình 3"
+          },
+          {
+            "image": "/media/images/star.svg",
+            "alt": "Hình 4"
+          },
+          {
+            "image": "/media/images/star.svg",
+            "alt": "Hình 5"
+          }
+        ],
+        "correctCount": 5,
+        "numberRange": {
+          "min": 1,
+          "max": 10
+        },
+        "explanation": "Có đúng 5 chiếc cúp vinh quang dành tặng bé!",
+        "explanationAudio": "/media/tts/m48-q5-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m48-slide-q6",
+      "teacherNote": "Câu hỏi 6: Hôm nay là Thứ Hai ngày 10, vậy Thứ Tư c",
+      "question": {
+        "type": "number_select",
+        "id": "m48-q6-num",
+        "prompt": "Hôm nay là Thứ Hai ngày 10, vậy Thứ Tư cùng tuần là ngày bao nhiêu?",
+        "promptAudio": "/media/tts/m48-q6-prompt.mp3",
+        "illustration": "/media/images/book.svg",
+        "expression": "10 + 2 = ?",
+        "choices": [
+          11,
+          12,
+          13,
+          14
+        ],
+        "correctAnswer": 12,
+        "explanation": "Từ Thứ Hai đến Thứ Tư cách 2 ngày: 10 + 2 = ngày 12.",
+        "explanationAudio": "/media/tts/m48-q6-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    }
+  ]
+}

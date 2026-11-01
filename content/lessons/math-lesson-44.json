@@ -1,0 +1,301 @@
+{
+  "status": "publish",
+  "mode": "publish",
+  "id": "math-44-xem-gio-dung",
+  "title": "Bài 44: Xem đồng hồ — Giờ đúng",
+  "subject": "math",
+  "grade": 1,
+  "description": "Nhận biết kim ngắn chỉ giờ, kim dài chỉ phút. Xem đồng hồ khi kim phút chỉ thẳng số 12 (giờ đúng).",
+  "totalDurationMinutes": 25,
+  "slides": [
+    {
+      "type": "title-slide",
+      "id": "m44-title-slide",
+      "title": "Bài 44: Xem đồng hồ — Giờ đúng",
+      "subtitle": "Bài học tương tác — Lớp 1",
+      "teacherNote": "Kim ngắn chỉ số mấy là bấy nhiêu giờ (khi kim dài chỉ đúng số 12).",
+      "backgroundImage": "/media/images/star.svg",
+      "audio": "/media/tts/m44-title.mp3"
+    },
+    {
+      "type": "content-slide",
+      "id": "m44-intro-slide",
+      "title": "Chiếc đồng hồ thân yêu",
+      "body": "Đồng hồ có kim ngắn chỉ giờ, kim dài chỉ phút. Khi kim dài chỉ đúng số 12, kim ngắn chỉ vào số nào thì đồng hồ chỉ đúng bấy nhiêu giờ.",
+      "teacherNote": "Kim ngắn chỉ số mấy là bấy nhiêu giờ (khi kim dài chỉ đúng số 12).",
+      "illustration": "/media/images/star.svg",
+      "audio": "/media/tts/m44-intro.mp3",
+      "bullets": [
+        "Kim ngắn chỉ giờ, kim dài chỉ phút",
+        "Kim dài chỉ số 12: giờ đúng",
+        "Ví dụ: kim ngắn số 8, kim dài số 12 -> 8 giờ"
+      ]
+    },
+    {
+      "type": "question-slide",
+      "id": "m44-slide-q1",
+      "teacherNote": "Câu hỏi 1: Kim ngắn chỉ số 7, kim dài chỉ đúng số 1",
+      "question": {
+        "type": "multiple_choice",
+        "id": "m44-q1-mc",
+        "prompt": "Kim ngắn chỉ số 7, kim dài chỉ đúng số 12. Đồng hồ chỉ mấy giờ?",
+        "promptAudio": "/media/tts/m44-q1-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "options": [
+          {
+            "id": "m44-opt-7g",
+            "label": "7 giờ",
+            "audio": "/media/tts/m44-q1-opt0.mp3"
+          },
+          {
+            "id": "m44-opt-12g",
+            "label": "12 giờ",
+            "audio": "/media/tts/m44-q1-opt1.mp3"
+          },
+          {
+            "id": "m44-opt-6g",
+            "label": "6 giờ",
+            "audio": "/media/tts/m44-q1-opt2.mp3"
+          }
+        ],
+        "correctOptionId": "m44-opt-7g",
+        "explanation": "Kim ngắn chỉ số 7, kim dài số 12 là đúng 7 giờ.",
+        "explanationAudio": "/media/tts/m44-q1-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m44-slide-q2",
+      "teacherNote": "Câu hỏi 2: Khi đồng hồ chỉ đúng 10 giờ, kim dài chỉ",
+      "question": {
+        "type": "multiple_choice",
+        "id": "m44-q2-mc",
+        "prompt": "Khi đồng hồ chỉ đúng 10 giờ, kim dài chỉ vào số nào?",
+        "promptAudio": "/media/tts/m44-q2-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "options": [
+          {
+            "id": "m44-opt2-12",
+            "label": "Số 12",
+            "audio": "/media/tts/m44-q2-opt0.mp3"
+          },
+          {
+            "id": "m44-opt2-10",
+            "label": "Số 10",
+            "audio": "/media/tts/m44-q2-opt1.mp3"
+          },
+          {
+            "id": "m44-opt2-6",
+            "label": "Số 6",
+            "audio": "/media/tts/m44-q2-opt2.mp3"
+          }
+        ],
+        "correctOptionId": "m44-opt2-12",
+        "explanation": "Giờ đúng thì kim dài luôn luôn chỉ vào số 12.",
+        "explanationAudio": "/media/tts/m44-q2-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m44-slide-q3",
+      "teacherNote": "Câu hỏi 3: Nối hoạt động trong ngày với giờ phù hợp",
+      "question": {
+        "type": "matching",
+        "id": "m44-q3-match",
+        "prompt": "Nối hoạt động trong ngày với giờ phù hợp:",
+        "promptAudio": "/media/tts/m44-q3-prompt.mp3",
+        "illustration": "/media/images/house.svg",
+        "leftColumn": [
+          {
+            "id": "m44-l1",
+            "label": "Bé thức dậy buổi sáng",
+            "audio": "/media/tts/m44-q3-l0.mp3"
+          },
+          {
+            "id": "m44-l2",
+            "label": "Bé vào lớp học bài",
+            "audio": "/media/tts/m44-q3-l1.mp3"
+          },
+          {
+            "id": "m44-l3",
+            "label": "Bé đi ngủ buổi tối",
+            "audio": "/media/tts/m44-q3-l2.mp3"
+          }
+        ],
+        "rightColumn": [
+          {
+            "id": "m44-r1",
+            "label": "Lúc 6 giờ sáng",
+            "audio": "/media/tts/m44-q3-r0.mp3"
+          },
+          {
+            "id": "m44-r2",
+            "label": "Lúc 8 giờ sáng",
+            "audio": "/media/tts/m44-q3-r1.mp3"
+          },
+          {
+            "id": "m44-r3",
+            "label": "Lúc 9 giờ tối",
+            "audio": "/media/tts/m44-q3-r2.mp3"
+          }
+        ],
+        "correctPairs": [
+          {
+            "leftId": "m44-l1",
+            "rightId": "m44-r1"
+          },
+          {
+            "leftId": "m44-l2",
+            "rightId": "m44-r2"
+          },
+          {
+            "leftId": "m44-l3",
+            "rightId": "m44-r3"
+          }
+        ],
+        "explanation": "6 giờ sáng dậy, 8 giờ học bài, 9 giờ tối ngủ.",
+        "explanationAudio": "/media/tts/m44-q3-exp.mp3"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m44-slide-q4",
+      "teacherNote": "Câu hỏi 4: Điền từ: 'Trên mặt đồng hồ, kim ngắn chỉ",
+      "question": {
+        "type": "tap_place",
+        "id": "m44-q4-tap",
+        "prompt": "Điền từ: 'Trên mặt đồng hồ, kim ngắn chỉ ..., kim dài chỉ phút.'",
+        "promptAudio": "/media/tts/m44-q4-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "targets": [
+          {
+            "id": "m44-t1",
+            "label": "...",
+            "prefixText": "Kim ngắn chỉ ",
+            "suffixText": "."
+          }
+        ],
+        "items": [
+          {
+            "id": "m44-i1",
+            "label": "giờ",
+            "audio": "/media/tts/m44-q4-it0.mp3"
+          },
+          {
+            "id": "m44-i2",
+            "label": "giây",
+            "audio": "/media/tts/m44-q4-it1.mp3"
+          }
+        ],
+        "correctMapping": {
+          "m44-i1": "m44-t1"
+        },
+        "explanation": "Kim ngắn dùng để chỉ giờ.",
+        "explanationAudio": "/media/tts/m44-q4-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m44-slide-q5",
+      "teacherNote": "Câu hỏi 5: Bé bắt đầu học lúc 8 giờ, sau 2 giờ bé đ",
+      "question": {
+        "type": "number_select",
+        "id": "m44-q5-num",
+        "prompt": "Bé bắt đầu học lúc 8 giờ, sau 2 giờ bé được nghỉ giải lao. Lúc đó là mấy giờ?",
+        "promptAudio": "/media/tts/m44-q5-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "expression": "8 + 2 = ?",
+        "choices": [
+          9,
+          10,
+          11,
+          12
+        ],
+        "correctAnswer": 10,
+        "explanation": "8 cộng 2 bằng 10 giờ.",
+        "explanationAudio": "/media/tts/m44-q5-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m44-slide-q6",
+      "teacherNote": "Câu hỏi 6: Đếm xem có bao nhiêu số trên mặt đồng hồ",
+      "question": {
+        "type": "counting",
+        "id": "m44-q6-cnt",
+        "prompt": "Đếm xem có bao nhiêu số trên mặt đồng hồ kim?",
+        "promptAudio": "/media/tts/m44-q6-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "items": [
+          {
+            "image": "/media/images/star.svg",
+            "alt": "Hình 1"
+          },
+          {
+            "image": "/media/images/star.svg",
+            "alt": "Hình 2"
+          },
+          {
+            "image": "/media/images/star.svg",
+            "alt": "Hình 3"
+          },
+          {
+            "image": "/media/images/star.svg",
+            "alt": "Hình 4"
+          },
+          {
+            "image": "/media/images/star.svg",
+            "alt": "Hình 5"
+          },
+          {
+            "image": "/media/images/star.svg",
+            "alt": "Hình 6"
+          },
+          {
+            "image": "/media/images/star.svg",
+            "alt": "Hình 7"
+          },
+          {
+            "image": "/media/images/star.svg",
+            "alt": "Hình 8"
+          },
+          {
+            "image": "/media/images/star.svg",
+            "alt": "Hình 9"
+          },
+          {
+            "image": "/media/images/star.svg",
+            "alt": "Hình 10"
+          },
+          {
+            "image": "/media/images/star.svg",
+            "alt": "Hình 11"
+          },
+          {
+            "image": "/media/images/star.svg",
+            "alt": "Hình 12"
+          }
+        ],
+        "correctCount": 12,
+        "numberRange": {
+          "min": 1,
+          "max": 14
+        },
+        "explanation": "Mặt đồng hồ có đúng 12 số từ 1 đến 12.",
+        "explanationAudio": "/media/tts/m44-q6-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    }
+  ]
+}

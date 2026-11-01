@@ -1,0 +1,263 @@
+{
+  "status": "publish",
+  "mode": "publish",
+  "id": "math-46-doc-thoi-khoa-bieu",
+  "title": "Bài 46: Đọc thời khóa biểu lớp học",
+  "subject": "math",
+  "grade": 1,
+  "description": "Tra cứu môn học theo thứ trong tuần và theo từng tiết học trong ngày.",
+  "totalDurationMinutes": 25,
+  "slides": [
+    {
+      "type": "title-slide",
+      "id": "m46-title-slide",
+      "title": "Bài 46: Đọc thời khóa biểu lớp học",
+      "subtitle": "Bài học tương tác — Lớp 1",
+      "teacherNote": "Rèn luyện tính tự lập, chuẩn bị sách vở đúng theo thời khóa biểu.",
+      "backgroundImage": "/media/images/star.svg",
+      "audio": "/media/tts/m46-title.mp3"
+    },
+    {
+      "type": "content-slide",
+      "id": "m46-intro-slide",
+      "title": "Thời khóa biểu của em",
+      "body": "Thời khóa biểu giúp em biết hôm nay học những môn gì để soạn sách vở. Hàng ngang là các tiết học, cột dọc là các ngày trong tuần.",
+      "teacherNote": "Rèn luyện tính tự lập, chuẩn bị sách vở đúng theo thời khóa biểu.",
+      "illustration": "/media/images/star.svg",
+      "audio": "/media/tts/m46-intro.mp3",
+      "bullets": [
+        "Cột dọc: Thứ Hai, Thứ Ba...",
+        "Hàng ngang: Tiết 1, Tiết 2, Tiết 3...",
+        "Chuẩn bị sách vở trước khi đến lớp"
+      ]
+    },
+    {
+      "type": "question-slide",
+      "id": "m46-slide-q1",
+      "teacherNote": "Câu hỏi 1: Thời khóa biểu giúp ích cho học sinh việ",
+      "question": {
+        "type": "multiple_choice",
+        "id": "m46-q1-mc",
+        "prompt": "Thời khóa biểu giúp ích cho học sinh việc gì?",
+        "promptAudio": "/media/tts/m46-q1-prompt.mp3",
+        "illustration": "/media/images/book.svg",
+        "options": [
+          {
+            "id": "m46-opt-dung",
+            "label": "Biết môn học để soạn sách vở",
+            "audio": "/media/tts/m46-q1-opt0.mp3"
+          },
+          {
+            "id": "m46-opt-sai",
+            "label": "Xem phim hoạt hình",
+            "audio": "/media/tts/m46-q1-opt1.mp3"
+          }
+        ],
+        "correctOptionId": "m46-opt-dung",
+        "explanation": "Thời khóa biểu giúp em biết môn học để chuẩn bị sách vở đầy đủ.",
+        "explanationAudio": "/media/tts/m46-q1-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m46-slide-q2",
+      "teacherNote": "Câu hỏi 2: Buổi sáng em học 4 tiết, buổi chiều học ",
+      "question": {
+        "type": "number_select",
+        "id": "m46-q2-num",
+        "prompt": "Buổi sáng em học 4 tiết, buổi chiều học 3 tiết. Cả ngày em học mấy tiết?",
+        "promptAudio": "/media/tts/m46-q2-prompt.mp3",
+        "illustration": "/media/images/book.svg",
+        "expression": "4 + 3 = ?",
+        "choices": [
+          5,
+          6,
+          7,
+          8
+        ],
+        "correctAnswer": 7,
+        "explanation": "4 + 3 = 7 tiết học mỗi ngày.",
+        "explanationAudio": "/media/tts/m46-q2-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m46-slide-q3",
+      "teacherNote": "Câu hỏi 3: Nối môn học với đồ dùng học tập tương ứn",
+      "question": {
+        "type": "matching",
+        "id": "m46-q3-match",
+        "prompt": "Nối môn học với đồ dùng học tập tương ứng:",
+        "promptAudio": "/media/tts/m46-q3-prompt.mp3",
+        "illustration": "/media/images/pencil.svg",
+        "leftColumn": [
+          {
+            "id": "m46-l1",
+            "label": "Tiết Toán",
+            "audio": "/media/tts/m46-q3-l0.mp3"
+          },
+          {
+            "id": "m46-l2",
+            "label": "Tiết Mỹ thuật",
+            "audio": "/media/tts/m46-q3-l1.mp3"
+          },
+          {
+            "id": "m46-l3",
+            "label": "Tiết Tập viết",
+            "audio": "/media/tts/m46-q3-l2.mp3"
+          }
+        ],
+        "rightColumn": [
+          {
+            "id": "m46-r1",
+            "label": "Vở bài tập Toán và thước kẻ",
+            "audio": "/media/tts/m46-q3-r0.mp3"
+          },
+          {
+            "id": "m46-r2",
+            "label": "Hộp bút màu sáp",
+            "audio": "/media/tts/m46-q3-r1.mp3"
+          },
+          {
+            "id": "m46-r3",
+            "label": "Vở ô ly và bút chì",
+            "audio": "/media/tts/m46-q3-r2.mp3"
+          }
+        ],
+        "correctPairs": [
+          {
+            "leftId": "m46-l1",
+            "rightId": "m46-r1"
+          },
+          {
+            "leftId": "m46-l2",
+            "rightId": "m46-r2"
+          },
+          {
+            "leftId": "m46-l3",
+            "rightId": "m46-r3"
+          }
+        ],
+        "explanation": "Môn Toán dùng thước kẻ, Mỹ thuật dùng màu sáp, Tập viết dùng vở ô ly.",
+        "explanationAudio": "/media/tts/m46-q3-exp.mp3"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m46-slide-q4",
+      "teacherNote": "Câu hỏi 4: Điền từ: 'Mỗi buổi tối em xem ... để soạ",
+      "question": {
+        "type": "tap_place",
+        "id": "m46-q4-tap",
+        "prompt": "Điền từ: 'Mỗi buổi tối em xem ... để soạn sách vở ngày mai.'",
+        "promptAudio": "/media/tts/m46-q4-prompt.mp3",
+        "illustration": "/media/images/book.svg",
+        "targets": [
+          {
+            "id": "m46-t1",
+            "label": "...",
+            "prefixText": "Xem ",
+            "suffixText": " để soạn sách vở."
+          }
+        ],
+        "items": [
+          {
+            "id": "m46-i1",
+            "label": "thời khóa biểu",
+            "audio": "/media/tts/m46-q4-it0.mp3"
+          },
+          {
+            "id": "m46-i2",
+            "label": "đồng hồ",
+            "audio": "/media/tts/m46-q4-it1.mp3"
+          }
+        ],
+        "correctMapping": {
+          "m46-i1": "m46-t1"
+        },
+        "explanation": "Xem thời khóa biểu để chuẩn bị sách vở.",
+        "explanationAudio": "/media/tts/m46-q4-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m46-slide-q5",
+      "teacherNote": "Câu hỏi 5: Đếm xem bé đã chuẩn bị bao nhiêu cuốn sá",
+      "question": {
+        "type": "counting",
+        "id": "m46-q5-cnt",
+        "prompt": "Đếm xem bé đã chuẩn bị bao nhiêu cuốn sách trong cặp?",
+        "promptAudio": "/media/tts/m46-q5-prompt.mp3",
+        "illustration": "/media/images/book.svg",
+        "items": [
+          {
+            "image": "/media/images/book.svg",
+            "alt": "Hình 1"
+          },
+          {
+            "image": "/media/images/book.svg",
+            "alt": "Hình 2"
+          },
+          {
+            "image": "/media/images/book.svg",
+            "alt": "Hình 3"
+          },
+          {
+            "image": "/media/images/book.svg",
+            "alt": "Hình 4"
+          },
+          {
+            "image": "/media/images/book.svg",
+            "alt": "Hình 5"
+          }
+        ],
+        "correctCount": 5,
+        "numberRange": {
+          "min": 1,
+          "max": 10
+        },
+        "explanation": "Bé đã chuẩn bị 5 cuốn sách.",
+        "explanationAudio": "/media/tts/m46-q5-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m46-slide-q6",
+      "teacherNote": "Câu hỏi 6: Nếu hôm nay có tiết Thể dục, em nên mặc ",
+      "question": {
+        "type": "multiple_choice",
+        "id": "m46-q6-mc",
+        "prompt": "Nếu hôm nay có tiết Thể dục, em nên mặc trang phục gì?",
+        "promptAudio": "/media/tts/m46-q6-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "options": [
+          {
+            "id": "m46-opt-thethao",
+            "label": "Quần áo thể thao và giày bata",
+            "audio": "/media/tts/m46-q6-opt0.mp3"
+          },
+          {
+            "id": "m46-opt-vay",
+            "label": "Váy dạ hội và giày cao gót",
+            "audio": "/media/tts/m46-q6-opt1.mp3"
+          }
+        ],
+        "correctOptionId": "m46-opt-thethao",
+        "explanation": "Tiết thể dục cần mặc đồ thể thao gọn gàng và đi giày thể thao.",
+        "explanationAudio": "/media/tts/m46-q6-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    }
+  ]
+}

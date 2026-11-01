@@ -1,0 +1,284 @@
+{
+  "status": "publish",
+  "mode": "publish",
+  "id": "vn-38-van-ang-anh",
+  "title": "Bài 38: Các vần ang, ăng, anh, inh",
+  "subject": "vietnamese",
+  "grade": 1,
+  "description": "Luyện đọc các vần ngân vang kết thúc bằng ng và nh trong từ măng tre, cành chanh, bình hoa.",
+  "totalDurationMinutes": 25,
+  "slides": [
+    {
+      "type": "title-slide",
+      "id": "vn38-title-slide",
+      "title": "Bài 38: Các vần ang, ăng, anh, inh",
+      "subtitle": "Bài học tương tác — Lớp 1",
+      "teacherNote": "Âm ng ngân vang ở vòm họng; âm nh lướt nhẹ mặt lưỡi.",
+      "backgroundImage": "/media/images/star.svg",
+      "audio": "/media/tts/vn38-title.mp3"
+    },
+    {
+      "type": "content-slide",
+      "id": "vn38-intro-slide",
+      "title": "Nhà vần ngân vang: ang, ăng, anh, inh",
+      "body": "Tiếng chuông ngân vang mang vần ang. Cây măng vươn thẳng mang vần ăng. Cành chanh trĩu quả mang vần anh. Bình hoa thơm ngát mang vần inh.",
+      "teacherNote": "Âm ng ngân vang ở vòm họng; âm nh lướt nhẹ mặt lưỡi.",
+      "illustration": "/media/images/book.svg",
+      "audio": "/media/tts/vn38-intro.mp3",
+      "bullets": [
+        "a - ng - ang: vầng trăng, ngân vang",
+        "ă - ng - ăng: măng tre, cố gắng",
+        "a - nh - anh: cành cây, quả chanh",
+        "i - nh - inh: bình hoa, lung linh"
+      ]
+    },
+    {
+      "type": "question-slide",
+      "id": "vn38-slide-q1",
+      "teacherNote": "Câu hỏi 1: Tiếng 'măng' trong 'măng tre' chứa vần g",
+      "question": {
+        "type": "multiple_choice",
+        "id": "v38-q1-mc",
+        "prompt": "Tiếng 'măng' trong 'măng tre' chứa vần gì?",
+        "promptAudio": "/media/tts/v38-q1-prompt.mp3",
+        "illustration": "/media/images/leaf.svg",
+        "options": [
+          {
+            "id": "v38-opt-ang",
+            "label": "Vần ăng",
+            "audio": "/media/tts/v38-q1-opt0.mp3"
+          },
+          {
+            "id": "v38-opt-ang2",
+            "label": "Vần ang",
+            "audio": "/media/tts/v38-q1-opt1.mp3"
+          },
+          {
+            "id": "v38-opt-anh",
+            "label": "Vần anh",
+            "audio": "/media/tts/v38-q1-opt2.mp3"
+          }
+        ],
+        "correctOptionId": "v38-opt-ang",
+        "explanation": "Tiếng măng chứa vần ăng.",
+        "explanationAudio": "/media/tts/v38-q1-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn38-slide-q2",
+      "teacherNote": "Câu hỏi 2: Từ nào sau đây chứa vần 'inh'?",
+      "question": {
+        "type": "multiple_choice",
+        "id": "v38-q2-mc",
+        "prompt": "Từ nào sau đây chứa vần 'inh'?",
+        "promptAudio": "/media/tts/v38-q2-prompt.mp3",
+        "illustration": "/media/images/flower.svg",
+        "options": [
+          {
+            "id": "v38-opt2-binhhoa",
+            "label": "Bình hoa",
+            "audio": "/media/tts/v38-q2-opt0.mp3"
+          },
+          {
+            "id": "v38-opt2-canhchanh",
+            "label": "Cành chanh",
+            "audio": "/media/tts/v38-q2-opt1.mp3"
+          },
+          {
+            "id": "v38-opt2-vang",
+            "label": "Ngân vang",
+            "audio": "/media/tts/v38-q2-opt2.mp3"
+          }
+        ],
+        "correctOptionId": "v38-opt2-binhhoa",
+        "explanation": "Bình hoa có tiếng bình chứa vần inh.",
+        "explanationAudio": "/media/tts/v38-q2-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn38-slide-q3",
+      "teacherNote": "Câu hỏi 3: Nối từ ngữ với vần tương ứng:",
+      "question": {
+        "type": "matching",
+        "id": "v38-q3-match",
+        "prompt": "Nối từ ngữ với vần tương ứng:",
+        "promptAudio": "/media/tts/v38-q3-prompt.mp3",
+        "illustration": "/media/images/flower.svg",
+        "leftColumn": [
+          {
+            "id": "v38-l1",
+            "label": "Cành chanh",
+            "audio": "/media/tts/v38-q3-l0.mp3"
+          },
+          {
+            "id": "v38-l2",
+            "label": "Măng tre",
+            "audio": "/media/tts/v38-q3-l1.mp3"
+          },
+          {
+            "id": "v38-l3",
+            "label": "Bình hoa",
+            "audio": "/media/tts/v38-q3-l2.mp3"
+          }
+        ],
+        "rightColumn": [
+          {
+            "id": "v38-r1",
+            "label": "Chứa vần anh",
+            "audio": "/media/tts/v38-q3-r0.mp3"
+          },
+          {
+            "id": "v38-r2",
+            "label": "Chứa vần ăng",
+            "audio": "/media/tts/v38-q3-r1.mp3"
+          },
+          {
+            "id": "v38-r3",
+            "label": "Chứa vần inh",
+            "audio": "/media/tts/v38-q3-r2.mp3"
+          }
+        ],
+        "correctPairs": [
+          {
+            "leftId": "v38-l1",
+            "rightId": "v38-r1"
+          },
+          {
+            "leftId": "v38-l2",
+            "rightId": "v38-r2"
+          },
+          {
+            "leftId": "v38-l3",
+            "rightId": "v38-r3"
+          }
+        ],
+        "explanation": "Chanh vần anh; măng vần ăng; bình vần inh.",
+        "explanationAudio": "/media/tts/v38-q3-exp.mp3"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn38-slide-q4",
+      "teacherNote": "Câu hỏi 4: Điền vần: 'Buổi tối, vầng tr... tròn vàn",
+      "question": {
+        "type": "tap_place",
+        "id": "v38-q4-tap",
+        "prompt": "Điền vần: 'Buổi tối, vầng tr... tròn vành vạnh chiếu sáng sân nhà.'",
+        "promptAudio": "/media/tts/v38-q4-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "targets": [
+          {
+            "id": "v38-t1",
+            "label": "...",
+            "prefixText": "Vầng tr",
+            "suffixText": " tròn sáng."
+          }
+        ],
+        "items": [
+          {
+            "id": "v38-i1",
+            "label": "ăng",
+            "audio": "/media/tts/v38-q4-it0.mp3"
+          },
+          {
+            "id": "v38-i2",
+            "label": "anh",
+            "audio": "/media/tts/v38-q4-it1.mp3"
+          }
+        ],
+        "correctMapping": {
+          "v38-i1": "v38-t1"
+        },
+        "explanation": "Vầng trăng chứa vần ăng.",
+        "explanationAudio": "/media/tts/v38-q4-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn38-slide-q5",
+      "teacherNote": "Câu hỏi 5: Đếm xem có bao nhiêu cành hoa tươi trong",
+      "question": {
+        "type": "counting",
+        "id": "v38-q5-cnt",
+        "prompt": "Đếm xem có bao nhiêu cành hoa tươi trong bình?",
+        "promptAudio": "/media/tts/v38-q5-prompt.mp3",
+        "illustration": "/media/images/flower.svg",
+        "items": [
+          {
+            "image": "/media/images/flower.svg",
+            "alt": "Hình 1"
+          },
+          {
+            "image": "/media/images/flower.svg",
+            "alt": "Hình 2"
+          },
+          {
+            "image": "/media/images/flower.svg",
+            "alt": "Hình 3"
+          },
+          {
+            "image": "/media/images/flower.svg",
+            "alt": "Hình 4"
+          },
+          {
+            "image": "/media/images/flower.svg",
+            "alt": "Hình 5"
+          }
+        ],
+        "correctCount": 5,
+        "numberRange": {
+          "min": 1,
+          "max": 10
+        },
+        "explanation": "Có đúng 5 cành hoa tươi khoe sắc.",
+        "explanationAudio": "/media/tts/v38-q5-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn38-slide-q6",
+      "teacherNote": "Câu hỏi 6: Từ nào miêu tả ngôi sao lấp lánh và chứa",
+      "question": {
+        "type": "multiple_choice",
+        "id": "v38-q6-mc",
+        "prompt": "Từ nào miêu tả ngôi sao lấp lánh và chứa vần 'inh'?",
+        "promptAudio": "/media/tts/v38-q6-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "options": [
+          {
+            "id": "v38-opt6-lunglinh",
+            "label": "Lung linh",
+            "audio": "/media/tts/v38-q6-opt0.mp3"
+          },
+          {
+            "id": "v38-opt6-sangto",
+            "label": "Sáng tỏ",
+            "audio": "/media/tts/v38-q6-opt1.mp3"
+          },
+          {
+            "id": "v38-opt6-laplanh",
+            "label": "Lấp lánh",
+            "audio": "/media/tts/v38-q6-opt2.mp3"
+          }
+        ],
+        "correctOptionId": "v38-opt6-lunglinh",
+        "explanation": "'Lung linh' có tiếng linh chứa vần inh.",
+        "explanationAudio": "/media/tts/v38-q6-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    }
+  ]
+}

@@ -1,0 +1,280 @@
+{
+  "status": "publish",
+  "mode": "publish",
+  "id": "vn-36-van-ac-at",
+  "title": "Bài 36: Các vần ac, ăc, at, ăt",
+  "subject": "vietnamese",
+  "grade": 1,
+  "description": "Luyện đọc các vần kết thúc bằng âm c và âm t trong từ chim hạc, hạt thóc, mặt trời.",
+  "totalDurationMinutes": 25,
+  "slides": [
+    {
+      "type": "title-slide",
+      "id": "vn36-title-slide",
+      "title": "Bài 36: Các vần ac, ăc, at, ăt",
+      "subtitle": "Bài học tương tác — Lớp 1",
+      "teacherNote": "Âm cuối c bật hơi nhẹ ở cuống họng, âm cuối t đầu lưỡi chạm lợi trên.",
+      "backgroundImage": "/media/images/star.svg",
+      "audio": "/media/tts/vn36-title.mp3"
+    },
+    {
+      "type": "content-slide",
+      "id": "vn36-intro-slide",
+      "title": "Nhà vần có c và t",
+      "body": "Con hạc trắng bay vút mang vần ac. Hạt thóc vàng óng mang vần at. Mặt trời ban mai ấm áp mang vần ăt. Cùng luyện đọc thật chuẩn nhé!",
+      "teacherNote": "Âm cuối c bật hơi nhẹ ở cuống họng, âm cuối t đầu lưỡi chạm lợi trên.",
+      "illustration": "/media/images/book.svg",
+      "audio": "/media/tts/vn36-intro.mp3",
+      "bullets": [
+        "a - c - ac: con hạc, ca nhạc",
+        "ă - c - ăc: con tắc kè, lắc lư",
+        "a - t - at: hạt thóc, ca hát",
+        "ă - t - ăt: mặt trời, cắt tỉa"
+      ]
+    },
+    {
+      "type": "question-slide",
+      "id": "vn36-slide-q1",
+      "teacherNote": "Câu hỏi 1: Tiếng 'hạc' trong 'chim hạc' chứa vần gì",
+      "question": {
+        "type": "multiple_choice",
+        "id": "v36-q1-mc",
+        "prompt": "Tiếng 'hạc' trong 'chim hạc' chứa vần gì?",
+        "promptAudio": "/media/tts/v36-q1-prompt.mp3",
+        "illustration": "/media/images/bird.svg",
+        "options": [
+          {
+            "id": "v36-opt-ac",
+            "label": "Vần ac",
+            "audio": "/media/tts/v36-q1-opt0.mp3"
+          },
+          {
+            "id": "v36-opt-at",
+            "label": "Vần at",
+            "audio": "/media/tts/v36-q1-opt1.mp3"
+          },
+          {
+            "id": "v36-opt-ac2",
+            "label": "Vần ăc",
+            "audio": "/media/tts/v36-q1-opt2.mp3"
+          }
+        ],
+        "correctOptionId": "v36-opt-ac",
+        "explanation": "Tiếng hạc chứa vần ac.",
+        "explanationAudio": "/media/tts/v36-q1-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn36-slide-q2",
+      "teacherNote": "Câu hỏi 2: Tiếng 'mặt' trong 'mặt trời' chứa vần gì",
+      "question": {
+        "type": "multiple_choice",
+        "id": "v36-q2-mc",
+        "prompt": "Tiếng 'mặt' trong 'mặt trời' chứa vần gì?",
+        "promptAudio": "/media/tts/v36-q2-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "options": [
+          {
+            "id": "v36-opt2-at",
+            "label": "Vần ăt",
+            "audio": "/media/tts/v36-q2-opt0.mp3"
+          },
+          {
+            "id": "v36-opt2-at2",
+            "label": "Vần at",
+            "audio": "/media/tts/v36-q2-opt1.mp3"
+          },
+          {
+            "id": "v36-opt2-ac",
+            "label": "Vần ăc",
+            "audio": "/media/tts/v36-q2-opt2.mp3"
+          }
+        ],
+        "correctOptionId": "v36-opt2-at",
+        "explanation": "Tiếng mặt chứa vần ăt.",
+        "explanationAudio": "/media/tts/v36-q2-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn36-slide-q3",
+      "teacherNote": "Câu hỏi 3: Nối từ với vần tương ứng:",
+      "question": {
+        "type": "matching",
+        "id": "v36-q3-match",
+        "prompt": "Nối từ với vần tương ứng:",
+        "promptAudio": "/media/tts/v36-q3-prompt.mp3",
+        "illustration": "/media/images/bird.svg",
+        "leftColumn": [
+          {
+            "id": "v36-l1",
+            "label": "Chim hạc",
+            "audio": "/media/tts/v36-q3-l0.mp3"
+          },
+          {
+            "id": "v36-l2",
+            "label": "Hạt thóc",
+            "audio": "/media/tts/v36-q3-l1.mp3"
+          },
+          {
+            "id": "v36-l3",
+            "label": "Mặt trời",
+            "audio": "/media/tts/v36-q3-l2.mp3"
+          }
+        ],
+        "rightColumn": [
+          {
+            "id": "v36-r1",
+            "label": "Vần ac",
+            "audio": "/media/tts/v36-q3-r0.mp3"
+          },
+          {
+            "id": "v36-r2",
+            "label": "Vần at",
+            "audio": "/media/tts/v36-q3-r1.mp3"
+          },
+          {
+            "id": "v36-r3",
+            "label": "Vần ăt",
+            "audio": "/media/tts/v36-q3-r2.mp3"
+          }
+        ],
+        "correctPairs": [
+          {
+            "leftId": "v36-l1",
+            "rightId": "v36-r1"
+          },
+          {
+            "leftId": "v36-l2",
+            "rightId": "v36-r2"
+          },
+          {
+            "leftId": "v36-l3",
+            "rightId": "v36-r3"
+          }
+        ],
+        "explanation": "Hạc vần ac; hạt vần at; mặt vần ăt.",
+        "explanationAudio": "/media/tts/v36-q3-exp.mp3"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn36-slide-q4",
+      "teacherNote": "Câu hỏi 4: Điền từ: 'Bác nông dân gặt những h... th",
+      "question": {
+        "type": "tap_place",
+        "id": "v36-q4-tap",
+        "prompt": "Điền từ: 'Bác nông dân gặt những h... thóc vàng tươi.'",
+        "promptAudio": "/media/tts/v36-q4-prompt.mp3",
+        "illustration": "/media/images/leaf.svg",
+        "targets": [
+          {
+            "id": "v36-t1",
+            "label": "...",
+            "prefixText": "Những h",
+            "suffixText": " thóc vàng."
+          }
+        ],
+        "items": [
+          {
+            "id": "v36-i1",
+            "label": "ạt",
+            "audio": "/media/tts/v36-q4-it0.mp3"
+          },
+          {
+            "id": "v36-i2",
+            "label": "ạc",
+            "audio": "/media/tts/v36-q4-it1.mp3"
+          }
+        ],
+        "correctMapping": {
+          "v36-i1": "v36-t1"
+        },
+        "explanation": "Hạt thóc chứa vần at.",
+        "explanationAudio": "/media/tts/v36-q4-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn36-slide-q5",
+      "teacherNote": "Câu hỏi 5: Đếm xem có bao nhiêu chú chim hạc đang b",
+      "question": {
+        "type": "counting",
+        "id": "v36-q5-cnt",
+        "prompt": "Đếm xem có bao nhiêu chú chim hạc đang bay?",
+        "promptAudio": "/media/tts/v36-q5-prompt.mp3",
+        "illustration": "/media/images/bird.svg",
+        "items": [
+          {
+            "image": "/media/images/bird.svg",
+            "alt": "Hình 1"
+          },
+          {
+            "image": "/media/images/bird.svg",
+            "alt": "Hình 2"
+          },
+          {
+            "image": "/media/images/bird.svg",
+            "alt": "Hình 3"
+          },
+          {
+            "image": "/media/images/bird.svg",
+            "alt": "Hình 4"
+          }
+        ],
+        "correctCount": 4,
+        "numberRange": {
+          "min": 1,
+          "max": 10
+        },
+        "explanation": "Có đúng 4 chú chim hạc.",
+        "explanationAudio": "/media/tts/v36-q5-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn36-slide-q6",
+      "teacherNote": "Câu hỏi 6: Từ nào chứa tiếng có vần 'ăc'?",
+      "question": {
+        "type": "multiple_choice",
+        "id": "v36-q6-mc",
+        "prompt": "Từ nào chứa tiếng có vần 'ăc'?",
+        "promptAudio": "/media/tts/v36-q6-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "options": [
+          {
+            "id": "v36-opt6-tacke",
+            "label": "Tắc kè",
+            "audio": "/media/tts/v36-q6-opt0.mp3"
+          },
+          {
+            "id": "v36-opt6-hathoc",
+            "label": "Hạt thóc",
+            "audio": "/media/tts/v36-q6-opt1.mp3"
+          },
+          {
+            "id": "v36-opt6-chimhac",
+            "label": "Chim hạc",
+            "audio": "/media/tts/v36-q6-opt2.mp3"
+          }
+        ],
+        "correctOptionId": "v36-opt6-tacke",
+        "explanation": "Tắc kè có tiếng tắc chứa vần ăc.",
+        "explanationAudio": "/media/tts/v36-q6-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    }
+  ]
+}

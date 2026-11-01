@@ -1,0 +1,291 @@
+{
+  "status": "publish",
+  "mode": "publish",
+  "id": "math-35-so-11-den-20",
+  "title": "Bài 35: Các số từ 11 đến 20",
+  "subject": "math",
+  "grade": 1,
+  "description": "Đọc, viết, đếm và phân tích cấu tạo chục – đơn vị các số từ 11 đến 20.",
+  "totalDurationMinutes": 25,
+  "slides": [
+    {
+      "type": "title-slide",
+      "id": "m35-title-slide",
+      "title": "Bài 35: Các số từ 11 đến 20",
+      "subtitle": "Bài học tương tác — Lớp 1",
+      "teacherNote": "Nhấn mạnh số gồm 1 chục và các đơn vị lẻ tương ứng (VD: 14 gồm 1 chục và 4 đơn vị).",
+      "backgroundImage": "/media/images/star.svg",
+      "audio": "/media/tts/m35-title.mp3"
+    },
+    {
+      "type": "content-slide",
+      "id": "m35-intro-slide",
+      "title": "Số có hai chữ số: 11 đến 20",
+      "body": "10 que tính bó thành 1 chục. Thêm 1 que tính là 11 (mười một), thêm 2 que tính là 12 (mười hai). Cứ như vậy đến 20 (hai mươi).",
+      "teacherNote": "Nhấn mạnh số gồm 1 chục và các đơn vị lẻ tương ứng (VD: 14 gồm 1 chục và 4 đơn vị).",
+      "illustration": "/media/images/star.svg",
+      "audio": "/media/tts/m35-intro.mp3",
+      "bullets": [
+        "Số 10 là 1 chục",
+        "15 gồm 1 chục và 5 đơn vị",
+        "Thứ tự: 11, 12, 13, 14, 15, 16, 17, 18, 19, 20"
+      ]
+    },
+    {
+      "type": "question-slide",
+      "id": "m35-slide-q1",
+      "teacherNote": "Câu hỏi 1: Số 16 gồm mấy chục và mấy đơn vị?",
+      "question": {
+        "type": "multiple_choice",
+        "id": "m35-q1-mc",
+        "prompt": "Số 16 gồm mấy chục và mấy đơn vị?",
+        "promptAudio": "/media/tts/m35-q1-prompt.mp3",
+        "illustration": "/media/images/book.svg",
+        "options": [
+          {
+            "id": "m35-opt-1c6d",
+            "label": "1 chục và 6 đơn vị",
+            "audio": "/media/tts/m35-q1-opt0.mp3"
+          },
+          {
+            "id": "m35-opt-6c1d",
+            "label": "6 chục và 1 đơn vị",
+            "audio": "/media/tts/m35-q1-opt1.mp3"
+          },
+          {
+            "id": "m35-opt-16c",
+            "label": "16 chục",
+            "audio": "/media/tts/m35-q1-opt2.mp3"
+          }
+        ],
+        "correctOptionId": "m35-opt-1c6d",
+        "explanation": "Số 16 gồm 1 chục và 6 đơn vị.",
+        "explanationAudio": "/media/tts/m35-q1-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m35-slide-q2",
+      "teacherNote": "Câu hỏi 2: Số liền sau số 14 là số nào?",
+      "question": {
+        "type": "number_select",
+        "id": "m35-q2-num",
+        "prompt": "Số liền sau số 14 là số nào?",
+        "promptAudio": "/media/tts/m35-q2-prompt.mp3",
+        "illustration": "/media/images/book.svg",
+        "expression": "Số liền sau 14 là: ?",
+        "choices": [
+          13,
+          15,
+          16,
+          17
+        ],
+        "correctAnswer": 15,
+        "explanation": "Số liền sau 14 là 15.",
+        "explanationAudio": "/media/tts/m35-q2-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m35-slide-q3",
+      "teacherNote": "Câu hỏi 3: Điền số thích hợp vào dãy: 11, 12, ..., ",
+      "question": {
+        "type": "tap_place",
+        "id": "m35-q3-tap",
+        "prompt": "Điền số thích hợp vào dãy: 11, 12, ..., 14, 15",
+        "promptAudio": "/media/tts/m35-q3-prompt.mp3",
+        "illustration": "/media/images/book.svg",
+        "targets": [
+          {
+            "id": "m35-t1",
+            "label": "...",
+            "prefixText": "11, 12, ",
+            "suffixText": ", 14, 15"
+          }
+        ],
+        "items": [
+          {
+            "id": "m35-i1",
+            "label": "13",
+            "audio": "/media/tts/m35-q3-it0.mp3"
+          },
+          {
+            "id": "m35-i2",
+            "label": "16",
+            "audio": "/media/tts/m35-q3-it1.mp3"
+          }
+        ],
+        "correctMapping": {
+          "m35-i1": "m35-t1"
+        },
+        "explanation": "Dãy số liên tiếp là 11, 12, 13, 14, 15.",
+        "explanationAudio": "/media/tts/m35-q3-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m35-slide-q4",
+      "teacherNote": "Câu hỏi 4: Nối cách đọc với số viết đúng:",
+      "question": {
+        "type": "matching",
+        "id": "m35-q4-match",
+        "prompt": "Nối cách đọc với số viết đúng:",
+        "promptAudio": "/media/tts/m35-q4-prompt.mp3",
+        "illustration": "/media/images/book.svg",
+        "leftColumn": [
+          {
+            "id": "m35-l1",
+            "label": "Mười một",
+            "audio": "/media/tts/m35-q4-l0.mp3"
+          },
+          {
+            "id": "m35-l2",
+            "label": "Mười lăm",
+            "audio": "/media/tts/m35-q4-l1.mp3"
+          },
+          {
+            "id": "m35-l3",
+            "label": "Hai mươi",
+            "audio": "/media/tts/m35-q4-l2.mp3"
+          }
+        ],
+        "rightColumn": [
+          {
+            "id": "m35-r1",
+            "label": "Số 11",
+            "audio": "/media/tts/m35-q4-r0.mp3"
+          },
+          {
+            "id": "m35-r2",
+            "label": "Số 15",
+            "audio": "/media/tts/m35-q4-r1.mp3"
+          },
+          {
+            "id": "m35-r3",
+            "label": "Số 20",
+            "audio": "/media/tts/m35-q4-r2.mp3"
+          }
+        ],
+        "correctPairs": [
+          {
+            "leftId": "m35-l1",
+            "rightId": "m35-r1"
+          },
+          {
+            "leftId": "m35-l2",
+            "rightId": "m35-r2"
+          },
+          {
+            "leftId": "m35-l3",
+            "rightId": "m35-r3"
+          }
+        ],
+        "explanation": "Mười một là 11, mười lăm là 15, hai mươi là 20.",
+        "explanationAudio": "/media/tts/m35-q4-exp.mp3"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m35-slide-q5",
+      "teacherNote": "Câu hỏi 5: Đếm xem có bao nhiêu cuốn sách trong giá",
+      "question": {
+        "type": "counting",
+        "id": "m35-q5-cnt",
+        "prompt": "Đếm xem có bao nhiêu cuốn sách trong giá sách?",
+        "promptAudio": "/media/tts/m35-q5-prompt.mp3",
+        "illustration": "/media/images/book.svg",
+        "items": [
+          {
+            "image": "/media/images/book.svg",
+            "alt": "Hình 1"
+          },
+          {
+            "image": "/media/images/book.svg",
+            "alt": "Hình 2"
+          },
+          {
+            "image": "/media/images/book.svg",
+            "alt": "Hình 3"
+          },
+          {
+            "image": "/media/images/book.svg",
+            "alt": "Hình 4"
+          },
+          {
+            "image": "/media/images/book.svg",
+            "alt": "Hình 5"
+          },
+          {
+            "image": "/media/images/book.svg",
+            "alt": "Hình 6"
+          },
+          {
+            "image": "/media/images/book.svg",
+            "alt": "Hình 7"
+          },
+          {
+            "image": "/media/images/book.svg",
+            "alt": "Hình 8"
+          },
+          {
+            "image": "/media/images/book.svg",
+            "alt": "Hình 9"
+          },
+          {
+            "image": "/media/images/book.svg",
+            "alt": "Hình 10"
+          },
+          {
+            "image": "/media/images/book.svg",
+            "alt": "Hình 11"
+          },
+          {
+            "image": "/media/images/book.svg",
+            "alt": "Hình 12"
+          }
+        ],
+        "correctCount": 12,
+        "numberRange": {
+          "min": 1,
+          "max": 14
+        },
+        "explanation": "Có đúng 12 cuốn sách.",
+        "explanationAudio": "/media/tts/m35-q5-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m35-slide-q6",
+      "teacherNote": "Câu hỏi 6: Tính: 10 + 7 = ?",
+      "question": {
+        "type": "number_select",
+        "id": "m35-q6-num",
+        "prompt": "Tính: 10 + 7 = ?",
+        "promptAudio": "/media/tts/m35-q6-prompt.mp3",
+        "illustration": "/media/images/book.svg",
+        "expression": "10 + 7 = ?",
+        "choices": [
+          15,
+          16,
+          17,
+          18
+        ],
+        "correctAnswer": 17,
+        "explanation": "10 cộng 7 bằng 17.",
+        "explanationAudio": "/media/tts/m35-q6-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    }
+  ]
+}

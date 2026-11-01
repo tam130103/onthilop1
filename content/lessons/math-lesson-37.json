@@ -1,0 +1,309 @@
+{
+  "status": "publish",
+  "mode": "publish",
+  "id": "math-37-so-hai-chu-so",
+  "title": "Bài 37: Đọc và Viết số có hai chữ số",
+  "subject": "math",
+  "grade": 1,
+  "description": "Nhận biết các số từ 21 đến 99, quy tắc đọc đuôi 'mốt', 'lăm', 'mười'.",
+  "totalDurationMinutes": 25,
+  "slides": [
+    {
+      "type": "title-slide",
+      "id": "m37-title-slide",
+      "title": "Bài 37: Đọc và Viết số có hai chữ số",
+      "subtitle": "Bài học tương tác — Lớp 1",
+      "teacherNote": "Lưu ý quy tắc đọc: hai mươi mốt (21), hai mươi lăm (25), ba mươi (30).",
+      "backgroundImage": "/media/images/star.svg",
+      "audio": "/media/tts/m37-title.mp3"
+    },
+    {
+      "type": "content-slide",
+      "id": "m37-intro-slide",
+      "title": "Đọc viết số có hai chữ số",
+      "body": "Số có hai chữ số gồm chữ số hàng chục đứng trước và chữ số hàng đơn vị đứng sau. Đọc từ trái sang phải: chục rồi đến đơn vị.",
+      "teacherNote": "Lưu ý quy tắc đọc: hai mươi mốt (21), hai mươi lăm (25), ba mươi (30).",
+      "illustration": "/media/images/star.svg",
+      "audio": "/media/tts/m37-intro.mp3",
+      "bullets": [
+        "21 đọc là hai mươi mốt",
+        "35 đọc là ba mươi lăm",
+        "Cấu tạo: 47 gồm 4 chục và 7 đơn vị"
+      ]
+    },
+    {
+      "type": "question-slide",
+      "id": "m37-slide-q1",
+      "teacherNote": "Câu hỏi 1: Số 25 được đọc là gì?",
+      "question": {
+        "type": "multiple_choice",
+        "id": "m37-q1-mc",
+        "prompt": "Số 25 được đọc là gì?",
+        "promptAudio": "/media/tts/m37-q1-prompt.mp3",
+        "illustration": "/media/images/pencil.svg",
+        "options": [
+          {
+            "id": "m37-opt-25",
+            "label": "Hai mươi lăm",
+            "audio": "/media/tts/m37-q1-opt0.mp3"
+          },
+          {
+            "id": "m37-opt-25b",
+            "label": "Hai mươi năm",
+            "audio": "/media/tts/m37-q1-opt1.mp3"
+          },
+          {
+            "id": "m37-opt-25c",
+            "label": "Hai lăm",
+            "audio": "/media/tts/m37-q1-opt2.mp3"
+          }
+        ],
+        "correctOptionId": "m37-opt-25",
+        "explanation": "Số 25 đọc chuẩn là hai mươi lăm.",
+        "explanationAudio": "/media/tts/m37-q1-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m37-slide-q2",
+      "teacherNote": "Câu hỏi 2: Số 'bốn mươi mốt' được viết là số nào?",
+      "question": {
+        "type": "multiple_choice",
+        "id": "m37-q2-mc",
+        "prompt": "Số 'bốn mươi mốt' được viết là số nào?",
+        "promptAudio": "/media/tts/m37-q2-prompt.mp3",
+        "illustration": "/media/images/pencil.svg",
+        "options": [
+          {
+            "id": "m37-opt-41",
+            "label": "41",
+            "audio": "/media/tts/m37-q2-opt0.mp3"
+          },
+          {
+            "id": "m37-opt-14",
+            "label": "14",
+            "audio": "/media/tts/m37-q2-opt1.mp3"
+          },
+          {
+            "id": "m37-opt-40",
+            "label": "40",
+            "audio": "/media/tts/m37-q2-opt2.mp3"
+          }
+        ],
+        "correctOptionId": "m37-opt-41",
+        "explanation": "Bốn mươi mốt viết là 41.",
+        "explanationAudio": "/media/tts/m37-q2-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m37-slide-q3",
+      "teacherNote": "Câu hỏi 3: Nối số với cấu tạo số tương ứng:",
+      "question": {
+        "type": "matching",
+        "id": "m37-q3-match",
+        "prompt": "Nối số với cấu tạo số tương ứng:",
+        "promptAudio": "/media/tts/m37-q3-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "leftColumn": [
+          {
+            "id": "m37-l1",
+            "label": "Số 38",
+            "audio": "/media/tts/m37-q3-l0.mp3"
+          },
+          {
+            "id": "m37-l2",
+            "label": "Số 62",
+            "audio": "/media/tts/m37-q3-l1.mp3"
+          },
+          {
+            "id": "m37-l3",
+            "label": "Số 70",
+            "audio": "/media/tts/m37-q3-l2.mp3"
+          }
+        ],
+        "rightColumn": [
+          {
+            "id": "m37-r1",
+            "label": "Gồm 3 chục và 8 đơn vị",
+            "audio": "/media/tts/m37-q3-r0.mp3"
+          },
+          {
+            "id": "m37-r2",
+            "label": "Gồm 6 chục và 2 đơn vị",
+            "audio": "/media/tts/m37-q3-r1.mp3"
+          },
+          {
+            "id": "m37-r3",
+            "label": "Gồm 7 chục và 0 đơn vị",
+            "audio": "/media/tts/m37-q3-r2.mp3"
+          }
+        ],
+        "correctPairs": [
+          {
+            "leftId": "m37-l1",
+            "rightId": "m37-r1"
+          },
+          {
+            "leftId": "m37-l2",
+            "rightId": "m37-r2"
+          },
+          {
+            "leftId": "m37-l3",
+            "rightId": "m37-r3"
+          }
+        ],
+        "explanation": "38 gồm 3 chục 8 đơn vị; 62 gồm 6 chục 2 đơn vị; 70 gồm 7 chục.",
+        "explanationAudio": "/media/tts/m37-q3-exp.mp3"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m37-slide-q4",
+      "teacherNote": "Câu hỏi 4: Điền số thích hợp: Số liền trước số 50 l",
+      "question": {
+        "type": "tap_place",
+        "id": "m37-q4-tap",
+        "prompt": "Điền số thích hợp: Số liền trước số 50 là ...",
+        "promptAudio": "/media/tts/m37-q4-prompt.mp3",
+        "illustration": "/media/images/pencil.svg",
+        "targets": [
+          {
+            "id": "m37-t1",
+            "label": "...",
+            "prefixText": "Số liền trước 50 là ",
+            "suffixText": "."
+          }
+        ],
+        "items": [
+          {
+            "id": "m37-i1",
+            "label": "49",
+            "audio": "/media/tts/m37-q4-it0.mp3"
+          },
+          {
+            "id": "m37-i2",
+            "label": "51",
+            "audio": "/media/tts/m37-q4-it1.mp3"
+          }
+        ],
+        "correctMapping": {
+          "m37-i1": "m37-t1"
+        },
+        "explanation": "Số liền trước số 50 là số 49.",
+        "explanationAudio": "/media/tts/m37-q4-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m37-slide-q5",
+      "teacherNote": "Câu hỏi 5: Số gồm 8 chục và 3 đơn vị là số nào?",
+      "question": {
+        "type": "number_select",
+        "id": "m37-q5-num",
+        "prompt": "Số gồm 8 chục và 3 đơn vị là số nào?",
+        "promptAudio": "/media/tts/m37-q5-prompt.mp3",
+        "illustration": "/media/images/pencil.svg",
+        "expression": "8 chục + 3 đơn vị = ?",
+        "choices": [
+          38,
+          80,
+          83,
+          85
+        ],
+        "correctAnswer": 83,
+        "explanation": "8 chục và 3 đơn vị ghép lại là số 83.",
+        "explanationAudio": "/media/tts/m37-q5-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m37-slide-q6",
+      "teacherNote": "Câu hỏi 6: Đếm xem có bao nhiêu chiếc bút chì màu?",
+      "question": {
+        "type": "counting",
+        "id": "m37-q6-cnt",
+        "prompt": "Đếm xem có bao nhiêu chiếc bút chì màu?",
+        "promptAudio": "/media/tts/m37-q6-prompt.mp3",
+        "illustration": "/media/images/pencil.svg",
+        "items": [
+          {
+            "image": "/media/images/pencil.svg",
+            "alt": "Hình 1"
+          },
+          {
+            "image": "/media/images/pencil.svg",
+            "alt": "Hình 2"
+          },
+          {
+            "image": "/media/images/pencil.svg",
+            "alt": "Hình 3"
+          },
+          {
+            "image": "/media/images/pencil.svg",
+            "alt": "Hình 4"
+          },
+          {
+            "image": "/media/images/pencil.svg",
+            "alt": "Hình 5"
+          },
+          {
+            "image": "/media/images/pencil.svg",
+            "alt": "Hình 6"
+          },
+          {
+            "image": "/media/images/pencil.svg",
+            "alt": "Hình 7"
+          },
+          {
+            "image": "/media/images/pencil.svg",
+            "alt": "Hình 8"
+          },
+          {
+            "image": "/media/images/pencil.svg",
+            "alt": "Hình 9"
+          },
+          {
+            "image": "/media/images/pencil.svg",
+            "alt": "Hình 10"
+          },
+          {
+            "image": "/media/images/pencil.svg",
+            "alt": "Hình 11"
+          },
+          {
+            "image": "/media/images/pencil.svg",
+            "alt": "Hình 12"
+          },
+          {
+            "image": "/media/images/pencil.svg",
+            "alt": "Hình 13"
+          },
+          {
+            "image": "/media/images/pencil.svg",
+            "alt": "Hình 14"
+          }
+        ],
+        "correctCount": 14,
+        "numberRange": {
+          "min": 1,
+          "max": 16
+        },
+        "explanation": "Có đúng 14 chiếc bút chì.",
+        "explanationAudio": "/media/tts/m37-q6-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    }
+  ]
+}

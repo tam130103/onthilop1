@@ -1,0 +1,270 @@
+{
+  "status": "publish",
+  "mode": "publish",
+  "id": "vn-39-van-iec-ieu",
+  "title": "Bài 39: Các vần iêc, iên, iêu, yêu",
+  "subject": "vietnamese",
+  "grade": 1,
+  "description": "Luyện đọc các vần nguyên âm đôi phong phú: cánh diều, cô tiên, làm việc, tình yêu thương.",
+  "totalDurationMinutes": 25,
+  "slides": [
+    {
+      "type": "title-slide",
+      "id": "vn39-title-slide",
+      "title": "Bài 39: Các vần iêc, iên, iêu, yêu",
+      "subtitle": "Bài học tương tác — Lớp 1",
+      "teacherNote": "iê đổi thành yê khi không có âm đầu (yêu, yến, yên).",
+      "backgroundImage": "/media/images/star.svg",
+      "audio": "/media/tts/vn39-title.mp3"
+    },
+    {
+      "type": "content-slide",
+      "id": "vn39-intro-slide",
+      "title": "Thế giới vần nguyên âm đôi",
+      "body": "Cánh diều bay lượn trên bầu trời mang vần iêu. Cô tiên hiền từ mang vần iên. Bé chăm chỉ làm việc mang vần iêc. Tình yêu gia đình mang vần yêu.",
+      "teacherNote": "iê đổi thành yê khi không có âm đầu (yêu, yến, yên).",
+      "illustration": "/media/images/book.svg",
+      "audio": "/media/tts/vn39-intro.mp3",
+      "bullets": [
+        "i - ê - u - iêu: cánh diều, buổi chiều",
+        "i - ê - n - iên: cô tiên, biển cả",
+        "y - ê - u - yêu: yêu quý, đáng yêu",
+        "Quy tắc: không có âm đầu viết y (yêu, yên)"
+      ]
+    },
+    {
+      "type": "question-slide",
+      "id": "vn39-slide-q1",
+      "teacherNote": "Câu hỏi 1: Từ 'cánh diều' chứa vần gì?",
+      "question": {
+        "type": "multiple_choice",
+        "id": "v39-q1-mc",
+        "prompt": "Từ 'cánh diều' chứa vần gì?",
+        "promptAudio": "/media/tts/v39-q1-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "options": [
+          {
+            "id": "v39-opt-ieu",
+            "label": "Vần iêu",
+            "audio": "/media/tts/v39-q1-opt0.mp3"
+          },
+          {
+            "id": "v39-opt-ien",
+            "label": "Vần iên",
+            "audio": "/media/tts/v39-q1-opt1.mp3"
+          },
+          {
+            "id": "v39-opt-iec",
+            "label": "Vần iêc",
+            "audio": "/media/tts/v39-q1-opt2.mp3"
+          }
+        ],
+        "correctOptionId": "v39-opt-ieu",
+        "explanation": "Cánh diều có tiếng diều chứa vần iêu.",
+        "explanationAudio": "/media/tts/v39-q1-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn39-slide-q2",
+      "teacherNote": "Câu hỏi 2: Khi vần 'iêu' không có âm đầu đứng trước",
+      "question": {
+        "type": "multiple_choice",
+        "id": "v39-q2-mc",
+        "prompt": "Khi vần 'iêu' không có âm đầu đứng trước, vần được viết là gì?",
+        "promptAudio": "/media/tts/v39-q2-prompt.mp3",
+        "illustration": "/media/images/pencil.svg",
+        "options": [
+          {
+            "id": "v39-opt2-yeu",
+            "label": "Viết là yêu",
+            "audio": "/media/tts/v39-q2-opt0.mp3"
+          },
+          {
+            "id": "v39-opt2-ieu",
+            "label": "Viết là iêu",
+            "audio": "/media/tts/v39-q2-opt1.mp3"
+          }
+        ],
+        "correctOptionId": "v39-opt2-yeu",
+        "explanation": "Không có âm đầu thì chữ i ngắn đổi thành y dài: 'yêu'.",
+        "explanationAudio": "/media/tts/v39-q2-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn39-slide-q3",
+      "teacherNote": "Câu hỏi 3: Nối từ ngữ với vần nguyên âm đôi phù hợp",
+      "question": {
+        "type": "matching",
+        "id": "v39-q3-match",
+        "prompt": "Nối từ ngữ với vần nguyên âm đôi phù hợp:",
+        "promptAudio": "/media/tts/v39-q3-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "leftColumn": [
+          {
+            "id": "v39-l1",
+            "label": "Cánh diều",
+            "audio": "/media/tts/v39-q3-l0.mp3"
+          },
+          {
+            "id": "v39-l2",
+            "label": "Cô tiên",
+            "audio": "/media/tts/v39-q3-l1.mp3"
+          },
+          {
+            "id": "v39-l3",
+            "label": "Yêu quý",
+            "audio": "/media/tts/v39-q3-l2.mp3"
+          }
+        ],
+        "rightColumn": [
+          {
+            "id": "v39-r1",
+            "label": "Chứa vần iêu",
+            "audio": "/media/tts/v39-q3-r0.mp3"
+          },
+          {
+            "id": "v39-r2",
+            "label": "Chứa vần iên",
+            "audio": "/media/tts/v39-q3-r1.mp3"
+          },
+          {
+            "id": "v39-r3",
+            "label": "Chứa vần yêu",
+            "audio": "/media/tts/v39-q3-r2.mp3"
+          }
+        ],
+        "correctPairs": [
+          {
+            "leftId": "v39-l1",
+            "rightId": "v39-r1"
+          },
+          {
+            "leftId": "v39-l2",
+            "rightId": "v39-r2"
+          },
+          {
+            "leftId": "v39-l3",
+            "rightId": "v39-r3"
+          }
+        ],
+        "explanation": "Diều vần iêu; tiên vần iên; yêu vần yêu.",
+        "explanationAudio": "/media/tts/v39-q3-exp.mp3"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn39-slide-q4",
+      "teacherNote": "Câu hỏi 4: Điền từ: 'Mỗi buổi sáng bố mẹ chăm chỉ l",
+      "question": {
+        "type": "tap_place",
+        "id": "v39-q4-tap",
+        "prompt": "Điền từ: 'Mỗi buổi sáng bố mẹ chăm chỉ làm ...'",
+        "promptAudio": "/media/tts/v39-q4-prompt.mp3",
+        "illustration": "/media/images/house.svg",
+        "targets": [
+          {
+            "id": "v39-t1",
+            "label": "...",
+            "prefixText": "Chăm chỉ làm ",
+            "suffixText": "."
+          }
+        ],
+        "items": [
+          {
+            "id": "v39-i1",
+            "label": "việc",
+            "audio": "/media/tts/v39-q4-it0.mp3"
+          },
+          {
+            "id": "v39-i2",
+            "label": "tiên",
+            "audio": "/media/tts/v39-q4-it1.mp3"
+          }
+        ],
+        "correctMapping": {
+          "v39-i1": "v39-t1"
+        },
+        "explanation": "Làm việc có tiếng việc chứa vần iêc.",
+        "explanationAudio": "/media/tts/v39-q4-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn39-slide-q5",
+      "teacherNote": "Câu hỏi 5: Đếm xem có bao nhiêu cánh diều đang bay ",
+      "question": {
+        "type": "counting",
+        "id": "v39-q5-cnt",
+        "prompt": "Đếm xem có bao nhiêu cánh diều đang bay trên đồng cỏ?",
+        "promptAudio": "/media/tts/v39-q5-prompt.mp3",
+        "illustration": "/media/images/bird.svg",
+        "items": [
+          {
+            "image": "/media/images/bird.svg",
+            "alt": "Hình 1"
+          },
+          {
+            "image": "/media/images/bird.svg",
+            "alt": "Hình 2"
+          },
+          {
+            "image": "/media/images/bird.svg",
+            "alt": "Hình 3"
+          },
+          {
+            "image": "/media/images/bird.svg",
+            "alt": "Hình 4"
+          }
+        ],
+        "correctCount": 4,
+        "numberRange": {
+          "min": 1,
+          "max": 10
+        },
+        "explanation": "Có đúng 4 cánh diều no gió.",
+        "explanationAudio": "/media/tts/v39-q5-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "vn39-slide-q6",
+      "teacherNote": "Câu hỏi 6: Từ nào dưới đây nói về biển cả bao la?",
+      "question": {
+        "type": "multiple_choice",
+        "id": "v39-q6-mc",
+        "prompt": "Từ nào dưới đây nói về biển cả bao la?",
+        "promptAudio": "/media/tts/v39-q6-prompt.mp3",
+        "illustration": "/media/images/boat.svg",
+        "options": [
+          {
+            "id": "v39-opt6-bienca",
+            "label": "Biển cả",
+            "audio": "/media/tts/v39-q6-opt0.mp3"
+          },
+          {
+            "id": "v39-opt6-canhsua",
+            "label": "Cánh đồng",
+            "audio": "/media/tts/v39-q6-opt1.mp3"
+          }
+        ],
+        "correctOptionId": "v39-opt6-bienca",
+        "explanation": "Biển cả có tiếng biển chứa vần iên.",
+        "explanationAudio": "/media/tts/v39-q6-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    }
+  ]
+}

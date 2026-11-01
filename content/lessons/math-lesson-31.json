@@ -1,0 +1,269 @@
+{
+  "status": "publish",
+  "mode": "publish",
+  "id": "math-31-khoi-lap-phuong-hop",
+  "title": "Bài 31: Khối lập phương & Khối hộp chữ nhật",
+  "subject": "math",
+  "grade": 1,
+  "description": "Nhận diện khối lập phương (viên xúc xắc, hộp quà vuông) và khối hộp chữ nhật (hộp sữa, hộp bánh).",
+  "totalDurationMinutes": 25,
+  "slides": [
+    {
+      "type": "title-slide",
+      "id": "m31-title-slide",
+      "title": "Bài 31: Khối lập phương & Khối hộp chữ nhật",
+      "subtitle": "Bài học tương tác — Lớp 1",
+      "teacherNote": "Cho học sinh quan sát đồ vật thật và chỉ ra các mặt phẳng của khối hình.",
+      "backgroundImage": "/media/images/star.svg",
+      "audio": "/media/tts/m31-title.mp3"
+    },
+    {
+      "type": "content-slide",
+      "id": "m31-intro-slide",
+      "title": "Khối lập phương và Khối hộp chữ nhật",
+      "body": "Viên xúc xắc có dạng khối lập phương. Hộp sữa, viên gạch có dạng khối hộp chữ nhật. Chúng mình cùng tìm thêm các đồ vật xung quanh nhé!",
+      "teacherNote": "Cho học sinh quan sát đồ vật thật và chỉ ra các mặt phẳng của khối hình.",
+      "illustration": "/media/images/star.svg",
+      "audio": "/media/tts/m31-intro.mp3",
+      "bullets": [
+        "Khối lập phương: 6 mặt hình vuông bằng nhau",
+        "Khối hộp chữ nhật: các mặt là hình chữ nhật",
+        "Ví dụ: hộp quà vuông, hộp sữa tươi"
+      ]
+    },
+    {
+      "type": "question-slide",
+      "id": "m31-slide-q1",
+      "teacherNote": "Câu hỏi 1: Viên xúc xắc đồ chơi có dạng khối hình g",
+      "question": {
+        "type": "multiple_choice",
+        "id": "m31-q1-mc",
+        "prompt": "Viên xúc xắc đồ chơi có dạng khối hình gì?",
+        "promptAudio": "/media/tts/m31-q1-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "options": [
+          {
+            "id": "m31-opt-lp",
+            "label": "Khối lập phương",
+            "audio": "/media/tts/m31-q1-opt0.mp3"
+          },
+          {
+            "id": "m31-opt-hcn",
+            "label": "Khối hộp chữ nhật",
+            "audio": "/media/tts/m31-q1-opt1.mp3"
+          },
+          {
+            "id": "m31-opt-tron",
+            "label": "Khối hình cầu",
+            "audio": "/media/tts/m31-q1-opt2.mp3"
+          }
+        ],
+        "correctOptionId": "m31-opt-lp",
+        "explanation": "Viên xúc xắc có các mặt vuông bằng nhau nên có dạng khối lập phương.",
+        "explanationAudio": "/media/tts/m31-q1-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m31-slide-q2",
+      "teacherNote": "Câu hỏi 2: Hộp sữa tươi cô giáo hay uống có dạng kh",
+      "question": {
+        "type": "multiple_choice",
+        "id": "m31-q2-mc",
+        "prompt": "Hộp sữa tươi cô giáo hay uống có dạng khối gì?",
+        "promptAudio": "/media/tts/m31-q2-prompt.mp3",
+        "illustration": "/media/images/milk.svg",
+        "options": [
+          {
+            "id": "m31-opt2-hcn",
+            "label": "Khối hộp chữ nhật",
+            "audio": "/media/tts/m31-q2-opt0.mp3"
+          },
+          {
+            "id": "m31-opt2-lp",
+            "label": "Khối lập phương",
+            "audio": "/media/tts/m31-q2-opt1.mp3"
+          },
+          {
+            "id": "m31-opt2-tam",
+            "label": "Hình tam giác",
+            "audio": "/media/tts/m31-q2-opt2.mp3"
+          }
+        ],
+        "correctOptionId": "m31-opt2-hcn",
+        "explanation": "Hộp sữa tươi có dạng khối hộp chữ nhật.",
+        "explanationAudio": "/media/tts/m31-q2-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m31-slide-q3",
+      "teacherNote": "Câu hỏi 3: Nối đồ vật với tên khối hình tương ứng:",
+      "question": {
+        "type": "matching",
+        "id": "m31-q3-match",
+        "prompt": "Nối đồ vật với tên khối hình tương ứng:",
+        "promptAudio": "/media/tts/m31-q3-prompt.mp3",
+        "illustration": "/media/images/house.svg",
+        "leftColumn": [
+          {
+            "id": "m31-l1",
+            "label": "Hộp quà vuông",
+            "audio": "/media/tts/m31-q3-l0.mp3"
+          },
+          {
+            "id": "m31-l2",
+            "label": "Hộp bánh quy chữ nhật",
+            "audio": "/media/tts/m31-q3-l1.mp3"
+          },
+          {
+            "id": "m31-l3",
+            "label": "Viên gạch xây nhà",
+            "audio": "/media/tts/m31-q3-l2.mp3"
+          }
+        ],
+        "rightColumn": [
+          {
+            "id": "m31-r1",
+            "label": "Dạng khối lập phương",
+            "audio": "/media/tts/m31-q3-r0.mp3"
+          },
+          {
+            "id": "m31-r2",
+            "label": "Dạng khối hộp chữ nhật",
+            "audio": "/media/tts/m31-q3-r1.mp3"
+          },
+          {
+            "id": "m31-r3",
+            "label": "Khối hộp chữ nhật",
+            "audio": "/media/tts/m31-q3-r2.mp3"
+          }
+        ],
+        "correctPairs": [
+          {
+            "leftId": "m31-l1",
+            "rightId": "m31-r1"
+          },
+          {
+            "leftId": "m31-l2",
+            "rightId": "m31-r2"
+          },
+          {
+            "leftId": "m31-l3",
+            "rightId": "m31-r3"
+          }
+        ],
+        "explanation": "Hộp quà vuông là khối lập phương; hộp bánh và viên gạch là khối hộp chữ nhật.",
+        "explanationAudio": "/media/tts/m31-q3-exp.mp3"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m31-slide-q4",
+      "teacherNote": "Câu hỏi 4: Điền từ thích hợp: 'Khối ... có 6 mặt hì",
+      "question": {
+        "type": "tap_place",
+        "id": "m31-q4-tap",
+        "prompt": "Điền từ thích hợp: 'Khối ... có 6 mặt hình vuông bằng nhau.'",
+        "promptAudio": "/media/tts/m31-q4-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "targets": [
+          {
+            "id": "m31-t1",
+            "label": "...",
+            "prefixText": "Khối ",
+            "suffixText": " có 6 mặt vuông."
+          }
+        ],
+        "items": [
+          {
+            "id": "m31-i1",
+            "label": "lập phương",
+            "audio": "/media/tts/m31-q4-it0.mp3"
+          },
+          {
+            "id": "m31-i2",
+            "label": "hộp chữ nhật",
+            "audio": "/media/tts/m31-q4-it1.mp3"
+          }
+        ],
+        "correctMapping": {
+          "m31-i1": "m31-t1"
+        },
+        "explanation": "Khối lập phương có các mặt là hình vuông bằng nhau.",
+        "explanationAudio": "/media/tts/m31-q4-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m31-slide-q5",
+      "teacherNote": "Câu hỏi 5: Đếm xem có bao nhiêu khối lập phương trê",
+      "question": {
+        "type": "counting",
+        "id": "m31-q5-cnt",
+        "prompt": "Đếm xem có bao nhiêu khối lập phương trên hình?",
+        "promptAudio": "/media/tts/m31-q5-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "items": [
+          {
+            "image": "/media/images/star.svg",
+            "alt": "Hình 1"
+          },
+          {
+            "image": "/media/images/star.svg",
+            "alt": "Hình 2"
+          },
+          {
+            "image": "/media/images/star.svg",
+            "alt": "Hình 3"
+          },
+          {
+            "image": "/media/images/star.svg",
+            "alt": "Hình 4"
+          }
+        ],
+        "correctCount": 4,
+        "numberRange": {
+          "min": 1,
+          "max": 10
+        },
+        "explanation": "Có đúng 4 khối hình lập phương.",
+        "explanationAudio": "/media/tts/m31-q5-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m31-slide-q6",
+      "teacherNote": "Câu hỏi 6: Bé Nam xếp 3 khối hộp chữ nhật và 2 khối",
+      "question": {
+        "type": "number_select",
+        "id": "m31-q6-num",
+        "prompt": "Bé Nam xếp 3 khối hộp chữ nhật và 2 khối lập phương. Hỏi bé có tất cả mấy khối?",
+        "promptAudio": "/media/tts/m31-q6-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "expression": "3 + 2 = ?",
+        "choices": [
+          4,
+          5,
+          6,
+          7
+        ],
+        "correctAnswer": 5,
+        "explanation": "3 cộng 2 bằng 5 khối hình tất cả.",
+        "explanationAudio": "/media/tts/m31-q6-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    }
+  ]
+}

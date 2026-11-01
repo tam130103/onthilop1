@@ -1,0 +1,269 @@
+{
+  "status": "publish",
+  "mode": "publish",
+  "id": "math-38-so-sanh-so-100",
+  "title": "Bài 38: So sánh các số đến 100",
+  "subject": "math",
+  "grade": 1,
+  "description": "So sánh hai số có hai chữ số: so sánh chữ số hàng chục trước, nếu bằng nhau thì so sánh hàng đơn vị.",
+  "totalDurationMinutes": 25,
+  "slides": [
+    {
+      "type": "title-slide",
+      "id": "m38-title-slide",
+      "title": "Bài 38: So sánh các số đến 100",
+      "subtitle": "Bài học tương tác — Lớp 1",
+      "teacherNote": "Rèn quy tắc so sánh từ hàng chục rồi mới đến hàng đơn vị.",
+      "backgroundImage": "/media/images/star.svg",
+      "audio": "/media/tts/m38-title.mp3"
+    },
+    {
+      "type": "content-slide",
+      "id": "m38-intro-slide",
+      "title": "Quy tắc so sánh số đến 100",
+      "body": "Bước 1: So sánh chữ số hàng chục. Số nào có chữ số hàng chục lớn hơn thì lớn hơn. Bước 2: Nếu hàng chục bằng nhau, so sánh chữ số hàng đơn vị.",
+      "teacherNote": "Rèn quy tắc so sánh từ hàng chục rồi mới đến hàng đơn vị.",
+      "illustration": "/media/images/star.svg",
+      "audio": "/media/tts/m38-intro.mp3",
+      "bullets": [
+        "Ví dụ: 45 > 39 vì 4 chục > 3 chục",
+        "Ví dụ: 58 > 52 vì 8 đơn vị > 2 đơn vị",
+        "Nếu bằng nhau cả hai hàng: 64 = 64"
+      ]
+    },
+    {
+      "type": "question-slide",
+      "id": "m38-slide-q1",
+      "teacherNote": "Câu hỏi 1: Điền dấu thích hợp: 63 ... 59",
+      "question": {
+        "type": "multiple_choice",
+        "id": "m38-q1-mc",
+        "prompt": "Điền dấu thích hợp: 63 ... 59",
+        "promptAudio": "/media/tts/m38-q1-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "options": [
+          {
+            "id": "m38-opt-lon",
+            "label": "> (lớn hơn)",
+            "audio": "/media/tts/m38-q1-opt0.mp3"
+          },
+          {
+            "id": "m38-opt-be",
+            "label": "< (bé hơn)",
+            "audio": "/media/tts/m38-q1-opt1.mp3"
+          },
+          {
+            "id": "m38-opt-bang",
+            "label": "= (bằng)",
+            "audio": "/media/tts/m38-q1-opt2.mp3"
+          }
+        ],
+        "correctOptionId": "m38-opt-lon",
+        "explanation": "Vì 6 chục lớn hơn 5 chục nên 63 > 59.",
+        "explanationAudio": "/media/tts/m38-q1-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m38-slide-q2",
+      "teacherNote": "Câu hỏi 2: Điền dấu thích hợp: 42 ... 47",
+      "question": {
+        "type": "multiple_choice",
+        "id": "m38-q2-mc",
+        "prompt": "Điền dấu thích hợp: 42 ... 47",
+        "promptAudio": "/media/tts/m38-q2-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "options": [
+          {
+            "id": "m38-opt2-be",
+            "label": "< (bé hơn)",
+            "audio": "/media/tts/m38-q2-opt0.mp3"
+          },
+          {
+            "id": "m38-opt2-lon",
+            "label": "> (lớn hơn)",
+            "audio": "/media/tts/m38-q2-opt1.mp3"
+          },
+          {
+            "id": "m38-opt2-bang",
+            "label": "= (bằng)",
+            "audio": "/media/tts/m38-q2-opt2.mp3"
+          }
+        ],
+        "correctOptionId": "m38-opt2-be",
+        "explanation": "Hàng chục đều là 4, so sánh hàng đơn vị: 2 < 7 nên 42 < 47.",
+        "explanationAudio": "/media/tts/m38-q2-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m38-slide-q3",
+      "teacherNote": "Câu hỏi 3: Nối cặp số với dấu so sánh đúng:",
+      "question": {
+        "type": "matching",
+        "id": "m38-q3-match",
+        "prompt": "Nối cặp số với dấu so sánh đúng:",
+        "promptAudio": "/media/tts/m38-q3-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "leftColumn": [
+          {
+            "id": "m38-l1",
+            "label": "75 và 72",
+            "audio": "/media/tts/m38-q3-l0.mp3"
+          },
+          {
+            "id": "m38-l2",
+            "label": "34 và 81",
+            "audio": "/media/tts/m38-q3-l1.mp3"
+          },
+          {
+            "id": "m38-l3",
+            "label": "90 và 90",
+            "audio": "/media/tts/m38-q3-l2.mp3"
+          }
+        ],
+        "rightColumn": [
+          {
+            "id": "m38-r1",
+            "label": "75 > 72",
+            "audio": "/media/tts/m38-q3-r0.mp3"
+          },
+          {
+            "id": "m38-r2",
+            "label": "34 < 81",
+            "audio": "/media/tts/m38-q3-r1.mp3"
+          },
+          {
+            "id": "m38-r3",
+            "label": "90 = 90",
+            "audio": "/media/tts/m38-q3-r2.mp3"
+          }
+        ],
+        "correctPairs": [
+          {
+            "leftId": "m38-l1",
+            "rightId": "m38-r1"
+          },
+          {
+            "leftId": "m38-l2",
+            "rightId": "m38-r2"
+          },
+          {
+            "leftId": "m38-l3",
+            "rightId": "m38-r3"
+          }
+        ],
+        "explanation": "75 > 72; 34 < 81; 90 = 90.",
+        "explanationAudio": "/media/tts/m38-q3-exp.mp3"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m38-slide-q4",
+      "teacherNote": "Câu hỏi 4: Chọn số lớn nhất trong các số: 38, 71, 6",
+      "question": {
+        "type": "tap_place",
+        "id": "m38-q4-tap",
+        "prompt": "Chọn số lớn nhất trong các số: 38, 71, 65",
+        "promptAudio": "/media/tts/m38-q4-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "targets": [
+          {
+            "id": "m38-t1",
+            "label": "...",
+            "prefixText": "Số lớn nhất là ",
+            "suffixText": "."
+          }
+        ],
+        "items": [
+          {
+            "id": "m38-i1",
+            "label": "71",
+            "audio": "/media/tts/m38-q4-it0.mp3"
+          },
+          {
+            "id": "m38-i2",
+            "label": "65",
+            "audio": "/media/tts/m38-q4-it1.mp3"
+          },
+          {
+            "id": "m38-i3",
+            "label": "38",
+            "audio": "/media/tts/m38-q4-it2.mp3"
+          }
+        ],
+        "correctMapping": {
+          "m38-i1": "m38-t1"
+        },
+        "explanation": "71 có 7 chục là lớn nhất trong 3 số.",
+        "explanationAudio": "/media/tts/m38-q4-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m38-slide-q5",
+      "teacherNote": "Câu hỏi 5: Tìm số bé nhất trong các số: 82, 19, 45,",
+      "question": {
+        "type": "number_select",
+        "id": "m38-q5-num",
+        "prompt": "Tìm số bé nhất trong các số: 82, 19, 45, 60",
+        "promptAudio": "/media/tts/m38-q5-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "expression": "Số bé nhất là: ?",
+        "choices": [
+          19,
+          45,
+          60,
+          82
+        ],
+        "correctAnswer": 19,
+        "explanation": "19 có 1 chục nên là số bé nhất.",
+        "explanationAudio": "/media/tts/m38-q5-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m38-slide-q6",
+      "teacherNote": "Câu hỏi 6: Sắp xếp theo thứ tự từ bé đến lớn: 28, 5",
+      "question": {
+        "type": "multiple_choice",
+        "id": "m38-q6-mc",
+        "prompt": "Sắp xếp theo thứ tự từ bé đến lớn: 28, 54, 15",
+        "promptAudio": "/media/tts/m38-q6-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "options": [
+          {
+            "id": "m38-opt6-dung",
+            "label": "15, 28, 54",
+            "audio": "/media/tts/m38-q6-opt0.mp3"
+          },
+          {
+            "id": "m38-opt6-sai1",
+            "label": "54, 28, 15",
+            "audio": "/media/tts/m38-q6-opt1.mp3"
+          },
+          {
+            "id": "m38-opt6-sai2",
+            "label": "28, 15, 54",
+            "audio": "/media/tts/m38-q6-opt2.mp3"
+          }
+        ],
+        "correctOptionId": "m38-opt6-dung",
+        "explanation": "Thứ tự từ bé đến lớn là: 15, 28, 54.",
+        "explanationAudio": "/media/tts/m38-q6-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    }
+  ]
+}

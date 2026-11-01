@@ -372,6 +372,113 @@
   font-weight: 700;
 }
 
+/* Mode Tab Selector */
+.modeTabs {
+  display: flex;
+  background: #f1f5f9;
+  padding: 4px;
+  border-radius: 12px;
+  gap: 4px;
+}
+
+.modeTab {
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: none;
+  background: transparent;
+  font-size: 14px;
+  font-weight: 700;
+  color: #64748b;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.modeTabActive {
+  background: #ffffff;
+  color: #0f172a;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.oliToolbarRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding: 8px 0;
+}
+
+.oliSheet {
+  background: #ffffff;
+  width: 210mm;
+  min-height: 297mm;
+  padding: 14mm 14mm;
+  margin: 0 auto;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  border-radius: 4px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  color: #0f172a;
+}
+
+.oliHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 2px solid #0f172a;
+  padding-bottom: 10px;
+}
+
+.oliHeaderLeft {
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.oliScoreBox {
+  border: 1.5px solid #0f172a;
+  border-radius: 8px;
+  padding: 6px 14px;
+  text-align: center;
+  font-size: 12px;
+  min-width: 140px;
+}
+
+.oliMainTitle {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 6px 0;
+  color: #0f172a;
+}
+
+.oliSubtitle {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 700;
+  color: #3b82f6;
+  margin-bottom: 12px;
+}
+
+.oliLinesList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+
+.oliRowWrapper {
+  width: 100%;
+}
+
+.oliSvg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
 /* Print Rules */
 @media print {
   body {
@@ -387,12 +494,13 @@
     gap: 0 !important;
   }
 
-  .sheet {
+  .sheet, .oliSheet {
     box-shadow: none !important;
-    padding: 12mm 12mm !important;
+    padding: 10mm 10mm !important;
     margin: 0 !important;
     width: 100% !important;
     min-height: auto !important;
+    border-radius: 0 !important;
   }
 
   .teacherPage {

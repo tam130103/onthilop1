@@ -1,0 +1,254 @@
+{
+  "status": "publish",
+  "mode": "publish",
+  "id": "math-36-so-tron-chuc",
+  "title": "Bài 36: Các số tròn chục đến 90",
+  "subject": "math",
+  "grade": 1,
+  "description": "Đọc, viết các số tròn chục 10, 20, 30, 40, 50, 60, 70, 80, 90 và cộng trừ số tròn chục.",
+  "totalDurationMinutes": 25,
+  "slides": [
+    {
+      "type": "title-slide",
+      "id": "m36-title-slide",
+      "title": "Bài 36: Các số tròn chục đến 90",
+      "subtitle": "Bài học tương tác — Lớp 1",
+      "teacherNote": "Số tròn chục có chữ số hàng đơn vị bằng 0.",
+      "backgroundImage": "/media/images/star.svg",
+      "audio": "/media/tts/m36-title.mp3"
+    },
+    {
+      "type": "content-slide",
+      "id": "m36-intro-slide",
+      "title": "Thế giới các số tròn chục",
+      "body": "Mỗi bó có 10 que tính. 1 bó là 10 (mười), 2 bó là 20 (hai mươi), 3 bó là 30 (ba mươi)... đến 9 bó là 90 (chín mươi).",
+      "teacherNote": "Số tròn chục có chữ số hàng đơn vị bằng 0.",
+      "illustration": "/media/images/star.svg",
+      "audio": "/media/tts/m36-intro.mp3",
+      "bullets": [
+        "Các số tròn chục: 10, 20, 30, 40, 50, 60, 70, 80, 90",
+        "Chữ số tận cùng luôn là 0",
+        "Cộng nhẩm: 20 + 30 = 50"
+      ]
+    },
+    {
+      "type": "question-slide",
+      "id": "m36-slide-q1",
+      "teacherNote": "Câu hỏi 1: Tính nhẩm: 30 + 20 = ?",
+      "question": {
+        "type": "number_select",
+        "id": "m36-q1-num",
+        "prompt": "Tính nhẩm: 30 + 20 = ?",
+        "promptAudio": "/media/tts/m36-q1-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "expression": "30 + 20 = ?",
+        "choices": [
+          40,
+          50,
+          60,
+          70
+        ],
+        "correctAnswer": 50,
+        "explanation": "3 chục cộng 2 chục bằng 5 chục (50).",
+        "explanationAudio": "/media/tts/m36-q1-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m36-slide-q2",
+      "teacherNote": "Câu hỏi 2: Tính nhẩm: 70 - 40 = ?",
+      "question": {
+        "type": "number_select",
+        "id": "m36-q2-num",
+        "prompt": "Tính nhẩm: 70 - 40 = ?",
+        "promptAudio": "/media/tts/m36-q2-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "expression": "70 - 40 = ?",
+        "choices": [
+          20,
+          30,
+          40,
+          50
+        ],
+        "correctAnswer": 30,
+        "explanation": "7 chục trừ 4 chục bằng 3 chục (30).",
+        "explanationAudio": "/media/tts/m36-q2-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m36-slide-q3",
+      "teacherNote": "Câu hỏi 3: Số nào dưới đây là số tròn chục?",
+      "question": {
+        "type": "multiple_choice",
+        "id": "m36-q3-mc",
+        "prompt": "Số nào dưới đây là số tròn chục?",
+        "promptAudio": "/media/tts/m36-q3-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "options": [
+          {
+            "id": "m36-opt-40",
+            "label": "Số 40",
+            "audio": "/media/tts/m36-q3-opt0.mp3"
+          },
+          {
+            "id": "m36-opt-45",
+            "label": "Số 45",
+            "audio": "/media/tts/m36-q3-opt1.mp3"
+          },
+          {
+            "id": "m36-opt-34",
+            "label": "Số 34",
+            "audio": "/media/tts/m36-q3-opt2.mp3"
+          }
+        ],
+        "correctOptionId": "m36-opt-40",
+        "explanation": "Số 40 có chữ số hàng đơn vị là 0 nên là số tròn chục.",
+        "explanationAudio": "/media/tts/m36-q3-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m36-slide-q4",
+      "teacherNote": "Câu hỏi 4: Nối phép tính tròn chục với kết quả đúng",
+      "question": {
+        "type": "matching",
+        "id": "m36-q4-match",
+        "prompt": "Nối phép tính tròn chục với kết quả đúng:",
+        "promptAudio": "/media/tts/m36-q4-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "leftColumn": [
+          {
+            "id": "m36-l1",
+            "label": "10 + 40",
+            "audio": "/media/tts/m36-q4-l0.mp3"
+          },
+          {
+            "id": "m36-l2",
+            "label": "80 - 20",
+            "audio": "/media/tts/m36-q4-l1.mp3"
+          },
+          {
+            "id": "m36-l3",
+            "label": "50 + 40",
+            "audio": "/media/tts/m36-q4-l2.mp3"
+          }
+        ],
+        "rightColumn": [
+          {
+            "id": "m36-r1",
+            "label": "Bằng 50",
+            "audio": "/media/tts/m36-q4-r0.mp3"
+          },
+          {
+            "id": "m36-r2",
+            "label": "Bằng 60",
+            "audio": "/media/tts/m36-q4-r1.mp3"
+          },
+          {
+            "id": "m36-r3",
+            "label": "Bằng 90",
+            "audio": "/media/tts/m36-q4-r2.mp3"
+          }
+        ],
+        "correctPairs": [
+          {
+            "leftId": "m36-l1",
+            "rightId": "m36-r1"
+          },
+          {
+            "leftId": "m36-l2",
+            "rightId": "m36-r2"
+          },
+          {
+            "leftId": "m36-l3",
+            "rightId": "m36-r3"
+          }
+        ],
+        "explanation": "10+40=50; 80-20=60; 50+40=90.",
+        "explanationAudio": "/media/tts/m36-q4-exp.mp3"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m36-slide-q5",
+      "teacherNote": "Câu hỏi 5: Điền số tròn chục thích hợp: 50 + ... = ",
+      "question": {
+        "type": "tap_place",
+        "id": "m36-q5-tap",
+        "prompt": "Điền số tròn chục thích hợp: 50 + ... = 80",
+        "promptAudio": "/media/tts/m36-q5-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "targets": [
+          {
+            "id": "m36-t1",
+            "label": "...",
+            "prefixText": "50 + ",
+            "suffixText": " = 80"
+          }
+        ],
+        "items": [
+          {
+            "id": "m36-i1",
+            "label": "30",
+            "audio": "/media/tts/m36-q5-it0.mp3"
+          },
+          {
+            "id": "m36-i2",
+            "label": "20",
+            "audio": "/media/tts/m36-q5-it1.mp3"
+          }
+        ],
+        "correctMapping": {
+          "m36-i1": "m36-t1"
+        },
+        "explanation": "50 cộng 30 bằng 80.",
+        "explanationAudio": "/media/tts/m36-q5-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m36-slide-q6",
+      "teacherNote": "Câu hỏi 6: Số tròn chục lớn nhất có hai chữ số là s",
+      "question": {
+        "type": "multiple_choice",
+        "id": "m36-q6-mc",
+        "prompt": "Số tròn chục lớn nhất có hai chữ số là số nào?",
+        "promptAudio": "/media/tts/m36-q6-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "options": [
+          {
+            "id": "m36-opt-90",
+            "label": "Số 90",
+            "audio": "/media/tts/m36-q6-opt0.mp3"
+          },
+          {
+            "id": "m36-opt-99",
+            "label": "Số 99",
+            "audio": "/media/tts/m36-q6-opt1.mp3"
+          },
+          {
+            "id": "m36-opt-100",
+            "label": "Số 100",
+            "audio": "/media/tts/m36-q6-opt2.mp3"
+          }
+        ],
+        "correctOptionId": "m36-opt-90",
+        "explanation": "90 là số tròn chục có 2 chữ số lớn nhất (100 có 3 chữ số).",
+        "explanationAudio": "/media/tts/m36-q6-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    }
+  ]
+}

@@ -1,0 +1,263 @@
+{
+  "status": "publish",
+  "mode": "publish",
+  "id": "math-33-xep-hinh-khoi",
+  "title": "Bài 33: Thực hành Xếp hình bằng khối",
+  "subject": "math",
+  "grade": 1,
+  "description": "Tạo hình tòa tháp, ngôi nhà, cây cầu bằng cách kết hợp khối lập phương và khối hộp chữ nhật.",
+  "totalDurationMinutes": 25,
+  "slides": [
+    {
+      "type": "title-slide",
+      "id": "m33-title-slide",
+      "title": "Bài 33: Thực hành Xếp hình bằng khối",
+      "subtitle": "Bài học tương tác — Lớp 1",
+      "teacherNote": "Phát triển tư duy hình học không gian và sự khéo léo của đôi tay.",
+      "backgroundImage": "/media/images/star.svg",
+      "audio": "/media/tts/m33-title.mp3"
+    },
+    {
+      "type": "content-slide",
+      "id": "m33-intro-slide",
+      "title": "Sáng tạo với khối hình",
+      "body": "Các kiến trúc sư nhí hãy dùng khối hình để xây dựng những công trình thật đẹp nhé! Khối phẳng giúp đứng vững, xếp chồng tạo thành tòa tháp cao.",
+      "teacherNote": "Phát triển tư duy hình học không gian và sự khéo léo của đôi tay.",
+      "illustration": "/media/images/star.svg",
+      "audio": "/media/tts/m33-intro.mp3",
+      "bullets": [
+        "Đặt khối to ở dưới để đứng vững",
+        "Xếp chồng các khối tạo thành tòa tháp",
+        "Ghép hai khối ngang tạo thành cây cầu"
+      ]
+    },
+    {
+      "type": "question-slide",
+      "id": "m33-slide-q1",
+      "teacherNote": "Câu hỏi 1: Để xây tòa tháp đứng thật vững, em nên đ",
+      "question": {
+        "type": "multiple_choice",
+        "id": "m33-q1-mc",
+        "prompt": "Để xây tòa tháp đứng thật vững, em nên đặt khối nào ở dưới cùng?",
+        "promptAudio": "/media/tts/m33-q1-prompt.mp3",
+        "illustration": "/media/images/house.svg",
+        "options": [
+          {
+            "id": "m33-opt-to",
+            "label": "Khối to và phẳng",
+            "audio": "/media/tts/m33-q1-opt0.mp3"
+          },
+          {
+            "id": "m33-opt-nho",
+            "label": "Khối nhỏ xíu",
+            "audio": "/media/tts/m33-q1-opt1.mp3"
+          },
+          {
+            "id": "m33-opt-nghieng",
+            "label": "Khối đặt nghiêng",
+            "audio": "/media/tts/m33-q1-opt2.mp3"
+          }
+        ],
+        "correctOptionId": "m33-opt-to",
+        "explanation": "Đặt khối to, phẳng ở đáy giúp tòa tháp giữ thăng bằng tốt nhất.",
+        "explanationAudio": "/media/tts/m33-q1-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m33-slide-q2",
+      "teacherNote": "Câu hỏi 2: Tòa tháp gồm 2 khối hộp chữ nhật làm châ",
+      "question": {
+        "type": "number_select",
+        "id": "m33-q2-num",
+        "prompt": "Tòa tháp gồm 2 khối hộp chữ nhật làm chân và 3 khối lập phương chồng lên. Tháp có mấy khối?",
+        "promptAudio": "/media/tts/m33-q2-prompt.mp3",
+        "illustration": "/media/images/house.svg",
+        "expression": "2 + 3 = ?",
+        "choices": [
+          4,
+          5,
+          6,
+          7
+        ],
+        "correctAnswer": 5,
+        "explanation": "2 cộng 3 bằng 5 khối tất cả.",
+        "explanationAudio": "/media/tts/m33-q2-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m33-slide-q3",
+      "teacherNote": "Câu hỏi 3: Nối công trình với cách ghép khối phù hợ",
+      "question": {
+        "type": "matching",
+        "id": "m33-q3-match",
+        "prompt": "Nối công trình với cách ghép khối phù hợp:",
+        "promptAudio": "/media/tts/m33-q3-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "leftColumn": [
+          {
+            "id": "m33-l1",
+            "label": "Tòa tháp cao",
+            "audio": "/media/tts/m33-q3-l0.mp3"
+          },
+          {
+            "id": "m33-l2",
+            "label": "Bức tường dài",
+            "audio": "/media/tts/m33-q3-l1.mp3"
+          },
+          {
+            "id": "m33-l3",
+            "label": "Mái nhà tam giác",
+            "audio": "/media/tts/m33-q3-l2.mp3"
+          }
+        ],
+        "rightColumn": [
+          {
+            "id": "m33-r1",
+            "label": "Xếp chồng các khối lên nhau",
+            "audio": "/media/tts/m33-q3-r0.mp3"
+          },
+          {
+            "id": "m33-r2",
+            "label": "Xếp các khối nối tiếp nằm ngang",
+            "audio": "/media/tts/m33-q3-r1.mp3"
+          },
+          {
+            "id": "m33-r3",
+            "label": "Đặt khối mái lên trên cùng",
+            "audio": "/media/tts/m33-q3-r2.mp3"
+          }
+        ],
+        "correctPairs": [
+          {
+            "leftId": "m33-l1",
+            "rightId": "m33-r1"
+          },
+          {
+            "leftId": "m33-l2",
+            "rightId": "m33-r2"
+          },
+          {
+            "leftId": "m33-l3",
+            "rightId": "m33-r3"
+          }
+        ],
+        "explanation": "Tòa tháp xếp chồng, bức tường xếp ngang, mái nhà đặt trên cùng.",
+        "explanationAudio": "/media/tts/m33-q3-exp.mp3"
+      },
+      "timeLimitSeconds": 30,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m33-slide-q4",
+      "teacherNote": "Câu hỏi 4: Đếm xem có bao nhiêu khối lập phương màu",
+      "question": {
+        "type": "counting",
+        "id": "m33-q4-cnt",
+        "prompt": "Đếm xem có bao nhiêu khối lập phương màu đỏ trong mô hình?",
+        "promptAudio": "/media/tts/m33-q4-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "items": [
+          {
+            "image": "/media/images/star.svg",
+            "alt": "Hình 1"
+          },
+          {
+            "image": "/media/images/star.svg",
+            "alt": "Hình 2"
+          },
+          {
+            "image": "/media/images/star.svg",
+            "alt": "Hình 3"
+          },
+          {
+            "image": "/media/images/star.svg",
+            "alt": "Hình 4"
+          },
+          {
+            "image": "/media/images/star.svg",
+            "alt": "Hình 5"
+          }
+        ],
+        "correctCount": 5,
+        "numberRange": {
+          "min": 1,
+          "max": 10
+        },
+        "explanation": "Có đúng 5 khối lập phương màu đỏ.",
+        "explanationAudio": "/media/tts/m33-q4-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m33-slide-q5",
+      "teacherNote": "Câu hỏi 5: Điền từ thích hợp: 'Xếp các khối nằm nga",
+      "question": {
+        "type": "tap_place",
+        "id": "m33-q5-tap",
+        "prompt": "Điền từ thích hợp: 'Xếp các khối nằm ngang cạnh nhau tạo thành bức ...'",
+        "promptAudio": "/media/tts/m33-q5-prompt.mp3",
+        "illustration": "/media/images/house.svg",
+        "targets": [
+          {
+            "id": "m33-t1",
+            "label": "...",
+            "prefixText": "Tạo thành bức ",
+            "suffixText": " kiên cố."
+          }
+        ],
+        "items": [
+          {
+            "id": "m33-i1",
+            "label": "tường",
+            "audio": "/media/tts/m33-q5-it0.mp3"
+          },
+          {
+            "id": "m33-i2",
+            "label": "cột",
+            "audio": "/media/tts/m33-q5-it1.mp3"
+          }
+        ],
+        "correctMapping": {
+          "m33-i1": "m33-t1"
+        },
+        "explanation": "Xếp ngang cạnh nhau tạo thành bức tường kiên cố.",
+        "explanationAudio": "/media/tts/m33-q5-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    },
+    {
+      "type": "question-slide",
+      "id": "m33-slide-q6",
+      "teacherNote": "Câu hỏi 6: Bé có 8 khối gỗ, bé đã dùng 5 khối để xâ",
+      "question": {
+        "type": "number_select",
+        "id": "m33-q6-num",
+        "prompt": "Bé có 8 khối gỗ, bé đã dùng 5 khối để xây cầu. Còn lại mấy khối gỗ?",
+        "promptAudio": "/media/tts/m33-q6-prompt.mp3",
+        "illustration": "/media/images/star.svg",
+        "expression": "8 - 5 = ?",
+        "choices": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "correctAnswer": 3,
+        "explanation": "8 trừ 5 bằng 3 khối gỗ.",
+        "explanationAudio": "/media/tts/m33-q6-exp.mp3"
+      },
+      "timeLimitSeconds": 25,
+      "showRetryOnWrong": true
+    }
+  ]
+}
