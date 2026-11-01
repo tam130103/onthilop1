@@ -97,6 +97,12 @@ export const BUILTIN_LESSON_URLS = [
   '/content/lessons/vn-lesson-40.json',
 ];
 
+const builtInLessonIds = new Set<string>();
+
+export function isBuiltInLessonId(id: string): boolean {
+  return builtInLessonIds.has(id);
+}
+
 const STORAGE_KEY = 'trinh_chieu_custom_lessons_v1';
 
 export function getCustomLessons(): Lesson[] {
@@ -249,6 +255,7 @@ export async function getAllLessons(): Promise<Lesson[]> {
         const parsed = LessonSchema.safeParse(json);
         if (parsed.success) {
           loaded.push(parsed.data);
+          builtInLessonIds.add(parsed.data.id);
         }
       }
     } catch {

@@ -13,7 +13,7 @@ import {
 } from '@/core/lesson-storage';
 import { AudioRecordField } from '@/components/common/AudioRecordField';
 import { ThemeToggle } from '@/components/common/ThemeToggle';
-import { getAuthState } from '@/core/auth-service';
+import { getAuthState, subscribeAuth, type AuthState } from '@/core/auth-service';
 import styles from './LessonEditorPage.module.css';
 
 const DEFAULT_NEW_LESSON: Lesson = {
@@ -66,6 +66,7 @@ const DEFAULT_NEW_LESSON: Lesson = {
 export function LessonEditorPage() {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
+  const [authState, setAuthState] = useState<AuthState>(getAuthState());
   const editLessonId = searchParams.get('lesson');
 
   const [lesson, setLesson] = useState<Lesson>(DEFAULT_NEW_LESSON);
@@ -73,14 +74,16 @@ export function LessonEditorPage() {
   const [saveMessage, setSaveMessage] = useState<string | null>(null);
   const [importError, setImportError] = useState<string | null>(null);
 
-  // Phân quyền: Phụ huynh chỉ học bài, không có quyền soạn bài
+  useEffect(() => subscribeAuth(setAuthState), []);
+
+  // Wait for async auth initialization before applying the parent guard.
   useEffect(() => {
-    const auth = getAuthState();
-    if (auth.role === 'parent') {
+    if (authState.isLoading) return;
+    if (authState.role === 'parent') {
       alert('Chức năng Soạn bài giảng chỉ dành riêng cho Giáo viên và Quản trị viên. Phụ huynh chỉ có quyền học tập.');
       navigate('/', { replace: true });
     }
-  }, [navigate]);
+  }, [authState.isLoading, authState.role, navigate]);
 
   // Load existing lesson if editLessonId provided
   useEffect(() => {
@@ -261,6 +264,11 @@ export function LessonEditorPage() {
     }));
     setSelectedSlideIndex(lesson.slides.length);
   }, [lesson.slides.length]);
+
+  if (authState.isLoading) {
+    return <div className={styles.container} aria-busy="true">Đang xác thực...</div>;
+  }
+  if (authState.role === 'parent') return null;
 
   return (
     <div className={styles.container}>

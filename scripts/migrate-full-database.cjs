@@ -17,18 +17,31 @@ if (!connectionString) {
 async function migrate() {
   const client = new Client({
     connectionString,
-    ssl: { rejectUnauthorized: false },
+    ssl: { rejectUnauthorized: true },
   });
 
   try {
     await client.connect();
     console.log('✅ Connected directly to Supabase PostgreSQL database!');
 
-    const migrationFile = path.join(__dirname, '..', 'supabase', 'migrations', '20261031_full_schema.sql');
-    const sql = fs.readFileSync(migrationFile, 'utf8');
-
-    await client.query(sql);
-    console.log('🎉 TOÀN BỘ 11 BẢNG & RLS & SEED DATA ĐÃ ĐƯỢC CẬP NHẬT TRÊN SUPABASE!');
+    const migrationFiles = [
+      '20261031_full_schema.sql',
+      '20261101053116_harden_rls_authorization.sql',
+    ];
+    await client.query('BEGIN');
+    try {
+      for (const migrationFile of migrationFiles) {
+        const filePath = path.join(__dirname, '..', 'supabase', 'migrations', migrationFile);
+        const sql = fs.readFileSync(filePath, 'utf8');
+        console.log(`Applying ${migrationFile}...`);
+        await client.query(sql);
+      }
+      await client.query('COMMIT');
+    } catch (error) {
+      await client.query('ROLLBACK');
+      throw error;
+    }
+    console.log('🎉 Schema, seed data, and hardened RLS policies are up to date!');
 
     // Verify all tables
     const res = await client.query(`

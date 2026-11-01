@@ -1,6 +1,6 @@
 import { createClient, type SupabaseClient } from '@supabase/supabase-js';
 import type { Student } from './classroom-store';
-import { hasActiveSession } from './auth-service';
+import { getAuthState, hasActiveSession } from './auth-service';
 
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || '';
 const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY || import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY || '';
@@ -24,6 +24,7 @@ export function getSupabase(): SupabaseClient | null {
 
 export interface SupabaseStudentRow {
   id: string;
+  classroom_id?: string | null;
   name: string;
   gender?: string | null;
   team_id?: string | null;
@@ -37,6 +38,7 @@ export interface SupabaseStudentRow {
 function rowToStudent(row: SupabaseStudentRow): Student {
   return {
     id: row.id,
+    classroomId: row.classroom_id || undefined,
     name: row.name,
     gender: (row.gender as 'Nam' | 'Nữ') || 'Nam',
     teamId: row.team_id || 'team-1',
@@ -51,6 +53,7 @@ function rowToStudent(row: SupabaseStudentRow): Student {
 function studentToRow(s: Student): SupabaseStudentRow {
   return {
     id: s.id,
+    classroom_id: s.classroomId || 'class-1a1',
     name: s.name,
     gender: s.gender || 'Nam',
     team_id: s.teamId || 'team-1',
@@ -142,18 +145,52 @@ export async function deleteStudentFromSupabaseCloud(id: string): Promise<boolea
 /**
  * Đồng bộ toàn bộ danh sách học sinh lên Supabase Cloud (Batch Upsert - chỉ khi có session)
  */
-export async function syncAllStudentsToSupabase(students: Student[]): Promise<boolean> {
-  if (!hasActiveSession() || students.length === 0) return false;
+export async function syncAllStudentsToSupabase(
+  students: Student[],
+  options: { reconcile?: boolean } = {},
+): Promise<boolean> {
+  if (!hasActiveSession()) return false;
+  // A background save can run while the offline cache is incomplete. Do not
+  // treat an empty local snapshot as an instruction to delete cloud records.
+  if (students.length === 0 && !options.reconcile) return true;
 
   const sb = getSupabase();
   if (!sb) return false;
 
   try {
-    const rows = students.map(studentToRow);
-    const { error } = await sb.from('students').upsert(rows, { onConflict: 'id' });
-    if (error) {
-      console.warn('[Supabase] Lỗi batch upsert học sinh lên Cloud:', error.message);
+    const { data: existing, error: fetchError } = options.reconcile
+      ? await sb.from('students').select('id').eq('classroom_id', 'class-1a1')
+      : { data: null, error: null };
+    if (fetchError || (options.reconcile && !Array.isArray(existing))) {
+      console.warn('[Supabase] Không thể đọc danh sách học sinh hiện tại để đối chiếu:', fetchError?.message);
       return false;
+    }
+
+    const rows = students.map(studentToRow);
+    if (rows.length > 0) {
+      const { error } = await sb.from('students').upsert(rows, { onConflict: 'id' });
+      if (error) {
+        console.warn('[Supabase] Lỗi batch upsert học sinh lên Cloud:', error.message);
+        return false;
+      }
+    }
+
+    if (options.reconcile && Array.isArray(existing)) {
+      const retainedIds = new Set(students.map((student) => student.id));
+      const staleIds = existing
+        .map((row) => (row as { id: string }).id)
+        .filter((id) => !retainedIds.has(id));
+      if (staleIds.length > 0) {
+        const { error: deleteError } = await sb
+          .from('students')
+          .delete()
+          .eq('classroom_id', 'class-1a1')
+          .in('id', staleIds);
+        if (deleteError) {
+          console.warn('[Supabase] Không thể xóa học sinh đã bị gỡ khỏi danh sách:', deleteError.message);
+          return false;
+        }
+      }
     }
     return true;
   } catch (e) {
@@ -217,9 +254,12 @@ export async function recordSessionToSupabase(session: {
 
   const sb = getSupabase();
   if (!sb) return;
+  const teacherId = getAuthState().user?.id;
+  if (!teacherId) return;
   try {
     await sb.from('teaching_sessions').upsert({
       id: session.id,
+      teacher_id: teacherId,
       title: session.title,
       subject: session.subject,
       total_questions: session.totalQuestions || 0,

@@ -28,6 +28,17 @@ import { getTeachingSessionById } from '@/core/session-storage';
 import { getMistakeTracker } from '@/core/mistake-tracker';
 import styles from './PresentPage.module.css';
 
+function stripTeacherNotes(lesson: Lesson): Lesson {
+  return {
+    ...lesson,
+    slides: lesson.slides.map((slide) => {
+      const displaySlide = { ...slide };
+      delete displaySlide.teacherNote;
+      return displaySlide;
+    }),
+  };
+}
+
 export function PresentPage() {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
@@ -74,20 +85,6 @@ export function PresentPage() {
     setSelectedAnswer(null);
   }, [state.currentSlideIndex]);
 
-  // Timer interval on TV
-  useEffect(() => {
-    if (!classroomData.timer.isRunning) return;
-
-    const interval = setInterval(() => {
-      const isFinished = getClassroomStore().tickTimer();
-      if (isFinished) {
-        getAudioManager().play('/media/tts/timer-chime.mp3');
-      }
-    }, 1000);
-
-    return () => clearInterval(interval);
-  }, [classroomData.timer.isRunning]);
-
   // Sync channel - nhận STATE_SNAPSHOT từ /presenter
   useEffect(() => {
     const syncId = sessionId || lessonId || undefined;
@@ -128,7 +125,7 @@ export function PresentPage() {
           try {
             const found = await getLessonById(targetId);
             if (found) {
-              dispatch({ type: 'LOAD_LESSON', lesson: found });
+              dispatch({ type: 'LOAD_LESSON', lesson: stripTeacherNotes(found) });
               dispatch({ type: 'START_SESSION' });
               isLoadedRef.current = true;
               const sessionAudioUrls: string[] = [];
@@ -161,6 +158,15 @@ export function PresentPage() {
         if (payload.pickerActive !== undefined) getClassroomStore().getData().pickerActive = payload.pickerActive;
         if (payload.pickedStudent !== undefined) getClassroomStore().getData().pickedStudent = payload.pickedStudent ?? null;
         setClassroomData({ ...getClassroomStore().getData() });
+      }),
+      channel.on('SLIDE_CHANGE', (msg) => {
+        const index = msg.payload['index'];
+        if (typeof index === 'number' && Number.isInteger(index)) {
+          dispatch({ type: 'GO_TO_SLIDE', index });
+        }
+      }),
+      channel.on('ANSWER_REVEAL', () => {
+        dispatch({ type: 'REVEAL_ANSWER' });
       }),
       channel.on('BLACKOUT_TOGGLE', (msg) => {
         if (typeof msg.payload['blackout'] === 'boolean') {
@@ -207,7 +213,7 @@ export function PresentPage() {
         const found = await getLessonById(targetLessonId);
         if (found) {
           if (isCancelled) return;
-          const lesson: Lesson = found;
+          const lesson = stripTeacherNotes(found);
           dispatch({ type: 'LOAD_LESSON', lesson });
           dispatch({ type: 'START_SESSION' });
           isLoadedRef.current = true;
@@ -261,25 +267,28 @@ export function PresentPage() {
     };
   }, [lessonId, sessionId]);
 
-  // Keyboard controls: F5 chặn, Escape giữ, B blackout, Space/Mũi tên
+  // Keyboard: Chặn F5 (clicker), giữ Escape, phím 'B' bật/tắt Blackout, điều hướng mũi tên
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
+      const target = e.target;
+      if (target instanceof HTMLElement && (target.isContentEditable || ['INPUT', 'TEXTAREA', 'SELECT'].includes(target.tagName))) {
+        return;
+      }
       if (e.key === 'F5') {
         e.preventDefault();
         return;
       }
-      if (e.key === 'Escape') return;
-
-      if (e.key === 'b' || e.key === 'B') {
-        e.preventDefault();
-        dispatch({ type: 'SET_BLACKOUT', blackout: !state.blackout });
+      if (e.key === 'Escape') {
         return;
       }
-
+      if (e.key === 'b' || e.key === 'B') {
+        e.preventDefault();
+        dispatch({ type: 'TOGGLE_BLACKOUT' });
+        return;
+      }
       switch (e.key) {
         case 'ArrowRight':
         case 'PageDown':
-        case ' ':
           e.preventDefault();
           dispatch({ type: 'NEXT_SLIDE' });
           break;
@@ -292,13 +301,9 @@ export function PresentPage() {
     };
     window.addEventListener('keydown', handler);
     return () => window.removeEventListener('keydown', handler);
-  }, [state.blackout]);
+  }, []);
 
   const currentSlide = getCurrentSlide(state);
-
-  const handleToggleBlackout = useCallback(() => {
-    dispatch({ type: 'SET_BLACKOUT', blackout: !state.blackout });
-  }, [state.blackout]);
 
   const handleStartSession = useCallback(() => {
     getAudioManager().unlock();
@@ -383,15 +388,6 @@ export function PresentPage() {
     }
   }, [selectedAnswer, currentSlide, state.currentSlideIndex, state.lesson]);
 
-  // Next slide button (TIẾP TỤC)
-  const handleNextSlide = useCallback(() => {
-    dispatch({ type: 'NEXT_SLIDE' });
-  }, []);
-
-  const handlePrevSlide = useCallback(() => {
-    dispatch({ type: 'PREV_SLIDE' });
-  }, []);
-
   // Calculations
   const progressPercent = state.totalSlides > 0
     ? Math.min(100, Math.round(((state.currentSlideIndex + 1) / state.totalSlides) * 100))
@@ -401,7 +397,6 @@ export function PresentPage() {
 
   const isQuestionSlide = currentSlide?.type === 'question-slide';
   const isAnsweredOrRevealed = state.showAnswer;
-  const isLastSlide = state.totalSlides > 0 && state.currentSlideIndex === state.totalSlides - 1;
 
   const slideInfo = state.lesson
     ? `${state.currentSlideIndex + 1} / ${state.totalSlides}`
@@ -494,6 +489,7 @@ export function PresentPage() {
             return (
               <div data-testid="multiple-choice-view" style={{ width: '100%' }}>
                 <MultipleChoiceView
+                  key={currentSlide.id || state.currentSlideIndex}
                   prompt={q.prompt}
                   hidePrompt={true}
                   illustration={q.illustration || undefined}
@@ -513,6 +509,7 @@ export function PresentPage() {
             return (
               <div data-testid="counting-view" style={{ width: '100%' }}>
                 <CountingView
+                  key={currentSlide.id || state.currentSlideIndex}
                   prompt={q.prompt}
                   hidePrompt={true}
                   items={q.items.map((it) => ({
@@ -532,6 +529,7 @@ export function PresentPage() {
             return (
               <div data-testid="number-select-view" style={{ width: '100%' }}>
                 <NumberSelectView
+                  key={currentSlide.id || state.currentSlideIndex}
                   prompt={q.prompt}
                   hidePrompt={true}
                   expression={q.expression}
@@ -547,6 +545,7 @@ export function PresentPage() {
           case 'tap_place':
             return (
               <TapPlaceView
+                key={currentSlide.id || state.currentSlideIndex}
                 prompt={q.prompt}
                 hidePrompt={true}
                 targets={q.targets}
@@ -561,6 +560,7 @@ export function PresentPage() {
           case 'matching':
             return (
               <MatchingView
+                key={currentSlide.id || state.currentSlideIndex}
                 prompt={q.prompt}
                 hidePrompt={true}
                 leftColumn={q.leftColumn}
@@ -824,17 +824,6 @@ export function PresentPage() {
 
           {/* Group nút điều hướng & hành động */}
           <div className={styles.dockButtons}>
-            {/* Nút quay lại slide trước */}
-            <button
-              onClick={handlePrevSlide}
-              disabled={state.currentSlideIndex === 0}
-              className={styles.backBtn}
-              title="Quay lại câu trước"
-              style={{ opacity: state.currentSlideIndex === 0 ? 0.3 : 1 }}
-            >
-              ◀
-            </button>
-
             {/* Nút mở giấy nháp */}
             <button
               onClick={() => alert('Bé có thể dùng bảng con hoặc giấy nháp bên cạnh để tính toán nhé!')}
@@ -857,13 +846,9 @@ export function PresentPage() {
                 KIỂM TRA
               </button>
             ) : (
-              <button
-                onClick={handleNextSlide}
-                className={`${styles.actionBtn} ${styles.actionBtnActive}`}
-              >
-                <span>{isLastSlide ? 'HOÀN THÀNH' : 'TIẾP TỤC'}</span>
-                <span style={{ fontSize: '22px' }}>➔</span>
-              </button>
+              <div role="status" style={{ fontSize: '13px', fontWeight: 700, color: '#64748b' }}>
+                Chờ cô giáo điều khiển slide tiếp theo.
+              </div>
             )}
           </div>
         </div>
@@ -945,7 +930,6 @@ export function PresentPage() {
       {state.blackout && (
         <div
           data-testid="blackout-overlay"
-          onClick={handleToggleBlackout}
           style={{
             position: 'fixed',
             inset: 0,
@@ -955,7 +939,7 @@ export function PresentPage() {
             zIndex: 999999,
             cursor: 'pointer',
           }}
-          title="Màn hình đang phủ đen. Nhấn phím B hoặc chạm chuột để tiếp tục buổi học"
+          title="Màn hình đang phủ đen. Cô giáo có thể tắt chế độ này từ màn hình điều khiển."
         />
       )}
 
@@ -964,7 +948,11 @@ export function PresentPage() {
         active={classroomData.pickerActive}
         pickedStudent={classroomData.pickedStudent}
         allStudents={classroomData.students}
-        onClose={() => getClassroomStore().closePicker()}
+        onClose={() => {
+          getClassroomStore().closePicker();
+          setClassroomData({ ...getClassroomStore().getData() });
+        }}
+        canClose={true}
       />
     </div>
   );

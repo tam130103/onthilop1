@@ -9,7 +9,7 @@ if (process.loadEnvFile) {
 const { Client } = pg;
 const client = new Client({
   connectionString: process.env.DATABASE_URL,
-  ssl: { rejectUnauthorized: false }
+  ssl: { rejectUnauthorized: true }
 });
 
 async function seed() {
@@ -54,7 +54,7 @@ async function seed() {
       ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
       ON CONFLICT (id) DO UPDATE SET
         stage_id = EXCLUDED.stage_id,
-        subject = EXCLUDED.subject = EXCLUDED.subject,
+        subject = EXCLUDED.subject,
         title = EXCLUDED.title,
         description = EXCLUDED.description,
         status = EXCLUDED.status,

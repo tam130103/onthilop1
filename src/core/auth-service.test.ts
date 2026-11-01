@@ -181,16 +181,16 @@ describe('Auth Service & Offline-First Sync Guard', () => {
       expect(state.canEditClassroom).toBe(false);
     });
 
-    it('resolves parent email to parent role correctly', async () => {
+    it('does not grant a role from an email when the server has no verified profile', async () => {
       const parentRole = await authService.resolveUserRole('any-uid', 'phuhuynh@tieuhoc.edu.vn');
       expect(parentRole).toBe('parent');
 
       const adminEmail = import.meta.env.VITE_ADMIN_EMAIL || 'admin@tieuhoc.edu.vn';
       const adminRole = await authService.resolveUserRole('any-uid', adminEmail);
-      expect(adminRole).toBe('admin');
+      expect(adminRole).toBe('parent');
 
       const teacherRole = await authService.resolveUserRole('any-uid', 'giaovien@tieuhoc.edu.vn');
-      expect(teacherRole).toBe('teacher');
+      expect(teacherRole).toBe('parent');
     });
 
     it('enforces that only admin can save or delete users; blocks teachers and parents', async () => {
@@ -242,8 +242,7 @@ describe('Auth Service & Offline-First Sync Guard', () => {
       expect(rootAdminDel.error).toContain('Root Admin');
     });
 
-    it('resolves user role from cached users data before falling back to default', async () => {
-      // Simulate cached role changed to parent for a teacher email
+    it('uses cached roles only in explicit offline mode', async () => {
       localStorage.setItem('onthi_admin_users_cache_v1', JSON.stringify([
         {
           id: 'custom-demoted-user-id',
@@ -252,6 +251,10 @@ describe('Auth Service & Offline-First Sync Guard', () => {
         },
       ]));
 
+      const onlineRole = await authService.resolveUserRole('custom-demoted-user-id', 'demoted@school.edu.vn');
+      expect(onlineRole).toBe('parent');
+
+      setOfflineMode(true);
       const role = await authService.resolveUserRole('custom-demoted-user-id', 'demoted@school.edu.vn');
       expect(role).toBe('parent');
     });

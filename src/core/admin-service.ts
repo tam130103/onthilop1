@@ -1,6 +1,6 @@
 import { getSupabase } from './supabase-client';
-import { hasActiveSession, canManageUsers } from './auth-service';
-import { getAllLessons, getCustomLessons, saveCustomLesson, deleteCustomLesson, BUILTIN_LESSON_URLS } from './lesson-storage';
+import { getAuthState, hasActiveSession, canManageUsers } from './auth-service';
+import { getAllLessons, getCustomLessons, saveCustomLesson, deleteCustomLesson, isBuiltInLessonId } from './lesson-storage';
 import { getClassroomStore, type Student, type Team } from './classroom-store';
 import { getMistakeTracker, type MistakeEntry } from './mistake-tracker';
 import type { Lesson } from '@/schemas/content.schema';
@@ -13,6 +13,15 @@ export interface AdminUser {
   phone_number?: string;
   school_name?: string;
   created_at?: string;
+}
+
+function isAdminUserRecord(value: unknown): value is AdminUser {
+  if (!value || typeof value !== 'object') return false;
+  const record = value as Record<string, unknown>;
+  return typeof record.id === 'string'
+    && typeof record.email === 'string'
+    && typeof record.full_name === 'string'
+    && (record.role === 'admin' || record.role === 'teacher' || record.role === 'parent');
 }
 
 export interface AdminClassroom {
@@ -115,7 +124,7 @@ export async function fetchAdminUsers(): Promise<AdminUser[]> {
     try {
       const { data, error } = await sb
         .from('users')
-        .select('*')
+        .select('id,email,full_name,role,phone_number,school_name,created_at')
         .order('created_at', { ascending: false });
 
       if (!error && Array.isArray(data) && data.length > 0) {
@@ -138,6 +147,34 @@ export async function saveAdminUser(user: Partial<AdminUser> & { email: string; 
     };
   }
 
+  const sb = getSupabase();
+  const activeSession = hasActiveSession();
+  if (sb && activeSession) {
+    try {
+      const { data, error } = await sb.functions.invoke('admin-users', {
+        body: {
+          action: user.id ? 'update' : 'create',
+          ...(user.id ? { user_id: user.id } : {}),
+          email: user.email.trim().toLowerCase(),
+          full_name: user.full_name.trim(),
+          role: user.role || 'teacher',
+          phone_number: user.phone_number?.trim() || '',
+          school_name: user.school_name?.trim() || 'Trường Tiểu học',
+        },
+      });
+      if (error) return { success: false, error: error.message };
+      const savedUser: unknown = data && typeof data === 'object' ? (data as Record<string, unknown>).user : undefined;
+      if (!isAdminUserRecord(savedUser)) {
+        return { success: false, error: 'Backend không trả về hồ sơ tài khoản hợp lệ.' };
+      }
+      const local = getLocalUsers();
+      saveLocalUsers([savedUser, ...local.filter((item) => item.id !== savedUser.id && item.email !== savedUser.email)]);
+      return { success: true, user: savedUser };
+    } catch (e) {
+      return { success: false, error: String(e) };
+    }
+  }
+
   const id = user.id || crypto.randomUUID();
   const fullUser: AdminUser = {
     id,
@@ -151,32 +188,9 @@ export async function saveAdminUser(user: Partial<AdminUser> & { email: string; 
 
   const local = getLocalUsers();
   const idx = local.findIndex((u) => u.id === fullUser.id || u.email === fullUser.email);
-  if (idx >= 0) {
-    local[idx] = fullUser;
-  } else {
-    local.unshift(fullUser);
-  }
+  if (idx >= 0) local[idx] = fullUser;
+  else local.unshift(fullUser);
   saveLocalUsers(local);
-
-  const sb = getSupabase();
-  if (sb && hasActiveSession()) {
-    try {
-      const { error } = await sb.from('users').upsert({
-        id: fullUser.id,
-        email: fullUser.email,
-        full_name: fullUser.full_name,
-        role: fullUser.role,
-        phone_number: fullUser.phone_number,
-        school_name: fullUser.school_name,
-      }, { onConflict: 'id' });
-
-      if (error) {
-        return { success: false, error: error.message };
-      }
-    } catch (e) {
-      return { success: false, error: String(e) };
-    }
-  }
 
   return { success: true, user: fullUser };
 }
@@ -190,6 +204,16 @@ export async function deleteAdminUser(id: string): Promise<{ success: boolean; e
     };
   }
 
+  const sb = getSupabase();
+  if (sb && hasActiveSession()) {
+    try {
+      const { error } = await sb.functions.invoke('admin-users', { body: { action: 'delete', user_id: id } });
+      if (error) return { success: false, error: error.message };
+    } catch (e) {
+      return { success: false, error: String(e) };
+    }
+  }
+
   const rootAdminEmail = (import.meta.env.VITE_ADMIN_EMAIL || 'admin@tieuhoc.edu.vn').trim().toLowerCase();
   const targetUser = getLocalUsers().find((u) => u.id === id);
   if (targetUser && targetUser.email.trim().toLowerCase() === rootAdminEmail) {
@@ -201,16 +225,6 @@ export async function deleteAdminUser(id: string): Promise<{ success: boolean; e
 
   const local = getLocalUsers().filter((u) => u.id !== id);
   saveLocalUsers(local);
-
-  const sb = getSupabase();
-  if (sb && hasActiveSession()) {
-    try {
-      const { error } = await sb.from('users').delete().eq('id', id);
-      if (error) return { success: false, error: error.message };
-    } catch (e) {
-      return { success: false, error: String(e) };
-    }
-  }
   return { success: true };
 }
 
@@ -316,10 +330,6 @@ export async function saveAdminTeam(team: Partial<AdminTeam> & { id: string; nam
 // ==========================================
 // 4. QUẢN LÝ BÀI GIẢNG (LESSONS)
 // ==========================================
-function isBuiltinId(id: string): boolean {
-  return BUILTIN_LESSON_URLS.some((url) => url.includes(id));
-}
-
 interface SupabaseLessonRow {
   id: string;
   title: string;
@@ -352,7 +362,7 @@ export async function fetchAdminLessons(): Promise<AdminLessonSummary[]> {
     status: l.status,
     description: l.description,
     total_slides: l.slides.length,
-    is_builtin: isBuiltinId(l.id),
+    is_builtin: isBuiltInLessonId(l.id),
     content_json: l,
   }));
 
@@ -398,20 +408,27 @@ export async function saveAdminLesson(lesson: Lesson): Promise<{ success: boolea
 
   const sb = getSupabase();
   if (sb && hasActiveSession()) {
+    const authorId = getAuthState().user?.id;
+    if (!authorId) {
+      return { success: false, error: 'Không tìm thấy UUID người dùng Auth để gắn quyền sở hữu bài giảng.' };
+    }
     try {
-      await sb.from('lessons').upsert({
+      const { error } = await sb.from('lessons').upsert({
         id: lesson.id,
+        author_id: authorId,
         subject: lesson.subject,
         title: lesson.title,
         description: lesson.description || '',
         status: lesson.status,
         content_json: lesson,
         total_slides: lesson.slides.length,
-        is_builtin: isBuiltinId(lesson.id),
+        is_builtin: false,
         updated_at: new Date().toISOString(),
       }, { onConflict: 'id' });
+      if (error) return { success: false, error: error.message };
     } catch (e) {
       console.warn('[Admin] Không thể lưu bài giảng lên Supabase:', e);
+      return { success: false, error: String(e) };
     }
   }
 
@@ -419,18 +436,21 @@ export async function saveAdminLesson(lesson: Lesson): Promise<{ success: boolea
 }
 
 export async function deleteAdminLesson(lessonId: string): Promise<boolean> {
-  const localSuccess = deleteCustomLesson(lessonId);
-
   const sb = getSupabase();
   if (sb && hasActiveSession()) {
     try {
-      await sb.from('lessons').delete().eq('id', lessonId);
+      const { error } = await sb.from('lessons').delete().eq('id', lessonId);
+      if (error) {
+        console.warn('[Admin] Lỗi xóa bài giảng trên Supabase:', error.message);
+        return false;
+      }
     } catch (e) {
       console.warn('[Admin] Lỗi xóa bài giảng trên Supabase:', e);
+      return false;
     }
   }
 
-  return localSuccess;
+  return deleteCustomLesson(lessonId);
 }
 
 // ==========================================

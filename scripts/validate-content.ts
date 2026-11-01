@@ -1,8 +1,9 @@
 import { readFileSync, existsSync, readdirSync } from 'node:fs';
-import { join, resolve, dirname } from 'node:path';
+import { join, resolve, dirname, relative, sep, isAbsolute } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import process from 'node:process';
 import { LessonSchema } from '../src/schemas/content.schema';
+import { audioTextMatches } from '../src/core/audio-text-matcher';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -32,16 +33,44 @@ function validateMediaPaths(data: Record<string, unknown>, filePath: string): st
     errors.push(`[${filePath}] Cấm dùng file .wav: ${wavMatch[0]}. Tất cả audio phải dùng định dạng .mp3.`);
   }
 
-  // Find all string values that look like media paths
-  const mediaPattern = /media\/[^"]+/g;
-  let match: RegExpExecArray | null;
-  while ((match = mediaPattern.exec(json)) !== null) {
-    const mediaPath = match[0];
-    const fullPath = join(PUBLIC_DIR, mediaPath);
-    if (!existsSync(fullPath)) {
-      errors.push(`[${filePath}] Missing media: ${mediaPath} (expected at ${fullPath})`);
+  const mediaFields = new Set(['audio', 'promptAudio', 'explanationAudio', 'image', 'illustration', 'backgroundImage']);
+  const checkedPaths = new Set<string>();
+  const checkPath = (mediaPath: string, fieldPath: string) => {
+    const trimmedPath = mediaPath.trim();
+    if (!trimmedPath || /^(https?:)?\/\//i.test(trimmedPath)) {
+      errors.push('[' + filePath + '] ' + fieldPath + ': Media phải là tệp cục bộ trong public/: ' + mediaPath);
+      return;
     }
-  }
+    const cleanPath = trimmedPath.replace(/^[\\/]+/, '').replace(/[\\/]/g, sep);
+    const fullPath = resolve(PUBLIC_DIR, cleanPath);
+    const relativePath = relative(PUBLIC_DIR, fullPath);
+    if (relativePath === '..' || relativePath.startsWith('..' + sep) || isAbsolute(relativePath)) {
+      errors.push('[' + filePath + '] ' + fieldPath + ': Đường dẫn media nằm ngoài public/: ' + mediaPath);
+      return;
+    }
+    const key = fullPath.toLowerCase();
+    if (checkedPaths.has(key)) return;
+    checkedPaths.add(key);
+    if (!existsSync(fullPath)) {
+      errors.push('[' + filePath + '] Missing media: ' + mediaPath + ' (expected at ' + fullPath + ')');
+    }
+  };
+  const walk = (value: unknown, pathParts: string[] = []): void => {
+    if (Array.isArray(value)) {
+      value.forEach((item, index) => walk(item, [...pathParts, String(index)]));
+      return;
+    }
+    if (!value || typeof value !== 'object') return;
+    for (const [key, child] of Object.entries(value)) {
+      const childPath = [...pathParts, key];
+      if (mediaFields.has(key) && typeof child === 'string') {
+        checkPath(child, childPath.join('.'));
+      } else {
+        walk(child, childPath);
+      }
+    }
+  };
+  walk(data);
   return errors;
 }
 
@@ -123,30 +152,6 @@ function validateAudioContentMatching(data: unknown, filePath: string): string[]
   const errors: string[] = [];
   if (Object.keys(ttsManifest).length === 0) return errors;
 
-  const numMap: Record<string, string> = {
-    '0': 'không', '1': 'một', '2': 'hai', '3': 'ba', '4': 'bốn',
-    '5': 'năm', '6': 'sáu', '7': 'bảy', '8': 'tám', '9': 'chín', '10': 'mười',
-  };
-  const phonemeMap: Record<string, string> = {
-    'b': 'bờ', 'c': 'cờ', 'd': 'dờ', 'đ': 'đờ', 'g': 'gờ', 'k': 'ca',
-  };
-
-  function norm(text: string): string[] {
-    let s = text.toLowerCase();
-    for (const [k, v] of Object.entries(numMap)) {
-      s = s.replace(new RegExp(`\\b${k}\\b`, 'g'), v);
-    }
-    s = s.replace(/\+/g, ' cộng ').replace(/-/g, ' trừ ').replace(/=/g, ' bằng ');
-    s = s.replace(/[^a-z0-9à-ỹ\s]/gi, ' ');
-    const tokens = s.trim().split(/\s+/).filter(Boolean);
-    const res: string[] = [];
-    for (const t of tokens) {
-      res.push(t);
-      if (phonemeMap[t]) res.push(phonemeMap[t]);
-    }
-    return res;
-  }
-
   function checkMatch(displayed: string, audio: string, location: string) {
     if (!audio || typeof audio !== 'string' || audio.trim() === '') return;
     const cleanAudio = audio.startsWith('/') ? audio : `/${audio}`;
@@ -158,27 +163,7 @@ function validateAudioContentMatching(data: unknown, filePath: string): string[]
       return;
     }
 
-    const dToks = norm(displayed);
-    const sToks = norm(spoken);
-    const sSet = new Set(sToks);
-    const dSet = new Set(dToks);
-
-    const overlap = dToks.filter((t) => sSet.has(t)).length;
-    const ratio = overlap / Math.max(1, dToks.length);
-    const revOverlap = sToks.filter((t) => dSet.has(t)).length;
-    const revRatio = revOverlap / Math.max(1, sToks.length);
-
-    const cleanD = displayed.toLowerCase().replace(/[^a-z0-9à-ỹ]/gi, '');
-    const cleanS = spoken.toLowerCase().replace(/[^a-z0-9à-ỹ]/gi, '');
-
-    const isMatch =
-      ratio >= 0.25 ||
-      revRatio >= 0.25 ||
-      overlap >= 1 ||
-      cleanS.includes(cleanD) ||
-      cleanD.includes(cleanS);
-
-    if (!isMatch) {
+    if (!audioTextMatches(displayed, spoken)) {
       errors.push(
         `[${filePath}] ${location}: Chữ hiển thị và giọng đọc không khớp nhau!\n` +
           `       👉 Chữ hiển thị: "${displayed}"\n` +
@@ -192,17 +177,23 @@ function validateAudioContentMatching(data: unknown, filePath: string): string[]
     slides.forEach((slide, sIdx) => {
       const slideId = String(slide.id || `slide[${sIdx}]`);
 
-      // Title & Content slides audio
-      if (typeof slide.title === 'string' && typeof slide.audio === 'string' && slide.audio.trim() !== '') {
-        const fullDisp = `${slide.title} ${String(slide.body || '')} ${String(slide.subtitle || '')}`;
-        checkMatch(fullDisp, slide.audio, `Slide '${slideId}' (audio lời dẫn)`);
+      // A title slide's narration covers its title/subtitle; a content slide's
+      // narration is authored for its body, with the title acting as a heading.
+      if (slide.type === 'title-slide' && typeof slide.title === 'string' && typeof slide.audio === 'string' && slide.audio.trim() !== '') {
+        const titleText = `${slide.title} ${String(slide.subtitle || '')}`;
+        checkMatch(titleText, slide.audio, `Slide '${slideId}' (audio lời dẫn)`);
+      } else if (slide.type === 'content-slide' && typeof slide.audio === 'string' && slide.audio.trim() !== '') {
+        const body = typeof slide.body === 'string' ? slide.body : slide.title;
+        if (typeof body === 'string') {
+          checkMatch(body, slide.audio, `Slide '${slideId}' (audio lời dẫn)`);
+        }
       }
 
       // Flashcards
       if (slide.type === 'flashcard-slide' && Array.isArray(slide.cards)) {
         slide.cards.forEach((card: Record<string, unknown>, cIdx) => {
           const cardId = String(card.id || `card[${cIdx}]`);
-          const label = String(card.frontText || card.phoneme || '');
+          const label = String(card.phoneme || card.frontText || '');
           if (label && typeof card.audio === 'string') {
             checkMatch(label, card.audio, `Slide '${slideId}' Thẻ '${cardId}'`);
           }

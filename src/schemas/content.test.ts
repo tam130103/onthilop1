@@ -55,7 +55,7 @@ describe('Zod Content Schema - 5 Question Types & superRefine', () => {
           illustration: '',
           items: [{ image: '', alt: 'Cá 1' }],
           correctCount: 1,
-          numberRange: { min: 0, max: 5 },
+          numberRange: { min: 1, max: 5 },
         },
       },
     ]);
@@ -112,6 +112,30 @@ describe('Zod Content Schema - 5 Question Types & superRefine', () => {
     ]);
     const res = LessonSchema.safeParse(lesson);
     expect(res.success).toBe(true);
+  });
+
+  it('validates tap_place with an unmapped distractor item', () => {
+    const lesson = makeValidBase('draft', [
+      {
+        type: 'question-slide',
+        id: 'qs-tap-place-distractor',
+        question: {
+          type: 'tap_place',
+          id: 'q-tap-place-distractor',
+          prompt: 'Chọn âm đúng để điền vào chỗ trống',
+          promptAudio: '',
+          illustration: '',
+          targets: [{ id: 'target1', label: 'Chỗ trống' }],
+          items: [
+            { id: 'correct-item', label: 'b' },
+            { id: 'distractor-item', label: 'p' },
+          ],
+          correctMapping: { 'correct-item': 'target1' },
+        },
+      },
+    ]);
+
+    expect(LessonSchema.safeParse(lesson).success).toBe(true);
   });
 
   it('fails 4. tap_place with invalid itemId in correctMapping via superRefine', () => {

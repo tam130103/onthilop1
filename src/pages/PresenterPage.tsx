@@ -11,6 +11,7 @@ import { ClassroomTimer } from '@/components/classroom/ClassroomTimer';
 import { ClassroomManagerModal } from '@/components/classroom/ClassroomManagerModal';
 import { getLessonById, BUILTIN_LESSON_URLS } from '@/core/lesson-storage';
 import { getMistakeTracker } from '@/core/mistake-tracker';
+import { getAudioManager } from '@/core/audio-manager';
 import {
   getTeachingSessionById,
   type TeachingSession,
@@ -18,7 +19,7 @@ import {
 import { LessonSchema, type Slide } from '@/schemas/content.schema';
 import { APP_CACHE_NAME } from '@/core/cache-config';
 import { ThemeToggle } from '@/components/common/ThemeToggle';
-import { getAuthState } from '@/core/auth-service';
+import { getAuthState, subscribeAuth, type AuthState } from '@/core/auth-service';
 import styles from './PresenterPage.module.css';
 
 function getSlideLabel(slide: Slide): string {
@@ -78,6 +79,7 @@ export function PresenterPage() {
   const lessonId = searchParams.get('lesson');
   const sessionId = searchParams.get('session');
   const [teachingSession, setTeachingSession] = useState<TeachingSession | null>(null);
+  const [authState, setAuthState] = useState<AuthState>(getAuthState());
   const [currentStepIndex, setCurrentStepIndex] = useState<number>(0);
   const [mistakeToast, setMistakeToast] = useState<string | null>(null);
 
@@ -95,14 +97,16 @@ export function PresenterPage() {
     return getClassroomStore().subscribe(setClassroomData);
   }, []);
 
-  // Phân quyền: Phụ huynh chỉ học bài, không vào màn hình điều khiển của giáo viên
+  useEffect(() => subscribeAuth(setAuthState), []);
+
+  // Wait for async auth initialization before applying the parent guard.
   useEffect(() => {
-    const auth = getAuthState();
-    if (auth.role === 'parent') {
+    if (authState.isLoading) return;
+    if (authState.role === 'parent') {
       const q = lessonId ? `?lesson=${lessonId}` : sessionId ? `?session=${sessionId}` : '';
       navigate(`/present${q}`, { replace: true });
     }
-  }, [lessonId, sessionId, navigate]);
+  }, [authState.isLoading, authState.role, lessonId, sessionId, navigate]);
 
   // Keep stateRef updated
   useEffect(() => {
@@ -127,11 +131,22 @@ export function PresenterPage() {
       teams: cData.teams,
       timer: cData.timer,
       pickerActive: cData.pickerActive,
-      pickedStudent: cData.pickedStudent,
+      pickedStudent: cData.pickedStudent
+        ? {
+            id: cData.pickedStudent.id,
+            name: cData.pickedStudent.name,
+            isAbsent: cData.pickedStudent.isAbsent,
+            callCount: cData.pickedStudent.callCount,
+          }
+        : null,
     };
 
     channelRef.current?.send('STATE_SNAPSHOT', snapshot as unknown as Record<string, unknown>);
   }, []);
+
+  useEffect(() => {
+    sendSnapshot();
+  }, [state, sendSnapshot]);
 
   // Tải một bài học cụ thể và đồng bộ sang /present
   const loadSpecificLesson = useCallback(
@@ -197,9 +212,29 @@ export function PresenterPage() {
       teams: cData.teams,
       timer: cData.timer,
       pickerActive: cData.pickerActive,
-      pickedStudent: cData.pickedStudent,
+      pickedStudent: cData.pickedStudent
+        ? {
+            id: cData.pickedStudent.id,
+            name: cData.pickedStudent.name,
+            isAbsent: cData.pickedStudent.isAbsent,
+            callCount: cData.pickedStudent.callCount,
+          }
+        : null,
     });
   }, []);
+
+  // The presenter owns the classroom timer; the TV only renders these updates.
+  useEffect(() => {
+    if (!classroomData.timer.isRunning) return;
+
+    const interval = window.setInterval(() => {
+      const finished = getClassroomStore().tickTimer();
+      broadcastClassroom();
+      if (finished) getAudioManager().play('/media/tts/timer-chime.mp3');
+    }, 1000);
+
+    return () => window.clearInterval(interval);
+  }, [classroomData.timer.isRunning, broadcastClassroom]);
 
   const syncSlide = useCallback((index: number) => {
     channelRef.current?.send('SLIDE_CHANGE', { index });
@@ -295,10 +330,10 @@ export function PresenterPage() {
 
   // Classroom Tool handlers
   const handleRandomPick = useCallback(() => {
-    const student = getClassroomStore().pickRandomStudent();
-    if (student) {
-      broadcastClassroom();
-    }
+    const store = getClassroomStore();
+    if (store.getData().pickerActive) store.closePicker();
+    else store.pickRandomStudent();
+    broadcastClassroom();
   }, [broadcastClassroom]);
 
   const handleAddScore = useCallback(
@@ -326,6 +361,15 @@ export function PresenterPage() {
     getClassroomStore().stopTimer();
     broadcastClassroom();
   }, [broadcastClassroom]);
+
+  const handleToggleTimer = useCallback(() => {
+    const timer = getClassroomStore().getData().timer;
+    if (timer.isRunning) {
+      handleStopTimer();
+    } else {
+      handleStartTimer(timer.remainingSeconds > 0 ? timer.remainingSeconds : timer.durationSeconds || 60);
+    }
+  }, [handleStartTimer, handleStopTimer]);
 
   const handleSelectStep = useCallback(
     (index: number) => {
@@ -399,6 +443,10 @@ export function PresenterPage() {
   // Keyboard navigation: Chặn F5 (clicker), giữ Escape, phím tắt 1 tay điều khiển
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
+      const target = e.target;
+      if (target instanceof HTMLElement && (target.isContentEditable || ['INPUT', 'TEXTAREA', 'SELECT'].includes(target.tagName))) {
+        return;
+      }
       // 1. Chặn F5 (laser clicker gửi F5)
       if (e.key === 'F5') {
         e.preventDefault();
@@ -441,10 +489,15 @@ export function PresenterPage() {
           e.preventDefault();
           handleAnswerChoice('incorrect');
           break;
-        case 'r':
-        case 'R':
+        case 'p':
+        case 'P':
           e.preventDefault();
           handleRandomPick();
+          break;
+        case 't':
+        case 'T':
+          e.preventDefault();
+          handleToggleTimer();
           break;
         case '1':
         case '2':
@@ -468,9 +521,15 @@ export function PresenterPage() {
     handleReveal,
     handleAnswerChoice,
     handleRandomPick,
+    handleToggleTimer,
     handleAddScore,
     handleToggleBlackout,
   ]);
+
+  if (authState.isLoading) {
+    return <div className={styles.container} aria-busy="true">Đang xác thực...</div>;
+  }
+  if (authState.role === 'parent') return null;
 
   return (
     <div className={styles.container}>

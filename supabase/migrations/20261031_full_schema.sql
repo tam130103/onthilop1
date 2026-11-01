@@ -152,7 +152,7 @@ BEGIN
     WHERE id = auth.uid() AND role = 'admin'
   );
 END;
-$$ LANGUAGE plpgsql SECURITY DEFINER STABLE;
+$$ LANGUAGE plpgsql SECURITY DEFINER STABLE SET search_path = '';
 
 -- 2. Hàm is_owner(): kiểm tra phiên người dùng có session authenticated hợp lệ
 CREATE OR REPLACE FUNCTION public.is_owner()
@@ -160,7 +160,7 @@ RETURNS boolean AS $$
 BEGIN
   RETURN auth.uid() IS NOT NULL;
 END;
-$$ LANGUAGE plpgsql SECURITY DEFINER STABLE;
+$$ LANGUAGE plpgsql SECURITY DEFINER STABLE SET search_path = '';
 
 -- 3. Hàm is_owner(owner_id): kiểm tra UUID chủ sở hữu khớp auth.uid()
 CREATE OR REPLACE FUNCTION public.is_owner(owner_id uuid)
@@ -168,7 +168,7 @@ RETURNS boolean AS $$
 BEGIN
   RETURN auth.uid() IS NOT NULL AND owner_id IS NOT NULL AND auth.uid() = owner_id;
 END;
-$$ LANGUAGE plpgsql SECURITY DEFINER STABLE;
+$$ LANGUAGE plpgsql SECURITY DEFINER STABLE SET search_path = '';
 
 -- ====================================================================
 -- ROW LEVEL SECURITY (RLS) - PHÂN QUYỀN CHẶT CHẼ
@@ -199,67 +199,15 @@ REVOKE ALL ON ALL ROUTINES IN SCHEMA public FROM anon;
 GRANT ALL ON ALL TABLES IN SCHEMA public TO authenticated, service_role;
 GRANT ALL ON ALL SEQUENCES IN SCHEMA public TO authenticated, service_role;
 GRANT ALL ON ALL ROUTINES IN SCHEMA public TO authenticated, service_role;
+REVOKE EXECUTE ON FUNCTION public.is_admin() FROM PUBLIC, anon;
+GRANT EXECUTE ON FUNCTION public.is_admin() TO authenticated, service_role;
+REVOKE EXECUTE ON FUNCTION public.is_owner() FROM PUBLIC, anon;
+GRANT EXECUTE ON FUNCTION public.is_owner() TO authenticated, service_role;
+REVOKE EXECUTE ON FUNCTION public.is_owner(uuid) FROM PUBLIC, anon;
+GRANT EXECUTE ON FUNCTION public.is_owner(uuid) TO authenticated, service_role;
 
--- 1. Bảng users: Admin toàn quyền; Giáo viên xem/sửa hồ sơ chính mình
-CREATE POLICY "owner_only_users" ON public.users
-  FOR ALL TO authenticated
-  USING (public.is_admin() OR public.is_owner(id))
-  WITH CHECK (public.is_admin() OR public.is_owner(id));
-
--- 2. Bảng classrooms: Admin toàn quyền; Giáo viên quản lý lớp được phân công
-CREATE POLICY "owner_only_classrooms" ON public.classrooms
-  FOR ALL TO authenticated
-  USING (public.is_admin() OR public.is_owner(teacher_id))
-  WITH CHECK (public.is_admin() OR public.is_owner(teacher_id));
-
--- 3. Bảng teams, students, attendance: Admin toàn quyền hoặc phiên giáo viên
-CREATE POLICY "owner_only_teams" ON public.teams
-  FOR ALL TO authenticated
-  USING (public.is_admin() OR public.is_owner())
-  WITH CHECK (public.is_admin() OR public.is_owner());
-
-CREATE POLICY "owner_only_students" ON public.students
-  FOR ALL TO authenticated
-  USING (public.is_admin() OR public.is_owner())
-  WITH CHECK (public.is_admin() OR public.is_owner());
-
-CREATE POLICY "owner_only_attendance" ON public.attendance
-  FOR ALL TO authenticated
-  USING (public.is_admin() OR public.is_owner())
-  WITH CHECK (public.is_admin() OR public.is_owner());
-
--- 4. Bảng subjects, stages: Admin toàn quyền hoặc giáo viên
-CREATE POLICY "owner_only_subjects" ON public.subjects
-  FOR ALL TO authenticated
-  USING (public.is_admin() OR public.is_owner())
-  WITH CHECK (public.is_admin() OR public.is_owner());
-
-CREATE POLICY "owner_only_stages" ON public.stages
-  FOR ALL TO authenticated
-  USING (public.is_admin() OR public.is_owner())
-  WITH CHECK (public.is_admin() OR public.is_owner());
-
--- 5. Bảng lessons: Admin quản lý tất cả; Giáo viên quản lý bài tự soạn hoặc bài gốc
-CREATE POLICY "owner_only_lessons" ON public.lessons
-  FOR ALL TO authenticated
-  USING (public.is_admin() OR public.is_owner(author_id) OR is_builtin = true)
-  WITH CHECK (public.is_admin() OR public.is_owner(author_id) OR is_builtin = true);
-
--- 6. Bảng teaching_sessions, student_results, class_mistakes
-CREATE POLICY "owner_only_teaching_sessions" ON public.teaching_sessions
-  FOR ALL TO authenticated
-  USING (public.is_admin() OR public.is_owner(teacher_id))
-  WITH CHECK (public.is_admin() OR public.is_owner(teacher_id));
-
-CREATE POLICY "owner_only_student_results" ON public.student_results
-  FOR ALL TO authenticated
-  USING (public.is_admin() OR public.is_owner())
-  WITH CHECK (public.is_admin() OR public.is_owner());
-
-CREATE POLICY "owner_only_class_mistakes" ON public.class_mistakes
-  FOR ALL TO authenticated
-  USING (public.is_admin() OR public.is_owner())
-  WITH CHECK (public.is_admin() OR public.is_owner());
+-- Do not install permissive policies here. RLS remains deny-by-default until
+-- the next migration installs the class-scoped policies.
 
 -- SEED DATA BAN ĐẦU
 -- 1. Môn học
@@ -269,11 +217,10 @@ INSERT INTO public.subjects (id, name, icon, description) VALUES
   ('english', 'Tiếng Anh Lớp 1', '🇬🇧', 'Global Success Grade 1')
 ON CONFLICT (id) DO UPDATE SET name = EXCLUDED.name;
 
--- 2. Lớp học mẫu (gắn với UUID giáo viên cothutam@tieuhoc.edu.vn)
+-- 2. Lớp học mẫu. Chỉ gắn giáo viên nếu hồ sơ khớp email đã provision.
 INSERT INTO public.classrooms (id, teacher_id, name, grade_level, academic_year, teacher_name) VALUES
-  ('class-1a1', 'a389251f-ab41-46f8-8fa7-f71671a12029', 'Lớp 1A1', 1, '2025-2026', 'Cô Thu Tâm')
+  ('class-1a1', (SELECT id FROM public.users WHERE lower(email) = 'cothutam@tieuhoc.edu.vn' LIMIT 1), 'Lớp 1A1', 1, '2025-2026', 'Cô Thu Tâm')
 ON CONFLICT (id) DO UPDATE SET 
-  teacher_id = EXCLUDED.teacher_id,
   teacher_name = EXCLUDED.teacher_name;
 
 -- 3. 4 Tổ thi đua mẫu

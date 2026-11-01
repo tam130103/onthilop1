@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo, useCallback } from 'react';
+import { useState, useEffect, useMemo, useCallback, useRef } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { EXAMS_DATA, getExamById, type ExamData } from '@/data/exam-data';
 import { getMistakeTracker } from '@/core/mistake-tracker';
@@ -27,6 +27,7 @@ export function ExamPage() {
   const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
   const [showConfirmModal, setShowConfirmModal] = useState<boolean>(false);
   const [elapsedSeconds, setElapsedSeconds] = useState<number>(0);
+  const submitExamRef = useRef<() => void>(() => undefined);
 
   // Audio helper
   const playAudio = useCallback((audioPath?: string) => {
@@ -49,7 +50,7 @@ export function ExamPage() {
       setTimeLeft((prev) => {
         if (prev <= 1) {
           clearInterval(timer);
-          handleSubmitExam();
+          submitExamRef.current();
           return 0;
         }
         return prev - 1;
@@ -107,6 +108,8 @@ export function ExamPage() {
 
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [answers, exam]);
+
+  submitExamRef.current = handleSubmitExam;
 
   // Calculate score
   const scoreResult = useMemo(() => {

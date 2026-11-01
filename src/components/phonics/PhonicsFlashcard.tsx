@@ -43,23 +43,21 @@ export function PhonicsFlashcard({ cards, title = 'Thẻ Học Vần' }: Phonics
     setCurrentIndex((prev) => (prev - 1 + cards.length) % cards.length);
   }, [cards.length]);
 
-  // Space/Enter/Arrow keys
+  // Space flips card, leaving ArrowRight/ArrowLeft for global slide navigation
   useEffect(() => {
     const handleKey = (e: KeyboardEvent) => {
+      const target = e.target;
+      if (target instanceof HTMLElement && (target.isContentEditable || ['INPUT', 'TEXTAREA', 'SELECT'].includes(target.tagName))) {
+        return;
+      }
       if (e.key === ' ' || e.key === 'Enter') {
         e.preventDefault();
         handleFlip();
-      } else if (e.key === 'ArrowRight') {
-        e.preventDefault();
-        handleNext();
-      } else if (e.key === 'ArrowLeft') {
-        e.preventDefault();
-        handlePrev();
       }
     };
     window.addEventListener('keydown', handleKey);
     return () => window.removeEventListener('keydown', handleKey);
-  }, [handleFlip, handleNext, handlePrev]);
+  }, [handleFlip]);
 
   if (!currentCard) return null;
 

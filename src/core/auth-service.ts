@@ -25,6 +25,8 @@ let currentUser: User | null = null;
 let currentRole: UserRole = 'teacher';
 let isOffline: boolean = false;
 let isInitialized: boolean = false;
+let roleResolvedUserId: string | null = null;
+let roleResolutionVersion = 0;
 
 const listeners = new Set<(state: AuthState) => void>();
 
@@ -46,18 +48,8 @@ interface CachedUserRecord {
 }
 
 export async function resolveUserRole(uid: string, email?: string): Promise<UserRole> {
-  const normalizedEmail = email?.trim().toLowerCase();
-  const adminEmail = (import.meta.env.VITE_ADMIN_EMAIL || 'admin@tieuhoc.edu.vn').trim().toLowerCase();
-  if (normalizedEmail && normalizedEmail === adminEmail) {
-    return 'admin';
-  }
-
-  const parentEmail = (import.meta.env.VITE_PARENT_EMAIL || 'phuhuynh@tieuhoc.edu.vn').trim().toLowerCase();
-  if (normalizedEmail && normalizedEmail === parentEmail) {
-    return 'parent';
-  }
-
-  // 1. Check Supabase users table first (authoritative server-side role management)
+  // The users table is the only online role authority. Email and user_metadata
+  // are user-controlled identity fields and must never grant a privileged role.
   const sb = getSupabase();
   if (sb) {
     try {
@@ -66,37 +58,34 @@ export async function resolveUserRole(uid: string, email?: string): Promise<User
         return data.role as UserRole;
       }
     } catch {
-      // fallback
+      // Fall through to the restricted default when the server cannot verify a role.
     }
   }
 
-  // 2. Check local users cache (offline authoritative role changes synced locally)
-  try {
-    const raw = localStorage.getItem('onthi_admin_users_cache_v1');
-    if (raw) {
-      const list = JSON.parse(raw);
-      if (Array.isArray(list)) {
-        const found = (list as CachedUserRecord[]).find(
-          (u) => (u.email && u.email.toLowerCase() === normalizedEmail) || (u.id && u.id === uid)
-        );
-        if (found?.role && (found.role === 'admin' || found.role === 'teacher' || found.role === 'parent')) {
-          return found.role;
+  // A local role cache is useful only in explicit offline mode. Never use it
+  // to elevate a live Auth session if its server-side profile is missing.
+  if (isOffline) {
+    try {
+      const raw = localStorage.getItem('onthi_admin_users_cache_v1');
+      if (raw) {
+        const list = JSON.parse(raw);
+        if (Array.isArray(list)) {
+          const normalizedEmail = email?.trim().toLowerCase();
+          const found = (list as CachedUserRecord[]).find(
+            (u) => (u.email?.trim().toLowerCase() === normalizedEmail && Boolean(normalizedEmail)) || u.id === uid
+          );
+          if (found?.role && (found.role === 'admin' || found.role === 'teacher' || found.role === 'parent')) {
+            return found.role;
+          }
         }
       }
-    }
-  } catch {
-    // ignore
-  }
-
-  // 3. Fallback to auth token metadata if available
-  if (currentUser?.user_metadata?.role) {
-    const metaRole = currentUser.user_metadata.role as string;
-    if (metaRole === 'admin' || metaRole === 'teacher' || metaRole === 'parent') {
-      return metaRole;
+    } catch {
+      // ignore malformed offline cache
     }
   }
 
-  return 'teacher';
+  // Unknown online identities get the most restricted UI role available.
+  return 'parent';
 }
 
 /**
@@ -223,6 +212,8 @@ export function setOfflineMode(enabled: boolean): void {
  * Khởi tạo Auth: Kiểm tra session từ Supabase hoặc khôi phục chế độ Offline
  */
 export async function initAuth(): Promise<AuthState> {
+  const initializationVersion = ++roleResolutionVersion;
+  roleResolvedUserId = null;
   if (typeof window !== 'undefined') {
     try {
       isOffline = localStorage.getItem(OFFLINE_MODE_KEY) === 'true';
@@ -240,30 +231,75 @@ export async function initAuth(): Promise<AuthState> {
 
   try {
     const { data, error } = await sb.auth.getSession();
-    if (!error && data.session) {
-      currentSession = data.session;
-      currentUser = data.session.user;
-      isOffline = false;
-      currentRole = await resolveUserRole(currentUser.id, currentUser.email);
+    if (roleResolutionVersion === initializationVersion && !error && data.session) {
+      const initialUser = data.session.user;
+      const role = await resolveUserRole(initialUser.id, initialUser.email);
+      if (roleResolutionVersion === initializationVersion) {
+        currentSession = data.session;
+        currentUser = initialUser;
+        isOffline = false;
+        currentRole = role;
+        roleResolvedUserId = initialUser.id;
+      }
     }
   } catch (e) {
     console.warn('[Auth] Lỗi lấy session ban đầu:', e);
   } finally {
-    isInitialized = true;
-    notifyListeners();
+    if (roleResolutionVersion === initializationVersion) {
+      isInitialized = true;
+      notifyListeners();
+    }
   }
 
   // Lắng nghe sự kiện đăng nhập / đăng xuất từ Supabase
-  sb.auth.onAuthStateChange(async (_event, session) => {
-    currentSession = session;
-    currentUser = session?.user || null;
-    if (session && session.user) {
-      isOffline = false;
-      currentRole = await resolveUserRole(session.user.id, session.user.email);
-    } else {
+  sb.auth.onAuthStateChange((event, session) => {
+    const nextUserId = session?.user.id ?? null;
+
+    if (!session) {
+      roleResolutionVersion += 1;
+      roleResolvedUserId = null;
+      currentSession = null;
+      currentUser = null;
       currentRole = 'teacher';
+      isInitialized = true;
+      notifyListeners();
+      return;
     }
-    notifyListeners();
+
+    currentSession = session;
+    currentUser = session.user;
+    isOffline = false;
+
+    if (event === 'INITIAL_SESSION' && nextUserId === roleResolvedUserId) {
+      notifyListeners();
+      return;
+    }
+
+    const sameUser = nextUserId === roleResolvedUserId;
+    const resolutionVersion = ++roleResolutionVersion;
+    if (!sameUser) {
+      currentRole = 'parent';
+      isInitialized = false;
+      notifyListeners();
+    }
+
+    // Supabase auth listeners run under an internal lock. Defer profile reads
+    // until after this synchronous callback returns to avoid client deadlocks.
+    setTimeout(() => {
+      void resolveUserRole(session.user.id, session.user.email).then((role) => {
+        if (resolutionVersion !== roleResolutionVersion || currentSession?.user.id !== nextUserId) return;
+        currentRole = role;
+        roleResolvedUserId = session.user.id;
+        isInitialized = true;
+        notifyListeners();
+      }).catch(() => {
+        if (resolutionVersion !== roleResolutionVersion || currentSession?.user.id !== nextUserId) return;
+        currentRole = 'parent';
+        roleResolvedUserId = session.user.id;
+        isInitialized = true;
+        notifyListeners();
+      });
+    }, 0);
   });
 
   return getAuthState();
@@ -294,10 +330,19 @@ export async function signInWithPassword(
     currentSession = data.session;
     currentUser = data.user;
     isOffline = false;
+    currentRole = 'parent';
+    isInitialized = false;
+    const resolutionVersion = ++roleResolutionVersion;
     setOfflineMode(false);
 
     if (data.user) {
-      currentRole = await resolveUserRole(data.user.id, data.user.email);
+      const role = await resolveUserRole(data.user.id, data.user.email);
+      if (currentSession?.user.id === data.user.id) {
+        roleResolutionVersion = Math.max(roleResolutionVersion, resolutionVersion) + 1;
+        roleResolvedUserId = data.user.id;
+        currentRole = role;
+        isInitialized = true;
+      }
     }
 
     notifyListeners();
@@ -314,6 +359,8 @@ export async function signInWithPassword(
  */
 export async function signOut(): Promise<{ success: boolean; error?: string }> {
   const sb = getSupabase();
+  roleResolutionVersion += 1;
+  roleResolvedUserId = null;
   currentSession = null;
   currentUser = null;
   currentRole = 'teacher';

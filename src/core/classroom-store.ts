@@ -11,6 +11,7 @@ import {
 
 export interface Student {
   id: string;
+  classroomId?: string;
   name: string;
   isAbsent: boolean;
   callCount: number;

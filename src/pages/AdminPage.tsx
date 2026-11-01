@@ -132,18 +132,22 @@ export function AdminPage() {
   }, [showToast]);
 
   useEffect(() => {
+    if (authState.isLoading) return;
     loadData();
     const unsub = getClassroomStore().subscribe((data) => {
       setStudents(data.students);
     });
     return () => unsub();
-  }, [loadData]);
+  }, [authState.isLoading, loadData]);
 
   // Sync to Cloud
   const handleFullSync = useCallback(async () => {
     if (!hasActiveSession()) {
       showToast('⚠️ Bạn chưa đăng nhập tài khoản Cloud! Vui lòng đăng nhập để đồng bộ.');
       navigate('/login');
+      return;
+    }
+    if (!window.confirm('Đồng bộ toàn bộ danh sách học sinh lên Cloud? Học sinh đang có trên Cloud nhưng không còn trong danh sách máy này sẽ bị xóa khỏi lớp.')) {
       return;
     }
     setSyncingCloud(true);
@@ -157,7 +161,11 @@ export function AdminPage() {
 
       // Sync all current students to Supabase
       const allStudents = getClassroomStore().getData().students;
-      await syncAllStudentsToSupabase(allStudents);
+      const studentsSynced = await syncAllStudentsToSupabase(allStudents, { reconcile: true });
+      if (!studentsSynced) {
+        showToast('❌ Không đồng bộ được danh sách học sinh. Dữ liệu Cloud chưa được xác nhận cập nhật.');
+        return;
+      }
 
       showToast('✅ Đã đồng bộ toàn bộ dữ liệu lên Supabase Cloud thành công!');
       await loadData();
@@ -448,6 +456,10 @@ export function AdminPage() {
   }, [lessons, lessonSubjectFilter, lessonSearch]);
 
   // Phân quyền: Tài khoản Phụ huynh chỉ học được, không có quyền vào trang Admin
+  if (authState.isLoading) {
+    return <div className={styles.container} aria-busy="true">Đang xác thực...</div>;
+  }
+
   if (authState.role === 'parent') {
     return (
       <div className={styles.container}>

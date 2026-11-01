@@ -10,11 +10,8 @@ export function LoginPage() {
   const from = (location.state as { from?: { pathname?: string } })?.from?.pathname || '/';
 
   const defaultTeacherEmail = import.meta.env.VITE_TEACHER_EMAIL || 'cothutam@tieuhoc.edu.vn';
-  const defaultTeacherPassword = import.meta.env.VITE_TEACHER_PASSWORD || 'Giaovien@123';
   const defaultAdminEmail = import.meta.env.VITE_ADMIN_EMAIL || 'admin@tieuhoc.edu.vn';
-  const defaultAdminPassword = import.meta.env.VITE_ADMIN_PASSWORD || 'Admin@123';
   const defaultParentEmail = import.meta.env.VITE_PARENT_EMAIL || 'phuhuynh@tieuhoc.edu.vn';
-  const defaultParentPassword = import.meta.env.VITE_PARENT_PASSWORD || 'Phuhuynh@123';
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -52,9 +49,9 @@ export function LoginPage() {
     }
   };
 
-  const handleQuickFill = (targetEmail: string, targetPass: string) => {
+  const handleQuickFill = (targetEmail: string) => {
     setEmail(targetEmail);
-    setPassword(targetPass);
+    setPassword('');
     setErrorMessage(null);
   };
 
@@ -79,14 +76,14 @@ export function LoginPage() {
           </p>
         </div>
 
-        {/* Quick Account Fill from .env */}
+        {/* Quick account email fill; passwords are never shipped to the browser. */}
         <div className={styles.quickAccounts}>
-          <span className={styles.quickLabel}>Tài khoản cấu hình sẵn (.env):</span>
+          <span className={styles.quickLabel}>Điền nhanh email tài khoản:</span>
           <div className={styles.quickBtnGroup}>
             <button
               type="button"
               className={styles.quickBtn}
-              onClick={() => handleQuickFill(defaultTeacherEmail, defaultTeacherPassword)}
+              onClick={() => handleQuickFill(defaultTeacherEmail)}
               title="Điền nhanh tài khoản Giáo viên"
             >
               👩‍🏫 Cô Thu Tâm
@@ -94,7 +91,7 @@ export function LoginPage() {
             <button
               type="button"
               className={styles.quickBtn}
-              onClick={() => handleQuickFill(defaultAdminEmail, defaultAdminPassword)}
+              onClick={() => handleQuickFill(defaultAdminEmail)}
               title="Điền nhanh tài khoản Admin (Phân quyền)"
             >
               🛡️ Quản Trị Viên
@@ -102,7 +99,7 @@ export function LoginPage() {
             <button
               type="button"
               className={styles.quickBtn}
-              onClick={() => handleQuickFill(defaultParentEmail, defaultParentPassword)}
+              onClick={() => handleQuickFill(defaultParentEmail)}
               title="Điền nhanh tài khoản Phụ huynh (Chỉ học tập)"
             >
               👨‍👩‍👧 Phụ Huynh

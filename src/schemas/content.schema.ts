@@ -126,15 +126,36 @@ function makeCountingQuestion(mediaRef: MediaRefType, status: 'draft' | 'publish
         )
         .min(1)
         .max(20),
-      correctCount: z.number().int().min(0).max(20),
+      correctCount: z.number().int().min(1).max(20),
       numberRange: z.object({
-        min: z.number().int().min(0),
-        max: z.number().int().max(20),
+        min: z.number().int().min(1).max(20),
+        max: z.number().int().min(1).max(20),
       }),
       explanation: z.string().optional(),
       explanationAudio: mediaRef.optional(),
     })
     .superRefine((data, ctx) => {
+      if (data.numberRange.min > data.numberRange.max) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          message: 'numberRange.min không được lớn hơn numberRange.max',
+          path: ['numberRange', 'min'],
+        });
+      }
+      if (data.correctCount < data.numberRange.min || data.correctCount > data.numberRange.max) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          message: 'correctCount phải nằm trong numberRange',
+          path: ['correctCount'],
+        });
+      }
+      if (data.items.length !== data.correctCount) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          message: 'Số hình trong items phải bằng correctCount',
+          path: ['items'],
+        });
+      }
       if (status === 'publish' && data.explanation && (!data.explanationAudio || data.explanationAudio.trim() === '')) {
         ctx.addIssue({
           code: z.ZodIssueCode.custom,
@@ -261,6 +282,22 @@ function makeTapPlace(mediaRef: MediaRefType, status: 'draft' | 'publish') {
         targetIds.add(target.id);
       });
 
+      const mappedTargets = new Set(Object.values(data.correctMapping));
+      if (mappedTargets.size !== Object.keys(data.correctMapping).length) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          message: 'Mỗi target chỉ được ghép với một item trong correctMapping',
+          path: ['correctMapping'],
+        });
+      }
+      if (mappedTargets.size !== targetIds.size) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          message: 'Mỗi target phải được ghép với đúng một item trong correctMapping',
+          path: ['correctMapping'],
+        });
+      }
+
       for (const [itemId, targetId] of Object.entries(data.correctMapping)) {
         if (!itemIds.has(itemId)) {
           ctx.addIssue({
@@ -328,7 +365,8 @@ function makeMatching(mediaRef: MediaRefType, status: 'draft' | 'publish') {
             isPhonemeOrWord: z.boolean().optional(),
           })
         )
-        .min(2),
+        .min(2)
+        .max(6),
       rightColumn: z
         .array(
           z.object({
@@ -339,7 +377,8 @@ function makeMatching(mediaRef: MediaRefType, status: 'draft' | 'publish') {
             isPhonemeOrWord: z.boolean().optional(),
           })
         )
-        .min(2),
+        .min(2)
+        .max(6),
       correctPairs: z
         .array(
           z.object({
@@ -347,7 +386,8 @@ function makeMatching(mediaRef: MediaRefType, status: 'draft' | 'publish') {
             rightId: z.string().min(1),
           })
         )
-        .min(2),
+        .min(2)
+        .max(6),
       explanation: z.string().optional(),
       explanationAudio: mediaRef.optional(),
     })
@@ -426,6 +466,21 @@ function makeMatching(mediaRef: MediaRefType, status: 'draft' | 'publish') {
         }
         usedRightIds.add(pair.rightId);
       });
+
+      if (data.leftColumn.length !== data.rightColumn.length || data.correctPairs.length !== data.leftColumn.length) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          message: 'Matching yêu cầu mỗi mục ở hai cột có đúng một cặp trong correctPairs',
+          path: ['correctPairs'],
+        });
+      }
+      if (usedLeftIds.size !== leftIds.size || usedRightIds.size !== rightIds.size) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          message: 'Mọi mục ở leftColumn và rightColumn phải xuất hiện đúng một lần trong correctPairs',
+          path: ['correctPairs'],
+        });
+      }
 
       // Cấm 2 nhãn khác nhau dùng chung một file audio
       if (status === 'publish') {

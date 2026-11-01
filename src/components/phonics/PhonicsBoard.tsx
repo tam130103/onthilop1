@@ -33,6 +33,17 @@ const TONE_MAP: Record<string, Record<string, string>> = {
   ư: { ngang: 'ư', huyen: 'ừ', sac: 'ứ', hoi: 'ử', nga: 'ữ', nang: 'ự' },
 };
 
+const AVAILABLE_PHONEME_FILES = new Set([
+  'a', 'b', 'ba-sac', 'ba', 'be', 'bi', 'bong', 'c', 'ca-co', 'ca-sac', 'ca', 'ch',
+  'ai', 'an', 'ang', 'ao', 'cho-nang', 'd', 'dd', 'de', 'do', 'e', 'ee', 'g', 'ga-huyen', 'ghe-sac', 'gh', 'h',
+  'ho-huyen', 'i', 'k', 'ke-hoi', 'khi-hoi', 'kh', 'ki-huyen', 'l', 'la-sac', 'm',
+  'me-nang', 'me', 'mu-sac', 'n', 'ng', 'ngh', 'nh', 'no', 'o', 'p', 'r', 's', 't', 'th', 'tho-hoi',
+  'tr', 'tre', 'tu-hoi', 'u', 'uw', 'v', 'x', 'ô', 'ơ',
+]);
+
+const INITIAL_AUDIO_FILE: Record<string, string> = { 'đ': 'dd' };
+const RHYME_AUDIO_FILE: Record<string, string> = { 'ê': 'ee', 'ư': 'uw' };
+
 function combinePhonemes(initial: string, rhyme: string, toneId: string): string {
   // If single vowel in table, apply tone directly
   const firstVowel = rhyme[0] || '';
@@ -56,6 +67,7 @@ export function PhonicsBoard({
   const [selectedInitial, setSelectedInitial] = useState(initials[0] || 'b');
   const [selectedRhyme, setSelectedRhyme] = useState(rhymes[0] || 'a');
   const [selectedTone, setSelectedTone] = useState(tones[0] || 'ngang');
+  const [audioNotice, setAudioNotice] = useState<string | null>(null);
 
   const combinedWord = useMemo(() => {
     const result = combinePhonemes(selectedInitial, selectedRhyme, selectedTone);
@@ -66,21 +78,22 @@ export function PhonicsBoard({
   const currentToneObj = TONE_LIST.find((t) => t.id === selectedTone) || TONE_LIST[0]!;
 
   const playSound = useCallback((type: 'initial' | 'rhyme' | 'spell' | 'word') => {
-    // Attempt to play phoneme file if present in /media/phonemes/
-    let wordAudio = `/media/phonemes/${combinedWord}.mp3`;
-    if (combinedWord === 'bá') wordAudio = '/media/phonemes/ba-sac.mp3';
-    if (combinedWord === 'cá') wordAudio = '/media/phonemes/ca-sac.mp3';
-
-    const phonemeMap: Record<string, string> = {
-      initial: `/media/phonemes/${selectedInitial}.mp3`,
-      rhyme: `/media/phonemes/${selectedRhyme}.mp3`,
-      word: wordAudio,
-    };
-
-    const targetUrl = phonemeMap[type];
-    if (targetUrl) {
-      getAudioManager().play(targetUrl);
+    const fileBase = type === 'initial'
+      ? INITIAL_AUDIO_FILE[selectedInitial] || selectedInitial
+      : type === 'rhyme'
+        ? RHYME_AUDIO_FILE[selectedRhyme] || selectedRhyme
+        : combinedWord === 'bá'
+          ? 'ba-sac'
+          : combinedWord === 'cá'
+            ? 'ca-sac'
+            : combinedWord;
+    if (!AVAILABLE_PHONEME_FILES.has(fileBase)) {
+      const label = type === 'initial' ? selectedInitial : type === 'rhyme' ? selectedRhyme : combinedWord;
+      setAudioNotice(`Chưa có tệp phát âm cho “${label}”.`);
+      return;
     }
+    setAudioNotice(null);
+    getAudioManager().play(`/media/phonemes/${fileBase}.mp3`);
   }, [selectedInitial, selectedRhyme, combinedWord]);
 
   return (
@@ -208,6 +221,7 @@ export function PhonicsBoard({
           🗣️ Đọc trơn ({combinedWord})
         </button>
       </div>
+      {audioNotice && <p role="status" aria-live="polite">{audioNotice}</p>}
     </div>
   );
 }

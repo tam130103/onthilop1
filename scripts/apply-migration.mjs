@@ -25,7 +25,7 @@ if (!connectionString) {
 
 const client = new Client({
   connectionString,
-  ssl: { rejectUnauthorized: false }
+  ssl: { rejectUnauthorized: true }
 });
 
 async function run() {
@@ -33,12 +33,24 @@ async function run() {
   await client.connect();
   console.log("Connected successfully!");
 
-  const sqlPath = path.resolve('supabase/migrations/20261031_full_schema.sql');
-  const sqlContent = fs.readFileSync(sqlPath, 'utf8');
-
-  console.log("Executing migration schema...");
-  await client.query(sqlContent);
-  console.log("Schema migration applied successfully!");
+  const migrationFiles = [
+    '20261031_full_schema.sql',
+    '20261101053116_harden_rls_authorization.sql',
+  ];
+  await client.query('BEGIN');
+  try {
+    for (const migrationFile of migrationFiles) {
+      const sqlPath = path.resolve('supabase/migrations', migrationFile);
+      const sqlContent = fs.readFileSync(sqlPath, 'utf8');
+      console.log(`Executing ${migrationFile}...`);
+      await client.query(sqlContent);
+    }
+    await client.query('COMMIT');
+  } catch (error) {
+    await client.query('ROLLBACK');
+    throw error;
+  }
+  console.log("Schema and authorization migrations applied successfully!");
 
   // Query created tables
   const res = await client.query(`

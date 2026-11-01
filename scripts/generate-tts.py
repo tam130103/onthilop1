@@ -43,7 +43,7 @@ AUDIO_ITEMS = [
     # ----------------------------------------------------
     # Math lesson 2 - So sánh nhiều hơn, ít hơn, bằng nhau & các số 6-10
     # ----------------------------------------------------
-    ("public/media/tts/m2-title.mp3", "Bài hai: So sánh nhiều hơn, ít hơn, bằng nhau và các số từ sáu đến mười. Toán Lớp một."),
+    ("public/media/tts/m2-title.mp3", "So sánh nhiều hơn, ít hơn và các số từ sáu đến mười. Toán Lớp một. Bài học tương tác."),
     ("public/media/tts/m2-intro.mp3", "Hôm nay chúng mình cùng học so sánh số lượng nhiều hơn, ít hơn, bằng nhau và làm quen các số từ sáu đến mười nhé!"),
     ("public/media/tts/m2-q1-prompt.mp3", "Đếm xem có bao nhiêu quả táo đỏ trên cây?"),
     ("public/media/tts/m2-q1-exp.mp3", "Có tất cả sáu quả táo đỏ chín mọng!"),
@@ -73,11 +73,11 @@ AUDIO_ITEMS = [
     # ----------------------------------------------------
     # Math lesson 3 - Tách gộp số & Phép cộng phạm vi 5
     # ----------------------------------------------------
-    ("public/media/tts/m3-title.mp3", "Bài ba: Tách gộp số và Phép cộng trong phạm vi năm. Toán Lớp một."),
+    ("public/media/tts/m3-title.mp3", "Tách gộp số và Phép cộng trong phạm vi năm. Toán Lớp một. Bài học tương tác."),
     ("public/media/tts/m3-intro.mp3", "Gộp hai nhóm lại với nhau ta được phép cộng. Hôm nay các con cùng học tách gộp và làm quen phép cộng trong phạm vi năm nhé!"),
     ("public/media/tts/m3-q1-prompt.mp3", "Đếm xem có bao nhiêu bông hoa đỏ và vàng tất cả?"),
     ("public/media/tts/m3-q1-exp.mp3", "Có ba bông hoa đỏ gộp với hai bông hoa vàng là năm bông hoa."),
-    ("public/media/tts/m3-q2-prompt.mp3", "Bé hãy tính kết quả phép tính: hai cộng một bằng mấy?"),
+    ("public/media/tts/m3-q2-prompt.mp3", "Bé hãy tính kết quả phép tính sau: hai cộng một bằng mấy?"),
     ("public/media/tts/m3-q2-exp.mp3", "Hai cộng một bằng ba."),
     ("public/media/tts/m3-q3-prompt.mp3", "Bốn gồm một và mấy?"),
     ("public/media/tts/m3-opt-va-3.mp3", "và ba"),
@@ -107,20 +107,20 @@ AUDIO_ITEMS = [
     # ----------------------------------------------------
     # Math lesson 4 - Phép trừ phạm vi 5 & Số 0
     # ----------------------------------------------------
-    ("public/media/tts/m4-title.mp3", "Bài bốn: Phép trừ trong phạm vi năm và Số không. Toán Lớp một."),
+    ("public/media/tts/m4-title.mp3", "Phép trừ trong phạm vi năm và Số không. Toán Lớp một. Bài học tương tác."),
     ("public/media/tts/m4-intro.mp3", "Bớt đi chính là phép trừ. Khi bớt đi hết, chúng ta còn lại không đồ vật. Hôm nay chúng mình cùng học phép trừ nhé!"),
     ("public/media/tts/m4-q1-prompt.mp3", "Có bốn quả táo, ăn mất một quả, hỏi còn lại mấy quả táo?"),
     ("public/media/tts/m4-q1-exp.mp3", "Bốn bớt một còn ba quả táo!"),
-    ("public/media/tts/m4-q2-prompt.mp3", "Bé hãy tính phép tính: bốn trừ một bằng mấy?"),
+    ("public/media/tts/m4-q2-prompt.mp3", "Bé hãy tính phép tính sau: bốn trừ một bằng mấy?"),
     ("public/media/tts/m4-q2-exp.mp3", "Bốn trừ một bằng ba."),
-    ("public/media/tts/m4-q3-prompt.mp3", "Bé hãy tính kết quả phép trừ: năm trừ hai bằng mấy?"),
+    ("public/media/tts/m4-q3-prompt.mp3", "Bé hãy tính kết quả phép trừ sau: năm trừ hai bằng mấy?"),
     ("public/media/tts/m4-q3-exp.mp3", "Năm trừ hai bằng ba."),
     ("public/media/tts/m4-q4-prompt.mp3", "Trên cành cây có ba chú chim, cả ba chú đều bay đi mất. Hỏi trên cành cây còn lại mấy chú chim?"),
     ("public/media/tts/m4-opt-0-chim.mp3", "Không chú chim"),
     ("public/media/tts/m4-opt-1-chim.mp3", "Một chú chim"),
     ("public/media/tts/m4-opt-2-chim.mp3", "Hai chú chim"),
     ("public/media/tts/m4-q4-exp.mp3", "Ba bớt ba bằng không. Trên cành không còn chú chim nào."),
-    ("public/media/tts/m4-q5-prompt.mp3", "Bé hãy tính phép trừ: ba trừ ba bằng mấy?"),
+    ("public/media/tts/m4-q5-prompt.mp3", "Bé hãy tính phép trừ sau: ba trừ ba bằng mấy?"),
     ("public/media/tts/m4-q5-exp.mp3", "Ba trừ ba bằng không. Một số trừ đi chính nó thì bằng không."),
     ("public/media/tts/m4-q6-prompt.mp3", "Chọn số thích hợp đặt vào chỗ trống để năm trừ mấy bằng bốn:"),
     ("public/media/tts/m4-item-1.mp3", "số một"),
@@ -138,7 +138,7 @@ AUDIO_ITEMS = [
     # ----------------------------------------------------
     # Math lesson 5 - Phép cộng và trừ phạm vi 10
     # ----------------------------------------------------
-    ("public/media/tts/m5-title.mp3", "Bài năm: Phép cộng và Phép trừ trong phạm vi mười. Toán Lớp một."),
+    ("public/media/tts/m5-title.mp3", "Phép cộng và Phép trừ trong phạm vi mười. Toán Lớp một. Luyện tập nâng cao."),
     ("public/media/tts/m5-intro.mp3", "Hôm nay chúng mình cùng nâng cao kỹ năng tính nhẩm cộng và trừ các số trong phạm vi mười nhé!"),
     ("public/media/tts/m5-q1-prompt.mp3", "Đếm xem có bao nhiêu bông hoa rực rỡ trên màn hình?"),
     ("public/media/tts/m5-q1-exp.mp3", "Có đúng bảy bông hoa rực rỡ sắc màu!"),
@@ -171,7 +171,7 @@ AUDIO_ITEMS = [
     # ----------------------------------------------------
     # Math lesson 6 - Nhận biết Hình phẳng & Quy luật sắp xếp
     # ----------------------------------------------------
-    ("public/media/tts/m6-title.mp3", "Bài sáu: Nhận biết Hình phẳng và Quy luật sắp xếp. Toán Lớp một."),
+    ("public/media/tts/m6-title.mp3", "Hình phẳng và Quy luật sắp xếp. Toán Lớp một. Bài học tương tác."),
     ("public/media/tts/m6-intro.mp3", "Các con hãy cùng cô làm quen bốn hình phẳng cơ bản: hình tròn, hình vuông, hình tam giác, hình chữ nhật và khám phá quy luật sắp xếp sinh động nhé!"),
     ("public/media/tts/m6-q1-prompt.mp3", "Hình nào dưới đây là hình tròn màu đỏ?"),
     ("public/media/tts/m6-opt-tron.mp3", "Hình tròn"),
@@ -215,6 +215,12 @@ AUDIO_ITEMS = [
     ("public/media/phonemes/ca-sac.mp3", "cá"),
     ("public/media/phonemes/ca-co.mp3", "cá cờ"),
     ("public/media/phonemes/o.mp3", "o"),
+    ("public/media/phonemes/ô.mp3", "ô"),
+    ("public/media/phonemes/ơ.mp3", "ơ"),
+    ("public/media/phonemes/ai.mp3", "ai"),
+    ("public/media/phonemes/ao.mp3", "ao"),
+    ("public/media/phonemes/an.mp3", "an"),
+    ("public/media/phonemes/ang.mp3", "ang"),
     ("public/media/tts/vn1-title.mp3", "Bài một: Âm a, b, c. Tiếng Việt Lớp một - Tuần hai."),
     ("public/media/tts/vn1-intro.mp3", "Làm quen chữ cái mới. Hôm nay các em sẽ học ba chữ cái đầu tiên: A, B, C."),
     ("public/media/tts/vn1-exp-tap.mp3", "Con cá bắt đầu bằng âm c, quả bóng bắt đầu bằng âm b."),
@@ -234,7 +240,7 @@ AUDIO_ITEMS = [
     ("public/media/phonemes/do.mp3", "đò"),
     ("public/media/phonemes/be.mp3", "bê"),
     ("public/media/phonemes/me.mp3", "me"),
-    ("public/media/tts/vn2-title-new.mp3", "Bài hai: Âm d, đ, e, ê và tiếng ghép. Tiếng Việt Lớp một."),
+    ("public/media/tts/vn2-title-new.mp3", "Bài hai: Âm d, đ, e, ê và tiếng ghép. Tiếng Việt Lớp một. Bài học tương tác."),
     ("public/media/tts/vn2-intro-new.mp3", "Hôm nay chúng mình cùng học bốn chữ cái mới: D, Đ, E, Ê và luyện đọc các tiếng: dê, đò, me, bê nhé!"),
     ("public/media/tts/vn2-q1-prompt.mp3", "Tiếng 'dê' bắt đầu bằng âm nào?"),
     ("public/media/tts/vn2-opt-d.mp3", "Âm d"),
@@ -272,7 +278,7 @@ AUDIO_ITEMS = [
     ("public/media/phonemes/ki-huyen.mp3", "kì"),
     ("public/media/phonemes/la-sac.mp3", "lá"),
     ("public/media/phonemes/ho-huyen.mp3", "hồ"),
-    ("public/media/tts/vn3-title.mp3", "Bài ba: Âm i, k, l, h và tiếng ghép. Tiếng Việt Lớp một."),
+    ("public/media/tts/vn3-title.mp3", "Bài ba: Âm i, k, l, h và tiếng mẫu. Tiếng Việt Lớp một. Bài học tương tác."),
     ("public/media/tts/vn3-intro.mp3", "Chào mừng các con đến với bài học âm I, K, L, H. Chúng mình cùng luyện đọc: viên bi, kì lạ, chiếc lá, hồ nước nhé!"),
     ("public/media/tts/vn3-q1-prompt.mp3", "Tiếng 'lá' bắt đầu bằng âm nào?"),
     ("public/media/tts/vn3-opt-l.mp3", "Âm l"),
@@ -313,7 +319,7 @@ AUDIO_ITEMS = [
     ("public/media/phonemes/no.mp3", "nơ"),
     ("public/media/phonemes/mu-sac.mp3", "mú"),
     ("public/media/phonemes/tu-hoi.mp3", "tử"),
-    ("public/media/tts/vn4-title.mp3", "Bài bốn: Âm m, n, u, ư và từ ứng dụng. Tiếng Việt Lớp một."),
+    ("public/media/tts/vn4-title.mp3", "Bài bốn: Âm m, n, u, ư và từ ứng dụng. Tiếng Việt Lớp một. Bài học tương tác."),
     ("public/media/tts/vn4-intro.mp3", "Hôm nay chúng mình cùng học các âm M, N, U, Ư và khám phá những từ ngữ yêu thương: mẹ, nơ, cá mú, sư tử!"),
     ("public/media/tts/vn4-q1-prompt.mp3", "Tiếng 'mẹ' bắt đầu bằng âm nào?"),
     ("public/media/tts/vn4-opt-m.mp3", "Âm m"),
@@ -356,7 +362,7 @@ AUDIO_ITEMS = [
     ("public/media/phonemes/nha-huyen.mp3", "nhà"),
     ("public/media/phonemes/tho-hoi.mp3", "thỏ"),
     ("public/media/phonemes/tre.mp3", "trê"),
-    ("public/media/tts/vn5-title.mp3", "Bài năm: Phụ âm ghép ch, kh, nh, th, tr. Tiếng Việt Lớp một."),
+    ("public/media/tts/vn5-title.mp3", "Bài năm: Phụ âm ghép ch, kh, nh, th, tr. Tiếng Việt Lớp một. Bài học tương tác."),
     ("public/media/tts/vn5-intro.mp3", "Chào các em! Hôm nay chúng ta làm quen các phụ âm ghép đặc biệt: ch, kh, nh, th, tr qua các từ quen thuộc: chợ, khỉ, nhà, thỏ, cá trê!"),
     ("public/media/tts/vn5-q1-prompt.mp3", "Tiếng 'chợ' bắt đầu bằng phụ âm ghép nào?"),
     ("public/media/tts/vn5-opt-ch.mp3", "chữ ch"),
@@ -389,7 +395,7 @@ AUDIO_ITEMS = [
     # ----------------------------------------------------
     # Vietnamese lesson 6 - Quy tắc chính tả c/k, g/gh, ng/ngh
     # ----------------------------------------------------
-    ("public/media/phonemes/gh.mp3", "ghê"),
+    ("public/media/phonemes/gh.mp3", "gờ"),
     ("public/media/phonemes/g.mp3", "gờ"),
     ("public/media/phonemes/ng.mp3", "ngờ"),
     ("public/media/phonemes/ngh.mp3", "nghê"),
@@ -398,7 +404,13 @@ AUDIO_ITEMS = [
     ("public/media/phonemes/nghi-hoi.mp3", "nghỉ"),
     ("public/media/phonemes/ga-huyen.mp3", "gà"),
     ("public/media/phonemes/ngu-hoi.mp3", "ngủ"),
-    ("public/media/tts/vn6-title.mp3", "Bài sáu: Quy tắc chính tả c k, g gh, ng ngh. Tiếng Việt Lớp một."),
+    ("public/media/phonemes/p.mp3", "pờ"),
+    ("public/media/phonemes/r.mp3", "rờ"),
+    ("public/media/phonemes/s.mp3", "sờ"),
+    ("public/media/phonemes/t.mp3", "tờ"),
+    ("public/media/phonemes/v.mp3", "vờ"),
+    ("public/media/phonemes/x.mp3", "xờ"),
+    ("public/media/tts/vn6-title.mp3", "Bài sáu: Quy tắc chính tả c, k, g, gh, ng, ngh. Tiếng Việt Lớp một. Bài học tương tác."),
     ("public/media/tts/vn6-intro.mp3", "Chào các em! Hôm nay chúng ta cùng ghi nhớ quy tắc chính tả vàng của Tiếng Việt: đi với i, e, ê thì viết k, gh, ngh; đi với các âm còn lại viết c, g, ng nhé!"),
     ("public/media/tts/vn6-q1-prompt.mp3", "Trước các âm i, e, ê, ta viết chữ c hay chữ k?"),
     ("public/media/tts/vn6-opt-k.mp3", "chữ k"),
@@ -467,6 +479,7 @@ AUDIO_ITEMS = [
     ("public/media/tts/exp-add-5-5.mp3", "Năm cộng năm bằng mười. Hai bàn tay, mỗi bàn tay có năm ngón tay, cả hai bàn tay có mười ngón tay."),
     ("public/media/tts/math2-title.mp3", "Phép cộng trong phạm vi mười và Làm quen hình phẳng. Toán Lớp một."),
     ("public/media/tts/math2-intro.mp3", "Phép cộng là gộp hai nhóm lại với nhau. Hôm nay chúng mình cùng học cộng và làm quen các hình học nhé!"),
+    ("public/media/tts/m20-q1-prompt.mp3", "Bé hãy tính kết quả phép tính sau: mười cộng năm trừ ba bằng mấy?"),
 ]
 
 def main():
@@ -485,14 +498,23 @@ def main():
 
     print(f"\n🎉 Successfully verified audio! (Generated/updated {generated} files, total {len(AUDIO_ITEMS)} files)")
 
+    manifest_path = "scripts/tts-manifest.json"
     manifest = {}
+    if os.path.exists(manifest_path):
+        try:
+            with open(manifest_path, "r", encoding="utf-8") as f:
+                existing_manifest = json.load(f)
+            if isinstance(existing_manifest, dict):
+                manifest.update(existing_manifest)
+        except (OSError, json.JSONDecodeError):
+            pass
+
     for path, text in AUDIO_ITEMS:
         clean_path = path.replace("\\", "/")
         rel_url = "/" + clean_path.replace("public/", "")
         manifest[rel_url] = text
         manifest[clean_path] = text
 
-    manifest_path = "scripts/tts-manifest.json"
     with open(manifest_path, "w", encoding="utf-8") as f:
         json.dump(manifest, f, ensure_ascii=False, indent=2)
     print(f"📋 Exported TTS manifest to {manifest_path} ({len(manifest)} keys)")

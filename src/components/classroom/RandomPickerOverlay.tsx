@@ -7,6 +7,7 @@ export interface RandomPickerOverlayProps {
   pickedStudent: Student | null;
   allStudents?: Student[];
   onClose: () => void;
+  canClose?: boolean;
 }
 
 export function RandomPickerOverlay({
@@ -14,6 +15,7 @@ export function RandomPickerOverlay({
   pickedStudent,
   allStudents = [],
   onClose,
+  canClose = true,
 }: RandomPickerOverlayProps) {
   const [displayName, setDisplayName] = useState<string>('');
   const [isRolling, setIsRolling] = useState(true);
@@ -62,7 +64,7 @@ export function RandomPickerOverlay({
           </div>
         </div>
 
-        {!isRolling && (
+        {canClose && !isRolling && (
           <button
             className={styles.closeBtn}
             onClick={onClose}
