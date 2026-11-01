@@ -235,6 +235,25 @@ describe('Auth Service & Offline-First Sync Guard', () => {
 
       const adminDel = await deleteAdminUser('test-admin-created-user-1');
       expect(adminDel.success).toBe(true);
+
+      // 4. Admin cannot delete the root system admin account (Self-lockout protection)
+      const rootAdminDel = await deleteAdminUser('a0000000-0000-0000-0000-000000000002');
+      expect(rootAdminDel.success).toBe(false);
+      expect(rootAdminDel.error).toContain('Root Admin');
+    });
+
+    it('resolves user role from cached users data before falling back to default', async () => {
+      // Simulate cached role changed to parent for a teacher email
+      localStorage.setItem('onthi_admin_users_cache_v1', JSON.stringify([
+        {
+          id: 'custom-demoted-user-id',
+          email: 'demoted@school.edu.vn',
+          role: 'parent',
+        },
+      ]));
+
+      const role = await authService.resolveUserRole('custom-demoted-user-id', 'demoted@school.edu.vn');
+      expect(role).toBe('parent');
     });
   });
 });

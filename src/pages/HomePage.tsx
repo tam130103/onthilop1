@@ -41,6 +41,11 @@ interface OfflineStatus {
   missing: string[];
 }
 
+interface BeforeInstallPromptEvent extends Event {
+  prompt(): Promise<void>;
+  userChoice: Promise<{ outcome: 'accepted' | 'dismissed'; platform: string }>;
+}
+
 export function HomePage() {
   const navigate = useNavigate();
   const fileInputRef = useRef<HTMLInputElement | null>(null);
@@ -57,7 +62,7 @@ export function HomePage() {
   const [isClassroomModalOpen, setIsClassroomModalOpen] = useState(false);
   const [activeSubjectTab, setActiveSubjectTab] = useState<'math' | 'vietnamese' | 'english' | 'custom'>('math');
   const [searchQuery, setSearchQuery] = useState('');
-  const [installPrompt, setInstallPrompt] = useState<any>(null);
+  const [installPrompt, setInstallPrompt] = useState<BeforeInstallPromptEvent | null>(null);
   const [popupBlockedLessonId, setPopupBlockedLessonId] = useState<string | null>(null);
   const [authState, setAuthState] = useState<AuthState>(getAuthState());
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -70,7 +75,7 @@ export function HomePage() {
   useEffect(() => {
     const handleBeforeInstall = (e: Event) => {
       e.preventDefault();
-      setInstallPrompt(e);
+      setInstallPrompt(e as BeforeInstallPromptEvent);
     };
     window.addEventListener('beforeinstallprompt', handleBeforeInstall);
     return () => window.removeEventListener('beforeinstallprompt', handleBeforeInstall);

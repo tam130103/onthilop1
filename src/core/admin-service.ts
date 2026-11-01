@@ -190,6 +190,15 @@ export async function deleteAdminUser(id: string): Promise<{ success: boolean; e
     };
   }
 
+  const rootAdminEmail = (import.meta.env.VITE_ADMIN_EMAIL || 'admin@tieuhoc.edu.vn').trim().toLowerCase();
+  const targetUser = getLocalUsers().find((u) => u.id === id);
+  if (targetUser && targetUser.email.trim().toLowerCase() === rootAdminEmail) {
+    return {
+      success: false,
+      error: 'Bảo mật: Không được phép xóa tài khoản Quản trị viên hệ thống gốc (Root Admin).',
+    };
+  }
+
   const local = getLocalUsers().filter((u) => u.id !== id);
   saveLocalUsers(local);
 
@@ -311,6 +320,29 @@ function isBuiltinId(id: string): boolean {
   return BUILTIN_LESSON_URLS.some((url) => url.includes(id));
 }
 
+interface SupabaseLessonRow {
+  id: string;
+  title: string;
+  subject?: string;
+  status?: string;
+  description?: string;
+  total_slides?: number;
+  is_builtin?: boolean;
+  content_json?: unknown;
+  updated_at?: string;
+}
+
+interface SupabaseSessionRow {
+  id: string;
+  title?: string;
+  subject?: string;
+  start_time?: string;
+  total_questions?: number;
+  total_correct?: number;
+  stars_awarded?: number;
+  notes?: string;
+}
+
 export async function fetchAdminLessons(): Promise<AdminLessonSummary[]> {
   const allLocal = await getAllLessons();
   const mappedLocal: AdminLessonSummary[] = allLocal.map((l) => ({
@@ -329,7 +361,7 @@ export async function fetchAdminLessons(): Promise<AdminLessonSummary[]> {
     try {
       const { data, error } = await sb.from('lessons').select('*').order('created_at', { ascending: false });
       if (!error && Array.isArray(data) && data.length > 0) {
-        const cloudLessons: AdminLessonSummary[] = data.map((row: any) => ({
+        const cloudLessons: AdminLessonSummary[] = (data as unknown as SupabaseLessonRow[]).map((row) => ({
           id: row.id,
           title: row.title,
           subject: (row.subject as 'math' | 'vietnamese' | 'english') || 'math',
@@ -410,7 +442,7 @@ export async function fetchAdminSessionHistory(): Promise<AdminTeachingSessionHi
     try {
       const { data, error } = await sb.from('teaching_sessions').select('*').order('start_time', { ascending: false }).limit(50);
       if (!error && Array.isArray(data) && data.length > 0) {
-        return data.map((row: any) => ({
+        return (data as unknown as SupabaseSessionRow[]).map((row) => ({
           id: row.id,
           title: row.title || 'Tiết học',
           subject: (row.subject as 'math' | 'vietnamese' | 'english') || 'math',

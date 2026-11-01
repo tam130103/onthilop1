@@ -112,23 +112,60 @@ export function playerReducer(state: PlayerState, action: PlayerAction): PlayerS
       if (nextIndex >= state.totalSlides) {
         // Check if there are wrong answers to review
         if (state.wrongAnswerQueue.length > 0) {
-          return { ...state, phase: 'review', isReviewingWrongAnswers: true, reviewIndex: 0, showAnswer: false };
+          return {
+            ...state,
+            phase: 'review',
+            isReviewingWrongAnswers: true,
+            reviewIndex: 0,
+            showAnswer: false,
+            tapPlaceMapping: {},
+            matchingPairs: [],
+          };
         }
-        return { ...state, phase: 'finished' };
+        return {
+          ...state,
+          phase: 'finished',
+          tapPlaceMapping: {},
+          matchingPairs: [],
+        };
       }
-      return { ...state, currentSlideIndex: nextIndex, showAnswer: false, timerRunning: false, timerSeconds: 0 };
+      return {
+        ...state,
+        currentSlideIndex: nextIndex,
+        showAnswer: false,
+        timerRunning: false,
+        timerSeconds: 0,
+        tapPlaceMapping: {},
+        matchingPairs: [],
+      };
     }
 
     case 'PREV_SLIDE': {
       if (state.phase !== 'playing') return state;
       const prevIndex = Math.max(0, state.currentSlideIndex - 1);
-      return { ...state, currentSlideIndex: prevIndex, showAnswer: false, timerRunning: false, timerSeconds: 0 };
+      return {
+        ...state,
+        currentSlideIndex: prevIndex,
+        showAnswer: false,
+        timerRunning: false,
+        timerSeconds: 0,
+        tapPlaceMapping: {},
+        matchingPairs: [],
+      };
     }
 
     case 'GO_TO_SLIDE': {
       if (state.phase !== 'playing' && state.phase !== 'paused') return state;
       const idx = Math.max(0, Math.min(action.index, state.totalSlides - 1));
-      return { ...state, currentSlideIndex: idx, showAnswer: false, timerRunning: false, timerSeconds: 0 };
+      return {
+        ...state,
+        currentSlideIndex: idx,
+        showAnswer: false,
+        timerRunning: false,
+        timerSeconds: 0,
+        tapPlaceMapping: {},
+        matchingPairs: [],
+      };
     }
 
     case 'ANSWER_CORRECT': {
@@ -194,16 +231,36 @@ export function playerReducer(state: PlayerState, action: PlayerAction): PlayerS
 
     case 'START_REVIEW':
       if (state.wrongAnswerQueue.length === 0) {
-        return { ...state, phase: 'finished' };
+        return { ...state, phase: 'finished', tapPlaceMapping: {}, matchingPairs: [] };
       }
-      return { ...state, phase: 'review', isReviewingWrongAnswers: true, reviewIndex: 0, showAnswer: false };
+      return {
+        ...state,
+        phase: 'review',
+        isReviewingWrongAnswers: true,
+        reviewIndex: 0,
+        showAnswer: false,
+        tapPlaceMapping: {},
+        matchingPairs: [],
+      };
 
     case 'NEXT_REVIEW': {
       const nextReview = state.reviewIndex + 1;
       if (nextReview >= state.wrongAnswerQueue.length) {
-        return { ...state, phase: 'finished', isReviewingWrongAnswers: false };
+        return {
+          ...state,
+          phase: 'finished',
+          isReviewingWrongAnswers: false,
+          tapPlaceMapping: {},
+          matchingPairs: [],
+        };
       }
-      return { ...state, reviewIndex: nextReview, showAnswer: false };
+      return {
+        ...state,
+        reviewIndex: nextReview,
+        showAnswer: false,
+        tapPlaceMapping: {},
+        matchingPairs: [],
+      };
     }
 
     case 'TOGGLE_BLACKOUT':

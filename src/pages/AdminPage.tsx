@@ -1287,7 +1287,7 @@ export function AdminPage() {
                   <select
                     className={styles.selectInput}
                     value={lessonSubjectFilter}
-                    onChange={(e) => setLessonSubjectFilter(e.target.value as any)}
+                    onChange={(e) => setLessonSubjectFilter(e.target.value as 'all' | 'math' | 'vietnamese' | 'english')}
                   >
                     <option value="all">Tất cả môn học</option>
                     <option value="math">Toán Lớp 1</option>
@@ -1683,7 +1683,7 @@ export function AdminPage() {
                   <label className={styles.formLabel}>Vai trò *</label>
                   <select
                     value={editingUser?.role || 'teacher'}
-                    onChange={(e) => setEditingUser((prev) => ({ ...prev, role: e.target.value as any }))}
+                    onChange={(e) => setEditingUser((prev) => ({ ...prev, role: e.target.value as AdminUser['role'] }))}
                     className={styles.formSelect}
                   >
                     <option value="teacher">👩‍🏫 Giáo viên</option>
@@ -1760,7 +1760,7 @@ export function AdminPage() {
                   <label className={styles.formLabel}>Giới tính</label>
                   <select
                     value={editingStudent?.gender || 'Nam'}
-                    onChange={(e) => setEditingStudent((prev) => ({ ...prev, gender: e.target.value as any }))}
+                    onChange={(e) => setEditingStudent((prev) => ({ ...prev, gender: e.target.value as 'Nam' | 'Nữ' }))}
                     className={styles.formSelect}
                   >
                     <option value="Nam">Nam</option>
@@ -1921,7 +1921,7 @@ export function AdminPage() {
                   <label className={styles.formLabel}>Môn học *</label>
                   <select
                     value={newLessonForm.subject}
-                    onChange={(e) => setNewLessonForm((prev) => ({ ...prev, subject: e.target.value as any }))}
+                    onChange={(e) => setNewLessonForm((prev) => ({ ...prev, subject: e.target.value as 'math' | 'vietnamese' | 'english' }))}
                     className={styles.formSelect}
                   >
                     <option value="math">🔢 Toán Lớp 1</option>

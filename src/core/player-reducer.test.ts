@@ -187,6 +187,50 @@ describe('playerReducer State Machine', () => {
     expect(state.showAnswer).toBe(false);
   });
 
+  it('resets tapPlaceMapping and matchingPairs when navigating slides', () => {
+    let state: PlayerState = {
+      ...createInitialState(),
+      phase: 'playing',
+      lesson: mockLesson,
+      totalSlides: 3,
+      currentSlideIndex: 0,
+      tapPlaceMapping: { target1: 'item1' },
+      matchingPairs: [{ leftId: 'l1', rightId: 'r1' }],
+    };
+
+    // NEXT_SLIDE clears mapping and pairs
+    state = playerReducer(state, { type: 'NEXT_SLIDE' });
+    expect(state.currentSlideIndex).toBe(1);
+    expect(state.tapPlaceMapping).toEqual({});
+    expect(state.matchingPairs).toEqual([]);
+
+    // Modify state again
+    state = {
+      ...state,
+      tapPlaceMapping: { target2: 'item2' },
+      matchingPairs: [{ leftId: 'l2', rightId: 'r2' }],
+    };
+
+    // PREV_SLIDE clears mapping and pairs
+    state = playerReducer(state, { type: 'PREV_SLIDE' });
+    expect(state.currentSlideIndex).toBe(0);
+    expect(state.tapPlaceMapping).toEqual({});
+    expect(state.matchingPairs).toEqual([]);
+
+    // Modify state again
+    state = {
+      ...state,
+      tapPlaceMapping: { target3: 'item3' },
+      matchingPairs: [{ leftId: 'l3', rightId: 'r3' }],
+    };
+
+    // GO_TO_SLIDE clears mapping and pairs
+    state = playerReducer(state, { type: 'GO_TO_SLIDE', index: 2 });
+    expect(state.currentSlideIndex).toBe(2);
+    expect(state.tapPlaceMapping).toEqual({});
+    expect(state.matchingPairs).toEqual([]);
+  });
+
   it('getCurrentSlide retrieves the correct slide for regular and review mode', () => {
     const state: PlayerState = {
       ...createInitialState(),

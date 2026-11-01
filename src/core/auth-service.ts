@@ -39,6 +39,12 @@ function notifyListeners(): void {
   });
 }
 
+interface CachedUserRecord {
+  id?: string;
+  email?: string;
+  role?: UserRole;
+}
+
 export async function resolveUserRole(uid: string, email?: string): Promise<UserRole> {
   const normalizedEmail = email?.trim().toLowerCase();
   const adminEmail = (import.meta.env.VITE_ADMIN_EMAIL || 'admin@tieuhoc.edu.vn').trim().toLowerCase();
@@ -51,37 +57,43 @@ export async function resolveUserRole(uid: string, email?: string): Promise<User
     return 'parent';
   }
 
-  // 1. Check user_metadata if available
-  if (currentUser?.user_metadata?.role) {
-    const metaRole = currentUser.user_metadata.role as string;
-    if (metaRole === 'admin' || metaRole === 'teacher' || metaRole === 'parent') {
-      return metaRole;
-    }
-  }
-
-  // 2. Check Supabase users table
+  // 1. Check Supabase users table first (authoritative server-side role management)
   const sb = getSupabase();
   if (sb) {
     try {
       const { data } = await sb.from('users').select('role').eq('id', uid).maybeSingle();
-      if (data?.role) return data.role as UserRole;
+      if (data?.role && (data.role === 'admin' || data.role === 'teacher' || data.role === 'parent')) {
+        return data.role as UserRole;
+      }
     } catch {
       // fallback
     }
   }
 
-  // 3. Check local users cache
+  // 2. Check local users cache (offline authoritative role changes synced locally)
   try {
     const raw = localStorage.getItem('onthi_admin_users_cache_v1');
     if (raw) {
       const list = JSON.parse(raw);
       if (Array.isArray(list)) {
-        const found = list.find((u: any) => u.email?.toLowerCase() === normalizedEmail || u.id === uid);
-        if (found?.role) return found.role as UserRole;
+        const found = (list as CachedUserRecord[]).find(
+          (u) => (u.email && u.email.toLowerCase() === normalizedEmail) || (u.id && u.id === uid)
+        );
+        if (found?.role && (found.role === 'admin' || found.role === 'teacher' || found.role === 'parent')) {
+          return found.role;
+        }
       }
     }
   } catch {
     // ignore
+  }
+
+  // 3. Fallback to auth token metadata if available
+  if (currentUser?.user_metadata?.role) {
+    const metaRole = currentUser.user_metadata.role as string;
+    if (metaRole === 'admin' || metaRole === 'teacher' || metaRole === 'parent') {
+      return metaRole;
+    }
   }
 
   return 'teacher';
